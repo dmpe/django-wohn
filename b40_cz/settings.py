@@ -34,6 +34,7 @@ DEBUG = True
 
 # Application definition
 INSTALLED_APPS = [
+    'won.apps.WonConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,8 +46,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
-    'bootstrap4',
-    'won.apps.WonConfig',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
