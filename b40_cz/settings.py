@@ -111,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -147,7 +146,7 @@ django_heroku.settings(locals())
 
 # Settings for django-bootstrap4
 BOOTSTRAP4 = {
-    'jquery_url' = '//code.jquery.com/jquery-3.3.1.min.js',
+    'jquery_url': '//code.jquery.com/jquery-3.3.1.min.js',
     'base_url': '//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/',
     'error_css_class': 'bootstrap4-error',
     'required_css_class': 'bootstrap4-required',
