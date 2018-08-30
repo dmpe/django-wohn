@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -148,7 +147,7 @@ django_heroku.settings(locals())
 
 # Settings for django-bootstrap4
 BOOTSTRAP4 = {
-    'jquery_url' = 'https://code.jquery.com/jquery-3.3.1.min.js',
+    'jquery_url' = '//code.jquery.com/jquery-3.3.1.min.js',
     'base_url': '//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/',
     'error_css_class': 'bootstrap4-error',
     'required_css_class': 'bootstrap4-required',
