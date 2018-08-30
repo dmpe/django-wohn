@@ -13,7 +13,7 @@ import os
 import sys
 import dj_database_url
 import django_heroku
-#import django-bootstrap4
+import django-bootstrap4
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -148,9 +149,11 @@ django_heroku.settings(locals())
 
 # Settings for django-bootstrap4
 BOOTSTRAP4 = {
+    'jquery_url' = 'https://code.jquery.com/jquery-3.3.1.min.js',
+    'base_url': '//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/',
     'error_css_class': 'bootstrap4-error',
     'required_css_class': 'bootstrap4-required',
     'javascript_in_head': True,
-    'include_jquery': True,
+    'include_jquery': False,
 }
 
