@@ -16,7 +16,7 @@ class ApartmentType(models.Model):
 	"""
 	Define each apartment, m-to-n with Users
 	"""
-	apartment_offered_by = models.ManyToManyField(Users)
+	apartment_offered_by = models.ForeignKey(Users, on_delete=models.CASCADE)
 	apartment_rooms = models.IntegerField()
 	apartment_created = models.DateTimeField(auto_now_add=True)
 	# https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt?date=13.04.2018
