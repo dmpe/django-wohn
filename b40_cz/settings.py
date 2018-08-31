@@ -64,7 +64,7 @@ ROOT_URLCONF = 'b40_cz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), 'won/pages', 'won'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), 'won/pages', 'won', os.path.join(SITE_ROOT, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
