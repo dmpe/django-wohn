@@ -149,9 +149,7 @@ BOOTSTRAP4 = {
     'base_url': '//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/',
     'css_url': None,
     'error_css_class': 'bootstrap4-error',
-    'required_css_class': 'bootstrap4-required',
-    'javascript_in_head': True,
-    'include_jquery': False,
+    'required_css_class': 'bootstrap4-required'
 }
 
 # Change password hashers to use Argon2 for stronger password protection
