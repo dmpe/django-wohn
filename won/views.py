@@ -9,4 +9,4 @@ def home(request):
     return render(request, 'home.html')
 
 def bs4(request):
-    return render(request, 'defirences.html')
+    return render(request, 'index.html')
