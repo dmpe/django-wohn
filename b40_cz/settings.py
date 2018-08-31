@@ -35,6 +35,7 @@ DEBUG = True
 INSTALLED_APPS = [
     'won.apps.WonConfig',
     'bootstrap4',
+    'phonenumber_field',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,15 +82,14 @@ WSGI_APPLICATION = 'b40_cz.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
+# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dadjan6l99lbf4',
-        'USER': 'ntkskyljmiznym',
-        'PASSWORD': '84d5bad78e3fe86028cf682f77c299c114195a2d0b92714fbee49acb7937e71b',
-        'HOST': 'ec2-54-235-193-34.compute-1.amazonaws.com',
+        'NAME': 'ddnni9ke61k3c7',
+        'USER': 'lmbrvmpiqsixkj',
+        'PASSWORD': 'a25851f3e7e3dcae02c3cfed9b3c19ad5b3ad11007ea6e438628890d0bf37f3d',
+        'HOST': 'ec2-54-217-218-80.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -161,3 +161,5 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 ]
+
+PHONENUMBER_DB_FORMAT = 'E164'

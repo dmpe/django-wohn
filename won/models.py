@@ -1,4 +1,5 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 class User(models.Model):
@@ -6,15 +7,15 @@ class User(models.Model):
 	Define what users can do/have
 	"""
 	user_id = models.AutoField(primary_key=True)
+	user_created = models.DateTimeField(auto_now_add=True)
 	user_first_name = models.CharField(max_length = 200)
 	user_last_name = models.CharField(max_length = 200)
-	user_created = models.DateTimeField(auto_now_add=True)
 	user_email = models.EmailField()
-	user_int_tel = models.EmailField(max_length = 30)
+	user_int_tel = models.PhoneNumberField(default=models.NOT_PROVIDED, null=True)
 
 class ApartmentType(models.Model):
 	"""
-	Define each apartment, m-to-n with Users
+	Define each apartment, 1-to-n with Users
 	"""
 	apartment_offered_by = models.ForeignKey(User, on_delete=models.CASCADE)
 	apartment_rooms = models.IntegerField()
