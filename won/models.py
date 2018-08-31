@@ -11,7 +11,7 @@ class User(models.Model):
 	user_first_name = models.CharField(max_length = 200)
 	user_last_name = models.CharField(max_length = 200)
 	user_email = models.EmailField()
-	user_int_tel = models.PhoneNumberField(default=models.NOT_PROVIDED, null=True)
+	user_int_tel = PhoneNumberField(default=models.NOT_PROVIDED, null=True)
 
 class ApartmentType(models.Model):
 	"""
