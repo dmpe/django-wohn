@@ -64,7 +64,7 @@ ROOT_URLCONF = 'b40_cz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['won/pages'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -150,7 +150,7 @@ BOOTSTRAP4 = {
     'base_url': '//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/',
     'error_css_class': 'bootstrap4-error',
     'required_css_class': 'bootstrap4-required',
-    'javascript_in_head': True,
+    'javascript_in_head': False,
     'include_jquery': False,
 }
 

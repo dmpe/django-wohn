@@ -12,4 +12,9 @@ If additionally, models have been changed, following needs to be run on the **LO
 Source: <https://stackoverflow.com/a/40790734>, <https://stackoverflow.com/a/50309967>
 
 1. Delete the whole `migrations` folder
+
+1.5 `python3 manage.py makemigrations won`
+
+1.6 `heroku run python3 manage.py migrate`
+
 2. commit & push again 
