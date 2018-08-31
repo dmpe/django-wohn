@@ -4,16 +4,15 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [requires]
-python_version = "3.6"
-
+python_version = "3.7.0"
 
 [packages]
 "psycopg2-binary" = "*"
 django-heroku = "*"
 gunicorn = "*"
 django-bootstrap4 = "*"
+argon2-cffi = "*"
 
 [dev-packages]
 
