@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Users, ApartmentType
+from .models import User, ApartmentType
 
-admin.site.register(Users)
+admin.site.register(User)
 admin.site.register(ApartmentType)
