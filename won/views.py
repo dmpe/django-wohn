@@ -8,5 +8,5 @@ def index(request):
 def home(request):
     return render(request, 'home.html')
 
-def bs4(request):
-    return render(request, 'index.html')
+def user_profile(request):
+    return render(request, 'user_profile.html')
