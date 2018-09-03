@@ -17,10 +17,6 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-#BOOTSTRAP4_FOLDER = os.path.abspath(os.path.join(BASE_DIR, '..', 'django-bootstrap4'))
-
-#if BOOTSTRAP4_FOLDER not in sys.path:
-#    sys.path.insert(0, BOOTSTRAP4_FOLDER)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -144,10 +140,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
 
 # Settings for django-bootstrap4
+# css url none because of bug in the package
 BOOTSTRAP4 = {
     'jquery_url': '//code.jquery.com/jquery-3.3.1.min.js',
     'base_url': '//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/',
-    'css_url': None,
+    'css_url': None, 
     'error_css_class': 'bootstrap4-error',
     'required_css_class': 'bootstrap4-required'
 }
