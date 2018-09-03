@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:
+
+Disallow: /admin/
+Disallow: /administrace/
+
+Sitemap: https://django-heroku-realestate.herokuapp.com/sitemap.xml

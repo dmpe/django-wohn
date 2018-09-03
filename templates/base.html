@@ -3,18 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% block title %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block desciption %}{% endblock %}">
+    <meta name="robots" content="{% block robots %}{% endblock %}">
 
     {# Load the tag library #}
     {% load bootstrap4 %}
 
     {# Load CSS and JavaScript #}
     {% bootstrap_css %}
-    {% bootstrap_javascript %}
+    {% bootstrap_javascript jquery='full' %}
     
   </head>
   <body>
+
     {% block content %}
     {% endblock %}
+
   </body>
 </html>
