@@ -10,7 +10,7 @@ python_version = "3.7.0"
 
 
 [packages]
-"psycopg2-binary" = "*"
+psycopg2-binary = "*"
 Django = "*"
 django-heroku = "*"
 gunicorn = "*"
