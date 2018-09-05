@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #ECEEEF" role="navigation">
-	<a class="navbar-brand mb-0 h1 mr-auto" href="index.html">B40.cz
-		<span class="navbar-text">
-			Find your student apartment, for free
+	<a class="navbar-brand mb-0" href="index.html">B40.cz
+		<span class="navbar-text d-inline-block text-truncate">
+			Your next student colocation
 		</span>
 	</a>
 
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLoginForm" aria-controls="navbarLoginForm" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
 		<form role="form" class="form-inline" action="/administrace/" method="POST">
 			{% csrf_token %}
 			<input type="text" name="username" class="form-control mx-2" placeholder="Username">
