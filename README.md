@@ -18,3 +18,6 @@ Source: <https://stackoverflow.com/a/40790734>, <https://stackoverflow.com/a/503
 1.6 `heroku run python3 manage.py migrate`
 
 2. commit & push again 
+
+
+Idea source: <https://www.respekt.cz/sousede/nekolik-nezavislych-lidi-bydli-v-jednom-pronajatem-byte> sort of.
