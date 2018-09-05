@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #ECEEEF" role="navigation">
 	<a class="navbar-brand mb-0" href="index.html">B40.cz
-		<span class="navbar-text d-none d-md-block">
-			<!-- TODO: Make text inline -->
-			<!-- hide on small screens, i.e. display only on >= md (d-lg-block d-xl-block) -->
+		<span class="navbar-text d-md-inline-flex d-none d-md-block">
+			<!-- be inline next to brand; hiden on small screens, i.e. display only on >= md (d-lg-block d-xl-block) -->
 			Your next student colocation
 		</span>
 	</a>
@@ -14,9 +13,9 @@
 	<div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
 		<form role="form" class="form-inline" action="/administrace/" method="POST">
 			{% csrf_token %}
-			<input type="text" name="username" class="form-control col-md-3 m-1" placeholder="Username">
-			<input type="password" name="password" class="form-control col-md-3 m-1" placeholder="Password">
-			<div class="d-flex flex-row d-sm-inline-flex">
+			<input type="text" name="username" class="form-control m-1" placeholder="Username">
+			<input type="password" name="password" class="form-control m-1" placeholder="Password">
+			<div class="d-flex flex-row">
 				<button type="submit" class="btn btn-success m-1">Login</button>
 				<button type="button" class="btn btn-danger m-1">Register to add new listings</button>
 			</div>
