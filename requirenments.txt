@@ -3,7 +3,6 @@ Django
 whitenoise
 brotlipy
 psycopg2-binary
-django-bootstrap4
 argon2-cffi
 phonenumbers
 django-phonenumber-field

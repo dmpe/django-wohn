@@ -1,8 +1,6 @@
 {# Load the tag library #}
-{% load bootstrap4 %}
 {% load static %}
 {% load staticfiles %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,12 +11,12 @@
     <meta name="description" content="{% block desciption %}{% endblock %}">
     <meta name="robots" content="{% block robots %}{% endblock %}">
     <link rel="shortcut icon" href="{% static "favicon.ico" %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'global_styles.css' %}">
 
     {# Load CSS and JavaScript #}
-    {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'global_styles.css' %}">
+
     <meta name="yandex-verification" content="7884b3fcb5602285" />
     <meta name="google-site-verification" content="jOkjldX1mUieTc5eyHIPbqNXNTMGXyokn_LTL5da4h8" />
 
@@ -73,5 +71,7 @@
         {% include 'footer.html' %}
     </div>
 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   </body>
 </html>

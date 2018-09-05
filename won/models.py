@@ -8,6 +8,7 @@ class User(models.Model):
 	"""
 	user_id = models.AutoField(primary_key=True)
 	user_created = models.DateTimeField(auto_now_add=True)
+	user_name = models.CharField(max_length = 30)
 	user_first_name = models.CharField(max_length = 200)
 	user_last_name = models.CharField(max_length = 200)
 	user_email = models.EmailField()
