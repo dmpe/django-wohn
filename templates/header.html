@@ -12,15 +12,11 @@
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<form class="form-inline" action="" method="post">
+		<form role="form" class="form-inline" action="/administrace/user_profile.html" method="post">
 			{% csrf_token %}
 			{% bootstrap_form form layout='inline' %}
-			{% buttons %}
-				<button type="submit" class="btn btn-primary">
-				  Submit
-				</button>
+			{% buttons submit='OK' reset='Cancel' %}
 			{% endbuttons %}
-
 		</form>
 	</div>
 	
