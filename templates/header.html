@@ -15,8 +15,10 @@
 			{% csrf_token %}
 			<input type="text" name="username" class="form-control m-2" placeholder="Username">
 			<input type="password" name="password" class="form-control m-2" placeholder="Password">
-			<button type="submit" class="btn btn-success m-2 d-sm-inline-flex">Login</button>
-			<button type="button" class="btn btn-danger m-2 d-sm-inline-flex">Register to add new listings</button>
+			<div class="d-sm-inline-flex">
+				<button type="submit" class="btn btn-success m-2 d-sm-inline-flex">Login</button>
+				<button type="button" class="btn btn-danger m-2 d-sm-inline-flex">Register to add new listings</button>
+			</div>
 		</form>
 	</div>
 </nav>
