@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #ECEEEF" role="navigation">
 	<a class="navbar-brand mb-0" href="index.html">B40.cz
 		<span class="navbar-text d-none d-md-block d-lg-block d-xl-block">
+			<!-- hide on small screens, i.e. display only on >= md -->
 			Your next student colocation
 		</span>
 	</a>
@@ -14,11 +15,13 @@
 			{% csrf_token %}
 			<input type="text" name="username" class="form-control m-2" placeholder="Username">
 			<input type="password" name="password" class="form-control m-2" placeholder="Password">
-			<div class="form-group col-sm-6 col-md-12">
-				<button type="submit" class="btn btn-success m-2">Login</button>
-			</div>
-			<div class="form-group col-sm-6 col-md-12">
-				<button type="button" class="btn btn-danger m-2">Register to add new listings</button>
+			<div class="form-row">
+				<div class="col">
+					<button type="submit" class="btn btn-success m-2">Login</button>
+				</div>
+				<div class="col">
+					<button type="button" class="btn btn-danger m-2">Register to add new listings</button>
+				</div>
 			</div>
 		</form>
 	</div>
