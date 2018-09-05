@@ -7,3 +7,5 @@ django-bootstrap4
 argon2-cffi
 phonenumbers
 django-phonenumber-field
+social-auth-core
+social-auth-app-django

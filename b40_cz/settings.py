@@ -30,6 +30,7 @@ DEBUG = True
 # Application definition
 INSTALLED_APPS = [
     'won.apps.WonConfig',
+    'social_django',
     'bootstrap4',
     'phonenumber_field',
     'django.contrib.admin',
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'b40_cz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), 'won/pages', os.path.join(BASE_DIR, 'templates/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), 'won/pages', os.path.join(BASE_DIR, 'templates/administrace')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
             'debug': DEBUG,
         },
@@ -157,4 +160,15 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.google.GoogleOpenId',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 PHONENUMBER_DB_FORMAT = 'E164'
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True

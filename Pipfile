@@ -18,5 +18,7 @@ argon2-cffi = "*"
 django-bootstrap4 = "*"
 phonenumbers = "*"
 django-phonenumber-field = "*"
+social-auth-core = "*"
+social-auth-app-django = "*"
 
 [dev-packages]
