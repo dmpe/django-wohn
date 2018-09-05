@@ -14,8 +14,8 @@
 	<div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
 		<form role="form" class="form-inline" action="/administrace/" method="POST">
 			{% csrf_token %}
-			<input type="text" name="username" class="form-control m-1" placeholder="Username">
-			<input type="password" name="password" class="form-control m-1" placeholder="Password">
+			<input type="text" name="username" class="form-control col-md-3 m-1" placeholder="Username">
+			<input type="password" name="password" class="form-control col-md-3 m-1" placeholder="Password">
 			<div class="d-flex flex-row d-sm-inline-flex">
 				<button type="submit" class="btn btn-success m-1">Login</button>
 				<button type="button" class="btn btn-danger m-1">Register to add new listings</button>
