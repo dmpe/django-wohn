@@ -10,12 +10,12 @@
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<form role="form" class="form-inline" action="/administrace/" method="POST">
+		<form role="form" class="form-inline float-right" action="/administrace/" method="POST">
 			{% csrf_token %}
 			<input type="text" name="username" class="form-control mx-2" placeholder="Username">
 			<input type="password" name="password" class="form-control mx-2" placeholder="Password">
 			<button type="submit" class="btn btn-success mx-2">Login</button>
-			<button type="button" class="btn btn-danger pl-2">Register to add new listings</button>
+			<button type="button" class="btn btn-danger pl-4">Register to add new listings</button>
 		</form>
 	</div>
 	
