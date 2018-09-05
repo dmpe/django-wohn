@@ -1,3 +1,6 @@
+{% extends 'header.html' %}
+{% extends 'footer.html' %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,6 +9,9 @@
     <title>{% block title %}{% endblock %}</title>
     <meta name="description" content="{% block desciption %}{% endblock %}">
     <meta name="robots" content="{% block robots %}{% endblock %}">
+    
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global_styles.css' %}">
 
     {# Load the tag library #}
     {% load bootstrap4 %}
@@ -16,7 +22,7 @@
     
     <meta name="yandex-verification" content="7884b3fcb5602285" />
     <meta name="google-site-verification" content="jOkjldX1mUieTc5eyHIPbqNXNTMGXyokn_LTL5da4h8" />
-    
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11552074-10"></script>
     <script>
@@ -58,9 +64,17 @@
 
   </head>
   <body>
+    
+    <div class="container-fluid">
+        {% block header_nav %}
+        {% endblock %}
 
-    {% block content %}
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
+
+        {% block footer %}
+        {% endblock %}
+    </div>
 
   </body>
 </html>
