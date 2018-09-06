@@ -14,9 +14,10 @@
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 2em;
-    line-height: 1em; /* the height of one text line */
-    overflow: hidden;
+	height: 4rem;
+	line-height: 1em;
+	overflow: hidden;
+	padding-top: 15px;
 }
 
 .heartIcon {
