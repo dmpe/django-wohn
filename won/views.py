@@ -8,3 +8,6 @@ def index(request):
 
 def user_profile(request):
     return render(request, 'user_profile.html')
+
+def register(request):
+    return render(request, 'register.html')
