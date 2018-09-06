@@ -62,8 +62,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'), 
-                'won/',
-                os.path.join(BASE_DIR, 'templates/administrace')],
+                'won/pages/', 
+                'won/pages/signup_login',
+                'won/pages/administrace'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
