@@ -11,14 +11,15 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
+		<!-- LOGIC: if not registered and not loged in, then show -->
+		<!-- LOGIC: BUT on {register, reset_password, new_password, login}.html do not show -->
 		<div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
-			<form role="form" class="form-inline" action="/administrace/" method="POST">
-				{% csrf_token %}
+			<form role="form" class="form-inline" action="/administrace/" method="POST">{% csrf_token %}
 				<input type="text" name="username" class="form-control m-1" placeholder="Username">
 				<input type="password" name="password" class="form-control m-1" placeholder="Password">
 				<div class="d-flex flex-row">
 					<button type="submit" class="btn btn-success m-1">Login</button>
-					<button type="button" class="btn btn-danger m-1">Register to add new listings</button>
+					<a href="register.html" type="button" class="btn btn-danger m-1">Register to add new listings</button>
 				</div>
 			</form>
 		</div>
