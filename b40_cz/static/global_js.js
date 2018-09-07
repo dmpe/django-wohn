@@ -1,7 +1,7 @@
 var open = 'fa-eye';
 var close = 'fa-eye-slash';
 var passwordInput = document.getElementById('inputPassword');
-var eye_outline = document.getElementById('inputGroupAppend');
+var eye_outline = document.getElementById('inputGroupAppendButton');
 var icon = document.getElementById('inputGroupAppendEYE');
 
 // on click of the icon outline
