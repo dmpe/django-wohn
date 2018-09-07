@@ -28,6 +28,11 @@
 /* Header - Nav
 //////////////////////*/
 
+.resetIconStylesEYE {
+  border: none;
+  background: none;
+}
+
 /* Footer
 //////////////////////*/
 .footer {
