@@ -63,8 +63,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'), 
                 'won/pages/', 
-                'won/pages/signup_login',
-                'won/pages/administrace'],
+                'won/pages/signup_login/',
+                'won/pages/administrace/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,16 +144,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
-# Settings for django-bootstrap4
-# css url none because of bug in the package
-BOOTSTRAP4 = {
-    'jquery_url': '//code.jquery.com/jquery-3.3.1.min.js',
-    'base_url': '//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/',
-    'css_url': None, 
-    'error_css_class': 'bootstrap4-error',
-    'required_css_class': 'bootstrap4-required'
-}
 
 # Change password hashers to use Argon2 for stronger password protection
 PASSWORD_HASHERS = [
