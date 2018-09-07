@@ -4,6 +4,9 @@ from django.urls import reverse
 
 from datetime import *
 
+# todo automatic generation of sitemaps
+# see "that" package on github
+
 class B40_Sitemap(Sitemap):
 	"""docstring for B40_Sitemap
 	"""

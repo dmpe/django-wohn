@@ -1,4 +1,11 @@
 
+/* Sign Up Pages {logic, reset pswd, etc}
+//////////////////////*/
+.border-shadow {
+	box-shadow: -5px 18px 28px 1px rgba(0,0,0,0.31);
+}
+
+
 /* Header and Footer Styles
 //////////////////////*/
 .headerFooterBackground {
