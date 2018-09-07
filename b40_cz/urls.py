@@ -22,11 +22,16 @@ from django.views.generic import TemplateView
 from django.conf.urls import url
 
 from won import views
+from .sitemap import B40_Sitemap
+
+sitemaps = {
+    'static': B40_Sitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
     path('', include('won.urls')),
 
     url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type="text/plain"), name="robots_file"),
-    # path('sitemap.xml', views.index, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('sitemap.xml', views.index, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
