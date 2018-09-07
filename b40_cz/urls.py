@@ -22,7 +22,7 @@ from django.views.generic import TemplateView
 from django.conf.urls import url
 
 from won import views
-from won.sitemap import B40_Sitemap
+from sitemap import B40_Sitemap
 
 sitemaps = {
     'static': B40_Sitemap,
