@@ -18,15 +18,15 @@
 
 /* Login */
 .google_signin {
-	background-image: url('{{ STATIC_URL }} b40_cz/btn_google_signin_dark_normal.png') no-repeat;
+	background-image: url('{{ STATIC_URL }}b40_cz/btn_google_signin_dark_normal.png') no-repeat;
 }
 
 .google_signin:focus {
-	background-image: url('{{ STATIC_URL }} b40_cz/btn_google_signin_dark_focus.png') no-repeat;
+	background-image: url('{{ STATIC_URL }}b40_cz/btn_google_signin_dark_focus.png') no-repeat;
 }
 
 .google_signin:active {
-	background-image: url('{{ STATIC_URL }} b40_cz/btn_google_signin_dark_pressed.png') no-repeat;
+	background-image: url('{{ STATIC_URL }}b40_cz/btn_google_signin_dark_pressed.png') no-repeat;
 }
 
 .verticalLine {
