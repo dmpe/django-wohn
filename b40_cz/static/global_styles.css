@@ -16,11 +16,19 @@
 	margin-bottom: 10px;
 }
 
-.display-5 {
-	font-size: 2.5rem;
-	font-weight: 300;
-	line-height: 1.2;
+/* Login */
+.google_signin {
+	background-image: url('btn_google_signin_dark_normal.png')
 }
+
+.google_signin:focus {
+	background-image: url('btn_google_signin_dark_focus.png')
+}
+
+.google_signin:active {
+	background-image: url('btn_google_signin_dark_pressed.png')
+}
+
 
 /* Header and Footer Styles
 //////////////////////*/
