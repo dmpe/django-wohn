@@ -18,6 +18,7 @@
 
 /* Login */
 .google_signin {
+	padding-top: 1px;
 	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web.png') no-repeat;
 }
 
