@@ -18,15 +18,15 @@
 
 /* Login */
 .google_signin {
-	background-image: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web.png') no-repeat;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web.png') no-repeat;
 }
 
 .google_signin:focus {
-	background-image: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_focus_web.png') no-repeat;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_focus_web.png') no-repeat;
 }
 
 .google_signin:active {
-	background-image: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_pressed_web.png') no-repeat;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_pressed_web.png') no-repeat;
 }
 
 .verticalLine {
