@@ -18,17 +18,20 @@
 
 /* Login */
 .google_signin {
-	background-image: url('btn_google_signin_dark_normal.png')
+	background-image: url('../btn_google_signin_dark_normal.png')
 }
 
 .google_signin:focus {
-	background-image: url('btn_google_signin_dark_focus.png')
+	background-image: url('../btn_google_signin_dark_focus.png')
 }
 
 .google_signin:active {
-	background-image: url('btn_google_signin_dark_pressed.png')
+	background-image: url('../btn_google_signin_dark_pressed.png')
 }
 
+.verticalLine {
+
+}
 
 /* Header and Footer Styles
 //////////////////////*/
