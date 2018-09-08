@@ -46,6 +46,6 @@ icon3.onclick = function() {
   }
 }
 
-$(".emailSendAlert").click(function(){
-	$(".checkEmailAlert").addClass("show");
+$("#emailSendAlert").click(function(){
+	$("#checkEmailAlert").addClass("show");
 });
