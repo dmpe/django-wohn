@@ -10,7 +10,7 @@ var icon2 = document.getElementById('buttonEYE2');
 var icon3 = document.getElementById('buttonEYE3');
 
 if (typeof(icon) != 'undefined' && icon != null) {
-	// on click of the icon outline
+	// if not null, then on click of the icon replace types & add/remove icon CSS classes
 	icon.onclick = function() {
 		if(icon.classList.contains(open)) {
 	  	passwordInput.type="text";
@@ -23,6 +23,7 @@ if (typeof(icon) != 'undefined' && icon != null) {
 	  }
 	}	
 }
+
 if (typeof(icon2) != 'undefined' && icon2 != null) {
 	icon2.onclick = function() {
 		if(icon2.classList.contains(open)) {
@@ -36,6 +37,7 @@ if (typeof(icon2) != 'undefined' && icon2 != null) {
 	  }
 	}
 }
+
 if (typeof(icon3) != 'undefined' && icon3 != null) {
 	icon3.onclick = function() {
 		if(icon3.classList.contains(open)) {
