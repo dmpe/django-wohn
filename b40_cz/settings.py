@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+# https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "tw%5la58-@v)3_!=pur*%mh+qo1)zhw=ou7jgsy*b*gi)sjl$p"
@@ -30,7 +30,7 @@ DEBUG = True
 INSTALLED_APPS = [
     'won.apps.WonConfig',
     'social_django',
-    'bootstrap4',
+    'storages',
     'phonenumber_field',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -138,7 +138,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, 'static'),
     os.path.join(PROJECT_ROOT, 'static/css/'),
-    os.path.join(PROJECT_ROOT, 'static/images/'),
     os.path.join(PROJECT_ROOT, 'static/js/'),
 ]
 
@@ -167,5 +166,12 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+AZURE_EMULATED_MODE = True
+AZURE_ACCOUNT_NAME = "djangowohnreal1"
+AZURE_ACCOUNT_KEY = "aS1WqowvgrGeAwz45HBU7a8gnG9cwi3w5YueBdWv0ke7KKBYJZC7x8GZKYx244QOnf22Z22hkHtqpro43oknHQ=="
+AZURE_CONTAINER = "images"
+
 PHONENUMBER_DB_FORMAT = 'E164'
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+

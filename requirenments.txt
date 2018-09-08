@@ -4,7 +4,9 @@ whitenoise
 brotlipy
 psycopg2-binary
 argon2-cffi
+azure
 phonenumbers
 django-phonenumber-field
 social-auth-core
 social-auth-app-django
+django-storages

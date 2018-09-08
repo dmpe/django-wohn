@@ -19,5 +19,7 @@ phonenumbers = "*"
 django-phonenumber-field = "*"
 social-auth-core = "*"
 social-auth-app-django = "*"
+azure = "*"
+django-storages = "*"
 
 [dev-packages]
