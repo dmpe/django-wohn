@@ -1,8 +1,10 @@
 var open = 'fa-eye';
 var close = 'fa-eye-slash';
+
 var passwordInput = document.getElementById('inputPassword');
 var	passwordNewInput = document.getElementById('inputNewPassword');
 var passwordConfirmNewInput = document.getElementById('inputConfirmNewPassword');
+
 var icon = document.getElementById('buttonEYE');
 var icon2 = document.getElementById('buttonEYE2');
 var icon3 = document.getElementById('buttonEYE3');
@@ -43,3 +45,7 @@ icon3.onclick = function() {
     icon3.className += ' '+ open;
   }
 }
+
+$(".emailSendAlert").click(function(){
+	$(".checkEmailAlert").addClass("show");
+});
