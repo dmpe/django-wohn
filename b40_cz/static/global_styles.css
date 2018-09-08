@@ -4,7 +4,10 @@
 	width: 100%;
 	max-width: 420px;
 	padding: 15px;
-	margin: 60px auto auto auto;
+	margin-bottom: 100px;
+	margin-top: 30px;
+	margin-right: auto;
+	margin-left: auto;
 	/* https://www.cssmatic.com/box-shadow */
 	box-shadow: -5px 1px 65px 16px rgba(0,0,0,0.31);
 }
