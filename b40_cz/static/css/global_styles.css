@@ -16,18 +16,29 @@
 	margin-bottom: 10px;
 }
 
-/* Login */
+/* Login 
+https://developers.google.com/identity/branding-guidelines
+*/
 .google_signin {
 	height: 100px;
 	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web.png') no-repeat;
 }
 
 .google_signin:focus {
+	height: 100px;
 	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_focus_web.png') no-repeat;
 }
 
 .google_signin:active {
+	height: 100px;
 	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_pressed_web.png') no-repeat;
+}
+
+.twitter_singin {
+	height: 30px;
+	width: 100px;
+	background-color: #1DA1F2;
+	background: url("https://djangowohnreal1.blob.core.windows.net/images/Twitter_Social_Icon_Square_Color.png") no-repeat;
 }
 
 .verticalLine {
