@@ -3,5 +3,7 @@ venv
 staticfiles
 .env
 Pipfile.lock
-images_azure_upload/*.*
+/images_azure_upload/
 !/images_azure_upload/.noignore
+/azure_images_upload/*.sh
+/azure_images_upload/*.png

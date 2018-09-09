@@ -24,7 +24,7 @@ https://developers.google.com/identity/branding-guidelines
 	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web.png') no-repeat;
 }
 
-.google_signin:focus {
+.google_signin:focus-within {
 	height: 46px;
 	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_focus_web.png') no-repeat;
 }
@@ -35,10 +35,14 @@ https://developers.google.com/identity/branding-guidelines
 }
 
 .twitter_singin {
-	height: 46px;
+	height: 50px;
 	width: 200px;
 	background-color: #1DA1F2;
-	background: url("https://djangowohnreal1.blob.core.windows.net/images/Twitter_Social_Icon_Square_Color.png") no-repeat;
+}
+
+.twitter_signin.icon {
+	background-image: url("https://djangowohnreal1.blob.core.windows.net/images/Twitter_Social_Icon_Square_Color.png") no-repeat;
+	padding: 5px;
 }
 
 .verticalLine {
