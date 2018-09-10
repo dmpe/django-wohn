@@ -87,6 +87,7 @@ WSGI_APPLICATION = 'b40_cz.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 # Change 'default' database configuration with $DATABASE_URL.
 DATABASES = {}
+DATABASES['default'].config(default=os.environ.get('DATABASE_URL'))
 DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
 
 AUTH_PASSWORD_VALIDATORS = [
