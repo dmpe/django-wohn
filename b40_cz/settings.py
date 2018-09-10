@@ -120,19 +120,28 @@ ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+AZURE_EMULATED_MODE = True
+AZURE_ACCOUNT_NAME = "djangowohnreal1"
+AZURE_ACCOUNT_KEY = os.environ.get("AZURE_ACCOUNT_KEY")
+AZURE_CONTAINER = "images"
+
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+
+MEDIA_URL = 'https://djangowohnreal1.blob.core.windows.net/%s/' % AZURE_CONTAINER
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, 'static'),
     os.path.join(PROJECT_ROOT, 'static/css/'),
     os.path.join(PROJECT_ROOT, 'static/js/'),
+    MEDIA_URL
 ]
-
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
@@ -155,16 +164,10 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-AZURE_EMULATED_MODE = True
-AZURE_ACCOUNT_NAME = "djangowohnreal1"
-AZURE_ACCOUNT_KEY = os.environ.get("AZURE_ACCOUNT_KEY")
-AZURE_CONTAINER = "images"
+
 
 PHONENUMBER_DB_FORMAT = 'E164'
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-
-MEDIA_URL = 'https://djangowohnreal1.blob.core.windows.net/%s/' % AZURE_CONTAINER
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
