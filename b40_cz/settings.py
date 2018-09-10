@@ -21,7 +21,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "tw%5la58-@v)3_!=pur*%mh+qo1)zhw=ou7jgsy*b*gi)sjl$p"
+SECRET_KEY = os.environ.get("SECRET")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,19 +83,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'b40_cz.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ddnni9ke61k3c7',
-        'USER': 'lmbrvmpiqsixkj',
-        'PASSWORD': 'a25851f3e7e3dcae02c3cfed9b3c19ad5b3ad11007ea6e438628890d0bf37f3d',
-        'HOST': 'ec2-54-217-218-80.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432',
-    }
-}
+# Change 'default' database configuration with $DATABASE_URL.
+DATABASES = {}
+DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -119,9 +111,6 @@ TIME_ZONE = 'Europe/Prague'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
-# Change 'default' database configuration with $DATABASE_URL.
-DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -168,10 +157,14 @@ AUTHENTICATION_BACKENDS = (
 
 AZURE_EMULATED_MODE = True
 AZURE_ACCOUNT_NAME = "djangowohnreal1"
-AZURE_ACCOUNT_KEY = "aS1WqowvgrGeAwz45HBU7a8gnG9cwi3w5YueBdWv0ke7KKBYJZC7x8GZKYx244QOnf22Z22hkHtqpro43oknHQ=="
+AZURE_ACCOUNT_KEY = os.environ.get("AZURE_ACCOUNT_KEY")
 AZURE_CONTAINER = "images"
 
 PHONENUMBER_DB_FORMAT = 'E164'
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
 
+MEDIA_URL = 'https://djangowohnreal1.blob.core.windows.net/%s/' % AZURE_CONTAINER
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
