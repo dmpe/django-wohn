@@ -33,11 +33,16 @@
 
     	<div class="col-md-6">
 			<div class="card-header text-center">
-				<h1 class="card-title">Reset your password</h1>
-				<p class="text-muted">Step 2</p>
+				<h1 class="card-title">Register</h1>
 			</div>
 			<div class="card-body">
 				<form action="" method="POST">
+					<div class="form-group spacing">
+						<div class="input-group">
+							<input class="form-control" type="text" id="inputEmail" class="form-control" placeholder="Email">
+							<label class="sr-only" for="inputEmail">Email</label>
+						</div>
+					</div>
 					<div class="form-group spacing">
 						<div class="input-group">
 							<input class="form-control" type="text" id="inputUsername" class="form-control" placeholder="Username">
@@ -46,17 +51,17 @@
 					</div>
 					<div class="form-group spacing">
 						<div class="input-group">
-							<input class="form-control" type="password" id="inputConfirmNewPassword" class="form-control" placeholder="Confirm new password">
-							<div class="input-group-append mr-1">
+							<input class="form-control" type="password" id="inputPassword" class="form-control" placeholder="New password">
+							<div class="input-group-append">
 								<span class="input-group-text" id="inputGroupAppend">
 									<button href="" class="fa fa-eye fa-lg resetIconStylesEYE" id="buttonEYE3" aria-hidden="true" type="button"></button>
 								</span>
 							</div>
-							<label class="sr-only" for="inputConfirmNewPassword">Confirm new password</label>
+							<label class="sr-only" for="inputPassword">New password</label>
 						</div>
 					</div>
 
-					<button type="button" class="btn btn-dark float-right btn-lg" value="submit">Set new password</button>
+					<button type="button" class="btn btn-warning float-right btn-lg" value="submit">Register</button>
 				</form>
 	    	</div>
 	    </div>
