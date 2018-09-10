@@ -24,7 +24,7 @@ https://developers.google.com/identity/branding-guidelines
 	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web.png') no-repeat;
 }
 
-div:focus-within + .google_signin {
+.google_signin:hover {
 	height: 46px;
 	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_focus_web.png') no-repeat;
 }
