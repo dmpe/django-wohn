@@ -19,6 +19,12 @@
 /* Login 
 https://developers.google.com/identity/branding-guidelines
 */
+.box {
+	width: 100%
+	max-width: 600px;
+	padding: 15px;
+}
+
 .google_signin {
 	height: 46px;
 	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web.png') no-repeat;
