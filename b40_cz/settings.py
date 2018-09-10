@@ -140,7 +140,6 @@ STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, 'static'),
     os.path.join(PROJECT_ROOT, 'static/css/'),
     os.path.join(PROJECT_ROOT, 'static/js/'),
-    'https://djangowohnreal1.blob.core.windows.net/images/',
 ]
 
 # Activate Django-Heroku.
