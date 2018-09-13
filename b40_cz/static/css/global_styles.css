@@ -75,8 +75,9 @@ https://developers.google.com/identity/branding-guidelines */
 }
 
 .verticalLine {
-	height: 100%;
 	width: 3px;
+	height: 100%;
+	float: left;
 	background-color: #2ecc71;
 }
 
@@ -88,9 +89,9 @@ https://developers.google.com/identity/branding-guidelines */
 
 .verticalLine > h3 {
 	position: absolute;
-	top: 50%
+	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	line-height: 100px;
 }
 
 /* 3. CSS reused across >=2 pages
