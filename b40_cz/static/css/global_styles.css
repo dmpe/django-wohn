@@ -101,12 +101,14 @@ Sign Up Pages {logic, reset pswd, etc}
 ////////////////////*/
 .verticalLine {
 	width: 3px;
-	height: 100%;
 	float: left;
 	background-color: #2ecc71;
 }
 
 .verticalLine > .circle {
+	position: relative;
+	top: 50%;
+	left: -50px;
 	width: 100px;
 	height: 100px;
 	background-color: #ECEEEF;
