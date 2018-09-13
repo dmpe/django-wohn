@@ -13,6 +13,7 @@
 
 		<!-- LOGIC: if not registered and not loged in, then show -->
 		<!-- LOGIC: BUT on {register, reset_password, new_password, login}.html do not show -->
+		<!-- LOGIC: CREATE logout button + click to userprofile as well -->
 		<div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
 			<form role="form" class="form-inline" action="user_profile" method="POST">{% csrf_token %}
 				<div class="form-group">
