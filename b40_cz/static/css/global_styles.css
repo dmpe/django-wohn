@@ -37,43 +37,6 @@ body {
 /* 2. CSS on individual pages only
 //////////////////////*/
 
-/* Login 
-https://developers.google.com/identity/branding-guidelines */
-.login_register_box {
-	width: 100%
-	max-width: 600px;
-	padding: 15px;
-	border: 3px solid black;
-}
-
-.google_signin {
-	height: 46px;
-	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web.png') no-repeat;
-}
-
-.google_signin:hover {
-	height: 46px;
-	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_focus_web.png') no-repeat;
-}
-
-.google_signin:active {
-	height: 46px;
-	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_pressed_web.png') no-repeat;
-}
-
-.twitter_singin {
-	height: 46px;
-	width: 240px;
-	background-color: #1DA1F2;
-}
-
-.twitter_icon {
-	background: url("https://djangowohnreal1.blob.core.windows.net/images/Twitter_Social_Icon_Square_Color.png") no-repeat;
-	float: left;
-	height: 40px;
-	width: 40px;
-	margin-left: -3px;
-}
 
 /* 3. CSS reused across >=2 pages
 Sign Up Pages {logic, reset pswd, etc}
@@ -90,12 +53,21 @@ Sign Up Pages {logic, reset pswd, etc}
 	box-shadow: -5px 1px 65px 16px rgba(0,0,0,0.31);
 }
 
-.passwordReset.form-group.spacing {
+.passwordReset > .form-group.spacing {
 	margin-bottom: 10px;
 }
 
 .privacyPolicyContentBox {
 	border: 1px solid black;
+}
+
+/* Login 
+https://developers.google.com/identity/branding-guidelines */
+.login_register_box {
+	width: 100%;
+	max-width: 600px;
+	padding: 15px;
+	border: 3px solid black;
 }
 
 /* OR in the circle
@@ -136,4 +108,34 @@ Sign Up Pages {logic, reset pswd, etc}
 .horizontalLine > h3 {
 	line-height: 100px;
 }
+
+.google_signin {
+	height: 46px;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web.png') no-repeat;
+}
+
+.google_signin:hover {
+	height: 46px;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_focus_web.png') no-repeat;
+}
+
+.google_signin:active {
+	height: 46px;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_pressed_web.png') no-repeat;
+}
+
+.twitter_singin {
+	height: 46px;
+	width: 240px;
+	background-color: #1DA1F2;
+}
+
+.twitter_icon {
+	background: url("https://djangowohnreal1.blob.core.windows.net/images/Twitter_Social_Icon_Square_Color.png") no-repeat;
+	float: left;
+	height: 40px;
+	width: 40px;
+	margin-left: -3px;
+}
+
 
