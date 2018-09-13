@@ -7,6 +7,90 @@
 {% block robots %}index, follow{% endblock %}
 
 {% block content %}
+    <!-- Because of Facebook login -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
     <div class="row login_register_box">
-    </div>
+    	<div class="col">
+    		<!-- Google Brand Guidelines on Azure/ in CSS: https://developers.google.com/identity/branding-guidelines -->
+			<div class="google_signin m-3"></div>
+
+			<!-- Twitter Brand Guidelines on Azure/ in CSS -->
+			<div class="m-3">
+				<button type="button" class="twitter_singin">
+					<img class="twitter_icon" src="https://djangowohnreal1.blob.core.windows.net/images/Twitter_Social_Icon_Square_Color.png">
+					<p class="text-center mt-2 text-white">Login with Twitter</p>
+				</button>
+			</div>
+				
+			<!-- https://developers.facebook.com/docs/facebook-login/web/login-button -->
+			<div class="fb-login-button m-3" data-width="15" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+       	</div>
+    	
+    	<!-- show on display size between xs and sm -->
+    	<div class="horizontalLine my-5 d-block d-xs-block d-sm-none">
+    		<h3 class="circle rounded-circle border border-warning m-0 text-center">OR</h3>
+    	</div>
+
+    	<!-- show on display size between md and xl -->
+    	<div class="verticalLine mx-5 d-none d-md-block d-xl-block">
+    		<h3 class="circle rounded-circle border border-warning m-0 text-center">OR</h3>
+    	</div>
+
+    	<div class="col">
+			<div class="card-header text-center">
+				<h1 class="card-title">Login</h1>
+			</div>
+			<div class="card-body">
+				<form action="/administrace/user_profile" method="POST">
+					<div class="form-group spacing">
+						<div class="input-group">
+							<input class="form-control" type="text" id="inputEmail_Username" class="form-control" placeholder="Your email or username">
+							<label class="sr-only" for="inputEmail_Username">Your email or username</label>
+						</div>
+					</div>
+					<div class="form-group spacing">
+						<div class="input-group">
+							<input class="form-control" type="password" id="inputNewPassword" class="form-control" placeholder="New password">
+							<div class="input-group-append">
+								<span class="input-group-text" id="inputGroupAppend">
+									<button href="" class="fa fa-eye fa-lg resetIconStylesEYE" id="buttonEYE2" aria-hidden="true" type="button"></button>
+								</span>
+							</div>
+							<label class="sr-only" for="inputNewPassword">New password</label>
+						</div>
+					</div>
+
+					<button type="button" class="btn btn-warning float-right btn-lg" value="submit">Register</button>
+				</form>
+	    	</div>
+	    </div>
+	</div>
+
+	<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+		  appId      : '525287897910870',
+		  cookie     : true,
+		  xfbml      : true,
+		  version    : 'v3.1'
+		});
+		FB.AppEvents.logPageView();
+	};
+
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
 {% endblock %}
