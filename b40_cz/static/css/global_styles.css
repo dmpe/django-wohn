@@ -62,13 +62,13 @@ https://developers.google.com/identity/branding-guidelines */
 
 .twitter_singin {
 	height: 46px;
-	width: 250px;
+	width: 240px;
 	background-color: #1DA1F2;
 }
 
 .twitter_icon {
 	background-image: url("https://djangowohnreal1.blob.core.windows.net/images/Twitter_Social_Icon_Square_Color.png") no-repeat;
-	padding: 5px;
+	padding: 6px;
 	float: left;
 	height: 48px;
 	width: 48px;
