@@ -1,3 +1,5 @@
+/* 1. Global
+//////////////////////*/
 html {
 	position: relative;
 	min-height: 100%;
@@ -7,28 +9,37 @@ body {
 	margin-bottom: 4rem;
 }
 
-/* Sign Up Pages {logic, reset pswd, etc}
+/* 1.1 Header and Footer Styles
 //////////////////////*/
-.passwordReset {
-	width: 100%;
-	max-width: 420px;
-	padding: 15px;
-	margin-bottom: 100px;
-	margin-top: 30px;
-	margin-right: auto;
-	margin-left: auto;
-	/* https://www.cssmatic.com/box-shadow */
-	box-shadow: -5px 1px 65px 16px rgba(0,0,0,0.31);
+.headerFooterBackground {
+	background-color: #ECEEEF
 }
 
-.passwordReset.form-group.spacing {
-	margin-bottom: 10px;
+/* Header - Nav
+//////////////////////*/
+.resetIconStylesEYE {
+  border: none;
+  background: none;
 }
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	line-height: 1rem;
+	padding-top: 15px;
+}
+
+.footer_heartIcon {
+	color: red;
+}
+
+/* 2. CSS on individual pages only
+//////////////////////*/
 
 /* Login 
-https://developers.google.com/identity/branding-guidelines
-*/
-.box {
+https://developers.google.com/identity/branding-guidelines */
+.login_register_box {
 	width: 100%
 	max-width: 600px;
 	padding: 15px;
@@ -67,31 +78,23 @@ https://developers.google.com/identity/branding-guidelines
 
 }
 
-/* Header and Footer Styles
+/* 3. CSS reused across >=2 pages
+Sign Up Pages {logic, reset pswd, etc}
 //////////////////////*/
-.headerFooterBackground {
-	background-color: #ECEEEF
-}
-
-/* Header - Nav
-//////////////////////*/
-.resetIconStylesEYE {
-  border: none;
-  background: none;
-}
-
-/* Footer
-//////////////////////*/
-.footer {
-	position: absolute;
-	bottom: 0;
+.passwordReset {
 	width: 100%;
-	line-height: 1rem;
-	padding-top: 15px;
+	max-width: 420px;
+	padding: 15px;
+	margin-bottom: 100px;
+	margin-top: 30px;
+	margin-right: auto;
+	margin-left: auto;
+	/* https://www.cssmatic.com/box-shadow */
+	box-shadow: -5px 1px 65px 16px rgba(0,0,0,0.31);
 }
 
-.heartIcon {
-	color: red;
+.passwordReset.form-group.spacing {
+	margin-bottom: 10px;
 }
 
 .privacyPolicyContentBox {
