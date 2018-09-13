@@ -80,18 +80,19 @@ https://developers.google.com/identity/branding-guidelines */
 	background-color: #2ecc71;
 }
 
-.circle {
+.verticalLine > .circle {
 	width: 100px;
 	height: 100px;
 	background-color: #ECEEEF;
 }
 
-.circle h3 {
+.verticalLine > h3 {
 	position: absolute;
 	top: 50%
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
 /* 3. CSS reused across >=2 pages
 Sign Up Pages {logic, reset pswd, etc}
 //////////////////////*/
