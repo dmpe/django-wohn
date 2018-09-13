@@ -50,8 +50,8 @@ https://developers.google.com/identity/branding-guidelines
 }
 
 .twitter_singin {
-	height: 50px;
-	width: 200px;
+	height: 46px;
+	width: 250px;
 	background-color: #1DA1F2;
 }
 
@@ -59,8 +59,8 @@ https://developers.google.com/identity/branding-guidelines
 	background-image: url("https://djangowohnreal1.blob.core.windows.net/images/Twitter_Social_Icon_Square_Color.png") no-repeat;
 	padding: 5px;
 	float: left;
-	height: 64px;
-	width: 64px;
+	height: 48px;
+	width: 48px;
 }
 
 .verticalLine {
@@ -94,6 +94,6 @@ https://developers.google.com/identity/branding-guidelines
 	color: red;
 }
 
-.privacyContentBox {
-	
+.privacyPolicyContentBox {
+	border: 1px solid black;
 }
