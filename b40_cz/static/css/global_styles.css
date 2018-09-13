@@ -75,7 +75,6 @@ https://developers.google.com/identity/branding-guidelines
 
 /* Header - Nav
 //////////////////////*/
-
 .resetIconStylesEYE {
   border: none;
   background: none;
@@ -93,4 +92,8 @@ https://developers.google.com/identity/branding-guidelines
 
 .heartIcon {
 	color: red;
+}
+
+.privacyContentBox {
+	
 }
