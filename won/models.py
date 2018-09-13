@@ -5,6 +5,8 @@ from phonenumber_field.modelfields import PhoneNumberField
 class User(models.Model):
 	"""
 	Define what users can do/have
+	user_created = uses timestamp (mutually exclusive with default=timezone.now())
+	user_name = short name
 	"""
 	user_id = models.AutoField(primary_key=True)
 	user_created = models.DateTimeField(auto_now_add=True)
