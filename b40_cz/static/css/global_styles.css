@@ -74,26 +74,6 @@ https://developers.google.com/identity/branding-guidelines */
 	margin-left: -3px;
 }
 
-.verticalLine {
-	width: 3px;
-	height: 100%;
-	float: left;
-	background-color: #2ecc71;
-}
-
-.verticalLine > .circle {
-	width: 100px;
-	height: 100px;
-	background-color: #ECEEEF;
-}
-
-.verticalLine > h3 {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	line-height: 100px;
-}
-
 /* 3. CSS reused across >=2 pages
 Sign Up Pages {logic, reset pswd, etc}
 //////////////////////*/
@@ -115,4 +95,28 @@ Sign Up Pages {logic, reset pswd, etc}
 
 .privacyPolicyContentBox {
 	border: 1px solid black;
+}
+
+/* OR in the circle
+////////////////////*/
+.verticalLine {
+	width: 3px;
+	height: 100%;
+	float: left;
+	background-color: #2ecc71;
+}
+
+.verticalLine > .circle {
+	width: 100px;
+	height: 100px;
+	background-color: #ECEEEF;
+}
+
+.verticalLine > h3 {
+	line-height: 100px;
+}
+
+
+.horizontalLine {
+	
 }
