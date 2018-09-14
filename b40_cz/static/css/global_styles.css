@@ -65,7 +65,7 @@ Sign Up Pages {logic, reset pswd, etc}
 https://developers.google.com/identity/branding-guidelines */
 .login_register_box {
 	padding: 15px;
-	border: 3px solid black;
+	margin-top: 60px;
 }
 
 /* OR in the circle
