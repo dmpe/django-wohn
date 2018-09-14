@@ -65,7 +65,7 @@ Sign Up Pages {logic, reset pswd, etc}
 https://developers.google.com/identity/branding-guidelines */
 .login_register_box {
 	padding: 15px;
-	margin-top: 60px;
+	margin-top: 50px;
 }
 
 /* OR in the circle
@@ -109,17 +109,20 @@ https://developers.google.com/identity/branding-guidelines */
 
 .google_signin {
 	height: 46px;
-	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web.png') no-repeat;
+	width: 240px;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web@2x.png') no-repeat;
 }
 
 .google_signin:hover {
 	height: 46px;
-	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_focus_web.png') no-repeat;
+	width: 240px;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_focus_web@2x.png') no-repeat;
 }
 
 .google_signin:active {
 	height: 46px;
-	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_pressed_web.png') no-repeat;
+	width: 240px;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_pressed_web@2x.png') no-repeat;
 }
 
 .twitter_singin {
