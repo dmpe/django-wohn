@@ -110,19 +110,19 @@ https://developers.google.com/identity/branding-guidelines */
 .google_signin {
 	height: 46px;
 	width: 240px;
-	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web@2x.png') no-repeat;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_normal_web.png') no-repeat;
 }
 
 .google_signin:hover {
 	height: 46px;
 	width: 240px;
-	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_focus_web@2x.png') no-repeat;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_focus_web.png') no-repeat;
 }
 
 .google_signin:active {
 	height: 46px;
 	width: 240px;
-	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_pressed_web@2x.png') no-repeat;
+	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_signin_dark_pressed_web.png') no-repeat;
 }
 
 .twitter_singin {
