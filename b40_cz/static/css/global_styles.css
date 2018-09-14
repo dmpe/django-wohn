@@ -112,18 +112,6 @@ https://developers.google.com/identity/branding-guidelines */
 	width: 240px;
 }
 
-.google_signin:hover {
-	height: 46px;
-	width: 240px;
-	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_dark_focus_ios.svg') no-repeat;
-}
-
-.google_signin:active {
-	height: 46px;
-	width: 240px;
-	background: url('https://djangowohnreal1.blob.core.windows.net/images/btn_google_dark_pressed_ios.svg') no-repeat;
-}
-
 .google_icon {
 	float: left;
 	height: 40px;
