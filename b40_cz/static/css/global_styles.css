@@ -110,6 +110,8 @@ https://developers.google.com/identity/branding-guidelines */
 .google_signin {
 	height: 46px;
 	width: 240px;
+	border-radius: 4px;
+	background-color: #4285F4;
 }
 
 .google_icon {
@@ -122,6 +124,7 @@ https://developers.google.com/identity/branding-guidelines */
 .twitter_singin {
 	height: 46px;
 	width: 240px;
+	border-radius: 4px;
 	background-color: #1DA1F2;
 }
 
