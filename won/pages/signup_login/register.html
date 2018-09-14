@@ -7,6 +7,8 @@
 {% block robots %}index, follow{% endblock %}
 
 {% block content %}
+<div class="container-fluid">
+
 	<!-- Because of Facebook login -->
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
@@ -49,7 +51,7 @@
 				<h1 class="card-title">Register</h1>
 			</div>
 			<div class="card-body">
-				<form action="user_profile" method="POST">
+				<form action="user_profile" method="POST">{% csrf_token %}
 					<div class="form-group spacing">
 						<div class="input-group">
 							<input class="form-control" type="text" id="inputEmail" class="form-control" placeholder="Email">
@@ -100,4 +102,5 @@
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	</script>
+</div>
 {% endblock %}
