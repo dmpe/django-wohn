@@ -17,5 +17,5 @@ class User(models.Model):
 	user_email = models.EmailField()
 	user_int_tel = PhoneNumberField(default=models.NOT_PROVIDED, blank=True)
 
-	__str__(self):
+	def __str__(self):
 		return '{} ({})'.format(self.user_name, self.user_email)
