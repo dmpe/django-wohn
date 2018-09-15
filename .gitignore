@@ -8,7 +8,7 @@ env
 *.pyc
 __pycache__/
 Pipfile.lock
-/images_azure_upload/
-!/images_azure_upload/.noignore
-/azure_images_upload/*.sh
-/azure_images_upload/*.png
+/amazing_ressources/images_azure_upload/
+!/amazing_ressources/images_azure_upload/.noignore
+/amazing_ressources/azure_images_upload/*.sh
+/amazing_ressources/azure_images_upload/*.png
