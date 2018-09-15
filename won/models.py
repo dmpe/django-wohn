@@ -17,6 +17,9 @@ class User(models.Model):
 	user_email = models.EmailField()
 	user_int_tel = PhoneNumberField(default=models.NOT_PROVIDED, blank=True)
 
+	__str__(self):
+		return '{} ({})'.format(self.user_name, self.user_email)
+
 class ApartmentType(models.Model):
 	"""
 	Define each apartment, 1-to-n with Users

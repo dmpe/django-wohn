@@ -28,6 +28,8 @@ DEBUG = True
 
 # Application definition
 INSTALLED_APPS = [
+    'core',
+    'user_management',
     'won.apps.WonConfig',
     'social_django',
     'storages',

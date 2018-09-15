@@ -24,13 +24,17 @@ from django.conf.urls import url
 from won import views
 from won.sitemap import B40_Sitemap
 
+from core import views
+from user_management import views
+
 sitemaps = {
     'static': B40_Sitemap,
 }
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    path('', include('won.urls')),
+    path('', include('core.urls')),
+    path('', include('user_management.urls')),
 
     url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type="text/plain"), name="robots_file"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
