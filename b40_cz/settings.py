@@ -3,10 +3,10 @@ Django settings for b40_cz project on Heroku. For more info, see:
 https://github.com/heroku/heroku-django-template
 
 For more information on this file, see
-https://docs.djangoproject.com/en/2.0/topics/settings/
+https://docs.djangoproject.com/en/2.1/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/2.0/ref/settings/
+https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 import os
 import sys
@@ -23,8 +23,20 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET")
 
+PHONENUMBER_DB_FORMAT = 'E164'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+ROOT_URLCONF = 'b40_cz.urls'
+
+WSGI_APPLICATION = 'b40_cz.wsgi.application'
+
+# Database
+# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+# Change 'default' database configuration with $DATABASE_URL.
+DATABASES = {}
+DATABASES['default'] = os.environ.get('DATABASE_URL')
 
 # Application definition
 INSTALLED_APPS = [
@@ -57,8 +69,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'b40_cz.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -84,14 +94,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'b40_cz.wsgi.application'
-
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-# Change 'default' database configuration with $DATABASE_URL.
-DATABASES = {}
-DATABASES['default'] = os.environ.get('DATABASE_URL')
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -108,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-# https://docs.djangoproject.com/en/2.0/topics/i18n/
+# https://docs.djangoproject.com/en/2.1/topics/i18n/
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Europe/Prague'
 USE_I18N = True
@@ -179,7 +181,6 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.associate_by_email',
 )
 
-PHONENUMBER_DB_FORMAT = 'E164'
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
