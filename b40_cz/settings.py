@@ -30,7 +30,6 @@ DEBUG = True
 INSTALLED_APPS = [
     'core',
     'user_management',
-    'won.apps.WonConfig',
     'social_django',
     'storages',
     'phonenumber_field',
