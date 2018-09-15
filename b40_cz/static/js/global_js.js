@@ -1,7 +1,9 @@
 var open = 'fa-eye';
 var close = 'fa-eye-slash';
 
+// for login
 var passwordInput = document.getElementById('inputPassword');
+// for registration
 var	passwordNewInput = document.getElementById('inputNewPassword');
 var passwordConfirmNewInput = document.getElementById('inputConfirmNewPassword');
 
