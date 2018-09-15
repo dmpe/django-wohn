@@ -117,6 +117,7 @@ USE_TZ = True
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
@@ -166,9 +167,38 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.user.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+    'social_core.pipeline.social_auth.associate_by_email',
+)
+
 PHONENUMBER_DB_FORMAT = 'E164'
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
+SOCIAL_AUTH_TWITTER_KEY = 'foobar'
+SOCIAL_AUTH_TWITTER_SECRET = 'bazqux'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '525287897910870'
+SOCIAL_AUTH_FACEBOOK_SECRET = '469163542f06ae4ccf8fb96fc5e9585f'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['default', 'email']
+SOCIAL_AUTH_FACEBOOK_API_VERSION = '3.1'
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/administrace/user_profile'
+SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/administrace/user_profile' # keep it dry
+SOCIAL_AUTH_LOGIN_ERROR_URL = '404'
+
+SOCIAL_AUTH_USER_MODEL = 'user_management.model.User'
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 
+'user_first_name', 'user_last_name', 'user_email', 'user_int_tel']
 
 # SECURITY
 SESSION_COOKIE_SECURE = True

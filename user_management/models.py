@@ -19,3 +19,9 @@ class User(models.Model):
 
 	def __str__(self):
 		return '{} ({})'.format(self.user_name, self.user_email)
+	
+	def is_authenticated(self):
+		return TRUE
+
+	def	is_active(self):
+		return TRUE
