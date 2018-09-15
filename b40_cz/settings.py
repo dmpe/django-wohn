@@ -64,8 +64,11 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'), 
-                'core/pages/', 
-                'user_management/pages/'
+                'core/pages/',
+                'core/pages/footer', 
+                'user_management/pages/',
+                'user_management/pages/signup_login',
+                'user_management/pages/administrace'
                 ],
         'APP_DIRS': True,
         'OPTIONS': {

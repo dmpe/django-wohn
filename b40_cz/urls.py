@@ -17,14 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.sitemaps import views
 from django.contrib.sitemaps.views import sitemap
-from django.urls import include, path
+from django.urls import *
 from django.views.generic import TemplateView
 from django.conf.urls import url
 
-from won import views
-from won.sitemap import B40_Sitemap
-
 from core import views
+from core.sitemap import B40_Sitemap
+
 from user_management import views
 
 sitemaps = {
