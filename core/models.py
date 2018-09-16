@@ -1,5 +1,6 @@
 from django.db import models
-from user_management.models import User
+from b40_cz.user_management.models import User
+
 # Create your models here.
 
 class ApartmentType(models.Model):

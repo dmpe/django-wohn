@@ -21,7 +21,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET")
+SECRET_KEY = "tw%5la58-@v)3_!=pur*%mh+qo1)zhw=ou7jgsy*b*gi)sjl$p"
 
 PHONENUMBER_DB_FORMAT = 'E164'
 
