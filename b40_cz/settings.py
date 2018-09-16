@@ -32,7 +32,6 @@ ROOT_URLCONF = 'b40_cz.urls'
 
 WSGI_APPLICATION = 'b40_cz.wsgi.application'
 
-AUTH_USER_MODEL = 'user_management.User'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 # Change 'default' database configuration with $DATABASE_URL.
@@ -200,11 +199,12 @@ SOCIAL_AUTH_FACEBOOK_API_VERSION = '3.1'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/administrace/user_profile'
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/administrace/user_profile' # keep it dry
 SOCIAL_AUTH_LOGIN_ERROR_URL = '404'
-
-# SOCIAL_AUTH_USER_MODEL = 'user_management.User'
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 
 'user_first_name', 'user_last_name', 'user_email', 'user_int_tel']
 
 # SECURITY
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
+AUTH_USER_MODEL = 'user_management.User'
+# SOCIAL_AUTH_USER_MODEL = 'user_management.User'
