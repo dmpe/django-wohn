@@ -7,6 +7,6 @@ urlpatterns = [
     path('login', views.login, name='login'),
     path('new_password', views.new_password, name='new_password'),
     path('reset_password', views.reset_password, name='reset_password'),
-    url('', include('social_django.urls', namespace='social'))
+    path('oauth/', include('social_django.urls', namespace='social'))
     
 ]
