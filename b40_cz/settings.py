@@ -40,11 +40,13 @@ DATABASES['default'] = os.environ.get('DATABASE_URL')
 
 # Application definition
 INSTALLED_APPS = [
-    'core',
     'user_management',
+    'core',
+
     'social_django',
     'storages',
     'phonenumber_field',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
