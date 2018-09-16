@@ -190,7 +190,7 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 SOCIAL_AUTH_TWITTER_KEY = 'foobar'
 SOCIAL_AUTH_TWITTER_SECRET = 'bazqux'
 SOCIAL_AUTH_GOOGLE_OAUTH2_USE_UNIQUE_USER_ID = True
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ' 806673580943-ldk1i712dfdreakds26oeq4ih1fkm54k.apps.googleusercontent.com '
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '806673580943-ldk1i712dfdreakds26oeq4ih1fkm54k.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'HJTheMYzP8ugMIO2ibQxiFhx'
 SOCIAL_AUTH_FACEBOOK_KEY = '525287897910870'
 SOCIAL_AUTH_FACEBOOK_SECRET = '469163542f06ae4ccf8fb96fc5e9585f'
@@ -199,8 +199,7 @@ SOCIAL_AUTH_FACEBOOK_API_VERSION = '3.1'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/administrace/user_profile'
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/administrace/user_profile' # keep it dry
 SOCIAL_AUTH_LOGIN_ERROR_URL = '404'
-SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 
-'user_first_name', 'user_last_name', 'user_email', 'user_int_tel']
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 'user_first_name', 'user_last_name', 'user_email', 'user_int_tel']
 
 # SECURITY
 SESSION_COOKIE_SECURE = True
