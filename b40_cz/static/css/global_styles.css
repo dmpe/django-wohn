@@ -82,6 +82,7 @@ https://developers.google.com/identity/branding-guidelines */
 	width: 100px;
 	height: 100px;
 	background-color: #ECEEEF;
+	z-index: 1; /* otherwise card bg-light will overflow the circle*/
 }
 
 .verticalLine > h3 {
