@@ -42,7 +42,6 @@ DATABASES['default'] = os.environ.get('DATABASE_URL')
 INSTALLED_APPS = [
     'user_management',
     'core',
-
     'social_django',
     'storages',
     'phonenumber_field',
