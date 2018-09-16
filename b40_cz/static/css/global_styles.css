@@ -64,8 +64,7 @@ Sign Up Pages {logic, reset pswd, etc}
 /* Login 
 https://developers.google.com/identity/branding-guidelines */
 .login_register_box {
-	padding: 15px;
-	margin-top: 50px;
+	padding: 50px 15px 50px 15px;
 }
 
 .login_register_box > .box_within {
@@ -77,11 +76,13 @@ https://developers.google.com/identity/branding-guidelines */
 .verticalLine {
 	width: 5px;
 	background-color: #2ecc71;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .verticalLine > .circle {
 	position: relative;
-	top: 25%;
+	top: 30%;
 	left: -50px;
 	width: 100px;
 	height: 100px;
@@ -103,7 +104,7 @@ https://developers.google.com/identity/branding-guidelines */
 .horizontalLine > .circle {
 	position: relative;
 	width: 100px;
-	left: 35%;
+	left: 18%;
 	top: -50px;
 	height: 100px;
 	background-color: #ECEEEF;
