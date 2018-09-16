@@ -68,17 +68,21 @@ https://developers.google.com/identity/branding-guidelines */
 	margin-top: 50px;
 }
 
+.login_register_box > .box_within {
+	border: 1px solid black;
+}
+
 /* OR in the circle
 ////////////////////*/
 .verticalLine {
-	width: 3px;
+	width: 5px;
 	background-color: #2ecc71;
 }
 
 .verticalLine > .circle {
 	position: relative;
-	top: 36%;
-	left: -45px;
+	top: 25%;
+	left: -50px;
 	width: 100px;
 	height: 100px;
 	background-color: #ECEEEF;
