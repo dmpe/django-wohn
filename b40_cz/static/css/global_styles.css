@@ -95,7 +95,7 @@ https://developers.google.com/identity/branding-guidelines */
 }
 
 .horizontalLine {
-	width: 100%;
+	width: 50%;
 	height: 3px;
 	background-color: #2ecc71;
 	z-index: 1;
