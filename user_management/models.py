@@ -3,7 +3,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser
 
 # Create your models here.
-class User(models.User):
+class User(models.Model):
 	"""
 	Define what users can do/have:
 
