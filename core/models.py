@@ -8,9 +8,9 @@ from userManagement.models import MyUser
 class ApartmentType(models.Model):
 	"""
 	Define each apartment, 1-to-n with Users
-	AUTH_USER_MODEL=userManagement.models.MyUser
+	
 	"""
-	apartment_offered_by = models.ForeignKey('userManagement.MyUser', on_delete=models.CASCADE)
+	apartment_offered_by = models.ForeignKey(AUTH_USER_MODEL=userManagement.models.MyUser, on_delete=models.CASCADE)
 	apartment_rooms = models.IntegerField()
 	apartment_created = models.DateTimeField(auto_now_add=True)
 	# https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt?date=13.04.2018
