@@ -203,4 +203,4 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 SOCIAL_AUTH_USER_MODEL = 'user_management.MyUser'
-AUTH_USER_MODEL = 'user_management.MyUser'
+# AUTH_USER_MODEL = 'user_management.MyUser'
