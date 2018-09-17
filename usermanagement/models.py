@@ -1,7 +1,11 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from django.contrib.auth import *
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.base_user import *  
+from django.core.mail import send_mail  
+from django.contrib.auth.models import PermissionsMixin  
+from django.conf import settings
+from django.core.validators import validate_email
+from django.utils.crypto import salted_hmac
 
 # Create your models here.
 class MyUserManager(UserManager):
