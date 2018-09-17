@@ -1,10 +1,11 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from django.contrib.auth.models import *
+from django.contrib.auth import *
+from django.contrib.auth.models import AbstractBaseUser
 
 # Create your models here.
-#class MyUserManager(UserManager):
-#    pass
+class MyUserManager(UserManager):
+    pass
 
 class MyUser(AbstractUser):
 	"""
@@ -17,7 +18,7 @@ class MyUser(AbstractUser):
 	user_first_name = models.CharField(max_length = 200)
 	user_last_name = models.CharField(max_length = 200)
 	user_int_tel = PhoneNumberField(default=models.NOT_PROVIDED, blank=True)
-#	objects = MyUserManager()
+	objects = MyUserManager()
     
-	def __str__(self):
-		return '{} ({})'.format(get_username(),  get_email_field_name())
+	#def __str__(self):
+	#	return '{} ({})'.format(get_username(),  get_email_field_name())
