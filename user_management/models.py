@@ -3,7 +3,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser
 
 # Create your models here.
-class User(models.Model):
+class MyUser(AbstractUser):
 	"""
 	Define what users can do/have:
 
@@ -24,5 +24,5 @@ class User(models.Model):
 	#def is_authenticated(self):
 	#	return TRUE
 
-	def	is_active(self):
-		return TRUE
+	#def	is_active(self):
+	#	return TRUE

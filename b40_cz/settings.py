@@ -48,8 +48,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
 
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.auth', # core of user auth
+    'django.contrib.contenttypes', # associate perms with models
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sitemaps',
@@ -163,10 +163,7 @@ PASSWORD_HASHERS = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.open_id.OpenIdAuth',
-    'social_core.backends.google.GoogleOpenId',
     'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.google.GoogleOAuth',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
@@ -205,5 +202,5 @@ SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-# AUTH_USER_MODEL = 'user_management.User'
+AUTH_USER_MODEL = 'user_management.MyUser'
 # SOCIAL_AUTH_USER_MODEL = 'user_management.User'
