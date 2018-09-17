@@ -54,8 +54,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     
-    'userManagement.apps.UserManagementConfig',
-    'core.apps.CoreConfig',
+    'userManagement',
+    'core',
 
     'social_django',
     'storages',
