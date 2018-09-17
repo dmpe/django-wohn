@@ -61,8 +61,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
 ]
 
+SOCIAL_AUTH_USER_MODEL = 'userManagement.MyUser'
 #AUTH_USER_MODEL = 'userManagement.MyUser'
-SOCIAL_AUTH_USER_MODEL = 'user_management.MyUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
