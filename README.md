@@ -17,6 +17,10 @@ If **models have been changed**, following needs to be run on a **LOCAL PC**:
 
 1.6 `heroku run python3 manage.py migrate`
 
+1.7 `heroku run python3 manage.py migrate user_management 0001`
+
+1.8 to kill heroku dyno: `heroku ps && heroku ps:stop web.1`
+
 2. commit and push again
 
 ```
