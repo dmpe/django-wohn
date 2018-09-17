@@ -1,6 +1,8 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from django.contrib.auth.base_user import *  
+from django.contrib.auth.models import (
+    BaseUserManager, AbstractBaseUser, AbstractUser, UserManager
+)  
 from django.core.mail import send_mail  
 from django.contrib.auth.models import PermissionsMixin  
 from django.conf import settings
@@ -11,7 +13,7 @@ from django.utils.crypto import salted_hmac
 class MyUserManager(UserManager):
     pass
 
-class MyUser(AbstractUser):
+class MyUser(AbstractUser, PermissionsMixin):
 	"""
 	Define what users can do/have:
 
