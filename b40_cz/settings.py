@@ -40,6 +40,8 @@ DATABASES['default'] = os.environ.get('DATABASE_URL')
 
 # Application definition
 INSTALLED_APPS = [
+    'userManagement',
+    'core',
     'django.contrib.admin',
     'django.contrib.auth', # core of user auth
     'django.contrib.contenttypes', # associate perms with models
@@ -51,9 +53,6 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    
-    'userManagement',
-    'core',
 
     'social_django',
     'storages',
