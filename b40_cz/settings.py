@@ -202,5 +202,5 @@ SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-#AUTH_USER_MODEL = 'user_management.MyUser'
+AUTH_USER_MODEL = 'user_management.MyUser'
 SOCIAL_AUTH_USER_MODEL = 'user_management.MyUser'
