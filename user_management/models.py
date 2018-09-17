@@ -1,8 +1,11 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from django.contrib.auth.models import AbstractUser, AbstractBaseUser
+from django.contrib.auth.models import *
 
 # Create your models here.
+class MyUserManager(UserManager):
+    pass
+
 class MyUser(AbstractUser):
 	"""
 	Define what users can do/have:
