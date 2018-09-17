@@ -13,7 +13,7 @@ from django.utils.crypto import salted_hmac
 class MyUserManager(UserManager):
     pass
 
-class MyUser(AbstractUser, PermissionsMixin):
+class MyUser(AbstractUser):
 	"""
 	Define what users can do/have:
 
