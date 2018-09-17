@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
-from user_management.models import MyUser
+from userManagement.models import MyUser
 
 # Create your models here.
 class ApartmentType(models.Model):

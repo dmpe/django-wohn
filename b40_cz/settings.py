@@ -30,6 +30,8 @@ DEBUG = True
 
 ROOT_URLCONF = 'b40_cz.urls'
 
+AUTH_USER_MODEL = 'userManagement.MyUser'
+
 WSGI_APPLICATION = 'b40_cz.wsgi.application'
 
 # Database
@@ -52,7 +54,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     
-    'user_management.apps.UserManagementConfig',
+    'userManagement.apps.UserManagementConfig',
     'core.apps.CoreConfig',
 
     'social_django',
@@ -78,9 +80,9 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR, 'templates'), 
                 'core/pages/',
                 'core/pages/footer', 
-                'user_management/pages/',
-                'user_management/pages/signup_login',
-                'user_management/pages/administrace'
+                'userManagement/pages/',
+                'userManagement/pages/signup_login',
+                'userManagement/pages/administrace'
                 ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -202,5 +204,4 @@ SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-AUTH_USER_MODEL = 'user_management.MyUser'
-SOCIAL_AUTH_USER_MODEL = 'user_management.MyUser'
+#SOCIAL_AUTH_USER_MODEL = 'user_management.MyUser'
