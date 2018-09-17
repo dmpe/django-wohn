@@ -128,7 +128,6 @@ SECURE_SSL_REDIRECT = True
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 AZURE_EMULATED_MODE = True
