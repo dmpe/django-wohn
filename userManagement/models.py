@@ -20,7 +20,7 @@ class MyUser(AbstractUser):
 	user_last_name = models.CharField(max_length = 200)
 	user_email = models.EmailField()
 	user_int_tel = PhoneNumberField(default=models.NOT_PROVIDED, blank=True)
-	objects = CustomUserManager()
+	#objects = MyUserManager()
     
 	def __str__(self):
 		return '{} ({})'.format(self.user_name, self.user_email)
