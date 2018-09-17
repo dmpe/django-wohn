@@ -4,9 +4,8 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser, AbstractUser, UserManager
 )  
 from django.core.mail import send_mail  
-from django.contrib.auth.models import PermissionsMixin  
-from django.conf import settings
 from django.core.validators import validate_email
+from django.conf import settings
 from django.utils.crypto import salted_hmac
 
 # Create your models here.
