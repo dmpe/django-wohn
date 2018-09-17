@@ -13,8 +13,8 @@ import sys
 import dj_database_url
 import django_heroku
 
-SOCIAL_AUTH_USER_MODEL = 'userManagement.MyUser'
-AUTH_USER_MODEL = 'userManagement.MyUser'
+SOCIAL_AUTH_USER_MODEL = 'usermanagement.MyUser'
+AUTH_USER_MODEL = 'usermanagement.MyUser'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,7 +43,7 @@ DATABASES['default'] = os.environ.get('DATABASE_URL')
 
 # Application definition
 INSTALLED_APPS = [
-    'userManagement',
+    'usermanagement',
     'core',
     'django.contrib.admin',
     'django.contrib.auth', # core of user auth
@@ -80,9 +80,9 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR, 'templates'), 
                 'core/pages/',
                 'core/pages/footer', 
-                'userManagement/pages/',
-                'userManagement/pages/signup_login',
-                'userManagement/pages/administrace'
+                'usermanagement/pages/',
+                'usermanagement/pages/signup_login',
+                'usermanagement/pages/administrace'
                 ],
         'APP_DIRS': True,
         'OPTIONS': {
