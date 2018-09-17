@@ -30,7 +30,6 @@ DEBUG = True
 
 ROOT_URLCONF = 'b40_cz.urls'
 
-
 WSGI_APPLICATION = 'b40_cz.wsgi.application'
 
 # Database
@@ -62,7 +61,7 @@ INSTALLED_APPS = [
 ]
 
 SOCIAL_AUTH_USER_MODEL = 'userManagement.MyUser'
-#AUTH_USER_MODEL = 'userManagement.MyUser'
+AUTH_USER_MODEL = 'userManagement.MyUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
