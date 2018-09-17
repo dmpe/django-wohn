@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 import os
 import sys
-import dj_database_url
 import django_heroku
 
 SOCIAL_AUTH_USER_MODEL = 'usermanagement.MyUser'
@@ -38,8 +37,8 @@ WSGI_APPLICATION = 'b40_cz.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 # Change 'default' database configuration with $DATABASE_URL.
-DATABASES = {}
-DATABASES['default'] = os.environ.get('DATABASE_URL')
+#DATABASES = {}
+#DATABASES['default'] = os.environ.get('DATABASE_URL')
 
 # Application definition
 INSTALLED_APPS = [
@@ -135,7 +134,7 @@ AZURE_ACCOUNT_NAME = "djangowohnreal1"
 AZURE_ACCOUNT_KEY = os.environ.get("AZURE_ACCOUNT_KEY")
 AZURE_CONTAINER = "images"
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Simplified static file serving.
@@ -147,13 +146,9 @@ MEDIA_URL = 'https://djangowohnreal1.blob.core.windows.net/%s/' % AZURE_CONTAINE
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'static'),
     os.path.join(PROJECT_ROOT, 'static/css/'),
     os.path.join(PROJECT_ROOT, 'static/js/'),
 ]
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
 
 # Change password hashers to use Argon2 for stronger password protection
 PASSWORD_HASHERS = [
@@ -203,3 +198,4 @@ SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
+django_heroku.settings(locals())
