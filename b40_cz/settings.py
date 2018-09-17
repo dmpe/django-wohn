@@ -61,7 +61,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
 ]
 
-AUTH_USER_MODEL = 'userManagement.MyUser'
+#AUTH_USER_MODEL = 'userManagement.MyUser'
+SOCIAL_AUTH_USER_MODEL = 'user_management.MyUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -205,4 +206,3 @@ SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-#SOCIAL_AUTH_USER_MODEL = 'user_management.MyUser'
