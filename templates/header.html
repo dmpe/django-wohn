@@ -1,0 +1,43 @@
+<header>
+	<nav class="navbar navbar-expand-lg navbar-light headerFooterBackground" role="navigation">
+		<a class="navbar-brand mb-0" href="https://django-heroku-realestate.herokuapp.com/">B40.cz
+			<span class="navbar-text d-md-inline-flex d-none d-md-block">
+				<!-- be inline next to brand; hiden on small screens, i.e. display only on >= md (d-lg-block d-xl-block) -->
+				Your next student colocation
+			</span>
+		</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLoginForm" aria-controls="navbarLoginForm" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- LOGIC: if not registered and not loged in, then show -->
+		<!-- LOGIC: BUT on {register, reset_password, new_password, login}.html do not show -->
+		<!-- LOGIC: CREATE logout button + click to userprofile as well -->
+		<div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
+			<form role="form" class="form-inline" action="user_profile" method="POST">{% csrf_token %}
+				<div class="form-group">
+					<input type="text" name="username" class="form-control m-1" placeholder="Username or Email" id="inputUsernameOrEmail">
+					<label class="sr-only" for="inputUsernameOrEmail">Username or Email</label>
+				</div>
+
+				<div class="from-group">
+					<div class="input-group">
+						<input type="password" name="password" class="form-control ml-1" placeholder="Password" id="inputPassword" aria-describedby="inputGroupAppend">
+						<div class="input-group-append mr-1">
+							<span class="input-group-text" id="inputGroupAppend">
+								<button href="" class="fa fa-eye fa-lg resetIconStylesEYE" id="buttonEYE" aria-hidden="true" type="button"></button>
+							</span>
+						</div>
+					</div>
+					<label class="sr-only" for="inputPassword">Password</label>
+				</div>
+
+				<div class="d-flex flex-row">
+					<button type="submit" class="btn btn-success m-1">Login</button>
+					<a href="register" type="button" class="btn btn-danger m-1">Register to add new listings</a>
+				</div>
+			</form>
+		</div>
+	</nav>
+</header>

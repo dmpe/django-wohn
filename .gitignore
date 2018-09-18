@@ -1,0 +1,14 @@
+venv
+staticfiles
+.env
+env
+*.ico
+*.png
+*.sh
+*.log
+*.pot
+*.pyc
+__pycache__/
+Pipfile.lock
+/amazing_ressources/
+!/amazing_ressources/images_azure_upload/.noignore
