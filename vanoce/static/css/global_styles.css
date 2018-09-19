@@ -118,28 +118,30 @@ https://developers.google.com/identity/branding-guidelines */
 	height: 46px;
 	width: 240px;
 	border-radius: 4px;
-	background-color: #4285F4;
+	/*background-color: #4285F4;*/
 }
 
 .google_icon {
 	float: left;
-	height: 40px;
-	width: 40px;
-	margin-left: -3px;
+	height: 46px;
+	width: 46px;
+	margin-left: -13px;
+	margin-top: -7px;
 }
 
 .twitter_singin {
 	height: 46px;
 	width: 240px;
 	border-radius: 4px;
-	background-color: #1DA1F2;
+	/*background-color: #1DA1F2;*/
 }
 
 .twitter_icon {
 	float: left;
-	height: 40px;
-	width: 40px;
-	margin-left: -3px;
+	height: 46px;
+	width: 46px;
+	margin-left: -13px;
+	margin-top: -7px;
 }
 
 

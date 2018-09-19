@@ -12,5 +12,5 @@ urlpatterns = [
     path('administrace/user_profile', views.user_profile, name='user_profile'),
     path('administrace/', views.index, name='index'),
     
-    path('/oauth/', include('social_django.urls', namespace='social'))    
+    path('oauth/', include('social_django.urls', namespace='social'))    
 ]
