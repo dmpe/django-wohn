@@ -21,24 +21,25 @@
 
     <div class="row d-flex justify-content-center login_register_box">
     	<div class="card text-center bg-light border-dark col-md-5 col-lg-3 mr-1">
+
     		<!-- Google Brand Guidelines on Azure/ in CSS: https://developers.google.com/identity/branding-guidelines -->
 			<div class="m-3">
-				<button type="button" class="google_signin" href="{% url 'social:begin' 'google' %}">
+				<button type="button" class="btn btn-primary google_signin" href="{% url 'social:begin' 'google-oauth2' %}">
 					<img class="google_icon" src="https://djangowohnreal1.blob.core.windows.net/images/btn_google_dark_normal_ios.svg">
-					<p class="text-center mt-2 text-white">Log In With Google</p>
+					<p class="text-center mt-1 text-white">Log In With Google</p>
 				</button>
 			</div>
 
 			<!-- Twitter Brand Guidelines on Azure/ in CSS -->
 			<div class="m-3">
-				<button type="button" class="twitter_singin" href="{% url 'social:begin' 'twitter' %}">
+				<button type="button" class="btn btn-info twitter_singin" href="{% url 'social:begin' 'twitter' %}">
 					<img class="twitter_icon" src="https://djangowohnreal1.blob.core.windows.net/images/Twitter_Social_Icon_Square_Color.png">
-					<p class="text-center mt-2 text-white">Log In With Twitter</p>
+					<p class="text-center mt-1 text-white">Log In With Twitter</p>
 				</button>
 			</div>
 				
 			<!-- https://developers.facebook.com/docs/facebook-login/web/login-button -->
-			<button href="{% url 'social:begin' 'facebook' %}"><div class="fb-login-button m-3" data-width="15" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div></button>
+			<a href="{% url 'social:begin' 'facebook' %}" type="button" role="button" class="btn fb-login-button m-3" data-width="15" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></a>
        	</div>
     	
     	<!-- show on display size between xs and sm -->

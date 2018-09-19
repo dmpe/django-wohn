@@ -72,7 +72,9 @@ PASSWORD_HASHERS = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.open_id.OpenIdAuth',  # for Google authentication
+    'social_core.backends.google.GoogleOpenId',  # for Google authentication
+    'social_core.backends.google.GoogleOAuth2',  # for Google authentication
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
@@ -159,6 +161,8 @@ STATICFILES_DIRS = [
 
 PHONENUMBER_DB_FORMAT = 'E164'
 
+LOGIN_REDIRECT_URL = 'home'
+
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 SOCIAL_AUTH_TWITTER_KEY = 'foobar'
@@ -168,8 +172,10 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '806673580943-ldk1i712dfdreakds26oeq4ih1fkm54k.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'HJTheMYzP8ugMIO2ibQxiFhx'
 SOCIAL_AUTH_FACEBOOK_KEY = '525287897910870'
 SOCIAL_AUTH_FACEBOOK_SECRET = '469163542f06ae4ccf8fb96fc5e9585f'
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['default', 'email']
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '3.1'
+
+SOCIAL_AUTH_LOGIN_URL = '/administrace/index'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/administrace/index'
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/administrace/user_profile' # keep it dry
 SOCIAL_AUTH_LOGIN_ERROR_URL = '404'
