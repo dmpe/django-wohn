@@ -42,20 +42,27 @@ python3 manage.py makemigrations core
 python3 manage.py makemigrations userMng
 ```
 
-##### 1.3 Deploy to local PC
+### 1.3 Deploy to local PC
 
 - Continue from previous steps
 ```
 python3 manage.py migrate
 ```
 
-##### 1.4 Deploy to Heroku
+### 1.4 Deploy to Heroku
 
 Heroku automatically runs collectstatic.
 
 ```
 git push master heroku
 ```
+
+#### 1.4.1 Dont forget** to create superuser
+
+```
+heroku run python3 manage.py createsuperuser --username admin --email ci@se.cz
+```
+
 
 **Common issues:**
 
