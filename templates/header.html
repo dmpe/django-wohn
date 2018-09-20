@@ -1,6 +1,6 @@
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light headerFooterBackground" role="navigation">
-		<a class="navbar-brand mb-0" href="https://django-heroku-realestate.herokuapp.com/">B40.cz
+		<a class="navbar-brand mb-0" href="https://b40re.tk/">B40.cz
 			<span class="navbar-text d-md-inline-flex d-none d-md-block">
 				<!-- be inline next to brand; hiden on small screens, i.e. display only on >= md (d-lg-block d-xl-block) -->
 				Your next student colocation
@@ -15,7 +15,7 @@
 		<!-- LOGIC: BUT on {register, reset_password, new_password, login}.html do not show -->
 		<!-- LOGIC: CREATE logout button + click to userprofile as well -->
 		<div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
-			<form role="form" class="form-inline" action="user_profile" method="POST">{% csrf_token %}
+ 			<!-- <form role="form" class="form-inline" action="user_profile" method="POST">{% csrf_token %}
 				<div class="form-group">
 					<input type="text" name="username" class="form-control m-1" placeholder="Username or Email" id="inputUsernameOrEmail">
 					<label class="sr-only" for="inputUsernameOrEmail">Username or Email</label>
@@ -31,13 +31,13 @@
 						</div>
 					</div>
 					<label class="sr-only" for="inputPassword">Password</label>
-				</div>
+				</div> -->
 
 				<div class="d-flex flex-row">
-					<button type="submit" class="btn btn-success m-1">Login</button>
+					<a href="login" type="button" class="btn btn-success m-1">Login</a>
 					<a href="register" type="button" class="btn btn-danger m-1">Register to add new listings</a>
 				</div>
-			</form>
+			<!--</form>-->
 		</div>
 	</nav>
 </header>

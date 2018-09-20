@@ -21,5 +21,6 @@ social-auth-app-django = "*"
 azure = "*"
 django-storages = "*"
 django-split-settings = "*"
+django-cors-headers = "*"
 
 [dev-packages]
