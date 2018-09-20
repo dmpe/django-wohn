@@ -16,13 +16,12 @@ https://docs.djangoproject.com/en/2.1/howto/static-files/
 """
 import os
 import sys
-import django_heroku
 
 SOCIAL_AUTH_USER_MODEL = 'userMng.myUser'
 AUTH_USER_MODEL = 'userMng.myUser'
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'ldj(^$nibo($d939^(mc5k)#^!b6^4yr80_4iv-7_wtm5gvzwz'
@@ -161,8 +160,6 @@ STATICFILES_DIRS = [
 
 PHONENUMBER_DB_FORMAT = 'E164'
 
-LOGIN_REDIRECT_URL = 'home'
-
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 SOCIAL_AUTH_TWITTER_KEY = '3GgSqabrcz91jhPCWDcIGx5CI'
@@ -181,17 +178,3 @@ SOCIAL_AUTH_LOGIN_ERROR_URL = '404'
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 'user_first_name', 'user_last_name', 'user_email', 'user_int_tel']
 
 SITE_ID = 1
-
-# the curpit: on local pc must be commented out, while on heroku must be enabled
-django_heroku.settings(locals())
-
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql', 
-#        'NAME': 'mydb',                     
-#        'USER': 'jm',                      
-#        'PASSWORD': '123',                 
-#        'HOST': 'localhost',               
-#        'PORT': '',                      
-#    }
-#}

@@ -20,5 +20,6 @@ social-auth-core = "*"
 social-auth-app-django = "*"
 azure = "*"
 django-storages = "*"
+django-split-settings = "*"
 
 [dev-packages]
