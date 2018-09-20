@@ -18,6 +18,9 @@ import os
 import sys
 import django_heroku
 
+#later sometimes
+#DEBUG = False
+
 # the curpit: on heroku must be enabled as a package
 django_heroku.settings(locals())
 

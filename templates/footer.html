@@ -9,10 +9,10 @@
 
 	<div class="float-right">
 		<ul class="list-inline">
-			<li class="list-inline-item mx-3 my-1"><a href="about" class="">About</a></li>
-			<li class="list-inline-item mx-3 my-1"><a href="contact" class="">Contact us</a></li>
-			<li class="list-inline-item mx-3 my-1"><a href="privacy" class="">Privacy Policy</a></li>
-			<li class="list-inline-item mx-3 my-1"><a href="terms" class="">Terms of Use</a></li>
+			<li class="list-inline-item mx-3 my-1"><a href="{% url 'about' %}" class="">About</a></li>
+			<li class="list-inline-item mx-3 my-1"><a href="{% url 'contact' %}" class="">Contact us</a></li>
+			<li class="list-inline-item mx-3 my-1"><a href="{% url 'privacy' %}" class="">Privacy Policy</a></li>
+			<li class="list-inline-item mx-3 my-1"><a href="{% url 'terms' %}" class="">Terms of Use</a></li>
 		</ul>
 	</div>
 </footer>

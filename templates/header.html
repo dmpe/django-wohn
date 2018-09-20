@@ -1,6 +1,6 @@
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light headerFooterBackground" role="navigation">
-		<a class="navbar-brand mb-0" href="https://b40re.tk/">B40.cz
+		<a class="navbar-brand mb-0" href="/">B40.cz
 			<span class="navbar-text d-md-inline-flex d-none d-md-block">
 				<!-- be inline next to brand; hiden on small screens, i.e. display only on >= md (d-lg-block d-xl-block) -->
 				Your next student colocation
@@ -34,8 +34,14 @@
 				</div> -->
 
 				<div class="d-flex flex-row">
-					<a href="login" type="button" class="btn btn-success m-1">Login</a>
-					<a href="register" type="button" class="btn btn-danger m-1">Register to add new listings</a>
+					{% if user. and user.not %}
+					<a href="{% url 'login' %}" type="button" class="btn btn-success ml-0 mt-1 mb-1 mr-1">Login</a>
+					<a href="{% url 'register' %}" type="button" class="btn btn-danger m-1 pr-1">Register to add new listings</a>
+					{% endif %}
+
+					{% if user.is_authenticated %}
+					<a href="{% url 'logout' %}" type="button" class="btn btn-dark m-1">Logout</a>	
+					{% endif %}
 				</div>
 			<!--</form>-->
 		</div>
