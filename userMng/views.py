@@ -21,3 +21,6 @@ def new_password(request):
 
 def reset_password(request):
 	return render(request, 'reset_password.html')
+
+def logout(request):
+	return render(request, 'logout.html')

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}B40.cz - Logout{% endblock %}
+
+{% block descip %}Logout from your user administration - B40.cz{% endblock %}
+
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+</div>
+
+{% endblock %}
