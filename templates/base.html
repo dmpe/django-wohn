@@ -9,23 +9,30 @@
 
     <meta name="description" content="{% block descip %}{% endblock %}">
     <meta name="robots" content="{% block robots %}{% endblock %}">
-    <!-- https://favicon.io/favicon-generator/?t=b40&ff=Jacques+Francois&fs=65&fc=%23000&b=rounded&bc=%23DDD
-    	 https://www.1and1.com/favicon-generator
+    <!-- 
+        https://favicon.io/favicon-generator/?t=b40&ff=Jacques+Francois&fs=65&fc=%23000&b=rounded&bc=%23DDD
+    	https://www.1and1.com/favicon-generator
     -->
     <link rel="shortcut icon" href="https://djangowohnreal1.blob.core.windows.net/images/favicon.ico"/>
+    
+    <!-- Google APIs -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="806673580943-ldk1i712dfdreakds26oeq4ih1fkm54k.apps.googleusercontent.com">
+    <meta name="google-signin-scope" content="profile email">
+
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
-    {# Load CSS and JavaScript #}
+    {# Load CSS: Bootstrap + font-awesome + JavaScript Jquery #}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="{% static 'global_styles.css' %}">
 
+    <!-- Webmasters -->
     <meta name="yandex-verification" content="7884b3fcb5602285" />
     <meta name="google-site-verification" content="jOkjldX1mUieTc5eyHIPbqNXNTMGXyokn_LTL5da4h8" />
 
-    <script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11552074-10"></script>
     <script>
