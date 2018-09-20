@@ -10,20 +10,22 @@
 <div class="container-fluid">
 
 <script type="text/javascript">
-var profile2 = googleUser.getBasicProfile();
 
+function onSignIn(googleUser) {
+//var profile2 = googleUser.getBasicProfile();
 //if (auth2.isSignedIn.get()) {
-  var profile = auth2.currentUser.get().getBasicProfile();
-  console.log('ID: ' + profile.getId());
-  console.log('Full Name: ' + profile.getName());
-  console.log('Given Name: ' + profile.getGivenName());
-  console.log('Family Name: ' + profile.getFamilyName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail());
-  var id_token = googleUser.getAuthResponse().id_token;
-  console.log("ID Token: " + id_token);
 
-//}
+	var profile = auth2.currentUser.get().getBasicProfile();
+	console.log('ID: ' + profile.getId());
+	console.log('Full Name: ' + profile.getName());
+	console.log('Given Name: ' + profile.getGivenName());
+	console.log('Family Name: ' + profile.getFamilyName());
+	console.log('Image URL: ' + profile.getImageUrl());
+	console.log('Email: ' + profile.getEmail());
+	var id_token = googleUser.getAuthResponse().id_token;
+	console.log("ID Token: " + id_token);
+
+}
 </script>
 
 </div>
