@@ -123,10 +123,10 @@ https://developers.google.com/identity/branding-guidelines */
 
 .google_icon {
 	float: left;
-	height: 46px;
-	width: 46px;
+	height: 48px; /* not 46/40 because icon has some transparent border around it */
+	width: 48px;
 	margin-left: -13px;
-	margin-top: -7px;
+	margin-top: -8px;
 }
 
 .twitter_singin {
@@ -142,6 +142,8 @@ https://developers.google.com/identity/branding-guidelines */
 	width: 40px;
 	margin-left: -9px;
 	margin-top: -4px;
+	background-color: white;
+	border-radius: 3px;
 }
 
 .facebook_singin {
@@ -153,8 +155,8 @@ https://developers.google.com/identity/branding-guidelines */
 
 .facebook_icon {
 	float: left;
-	height: 46px;
-	width: 46px;
+	height: 40px;
+	width: 40px;
 	margin-left: -9px;
 	margin-top: -4px;
 }
