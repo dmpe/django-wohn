@@ -144,4 +144,17 @@ https://developers.google.com/identity/branding-guidelines */
 	margin-top: -7px;
 }
 
+.facebook_singin {
+	height: 46px;
+	width: 240px;
+	border-radius: 4px;
+ 	background-color: #4267B2;
+}
 
+.facebook_icon {
+	float: left;
+	height: 46px;
+	width: 46px;
+	margin-left: -13px;
+	margin-top: -7px;
+}
