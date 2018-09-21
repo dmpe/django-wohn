@@ -1,6 +1,8 @@
 from . import views
 from django.urls import path
 
+app_name = 'core'
+
 urlpatterns = [
     path('', views.core_index, name='core_index'),
     
@@ -10,3 +12,4 @@ urlpatterns = [
     path('privacy', views.privacy, name='privacy'),
     
 ]
+
