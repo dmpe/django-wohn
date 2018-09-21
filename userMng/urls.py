@@ -2,7 +2,7 @@ from . import views
 from django.urls import path
 from django.conf.urls import include
 
-app_name = 'userMng'
+#app_name = 'userMng'
 
 urlpatterns = [  
     path('register', views.register, name='register'),
@@ -15,6 +15,5 @@ urlpatterns = [
     path('administrace/', views.userMng_index, name='userMng_index'),
     
     path('oauth/', include('social_django.urls', namespace='social')),
-    #path('', include('core.urls', namespace='core'))
 ]
 
