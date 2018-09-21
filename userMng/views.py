@@ -30,5 +30,6 @@ def reset_password(request):
 	return render(request, 'reset_password.html')
 
 def logout(request):
-	logout(request, template_name='logout.html')
-	return redirect('core_index')
+	render(request, 'logout.html')
+	logout(request)
+	#return redirect('core_index')
