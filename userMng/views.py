@@ -22,8 +22,8 @@ def login(request):
 		usernameOrEmail = request.POST['inputEmail_Username']
 		user_password = request.POST['inputNewPassword']
 	else:
-    	usernameOrEmail = False
-    	user_password = False
+		usernameOrEmail = False
+		user_password = False
 
 	auth_user = authenticate(request, username = usernameOrEmail, password = user_password)
 
