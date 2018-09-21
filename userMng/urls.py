@@ -1,6 +1,7 @@
 from . import views
 from django.urls import path
 from django.conf.urls import include
+from core.urls import *
 
 
 urlpatterns = [  
@@ -11,7 +12,8 @@ urlpatterns = [
     path('reset_password', views.reset_password, name='reset_password'),
     
     path('administrace/user_profile', views.user_profile, name='user_profile'),
-    path('administrace/', views.index, name='index'),
+    path('administrace/', views.userMng_index, name='userMng_index'),
     
-    path('oauth/', include('social_django.urls', namespace='social'))    
+    path('oauth/', include('social_django.urls', namespace='social'))
+    path('', include('core.urls', namespace='core'))
 ]

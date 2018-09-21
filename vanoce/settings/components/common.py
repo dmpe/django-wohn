@@ -184,3 +184,11 @@ SOCIAL_AUTH_LOGIN_ERROR_URL = '404'
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 'user_first_name', 'user_last_name', 'user_email', 'user_int_tel']
 
 SITE_ID = 1
+
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'b40re.tk'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'B40.cz team <cin@sez.cz>'

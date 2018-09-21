@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django import forms
 
 # HOMEPAGE
-def index(request):
+def core_index(request):
     return render(request, 'index.html')
 
 # FOOTER
