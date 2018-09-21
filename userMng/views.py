@@ -40,6 +40,7 @@ def reset_password(request):
 	return render(request, 'reset_password.html')
 
 def logout(request):
+	# enable to make first move to logout page and then user logout
 	#render(request,'logout.html')
 	django_logout(request)
 	return redirect('core_index')
