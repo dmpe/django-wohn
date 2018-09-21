@@ -6,7 +6,7 @@ from core.views import *
 
 # ADMINISTRATION
 def userMng_index(request):
-	return render(request, 'index.html')
+	return render(request, 'administrace/index.html')
 
 def user_profile(request):
     return render(request, 'user_profile.html')
@@ -16,9 +16,17 @@ def register(request):
     return render(request, 'register.html')
 
 def login(request):
-	usernameOrEmail = request.POST['inputEmail_Username']
-	user_password = request.POST['inputNewPassword']
+	render(request, 'login.html')
+
+	if 'usernameOrEmail' and 'user_password' in request.POST:
+		usernameOrEmail = request.POST['inputEmail_Username']
+		user_password = request.POST['inputNewPassword']
+	else:
+    	usernameOrEmail = False
+    	user_password = False
+
 	auth_user = authenticate(request, username = usernameOrEmail, password = user_password)
+
 	if auth_user is not None:
 		login(request, auth_user)
 		return auth_user
@@ -32,4 +40,4 @@ def reset_password(request):
 def logout(request):
 	render(request, 'logout.html')
 	logout(request)
-	#return redirect('core_index')
+	return redirect('core_index')
