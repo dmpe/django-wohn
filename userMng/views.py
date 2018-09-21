@@ -2,7 +2,7 @@ from django.shortcuts import *
 from django.http import HttpResponse
 from django import forms
 from django.contrib.auth import logout as django_logout
-from django.contrib.auth import *
+from django.contrib.auth import login as django_login
 
 from core.views import *
 
@@ -30,7 +30,7 @@ def login(request):
 	# auth_user = authenticate(request, username = usernameOrEmail, password = user_password)
 
 	# if auth_user is not None:
-	# 	login(request, auth_user)
+	# 	django_login(request, auth_user)
 	# 	return auth_user
 
 def new_password(request):
