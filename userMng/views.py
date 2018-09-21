@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import *
 from django.http import HttpResponse
 from django import forms
 from django.contrib.auth import logout as django_logout
