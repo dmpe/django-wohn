@@ -40,4 +40,4 @@ def reset_password(request):
 def logout(request):
 	#render(request,'logout.html')
 	logout(request)
-	return render_to_response('index.html', {}, RequestContext(request))
+	return redirect('/')
