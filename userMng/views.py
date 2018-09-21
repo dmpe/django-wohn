@@ -38,6 +38,6 @@ def reset_password(request):
 	return render(request, 'reset_password.html')
 
 def logout(request):
-	#redirect('logout.html')
-	return logout(request)
-	#return redirect('core_index')
+	#render(request,'logout.html')
+	logout(request)
+	redirect('core_index')
