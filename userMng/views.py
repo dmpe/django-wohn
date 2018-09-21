@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django import forms
+from django.contrib.auth import logout as django_logout
 from django.contrib.auth import *
+
 from core.views import *
 
 # ADMINISTRATION
@@ -39,5 +41,5 @@ def reset_password(request):
 
 def logout(request):
 	#render(request,'logout.html')
-	logout(request)
-	return redirect('/')
+	django_logout(request)
+	return redirect('core_index')
