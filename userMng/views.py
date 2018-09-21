@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django import forms
+from django.contrib.auth import *
 
 # ADMINISTRATION
 def index(request):
@@ -23,4 +24,5 @@ def reset_password(request):
 	return render(request, 'reset_password.html')
 
 def logout(request):
+	logout(request)
 	return render(request, 'logout.html')
