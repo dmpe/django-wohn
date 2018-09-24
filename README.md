@@ -57,7 +57,7 @@ Heroku automatically runs collectstatic.
 git push master heroku
 ```
 
-#### 1.4.1 Dont forget** to create superuser
+#### 1.4.1 Dont forget to create superuser
 
 ```
 heroku run python3 manage.py createsuperuser --username admin --email ci@se.cz
