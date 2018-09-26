@@ -8,7 +8,6 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
-
 https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -20,6 +19,8 @@ import django_heroku
 
 #later sometimes
 #DEBUG = False
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # the curpit: on heroku must be enabled as a package
 django_heroku.settings(locals())
