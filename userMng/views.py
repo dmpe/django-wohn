@@ -21,15 +21,15 @@ def user_profile(request):
 class RegistrationView(CreateView):
 	"""docstring for RegistrationView
 	"""
-	template_name = 'signup_login/register.html'
+	template_name = 'register.html'
 
 	#def register(request):
 	#	return render(request, 'register.html')
 
-class LoginView(View):	
+class LoginView(View):
 	"""Uses class based view
 	"""
-	template_name = 'signup_login/login.html'
+	template_name = 'login.html'
 		
 	def post(self, request):
 		return render(request, 'login.html')
@@ -56,7 +56,7 @@ def reset_password(request):
 class LogoutView(View):
 	"""class based view for logout
 	"""
-	template_name = 'signup_login/logout.html'
+	template_name = 'logout.html'
 	# redirect to logout.html page, which again rederects to core_index
 	#render(request,'logout.html')
 		
