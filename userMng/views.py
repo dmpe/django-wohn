@@ -23,8 +23,8 @@ class RegistrationView(CreateView):
 	"""
 	template_name = 'signup_login/register.html'
 
-	def register(request):
-		return render(request, 'register.html')
+	#def register(request):
+	#	return render(request, 'register.html')
 
 class LoginView(View):	
 	"""Uses class based view
