@@ -21,7 +21,7 @@ def user_profile(request):
 class RegistrationView(CreateView):
 	"""docstring for RegistrationView
 	"""
-	template_name = 'pages/signup_login/register.html'
+	template_name = 'userMng/register.html'
 
 	#def register(request):
 	#	return render(request, 'register.html')
@@ -29,7 +29,7 @@ class RegistrationView(CreateView):
 class LoginView(View):
 	"""Uses class based view
 	"""
-	template_name = 'pages/signup_login/login.html'
+	template_name = 'userMng/login.html'
 		
 	def post(self, request):
 		return render(request, 'login.html')
