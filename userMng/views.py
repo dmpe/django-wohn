@@ -46,7 +46,7 @@ class LoginView(View):
 
 	if auth_user is not None:
 	 	django_login(request, auth_user)
-	 	return auth_user
+	 	#return auth_user
 	else:
 		return redirect(settings.LOGIN_URL)
 
