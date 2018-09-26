@@ -23,9 +23,6 @@ AUTH_USER_MODEL = 'userMng.myUser'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ldj(^$nibo($d939^(mc5k)#^!b6^4yr80_4iv-7_wtm5gvzwz'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -186,13 +183,13 @@ LOGIN_REDIRECT_URL = '/administrace/'
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-SOCIAL_AUTH_TWITTER_KEY = '3GgSqabrcz91jhPCWDcIGx5CI'
-SOCIAL_AUTH_TWITTER_SECRET = 'd0rfKBTiLPdGneeNi5YEDOmICnWDZTfiqThnvP5Ltn2v7439bR'
+SOCIAL_AUTH_TWITTER_KEY = os.environ.get("SOCIAL_AUTH_TWITTER_KEY")
+SOCIAL_AUTH_TWITTER_SECRET = os.environ.get("SOCIAL_AUTH_TWITTER_SECRET")
 SOCIAL_AUTH_GOOGLE_OAUTH2_USE_UNIQUE_USER_ID = True
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '806673580943-ldk1i712dfdreakds26oeq4ih1fkm54k.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'HJTheMYzP8ugMIO2ibQxiFhx'
-SOCIAL_AUTH_FACEBOOK_KEY = '525287897910870'
-SOCIAL_AUTH_FACEBOOK_SECRET = '469163542f06ae4ccf8fb96fc5e9585f'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get("SOCIAL_AUTH_FACEBOOK_KEY")
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get("SOCIAL_AUTH_FACEBOOK_SECRET")
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '3.1'
 
 SOCIAL_AUTH_LOGIN_URL = '/administrace/'
@@ -202,10 +199,9 @@ SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 
 
 SITE_ID = 1
 
-
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'b40re.tk'
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.seznam.cz'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = 'B40.cz team <cin@sez.cz>'
