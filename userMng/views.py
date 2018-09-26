@@ -33,22 +33,22 @@ class LoginView(View):
 	template_name = 'signup_login/login.html'
 		
 	def post(self, request):
-		return render(request, 'login.html')
+		#return render(request, 'login.html')
 
-	if 'usernameOrEmail' and 'user_password' in request.POST:
-	 	usernameOrEmail = request.POST['inputEmail_Username']
-	 	user_password = request.POST['inputNewPassword']
-	else:
-	 	usernameOrEmail = False
-	 	user_password = False
+		#if 'usernameOrEmail' and 'user_password' in request.POST:
+		# 	usernameOrEmail = request.POST['inputEmail_Username']
+		# 	user_password = request.POST['inputNewPassword']
+		#else:
+		# 	usernameOrEmail = False
+		# 	user_password = False
 
-	auth_user = authenticate(request, username = usernameOrEmail, password = user_password)
+		#auth_user = authenticate(request, username = usernameOrEmail, password = user_password)
 
-	if auth_user is not None:
-	 	django_login(request, auth_user)
-	 	#return auth_user
-	else:
-		return redirect(settings.LOGIN_URL)
+		#if auth_user is not None:
+		# 	django_login(request, auth_user)
+		 	#return auth_user
+		#else:
+		#	return redirect(settings.LOGIN_URL)
 
 def new_password(request):
 	return render(request, 'new_password.html')
