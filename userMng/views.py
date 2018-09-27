@@ -28,6 +28,9 @@ class RegistrationView(CreateView):
 	"""
 	template_name = 'signup_login/register.html'
 
+	def post(self, request):
+		pass
+
 	def get(self, request):
 		return render(request, self.template_name)
 

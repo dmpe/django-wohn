@@ -63,7 +63,7 @@
 				<h1 class="card-title">Login</h1>
 			</div>
 			<div class="card-body">
-				<form action="administrace/user_profile" method="POST">
+				<form id = "form-login" action="{% url 'userMng.views.LoginView' %}" method="POST">
 					{% csrf_token %}
 					<div class="form-group spacing">
 						<div class="input-group">
