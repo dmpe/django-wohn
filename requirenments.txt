@@ -12,3 +12,4 @@ git+git://github.com/python-social-auth/social-app-django.git#egg=social-app-dja
 django-storages
 django-split-settings
 django-cors-headers
+django-crispy-forms

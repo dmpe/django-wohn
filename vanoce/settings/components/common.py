@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'storages',
     'phonenumber_field',
-
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -131,10 +131,18 @@ TEMPLATES = [
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
             ],
+            'loaders': [
+                ('django.template.loaders.cached.Loader', [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                ]),
+            ],
             'debug': DEBUG,
         },
     },
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 WSGI_APPLICATION = 'vanoce.wsgi.application'
 

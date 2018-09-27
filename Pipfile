@@ -20,6 +20,7 @@ social-auth-core = "*"
 social-auth-app-django = "*"
 azure = "*"
 django-storages = "*"
+django-crispy-forms = "*"
 django-split-settings = "*"
 django-cors-headers = "*"
 
