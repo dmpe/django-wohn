@@ -46,7 +46,7 @@ class LoginView(View):
 		if auth_user is not None:
 			# whether the user is active or not is already checked by the 
 			# ModelBackend we use
-		 	django_login(request, auth_user)
+			django_login(request, auth_user)
 			return redirect('userMng_index')
 		else:
 			# TODO: add some messages via GH #17
