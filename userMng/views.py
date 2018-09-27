@@ -13,7 +13,7 @@ from django.views.generic.edit import CreateView
 from core.views import *
 
 # for using not only username/pswd but also email/pswd
-from .backend import EmailUserNameAuthBackend
+from .backends import EmailUserNameAuthBackend
 
 # ADMINISTRATION
 def userMng_index(request):
