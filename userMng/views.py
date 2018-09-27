@@ -45,10 +45,10 @@ class RegistrationView(CreateView):
 
 	def post(self, request):
 		# recieve data from the registration form
-		inputUsername = request.POST('inputUsername')
-		inputEmail = request.POST('inputEmail')
-		inputNewPassword = request.POST('inputNewPassword')
-		inputConfirmNewPassword = request.POST('inputConfirmNewPassword')
+		inputUsername = request.POST.get('inputUsername', False)
+		inputEmail = request.POST.get('inputEmail', False)
+		inputNewPassword = request.POST.get('inputNewPassword', False)
+		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
 
 		if inputNewPassword == inputConfirmNewPassword:
 			ur = myUser.objects.create_user(inputUsername, inputEmail)
