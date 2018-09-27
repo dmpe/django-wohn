@@ -56,7 +56,7 @@ class RegistrationView(CreateView):
 			ur.is_active = True
 			ur.save()
 
-			return AdministrationView.as_view()
+			return AdministrationView.as_view()(request)
 
 		else:
 			return redirect('/')
