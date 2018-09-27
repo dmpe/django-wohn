@@ -55,14 +55,14 @@ class RegistrationView(CreateView):
 		ur.set_password(inputNewPassword)
 		ur.is_active = True
 		ur.save()
-		auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = inputUsername, password = inputNewPassword)
+		auser = EmailUserNameAuthBackend.authenticate(self, request, username = inputUsername, password = inputNewPassword)
 			
 		try:
-			django_login(request, auth_user, backend='userMng.backends.EmailUserNameAuthBackend')
+			django_login(request, auser)
 		except ValueError:
 			return redirect(settings.LOGIN_URL)
 
-		return AdministrationView.as_view()
+		return AdministrationView.as_view()(request)
 
 		#else:
 		#	return redirect('/')
