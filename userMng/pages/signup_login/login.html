@@ -64,6 +64,7 @@
 			</div>
 			<div class="card-body">
 				<form action="user_profile" method="POST">
+					{% csrf_token %}
 					<div class="form-group spacing">
 						<div class="input-group">
 							<input class="form-control" type="email" id="inputEmail_Username" placeholder="Your email or username">
