@@ -41,8 +41,8 @@ class LoginView(View):
 		
 	def post(self, request):
 		# recieve
-		username_Email = request.POST['inputEmail_Username']
-		user_password = request.POST['inputNewPassword']
+		username_Email = request.POST.get('inputEmail_Username', False)
+		user_password = request.POST.get('inputNewPassword', False)
 
 		auth_user = authenticate(request, username = username_Email, password = user_password)
 

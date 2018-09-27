@@ -64,7 +64,8 @@
 				<h1 class="card-title">Register</h1>
 			</div>
 			<div class="card-body">
-				<form action="{% url 'userMng.RegistrationView' %}" method="POST">{% csrf_token %}
+				<form id = "form-register" method="POST">
+					{% csrf_token %}
 					<div class="form-group spacing">
 						<div class="input-group">
 							<input class="form-control" type="email" id="inputEmail" placeholder="Email">
