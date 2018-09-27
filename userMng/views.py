@@ -33,8 +33,7 @@ class LoginView(View):
 	template_name = 'signup_login/login.html'
 		
 	def post(self, request):
-		#return render(request, 'login.html')
-
+		pass
 		#if 'usernameOrEmail' and 'user_password' in request.POST:
 		# 	usernameOrEmail = request.POST['inputEmail_Username']
 		# 	user_password = request.POST['inputNewPassword']
@@ -50,6 +49,9 @@ class LoginView(View):
 		#else:
 		#	return redirect(settings.LOGIN_URL)
 
+	def get(self, request):
+		return render(request, self.template_name)
+
 def new_password(request):
 	return render(request, 'new_password.html')
 
@@ -59,11 +61,11 @@ def reset_password(request):
 class LogoutView(View):
 	"""class based view for logout
 	"""
-	#template_name = 'signup_login/logout.html'
+	template_name = 'signup_login/logout.html'
 	# redirect to logout.html page, which again rederects to core_index
 		
 	def get(self, request):
+		render(request, self.template_name)
 		# enable to make first move to logout page and then user logout
 		django_logout(request)
-		render(request,'logout.html')
 		return redirect('core_index')
