@@ -18,6 +18,9 @@ from .backends import EmailUserNameAuthBackend
 # for registration of users
 from .models import myUser
 
+# forms from forms.py file
+from .forms import *
+
 # ADMINISTRATION
 class AdministrationView(View):
 	"""
@@ -41,12 +44,19 @@ class RegistrationView(CreateView):
 	template_name = 'signup_login/register.html'
 
 	def post(self, request):
+		myRegistrationForm = RegisterForm(request.POST)
 
+		if myRegistrationForm.is_valid():
+			user = form.save(commit = True)
+			user.is_active = True
+			user.save()
 
-		return render(request, self.template_name)
+		return AdministrationView.as_view()
 
 	def get(self, request):
-		return render(request, self.template_name)
+		# if get request just render the template, with form
+		myRegistrationForm = RegisterForm()
+		return render(request, self.template_name, {'form': myRegistrationForm})
 
 class LoginView(View):
 	"""Uses class based view
@@ -65,7 +75,7 @@ class LoginView(View):
 			# whether the user is active or not is already checked by the 
 			# ModelBackend we use
 			django_login(request, auth_user)
-			return redirect('userMng_index')
+			return AdministrationView.as_view()
 		else:
 			# TODO: add some messages via GH #17
 			return redirect(settings.LOGIN_URL)
@@ -73,8 +83,9 @@ class LoginView(View):
 		return render(request, self.template_name)
 
 	def get(self, request):
-		# if get request just render the template
-		return render(request, self.template_name)
+		# if get request just render the template, with form
+		myLoginForm = LoginForm()
+		return render(request, self.template_name, {'form': myLoginForm})
 
 def new_password(request):
 	return render(request, 'new_password.html')
