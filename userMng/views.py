@@ -9,6 +9,7 @@ from django.conf import settings
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
 
+# used for logout redirect
 from core.views import *
 
 # for using not only username/pswd but also email/pswd
@@ -36,21 +37,22 @@ class LoginView(View):
 	template_name = 'signup_login/login.html'
 		
 	def post(self, request):
-		pass
-		#if 'usernameOrEmail' and 'user_password' in request.POST:
-		# 	usernameOrEmail = request.POST['inputEmail_Username']
-		# 	user_password = request.POST['inputNewPassword']
-		#else:
-		# 	usernameOrEmail = False
-		# 	user_password = False
+		# recieve
+		username_Email = request.POST['inputEmail_Username']
+		user_password = request.POST['inputNewPassword']
 
-		#auth_user = authenticate(request, username = usernameOrEmail, password = user_password)
+		auth_user = authenticate(request, username = username_Email, password = user_password)
 
-		#if auth_user is not None:
-		# 	django_login(request, auth_user)
-		 	#return auth_user
-		#else:
-		#	return redirect(settings.LOGIN_URL)
+		if auth_user is not None:
+			# whether the user is active or not is already checked by the 
+			# ModelBackend we use
+		 	django_login(request, auth_user)
+			return redirect('userMng_index')
+		else:
+			# TODO: add some messages via GH #17
+			return redirect(settings.LOGIN_URL)
+
+		return render(request, self.template_name)
 
 	def get(self, request):
 		# if get request just render the template

@@ -78,7 +78,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
-    'userMng.backends.EmailUserNameAuthBackend' # for username and (!) email authentication
+    'userMng.backends.EmailUserNameAuthBackend', # for username and (!) email authentication
 )
 
 SOCIAL_AUTH_PIPELINE = (
@@ -179,8 +179,10 @@ STATICFILES_DIRS = [
 
 PHONENUMBER_DB_FORMAT = 'E164'
 
-LOGOUT_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/administrace/'
+
+LOGOUT_REDIRECT_URL = 'index'
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
