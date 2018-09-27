@@ -77,8 +77,8 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',  # for Google authentication
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
     'userMng.backends.EmailUserNameAuthBackend', # for username and (!) email authentication
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 SOCIAL_AUTH_PIPELINE = (
