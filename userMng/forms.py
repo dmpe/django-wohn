@@ -16,7 +16,7 @@ class LoginForm(forms.Form):
 	Users can login either via username or email. 
 	Hence, input type="text"
 	"""
-	user_username_email = forms.CharField(widget=forms.TextInput())
-	user_password = forms.CharField(widget=forms.PasswordInput())
+	inputEmail_Username = forms.CharField(widget=forms.TextInput())
+	inputNewPassword = forms.CharField(widget=forms.PasswordInput())
 		
 		

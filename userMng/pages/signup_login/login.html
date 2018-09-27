@@ -69,14 +69,14 @@
 					{% csrf_token %}
 					<div class="form-group spacing">
 						<div class="input-group">
-							<input class="form-control" type="text" id="inputEmail_Username" placeholder="Your email or username">
+							<input class="form-control" type="text" id="inputEmail_Username" name="inputEmail_Username"  placeholder="Your email or username">
 							<label class="sr-only" for="inputEmail_Username">Your email or username</label>
 						</div>
 					</div>
 					<div class="form-group spacing">
 						<div class="input-group">
 							<!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
-							<input type="password" id="inputNewPassword" class="form-control" placeholder="Password">
+							<input type="password" id="inputNewPassword" name="inputNewPassword" class="form-control" placeholder="Password">
 							<div class="input-group-append">
 								<span class="input-group-text" id="inputGroupAppend">
 									<button href="" class="fa fa-eye fa-lg resetIconStylesEYE" id="buttonEYE2" aria-hidden="true" type="button"></button>
