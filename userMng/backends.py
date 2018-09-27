@@ -8,6 +8,9 @@ class EmailUserNameAuthBackend(ModelBackend):
 	using either username or email in the input field.	
 	By default, username/password is used and this 
 	extends this with email/password.
+
+	Works on /admin/
+	To be tested on /administration/
 	"""
 	
 	def get_user(self, user_id):

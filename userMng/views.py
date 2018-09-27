@@ -15,21 +15,35 @@ from core.views import *
 # for using not only username/pswd but also email/pswd
 from .backends import EmailUserNameAuthBackend
 
-# ADMINISTRATION
-def userMng_index(request):
-	return render(request, 'administrace/index.html')
+# for registration of users
+from .models import myUser
 
-def user_profile(request):
-    return render(request, 'administrace/user_profile.html')
+# ADMINISTRATION
+class AdministrationView(View):
+	"""
+	"""
+
+	def get(self, request):
+		return render(request, 'administrace/index.html')
+
+class Adminisration_UserProfile(View):
+	"""docstring for Adminisration_UserProfile
+	"""
+	
+	def get(request):
+		return render(request, 'administrace/user_profile.html')
 
 # HEADER - Main Body
 class RegistrationView(CreateView):
 	"""docstring for RegistrationView
 	"""
+	
 	template_name = 'signup_login/register.html'
 
 	def post(self, request):
-		pass
+
+
+		return render(request, self.template_name)
 
 	def get(self, request):
 		return render(request, self.template_name)
@@ -43,7 +57,8 @@ class LoginView(View):
 		# recieve
 		username_Email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
-		# also try self
+		
+		# also try with self
 		auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
 
 		if auth_user is not None:
