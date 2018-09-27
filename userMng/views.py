@@ -44,7 +44,7 @@ class LoginView(View):
 		username_Email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
 		# also try self
-		auth_user = EmailUserNameAuthBackend.authenticate(request, username = username_Email, password = user_password)
+		auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
 
 		if auth_user is not None:
 			# whether the user is active or not is already checked by the 
