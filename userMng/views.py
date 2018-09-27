@@ -27,7 +27,7 @@ class AdministrationView(View):
 	"""
 
 	def get(self, request):
-		return render(request, 'administrace/index.html')
+		return render(request, 'administrace/')
 
 class Adminisration_UserProfile(View):
 	"""docstring for Adminisration_UserProfile
@@ -55,7 +55,13 @@ class RegistrationView(CreateView):
 			ur.set_password(inputNewPassword)
 			ur.is_active = True
 			ur.save()
-
+			auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = inputUsername, password = inputNewPassword)
+				
+			try:
+				django_login(request, auth_user)
+			except ValueError:
+				return redirect(settings.LOGIN_URL)
+				
 			return AdministrationView.as_view()(request)
 
 		else:
