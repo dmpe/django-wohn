@@ -44,19 +44,26 @@ class RegistrationView(CreateView):
 	template_name = 'signup_login/register.html'
 
 	def post(self, request):
-		myRegistrationForm = RegisterForm(request.POST)
+		# recieve data from the registration form
+		inputUsername = request.POST.get('inputUsername', False)
+		inputEmail = request.POST.get('inputEmail', False)
+		inputNewPassword = request.POST.get('inputNewPassword', False)
+		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
 
-		if myRegistrationForm.is_valid():
-			user = form.save(commit = True)
+		if inputNewPassword == inputConfirmNewPassword:
+			user = myUser.objects.create_user(inputUsername, inputEmail)
+			user.set_password(inputNewPassword)
 			user.is_active = True
 			user.save()
+		else:
+			return redirect('/')
 
 		return AdministrationView.as_view()
 
 	def get(self, request):
 		# if get request just render the template, with form
-		myRegistrationForm = RegisterForm()
-		return render(request, self.template_name, {'form': myRegistrationForm})
+		# myRegistrationForm = RegisterForm()
+		return render(request, self.template_name)
 
 class LoginView(View):
 	"""Uses class based view
@@ -84,8 +91,8 @@ class LoginView(View):
 
 	def get(self, request):
 		# if get request just render the template, with form
-		myLoginForm = LoginForm()
-		return render(request, self.template_name, {'form': myLoginForm})
+		# myLoginForm = LoginForm()
+		return render(request, self.template_name)
 
 def new_password(request):
 	return render(request, 'new_password.html')

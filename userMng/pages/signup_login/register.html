@@ -71,14 +71,12 @@
 					<div class="form-group spacing">
 						<div class="input-group">
 							<input class="form-control" type="email" id="inputEmail" placeholder="Email">
-							{{ form.inputEmail|as_crispy_field }}
 							<label class="sr-only" for="inputEmail">Email</label>
 						</div>
 					</div>
 					<div class="form-group spacing">
 						<div class="input-group">
 							<input type="text" id="inputUsername" class="form-control" placeholder="Username">
-							{{ form.inputUsername|as_crispy_field }}
 							<label class="sr-only" for="inputUsername">Username</label>
 						</div>
 					</div>
@@ -86,7 +84,6 @@
 						<div class="input-group">
 							<!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
 							<input class="form-control" type="password" id="inputNewPassword" placeholder="New Password">
-							{{ form.inputNewPassword|as_crispy_field }}
 							<div class="input-group-append">
 								<span class="input-group-text" id="inputGroupAppend">
 									<button href="" class="fa fa-eye fa-lg resetIconStylesEYE" id="buttonEYE2" aria-hidden="true" type="button"></button>
