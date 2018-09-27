@@ -6,14 +6,17 @@ from django import forms
 class RegisterForm(forms.Form):
 	"""docstring for RegisterForm
 	"""
-	user_name = forms.CharField(max_length = 30)
-	user_email = forms.EmailField()
-	user_password = forms.CharField()
+	inputUsername = forms.CharField(max_length = 30)
+	inputEmail = forms.EmailField(widget=forms.EmailInput())
+	inputNewPassword = forms.CharField(widget=forms.PasswordInput())
+	inputConfirmNewPassword = forms.CharField(widget=forms.PasswordInput())
 
 class LoginForm(forms.Form):
 	"""docstring for LoginForm
+	Users can login either via username or email. 
+	Hence, input type="text"
 	"""
-	user_username_email = forms.CharField()
-	user_password = forms.CharField()
+	user_username_email = forms.CharField(widget=forms.TextInput())
+	user_password = forms.CharField(widget=forms.PasswordInput())
 		
 		
