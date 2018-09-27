@@ -20,14 +20,14 @@ class EmailUserNameAuthBackend(ModelBackend):
 		# username as parameter is here just as 'something'
 		try:
 			user = myUser.objects.get(email=username)
-			if user.check_password(password)
+			if user.check_password(password):
 				return user
 
 		except myUser.DoesNotExist:
 			try:
 				# must always work
 				user = myUser.objects.get(username=username)
-				if user.check_password(password)
+				if user.check_password(password):
 					return user
 			except myUser.DoesNotExist:
 				return None
