@@ -179,7 +179,7 @@ STATICFILES_DIRS = [
 
 PHONENUMBER_DB_FORMAT = 'E164'
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'login' # where is login page
 LOGIN_REDIRECT_URL = '/administrace/'
 
 LOGOUT_REDIRECT_URL = 'index'
@@ -195,7 +195,7 @@ SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get("SOCIAL_AUTH_FACEBOOK_KEY")
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get("SOCIAL_AUTH_FACEBOOK_SECRET")
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '3.1'
 
-SOCIAL_AUTH_LOGIN_URL = '/administrace/'
+SOCIAL_AUTH_LOGIN_URL = '/administrace/' # not same as LOGIN_URL !
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/administrace/user_profile' # keep it dry
 SOCIAL_AUTH_LOGIN_ERROR_URL = '404'
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 'user_first_name', 'user_last_name', 'user_email', 'user_int_tel']
