@@ -11,6 +11,9 @@ from django.views.generic.edit import CreateView
 
 from core.views import *
 
+# for using not only username/pswd but also email/pswd
+from .backend import EmailUserNameAuthBackend
+
 # ADMINISTRATION
 def userMng_index(request):
 	return render(request, 'administrace/index.html')
@@ -50,6 +53,7 @@ class LoginView(View):
 		#	return redirect(settings.LOGIN_URL)
 
 	def get(self, request):
+		# if get request just render the template
 		return render(request, self.template_name)
 
 def new_password(request):
@@ -59,13 +63,10 @@ def reset_password(request):
 	return render(request, 'reset_password.html')
 
 class LogoutView(View):
-	"""class based view for logout
+	"""Class based view for logout
+	Only requires get method
 	"""
-	template_name = 'signup_login/logout.html'
-	# redirect to logout.html page, which again rederects to core_index
-		
+
 	def get(self, request):
-		render(request, self.template_name)
-		# enable to make first move to logout page and then user logout
 		django_logout(request)
 		return redirect('core_index')
