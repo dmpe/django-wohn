@@ -63,7 +63,7 @@ class RegistrationView(CreateView):
 		#except ValueError:
 		#	return redirect(settings.LOGIN_URL)
 
-		return AdministrationView.as_view()(request)
+		return AdministrationView.as_view()(self, request)
 
 		#else:
 		#	return redirect('/')
@@ -90,8 +90,8 @@ class LoginView(View):
 		if auth_user is not None:
 			# whether the user is active or not is already checked by the 
 			# ModelBackend we use
-			django_login(request, auth_user, backend='userMng.backends.EmailUserNameAuthBackend')
-			return AdministrationView.as_view()
+			django_login(request, auth_user)
+			return AdministrationView.as_view()(self, request)
 		else:
 			# TODO: add some messages via GH #17
 			return redirect(settings.LOGIN_URL)
