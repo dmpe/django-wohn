@@ -50,22 +50,22 @@ class RegistrationView(CreateView):
 		inputNewPassword = request.POST.get('inputNewPassword', False)
 		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
 
-		if inputNewPassword == inputConfirmNewPassword:
-			ur = myUser.objects.create_user(inputUsername, inputEmail)
-			ur.set_password(inputNewPassword)
-			ur.is_active = True
-			ur.save()
-			auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = inputUsername, password = inputNewPassword)
-				
-			try:
-				django_login(request, auth_user, backend='userMng.backends.EmailUserNameAuthBackend')
-			except ValueError:
-				return redirect(settings.LOGIN_URL)
+		##if inputNewPassword == inputConfirmNewPassword:
+		ur = myUser.objects.create_user(inputUsername, inputEmail)
+		ur.set_password(inputNewPassword)
+		ur.is_active = True
+		ur.save()
+		auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = inputUsername, password = inputNewPassword)
+			
+		try:
+			django_login(request, auth_user, backend='userMng.backends.EmailUserNameAuthBackend')
+		except ValueError:
+			return redirect(settings.LOGIN_URL)
 
-			return AdministrationView.as_view()
+		return AdministrationView.as_view()
 
-		else:
-			return redirect('/')
+		#else:
+		#	return redirect('/')
 
 
 	def get(self, request):
