@@ -20,7 +20,7 @@ def userMng_index(request):
 	return render(request, 'administrace/index.html')
 
 def user_profile(request):
-    return render(request, 'user_profile.html')
+    return render(request, 'administrace/user_profile.html')
 
 # HEADER - Main Body
 class RegistrationView(CreateView):
