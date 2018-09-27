@@ -27,13 +27,13 @@ class AdministrationView(View):
 	"""
 
 	def get(self, request):
-		return render(request, 'administrace/')
+		return render(request, 'administrace/index.html')
 
 class Adminisration_UserProfile(View):
 	"""docstring for Adminisration_UserProfile
 	"""
 	
-	def get(request):
+	def get(self, request):
 		return render(request, 'administrace/user_profile.html')
 
 # HEADER - Main Body
@@ -62,7 +62,7 @@ class RegistrationView(CreateView):
 			except ValueError:
 				return redirect(settings.LOGIN_URL)
 
-			return AdministrationView.as_view()(request)
+			return AdministrationView.as_view()
 
 		else:
 			return redirect('/')
