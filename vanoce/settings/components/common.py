@@ -16,6 +16,7 @@ https://docs.djangoproject.com/en/2.1/howto/static-files/
 """
 import os
 import sys
+import logging
 
 SOCIAL_AUTH_USER_MODEL = 'userMng.myUser'
 AUTH_USER_MODEL = 'userMng.myUser'
@@ -210,3 +211,9 @@ EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = 'B40.cz team <cin@sez.cz>'
+
+
+logging.basicConfig(
+        level = logging.DEBUG,
+        format = '%(asctime)s %(levelname)s %(message)s',
+)
