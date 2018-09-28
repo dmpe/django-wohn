@@ -82,8 +82,8 @@ class LoginView(View):
 		
 	def post(self, request):
 		# recieve
-		username_Email = request.POST['inputEmail_Username']
-		user_password = request.POST['inputNewPassword']
+		username_Email = request.POST.get('inputEmail_Username', False)
+		user_password = request.POST.get('inputNewPassword', False)
 		
 		# also try with self
 		auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
@@ -97,7 +97,7 @@ class LoginView(View):
 			# TODO: add some messages via GH #17
 			return redirect(settings.LOGIN_URL)
 
-		return render(request, self.template_name)
+		#return render(request, self.template_name)
 
 	def get(self, request):
 		# if get request just render the template, with form
