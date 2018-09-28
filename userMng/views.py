@@ -70,7 +70,7 @@ class ResetPasswordStepOneView(View):
 		return render(request, self.template_name)
 
 
-def ResetPasswordNewStepTwoView(View):
+class ResetPasswordNewStepTwoView(View):
 	"""
 	at this stage, a token should have been send to the user via email
 	user clicks
