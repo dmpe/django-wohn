@@ -29,10 +29,10 @@ from .forms import *
 ################
 
 # ADMINISTRATION
-def administrationView(self, request):
+def administrationView(request):
 	return render(request, 'administrace/index.html')
 
-def adminisration_UserProfile(self, request):
+def adminisration_UserProfile(request):
 	return render(request, 'administrace/user_profile.html')
 
 def new_password(request):
@@ -40,6 +40,7 @@ def new_password(request):
 
 def reset_password(request):
 	return render(request, 'reset_password.html')
+
 ################
 #######
 ####### Class based views
