@@ -32,7 +32,7 @@ from .forms import *
 def administrationView(request):
 	return render(request, 'administrace/index.html')
 
-def adminisration_UserProfile(request):
+def administrationView_UserProfile(request):
 	return render(request, 'administrace/user_profile.html')
 
 def new_password(request):
@@ -73,7 +73,7 @@ class RegistrationView(CreateView):
 		#	return redirect(settings.LOGIN_URL)
 		
 		# change in the future into Adminisration_UserProfile
-		return AdministrationView.as_view()(self.request)
+		return redirect('user_profile')
 
 		#else:
 		#	return redirect('/')
@@ -101,7 +101,7 @@ class LoginView(View):
 		except Exception as e:
 			raise e
 
-		return redirect('administrationView')
+		return redirect('userMng_index')
 		#if auth_user is None:
 		#	# TODO: add some messages via GH #17
 		#	

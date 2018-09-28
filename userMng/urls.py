@@ -13,7 +13,7 @@ urlpatterns = [
     path('new_password', views.new_password, name='new_password'),
     path('reset_password', views.reset_password, name='reset_password'),
     
-    path('administrace/user_profile', views.adminisration_UserProfile, name='user_profile'),
+    path('administrace/user_profile', views.administrationView_UserProfile, name='user_profile'),
 	path('administrace/', views.administrationView, name='userMng_index'),    
 
     path('oauth/', include('social_django.urls', namespace='social')),
