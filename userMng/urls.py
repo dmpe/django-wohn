@@ -10,8 +10,8 @@ urlpatterns = [
     path('register', views.RegistrationView.as_view(), name='register'),
     path('login', views.LoginView.as_view(), name='login'),
     path('logout', views.LogoutView.as_view(), name='logout'),
-    path('new_password', views.new_password, name='new_password'),
-    path('reset_password', views.reset_password, name='reset_password'),
+    path('reset_password', views.ResetPasswordStepOneView.as_view(), name='reset_password'),
+    path('new_password', views.ResetPasswordNewStepTwoView.as_view(), name='new_password'),
     
     path('administrace/user_profile', views.administrationView_UserProfile, name='user_profile'),
 	path('administrace/', views.administrationView, name='userMng_index'),    
