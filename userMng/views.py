@@ -59,11 +59,11 @@ class ResetPasswordStepOneView(View):
 		#check if user is present in the database -> moved to backend
 		stringsPresent = EmailUserNameAuthBackend.check_for_existance(inputEmail_Username)
 
-		#if stringsPresent is not None:
-		#	pass
-		#	# will include sending email message to users email address
-		#else: 
-		pass
+		if stringsPresent is not None:
+			# will include sending email message to users email address
+			send_mail("Test Subject", "here is the message", "cinc@seznam.cz",['dimitrijenko@gmail.com'])
+		else: 
+			pass
 
 
 	def get(self, request):
