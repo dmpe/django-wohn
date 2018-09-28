@@ -53,7 +53,7 @@ class ResetPasswordStepOneView(View):
 	"""
 	template_name = 'reset_password.html'
 
-	def post():
+	def post(self, request):
 		inputEmail_Username = request.POST.get('inputEmail_Username', False)
 
 		#check if user is present in the database -> moved to backend
@@ -63,21 +63,21 @@ class ResetPasswordStepOneView(View):
 		#	pass
 		#	# will include sending email message to users email address
 		#else: 
-		#	pass
+		pass
 
 
 	def get(self, request):
 		return render(request, self.template_name)
 
 
-def ResetPasswordNewStepTwoView(request):
+def ResetPasswordNewStepTwoView(View):
 	"""
 	at this stage, a token should have been send to the user via email
 	user clicks
 	"""
 	template_name = 'reset_password_new.html'
 
-	def post():
+	def post(self, request):
 		pass
 
 	def get(self, request):	
