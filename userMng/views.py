@@ -1,6 +1,7 @@
 from django.shortcuts import *
 from django.http import HttpResponse
 from django import forms
+from django.core.mail import *
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth import login as django_login
 from django.views import View
@@ -35,18 +36,58 @@ def administrationView(request):
 def administrationView_UserProfile(request):
 	return render(request, 'administrace/user_profile.html')
 
-def new_password(request):
-	return render(request, 'new_password.html')
-
-def reset_password(request):
-	return render(request, 'reset_password.html')
-
 ################
 #######
 ####### Class based views
 #######
 ################
 
+
+###################################
+################
+################ Passowrd Reset
+################
+###################################
+class ResetPasswordStepOneView(View):
+	"""
+	"""
+	template_name = 'reset_password.html'
+
+	def post():
+		inputEmail_Username = request.POST.get('inputEmail_Username', False)
+
+		#check if user is present in the database -> moved to backend
+		stringsPresent = EmailUserNameAuthBackend.check_for_existance(inputEmail_Username)
+
+		#if stringsPresent is not None:
+		#	pass
+		#	# will include sending email message to users email address
+		#else: 
+		#	pass
+
+
+	def get(self, request):
+		return render(request, self.template_name)
+
+
+def ResetPasswordNewStepTwoView(request):
+	"""
+	at this stage, a token should have been send to the user via email
+	user clicks
+	"""
+	template_name = 'reset_password_new.html'
+
+	def post():
+		pass
+
+	def get(self, request):	
+		return render(request, self.template_name)
+
+###################################
+################
+################ Registration
+################
+###################################
 class RegistrationView(CreateView):
 	"""docstring for RegistrationView
 	"""
@@ -80,6 +121,11 @@ class RegistrationView(CreateView):
 		# if get request, just render the template, with form
 		return render(request, self.template_name)
 
+###################################
+################
+################ Log In + Log Out
+################
+###################################
 class LoginView(View):
 	"""Uses class based view
 	"""

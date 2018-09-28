@@ -9,8 +9,7 @@ class EmailUserNameAuthBackend(ModelBackend):
 	By default, username/password is used and this 
 	extends this with email/password.
 
-	Works on /admin/
-	To be tested on /administration/
+	Should work on /admin/ and on /administration/
 	"""
 	
 	def get_user(self, user_id):
@@ -34,4 +33,23 @@ class EmailUserNameAuthBackend(ModelBackend):
 					return user
 			except myUser.DoesNotExist:
 				return None
-				
+	
+	def check_for_existance(self, inputString= None):
+		"""
+		check in the database if the username or email does exist
+		if yes, return positive bool value
+
+		:param inputString: either it can be a username or email
+
+		:returns: bool value if user/email is found
+		"""
+		presentInSystem = False
+		us_name = myUser.objects.exclude(pk=self.instance.pk).filter(username=inputString).exists()
+		us_email = myUser.objects.exclude(pk=self.instance.pk).filter(email=inputString).exists()
+
+		if us_name or us_email is True:
+			presentInSystem = True
+		else:
+			presentInSystem = False
+			
+		return presentInSystem
