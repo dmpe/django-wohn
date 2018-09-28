@@ -59,29 +59,25 @@ class RegistrationView(CreateView):
 		inputNewPassword = request.POST.get('inputNewPassword', False)
 		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
 
-		##if inputNewPassword == inputConfirmNewPassword:
-		ur = myUser.objects.create_user(inputUsername, inputEmail)
-		ur.set_password(inputNewPassword)
-		ur.is_active = True
-		ur.save()
+		# also validate on the fronend
+		if inputNewPassword == inputConfirmNewPassword:
+			ur = myUser.objects.create_user(inputUsername, inputEmail)
+			ur.set_password(inputNewPassword)
+			ur.is_active = True
+			ur.save()
+		else: 
+			pass
 
-		#auser = EmailUserNameAuthBackend.authenticate(self, request, username = inputUsername, password = inputNewPassword)
-			
-		#try:
-		#	django_login(request, auser, backend = 'userMng.backends.EmailUserNameAuthBackend')
-		#except ValueError:
-		#	return redirect(settings.LOGIN_URL)
-		
-		# change in the future into Adminisration_UserProfile
-		return redirect('user_profile')
+		auser = EmailUserNameAuthBackend.authenticate(self, request, username = inputUsername, password = inputNewPassword)
 
-		#else:
-		#	return redirect('/')
-
+		try:
+			django_login(request, auser, backend = 'userMng.backends.EmailUserNameAuthBackend')
+			return redirect('user_profile')
+		except Exception as e:
+			return redirect(settings.LOGIN_URL)
 
 	def get(self, request):
-		# if get request just render the template, with form
-		#myRegistrationForm = RegisterForm()
+		# if get request, just render the template, with form
 		return render(request, self.template_name)
 
 class LoginView(View):
@@ -99,9 +95,9 @@ class LoginView(View):
 			# TODO: add some messages via GH #17
 			return redirect(settings.LOGIN_URL)
 		else: 	
-			# whether the user is active or not is already checked by the 
-			# ModelBackend we use
 			try:
+				# whether the user is active or not is already checked by the 
+				# ModelBackend we use
 				django_login(request, auth_user, backend = 'userMng.backends.EmailUserNameAuthBackend')
 				return redirect('userMng_index')
 			except Exception as e:
@@ -109,7 +105,6 @@ class LoginView(View):
 
 	def get(self, request):
 		# if get request just render the template, with form
-		#myLoginForm = LoginForm()
 		return render(request, self.template_name)
 
 class LogoutView(View):
