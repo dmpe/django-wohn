@@ -12,7 +12,7 @@
 {% if user.is_authenticated %}
 	<p class="lead">Hi {{ user.username }}!</p>
 	<p>Check your profile</p>
-	<button href="{% url 'user_profile' %}" class="btn btn-warning btn-lg" type="button" role="button">My profile</button>
+	<a href="{% url 'user_profile' %}" class="btn btn-warning btn-lg" type="button" role="button">My profile</a>
 {% else %}
   <p>You are not logged in</p>
   <button href="{% url 'login' %}">login</button>
