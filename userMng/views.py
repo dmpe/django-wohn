@@ -93,28 +93,19 @@ class LoginView(View):
 		# recieve
 		username_Email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
+		auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
 		
-		# also try with self
-		try:
-			auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
-			django_login(request, auth_user, backend = 'userMng.backends.EmailUserNameAuthBackend')
-		except Exception as e:
-			raise e
-
-		return redirect('userMng_index')
-		#if auth_user is None:
-		#	# TODO: add some messages via GH #17
-		#	
-		#else: 	
-		#	# whether the user is active or not is already checked by the 
-		#	# ModelBackend we use
-			
-			#return redirect(settings.LOGIN_URL)
-			
-			
-			
-
-		#return render(request, self.template_name)
+		if auth_user is None:
+			# TODO: add some messages via GH #17
+			return redirect(settings.LOGIN_URL)
+		else: 	
+			# whether the user is active or not is already checked by the 
+			# ModelBackend we use
+			try:
+				django_login(request, auth_user, backend = 'userMng.backends.EmailUserNameAuthBackend')
+				return redirect('userMng_index')
+			except Exception as e:
+				raise e
 
 	def get(self, request):
 		# if get request just render the template, with form
