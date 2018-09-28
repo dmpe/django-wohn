@@ -44,12 +44,12 @@ class EmailUserNameAuthBackend(ModelBackend):
 		:returns: bool value if user/email is found
 		"""
 		presentInSystem = False
-		us_name = myUser.objects.exclude(pk=self.instance.pk).filter(username=inputString).exists()
-		us_email = myUser.objects.exclude(pk=self.instance.pk).filter(email=inputString).exists()
+		us_name = myUser.objects.filter(username=inputString).exists()
+		us_email = myUser.objects.filter(email=inputString).exists()
 
 		if us_name or us_email is True:
 			presentInSystem = True
 		else:
 			presentInSystem = False
-			
+
 		return presentInSystem
