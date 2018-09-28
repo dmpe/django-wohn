@@ -6,6 +6,8 @@ from django.contrib.auth import logout as django_logout
 from django.contrib.auth import login as django_login
 from django.views import View
 from django.conf import settings
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
@@ -53,6 +55,19 @@ class ResetPasswordStepOneView(View):
 	"""
 	template_name = 'reset_password.html'
 
+	def prepare_email(self, request, email_to_send= None):
+		subject = 'B40.cz: Password Reset is here'
+		from_email = os.environ.get("EMAIL_HOST_USER")
+		to = self.email_to_send
+
+		html_message = render_to_string('reset_password_email.html', {'context': 'values'})
+		plain_message = strip_tags(html_message)
+
+		try:
+			submit.mail(subject, plain_message, from_email, [to], html_message=html_message)
+		except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+
 	def post(self, request):
 		inputEmail_Username = request.POST.get('inputEmail_Username', False)
 
@@ -61,10 +76,11 @@ class ResetPasswordStepOneView(View):
 
 		if stringsPresent is not None:
 			# will include sending email message to users email address
-			send_mail("Test Subject", "here is the message", "jako.bych.tohle.chtel@post.cz",['dimitrijenko@gmail.com'])
+			send_mail("Test Subject", "here is the message",['dimitrijenko@gmail.com'])
 		else: 
 			pass
 
+		return redirect('')
 
 	def get(self, request):
 		return render(request, self.template_name)
