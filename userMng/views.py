@@ -61,7 +61,7 @@ class ResetPasswordStepOneView(View):
 
 		if stringsPresent is not None:
 			# will include sending email message to users email address
-			send_mail("Test Subject", "here is the message", "cinc@seznam.cz",['dimitrijenko@gmail.com'])
+			send_mail("Test Subject", "here is the message", "jako.bych.tohle.chtel@post.cz",['dimitrijenko@gmail.com'])
 		else: 
 			pass
 
