@@ -62,7 +62,8 @@ class RegistrationView(CreateView):
 		#	django_login(request, auser, backend = 'userMng.backends.EmailUserNameAuthBackend')
 		#except ValueError:
 		#	return redirect(settings.LOGIN_URL)
-
+		
+		# change in the future into Adminisration_UserProfile
 		return AdministrationView.as_view()(request)
 
 		#else:
@@ -71,8 +72,8 @@ class RegistrationView(CreateView):
 
 	def get(self, request):
 		# if get request just render the template, with form
-		myRegistrationForm = RegisterForm()
-		return render(request, self.template_name, {'form': myRegistrationForm})
+		#myRegistrationForm = RegisterForm()
+		return render(request, self.template_name)
 
 class LoginView(View):
 	"""Uses class based view
@@ -100,8 +101,8 @@ class LoginView(View):
 
 	def get(self, request):
 		# if get request just render the template, with form
-		myLoginForm = LoginForm()
-		return render(request, self.template_name, {'form' : myLoginForm})
+		#myLoginForm = LoginForm()
+		return render(request, self.template_name)
 
 def new_password(request):
 	return render(request, 'new_password.html')
