@@ -35,7 +35,7 @@
 
 				<div class="d-flex flex-row">
 					{% if user.is_authenticated is True %}
-					<a href="{% url 'administrace' %}" type="button" class="btn btn- m-1">My Profile</a>
+					<a href="{% url 'userMng_index' %}" type="button" class="btn btn-warning m-1">My Profile</a>
 					<a href="{% url 'logout' %}" type="button" class="btn btn-dark m-1">Logout</a>	
 					{% else %}
 					{# This is for anonymous user #}
