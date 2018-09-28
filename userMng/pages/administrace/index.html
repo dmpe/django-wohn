@@ -10,10 +10,15 @@
 <div class="container-fluid">
 
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+	<p class="lead">Hi {{ user.username }}!</p>
+	<p>Check your profile</p>
+	<button href="{% url 'user_profile' %}" class="btn btn-warning btn-lg" type="button" role="button">My profile</button>
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
+  <button href="{% url 'login' %}">login</button>
 {% endif %}
 </div>
+
+
+
 {% endblock %}

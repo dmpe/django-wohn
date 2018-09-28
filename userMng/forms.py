@@ -19,4 +19,7 @@ class LoginForm(forms.Form):
 	inputEmail_Username = forms.CharField(widget=forms.TextInput())
 	inputNewPassword = forms.CharField(widget=forms.PasswordInput())
 		
-		
+class ResetFormStepOne(forms.Form):
+	"""docstring for ResetFormStepOne
+	"""
+	inputEmail_Username = forms.CharField(widget=forms.TextInput())

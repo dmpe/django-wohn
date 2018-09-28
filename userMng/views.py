@@ -45,11 +45,11 @@ def reset_password(request):
 #######
 ####### Class based views
 #######
-################y
+################
+
 class RegistrationView(CreateView):
 	"""docstring for RegistrationView
 	"""
-	
 	template_name = 'signup_login/register.html'
 
 	def post(self, request):
@@ -72,7 +72,7 @@ class RegistrationView(CreateView):
 
 		try:
 			django_login(request, auser, backend = 'userMng.backends.EmailUserNameAuthBackend')
-			return redirect('user_profile')
+			return redirect('userMng_index')
 		except Exception as e:
 			return redirect(settings.LOGIN_URL)
 
