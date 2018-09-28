@@ -89,17 +89,18 @@ class LoginView(View):
 		try:
 			auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
 			django_login(request, auth_user, backend = 'userMng.backends.EmailUserNameAuthBackend')
-			return AdministrationView.as_view()(self.request)
 		except Exception as e:
-			return redirect(settings.LOGIN_URL)
 			raise e
 
+		return AdministrationView.as_view()(request)
 		#if auth_user is None:
 		#	# TODO: add some messages via GH #17
 		#	
 		#else: 	
 		#	# whether the user is active or not is already checked by the 
 		#	# ModelBackend we use
+			
+			#return redirect(settings.LOGIN_URL)
 			
 			
 			
