@@ -21,22 +21,30 @@ from .models import myUser
 # forms from forms.py file
 from .forms import *
 
+
+################
+#######
+####### Function based views
+#######
+################
+
 # ADMINISTRATION
-class AdministrationView(View):
-	"""
-	"""
+def administrationView(self, request):
+	return render(request, 'administrace/index.html')
 
-	def get(self, request):
-		return render(request, 'administrace/index.html')
+def adminisration_UserProfile(self, request):
+	return render(request, 'administrace/user_profile.html')
 
-class Adminisration_UserProfile(View):
-	"""docstring for Adminisration_UserProfile
-	"""
-	
-	def get(self, request):
-		return render(request, 'administrace/user_profile.html')
+def new_password(request):
+	return render(request, 'new_password.html')
 
-# HEADER - Main Body
+def reset_password(request):
+	return render(request, 'reset_password.html')
+################
+#######
+####### Class based views
+#######
+################y
 class RegistrationView(CreateView):
 	"""docstring for RegistrationView
 	"""
@@ -92,7 +100,7 @@ class LoginView(View):
 		except Exception as e:
 			raise e
 
-		return AdministrationView.as_view()(request)
+		return redirect('administrationView')
 		#if auth_user is None:
 		#	# TODO: add some messages via GH #17
 		#	
@@ -111,12 +119,6 @@ class LoginView(View):
 		# if get request just render the template, with form
 		#myLoginForm = LoginForm()
 		return render(request, self.template_name)
-
-def new_password(request):
-	return render(request, 'new_password.html')
-
-def reset_password(request):
-	return render(request, 'reset_password.html')
 
 class LogoutView(View):
 	"""Class based view for logout
