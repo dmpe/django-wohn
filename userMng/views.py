@@ -94,7 +94,7 @@ class LoginView(View):
 		else: 	
 			# whether the user is active or not is already checked by the 
 			# ModelBackend we use
-			# django_login(request, auth_user, backend = 'userMng.backends.EmailUserNameAuthBackend')
+			django_login(request, auth_user, backend = 'userMng.backends.EmailUserNameAuthBackend')
 			return AdministrationView.as_view()(request)
 			
 
