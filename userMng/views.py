@@ -11,6 +11,7 @@ from django.conf import settings
 from django.template import *
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+import logging
 
 # used for logout redirect
 from core.views import *
@@ -26,6 +27,9 @@ from .forms import *
 
 # for sending emails with right headers
 from .mics import *
+
+# instance of a logger
+logger = logging.getLogger(__name__)
 
 ################
 #######
@@ -87,7 +91,8 @@ class ResetPasswordStepOneView(View):
 
 		#check if user is present in the database -> moved to backend
 		userPresent = EmailUserNameAuthBackend.check_for_existance(inputEmail_Username)
-		
+		logger.info(userPresent)
+
 		if userPresent is True:
 			if is_valid is True:
 				# inputEmail_Username is email
