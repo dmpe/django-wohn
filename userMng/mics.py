@@ -25,7 +25,7 @@ def valid_email(in_str= None):
 	applies idea that it must have @ and >=1 . after @
 	https://stackoverflow.com/a/8022584
 	"""
-	email_regex = re.compile(r'[^@]+@[^@]+\.[^@]+')
+	email_regex = re.compile(r"[^@]+@[^@]+\.[^@]+")
 	
 	valid = False
 

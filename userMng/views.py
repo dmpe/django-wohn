@@ -88,8 +88,9 @@ class ResetPasswordStepOneView(View):
 		inputEmail_Username = request.POST.get('inputEmail_Username', False)
 		
 		is_valid = valid_email(inputEmail_Username)
+		print(is_valid)
 		logger.info(is_valid)
-		
+
 		#check if user is present in the database -> moved to backend
 		userPresent = EmailUserNameAuthBackend.check_for_existance(inputEmail_Username)
 		logger.info(userPresent)
