@@ -44,6 +44,7 @@ class EmailUserNameAuthBackend(ModelBackend):
 
 		:returns: bool value if user/email is found
 		"""
+		self.inputString = inputString
 		presentInSystem = False
 		is_valid = valid_email(in_str = inputString)
 		print("in the checking function: is valid: " + str(is_valid))
