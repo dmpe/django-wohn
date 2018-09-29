@@ -1,7 +1,7 @@
 from django import forms
 from django.shortcuts import *
 from django.http import HttpResponse
-from django.core.mail import submit_mail
+from django.core.mail import send_mail
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth import login as django_login
 from django.views import View
@@ -77,7 +77,7 @@ class ResetPasswordStepOneView(View):
 		plain_message = strip_tags(html_message)
 
 		try:
-			submit_mail(subject, plain_message, from_email, [to], html_message=html_message)
+			send_mail(subject, plain_message, from_email, [to], html_message=html_message)
 		except BadHeaderError:
 			return HttpResponse('Invalid header found.')
 
