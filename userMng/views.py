@@ -63,7 +63,7 @@ class ResetPasswordStepOneView(View):
 
 	def prepare_email(self, request, email_to_send = None):
 		subject = 'B40.cz: Password Reset'
-		from_email = DEFAULT_FROM_EMAIL
+		from_email = settings.DEFAULT_FROM_EMAIL
 		to = email_to_send
 
 		client_headers = http_headers(request)
