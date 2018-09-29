@@ -29,9 +29,9 @@ def valid_email(in_str= None):
 	
 	email_valid = False
 
-	if email_regex.match(in_str):
-		email_valid  = True
+	if not email_regex.match(in_str):
+		email_valid = False
 	else:
-		email_valid  = False
+		email_valid = True
 
 	return email_valid
