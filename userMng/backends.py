@@ -2,6 +2,7 @@ from django.conf import settings
 from django.contrib.auth.hashers import *
 from django.contrib.auth.backends import ModelBackend
 from .models import myUser
+from .mics import *
 
 class EmailUserNameAuthBackend(ModelBackend):
 	"""This is used for authentication of myUsers
@@ -44,10 +45,15 @@ class EmailUserNameAuthBackend(ModelBackend):
 		:returns: bool value if user/email is found
 		"""
 		presentInSystem = False
-		us_name = myUser.objects.filter(username=inputString).exists()
-		us_email = myUser.objects.filter(email=inputString).exists()
+		is_valid = valid_email(inputString)
 
-		if us_name or us_email is True:
+		if is_valid is True:
+			user_exists = myUser.objects.filter(email=inputString).exists()
+
+		else:	
+			user_exists = myUser.objects.filter(username=inputString).exists()
+
+		if user_exists is True:
 			presentInSystem = True
 		else:
 			presentInSystem = False
