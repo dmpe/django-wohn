@@ -68,10 +68,10 @@ class ResetPasswordStepOneView(View):
 
 		client_headers = http_headers(request)
 
-		cntxt = {"username": username, "token": "token", 
-			"password_expire": PASSWORD_RESET_TIMEOUT_DAYS, 
-			"operating_system":client_headers[0], "ip_address":client_headers[1], 
-			"browser":client_headers[2], "browser_version":client_headers[3]}
+		cntxt = {"username": "username", "token": "token", 
+			"password_expire": settings.PASSWORD_RESET_TIMEOUT_DAYS, 
+			"operating_system": client_headers[0], "ip_address": client_headers[1], 
+			"browser": client_headers[2], "browser_version": client_headers[3]}
 
 		html_message = render_to_string('reset_password_email.html', cntxt)
 		plain_message = strip_tags(html_message)
