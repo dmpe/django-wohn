@@ -81,6 +81,8 @@ class ResetPasswordStepOneView(View):
 		except BadHeaderError:
 			return HttpResponse('Invalid header found.')
 
+		return None
+
 	def post(self, request):
 		"""
 		sends email message to the user's email address
@@ -94,15 +96,15 @@ class ResetPasswordStepOneView(View):
 		#check if user is present in the database -> moved to backend
 		userPresent = EmailUserNameAuthBackend.check_for_existance(self, inputEmail_Username)
 		print(userPresent)
-		logger.info(userPresent)
+		#logger.info(userPresent)
 
 		if userPresent is True:
 			if is_valid is True:
 				# inputEmail_Username is email
-				prepare_email(self, request, email_to_send = "dimitrijenko@gmail.com")
+				self.prepare_email(self, request, email_to_send = "dimitrijenko@gmail.com")
 			else:
 				# it is username
-				prepare_email(self, request, email_to_send = "dimitrijenko@gmail.com")
+				self.prepare_email(self, request, email_to_send = "dimitrijenko@gmail.com")
 		else: 
 			pass
 
@@ -110,7 +112,6 @@ class ResetPasswordStepOneView(View):
 
 	def get(self, request):
 		return render(request, self.template_name)
-
 
 class ResetPasswordNewStepTwoView(View):
 	"""
