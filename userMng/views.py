@@ -8,8 +8,8 @@ from django.views import View
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
 from django.conf import settings
-from django.template.loader import render_to_string
 from django.template import *
+from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
 # used for logout redirect
@@ -87,7 +87,7 @@ class ResetPasswordStepOneView(View):
 
 		#check if user is present in the database -> moved to backend
 		userPresent = EmailUserNameAuthBackend.check_for_existance(inputEmail_Username)
-
+		
 		if userPresent is True:
 			if is_valid is True:
 				# inputEmail_Username is email
