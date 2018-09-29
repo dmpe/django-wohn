@@ -61,12 +61,12 @@ class ResetPasswordStepOneView(View):
 	"""
 	template_name = 'reset_password.html'
 
-	def prepare_email(self, request, email_to_send= None):
+	def prepare_email(self, request, email_to_send = None):
 		subject = 'B40.cz: Password Reset'
 		from_email = DEFAULT_FROM_EMAIL
-		to = self.email_to_send
+		to = email_to_send
 
-		client_headers = http_headers(self, request)
+		client_headers = http_headers(request)
 
 		cntxt = {"username": username, "token": "token", 
 			"password_expire": PASSWORD_RESET_TIMEOUT_DAYS, 
@@ -96,15 +96,14 @@ class ResetPasswordStepOneView(View):
 		#check if user is present in the database -> moved to backend
 		userPresent = EmailUserNameAuthBackend.check_for_existance(self, inputEmail_Username)
 		print(userPresent)
-		#logger.info(userPresent)
 
 		if userPresent is True:
 			if is_valid is True:
 				# inputEmail_Username is email
-				self.prepare_email(self, request, email_to_send = "dimitrijenko@gmail.com")
+				self.prepare_email(request, email_to_send = "dimitrijenko@gmail.com")
 			else:
 				# it is username
-				self.prepare_email(self, request, email_to_send = "dimitrijenko@gmail.com")
+				self.prepare_email(request, email_to_send = "dimitrijenko@gmail.com")
 		else: 
 			pass
 

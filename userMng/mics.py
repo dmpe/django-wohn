@@ -20,7 +20,7 @@ def http_headers(self, request):
 
 	return [operating_system, ip_address, browser, browser_version]
 
-def valid_email(in_str= None):
+def valid_email(in_str = None):
 	""" validating emails are mess
 	applies idea that it must have @ and >=1 . after @
 	https://stackoverflow.com/a/8022584
