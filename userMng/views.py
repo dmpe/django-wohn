@@ -75,7 +75,7 @@ class ResetPasswordStepOneView(View):
 		try:
 			submit.mail(subject, plain_message, from_email, [to], html_message=html_message)
 		except BadHeaderError:
-            return HttpResponse('Invalid header found.')
+			return HttpResponse('Invalid header found.')
 
 	def post(self, request):
 		"""
