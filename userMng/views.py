@@ -93,11 +93,12 @@ class ResetPasswordStepOneView(View):
 				# inputEmail_Username is email
 				prepare_email(self, request, email_to_send = inputEmail_Username)
 			else:
-				prepare_email(self, request, email_to_send = )
+				# it is username
+				prepare_email(self, request, email_to_send = "dimitrijenko@gmail.com")
 		else: 
 			pass
 
-		return redirect('')
+		return redirect('userMng_index')
 
 	def get(self, request):
 		return render(request, self.template_name)
