@@ -1,16 +1,16 @@
+from django import forms
 from django.shortcuts import *
 from django.http import HttpResponse
-from django import forms
 from django.core.mail import *
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth import login as django_login
 from django.views import View
-from django.conf import settings
-from django.template.loader import render_to_string
-from django.utils.html import strip_tags
-
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
+from django.conf import settings
+from django.template.loader import render_to_string
+from django.template import *
+from django.utils.html import strip_tags
 
 # used for logout redirect
 from core.views import *
@@ -24,6 +24,8 @@ from .models import myUser
 # forms from forms.py file
 from .forms import *
 
+# for sending emails with right headers
+from .mics import *
 
 ################
 #######
@@ -56,11 +58,18 @@ class ResetPasswordStepOneView(View):
 	template_name = 'reset_password.html'
 
 	def prepare_email(self, request, email_to_send= None):
-		subject = 'B40.cz: Password Reset is here'
-		from_email = os.environ.get("EMAIL_HOST_USER")
+		subject = 'B40.cz: Password Reset'
+		from_email = DEFAULT_FROM_EMAIL
 		to = self.email_to_send
 
-		html_message = render_to_string('reset_password_email.html', {'context': 'values'})
+		client_headers = http_headers(self, request)
+
+		cntxt = {"username": username, "token": "token", 
+			"password_expire": PASSWORD_RESET_TIMEOUT_DAYS, 
+			"operating_system":client_headers[0], "ip_address":client_headers[1], 
+			"browser":client_headers[2], "browser_version":client_headers[3]}
+
+		html_message = render_to_string('reset_password_email.html', cntxt)
 		plain_message = strip_tags(html_message)
 
 		try:
@@ -69,14 +78,22 @@ class ResetPasswordStepOneView(View):
             return HttpResponse('Invalid header found.')
 
 	def post(self, request):
+		"""
+		sends email message to the user's email address
+		"""
 		inputEmail_Username = request.POST.get('inputEmail_Username', False)
+		
+		is_valid = valid_email(inputEmail_Username)
 
 		#check if user is present in the database -> moved to backend
-		stringsPresent = EmailUserNameAuthBackend.check_for_existance(inputEmail_Username)
+		userPresent = EmailUserNameAuthBackend.check_for_existance(inputEmail_Username)
 
-		if stringsPresent is not None:
-			# will include sending email message to users email address
-			send_mail("Test Subject", "here is the message",['dimitrijenko@gmail.com'])
+		if userPresent is True:
+			if is_valid is True:
+				# inputEmail_Username is email
+				prepare_email(self, request, email_to_send = inputEmail_Username)
+			else:
+				prepare_email(self, request, email_to_send = )
 		else: 
 			pass
 
