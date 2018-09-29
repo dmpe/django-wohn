@@ -27,11 +27,11 @@ def valid_email(in_str= None):
 	"""
 	email_regex = re.compile(r"[^@]+@[^@]+\.[^@]+")
 	
-	valid = False
+	email_valid = False
 
 	if email_regex.match(in_str):
-		valid  = True
+		email_valid  = True
 	else:
-		valid  = False
+		email_valid  = False
 
-	return valid
+	return email_valid

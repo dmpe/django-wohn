@@ -49,7 +49,6 @@ class EmailUserNameAuthBackend(ModelBackend):
 
 		if is_valid is True:
 			user_exists = myUser.objects.filter(email=inputString).exists()
-
 		else:	
 			user_exists = myUser.objects.filter(username=inputString).exists()
 
