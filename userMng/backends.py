@@ -35,36 +35,34 @@ class EmailUserNameAuthBackend(ModelBackend):
 			except myUser.DoesNotExist:
 				return None
 	
-	def check_for_existance(self, inputString= None):
+	def check_for_user_existance(self, inputString= None):
 		"""
 		check in the database if the username or email does exist
 		if yes, return positive bool value
 
 		:param inputString: either it can be a username or email
 
-		:returns: bool value if user/email is found
+		:returns: user object if user found and bool value (TRUE, FALSE)
 		"""
-		#self.inputString = inputString
-
-		# define username and email
-		getUsername, getEmail, presentInSystem = None, None, False
+		# define object and bool value
+		getUserObject, presentInSystem = None, False
 		is_valid = valid_email(in_str = inputString)
 
 		#print("in the checking function: is valid: " + str(is_valid))
 
 		if is_valid is True:
-			#if the input is email
+			#if the input was email
 			try:
-				user_exists = myUser.objects.filter(email=inputString).exists()
-				getEmail = inputString
-				getUsername = myUser.objects.filter(email=inputString).first().get_username()
+				user_exists_id = myUser.objects.filter(email=inputString).first().pk
+				getUserObject = myUser.objects.get(id=user_exists_id)
+				user_exists = True
 			except ObjectDoesNotExist:
 				print("user does not exist or his email/name not selected")
 		else:
 			try:
-				user_exists = myUser.objects.filter(username=inputString).exists()
-				getEmail = myUser.objects.filter(username=inputString).first().email
-				getUsername = inputString
+				user_exists_id = myUser.objects.filter(username=inputString).first().pk
+				getUserObject = myUser.objects.get(id=user_exists_id)
+				user_exists = True
 			except ObjectDoesNotExist:
 				print("user does not exist or his email/name not selected #2")
 					
@@ -75,4 +73,4 @@ class EmailUserNameAuthBackend(ModelBackend):
 
 		#print("in the checking function: return value is " + str(presentInSystem))
 		
-		return [presentInSystem, getUsername, getEmail]
+		return [presentInSystem, getUserObject]
