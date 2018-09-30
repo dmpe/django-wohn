@@ -61,14 +61,14 @@ class ResetPasswordStepOneView(View):
 	"""
 	template_name = 'reset_password.html'
 
-	def prepare_email(self, request, email_to_send = None):
+	def prepare_email(self, request, userPresent_username = None, email_to_send = None):
 		subject = 'B40.cz: Password Reset'
 		from_email = settings.DEFAULT_FROM_EMAIL
 		to = email_to_send
 
 		client_headers = http_headers(request)
 
-		cntxt = {"username": "username", "token": "token", 
+		cntxt = {"username": userPresent_username, "token": "token", 
 			"password_expire": settings.PASSWORD_RESET_TIMEOUT_DAYS, 
 			"operating_system": client_headers[0], "ip_address": client_headers[1], 
 			"browser": client_headers[2], "browser_version": client_headers[3]}
@@ -89,21 +89,16 @@ class ResetPasswordStepOneView(View):
 		"""
 		inputEmail_Username = request.POST.get('inputEmail_Username', False)
 
-		is_valid = valid_email(inputEmail_Username)
-
 		#check if user is present in the database -> moved to backend
 		userPresent = EmailUserNameAuthBackend.check_for_existance(self, inputEmail_Username)
 
-		if userPresent is True:
-			if is_valid is True:
-				# inputEmail_Username is email
-				self.prepare_email(request, email_to_send = "dimitrijenko@gmail.com")
-			else:
-				# it is username
-				self.prepare_email(request, email_to_send = "dimitrijenko@gmail.com")
+		if userPresent[0] is True:
+			self.prepare_email(request, userPresent[1], email_to_send = "dimitrijenko@gmail.com")
 		else: 
+			# send message that account was incorrect/not found/try again
 			pass
 
+		# here send message to the frondend as well
 		return redirect('core_index')
 
 	def get(self, request):

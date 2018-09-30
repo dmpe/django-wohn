@@ -44,17 +44,23 @@ class EmailUserNameAuthBackend(ModelBackend):
 
 		:returns: bool value if user/email is found
 		"""
-		self.inputString = inputString
+		#self.inputString = inputString
 
-		presentInSystem = False
+		# define username and email
+		getUsername, getEmail, presentInSystem = None, None, False
 		is_valid = valid_email(in_str = inputString)
 
 		#print("in the checking function: is valid: " + str(is_valid))
 
 		if is_valid is True:
+			#if the input is email
 			user_exists = myUser.objects.filter(email=inputString).exists()
-		else:	
+			getEmail = inputString
+			getUsername = myUser.objects.filter(email=inputString).get_username()
+		else:
 			user_exists = myUser.objects.filter(username=inputString).exists()
+			getEmail = myUser.objects.filter(username=inputString).email
+			getUsername = inputString
 
 		if user_exists is True:
 			presentInSystem = True
@@ -63,4 +69,4 @@ class EmailUserNameAuthBackend(ModelBackend):
 
 		#print("in the checking function: return value is " + str(presentInSystem))
 		
-		return presentInSystem
+		return [presentInSystem, getUsername, getEmail]
