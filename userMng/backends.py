@@ -56,10 +56,10 @@ class EmailUserNameAuthBackend(ModelBackend):
 			#if the input is email
 			user_exists = myUser.objects.filter(email=inputString).exists()
 			getEmail = inputString
-			getUsername = myUser.objects.filter(email=inputString).get_username()
+			getUsername = myUser.objects.filter(email=inputString).first().get_username()
 		else:
 			user_exists = myUser.objects.filter(username=inputString).exists()
-			getEmail = myUser.objects.filter(username=inputString).email
+			getEmail = myUser.objects.filter(username=inputString).first().email
 			getUsername = inputString
 
 		if user_exists is True:
