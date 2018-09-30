@@ -96,7 +96,7 @@ class ResetPasswordStepOneView(View):
 		tk = token_obj.make_token(userPresent[1])
 
 		if userPresent[0] is True:
-			self.prepare_email(request, userPresent[1].get_username(), tk, userPresent_email = "dimitrijenko@gmail.com")
+			self.prepare_email(request, userPresent[1].get_username(), userPresent_email = "dimitrijenko@gmail.com", tk)
 		else: 
 			# TODO: send message that account was incorrect/not found/try again
 			pass
