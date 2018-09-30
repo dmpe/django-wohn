@@ -65,7 +65,6 @@ class ResetPasswordStepOneView(View):
 	def prepare_email(self, request, userPresent_username = None, userPresent_email = None, userPresent_token = None):
 		subject = 'B40.cz: Password Reset'
 		from_email = settings.DEFAULT_FROM_EMAIL
-		to = userPresent_email
 
 		client_headers = http_headers(request)
 
@@ -78,7 +77,7 @@ class ResetPasswordStepOneView(View):
 		plain_message = strip_tags(html_message)
 
 		try:
-			send_mail(subject, plain_message, from_email, [to], html_message=html_message)
+			send_mail(subject, plain_message, from_email, [userPresent_email], html_message=html_message)
 		except BadHeaderError:
 			return HttpResponse('Invalid header found.')
 
@@ -96,7 +95,7 @@ class ResetPasswordStepOneView(View):
 		tk = token_obj.make_token(userPresent[1])
 
 		if userPresent[0] is True:
-			self.prepare_email(request, userPresent[1].get_username(), userPresent_email = "dimitrijenko@gmail.com", tk)
+			self.prepare_email(request, userPresent_username = userPresent[1].get_username(), userPresent_email = "dimitrijenko@gmail.com", userPresent_token= tk)
 		else: 
 			# TODO: send message that account was incorrect/not found/try again
 			pass
