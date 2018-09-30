@@ -54,14 +54,20 @@ class EmailUserNameAuthBackend(ModelBackend):
 
 		if is_valid is True:
 			#if the input is email
-			user_exists = myUser.objects.filter(email=inputString).exists()
-			getEmail = inputString
-			getUsername = myUser.objects.filter(email=inputString).first().get_username()
+			try:
+				user_exists = myUser.objects.filter(email=inputString).exists()
+				getEmail = inputString
+				getUsername = myUser.objects.filter(email=inputString).first().get_username()
+			except ObjectDoesNotExist:
+				print("user does not exist or his email/name not selected")
 		else:
-			user_exists = myUser.objects.filter(username=inputString).exists()
-			getEmail = myUser.objects.filter(username=inputString).first().email
-			getUsername = inputString
-
+			try:
+				user_exists = myUser.objects.filter(username=inputString).exists()
+				getEmail = myUser.objects.filter(username=inputString).first().email
+				getUsername = inputString
+			except ObjectDoesNotExist:
+				print("user does not exist or his email/name not selected #2")
+					
 		if user_exists is True:
 			presentInSystem = True
 		else:
