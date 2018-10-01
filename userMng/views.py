@@ -10,7 +10,8 @@ from django.views.generic.edit import CreateView
 from django.conf import settings
 from django.template import *
 from django.template.loader import render_to_string
-from django.utils.html import strip_tags
+from django.utils.html import *
+from django.utils.encoding import *
 from django.contrib.auth.tokens import *
 import logging
 
@@ -62,14 +63,15 @@ class ResetPasswordStepOneView(View):
 	"""
 	template_name = 'reset_password.html'
 
-	def prepare_email(self, request, userPresent_username = None, userPresent_email = None, userPresent_token = None):
+	def prepare_email(self, request, userPresent_username = None, 
+		userPresent_email = None, userPresent_token = None, userPresent_uid = None):
 		subject = 'B40.cz: Password Reset'
 		from_email = settings.DEFAULT_FROM_EMAIL
 
 		client_headers = http_headers(request)
 
 		cntxt = {"username": userPresent_username, "token": userPresent_token, 
-			"password_expire": settings.PASSWORD_RESET_TIMEOUT_DAYS, 
+			"password_expire": settings.PASSWORD_RESET_TIMEOUT_DAYS, "uid": userPresent_uid,
 			"operating_system": client_headers[0], "ip_address": client_headers[1], 
 			"browser": client_headers[2], "browser_version": client_headers[3]}
 
@@ -93,9 +95,12 @@ class ResetPasswordStepOneView(View):
 		#check if user is present in the database -> moved to backend
 		userPresent = EmailUserNameAuthBackend.check_for_user_existance(self, inputEmail_Username)
 		tk = token_obj.make_token(userPresent[1])
+		uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk))
 
 		if userPresent[0] is True:
-			self.prepare_email(request, userPresent_username = userPresent[1].get_username(), userPresent_email = "dimitrijenko@gmail.com", userPresent_token= tk)
+			self.prepare_email(request, userPresent_username = userPresent[1].get_username(), 
+				userPresent_email = "dimitrijenko@gmail.com", 
+				userPresent_token= tk, userPresent_uid= uid)
 		else: 
 			# TODO: send message that account was incorrect/not found/try again
 			pass
