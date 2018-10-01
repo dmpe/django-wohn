@@ -109,7 +109,7 @@ class ResetPasswordStepOneView(View):
 		# TODO: here send message to the frondend as well
 		return redirect('core_index')
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		return render(request, self.template_name)
 
 class ResetPasswordNewStepTwoView(View):
@@ -122,7 +122,7 @@ class ResetPasswordNewStepTwoView(View):
 	def post(self, request):
 		pass
 
-	def get(self, request):	
+	def get(self, request, *args, **kwargs):	
 		# TODO: should actually display error and not be displayed at all
 		return render(request, self.template_name)
 
