@@ -96,7 +96,7 @@ class ResetPasswordStepOneView(View):
 		#check if user is present in the database -> moved to backend
 		userPresent = EmailUserNameAuthBackend.check_for_user_existance(self, inputEmail_Username)
 		tk = token_obj.make_token(userPresent[1])
-		uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk))
+		uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk)).decode()
 
 		if userPresent[0] is True:
 			self.prepare_email(request, userPresent_username = userPresent[1].get_username(), 
