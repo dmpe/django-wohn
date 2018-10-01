@@ -91,7 +91,7 @@ class ResetPasswordStepOneView(View):
 		token_obj = PasswordResetTokenGenerator()
 
 		#check if user is present in the database -> moved to backend
-		userPresent = EmailUserNameAuthBackend.check_for_user_existance(inputEmail_Username)
+		userPresent = check_for_user_existance(inputEmail_Username)
 		tk = token_obj.make_token(userPresent[1])
 
 		if userPresent[0] is True:
