@@ -11,6 +11,7 @@ from django.conf import settings
 from django.template import *
 from django.template.loader import render_to_string
 from django.utils.html import *
+from django.utils.http import *
 from django.utils.encoding import *
 from django.contrib.auth.tokens import *
 import logging
