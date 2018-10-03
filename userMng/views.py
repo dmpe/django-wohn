@@ -146,12 +146,12 @@ class ResetPasswordNewStepTwoView(View):
 			myuser.save()
 
 			messages.add_message(request, messages.SUCCESS, 
-				'<h6 class=''alert-heading''>Your Password has been changed!</h6>'
-				'<p>You can <a href="{% url ''login'' %}" class="alert-link">now login using new credentials on the login page</a>.</p>')
+				mark_safe('<h6 class=''alert-heading''>Your Password has been changed!</h6>'
+				'<p>You can <a href="'{% url 'login' %}'" class="alert-link">now login using new credentials on the login page</a>.</p>'))
 		else:
 			messages.add_message(request, messages.WARNING, 
-				'<h6 class=''alert-heading''>Two passwords do not match</h6>'
-				'<p>Make sure that they are same by checking the capital letters.</p>')
+				mark_safe('<h6 class=''alert-heading''>Two passwords do not match</h6>'
+				'<p>Make sure that they are same by checking the capital letters.</p>'))
 
 		return render(request, self.template_name)
 
