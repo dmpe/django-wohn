@@ -48,8 +48,6 @@ class EmailUserNameAuthBackend(ModelBackend):
 		getUserObject, presentInSystem = None, False
 		is_valid = valid_email(in_str = inputString)
 
-		#print("in the checking function: is valid: " + str(is_valid))
-
 		if is_valid is True:
 			#if the input was email
 			try:
@@ -71,6 +69,7 @@ class EmailUserNameAuthBackend(ModelBackend):
 		else:
 			presentInSystem = False
 
-		#print("in the checking function: return value is " + str(presentInSystem))
+		print("in the checking function: return value is " + str(presentInSystem))
+		print("in the checking function: return value is " + str(getUserObject))
 		
 		return [presentInSystem, getUserObject]
