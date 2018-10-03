@@ -134,7 +134,7 @@ class ResetPasswordNewStepTwoView(View):
 		get the user for which we try to reset the password
 		"""
 		self.user = user
-	    super(ResetPasswordNewStepTwoView, self).__init__(*args, **kwargs)
+		super(ResetPasswordNewStepTwoView, self).__init__(*args, **kwargs)
 
 	def post(self, request):
 		inputNewPassword = request.POST.get('inputNewPassword', False)
