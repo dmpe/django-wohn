@@ -46,8 +46,6 @@ def get_uid_token(request):
 	return "test"
 	#[uid, token]
 
-
-
 def validate_password_reset(request):
 	"""
 	Take current URL and check whether token matches what one expects

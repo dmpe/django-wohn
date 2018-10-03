@@ -135,7 +135,7 @@ class ResetPasswordNewStepTwoView(View):
 		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
 		
 		# we dont know who is the user, hence need to fetch
-		get_uid_token(request)
+		# get_uid_token(request)
 
 		# if inputNewPassword == inputConfirmNewPassword:
 		# 	my_user.set_password(inputNewPassword)
@@ -154,6 +154,7 @@ class ResetPasswordNewStepTwoView(View):
 	def get(self, request, *args, **kwargs):	
 		# TODO: should actually display error and not be displayed at all
 		# actually this will never be displayed unless full url
+		get_uid_token(request)
 		return render(request, self.template_name)
 
 ###################################
