@@ -119,13 +119,14 @@ class ResetPasswordStepOneView(View):
 				mark_safe('<h6 class=''alert-heading''>Password reset was successful!</h6>'
 				'<p>Check your email now to set a new one.</p>'))
 
-			return HttpResponseRedirect('') 
 			#redirect('core_index')
 		else: 
 			messages.add_message(request, messages.ERROR, 
 				mark_safe('<h6 class=''alert-heading''>Password reset cannot proceed!</h6>'
 				'<p>Check your input as the user cound not be found in the database.</p>'
 				'<p>Please, try again.</p>'))
+
+		return render(request, self.template_name)
 
 	def get(self, request, *args, **kwargs):
 		return render(request, self.template_name)
