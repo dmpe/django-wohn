@@ -102,17 +102,15 @@ class ResetPasswordStepOneView(View):
 		if userPresent[0] is True:
 			tk = token_obj.make_token(userPresent[1])
 			uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk)).decode()
+
 			self.prepare_email(request, userPresent_username = userPresent[1].get_username(), 
 				userPresent_email = "dimitrijenko@gmail.com", 
 				userPresent_token= tk, userPresent_uid= uid)
 
-			# send message alert to the fronend
 			messages.add_message(request, messages.SUCCESS, 
 				mark_safe('<h6 class=''alert-heading''>Password reset was successful!</h6>'
 				'<p>Check your email now to set a new one.</p>'
 				'<p>You can now <strong>close</strong> this page.</p>'))
-
-			#redirect('core_index')
 		else: 
 			messages.add_message(request, messages.ERROR, 
 				mark_safe('<h6 class=''alert-heading''>Password reset cannot proceed!</h6>'
@@ -127,12 +125,34 @@ class ResetPasswordStepOneView(View):
 class ResetPasswordNewStepTwoView(View):
 	"""
 	at this stage, a token should have been send to the user via email
-	user clicks
+	user clicks, inputs password and should be redirected to the login screen
 	"""
 	template_name = 'reset_password_new.html'
 
+	def __init__(self, user, *args, **kwargs):
+		"""
+		get the user for which we try to reset the password
+		"""
+		self.user = user
+	    super(ResetPasswordNewStepTwoView, self).__init__(*args, **kwargs)
+
 	def post(self, request):
-		pass
+		inputNewPassword = request.POST.get('inputNewPassword', False)
+		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
+
+		if inputNewPassword == inputConfirmNewPassword:
+			self.user.set_password(inputNewPassword)
+			self.user.save()
+
+			messages.add_message(request, messages.SUCCESS, 
+				'<h6 class=''alert-heading''>Your Password has been changed!</h6>'
+				'<p>You can <a href="{% url ''login'' %}" class="alert-link">now login using new credentials on the login page</a>.</p>')
+		else:
+			messages.add_message(request, messages.WARNING, 
+				'<h6 class=''alert-heading''>Two passwords do not match</h6>'
+				'<p>Make sure that they are same by checking the capital letters.</p>')
+
+		return render(request, self.template_name)
 
 	def get(self, request, *args, **kwargs):	
 		# TODO: should actually display error and not be displayed at all
@@ -163,6 +183,7 @@ class RegistrationView(CreateView):
 			ur.is_active = True
 			ur.save()
 		else: 
+			# TODO Add message informing user about some error
 			pass
 
 		auser = EmailUserNameAuthBackend.authenticate(self, request, username = inputUsername, password = inputNewPassword)

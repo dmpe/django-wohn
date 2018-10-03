@@ -54,8 +54,6 @@ class EmailUserNameAuthBackend(ModelBackend):
 				user_exists_id = myUser.objects.filter(email=inputString).first().pk
 				getUserObject = myUser.objects.get(id=user_exists_id)
 				presentInSystem = True
-			except myUser.DoesNotExist:
-				print("user does not exist or his email/name not selected")
 			except BaseException:
 				pass
 		else:
@@ -63,12 +61,7 @@ class EmailUserNameAuthBackend(ModelBackend):
 				user_exists_id = myUser.objects.filter(username=inputString).first().pk
 				getUserObject = myUser.objects.get(id=user_exists_id)
 				presentInSystem = True
-			except myUser.DoesNotExist:
-				print("user does not exist or his email/name not selected #2")
 			except BaseException:	
 				pass
-
-		print("in the checking function: return value is " + str(presentInSystem))
-		print("in the checking function: return value is " + str(getUserObject))
 		
 		return [presentInSystem, getUserObject]
