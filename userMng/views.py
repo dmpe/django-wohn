@@ -65,12 +65,15 @@ def administrationView_UserProfile(request):
 ###################################
 class ResetPasswordStepOneView(View):
 	"""
+	This class takes an input from the post request and prepares & sends HTML
+	email to the user
+	TODO delete gmail
 	"""
 	template_name = 'reset_password.html'
 
 	def prepare_email(self, request, userPresent_username = None, 
 		userPresent_email = None, userPresent_token = None, userPresent_uid = None):
-	
+
 		subject = 'B40.cz: Password Reset'
 		from_email = settings.DEFAULT_FROM_EMAIL
 
@@ -127,7 +130,7 @@ class ResetPasswordStepOneView(View):
 class ResetPasswordNewStepTwoView(View):
 	"""
 	at this stage, a token should have been send to the user via email
-	user clicks, inputs password and should be redirected to the login screen
+	user clicks, inputs passwords and should be able to click and load the main login screen
 	"""
 	template_name = 'reset_password_new.html'
 
