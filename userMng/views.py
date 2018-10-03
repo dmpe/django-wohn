@@ -1,6 +1,6 @@
 from django import forms
 from django.shortcuts import *
-from django.http import HttpResponse
+from django.http import *
 from django.core.mail import send_mail
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth import login as django_login
@@ -119,7 +119,8 @@ class ResetPasswordStepOneView(View):
 				mark_safe('<h6 class=''alert-heading''>Password reset was successful!</h6>'
 				'<p>Check your email now to set a new one.</p>'))
 
-			#return redirect('core_index')
+			return HttpResponseRedirect('') 
+			#redirect('core_index')
 		else: 
 			messages.add_message(request, messages.ERROR, 
 				mark_safe('<h6 class=''alert-heading''>Password reset cannot proceed!</h6>'
