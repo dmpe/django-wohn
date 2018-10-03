@@ -4,7 +4,7 @@ from django.utils.html import *
 from django.utils.http import *
 from django.utils.encoding import *
 from django.contrib.auth.tokens import *
-
+from django.contrib.auth import *
 import re
 
 # replaced by logic in contrib.auth.tokens
