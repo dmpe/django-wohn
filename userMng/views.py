@@ -15,6 +15,7 @@ from django.template.loader import render_to_string
 from django.utils.html import *
 from django.utils.http import *
 from django.utils.encoding import *
+from django.urls import reverse
 # for messages
 from django.utils.safestring import *
 
@@ -147,7 +148,7 @@ class ResetPasswordNewStepTwoView(View):
 
 			messages.add_message(request, messages.SUCCESS, 
 				mark_safe(('<h6 class=''alert-heading''>Your Password has been changed!</h6>'
-				'<p>You can <a href="{0}" class="alert-link">now login using new credentials on the login page</a>.</p>').format(urlresolvers.reverse('LoginView'))))
+				'<p>You can <a href="{0}" class="alert-link">now login using new credentials on the login page</a>.</p>').format(reverse('LoginView'))))
 		else:
 			messages.add_message(request, messages.WARNING, 
 				mark_safe('<h6 class=''alert-heading''>Two passwords do not match</h6>'
