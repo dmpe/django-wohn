@@ -146,8 +146,8 @@ class ResetPasswordNewStepTwoView(View):
 			myuser.save()
 
 			messages.add_message(request, messages.SUCCESS, 
-				mark_safe('<h6 class=''alert-heading''>Your Password has been changed!</h6>'
-				'<p>You can <a href="'{% url 'login' %}'" class="alert-link">now login using new credentials on the login page</a>.</p>'))
+				mark_safe(('<h6 class=''alert-heading''>Your Password has been changed!</h6>'
+				'<p>You can <a href="{0}" class="alert-link">now login using new credentials on the login page</a>.</p>').format(urlresolvers.reverse('LoginView'))))
 		else:
 			messages.add_message(request, messages.WARNING, 
 				mark_safe('<h6 class=''alert-heading''>Two passwords do not match</h6>'
