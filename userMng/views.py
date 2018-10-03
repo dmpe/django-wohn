@@ -142,8 +142,8 @@ class ResetPasswordNewStepTwoView(View):
 		myuser = validate_password_reset(request)
 
 		if myuser is not None and inputNewPassword == inputConfirmNewPassword:
-			my_user.set_password(inputNewPassword)
-			my_user.save()
+			myuser.set_password(inputNewPassword)
+			myuser.save()
 
 			messages.add_message(request, messages.SUCCESS, 
 				'<h6 class=''alert-heading''>Your Password has been changed!</h6>'
