@@ -116,7 +116,7 @@ class ResetPasswordStepOneView(View):
 
 			# send message alert to the fronend
 			messages.add_message(request, messages.SUCCESS, 
-				mark_safe('<h6 class='alert-heading'>Password reset was successful!</h6>'
+				mark_safe('<h6 class=''alert-heading''>Password reset was successful!</h6>'
 				'<p>Check your email now to set a new one.</p>'))
 
 			return redirect('core_index')
