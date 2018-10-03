@@ -39,12 +39,17 @@ def valid_email(in_str = None):
 
 
 def get_uid_token(request):
+	"""
+	string that one gets is 
+	/new_password/NQ/504-56db758854211636d9fc/
+	regex for 	token = re.compile(r'(/.*/(.*)/)')
+	regex for uid part: (/.*/(.*)/(.*)/)
+	"""
 	current_url = request.get_full_path()
+	uid = current_url.split("/")[2]
+	token = current_url.split("/")[3]
 
-	print(current_url)
-
-	return "test"
-	#[uid, token]
+	return [uid, token]
 
 def validate_password_reset(request):
 	"""

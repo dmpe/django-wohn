@@ -135,26 +135,25 @@ class ResetPasswordNewStepTwoView(View):
 		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
 		
 		# we dont know who is the user, hence need to fetch
-		# get_uid_token(request)
+		myuser = validate_password_reset(request)
 
-		# if inputNewPassword == inputConfirmNewPassword:
-		# 	my_user.set_password(inputNewPassword)
-		# 	my_user.save()
+		if myuser is not None and inputNewPassword == inputConfirmNewPassword:
+			my_user.set_password(inputNewPassword)
+			my_user.save()
 
-		# 	messages.add_message(request, messages.SUCCESS, 
-		# 		'<h6 class=''alert-heading''>Your Password has been changed!</h6>'
-		# 		'<p>You can <a href="{% url ''login'' %}" class="alert-link">now login using new credentials on the login page</a>.</p>')
-		# else:
-		# 	messages.add_message(request, messages.WARNING, 
-		# 		'<h6 class=''alert-heading''>Two passwords do not match</h6>'
-		# 		'<p>Make sure that they are same by checking the capital letters.</p>')
+			messages.add_message(request, messages.SUCCESS, 
+				'<h6 class=''alert-heading''>Your Password has been changed!</h6>'
+				'<p>You can <a href="{% url ''login'' %}" class="alert-link">now login using new credentials on the login page</a>.</p>')
+		else:
+			messages.add_message(request, messages.WARNING, 
+				'<h6 class=''alert-heading''>Two passwords do not match</h6>'
+				'<p>Make sure that they are same by checking the capital letters.</p>')
 
 		return render(request, self.template_name)
 
 	def get(self, request, *args, **kwargs):	
 		# TODO: should actually display error and not be displayed at all
 		# actually this will never be displayed unless full url
-		get_uid_token(request)
 		return render(request, self.template_name)
 
 ###################################
