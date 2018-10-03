@@ -70,6 +70,7 @@ class ResetPasswordStepOneView(View):
 
 	def prepare_email(self, request, userPresent_username = None, 
 		userPresent_email = None, userPresent_token = None, userPresent_uid = None):
+	
 		subject = 'B40.cz: Password Reset'
 		from_email = settings.DEFAULT_FROM_EMAIL
 
@@ -130,7 +131,7 @@ class ResetPasswordNewStepTwoView(View):
 	"""
 	template_name = 'reset_password_new.html'
 
-	def post(self, request):
+	def post(self, request, *args, **kwargs):
 		inputNewPassword = request.POST.get('inputNewPassword', False)
 		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
 		
