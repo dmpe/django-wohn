@@ -6,7 +6,6 @@ from django.contrib.auth import logout as django_logout
 from django.contrib.auth import login as django_login
 from django.contrib.auth.tokens import *
 from django.contrib import messages
-from django.contrib.messages import constants as message_constants
 from django.views import View
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
@@ -37,13 +36,6 @@ from .mics import *
 
 # instance of a logger
 logger = logging.getLogger(__name__)
-
-MESSAGE_TAGS = {
-    message_constants.INFO: 'info',
-    message_constants.SUCCESS: 'success',
-    message_constants.WARNING: 'warning',
-    message_constants.ERROR: 'danger',
-}
 
 ################
 #######

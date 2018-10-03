@@ -17,6 +17,7 @@ https://docs.djangoproject.com/en/2.1/howto/static-files/
 import os
 import sys
 import logging
+from django.contrib.messages import constants as message_constants
 
 SOCIAL_AUTH_USER_MODEL = 'userMng.myUser'
 AUTH_USER_MODEL = 'userMng.myUser'
@@ -156,6 +157,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+MESSAGE_TAGS = {
+    message_constants.INFO: 'info',
+    message_constants.SUCCESS: 'success',
+    message_constants.WARNING: 'warning',
+    message_constants.ERROR: 'danger',
+}
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Europe/Prague'
