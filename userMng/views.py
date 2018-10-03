@@ -17,6 +17,7 @@ from django.utils.http import *
 from django.utils.encoding import *
 # for messages
 from django.utils.safestring import *
+
 import logging
 
 # used for logout redirect
@@ -129,28 +130,24 @@ class ResetPasswordNewStepTwoView(View):
 	"""
 	template_name = 'reset_password_new.html'
 
-	def __init__(self, user, *args, **kwargs):
-		"""
-		get the user for which we try to reset the password
-		"""
-		self.user = user
-		super(ResetPasswordNewStepTwoView, self).__init__(*args, **kwargs)
-
 	def post(self, request):
 		inputNewPassword = request.POST.get('inputNewPassword', False)
 		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
+		
+		# we dont know who is the user, hence need to fetch
+		get_uid_token(request)
 
-		if inputNewPassword == inputConfirmNewPassword:
-			self.user.set_password(inputNewPassword)
-			self.user.save()
+		# if inputNewPassword == inputConfirmNewPassword:
+		# 	my_user.set_password(inputNewPassword)
+		# 	my_user.save()
 
-			messages.add_message(request, messages.SUCCESS, 
-				'<h6 class=''alert-heading''>Your Password has been changed!</h6>'
-				'<p>You can <a href="{% url ''login'' %}" class="alert-link">now login using new credentials on the login page</a>.</p>')
-		else:
-			messages.add_message(request, messages.WARNING, 
-				'<h6 class=''alert-heading''>Two passwords do not match</h6>'
-				'<p>Make sure that they are same by checking the capital letters.</p>')
+		# 	messages.add_message(request, messages.SUCCESS, 
+		# 		'<h6 class=''alert-heading''>Your Password has been changed!</h6>'
+		# 		'<p>You can <a href="{% url ''login'' %}" class="alert-link">now login using new credentials on the login page</a>.</p>')
+		# else:
+		# 	messages.add_message(request, messages.WARNING, 
+		# 		'<h6 class=''alert-heading''>Two passwords do not match</h6>'
+		# 		'<p>Make sure that they are same by checking the capital letters.</p>')
 
 		return render(request, self.template_name)
 
