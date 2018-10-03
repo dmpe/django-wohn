@@ -4,6 +4,9 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth import login as django_login
+from django.contrib.auth.tokens import *
+from django.contrib import messages
+from django.contrib.messages import constants as message_constants
 from django.views import View
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
@@ -13,7 +16,8 @@ from django.template.loader import render_to_string
 from django.utils.html import *
 from django.utils.http import *
 from django.utils.encoding import *
-from django.contrib.auth.tokens import *
+# for messages
+from django.utils.safestring import *
 import logging
 
 # used for logout redirect
@@ -33,6 +37,13 @@ from .mics import *
 
 # instance of a logger
 logger = logging.getLogger(__name__)
+
+MESSAGE_TAGS = {
+    message_constants.INFO: 'info',
+    message_constants.SUCCESS: 'success',
+    message_constants.WARNING: 'warning',
+    message_constants.ERROR: 'danger',
+}
 
 ################
 #######
@@ -102,12 +113,18 @@ class ResetPasswordStepOneView(View):
 			self.prepare_email(request, userPresent_username = userPresent[1].get_username(), 
 				userPresent_email = "dimitrijenko@gmail.com", 
 				userPresent_token= tk, userPresent_uid= uid)
-		else: 
-			# TODO: send message that account was incorrect/not found/try again
-			pass
 
-		# TODO: here send message to the frondend as well
-		return redirect('core_index')
+			# send message alert to the fronend
+			messages.add_message(request, messages.SUCCESS, 
+				mark_safe('<h6 class='alert-heading'>Password reset was successful!</h6>'
+				'<p>Check your email now to set a new one.</p>'))
+
+			return redirect('core_index')
+		else: 
+			messages.add_message(request, messages.ERROR, 
+				mark_safe('<h6 class='alert-heading'>Password reset cannot proceed!</h6>'
+				'<p>Check your input as the user cound not be found in the database.</p>'
+				'<p>Please, try again.</p>'))
 
 	def get(self, request, *args, **kwargs):
 		return render(request, self.template_name)
@@ -124,6 +141,7 @@ class ResetPasswordNewStepTwoView(View):
 
 	def get(self, request, *args, **kwargs):	
 		# TODO: should actually display error and not be displayed at all
+		# actually this will never be displayed unless full url
 		return render(request, self.template_name)
 
 ###################################
