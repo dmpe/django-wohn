@@ -64,7 +64,7 @@ def validate_password_reset(request):
 	us = my_user_model.objects.get(pk=users_pk)
 
 	if us is not None and tkn.check_token(us, token):
-		return user
+		return us
 	else:
 		print("token is not valid")
 		return None
