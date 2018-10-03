@@ -106,10 +106,10 @@ class ResetPasswordStepOneView(View):
 
 		#check if user is present in the database -> moved to backend
 		userPresent = EmailUserNameAuthBackend.check_for_user_existance(self, inputEmail_Username)
-		tk = token_obj.make_token(userPresent[1])
-		uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk)).decode()
 
 		if userPresent[0] is True:
+			tk = token_obj.make_token(userPresent[1])
+			uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk)).decode()
 			self.prepare_email(request, userPresent_username = userPresent[1].get_username(), 
 				userPresent_email = "dimitrijenko@gmail.com", 
 				userPresent_token= tk, userPresent_uid= uid)
@@ -117,7 +117,8 @@ class ResetPasswordStepOneView(View):
 			# send message alert to the fronend
 			messages.add_message(request, messages.SUCCESS, 
 				mark_safe('<h6 class=''alert-heading''>Password reset was successful!</h6>'
-				'<p>Check your email now to set a new one.</p>'))
+				'<p>Check your email now to set a new one.</p>'
+				'<p>You can now <strong>close</strong> this page.</p>'))
 
 			#redirect('core_index')
 		else: 
