@@ -122,7 +122,7 @@ class ResetPasswordStepOneView(View):
 			return redirect('core_index')
 		else: 
 			messages.add_message(request, messages.ERROR, 
-				mark_safe('<h6 class='alert-heading'>Password reset cannot proceed!</h6>'
+				mark_safe('<h6 class=''alert-heading''>Password reset cannot proceed!</h6>'
 				'<p>Check your input as the user cound not be found in the database.</p>'
 				'<p>Please, try again.</p>'))
 
