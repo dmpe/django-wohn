@@ -56,6 +56,9 @@ class EmailUserNameAuthBackend(ModelBackend):
 				user_exists = True
 			except myUser.DoesNotExist:
 				print("user does not exist or his email/name not selected")
+				return None
+			except BaseException:
+				return None
 		else:
 			try:
 				user_exists_id = myUser.objects.filter(username=inputString).first().pk
@@ -63,7 +66,10 @@ class EmailUserNameAuthBackend(ModelBackend):
 				user_exists = True
 			except myUser.DoesNotExist:
 				print("user does not exist or his email/name not selected #2")
-					
+				return None
+			except BaseException:	
+				return None
+
 		if user_exists is True:
 			presentInSystem = True
 		else:
