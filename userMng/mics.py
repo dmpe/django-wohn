@@ -72,8 +72,8 @@ def validate_password_reset(request):
 def is_human(recaptcha_token = None):
 	secret_key_recaptcha_v3 = "6LfeynMUAAAAAEv7OvF8-y1DAGfJH6vDyyjdpcTA"
 	payload = {'response':recaptcha_token, 'secret':secret_key_recaptcha_v3}
-    response_ggl = requests_library.post("https://www.google.com/recaptcha/api/siteverify", payload)
-    response_text = json.loads(response.text)
+	response_ggl = requests_library.post("https://www.google.com/recaptcha/api/siteverify", payload)
+	response_text = json.loads(response.text)
 
     if response_text["score"] >= 0.5:
     	return True
