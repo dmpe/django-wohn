@@ -75,7 +75,7 @@ def is_human(recaptcha_token = None):
 	response_ggl = requests_library.post("https://www.google.com/recaptcha/api/siteverify", payload)
 	response_text = json.loads(response.text)
 
-    if response_text["score"] >= 0.5:
-    	return True
-    else:
-    	return False
+	if response_text["score"] >= 0.5:
+		return True
+	else:
+		return False
