@@ -14,3 +14,4 @@ django-split-settings
 django-cors-headers
 django-crispy-forms
 Werkzeug
+requests

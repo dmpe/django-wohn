@@ -24,5 +24,6 @@ django-crispy-forms = "*"
 django-split-settings = "*"
 django-cors-headers = "*"
 Werkzeug = "*"
+requests = "*"
 
 [dev-packages]
