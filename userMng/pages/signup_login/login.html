@@ -10,6 +10,7 @@
 
 {% block content %}
 <div class="container-fluid">
+
 	<!-- Because of Recaptcha login -->
 	<script src='https://www.google.com/recaptcha/api.js?render=6LfeynMUAAAAAMBkT9sQl4lxNfwtdElwWc8pFuCz'></script>
 
@@ -19,12 +20,11 @@
 			console.log(token);
 		});
 	});
+	
 	function onSubmit(token) {
 		document.getElementById("form-login").submit();
 	}
     </script>
-
-	</script>
     
     <!-- Because of Facebook login -->
 	<div id="fb-root"></div>
@@ -102,7 +102,9 @@
 					</div>
 
 					<p class="float-left"><a href="{% url 'reset_password' %}">Forgot your username or password?</a></p>
-					<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LfeynMUAAAAAMBkT9sQl4lxNfwtdElwWc8pFuCz" value="submit" data-callback="onSubmit">Login</button>
+
+					<!-- Also includes Google Recaptcha v3 -->
+					<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LfeynMUAAAAAMBkT9sQl4lxNfwtdElwWc8pFuCz" value="submit" data-callback="onSubmit" data-type="image" data-size="compact">Login</button>
 				</form>
 	    	</div>
 
