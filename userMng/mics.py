@@ -6,6 +6,7 @@ from django.utils.encoding import *
 from django.contrib.auth.tokens import *
 from django.contrib.auth import *
 import re
+import requests as requests_library
 
 # replaced by logic in contrib.auth.tokens
 def http_headers(request):
@@ -68,3 +69,13 @@ def validate_password_reset(request):
 		print("token is not valid")
 		return None
 
+def is_human(recaptcha_token = None):
+	secret_key_recaptcha_v3 = "6LfeynMUAAAAAEv7OvF8-y1DAGfJH6vDyyjdpcTA"
+	payload = {'response':recaptcha_token, 'secret':secret_key_recaptcha_v3}
+    response_ggl = requests_library.post("https://www.google.com/recaptcha/api/siteverify", payload)
+    response_text = json.loads(response.text)
+
+    if response_text["score"] >= 0.5:
+    	return True
+    else:
+    	return False

@@ -214,27 +214,36 @@ class LoginView(View):
 		# recieve
 		username_Email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
+		recaptcha_token = request.POST.get('g-recaptcha-response', False)
 
-		try:
-			auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
-			
-			if auth_user is None:
-				messages.add_message(request, messages.WARNING, 
-					mark_safe('<h6 class=''alert-heading''>Such a user does not exist.</h6>'
-					'<p>Make sure that username and password are correct.</p>'))
+		respo_bool = is_human(recaptcha_token)
+		
+		if respo_bool is True:
+			try:
+				auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
+				
+				if auth_user is None:
+					messages.add_message(request, messages.WARNING, 
+						mark_safe('<h6 class=''alert-heading''>Such a user does not exist.</h6>'
+						'<p>Make sure that username and password are correct.</p>'))
 
-				return render(request, self.template_name)
-			else: 	
-				try:
-					# whether the user is active or not is already checked by the 
-					# ModelBackend we use
-					django_login(request, auth_user, backend = 'userMng.backends.EmailUserNameAuthBackend')
-					return redirect('userMng_index')
-				except Exception as e:
-					raise e
+					return render(request, self.template_name)
+				else: 	
+					try:
+						# whether the user is active or not is already checked by the 
+						# ModelBackend we use
+						django_login(request, auth_user, backend = 'userMng.backends.EmailUserNameAuthBackend')
+						return redirect('userMng_index')
+					except Exception as e:
+						raise e
 
-		except Exception as e:
-			raise e
+			except Exception as e:
+				raise e
+		# user is bot
+		else:
+			messages.add_message(request, messages.WARNING, 
+						mark_safe('<h6 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h6>'
+						'<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>'))
 
 	def get(self, request):
 		# if get request just render the template, with form

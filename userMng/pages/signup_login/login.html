@@ -10,7 +10,17 @@
 
 {% block content %}
 <div class="container-fluid">
+	<!-- Because of Recaptcha login -->
+	<script src='https://www.google.com/recaptcha/api.js?render=6LfeynMUAAAAAMBkT9sQl4lxNfwtdElwWc8pFuCz'></script>
 
+	<script>
+	grecaptcha.ready(function() {
+		grecaptcha.execute('6LfeynMUAAAAAMBkT9sQl4lxNfwtdElwWc8pFuCz', {action: 'login'}).then(function(token) {
+			console.log(token);
+		});
+	});
+	</script>
+    
     <!-- Because of Facebook login -->
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
@@ -87,17 +97,17 @@
 					</div>
 
 					<p class="float-left"><a href="{% url 'reset_password' %}">Forgot your username or password?</a></p>
-					<button type="submit" class="btn btn-warning float-right btn-lg" value="submit">Login</button>
+					<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LfeynMUAAAAAMBkT9sQl4lxNfwtdElwWc8pFuCz" value="submit">Login</button>
 				</form>
-
-				{% if messages %}		
-					{% for message in  messages %}
-						<div class="alert alert-{{ message.tags }}" id="checkEmailAlert" role="alert">
-							{{ message }}
-						</div>
-					{% endfor %}
-				{% endif %}
 	    	</div>
+
+			{% if messages %}		
+				{% for message in  messages %}
+					<div class="alert alert-{{ message.tags }}" id="checkEmailAlert" role="alert">
+						{{ message }}
+					</div>
+				{% endfor %}
+			{% endif %}
 	    </div>
 	</div>
 
