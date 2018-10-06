@@ -217,8 +217,9 @@ class LoginView(View):
 		auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
 		
 		if auth_user is None:
-			# TODO: add some messages via GH #17
-			return redirect(settings.LOGIN_URL)
+			messages.add_message(request, messages.WARNING, 
+				mark_safe('<h6 class=''alert-heading''>Such a user does not exist.</h6>'
+				'<p>Make sure that username and password are correct.</p>'))
 		else: 	
 			try:
 				# whether the user is active or not is already checked by the 

@@ -88,14 +88,15 @@
 
 					<p class="float-left"><a href="{% url 'reset_password' %}">Forgot your username or password?</a></p>
 					<button type="submit" class="btn btn-warning float-right btn-lg" value="submit">Login</button>
-					
-					{% if form.errors %}
-                    <p class="alert alert-danger" role="alert">
-                        Your username and password didn't match. 
-                        Please try again.
-                    </p>
-	                {% endif %}
 				</form>
+
+				{% if messages %}		
+					{% for message in  messages %}
+						<div class="alert alert-{{ message.tags }}" id="checkEmailAlert" role="alert">
+							{{ message }}
+						</div>
+					{% endfor %}
+				{% endif %}
 	    	</div>
 	    </div>
 	</div>
