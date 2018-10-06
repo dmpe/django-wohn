@@ -22,12 +22,12 @@ def http_headers(request):
 	return [operating_system, ip_address, browser, browser_version]
 
 def valid_email(in_str = None):
-	""" validating emails are mess
+	""" 
+	validating emails are mess
 	applies idea that it must have @ and >=1 . after @
 	https://stackoverflow.com/a/8022584
 	"""
 	email_regex = re.compile(r"[^@]+@[^@]+\.[^@]+")
-	
 	email_valid = False
 
 	if not email_regex.match(in_str):
@@ -37,12 +37,11 @@ def valid_email(in_str = None):
 
 	return email_valid
 
-
 def get_uid_token(request):
 	"""
 	string that one gets is 
 	/new_password/NQ/504-56db758854211636d9fc/
-	regex for 	token = re.compile(r'(/.*/(.*)/)')
+	regex for token = re.compile(r'(/.*/(.*)/)')
 	regex for uid part: (/.*/(.*)/(.*)/)
 	"""
 	current_url = request.get_full_path()

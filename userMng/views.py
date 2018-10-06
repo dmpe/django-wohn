@@ -68,7 +68,6 @@ class ResetPasswordStepOneView(View):
 	"""
 	This class takes an input from the post request and prepares & sends HTML
 	email to the user
-	TODO delete gmail
 	"""
 	template_name = 'reset_password.html'
 
@@ -110,7 +109,7 @@ class ResetPasswordStepOneView(View):
 			uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk)).decode()
 
 			self.prepare_email(request, userPresent_username = userPresent[1].get_username(), 
-				userPresent_email = "dimitrijenko@gmail.com", 
+				userPresent_email = userPresent[1].email, 
 				userPresent_token= tk, userPresent_uid= uid)
 
 			messages.add_message(request, messages.SUCCESS, 
@@ -131,7 +130,7 @@ class ResetPasswordStepOneView(View):
 class ResetPasswordNewStepTwoView(View):
 	"""
 	at this stage, a token should have been send to the user via email
-	user clicks, inputs passwords and should be able to click and load the main login screen
+	user clicks, inputs passwords, confirms and should be able to load the main login screen
 	"""
 	template_name = 'reset_password_new.html'
 
@@ -139,7 +138,7 @@ class ResetPasswordNewStepTwoView(View):
 		inputNewPassword = request.POST.get('inputNewPassword', False)
 		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
 		
-		# we dont know who is the user, hence need to fetch
+		# we dont know who is the user, hence need to fetch from the URL
 		myuser = validate_password_reset(request)
 
 		if myuser is not None and inputNewPassword == inputConfirmNewPassword:
@@ -151,8 +150,8 @@ class ResetPasswordNewStepTwoView(View):
 				'<p>You can <a href="{}" class="alert-link">now login using new credentials on the login page</a>.</p>'), reverse('login')))
 		else:
 			messages.add_message(request, messages.WARNING, 
-				mark_safe('<h6 class=''alert-heading''>Two passwords do not match</h6>'
-				'<p>Make sure that they are same by checking the capital letters.</p>'))
+				mark_safe('<h6 class=''alert-heading''>New passwords do not match</h6>'
+				'<p>Make sure that they are same, e.g. by checking the capital letters.</p>'))
 
 		return render(request, self.template_name)
 
@@ -185,8 +184,9 @@ class RegistrationView(CreateView):
 			ur.is_active = True
 			ur.save()
 		else: 
-			# TODO Add message informing user about some error
-			pass
+			messages.add_message(request, messages.WARNING, 
+				mark_safe('<h6 class=''alert-heading''>New passwords do not match</h6>'
+				'<p>Make sure that they are same, e.g. by checking the capital letters.</p>'))
 
 		auser = EmailUserNameAuthBackend.authenticate(self, request, username = inputUsername, password = inputNewPassword)
 
@@ -233,7 +233,8 @@ class LoginView(View):
 		return render(request, self.template_name)
 
 class LogoutView(View):
-	"""Class based view for logout
+	"""
+	Class based view for logout
 	Only requires get method
 	"""
 
