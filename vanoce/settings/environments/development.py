@@ -18,6 +18,7 @@ import sys
 
 
 SECRET_KEY = 'ldj(^$nibo($d939^(mc5k)#^!b6^4yr80_4iv-7_wtm5gvzwz'
+GOOGLE_RECAPTCHA_V3 = '6LeZy3MUAAAAAEfxfm-GGkJC3iRo20I3xaQqVvAH'
 
 # the curpit: on local pc must be local database
 DATABASES = {
