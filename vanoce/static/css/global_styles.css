@@ -41,7 +41,7 @@ Login page - Move google recaptha v3 badge up from the bottom footer
 */
 
 .grecaptcha-badge {
-	bottom: 4rem;
+	bottom: 4rem !important;
 }
 
 /* 3. CSS reused across >=2 pages
