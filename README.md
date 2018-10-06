@@ -45,6 +45,7 @@ python3 manage.py makemigrations userMng
 ### 1.3 Deploy to local PC
 
 - Continue from previous steps
+
 ```
 python3 manage.py migrate
 ```

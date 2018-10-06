@@ -5,7 +5,8 @@ from .models import myUser
 from .mics import *
 
 class EmailUserNameAuthBackend(ModelBackend):
-	"""This is used for authentication of myUsers
+	"""
+	This is used for authentication of myUsers
 	using either username or email in the input field.	
 	By default, username/password is used and this 
 	extends this with email/password.
