@@ -19,6 +19,11 @@
 			console.log(token);
 		});
 	});
+	function onSubmit(token) {
+		document.getElementById("form-login").submit();
+	}
+    </script>
+
 	</script>
     
     <!-- Because of Facebook login -->
@@ -97,7 +102,7 @@
 					</div>
 
 					<p class="float-left"><a href="{% url 'reset_password' %}">Forgot your username or password?</a></p>
-					<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LfeynMUAAAAAMBkT9sQl4lxNfwtdElwWc8pFuCz" value="submit">Login</button>
+					<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LfeynMUAAAAAMBkT9sQl4lxNfwtdElwWc8pFuCz" value="submit" data-callback="onSubmit">Login</button>
 				</form>
 	    	</div>
 
