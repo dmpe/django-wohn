@@ -206,7 +206,8 @@ class RegistrationView(CreateView):
 ################
 ###################################
 class LoginView(View):
-	"""Uses class based view
+	"""
+	Uses class based view
 	"""
 	template_name = 'signup_login/login.html'
 		
@@ -215,10 +216,8 @@ class LoginView(View):
 		username_Email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
 		recap_token = request.POST.get('g-recaptcha-response', False)
-
-		respo_bool = is_human(recaptcha_token = recap_token)
-		
-		if respo_bool is True:
+	
+		if is_human(recaptcha_token = recap_token) is True:
 			try:
 				auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
 				

@@ -71,12 +71,16 @@ def validate_password_reset(request):
 		return None
 
 def is_human(recaptcha_token = None):
+	"""
+	Used for token verification. 
+	Borrowed from https://techmonger.github.io/5/python-flask-recaptcha/
+	"""
 	secret_key_recaptcha_v3 = settings.GOOGLE_RECAPTCHA_V3
 	payload = {'response':recaptcha_token, 'secret':secret_key_recaptcha_v3}
 	response_ggl = requests_library.post("https://www.google.com/recaptcha/api/siteverify", payload)
 	response_text = json.loads(response_ggl.text)
 
-	if response_text["score"] >= 0.5:
+	if response_text["success"] is True and response_text["score"] >= 0.5:
 		return True
 	else:
 		return False
