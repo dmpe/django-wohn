@@ -12,7 +12,7 @@ class RegisterForm(forms.Form):
 	inputConfirmNewPassword = forms.CharField(widget=forms.PasswordInput())
 
 class LoginForm(forms.Form):
-	"""docstring for LoginForm
+	"""
 	Users can login either via username or email. 
 	Hence, input type="text"
 	"""
