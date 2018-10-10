@@ -1,23 +1,19 @@
-from django import forms
 from django.shortcuts import *
 from django.http import *
 from django.core.mail import send_mail
-from django.contrib.auth import logout as django_logout
-from django.contrib.auth import login as django_login
-from django.contrib.auth.tokens import *
 from django.contrib import messages
 from django.views import View
-# a generic view for creating and saving an object (e.g. user)
-from django.views.generic.edit import CreateView
 from django.conf import settings
 from django.template import *
 from django.template.loader import render_to_string
 from django.utils.html import *
 from django.utils.http import *
 from django.utils.encoding import *
-from django.urls import reverse
+from django.urls import *
 # for messages
 from django.utils.safestring import *
+
+from .forms import ContactForm
 
 ################
 #######
@@ -46,12 +42,27 @@ def terms(request):
 ################
 class ContactView(View):
 	"""
+	Contact Form using Django approach to constructing
+	forms.
 	"""
-	contact_template = 'contact.html'
+	template_name = 'contact.html'
 
 	def post(self, request):
-		pass
+		form = ContactForm(request.POST)
+		if form.is_valid():
+
+			messages.add_message(request, messages.SUCCESS, 
+				mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
+				'<p>We wiill respond to you <strong>as soon as possible</strong>.</p>'))
+		else:
+			form = ContactForm()
+
+			messages.add_message(request, messages.ERROR, 
+				mark_safe('<h6 class=''alert-heading''>You message does not fulfill our basic requirenements!</h6>'
+				'<p>Check that all fields are </p>'))
+
+		return render(request, self.template_name, {"form": form})	
 
 	def get(self, request)
-    	return render(request, self.contact_template)
+    	return render(request, self.template_name)
 
