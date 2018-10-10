@@ -7,6 +7,7 @@ from crispy_forms.layout import Submit, Layout, Div, Fieldset
 class ContactForm(forms.Form):
 	"""
 	docstring for RegisterForm
+	https://stackoverflow.com/a/31035591
 	"""
 	SubjectHeadlineChoice = (
 		('ads', 'Advertising'),
