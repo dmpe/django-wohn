@@ -26,7 +26,7 @@ class ContactForm(forms.Form):
 		choices=SubjectHeadlineChoice, default = "general")
 
 	def __init__(self, *args, **kwargs):
-	    super(ContactForm, self).__init__(*args, **kwargs)():
+		super(ContactForm, self).__init__(*args, **kwargs)()
 		self.helper = FormHelper()
 		self.helper.form_id = "contact-form"
 		self.helper.form_method = "POST"
