@@ -1,3 +1,4 @@
+from django import forms
 from django.shortcuts import *
 from django.http import *
 from django.core.mail import send_mail
@@ -13,7 +14,7 @@ from django.urls import *
 # for messages
 from django.utils.safestring import *
 
-from .forms import ContactForm
+from .forms import *
 
 ################
 #######
@@ -61,8 +62,8 @@ class ContactView(View):
 				mark_safe('<h6 class=''alert-heading''>You message does not fulfill our basic requirenements!</h6>'
 				'<p>Check that all fields are </p>'))
 
-		return render(request, self.template_name, {"form": form})	
+		return render(request, self.template_name, {"form": form })	
 
-	def get(self, request)
+	def get(self, request):
 		return render(request, self.template_name)
 
