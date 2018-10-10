@@ -22,7 +22,7 @@ class ContactForm(forms.Form):
 	inputText = forms.CharField(label = "Your message for us is....", widget = forms.Textarea, 
 		required=True)
 	inputEmail = forms.EmailField(label = "Email", required=True, 
-		idget=forms.EmailInput())
+		widget=forms.EmailInput())
 	inputSubject = forms.CharField(label = "Choose the subject", required=True, 
 		choices=SubjectHeadlineChoice, default = "general")
 
