@@ -19,7 +19,8 @@ class ContactForm(forms.Form):
 		max_length = 30)
 	# we can have more than 255 chars in the message, hence TextField
 	# and not CharField
-	inputText = forms.TextField(label = "Your message for us is....", required=True)
+	inputText = forms.CharField(label = "Your message for us is....", widget = forms.Textarea, 
+		required=True)
 	inputEmail = forms.EmailField(label = "Email", required=True, 
 		idget=forms.EmailInput())
 	inputSubject = forms.CharField(label = "Choose the subject", required=True, 
