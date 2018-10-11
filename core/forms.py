@@ -24,7 +24,7 @@ class ContactForm(forms.Form):
 		required=True)
 	inputEmail = forms.EmailField(label = "Email", required=True, 
 		widget=forms.EmailInput())
-	inputSubject = forms.CharField(label = "Choose the subject", required=True, 
+	inputSubject = forms.ChoiceField(label = "Choose the subject", required=True, 
 		choices=SubjectHeadlineChoice, default = "general")
 
 	def __init__(self, *args, **kwargs):
