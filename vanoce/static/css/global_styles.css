@@ -167,6 +167,13 @@ https://developers.google.com/identity/branding-guidelines */
 	margin-top: -4px;
 }
 
+/* We dont like to have * when Crispy form is applied
+-> disable it here
+*/
+.asteriskField {
+    display: none;
+}
+
 /* Password Reset Email
 //////////////////////*/
 
