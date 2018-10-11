@@ -50,13 +50,13 @@ class ContactView(View):
 
 	def post(self, request):
 		form = ContactForm(request.POST)
+
 		if form.is_valid():
 
 			messages.add_message(request, messages.SUCCESS, 
 				mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
 				'<p>We wiill respond to you <strong>as soon as possible</strong>.</p>'))
 		else:
-			form = ContactForm()
 
 			messages.add_message(request, messages.ERROR, 
 				mark_safe('<h6 class=''alert-heading''>You message does not fulfill our basic requirenements!</h6>'
@@ -65,5 +65,6 @@ class ContactView(View):
 		return render(request, self.template_name, {"form": form })	
 
 	def get(self, request):
-		return render(request, self.template_name)
+		form = ContactForm(request.GET)
+		return render(request, self.template_name, {"form": form })
 
