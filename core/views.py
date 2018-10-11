@@ -65,6 +65,6 @@ class ContactView(View):
 		return render(request, self.template_name, {"form": form })	
 
 	def get(self, request):
-		form = ContactForm(request.GET)
+		form = ContactForm()
 		return render(request, self.template_name, {"form": form })
 
