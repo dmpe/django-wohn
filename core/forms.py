@@ -32,7 +32,7 @@ class ContactForm(forms.Form):
 		self.helper = FormHelper()
 		self.helper.form_id = "contact-form"
 		self.helper.form_method = "POST"
-		self.helper.form_action = reverse('submit_form')
+		#self.helper.form_action = reverse('submit_form')
 		self.helper.add_input(Submit("subbmit", "Submit", css_class = "btn btn-primary"))
 
 
