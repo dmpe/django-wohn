@@ -13,6 +13,7 @@ urlpatterns = [
     path('reset_password', views.ResetPasswordStepOneView.as_view(), name='reset_password'),
     path('new_password/<uidb64>/<token>/', views.ResetPasswordNewStepTwoView.as_view(), name='new_password'),
     
+    # largely should not be in the Sitemap
     path('administrace/user_profile', views.administrationView_UserProfile, name='user_profile'),
 	path('administrace/', views.administrationView, name='userMng_index'),    
 

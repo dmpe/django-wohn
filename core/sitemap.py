@@ -8,7 +8,8 @@ from datetime import *
 # see "that" package on github
 
 class B40_Sitemap(Sitemap):
-	"""docstring for B40_Sitemap
+	"""
+	B40_Sitemap
 	"""
 	changeFreq = "monthly"
 	priority = 0.6
@@ -16,7 +17,26 @@ class B40_Sitemap(Sitemap):
 	protocol = "https"
 
 	def items(self):
-		return ['index', 'contact', 'privacy', 'about', 'terms']
+		return ['core_index', 'contact', 'privacy', 'about', 'terms']
 
 	def location(self, item):
 		return reverse(item)
+
+class UserMNG_Sitemap(Sitemap):
+	"""
+	create a sitemap for some additional User Management pages
+	"""
+	changeFreq = "monthly"
+	priority = 0.6
+	lastmod = datetime.now()
+	protocol = "https"
+
+	def items(self):
+		return ['register', 'login', 'reset_password', 'userMng_index']
+
+	def location(self, item):
+		return reverse(item)
+
+
+
+

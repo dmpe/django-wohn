@@ -21,11 +21,12 @@ from django.views.generic import TemplateView
 from django.conf.urls import url
 
 from core import views
-from core.sitemap import B40_Sitemap
+from core.sitemap import B40_Sitemap, UserMNG_Sitemap
 from userMng import views
 
 sitemaps = {
-    'static': B40_Sitemap,
+    'core': B40_Sitemap,
+    'userMng': UserMNG_Sitemap,
 }
 
 urlpatterns = [
