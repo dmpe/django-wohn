@@ -84,3 +84,51 @@ def is_human(recaptcha_token = None):
 		return True
 	else:
 		return False
+
+def prepare_psswd_reset_email(self, request, userPresent_username = None, 
+	userPresent_email = None, userPresent_token = None, userPresent_uid = None, 
+	temp_name = None):
+
+	subject = 'B40.cz: Password Reset'
+	from_email = settings.DEFAULT_FROM_EMAIL
+
+	client_headers = http_headers(request)
+
+	cntxt = {"username": userPresent_username, "token": userPresent_token, 
+		"password_expire": settings.PASSWORD_RESET_TIMEOUT_DAYS, "uid": userPresent_uid,
+		"operating_system": client_headers[0], "ip_address": client_headers[1], 
+		"browser": client_headers[2], "browser_version": client_headers[3]}
+
+	html_message = render_to_string('reset_password_email.html', cntxt)
+	plain_message = strip_tags(html_message)
+
+	try:
+		send_mail(subject, plain_message, from_email, [userPresent_email], html_message=html_message)
+	except BadHeaderError:
+		return HttpResponse('Invalid header found.')
+
+	return None
+
+def prepare_visitor_mssg_email(self, request, userPresent_username = None, 
+	userPresent_email = None, subject = None, text_msg = None):
+
+	subject = 'B40.cz: Message from the user/visitor: ' + subject
+	from_email = settings.DEFAULT_FROM_EMAIL
+	my_email = settings.MY_EMAIL
+
+	client_headers = http_headers(request)
+
+	cntxt = {"username": userPresent_username, 
+		"operating_system": client_headers[0], "ip_address": client_headers[1], 
+		"browser": client_headers[2], "browser_version": client_headers[3]}
+
+	html_message = render_to_string(text_msg, cntxt)
+	plain_message = strip_tags(html_message)
+
+	try:
+		send_mail(subject, plain_message, from_email, 
+			[my_email], html_message=html_message)
+	except BadHeaderError:
+		return HttpResponse('Invalid header found.')
+
+	return None

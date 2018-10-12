@@ -71,29 +71,6 @@ class ResetPasswordStepOneView(View):
 	"""
 	template_name = 'reset_password.html'
 
-	def prepare_email(self, request, userPresent_username = None, 
-		userPresent_email = None, userPresent_token = None, userPresent_uid = None):
-
-		subject = 'B40.cz: Password Reset'
-		from_email = settings.DEFAULT_FROM_EMAIL
-
-		client_headers = http_headers(request)
-
-		cntxt = {"username": userPresent_username, "token": userPresent_token, 
-			"password_expire": settings.PASSWORD_RESET_TIMEOUT_DAYS, "uid": userPresent_uid,
-			"operating_system": client_headers[0], "ip_address": client_headers[1], 
-			"browser": client_headers[2], "browser_version": client_headers[3]}
-
-		html_message = render_to_string('reset_password_email.html', cntxt)
-		plain_message = strip_tags(html_message)
-
-		try:
-			send_mail(subject, plain_message, from_email, [userPresent_email], html_message=html_message)
-		except BadHeaderError:
-			return HttpResponse('Invalid header found.')
-
-		return None
-
 	def post(self, request):
 		"""
 		sends email message to the user's email address
@@ -108,9 +85,9 @@ class ResetPasswordStepOneView(View):
 			tk = token_obj.make_token(userPresent[1])
 			uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk)).decode()
 
-			self.prepare_email(request, userPresent_username = userPresent[1].get_username(), 
+			self.prepare_psswd_reset_email(request, userPresent_username = userPresent[1].get_username(), 
 				userPresent_email = userPresent[1].email, 
-				userPresent_token= tk, userPresent_uid= uid)
+				userPresent_token= tk, userPresent_uid= uid, temp_name = self.template_name)
 
 			messages.add_message(request, messages.SUCCESS, 
 				mark_safe('<h6 class=''alert-heading''>Password reset was successful!</h6>'

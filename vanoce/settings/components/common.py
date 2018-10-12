@@ -222,6 +222,8 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 GOOGLE_RECAPTCHA_V3 = os.environ.get("GOOGLE_RECAPTCHA_V3")
 
+MY_EMAIL = os.environ.get("MY_EMAIL")
+
 # used when pushing via git
 logging.basicConfig(
     level = logging.DEBUG,

@@ -16,6 +16,8 @@ from django.utils.safestring import *
 
 from .forms import *
 
+from userMng.mics import *
+
 ################
 #######
 ####### Function based views
@@ -50,8 +52,13 @@ class ContactView(View):
 
 	def post(self, request):
 		form = ContactForm(request.POST)
+		username = 
+		email = 
+		subject = 
+		text_msg = 
 
 		if form.is_valid():
+			prepare_visitor_mssg_email(request, username, email, subject, text_msg)
 
 			messages.add_message(request, messages.SUCCESS, 
 				mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
