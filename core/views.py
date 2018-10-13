@@ -67,13 +67,12 @@ class ContactView(View):
 				messages.add_message(request, messages.SUCCESS, 
 					mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
 					'<p>We wiill respond to you <strong>as soon as possible</strong>.</p>'))
-				
+
 			else:
 				messages.add_message(request, messages.WARNING, 
 						mark_safe('<h6 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h6>'
 						'<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>'))
 		else:
-
 			messages.add_message(request, messages.ERROR, 
 				mark_safe('<h6 class=''alert-heading''>You message does not fulfill our basic requirenements!</h6>'
 				'<p>Check that all fields are </p>'))
