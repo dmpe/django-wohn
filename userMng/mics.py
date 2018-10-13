@@ -90,7 +90,7 @@ def prepare_psswd_reset_email(self, request, userPresent_username = None,
 	temp_name = None):
 
 	subject = 'B40.cz: Password Reset'
-	from_email = settings.DEFAULT_FROM_EMAIL
+	smtp_email = settings.DEFAULT_FROM_EMAIL
 
 	client_headers = http_headers(request)
 
@@ -103,7 +103,7 @@ def prepare_psswd_reset_email(self, request, userPresent_username = None,
 	plain_message = strip_tags(html_message)
 
 	try:
-		send_mail(subject, plain_message, from_email, [userPresent_email], html_message=html_message)
+		send_mail(subject, plain_message, smtp_email, [userPresent_email], html_message=html_message)
 	except BadHeaderError:
 		return HttpResponse('Invalid header found.')
 
@@ -113,12 +113,13 @@ def prepare_visitor_mssg_email(self, request, userPresent_username = None,
 	userPresent_email = None, subject = None, text_msg = None):
 
 	subject = 'B40.cz: Message from the user/visitor: ' + subject
-	from_email = settings.DEFAULT_FROM_EMAIL
+	smtp_email = settings.DEFAULT_FROM_EMAIL
 	my_email = settings.MY_EMAIL
+	from_email = userPresent_email
 
 	client_headers = http_headers(request)
 
-	cntxt = {"username": userPresent_username, 
+	cntxt = {"username": userPresent_username, "from_email" : from_email,
 		"operating_system": client_headers[0], "ip_address": client_headers[1], 
 		"browser": client_headers[2], "browser_version": client_headers[3]}
 
@@ -126,7 +127,7 @@ def prepare_visitor_mssg_email(self, request, userPresent_username = None,
 	plain_message = strip_tags(html_message)
 
 	try:
-		send_mail(subject, plain_message, from_email, 
+		send_mail(subject, plain_message, smtp_email, 
 			[my_email], html_message=html_message)
 	except BadHeaderError:
 		return HttpResponse('Invalid header found.')
