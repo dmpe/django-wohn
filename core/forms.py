@@ -35,8 +35,8 @@ class ContactForm(forms.Form):
 		#self.helper.form_action = reverse('submit_form')
 		self.helper.add_input(Button("submit", "Submit", 
 			css_class = "btn btn-warning float-right btn-lg g-recaptcha", 
-			`data-callback`="onSubmit", 
-			`data-sitekey`="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5"))
+			data_callback="onSubmit", 
+			data_sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5"))
 
 
 
