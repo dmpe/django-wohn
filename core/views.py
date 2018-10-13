@@ -58,12 +58,20 @@ class ContactView(View):
 			email = form.cleaned_data['inputEmail']
 			subject = form.cleaned_data['inputSubject']
 			text_msg = form.cleaned_data['inputText']
+			recap_token = request.POST.get('g-recaptcha-response', False)
 		
-			prepare_visitor_mssg_email(request, username, email, subject, text_msg)
+			if is_human(recaptcha_token = recap_token) is True:
 
-			messages.add_message(request, messages.SUCCESS, 
-				mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
-				'<p>We wiill respond to you <strong>as soon as possible</strong>.</p>'))
+				prepare_visitor_mssg_email(request, username, email, subject, text_msg)
+
+				messages.add_message(request, messages.SUCCESS, 
+					mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
+					'<p>We wiill respond to you <strong>as soon as possible</strong>.</p>'))
+				
+			else:
+				messages.add_message(request, messages.WARNING, 
+						mark_safe('<h6 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h6>'
+						'<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>'))
 		else:
 
 			messages.add_message(request, messages.ERROR, 
