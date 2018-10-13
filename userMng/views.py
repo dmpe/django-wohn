@@ -202,8 +202,6 @@ class LoginView(View):
 					messages.add_message(request, messages.WARNING, 
 						mark_safe('<h6 class=''alert-heading''>Such a user does not exist.</h6>'
 						'<p>Make sure that username and password are correct.</p>'))
-
-					return render(request, self.template_name)
 				else: 	
 					try:
 						# whether the user is active or not is already checked by the 
@@ -220,6 +218,8 @@ class LoginView(View):
 			messages.add_message(request, messages.WARNING, 
 						mark_safe('<h6 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h6>'
 						'<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>'))
+		
+		return render(request, self.template_name)
 
 	def get(self, request):
 		# if get request just render the template, with form
