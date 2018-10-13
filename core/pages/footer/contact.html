@@ -23,7 +23,7 @@
 	});
 	// used for automatically binding the challenge to a button/form
 	function onSubmit(token) {
-		document.getElementById("form-login").submit();
+		document.getElementById("contact-form").submit();
 	}
     </script>
 
@@ -41,7 +41,7 @@
 			<form method="POST" id="contact-form">
 				{% csrf_token %}
 				{{ form|crispy }}
-				<button type="submit" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" class="btn btn-warning float-right btn-lg g-recaptcha">Save person</button>
+				<button type="submit" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" class="btn btn-warning float-right btn-lg g-recaptcha">Submit</button>
 			</form>
 		</div>
 		

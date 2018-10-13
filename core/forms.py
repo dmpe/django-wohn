@@ -27,11 +27,6 @@ class ContactForm(forms.Form):
 	inputText = forms.CharField(label = "Your message for us is....", widget = forms.Textarea, 
 		required=True)
 
-	def __init__(self, *args, **kwargs):
-		super(ContactForm, self).__init__(*args, **kwargs)
-		self.helper = FormHelper()
-		self.helper.form_id = "contact-form"
-
 
 
 
