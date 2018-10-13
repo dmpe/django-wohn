@@ -52,12 +52,13 @@ class ContactView(View):
 
 	def post(self, request):
 		form = ContactForm(request.POST)
-		username = form.cleaned_data['inputName']
-		email = form.cleaned_data['inputEmail']
-		subject = form.cleaned_data['inputSubject']
-		text_msg = form.cleaned_data['inputText']
 
 		if form.is_valid():
+			username = form.cleaned_data['inputName']
+			email = form.cleaned_data['inputEmail']
+			subject = form.cleaned_data['inputSubject']
+			text_msg = form.cleaned_data['inputText']
+		
 			prepare_visitor_mssg_email(request, username, email, subject, text_msg)
 
 			messages.add_message(request, messages.SUCCESS, 
