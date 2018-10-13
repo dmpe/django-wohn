@@ -3,7 +3,7 @@ from django.urls import reverse
 
 # add crispy imports for sending (helper)
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Button
 
 class ContactForm(forms.Form):
 	"""
