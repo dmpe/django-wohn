@@ -38,7 +38,11 @@
 		{% endif %}
 
 		<div class="col-md-9">
-			{% crispy form %}
+			<form method="POST" id="contact-form">
+				{% csrf_token %}
+				{{ form|crispy }}
+				<button type="submit" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" class="btn btn-warning float-right btn-lg g-recaptcha">Save person</button>
+			</form>
 		</div>
 		
 		<div class="col-md-3">

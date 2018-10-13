@@ -2,8 +2,8 @@ from django import forms
 from django.urls import reverse
 
 # add crispy imports for sending (helper)
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Button
+from crispy_forms.helper import *
+from crispy_forms.layout import *
 
 class ContactForm(forms.Form):
 	"""
@@ -31,17 +31,6 @@ class ContactForm(forms.Form):
 		super(ContactForm, self).__init__(*args, **kwargs)
 		self.helper = FormHelper()
 		self.helper.form_id = "contact-form"
-		self.helper.form_method = "POST"
-		#self.helper.form_action = reverse('submit_form')
-		
-		# switched from Submit to Button for more edditing 
-		# "btn" is appended automatically
-		self.helper.add_input(Button("submit", "Submit", 
-			css_class = "btn-warning float-right btn-lg g-recaptcha", 
-			data_callback="onSubmit", 
-			type="submit",
-			data_sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5"))
-
 
 
 
