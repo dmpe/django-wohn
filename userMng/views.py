@@ -192,10 +192,11 @@ class LoginView(View):
 		# recieve
 		username_email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
-		recap_token = request.POST.get('g-recaptcha-response', False)
-		#recap_token = request.POST.get('recaptcha', False)
-		#print(recaptcha)
-		print(recap_token)
+		if 'g-recaptcha-response' in self.request.POST:
+			recap_token = request.POST.get('g-recaptcha-response', False)
+			print(recap_token)
+		else:
+			print("there is no token")
 
 		if is_human(recap_token):
 			try:
