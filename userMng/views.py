@@ -193,8 +193,9 @@ class LoginView(View):
 		username_Email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
 		recap_token = request.POST.get('g-recaptcha-response', False)
-	
-		if is_human(recaptcha_token = recap_token) is True:
+		print(recap_token)
+
+		if is_human(recap_token):
 			try:
 				auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
 				
