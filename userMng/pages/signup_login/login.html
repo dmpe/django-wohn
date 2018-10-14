@@ -10,6 +10,9 @@
 
 {% block content %}
 <div class="container-fluid">
+    <script src="https://apis.google.com/js/platform.js"></script>
+	<!-- Because of Recaptcha login -->
+	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5'></script>
 
 	<script>
 	// execute function and output the token into the browser console
@@ -28,13 +31,6 @@
     
     <!-- Because of Facebook login -->
 	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
 
     <div class="row d-flex justify-content-center login_register_box">
     	<div class="card text-center bg-light border-dark col-md-5 col-lg-3 mr-1">
@@ -105,7 +101,7 @@
 					<p class="float-left"><a href="{% url 'reset_password' %}">Forgot your username or password?</a></p>
 
 					<!-- Also includes Google Recaptcha v3 -->
-					<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" value="submit" data-callback="onSubmit">Login</button>
+					<button class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" type="submit" value="submit" data-callback="onSubmit">Login</button>
 				</form>
 			</div>
 
@@ -118,6 +114,14 @@
 			{% endif %}
 	    </div>
 	</div>
+	
+	<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 
 	<script>
 	window.fbAsyncInit = function() {
@@ -138,10 +142,6 @@
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	</script>
-	
-    <script src="https://apis.google.com/js/platform.js" async></script>
-	<!-- Because of Recaptcha login -->
-	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5' async></script>
 </div>
 {% endblock %}
 
