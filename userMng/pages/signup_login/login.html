@@ -23,7 +23,9 @@
 	});
 	// used for automatically binding the challenge to a button/form
 	function onSubmit(token) {
+		document.getElementById('recaptchaValidator').value = grecaptcha.getResponse();
 		document.getElementById("form-login").submit();
+
 	}
     </script>
     
@@ -105,7 +107,7 @@
 					<p class="float-left"><a href="{% url 'reset_password' %}">Forgot your username or password?</a></p>
 
 					<!-- Also includes Google Recaptcha v3 -->
-					<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" value="submit" data-callback="onSubmit">Login</button>
+					<button type="submit" id="recaptchaValidator" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" value="submit" data-callback="onSubmit">Login</button>
 				</form>
 			</div>
 

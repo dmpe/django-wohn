@@ -147,7 +147,7 @@ class RegistrationView(CreateView):
 	"""
 	template_name = 'signup_login/register.html'
 
-	def post(self, request):
+	def post(self, request, *args, **kwargs):
 		# recieve data from the registration form
 		inputUsername = request.POST.get('inputUsername', False)
 		inputEmail = request.POST.get('inputEmail', False)
@@ -173,7 +173,7 @@ class RegistrationView(CreateView):
 		except Exception as e:
 			return redirect(settings.LOGIN_URL)
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		# if get request, just render the template, with form
 		return render(request, self.template_name)
 
@@ -188,16 +188,16 @@ class LoginView(View):
 	"""
 	template_name = 'signup_login/login.html'
 		
-	def post(self, request):
+	def post(self, request, *args, **kwargs):
 		# recieve
-		username_Email = request.POST.get('inputEmail_Username', False)
+		username_email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
 		recap_token = request.POST.get('g-recaptcha-response', False)
 		print(recap_token)
 
 		if is_human(recap_token):
 			try:
-				auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_Email, password = user_password)
+				auth_user = EmailUserNameAuthBackend.authenticate(self, request, username = username_email, password = user_password)
 				
 				if auth_user is None:
 					messages.add_message(request, messages.WARNING, 
@@ -222,7 +222,7 @@ class LoginView(View):
 		
 		return render(request, self.template_name)
 
-	def get(self, request):
+	def get(self, request, *args, **kwargs):
 		# if get request just render the template, with form
 		return render(request, self.template_name)
 
