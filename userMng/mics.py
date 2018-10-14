@@ -7,6 +7,7 @@ from django.contrib.auth.tokens import *
 from django.contrib.auth import *
 from django.conf import settings
 import re
+import json
 import requests as requests_library
 
 # replaced by logic in contrib.auth.tokens
