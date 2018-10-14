@@ -11,9 +11,6 @@
 {% block content %}
 <div class="container-fluid">
 
-	<!-- Because of Recaptcha login -->
-	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5' async></script>
-
 	<script>
 	// execute function and output the token into the browser console
 	grecaptcha.ready(function() {
@@ -141,7 +138,10 @@
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	</script>
+	
     <script src="https://apis.google.com/js/platform.js" async></script>
+	<!-- Because of Recaptcha login -->
+	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5' async></script>
 </div>
 {% endblock %}
 
