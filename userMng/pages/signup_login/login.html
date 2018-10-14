@@ -12,7 +12,7 @@
 <div class="container-fluid">
 
 	<!-- Because of Recaptcha login -->
-	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5'></script>
+	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5' async></script>
 
 	<script>
 	// execute function and output the token into the browser console
@@ -83,6 +83,7 @@
 				<h1 class="card-title">Login</h1>
 			</div>
 			<div class="card-body">
+				<input type="hidden" name="recaptcha" id="recaptchaValidator" />
 				<form id = "form-login" method="POST">
 					{% csrf_token %}
 					<div class="form-group spacing">
@@ -107,7 +108,7 @@
 					<p class="float-left"><a href="{% url 'reset_password' %}">Forgot your username or password?</a></p>
 
 					<!-- Also includes Google Recaptcha v3 -->
-					<button type="submit" id="recaptchaValidator" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" value="submit" data-callback="onSubmit">Login</button>
+					<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" value="submit" data-callback="onSubmit">Login</button>
 				</form>
 			</div>
 
