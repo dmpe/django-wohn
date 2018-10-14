@@ -21,14 +21,8 @@
 		document.getElementById('recaptchaValidator').value = grecaptcha.getResponse();
 		document.getElementById("form-login").submit();
 	}
-	// execute function and output the token into the browser console
-	grecaptcha.ready(function() {
-		grecaptcha.execute('6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5', {action: 'login'}).then(function(token) {
-			console.log(token);
-		});
-	});
     </script>
-    
+   
     <!-- Because of Facebook login -->
 	<div id="fb-root"></div>
 
@@ -117,6 +111,15 @@
 	    </div>
 	</div>
 	
+    <script type="text/javascript">
+	// execute function and output the token into the browser console
+	grecaptcha.ready(function() {
+		grecaptcha.execute('6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5', {action: 'login'}).then(function(token) {
+			console.log(token);
+		});
+	});
+	</script>
+
 	<script>(function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
 	if (d.getElementById(id)) return;
