@@ -19,6 +19,7 @@
 	grecaptcha.ready(function() {
 		grecaptcha.execute('6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5', {action: 'login'}).then(function(token) {
 			console.log(token);
+			$("recaptchaValidator").val(token);
 		});
 	});
 
@@ -83,8 +84,6 @@
 			<div class="card-body">
 				<form id = "form-login" method="POST">
 					{% csrf_token %}
-					<div type="hidden" name="recaptcha" id="recaptchaValidator"></div>
-
 					<div class="form-group spacing">
 						<div class="input-group">
 							<input class="form-control" type="text" id="inputEmail_Username" name="inputEmail_Username"  placeholder="Your email or username">
