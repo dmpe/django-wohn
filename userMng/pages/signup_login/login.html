@@ -26,9 +26,11 @@
 	<script>
 	// used for automatically binding the challenge to a button/form
 	function onSubmit(token) {
-		// grecaptcha.execute();
+		grecaptcha.execute();
 		document.getElementById("form-login").submit();
 		document.getElementById('recaptchaValidator').value = grecaptcha.getResponse();
+		console.log(document.getElementById('recaptchaValidator').value);
+		console.log(grecaptcha.getResponse());
 	}
     </script>
    
