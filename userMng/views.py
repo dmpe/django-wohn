@@ -192,6 +192,7 @@ class LoginView(View):
 		# recieve
 		username_email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
+
 		if 'g-recaptcha-response' in self.request.POST:
 			recap_token = request.POST.get('g-recaptcha-response', False)
 			print(recap_token)
@@ -221,7 +222,8 @@ class LoginView(View):
 		else:
 			messages.add_message(request, messages.WARNING, 
 						mark_safe('<h6 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h6>'
-						'<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>'))
+						'<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>'
+						'<p>Clear your cookies.</p>'))
 		
 		return render(request, self.template_name)
 
