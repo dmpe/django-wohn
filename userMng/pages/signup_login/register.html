@@ -12,7 +12,7 @@
 <div class="container-fluid">
 	
 	<!-- Because of Recaptcha login -->
-	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5' async defer></script>
+	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5'></script>
 
 	<script>
 	// execute function and output the token into the browser console
@@ -121,7 +121,10 @@
 						</div>
 					</div>
 
-					<p class="float-left"><a href="{% url 'reset_password' %}">Forgot your username or password?</a></p>
+					<p class="float-left">
+						<a href="{% url 'reset_password' %}">Forgot your username or password?</a>
+					</p>
+
 					<!-- Also includes Google Recaptcha v3 -->
 					<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" value="submit" data-callback="onSubmit">Register</button>
 				</form>
