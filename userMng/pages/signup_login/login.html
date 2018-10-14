@@ -27,10 +27,11 @@
 	// used for automatically binding the challenge to a button/form
 	function onSubmit(token) {
 		grecaptcha.execute();
-		document.getElementById("form-login").submit();
 		document.getElementById('recaptchaValidator').value = grecaptcha.getResponse();
 		console.log(document.getElementById('recaptchaValidator').value);
 		console.log(grecaptcha.getResponse());
+
+		document.getElementById("form-login").submit();
 	}
     </script>
    
@@ -83,8 +84,7 @@
 			<div class="card-body">
 				<form id = "form-login" method="POST">
 					{% csrf_token %}
-					<input type="hidden" name="recaptcha" id="recaptchaValidator" />
-					{# <div class="g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" data-callback="onSubmit" data-size="invisible"></div> #}
+					<div type="hidden" name="recaptcha" id="recaptchaValidator"></div>
 
 					<div class="form-group spacing">
 						<div class="input-group">
@@ -108,7 +108,7 @@
 					<p class="float-left"><a href="{% url 'reset_password' %}">Forgot your username or password?</a></p>
 
 					<!-- Also includes Google Recaptcha v3 -->
-					<button class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" type="submit" value="submit" data-callback="onSubmit">Login</button>
+					<button class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" name="g-recaptcha-response" type="submit" value="submit" data-callback="onSubmit">Login</button>
 				</form>
 			</div>
 
