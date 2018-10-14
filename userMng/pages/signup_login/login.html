@@ -12,13 +12,22 @@
 <div class="container-fluid">
     <script src="https://apis.google.com/js/platform.js"></script>
 	<!-- Because of Recaptcha login -->
-	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5' async defer></script>
+	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5'></script>
+
+    <script type="text/javascript">
+	// execute function and output the token into the browser console
+	grecaptcha.ready(function() {
+		grecaptcha.execute('6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5', {action: 'login'}).then(function(token) {
+			console.log(token);
+		});
+	});
+	</script>
 
 	<script>
 	// used for automatically binding the challenge to a button/form
 	function onSubmit(token) {
-		grecaptcha.execute();
-		document.getElementById('recaptchaValidator').value = grecaptcha.getResponse();
+		// grecaptcha.execute();
+		// document.getElementById('recaptchaValidator').value = grecaptcha.getResponse();
 		document.getElementById("form-login").submit();
 	}
     </script>
@@ -72,8 +81,8 @@
 			<div class="card-body">
 				<form id = "form-login" method="POST">
 					{% csrf_token %}
-					<input type="hidden" name="recaptcha" id="recaptchaValidator" />
-					<div class="g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" data-callback="onSubmit" data-size="invisible"></div>
+					{# <input type="hidden" name="recaptcha" id="recaptchaValidator" /> #}
+					{# <div class="g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" data-callback="onSubmit" data-size="invisible"></div> #}
 
 					<div class="form-group spacing">
 						<div class="input-group">
@@ -110,15 +119,6 @@
 			{% endif %}
 	    </div>
 	</div>
-	
-    <script type="text/javascript">
-	// execute function and output the token into the browser console
-	grecaptcha.ready(function() {
-		grecaptcha.execute('6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5', {action: 'login'}).then(function(token) {
-			console.log(token);
-		});
-	});
-	</script>
 
 	<script>(function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
