@@ -53,7 +53,7 @@ class ContactView(View):
 	def post(self, request):
 		form = ContactForm(request.POST)
 
-		if form.is_valid() and is_human(recap_token):
+		if form.is_valid():
 			username = form.cleaned_data['inputName']
 			email = form.cleaned_data['inputEmail']
 			subject = form.cleaned_data['inputSubject']
