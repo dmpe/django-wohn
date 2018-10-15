@@ -85,9 +85,12 @@ class ResetPasswordStepOneView(View):
 			tk = token_obj.make_token(userPresent[1])
 			uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk)).decode()
 
-			self.prepare_psswd_reset_email(request, userPresent_username = userPresent[1].get_username(), 
+			self.prepare_psswd_reset_email(request, 
+				userPresent_username = userPresent[1].get_username(), 
 				userPresent_email = userPresent[1].email, 
-				userPresent_token= tk, userPresent_uid= uid, temp_name = self.template_name)
+				userPresent_token= tk, 
+				userPresent_uid= uid, 
+				temp_name = self.template_name)
 
 			messages.add_message(request, messages.SUCCESS, 
 				mark_safe('<h6 class=''alert-heading''>Password reset was successful!</h6>'

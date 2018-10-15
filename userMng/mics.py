@@ -86,7 +86,7 @@ def is_human(recaptcha_token = None):
 	else:
 		return False
 
-def prepare_psswd_reset_email(self, request, userPresent_username = None, 
+def prepare_psswd_reset_email(request, userPresent_username = None, 
 	userPresent_email = None, userPresent_token = None, userPresent_uid = None, 
 	temp_name = None):
 
@@ -110,7 +110,7 @@ def prepare_psswd_reset_email(self, request, userPresent_username = None,
 
 	return None
 
-def prepare_visitor_mssg_email(self, request, userPresent_username = None, 
+def prepare_visitor_mssg_email(request, userPresent_username = None, 
 	userPresent_email = None, subject = None, text_msg = None):
 
 	subject = 'B40.cz: Message from the user/visitor: ' + subject
