@@ -2,14 +2,12 @@
 from werkzeug.useragents import *
 from django.utils.html import *
 from django.utils.http import *
+from django.core.mail import *
 from django.utils.encoding import *
 from django.contrib.auth.tokens import *
 from django.contrib.auth import *
 from django.conf import settings
 from django.template.loader import render_to_string
-from django.utils.html import *
-from django.utils.http import *
-from django.utils.encoding import *
 from django.urls import *
 # for messages
 from django.utils.safestring import *
@@ -94,8 +92,7 @@ def is_human(recaptcha_token = None):
 		return False
 
 def prepare_psswd_reset_email(request, userPresent_username = None, 
-	userPresent_email = None, userPresent_token = None, userPresent_uid = None, 
-	temp_name = None):
+	userPresent_email = None, userPresent_token = None, userPresent_uid = None):
 
 	subject = 'B40.cz: Password Reset'
 	smtp_email = settings.DEFAULT_FROM_EMAIL

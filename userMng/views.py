@@ -89,8 +89,7 @@ class ResetPasswordStepOneView(View):
 				userPresent_username = userPresent[1].get_username(), 
 				userPresent_email = userPresent[1].email, 
 				userPresent_token= tk, 
-				userPresent_uid= uid, 
-				temp_name = self.template_name)
+				userPresent_uid= uid)
 
 			messages.add_message(request, messages.SUCCESS, 
 				mark_safe('<h6 class=''alert-heading''>Password reset was successful!</h6>'

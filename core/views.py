@@ -61,7 +61,6 @@ class ContactView(View):
 			recap_token = request.POST.get('g-recaptcha-response', False)
 		
 			if is_human(recap_token) is True:
-
 				prepare_visitor_mssg_email(request, username, email, subject, text_msg)
 
 				messages.add_message(request, messages.SUCCESS, 
