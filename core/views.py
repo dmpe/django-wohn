@@ -67,7 +67,6 @@ class ContactView(View):
 				messages.add_message(request, messages.SUCCESS, 
 					mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
 					'<p>We wiill respond to you <strong>as soon as possible</strong>.</p>'))
-
 			else:
 				messages.add_message(request, messages.WARNING, 
 						mark_safe('<h6 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h6>'

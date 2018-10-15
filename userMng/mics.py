@@ -6,6 +6,7 @@ from django.utils.encoding import *
 from django.contrib.auth.tokens import *
 from django.contrib.auth import *
 from django.conf import settings
+from django.template.loader import render_to_string
 import re
 import json
 import requests as requests_library
