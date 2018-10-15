@@ -10,17 +10,21 @@
 
 {% block content %}
 <div class="container-fluid">
-	
+
 	<!-- Because of Recaptcha login -->
 	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5'></script>
 
-	<script>
+	<script type="text/javascript">
 	// execute function and output the token into the browser console
 	grecaptcha.ready(function() {
 		grecaptcha.execute('6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5', {action: 'register'}).then(function(token) {
 			console.log(token);
+			$("#recaptchaValidator").val(token);
 		});
 	});
+	</script>
+
+	<script>
 	// used for automatically binding the challenge to a button/form
 	function onSubmit(token) {
 		document.getElementById("form-register").submit();
@@ -29,13 +33,6 @@
 
 	<!-- Because of Facebook login -->
 	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
 
 	<!-- TODO what if user wants to logout or deasscoiate accounts: is registeration page available to him -->
     <div class="row d-flex justify-content-center login_register_box">
@@ -126,7 +123,7 @@
 					</p>
 
 					<!-- Also includes Google Recaptcha v3 -->
-					<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" value="submit" data-callback="onSubmit">Register</button>
+					<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" id="recaptchaValidator" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" name="g-recaptcha-response" data-callback="onSubmit">Register</button>
 				</form>
 
 				{% if messages %}		
@@ -139,6 +136,14 @@
 	    	</div>
 	    </div>
 	</div>
+	
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 
 	<script>
 	window.fbAsyncInit = function() {

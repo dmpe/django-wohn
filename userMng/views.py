@@ -192,12 +192,8 @@ class LoginView(View):
 		# recieve
 		username_email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
-
-		if 'g-recaptcha-response' in self.request.POST:
-			recap_token = request.POST.get('g-recaptcha-response', False)
-			print(recap_token)
-		else:
-			print("there is no token")
+		recap_token = request.POST.get('g-recaptcha-response', False)
+		print(recap_token)
 
 		if is_human(recap_token):
 			try:
@@ -223,7 +219,7 @@ class LoginView(View):
 			messages.add_message(request, messages.WARNING, 
 						mark_safe('<h6 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h6>'
 						'<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>'
-						'<p>Clear your cookies.</p>'))
+						'<p>Clear e.g. your cookies.</p>'))
 		
 		return render(request, self.template_name)
 
@@ -236,7 +232,6 @@ class LogoutView(View):
 	Class based view for logout
 	Only requires get method
 	"""
-
 	def get(self, request):
 		django_logout(request)
 		return redirect('core_index')

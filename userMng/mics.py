@@ -120,16 +120,15 @@ def prepare_visitor_mssg_email(self, request, userPresent_username = None,
 
 	client_headers = http_headers(request)
 
-	cntxt = {"username": userPresent_username, "from_email" : from_email,
+	cntxt = {"username": userPresent_username, "from_email" : from_email, "text_msg": text_msg,
 		"operating_system": client_headers[0], "ip_address": client_headers[1], 
 		"browser": client_headers[2], "browser_version": client_headers[3]}
 
-	html_message = render_to_string(text_msg, cntxt)
+	html_message = render_to_string("new_visitor_email.html", cntxt)
 	plain_message = strip_tags(html_message)
 
 	try:
-		send_mail(subject, plain_message, smtp_email, 
-			[my_email], html_message=html_message)
+		send_mail(subject, plain_message, smtp_email, [my_email], html_message=html_message)
 	except BadHeaderError:
 		return HttpResponse('Invalid header found.')
 

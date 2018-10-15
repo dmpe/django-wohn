@@ -1,0 +1,29 @@
+{% load static %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="{% static 'global_styles.css' %}">
+</head>
+<body>
+
+<p>Hi admin, </p>
+
+<p>{{ username }} has send you a message below. From {{ from_email }} and having following user system: </p>
+
+<ul>
+	<li>Operating System: {{operating_system}}</li>
+	<li>IP Adress: {{ip_address}}</li> Find more about <a href="http://ip-api.com/{{ip_address}}">it here</a> (Check city & country!)
+	<li>Browser: {{browser}}</li>
+	<li>Browser Version: {{browser_version}} </li>
+</ul>
+
+<h4>His message!</h4>
+
+<p>{{ text_msg }}</p>
+
+</body>
+</html>
+

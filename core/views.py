@@ -53,14 +53,14 @@ class ContactView(View):
 	def post(self, request):
 		form = ContactForm(request.POST)
 
-		if form.is_valid():
+		if form.is_valid() and is_human(recap_token):
 			username = form.cleaned_data['inputName']
 			email = form.cleaned_data['inputEmail']
 			subject = form.cleaned_data['inputSubject']
 			text_msg = form.cleaned_data['inputText']
 			recap_token = request.POST.get('g-recaptcha-response', False)
 		
-			if is_human(recaptcha_token = recap_token) is True:
+			if is_human(recap_token) is True:
 
 				prepare_visitor_mssg_email(request, username, email, subject, text_msg)
 
@@ -71,11 +71,11 @@ class ContactView(View):
 			else:
 				messages.add_message(request, messages.WARNING, 
 						mark_safe('<h6 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h6>'
-						'<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>'))
+						'<p>Please resend the message again, clean cookies or click on the left to email us directly.</p>'))
 		else:
 			messages.add_message(request, messages.ERROR, 
 				mark_safe('<h6 class=''alert-heading''>You message does not fulfill our basic requirenements!</h6>'
-				'<p>Check that all fields are </p>'))
+				'<p>Check that all fields are filled correctly.</p>'))
 
 		return render(request, self.template_name, {"form": form })	
 
