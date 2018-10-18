@@ -44,6 +44,20 @@ Login page - Move google recaptha v3 badge up from the bottom footer
 	bottom: 4rem !important;
 }
 
+.responsive-map {
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+
+.responsive-map iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
 /* 3. CSS reused across >=2 pages
 Sign Up Pages {logic, reset pswd, etc}
 //////////////////////*/
