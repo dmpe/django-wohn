@@ -69,7 +69,7 @@ class ContactView(View):
 			else:
 				messages.add_message(request, messages.WARNING, 
 						mark_safe('<h6 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h6>'
-						'<p>Please resend the message again, clean cookies or click on the left to email us directly.</p>'))
+						'<p>Please resend the message again, clean cookies or click on the right to email us directly.</p>'))
 		else:
 			messages.add_message(request, messages.ERROR, 
 				mark_safe('<h6 class=''alert-heading''>You message does not fulfill our basic requirenements!</h6>'

@@ -29,23 +29,6 @@
     </script>
 
 	<div class="row">
-		
-		{% if messages %}		
-			{% for message in  messages %}
-				<div class="alert alert-{{ message.tags }}" id="checkEmailAlert" role="alert">
-					{{ message }}
-				</div>
-			{% endfor %}
-		{% endif %}
-
-		<div class="col-md-9">
-			<form method="POST" id="form-contact">
-				{% csrf_token %}
-				{{ form|crispy }}
-				<button type="submit" name="g-recaptcha-response" class="btn btn-warning float-right btn-lg g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit</button>
-			</form>
-		</div>
-		
 		<div class="col-md-3">
 			<div class="card">
 				<div class="card-header">
@@ -69,6 +52,31 @@
 					</script>
 				</div>
 			</div>	
+			<div>
+				<iframe width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp=50.08967299999999~14.419380000000004&lvl=17&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+				</iframe>
+				<div style="white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
+					<a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=50.08967299999999~14.419380000000004&amp;sty=r&amp;lvl=17&amp;FORM=MBEDLD">View Larger Map</a> &nbsp; | &nbsp;
+					<a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=50.08967299999999~14.419380000000004&amp;sty=r&amp;lvl=17&amp;rtp=~pos.50.08967299999999_14.419380000000004____&amp;FORM=MBEDLD">Get Directions</a>
+				</div>
+			</div>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.826862769798!2d14.416872851273162!3d50.089528379326296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94e85b7ef4c3%3A0x4796cbfb0d50d18c!2zUGHFmcOtxb5za8OhIDk3LzE1LCAxMTAgMDAgSm9zZWZvdiwgQ3plY2hpYQ!5e0!3m2!1sen!2sde!4v1539893805445" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+
+		<div class="col-md-9">
+			<form method="POST" id="form-contact">
+				{% csrf_token %}
+				{{ form|crispy }}
+				<button type="submit" name="g-recaptcha-response" class="btn btn-warning float-right btn-lg g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit</button>
+			</form>
+
+			{% if messages %}		
+				{% for message in  messages %}
+					<div class="alert alert-{{ message.tags }}" id="checkEmailAlert" role="alert">
+						{{ message }}
+					</div>
+				{% endfor %}
+			{% endif %}
 		</div>
 	</div>
 </div>

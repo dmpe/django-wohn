@@ -10,8 +10,8 @@ class ContactForm(forms.Form):
 	Keep this as cripsy form !
 	"""
 	SubjectHeadlineChoice = (
-		('ads', 'Advertising'),
 		('general', 'General Questions'), 
+		('ads', 'Advertising'),
 		('com_abs_similar', 'Compaints/Abuse'),
 		('help_me', 'Help me with something')
 	)
@@ -24,7 +24,7 @@ class ContactForm(forms.Form):
 		choices=SubjectHeadlineChoice)
 	# we can have more than 255 chars in the message, hence TextField
 	# and not CharField
-	inputText = forms.CharField(label = "Your message for us is....", widget = forms.Textarea, 
+	inputText = forms.CharField(label = "Your message is about....", widget = forms.Textarea, 
 		required=True)
 
 
