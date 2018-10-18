@@ -65,8 +65,8 @@
 			<form method="POST" id="form-contact" class="mb-5">
 				{% csrf_token %}
 				{{ form|crispy }}
-				<button type="submit" name="g-recaptcha-response" class="btn btn-warning float-right btn-lg g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit</button>
-				<button type="submit" name="g-recaptcha-response" class="btn btn-warning float-right btn-lg btn-block d-md-inline-flex d-none d-md-block g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit</button>
+				<button type="submit" name="g-recaptcha-response" class="btn btn-warning float-right btn-lg g-recaptcha d-md-inline-flex d-none d-md-block" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit</button>
+				<button type="submit" name="g-recaptcha-response" class="btn btn-warning mb-5 btn-lg d-sm-none d-md-block btn-block g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit</button>
 			</form>
 
 			{% if messages %}		
