@@ -200,7 +200,7 @@ https://developers.google.com/identity/branding-guidelines */
 	line-height: 1.2;
 }
 
-@include media-breakpoint-up(sm) {
+@media(min-width: 544px) {
   .custom-display-text-size {
 	font-size: 3.5rem;
 	font-weight: 300;
@@ -208,7 +208,7 @@ https://developers.google.com/identity/branding-guidelines */
   }
 }
 
-@include media-breakpoint-up(md) {
+@media (min-width: 768px) {
   .custom-display-text-size {
 	font-size: 5rem;
 	font-weight: 300;
@@ -216,7 +216,7 @@ https://developers.google.com/identity/branding-guidelines */
   }
 }
 
-@include media-breakpoint-up(xl) {
+@media (min-width: 992px) {
   .custom-display-text-size {
 	font-size: 6rem;
 	font-weight: 300;
