@@ -39,11 +39,14 @@ body {
 Login page - Move google recaptha v3 badge up from the bottom footer
 ~ 60 px
 */
-
 .grecaptcha-badge {
 	bottom: 4rem !important;
 }
 
+
+/* //////////////////
+Contact page - Make responsive page iframe
+*/
 .responsive-map {
     overflow:hidden;
     padding-bottom:56.25%;
@@ -58,6 +61,7 @@ Login page - Move google recaptha v3 badge up from the bottom footer
     width:100%;
     position:absolute;
 }
+
 /* 3. CSS reused across >=2 pages
 Sign Up Pages {logic, reset pswd, etc}
 //////////////////////*/
@@ -181,11 +185,37 @@ https://developers.google.com/identity/branding-guidelines */
 	margin-top: -4px;
 }
 
-/* We dont like to have * when Crispy form is applied
+/* We dont like to have *, when Crispy form is applied
 -> disable it here
 */
 .asteriskField {
     display: none;
+}
+
+/* Make typography responsive
+*/
+@include media-breakpoint-up(sm) {
+  .custom-display-text-size {
+	font-size: 2rem;
+	font-weight: 300;
+	line-height: 1.2;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .custom-display-text-size {
+	font-size: 5rem;
+	font-weight: 300;
+	line-height: 1.2;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .custom-display-text-size {
+	font-size: 6rem;
+	font-weight: 300;
+	line-height: 1.2;
+  }
 }
 
 /* Password Reset Email
