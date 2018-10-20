@@ -195,15 +195,15 @@ https://developers.google.com/identity/branding-guidelines */
 /* Make typography responsive
 */
 @include media-breakpoint-up(sm) {
-  .custom-display-text-size {
-	font-size: 2rem;
+  h1 .custom-display-text-size {
+	font-size: 3rem;
 	font-weight: 300;
 	line-height: 1.2;
   }
 }
 
 @include media-breakpoint-up(md) {
-  .custom-display-text-size {
+  h1 .custom-display-text-size {
 	font-size: 5rem;
 	font-weight: 300;
 	line-height: 1.2;
@@ -211,7 +211,7 @@ https://developers.google.com/identity/branding-guidelines */
 }
 
 @include media-breakpoint-up(lg) {
-  .custom-display-text-size {
+  h1 .custom-display-text-size {
 	font-size: 6rem;
 	font-weight: 300;
 	line-height: 1.2;
