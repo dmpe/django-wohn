@@ -195,7 +195,7 @@ https://developers.google.com/identity/branding-guidelines */
 /* Make typography responsive
 */
 @include media-breakpoint-up(sm) {
-  h1 .custom-display-text-size {
+  custom-display-text-size {
 	font-size: 3rem;
 	font-weight: 300;
 	line-height: 1.2;
