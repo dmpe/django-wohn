@@ -48,17 +48,7 @@ Login page - Move google recaptha v3 badge up from the bottom footer
 Contact page - Make responsive page iframe
 */
 .responsive-map {
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
-}
-
-.responsive-map iframe{
-    left:0;
-    top:0;
-    height:100%;
     width:100%;
-    position:absolute;
 }
 
 /* 3. CSS reused across >=2 pages
