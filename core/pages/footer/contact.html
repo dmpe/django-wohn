@@ -72,10 +72,10 @@
 						<i class="fab fa-facebook-square fa-3x"></i>
 					</div>
 				</div>
-			</div>
 
-			<div class="col align-self-end responsive-map">
-				<iframe class="mt-5" src="https://api.mapy.cz/frame?params=%7B%22x%22%3A14.419088677425833%2C%22y%22%3A50.08932926711133%2C%22base%22%3A%221%22%2C%22layers%22%3A%5B%5D%2C%22zoom%22%3A17%2C%22url%22%3A%22https%3A%2F%2Fen.mapy.cz%2Fs%2F3983p%22%2C%22mark%22%3A%7B%22x%22%3A%2214.419083313007807%22%2C%22y%22%3A%2250.089570190430784%22%2C%22title%22%3A%22ulice%20Pa%C5%99%C3%AD%C5%BEsk%C3%A1%2097%2F15%2C%20Praha%22%7D%2C%22overview%22%3Afalse%7D&amp;width=500&amp;height=333&amp;lang=en" width="500" height="333" style="border:none" frameBorder="0"></iframe>
+				<div class="responsive-map">
+					<iframe class="my-5" src="https://api.mapy.cz/frame?params=%7B%22x%22%3A14.419088677425833%2C%22y%22%3A50.08932926711133%2C%22base%22%3A%221%22%2C%22layers%22%3A%5B%5D%2C%22zoom%22%3A17%2C%22url%22%3A%22https%3A%2F%2Fen.mapy.cz%2Fs%2F3983p%22%2C%22mark%22%3A%7B%22x%22%3A%2214.419083313007807%22%2C%22y%22%3A%2250.089570190430784%22%2C%22title%22%3A%22ulice%20Pa%C5%99%C3%AD%C5%BEsk%C3%A1%2097%2F15%2C%20Praha%22%7D%2C%22overview%22%3Afalse%7D&amp;width=500&amp;height=333&amp;lang=en" width="500" height="333" style="border:none" frameBorder="0"></iframe>
+				</div>
 			</div>
 		</div>
 
@@ -86,7 +86,7 @@
 			<form method="POST" id="form-contact" class="mb-5">
 				{% csrf_token %}
 				{{ form|crispy }}
-				<button type="submit" name="g-recaptcha-response" class="btn btn-warning mb-5 btn-lg d-sm-none d-md-block btn-block g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit message to Marek</button>
+				<button type="submit" name="g-recaptcha-response" class="btn btn-warning mb-5 btn-lg btn-block g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit message to Marek</button>
 			</form>
 
 			{% if messages %}		
