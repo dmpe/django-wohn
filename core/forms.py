@@ -29,7 +29,7 @@ class ContactForm(forms.Form):
 		required=True)
 
 	def __init__(self, *args, **kwargs):
-		super(ExampleForm, self).__init__(*args, **kwargs)
+		super(ContactForm, self).__init__(*args, **kwargs)
 		self.helper = FormHelper()
 		self.helper.layout = Layout(
 		    Div(
