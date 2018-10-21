@@ -4,6 +4,7 @@ from django.urls import reverse
 # add crispy imports for sending (helper)
 from crispy_forms.helper import *
 from crispy_forms.layout import *
+from crispy_forms.bootstrap import *
 
 class ContactForm(forms.Form):
 	"""
@@ -27,8 +28,18 @@ class ContactForm(forms.Form):
 	inputText = forms.CharField(label = "Your message is about....", widget = forms.Textarea, 
 		required=True)
 
-
-
+	def __init__(self, *args, **kwargs):
+		super(ExampleForm, self).__init__(*args, **kwargs)
+		self.helper = FormHelper()
+		self.helper.layout = Layout(
+		    Div(
+		        Div('inputName',css_class='col-md-6',),
+		        Div('inputEmail',css_class='col-md-6',),
+		        css_class='row',
+		    ),
+		    inputSubject,
+		    inputText
+		)
 
 
 
