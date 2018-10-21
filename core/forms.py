@@ -37,8 +37,8 @@ class ContactForm(forms.Form):
 		        Div('inputEmail',css_class='col-md-6',),
 		        css_class='row',
 		    ),
-		    inputSubject,
-		    inputText
+		    "inputSubject",
+		    "inputText"
 		)
 
 
