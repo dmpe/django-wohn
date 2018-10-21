@@ -84,11 +84,32 @@
 				{{ form.source.errors | crispy }}
 				{{ form.source | crispy }}
 
-				<div class="form-group">
-					{{ form.inputName.label_tag  }}
-					{{ form.inputName.errors  }}
-					{{ form.inputName  }}
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						{{ form.inputName.label_tag  }}
+						{{ form.inputName.errors  }}
+						{{ form.inputName  }}
+					</div>
+
+					<div class="form-group col-md-6">
+						{{ form.inputEmail.label_tag  }}
+						{{ form.inputEmail.errors  }}
+						{{ form.inputEmail  }}
+					</div>
 				</div>
+
+				<div class="form-group">
+					{{ form.inputSubject.label_tag  }}
+					{{ form.inputSubject.errors  }}
+					{{ form.inputSubject  }}
+				</div>
+
+				<div class="form-group">
+					{{ form.inputText.label_tag  }}
+					{{ form.inputText.errors  }}
+					{{ form.inputText  }}
+				</div>
+
 
 				<button type="submit" name="g-recaptcha-response" class="btn btn-warning mb-5 btn-lg btn-block g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit message to Marek</button>
 			</form>

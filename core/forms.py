@@ -28,18 +28,18 @@ class ContactForm(forms.Form):
 	inputText = forms.CharField(label = "Your message is about....", widget = forms.Textarea, 
 		required=True)
 
-	def __init__(self, *args, **kwargs):
-		super(ContactForm, self).__init__(*args, **kwargs)
-		self.helper = FormHelper()
-		self.helper.layout = Layout(
-		    Div(
-		        Div('inputName',css_class='col-md-6',),
-		        Div('inputEmail',css_class='col-md-6',),
-		        css_class='row',
-		    ),
-		    "inputSubject",
-		    "inputText"
-		)
+	# def __init__(self, *args, **kwargs):
+	# 	super(ContactForm, self).__init__(*args, **kwargs)
+	# 	self.helper = FormHelper()
+	# 	self.helper.layout = Layout(
+	# 	    Div(
+	# 	        Div('inputName',css_class='col-md-6',),
+	# 	        Div('inputEmail',css_class='col-md-6',),
+	# 	        css_class='row',
+	# 	    ),
+	# 	    "inputSubject",
+	# 	    "inputText"
+	# 	)
 
 
 
