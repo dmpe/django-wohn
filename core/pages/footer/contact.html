@@ -86,13 +86,13 @@
 				{{ form.source | crispy }}
 
 				<div class="form-row">
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-5">
 						{{ form.inputName.label_tag  }}
 						{{ form.inputName.errors  }}
 						{{ form.inputName |add_class:"form-control"}}
 					</div>
 
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-7">
 						{{ form.inputEmail.label_tag  }}
 						{{ form.inputEmail.errors  }}
 						{{ form.inputEmail |add_class:"form-control"}}
@@ -102,13 +102,13 @@
 				<div class="form-group">
 					{{ form.inputSubject.label_tag  }}
 					{{ form.inputSubject.errors  }}
-					{{ form.inputSubject  }}
+					{{ form.inputSubject |add_class:"form-control" }}
 				</div>
 
 				<div class="form-group">
 					{{ form.inputText.label_tag  }}
 					{{ form.inputText.errors  }}
-					{{ form.inputText  }}
+					{{ form.inputText |add_class:"form-control"|attr:"rows:10"|attr:"cols:35"}}
 				</div>
 
 				<button type="submit" name="g-recaptcha-response" class="btn btn-warning mb-5 btn-lg btn-block g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit message to Marek</button>

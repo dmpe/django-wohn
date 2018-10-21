@@ -9,6 +9,9 @@ body {
 	margin-bottom: 4rem;
 }
 
+textarea {
+	width: 100%;
+}
 /* 1.1 Header and Footer Styles
 //////////////////////*/
 .headerFooterBackground {
