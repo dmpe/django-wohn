@@ -79,7 +79,11 @@
 		<div class="col-md-4">
 			<form method="POST" id="form-contact" class="mb-5">
 				{% csrf_token %}
-				{{ form|crispy }}
+							
+				{{ form.non_field_errors | crispy }}
+				{{ form.source.errors | crispy }}
+				{{ form.source | crispy }}
+				
 				<button type="submit" name="g-recaptcha-response" class="btn btn-warning mb-5 btn-lg btn-block g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit message to Marek</button>
 			</form>
 
