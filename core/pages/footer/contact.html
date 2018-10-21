@@ -83,7 +83,13 @@
 				{{ form.non_field_errors | crispy }}
 				{{ form.source.errors | crispy }}
 				{{ form.source | crispy }}
-				
+
+				<div class="form-group">
+					{{ form.name.label_tag }}
+					{{ form.name.errors }}
+					{{ form.name }}
+				</div>
+
 				<button type="submit" name="g-recaptcha-response" class="btn btn-warning mb-5 btn-lg btn-block g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit message to Marek</button>
 			</form>
 
