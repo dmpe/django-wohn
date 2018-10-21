@@ -1,5 +1,5 @@
-var open = 'fas fa-eye';
-var close = 'fas fa-eye-slash';
+var open = 'fa-eye';
+var close = 'fa-eye-slash';
 
 // for login
 var passwordInput = document.getElementById('inputPassword');
