@@ -25,5 +25,6 @@ django-split-settings = "*"
 django-cors-headers = "*"
 Werkzeug = "*"
 requests = "*"
+django-widget-tweaks = "*"
 
 [dev-packages]
