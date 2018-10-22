@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'crispy_forms',
     'widget_tweaks',
+    'markdownx',
 ]
 
 MIDDLEWARE = [

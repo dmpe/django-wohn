@@ -26,5 +26,6 @@ django-cors-headers = "*"
 Werkzeug = "*"
 requests = "*"
 django-widget-tweaks = "*"
+django-markdownx = "*"
 
 [dev-packages]
