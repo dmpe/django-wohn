@@ -29,7 +29,7 @@ if (typeof(icon) != 'undefined' && icon != null) {
 }
 
 if (typeof(icon2) != 'undefined' && icon2 != null) {
-	var svg_icon = document.querySelector(CSS.escape(icon2) + "> svg:first-of-type");
+	var svg_icon = icon2.getElementsByTagName("svg")[0] 
 	icon2.onclick = function() {
 		if(svg_icon.classList.contains(open)) {
 	  	passwordNewInput.type="text";
@@ -57,11 +57,11 @@ if (typeof(icon3) != 'undefined' && icon3 != null) {
 	}
 }
 
-$("#emailSendAlert").click(function(){
-	$("#checkEmailAlert").addClass("show");
-});
+// $("#emailSendAlert").click(function(){
+// 	$("#checkEmailAlert").addClass("show");
+// });
 
-$("#buttonEYE2").click(function() {
-  // Change the child svg attribute data-icon to the new icon (remove fa-)
-  $("#buttonEYE2 > svg").addClass('fa-eye').removeClass('fa-eye-slash');
-});
+// $("#buttonEYE2").click(function() {
+//   // Change the child svg attribute data-icon to the new icon (remove fa-)
+//   $("#buttonEYE2 > svg").addClass('fa-eye').removeClass('fa-eye-slash');
+// });
