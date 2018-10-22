@@ -24,7 +24,7 @@ if (typeof(icon) != 'undefined' && icon != null) {
 		    svg_icon.classList.remove(close);
 		    svg_icon.classList.add(close);
 		}
-	}	
+	});	
 }
 
 if (typeof(icon2) != 'undefined' && icon2 != null) {
@@ -54,6 +54,6 @@ if (typeof(icon3) != 'undefined' && icon3 != null) {
 		    svg_icon3.classList.remove(close);
 		    svg_icon3.classList.add(close);
 	  	}
-	}
+	});
 }
 
