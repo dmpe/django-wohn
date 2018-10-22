@@ -33,11 +33,11 @@ if (typeof(icon2) != 'undefined' && icon2 != null) {
   		if(svg_icon2.classList.contains(open)) {
 		  	passwordNewInput.type="text";
 		    svg_icon2.classList.remove(open);
-		    svg_icon2.className += ' ' + close;
+		    svg_icon2.classList.add(close);
 	    } else {
 		  	passwordNewInput.type="password";
 		    svg_icon2.classList.remove(close);
-		    svg_icon2.className += ' '+ open;
+		    svg_icon2.classList.add(open);
 	  	}
   	});
 }
