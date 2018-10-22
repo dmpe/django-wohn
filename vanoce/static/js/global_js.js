@@ -29,7 +29,7 @@ if (typeof(icon) != 'undefined' && icon != null) {
 }
 
 if (typeof(icon2) != 'undefined' && icon2 != null) {
-	var svg_icon = icon2.getElementsByTagName("svg")[0] 
+	var svg_icon = icon2.getElementsByTagName("svg")[0];
 	icon2.onclick = function() {
 		if(svg_icon.classList.contains(open)) {
 	  	passwordNewInput.type="text";
