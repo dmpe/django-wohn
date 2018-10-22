@@ -52,7 +52,7 @@ if (typeof(icon3) != 'undefined' && icon3 != null) {
 	 	} else {
 		  	passwordConfirmNewInput.type="password";
 		    svg_icon3.classList.remove(close);
-		    svg_icon3.classList.add(close);
+		    svg_icon3.classList.add(open);
 	  	}
 	});
 }
