@@ -39,7 +39,7 @@ if (typeof(icon2) != 'undefined' && icon2 != null) {
 		    svg_icon2.classList.remove(close);
 		    svg_icon2.className += ' '+ open;
 	  	}
-  	}
+  	});
 }
 
 if (typeof(icon3) != 'undefined' && icon3 != null) {
