@@ -11,25 +11,26 @@ var icon = document.getElementById('buttonEYE');
 var icon2 = document.getElementById('buttonEYE2');
 var icon3 = document.getElementById('buttonEYE3');
 
-
 if (typeof(icon) != 'undefined' && icon != null) {
 	// if not null, then on click of the icon replace types & add/remove icon CSS classes
-	var svg_icon = icon.getElementsByTagName("svg")[0];
+	let svg_icon = icon.getElementsByTagName("svg")[0];
 	icon.onclick = function() {
-		if(icon.classList.contains(open)) {
+		if(svg_icon.classList.contains(open)) {
 		  	passwordInput.type="text";
-		    icon.classList.remove(open);
-		    icon.className += ' '+ close;
+		    svg_icon.classList.remove(open);
+		    svg_icon.className += ' '+ close;
 		} else {
 		  	passwordInput.type="password";
-		    icon.classList.remove(close);
-		    icon.className += ' '+ open;
+		    svg_icon.classList.remove(close);
+		    svg_icon.className += ' '+ open;
 		}
 	}	
 }
 
 if (typeof(icon2) != 'undefined' && icon2 != null) {
 	var svg_icon2 = icon2.getElementsByTagName("svg")[0];
+	const svg_const = icon2.getElementsByTagName("svg")[0];
+	let svg_let = icon2.getElementsByTagName("svg")[0];
 	icon2.onclick = function() {
 		if(svg_icon2.classList.contains(open)) {
 		  	passwordNewInput.type="text";
