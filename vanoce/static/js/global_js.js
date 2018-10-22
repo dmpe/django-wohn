@@ -28,11 +28,9 @@ if (typeof(icon) != 'undefined' && icon != null) {
 }
 
 if (typeof(icon2) != 'undefined' && icon2 != null) {
-	var svg_icon2 = icon2.getElementsByTagName("svg")[0];
-	const svg_const = icon2.getElementsByTagName("svg")[0];
-	let svg_let = icon2.getElementsByTagName("svg")[0];
-	icon2.onclick = function() {
-		if(svg_icon2.classList.contains(open)) {
+	icon2.addEventListener("click", evt => {
+  		const svg_icon2 = evt.currentTarget.querySelector("svg");
+  		if(svg_icon2.classList.contains(open)) {
 		  	passwordNewInput.type="text";
 		    svg_icon2.classList.remove(open);
 		    svg_icon2.className += ' ' + close;
@@ -41,7 +39,7 @@ if (typeof(icon2) != 'undefined' && icon2 != null) {
 		    svg_icon2.classList.remove(close);
 		    svg_icon2.className += ' '+ open;
 	  	}
-	}
+  	}
 }
 
 if (typeof(icon3) != 'undefined' && icon3 != null) {
