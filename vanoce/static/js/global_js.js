@@ -14,7 +14,7 @@ var icon3 = document.getElementById('buttonEYE3');
 
 if (typeof(icon) != 'undefined' && icon != null) {
 	// if not null, then on click of the icon replace types & add/remove icon CSS classes
-
+	var svg_icon = icon.getElementsByTagName("svg")[0];
 	icon.onclick = function() {
 		if(icon.classList.contains(open)) {
 		  	passwordInput.type="text";
@@ -29,31 +29,32 @@ if (typeof(icon) != 'undefined' && icon != null) {
 }
 
 if (typeof(icon2) != 'undefined' && icon2 != null) {
-	var svg_icon = icon2.getElementsByTagName("svg")[0];
+	var svg_icon2 = icon2.getElementsByTagName("svg")[0];
 	icon2.onclick = function() {
-		if(svg_icon.classList.contains(open)) {
-	  	passwordNewInput.type="text";
-	    svg_icon.classList.remove(open);
-	    svg_icon.className += ' ' + close;
-	  } else {
-	  	passwordNewInput.type="password";
-	    svg_icon.classList.remove(close);
-	    svg_icon.className += ' '+ open;
-	  }
+		if(svg_icon2.classList.contains(open)) {
+		  	passwordNewInput.type="text";
+		    svg_icon2.classList.remove(open);
+		    svg_icon2.className += ' ' + close;
+	    } else {
+		  	passwordNewInput.type="password";
+		    svg_icon2.classList.remove(close);
+		    svg_icon2.className += ' '+ open;
+	  	}
 	}
 }
 
 if (typeof(icon3) != 'undefined' && icon3 != null) {
+	var svg_icon3 = icon3.getElementsByTagName("svg")[0];
 	icon3.onclick = function() {
-		if(icon3.classList.contains(open)) {
-	  	passwordConfirmNewInput.type="text";
-	    icon3.classList.remove(open);
-	    icon3.className += ' '+ close;
-	  } else {
-	  	passwordConfirmNewInput.type="password";
-	    icon3.classList.remove(close);
-	    icon3.className += ' '+ open;
-	  }
+		if(svg_icon3.classList.contains(open)) {
+		  	passwordConfirmNewInput.type="text";
+		    svg_icon3.classList.remove(open);
+		    svg_icon3.className += ' '+ close;
+	 	} else {
+		  	passwordConfirmNewInput.type="password";
+		    svg_icon3.classList.remove(close);
+		    svg_icon3.className += ' '+ open;
+	  	}
 	}
 }
 
