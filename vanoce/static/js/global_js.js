@@ -26,19 +26,19 @@ if (typeof(icon) != 'undefined' && icon != null) {
 	}	
 }
 
-if (typeof(icon2) != 'undefined' && icon2 != null) {
-	icon2.onclick = function() {
-		if(icon2.classList.contains(open)) {
-	  	passwordNewInput.type="text";
-	    icon2.classList.remove(open);
-	    icon2.className += ' '+ close;
-	  } else {
-	  	passwordNewInput.type="password";
-	    icon2.classList.remove(close);
-	    icon2.className += ' '+ open;
-	  }
-	}
-}
+// if (typeof(icon2) != 'undefined' && icon2 != null) {
+// 	icon2.onclick = function() {
+// 		if(icon2.classList.contains(open)) {
+// 	  	passwordNewInput.type="text";
+// 	    icon2.classList.remove(open);
+// 	    icon2.className += ' '+ close;
+// 	  } else {
+// 	  	passwordNewInput.type="password";
+// 	    icon2.classList.remove(close);
+// 	    icon2.className += ' '+ open;
+// 	  }
+// 	}
+// }
 
 if (typeof(icon3) != 'undefined' && icon3 != null) {
 	icon3.onclick = function() {
@@ -56,4 +56,9 @@ if (typeof(icon3) != 'undefined' && icon3 != null) {
 
 $("#emailSendAlert").click(function(){
 	$("#checkEmailAlert").addClass("show");
+});
+
+$("#buttonEYE2").click(function() {
+  // Change the child svg attribute data-icon to the new icon (remove fa-)
+  $("#buttonEYE2 > svg").addClass('fa-eye').removeClass('fa-eye-slash');
 });
