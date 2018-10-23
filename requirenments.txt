@@ -17,3 +17,4 @@ django-crispy-forms
 django-markdownx
 Werkzeug
 requests
+numpy

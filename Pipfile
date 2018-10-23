@@ -27,5 +27,6 @@ Werkzeug = "*"
 requests = "*"
 django-widget-tweaks = "*"
 django-markdownx = "*"
+numpy = "*"
 
 [dev-packages]
