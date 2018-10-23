@@ -14,6 +14,7 @@ from django.utils.safestring import *
 import re
 import json
 import requests as requests_library
+import pandas as pd
 
 # replaced by logic in contrib.auth.tokens
 def http_headers(request):
@@ -137,3 +138,14 @@ def prepare_visitor_mssg_email(request, userPresent_username = None,
 		return HttpResponse('Invalid header found.')
 
 	return None
+
+def parse_forex_data(*init, **kwargs):
+	# {EUR, USD} <> CZK
+	csob_forex = "https://www.csob.cz/portal/lide/kurzovni-listek/-/date/kurzy.txt"
+	data = pd.read_csv(csob_forex, delimiter = ";", skiprows=3, encoding="utf-8")
+	1eur_czk = data[first col is eur, :1]
+	1usd_czk = data[first col is usd, :1]
+
+	# 1 EUR <> x USD
+
+	

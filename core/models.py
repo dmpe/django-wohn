@@ -12,3 +12,14 @@ class ApartmentType(models.Model):
 	# https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt?date=13.04.2018
 	apartment_price_eur = models.PositiveSmallIntegerField()
 	apartment_price_czk = models.PositiveIntegerField()
+
+class ExchangeRates(models.Model):
+	"""
+	parse_forex_data in misc.py
+	Q: are we going to calculate forex dynamically via JS or we need to
+	store all there pairs. Does user have the capability to put 
+	different number ?
+	"""
+
+
+
