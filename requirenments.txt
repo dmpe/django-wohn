@@ -18,3 +18,5 @@ django-markdownx
 Werkzeug
 requests
 numpy
+pandas
+pandasdmx

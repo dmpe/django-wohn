@@ -28,5 +28,7 @@ requests = "*"
 django-widget-tweaks = "*"
 django-markdownx = "*"
 numpy = "*"
+pandas = "*"
+pandasdmx = "*"
 
 [dev-packages]
