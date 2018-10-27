@@ -30,5 +30,6 @@ django-markdownx = "*"
 numpy = "*"
 pandas = "*"
 pandasdmx = "*"
+Celery ="*"
 
 [dev-packages]

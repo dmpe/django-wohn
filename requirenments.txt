@@ -20,3 +20,4 @@ requests
 numpy
 pandas
 pandasdmx
+Celery

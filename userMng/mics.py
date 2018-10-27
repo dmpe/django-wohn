@@ -16,6 +16,9 @@ import json
 import requests as requests_library
 import pandas as pd
 
+#for forex data
+from pandasdmx import *
+
 # replaced by logic in contrib.auth.tokens
 def http_headers(request):
 	""" extracts HTTP headers from client's request
@@ -140,12 +143,31 @@ def prepare_visitor_mssg_email(request, userPresent_username = None,
 	return None
 
 def parse_forex_data(*init, **kwargs):
+	"""
+	TODO Celery task
+	https://stackoverflow.com/a/38286238
+	https://realpython.com/asynchronous-tasks-with-django-and-celery/
+	"""
 	# {EUR, USD} <> CZK
 	csob_forex = "https://www.csob.cz/portal/lide/kurzovni-listek/-/date/kurzy.txt"
 	data = pd.read_csv(csob_forex, delimiter = ";", skiprows=3, encoding="utf-8")
-	1eur_czk = data[first col is eur, :1]
-	1usd_czk = data[first col is usd, :1]
+	data = data.rename({"Měna": 'currency', "Střed.1":'exchange_rate_czk'}, axis='columns').
+	
+	1eur_czk = data[data['currency'].isin(["EUR", "USD"])].iloc[0]['exchange_rate_czk']
+	1usd_czk = data[data['currency'].isin(["EUR", "USD"])].iloc[1]['exchange_rate_czk']
 
 	# 1 EUR <> x USD
+	ecb = Request('ECB')
+	exr_flow = ecb.data(resource_id = 'EXR', 
+		key={'CURRENCY': 'USD'}, 
+		params = {'startPeriod': '2018'})
+	daily = (s for s in exr_flow.data.series if s.key.FREQ == 'D')
+	cur_df = data_response.write(daily)
+	# selected 
 
-	
+	exchange_dict = {
+		'1eur_czk': 1eur_czk
+		'1usd_czk': 1usd_czk
+		'1eur_usd': 1eur_usd
+	}
+	return exchange_dict

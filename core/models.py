@@ -10,8 +10,8 @@ class ApartmentType(models.Model):
 	apartment_rooms = models.IntegerField()
 	apartment_created = models.DateTimeField(auto_now_add=True)
 	# https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt?date=13.04.2018
-	apartment_price_eur = models.PositiveSmallIntegerField()
-	apartment_price_czk = models.PositiveIntegerField()
+	apartment_price_eur = models.PositiveSmallIntegerField() # 0 to 32767
+	apartment_price_czk = models.PositiveIntegerField() # 0 to 2147483647
 
 class ExchangeRates(models.Model):
 	"""
@@ -20,6 +20,7 @@ class ExchangeRates(models.Model):
 	store all there pairs. Does user have the capability to put 
 	different number ?
 	"""
-
-
+	1eurCzk = models.DecimalField(max_digits=3, decimal_places=3)
+	1eurUsd = models.DecimalField(max_digits=3, decimal_places=3)
+	1usdCzk = models.DecimalField(max_digits=3, decimal_places=3)
 
