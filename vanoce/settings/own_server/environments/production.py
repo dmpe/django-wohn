@@ -38,7 +38,7 @@ client = KeyVaultClient(KeyVaultAuthentication(auth_callback))
 #later sometimes
 #DEBUG = False
 
-SECRET_KEY = client.get_secret("https://b40.vault.azure.net/", "SECRET_KEY", "98d11c2fddcd400c985e1ba61fa030bb").value
+SECRET_KEY = client.get_secret("https://b40.vault.azure.net/", "SECRET-KEY", "98d11c2fddcd400c985e1ba61fa030bb").value
 
 DATABASES = {
    'default': {
@@ -46,7 +46,7 @@ DATABASES = {
 	   'NAME': client.get_secret("https://b40.vault.azure.net/", "DATABASE-NAME", "76f97796b24a4833a467a2bb1ce64780").value,
 	   'USER': client.get_secret("https://b40.vault.azure.net/", "DATABASE-USER", "6dde773db1e3474bae4405cef2ae2ea6").value,
 	   'PASSWORD': client.get_secret("https://b40.vault.azure.net/", "DATABASE-PASSWORD", "98d11c2fddcd400c985e1ba61fa030bb").value,
-	   'HOST': client.get_secret("https://b40.vault.azure.net/", "DATABASE_HOST", "4c6a2e23959349a6a8021387957efcdc").value,
+	   'HOST': client.get_secret("https://b40.vault.azure.net/", "DATABASE-HOST", "4c6a2e23959349a6a8021387957efcdc").value,
 	   'PORT': '5432',
  	}
 }

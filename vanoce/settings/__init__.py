@@ -35,7 +35,7 @@ def auth_callback(server, resource, scope):
 
 client = KeyVaultClient(KeyVaultAuthentication(auth_callback))
 
-ENV = client.get_secret("https://b40.vault.azure.net/", "DJANGO_ENV", "baf42a60cc1e4b588831fba2c9f2ce50").value or 'development'
+ENV = client.get_secret("https://b40.vault.azure.net/", "DJANGO-ENV", "baf42a60cc1e4b588831fba2c9f2ce50").value or 'development'
 
 base_settings = [
     'own_server/components/common.py',  # standard django settings
