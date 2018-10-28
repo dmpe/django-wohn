@@ -15,11 +15,13 @@ https://docs.djangoproject.com/en/2.1/howto/static-files/
 """
 import os
 import sys
-
+import django_heroku
 
 #later sometimes
 #DEBUG = False
 
 SECRET_KEY = os.environ.get('SECRET-KEY')
 
+# the curpit: on heroku must be enabled as a package
+django_heroku.settings(locals())
 
