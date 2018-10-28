@@ -204,8 +204,8 @@ MEDIA_URL = 'https://djangowohnreal1.blob.core.windows.net/%s/' % AZURE_CONTAINE
 # Static files (CSS, JavaScript, Images)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, 'static/css/'),
     os.path.join(PROJECT_ROOT, 'static/js/'),
