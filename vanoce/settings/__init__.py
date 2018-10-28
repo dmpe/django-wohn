@@ -10,17 +10,38 @@ Default environment is `developement`.
 
 To change settings file:
 `DJANGO_ENV=production python manage.py runserver`
+
+# when heroku then switch only here -> own_server or heroku
+
 """
 from split_settings.tools import optional, include
 from os import environ
+from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
+from azure.common.credentials import ServicePrincipalCredentials
 
-ENV = environ.get('DJANGO_ENV') or 'development'
+credentials = None
+"""
+Create a function that prepares to retrieve secret key value/other credentials
+"""
+def auth_callback(server, resource, scope):
+    credentials = ServicePrincipalCredentials(
+        client_id = 'fffff2a3-935f-448c-9e4b-d0bdfb76deda', #client id
+        secret = 'g]>={|y;O-=Q7e%4>WK./Q96]',
+        tenant = '0f510a1b-c5e3-4209-8b58-1312c3193849',
+        resource = "https://vault.azure.net"
+    )
+    token = credentials.token
+    return token['token_type'], token['access_token']
+
+client = KeyVaultClient(KeyVaultAuthentication(auth_callback))
+
+ENV = client.get_secret("https://b40.vault.azure.net/", "DJANGO_ENV", "baf42a60cc1e4b588831fba2c9f2ce50").value or 'development'
 
 base_settings = [
-    'components/common.py',  # standard django settings
+    'own_server/components/common.py',  # standard django settings
 
     # Select the right env:
-    'environments/%s.py' % ENV,
+    'own_server/environments/%s.py' % ENV,
 
     # Optionally override some settings:
     # optional('environments/local.py'),
