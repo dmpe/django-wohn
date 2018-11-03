@@ -20,6 +20,7 @@ import logging
 from django.contrib.messages import constants as message_constants
 from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
 from azure.common.credentials import ServicePrincipalCredentials
+from celery.schedules import *
 
 credentials = None
 """
