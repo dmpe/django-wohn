@@ -20,7 +20,6 @@ class ExchangeRate(models.Model):
 	store all there pairs. Does user have the capability to put 
 	different number ?
 	"""
-	OneEurCzk = models.DecimalField(max_digits=3, decimal_places=3)
-	OneEurUsd = models.DecimalField(max_digits=3, decimal_places=3)
-	OneUsdCzk = models.DecimalField(max_digits=3, decimal_places=3)
-
+	OneEurCzk = models.DecimalField("1 EUR - CZK", max_digits=7, decimal_places=3)
+	OneEurUsd = models.DecimalField("1 EUR - USD", max_digits=7, decimal_places=3)
+	OneUsdCzk = models.DecimalField("1 USD - CZK", max_digits=7, decimal_places=3)
