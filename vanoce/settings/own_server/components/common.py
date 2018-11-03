@@ -55,6 +55,18 @@ CSRF_COOKIE_SECURE = True
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+# https://crontab.guru/#13_13_*_1-12_1
+CELERY_BEAT_SCHEDULE = {
+    'parse_forex_data': {
+        'task': 'userMng.tasks.parse_forex_data',
+        'schedule': crontab(minute=13, hour=13, 
+            day_of_month = '*', day_of_week =1, month_of_year = '1-12')
+    }
+}
+
 INSTALLED_APPS = [
     'core',
     'userMng',

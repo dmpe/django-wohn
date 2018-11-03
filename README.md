@@ -85,6 +85,14 @@ python3 manage.py runserver
 sudo certbot --nginx certonly
 ```
 
+### 1.5 Run Celery
+
+Run celery from b40re directory using
+
+```
+celery -A vanoce worker -l info
+```
+
 
 ## 2. Notes
 

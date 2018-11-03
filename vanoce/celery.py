@@ -23,6 +23,7 @@ def debug_task(self):
 
 app.conf.update(
     result_expires=3600,
+    timezone = 'Europe/Prague'
 )
 
 if __name__ == '__main__':
