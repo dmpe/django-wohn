@@ -1,7 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 from .mics import *
 from .celery import app
-
+import pickle
 
 @app.task
 def add(x, y):
@@ -10,7 +10,8 @@ def add(x, y):
 @app.task
 def parse_forex_data(*init, **kwargs):
 	"""
-	TODO Celery task
+	A Celery task. See settings file for how it is sheduled
+	Runs every month
 	https://stackoverflow.com/a/38286238
 	https://realpython.com/asynchronous-tasks-with-django-and-celery/
 	"""
@@ -29,13 +30,22 @@ def parse_forex_data(*init, **kwargs):
 		key={'CURRENCY': 'USD'}, 
 		params = {'startPeriod': '2018'})
 	daily = (s for s in exr_flow.data.series if s.key.FREQ == 'D')
-	cur_df = data_response.write(daily)
+	# write to pandas dataset
+	cur_df = exr_flow.write(daily)
+	Oneeur_usd = np.array(cur_df.iloc[[-1]]).item(0)
+	
 	# selected 
-
 	exchange_dict = {
 		'1eur_czk': Oneeur_czk,
 		'1usd_czk': Oneusd_czk,
-		'1eur_usd': '1eur_usd'
+		'1eur_usd': Oneeur_usd
 	}
 
+	cur_list = [(k,v) for k,v in exchange_dict.items()]
+	with open("currency_list_pickle", "wb") as fp:   #Pickling
+    	pickle.dump(cur_list, fp)
+
+	# write results to a file txt -> in production read from the file
+	# with open("test.txt", "rb") as fp:   # Unpickling
+		# b = pickle.load(fp)
 	return exchange_dict
