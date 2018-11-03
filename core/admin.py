@@ -5,10 +5,14 @@ class ApartmentTypeAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
 	pass
 
-class ExchangeRateAdmin(admin.ModelAdmin):
+class ExchangeRateAdmin(admin.ModelAdmin, View):
 	"""docstring for ClassName"""
 	template_list = "index.html"
 	list_display = ['today', 'OneEurCzk', 'OneEurUsd', 'OneUsdCzk']
+
+	def get(self, request):
+		return render(request, self.template_name)
+
 
 admin.site.register(ApartmentType, ApartmentTypeAdmin)
 admin.site.register(ExchangeRate, ExchangeRateAdmin)
