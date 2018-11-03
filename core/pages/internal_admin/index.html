@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Currency Exchange summary{% endblock %}
+
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<script src="http://code.highcharts.com/lib/svg2pdf.js"></script>
+	<script src="http://code.highcharts.com/lib/canvg.js"></script>
+	<script src="http://highcharts.github.io/export-csv/export-csv.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div id="container" style="width:100%; height:400px;">
+				
+			</div>		
+		</div>
+	</div>
+
+<script type="text/javascript">
+$(function () { 
+    var myChart = Highcharts.chart('container', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Fruit Consumption'
+        },
+        xAxis: {
+            categories: ['Apples', 'Bananas', 'Oranges']
+        },
+        yAxis: {
+            title: {
+                text: 'Fruit eaten'
+            }
+        },
+        series: [{
+            name: 'Jane',
+            data: [1, 0, 4]
+        }, {
+            name: 'John',
+            data: [5, 7, 3]
+        }]
+    });
+});
+</script>	
+	
+
+</div>
+{% endblock %}
