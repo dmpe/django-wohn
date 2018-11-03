@@ -2,6 +2,10 @@ from __future__ import absolute_import, unicode_literals
 from .mics import *
 from .celery import app
 import pickle
+import time
+import datetime
+from django.utils.timezone import utc
+
 
 @app.task
 def add(x, y):
@@ -36,6 +40,7 @@ def parse_forex_data(*init, **kwargs):
 	
 	# selected 
 	exchange_dict = {
+		'date': datetime.datetime.utcnow().replace(tzinfo=utc),
 		'1eur_czk': Oneeur_czk,
 		'1usd_czk': Oneusd_czk,
 		'1eur_usd': Oneeur_usd

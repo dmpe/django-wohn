@@ -7,7 +7,7 @@ class ApartmentTypeAdmin(admin.ModelAdmin):
 
 class ExchangeRateAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
-	pass
+	template_list = "index.html"
 
 admin.site.register(ApartmentType, ApartmentTypeAdmin)
 admin.site.register(ExchangeRate, ExchangeRateAdmin)

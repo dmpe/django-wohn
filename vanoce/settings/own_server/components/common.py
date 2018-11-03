@@ -156,6 +156,7 @@ TEMPLATES = [
                 'core/pages/',
                 'core/pages/emails',
                 'core/pages/footer', 
+                'core/pages/internal_admin', 
                 'userMng/pages/',
                 'userMng/pages/emails',
                 'userMng/pages/signup_login',
