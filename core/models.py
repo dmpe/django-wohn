@@ -8,7 +8,7 @@ class ApartmentType(models.Model):
 	"""
 	apartment_offered_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	apartment_rooms = models.IntegerField()
-	apartment_created = models.DateTimeField(auto_now_add=True)
+	apartment_created = models.DateTimeField(auto_now_add=True) # will not display
 	# https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt?date=13.04.2018
 	apartment_price_eur = models.PositiveSmallIntegerField() # 0 to 32767
 	apartment_price_czk = models.PositiveIntegerField() # 0 to 2147483647
@@ -20,7 +20,7 @@ class ExchangeRate(models.Model):
 	store all there pairs. Does user have the capability to put 
 	different number ?
 	"""
-	today = models.DateField("Today's Date", auto_now_add=True)
+	today = models.DateField("Today's Date", auto_now_add=True) # will not display
 	OneEurCzk = models.DecimalField("1 EUR - CZK", max_digits=7, decimal_places=3)
 	OneEurUsd = models.DecimalField("1 EUR - USD", max_digits=7, decimal_places=3)
 	OneUsdCzk = models.DecimalField("1 USD - CZK", max_digits=7, decimal_places=3)
