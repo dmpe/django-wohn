@@ -73,6 +73,18 @@ heroku run python3 manage.py createsuperuser --username admin --email ci@se.cz
 heroku ps && heroku ps:stop web.1
 ```
 
+- Start Django manually
+
+```
+python3 manage.py runserver
+```
+
+- Adding new SSL certificates via certbot (letsencrypt)
+
+```
+sudo certbot --nginx certonly
+```
+
 
 ## 2. Notes
 

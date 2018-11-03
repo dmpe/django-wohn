@@ -5,9 +5,9 @@ class ApartmentTypeAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
 	pass
 
-class ExchangeRatesAdmin(admin.ModelAdmin):
+class ExchangeRateAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
 	pass
 
 admin.site.register(ApartmentType, ApartmentTypeAdmin)
-admin.site.register(ExchangeRates, ExchangeRatesAdmin)
+admin.site.register(ExchangeRate, ExchangeRateAdmin)

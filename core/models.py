@@ -13,7 +13,7 @@ class ApartmentType(models.Model):
 	apartment_price_eur = models.PositiveSmallIntegerField() # 0 to 32767
 	apartment_price_czk = models.PositiveIntegerField() # 0 to 2147483647
 
-class ExchangeRates(models.Model):
+class ExchangeRate(models.Model):
 	"""
 	parse_forex_data in misc.py
 	Q: are we going to calculate forex dynamically via JS or we need to
