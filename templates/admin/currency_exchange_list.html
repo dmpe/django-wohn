@@ -1,10 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'admin/change_list.html' %}
 
 {% block title %}Currency Exchange summary{% endblock %}
 
 {% block robots %}noindex, nofollow{% endblock %}
 
-{% block content %}
+{% block result_list %}
 <div class="container-fluid">
 	<script src="http://code.highcharts.com/lib/svg2pdf.js"></script>
 	<script src="http://code.highcharts.com/lib/canvg.js"></script>
@@ -13,6 +13,53 @@
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+
+{# 	<table>
+	        
+	    <thead>
+	      <tr>
+	        <th>
+	          <div class=”text”>
+	            <a href=”#”>Today's Date</a>
+	          </div>
+	        </th>
+	        <th>
+	          <div class=”text”>
+	            <a href=”#”>1 EUR - CZK</a>
+	          </div>
+	        </th>
+	        <th>
+	          <div class=”text”>
+	            <a href=”#”>1 EUR - USD</a>
+	          </div>
+	        </th>
+	        <th>
+	          <div class=”text”>
+	            <a href=”#”>1 USD - CZK</a>
+	          </div>
+	        </th>
+	      </tr>
+	    </thead>
+
+		<tbody>
+		  {% for row in summary %}
+		  <tr class=”{% cycle ‘row1’ ‘row2’ %}”>
+		    <td> {{ row.sale__category__name }} </td>
+		    <td> {{ row.total | intcomma }} </td>
+		    <td> {{ row.total_sales | default:0 | intcomma }}$ </td>
+		    <td>
+		      <strong>
+		      {{ row.total_sales | 
+		          default:0 | 
+		          percentof:summary_total.total_sales }} 
+		      </strong>
+		    </td>
+		  </tr>
+		  {% endfor %}
+		</tbody>
+
+	</table> #}
+
 
 	
 	<div class="row">

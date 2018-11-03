@@ -7,11 +7,10 @@ class ApartmentTypeAdmin(admin.ModelAdmin):
 
 class ExchangeRateAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
-	template_list = "index.html"
+	template_list = "admin/currency_exchange_list.html"
 	list_display = ['today', 'OneEurCzk', 'OneEurUsd', 'OneUsdCzk']
 
-	def get(self, request):
-		return render(request, self.template_name)
+	
 
 
 admin.site.register(ApartmentType, ApartmentTypeAdmin)
