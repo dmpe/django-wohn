@@ -4,8 +4,8 @@
 
 {% block robots %}noindex, nofollow{% endblock %}
 
-{% block result_list %}
-<div class="container-fluid">
+{% block extrastyle %}
+	{{ block.super }}
 	<script src="http://code.highcharts.com/lib/svg2pdf.js"></script>
 	<script src="http://code.highcharts.com/lib/canvg.js"></script>
 	<script src="http://highcharts.github.io/export-csv/export-csv.js"></script>
@@ -13,9 +13,11 @@
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+{% endblock %}
 
+{% block result_list %}
+<div class="container-fluid">
  	<table>
-	        
 	    <thead>
 	      <tr>
 	        <th>
@@ -44,16 +46,10 @@
 		<tbody>
 		  {% for row in summary %}
 		  <tr class=”{% cycle ‘row1’ ‘row2’ %}”>
-		    <td> {{ row.sale__category__name }} </td>
-		    <td> {{ row.total | intcomma }} </td>
-		    <td> {{ row.total_sales | default:0 | intcomma }}$ </td>
-		    <td>
-		      <strong>
-		      {{ row.total_sales | 
-		          default:0 | 
-		          percentof:summary_total.total_sales }} 
-		      </strong>
-		    </td>
+		    <td> {{ row.today }} </td>
+		    <td> {{ row.today }} </td>
+		    <td> {{ row.OneEurUsd }} </td>
+		    <td> {{ row.OneUsdCzk }}$ </td>
 		  </tr>
 		  {% endfor %}
 		</tbody>
