@@ -1,11 +1,12 @@
-from __future__ import absolute_import, unicode_literals
-from .mics import *
-from .celery import app
 import pickle
 import time
 import datetime
-from django.utils.timezone import utc
 
+from __future__ import absolute_import, unicode_literals
+from .mics import *
+#from .celery import app
+
+from django.utils.timezone import utc
 
 @app.task
 def add(x, y):
