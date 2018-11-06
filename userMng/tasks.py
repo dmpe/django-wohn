@@ -1,8 +1,9 @@
+from __future__ import absolute_import, unicode_literals
+# because it must occur there at the beginning
 import pickle
 import time
 import datetime
 
-from __future__ import absolute_import, unicode_literals
 from .mics import *
 from vanoce.celery import app
 
@@ -35,7 +36,7 @@ def parse_forex_data(*init, **kwargs):
 		key={'CURRENCY': 'USD'}, 
 		params = {'startPeriod': '2018'})
 	daily = (s for s in exr_flow.data.series if s.key.FREQ == 'D')
-	
+
 	# write to pandas dataset
 	cur_df = exr_flow.write(daily)
 	Oneeur_usd = np.array(cur_df.iloc[[-1]]).item(0)
