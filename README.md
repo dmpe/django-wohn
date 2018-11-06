@@ -69,9 +69,8 @@ heroku run python3 manage.py createsuperuser --username admin --email ci@se.cz
 Execute on remote server following commands whenever models change.
 
 **Onelines**
+
 ```python3 manage.py makemigrations core && python3 manage.py makemigrations userMng && python3 manage.py migrate && sudo systemctl restart gunicorn.service ```
-
-
 
 **Common issues:**
 
@@ -92,6 +91,11 @@ python3 manage.py runserver
 ```
 sudo certbot --nginx certonly
 ```
+
+- Nginx 502 gateway issue
+
+1. Change Azure Active Directory keys
+2. Restart nginx/gunicorn.service without socket thing
 
 ### 1.6 Run Celery
 

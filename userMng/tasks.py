@@ -4,7 +4,7 @@ import datetime
 
 from __future__ import absolute_import, unicode_literals
 from .mics import *
-#from .celery import app
+from vanoce.celery import app
 
 from django.utils.timezone import utc
 
