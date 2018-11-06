@@ -1,4 +1,5 @@
 {% extends 'admin/change_list.html' %}
+{% load i18n admin_static admin_modify %}
 
 {% block title %}Currency Exchange summary{% endblock %}
 
@@ -11,7 +12,6 @@
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
-	<script src="https://highcharts.github.io/export-csv/export-csv.js"></script>
 {% endblock %}
 
 {% block result_list %}
@@ -57,6 +57,7 @@
 
 
 	
+	<!--
 	<div class="row">
 		<div class="col-md-12">
 			<div id="container" style="width:100%; height:400px;">
@@ -66,7 +67,6 @@
 	</div>
 
 	<script type="text/javascript">
-	//$(function () { 
 	    var myChart = Highcharts.chart('container', {
 	        chart: {
 	            type: 'bar'
@@ -90,9 +90,8 @@
 	            data: [5, 7, 3]
 	        }]
 	    });
-	//});
 	</script>	
-		
+	-->
 
 </div>
 {% endblock %}
