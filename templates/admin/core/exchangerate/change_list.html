@@ -8,10 +8,10 @@
 	{{ block.super }}
 	<script src="https://code.highcharts.com/lib/svg2pdf.js"></script>
 	<script src="https://code.highcharts.com/lib/canvg.js"></script>
-	<script src="https://highcharts.github.io/export-csv/export-csv.js"></script>
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+	<script src="https://highcharts.github.io/export-csv/export-csv.js"></script>
 {% endblock %}
 
 {% block result_list %}
@@ -66,7 +66,7 @@
 	</div>
 
 	<script type="text/javascript">
-	$(function () { 
+	//$(function () { 
 	    var myChart = Highcharts.chart('container', {
 	        chart: {
 	            type: 'bar'
@@ -90,7 +90,7 @@
 	            data: [5, 7, 3]
 	        }]
 	    });
-	});
+	//});
 	</script>	
 		
 
