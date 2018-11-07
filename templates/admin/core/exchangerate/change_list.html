@@ -16,51 +16,9 @@
 
 {% block result_list %}
 {{ block.super }}
-<!--
- 	<table>
-	    <thead>
-	      <tr>
-	        <th>
-	          <div class=”text”>
-	            <a href=”#”>Today's Date</a>
-	          </div>
-	        </th>
-	        <th>
-	          <div class=”text”>
-	            <a href=”#”>1 EUR - CZK</a>
-	          </div>
-	        </th>
-	        <th>
-	          <div class=”text”>
-	            <a href=”#”>1 EUR - USD</a>
-	          </div>
-	        </th>
-	        <th>
-	          <div class=”text”>
-	            <a href=”#”>1 USD - CZK</a>
-	          </div>
-	        </th>
-	      </tr>
-	    </thead>
-
-		<tbody>
-		  {% for row in summary %}
-		  <tr class=”{% cycle 'row1' 'row2' %}”>
-		    <td> {{ row.today }} </td>
-		    <td> {{ row.OneEurCzk }} </td>
-		    <td> {{ row.OneEurUsd }} </td>
-		    <td> {{ row.OneUsdCzk }} </td>
-		  </tr>
-		  {% endfor %}
-		</tbody>
-
-	</table> -->
-
-
-	
 	
 
-	<div id="container" style="width:300px; height:400px;">
+	<div id="container" class="add bootstrap flex" style="width:300px; height:400px;">
 				
 	<script type="text/javascript">
 	    var myChart = Highcharts.chart('container', {
