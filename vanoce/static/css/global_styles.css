@@ -23,7 +23,7 @@ textarea {
 .resetIconStylesEYE {
 	border: none;
 	background: none;
-	/* fix largely for chrome */
+	/* add because of chrome */
 	padding-top: 0rem;
 	padding-right: 0.75rem;
 	padding-bottom: 0rem;
