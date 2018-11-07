@@ -54,6 +54,10 @@ Contact page - Make responsive page iframe
     width:100%;
 }
 
+.input-group-text {
+	padding: 0.375rem 0.75rem 0rem 0.75rem !important;
+}
+
 /* 3. CSS reused across >=2 pages
 Sign Up Pages {logic, reset pswd, etc}
 //////////////////////*/
