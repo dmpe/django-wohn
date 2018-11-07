@@ -21,8 +21,13 @@ textarea {
 /* Header - Nav
 //////////////////////*/
 .resetIconStylesEYE {
-  border: none;
-  background: none;
+	border: none;
+	background: none;
+	/* fix largely for chrome */
+	padding-top: 0rem;
+	padding-right: 0.75rem;
+	padding-bottom: 0rem;
+	padding-left: 0.75rem;
 }
 
 .footer {
