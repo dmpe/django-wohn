@@ -13,13 +13,13 @@
 	<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
 {% endblock %}
 
-{% block result_list %}
+{% block footer %}
+	<div id="footer"></div>
 	
-	
-	<div id="container" class="d-flex align-items-end" style="width:300px; height:400px;">
+	<div id="container-hc" class="d-flex align-items-end" style="width:300px; height:400px;">
 				
 	<script type="text/javascript">
-	    var myChart = Highcharts.chart('container', {
+	    var myChart = Highcharts.chart('container-hc', {
 	        chart: {
 	            type: 'bar'
 	        },
