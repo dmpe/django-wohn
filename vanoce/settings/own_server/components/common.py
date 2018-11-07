@@ -233,11 +233,11 @@ LOGOUT_REDIRECT_URL = 'core_index'
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-SOCIAL_AUTH_TWITTER_KEY = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-TWITTER-KEY", "4297ae575c18457b92b21df61e03da64").value
-SOCIAL_AUTH_TWITTER_SECRET = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-TWITTER-SECRET", "7a5e3adbcb40421ea0b641ce31da2bfe").value
+SOCIAL_AUTH_TWITTER_KEY = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-TWITTER-KEY", "7cf698527d95469cb91474875b29a3e0").value
+SOCIAL_AUTH_TWITTER_SECRET = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-TWITTER-SECRET", "5f99c09acc8e41d58c87e18cdf8dcd11").value
 SOCIAL_AUTH_GOOGLE_OAUTH2_USE_UNIQUE_USER_ID = True
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-GOOGLE-OAUTH2-KEY", "e213f75c560d417eb8219fb4cf07e699").value
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-GOOGLE-OAUTH2-SECRET", "691dafe4281f44afaa21219f54fa6d9b").value
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-GOOGLE-OAUTH2-KEY", "e37953c45b474a46b38c1ae02e5c541b").value
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-GOOGLE-OAUTH2-SECRET", "229ada441766486781ab00c5a63e3ebf").value
 SOCIAL_AUTH_FACEBOOK_KEY = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-FACEBOOK-KEY", "e02a18956b4b46f6868ca9b9a3c5608d").value
 SOCIAL_AUTH_FACEBOOK_SECRET = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-FACEBOOK-SECRET", "f439106e5d77442b8607165cf61cf260").value
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '3.1'
