@@ -17,7 +17,6 @@
 ##
 
 server {
-
 	listen 80;
 	listen [::]:80;
 
@@ -33,10 +32,6 @@ server {
     }
 
 	location / {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		#try_files $uri $uri/ =404;
-
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -116,3 +111,29 @@ server {
 	ssl_certificate_key /etc/letsencrypt/live/b40re.tk/privkey.pem; 
 }
 
+# direct access to the repo
+server {
+    listen 80;
+    listen [::]:80;
+
+    #root /home/jm;
+
+    # Add index.php to the list if you are using PHP
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name www.git2.b40re.tk git2.b40re.tk;
+    
+	location ~ /git(/.*) {
+		client_max_body_size 0; 
+		#auth_basic "Git Login"; 
+		#auth_basic_user_file "/home/jm/htpasswd";
+		include /etc/nginx/fastcgi_params; 
+		fastcgi_param SCRIPT_FILENAME /usr/lib/git-core/git-http-backend;
+		fastcgi_param GIT_HTTP_EXPORT_ALL "";
+		fastcgi_param GIT_PROJECT_ROOT /home/jm;
+		fastcgi_param REMOTE_USER $remote_user;
+		fastcgi_param PATH_INFO $1; 
+		fastcgi_pass  unix:/var/run/fcgiwrap.socket; 
+	}
+
+}
