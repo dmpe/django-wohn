@@ -8,8 +8,7 @@ Close copy of https://medium.com/wemake-services/managing-djangos-settings-e2b7f
 
 Default environment is `developement`.
 
-To change settings file:
-`DJANGO_ENV=production python manage.py runserver`
+To change settings file: `DJANGO_ENV=production python manage.py runserver`
 
 # when heroku then switch only here -> own_server or heroku
 
