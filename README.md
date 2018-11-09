@@ -92,10 +92,10 @@ python3 manage.py runserver
 sudo certbot --nginx certonly
 ```
 
-- Nginx 502 gateway issue
+- Nginx 502 gateway issue after VM reboot
 
-1. Change Azure Active Directory keys
-2. Restart nginx/gunicorn.service without socket thing
+(1. Change Azure Active Directory keys)
+2. Just **restart** nginx and then `gunicorn.service` without socket thing
 
 ### 1.6 Run Celery
 
