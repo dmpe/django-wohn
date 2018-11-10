@@ -4,7 +4,7 @@ from datetime import *
 from django.db.models import *
 from django.db.models.functions import *
 
-from models import *
+from .models import *
 
 class ApartmentTypeAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
@@ -20,7 +20,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 
 	# the change list page will include a date-based 
 	# drilldown navigation by that field
-	date_hierarchy = 'ExchangeRate__today'
+	#date_hierarchy = 'ExchangeRate__today'
 	
 	# only these fields are display, i.e. all
 	list_display = ['today', 
