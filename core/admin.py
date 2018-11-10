@@ -62,11 +62,16 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 
 	def prepare_data(self, queryset=None, currency=None):
 		# select only two columns, date + currency
-		two_col = queryset.all().values_list("today", currency)
+		two_col = queryset.values("today", currency)
 		# convert to pandas
-		two_col_df = pd.DataFrame.from_records(two_col, columns = ['today', str(currency)])
+		# two_col_df = pd.DataFrame.from_records(two_col, columns = ['today', str(currency)])
+
+		df = pd.DataFrame.from_records(
+		    ExchangeRate.objects.all().values_list('today', str(currency))
+		)
+
 		# export to json object - to try...
-		prossed_data = two_col_df.to_json()
+		prossed_data = df.to_json()
 		print(prossed_data)
 
 		return prossed_data
