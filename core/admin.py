@@ -41,7 +41,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		# needs to have JSON object with 3 large arrays - one for each currency
         # the same then applies to the data
 		dt.context_data['currency_data'] = [{
-			'name': x['']
+			'name': x['name'],
 			'data': x['data']
 		} for x in currency_data]
 
