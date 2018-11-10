@@ -1,4 +1,9 @@
 from django.contrib import admin
+
+from datetime import *
+from django.db.models import *
+from django.db.models.functions import *
+
 from .models import *
 
 class ApartmentTypeAdmin(admin.ModelAdmin):
@@ -6,7 +11,11 @@ class ApartmentTypeAdmin(admin.ModelAdmin):
 	pass
 
 class ExchangeRateAdmin(admin.ModelAdmin):
-	"""docstring for ClassName"""
+	"""docstring for ClassName
+	https://stackoverflow.com/q/39123348/2171456
+	https://stackoverflow.com/a/7811582/2171456
+	https://stackoverflow.com/a/14087471/2171456
+	"""
 	template_list = "admin/currency_exchange_list.html"
 
 	# the change list page will include a date-based 
@@ -22,28 +31,31 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 	# how many items appear on each paginated admin change list page
 	list_per_page = 5
 
+	def prepare_data(queryset=None, *args):
+		# select only two columns, date + currency
+		two_col = queryset.values(args)
+		# convert to pandas
+		two_col_df = pd.DataFrame.from_records(two_col)
+		# export to json object - to try...
+		prossed_data = two_col_df.to_json()
+		
+		return prossed_data
+
 	def get_forex_data(self, request):
 		dt = super(ExchangeRateAdmin, self).changelist_view(request, extra_context)
 
 		try:
             # fetches "table" data 
 			qs = dt.context_data['cl'].queryset
-		except (AttributeError, KeyError):
+		except (AttributeErtodayror, KeyError):
 			return dt
         
-		currency_data = qs.annotate(
-			period=Trunc(
-				'today',
-				output_field=DateTimeField(),
-			),
-		).values('period').filter('').order_by('period')
-
 		# needs to have JSON object with 3 large arrays - one for each currency
         # the same then applies to the data
-		dt.context_data['currency_data'] = [{
-			'name': x['name'],
-			'data': x['data']
-		} for x in currency_data]
+        # convert time to epoch
+		dt.context_data['currency_data'] = prepare_data(qs, "today", "OneEurCzk")
+		dt.context_data['currency_data'] += prepare_data(qs, "today", "OneEurUsd")
+		dt.context_data['currency_data'] += prepare_data(qs, "today", "OneUsdCzk")
 
 		return dt
 
