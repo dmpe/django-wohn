@@ -20,6 +20,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 
 	# the change list page will include a date-based 
 	# drilldown navigation by that field
+	# todo here
 	#date_hierarchy = 'ExchangeRate__today'
 	
 	# only these fields are display, i.e. all
@@ -43,7 +44,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		return prossed_data
 
 	def get_forex_data(self, request):
-		dt = super(ExchangeRateAdmin, self).changelist_view(request, extra_context)
+		dt = super(ExchangeRateAdmin, self).changelist_view(request)
 
 		try:
             # fetches "table" data 
