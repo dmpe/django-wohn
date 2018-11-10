@@ -8,6 +8,7 @@ from .models import *
 
 import pandas as pd
 import json
+from django.core import serializers
 from django.core.serializers.json import *
 
 class ApartmentTypeAdmin(admin.ModelAdmin):
