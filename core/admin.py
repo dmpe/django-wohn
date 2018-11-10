@@ -4,7 +4,7 @@ from datetime import *
 from django.db.models import *
 from django.db.models.functions import *
 
-from .models import *
+from models import *
 
 class ApartmentTypeAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
