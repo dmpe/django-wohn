@@ -64,10 +64,9 @@
 		        series: seriesOptions
 		    });
 		}
-	</script>	
+		
+		{% for currency_pair in currency_data %}
 
-	{% for currency_pair in currency_data %}
-		<script type="text/javascript">
 			$.each(names, function (i, name) {
 				seriesOptions[i] = {
 					name: {{ 'currency_pair.name' }},
@@ -77,7 +76,7 @@
 
 				console.log(seriesOptions[i]);
 			});
-		</script>
-	{% endfor %}
+		{% endfor %}
+	</script>
 
 {% endblock %}
