@@ -19,29 +19,66 @@
 	</div>	
 	
 	<script type="text/javascript">
-	    var myChart = Highcharts.chart('container-hc', {
-	        chart: {
-	            type: 'bar'
-	        },
-	        title: {
-	            text: 'F Consumption'
-	        },
-	        xAxis: {
-	            categories: ['Apples', 'Bananas', 'Oranges']
-	        },
-	        yAxis: {
-	            title: {
-	                text: 'Fruit eaten'
-	            }
-	        },
-	        series: [{
-	            name: 'Jane',
-	            data: [1, 0, 4]
-	        }, {
-	            name: 'John',
-	            data: [5, 7, 3]
-	        }]
-	    });
+		var seriesOptions = [], names = ['EUR-USD', 'EUR-CZK', 'USD-CZK'];
+
+	    function create_chart() {
+		    Highcharts.stockChart('container-hc', {
+				rangeSelector: {
+				    selected: 1
+				},
+
+				yAxis: {
+				    labels: {
+				        formatter: function () {
+				            return (this.value > 0 ? ' + ' : '') + this.value + '%';
+				        }
+				    },
+				    plotLines: [{
+				        value: 0,
+				        width: 2,
+				        color: 'silver'
+				    }]
+				},
+
+				title: {
+					text: "Used foreign exchange, by week: EUR-CZK-USD"
+				}, 
+
+				subtitle: {
+					text: "Subtitle for later use"
+				},
+
+				plotOptions: {
+				    series: {
+				        compare: 'percent',
+				        showInNavigator: true
+				    }
+				},
+
+				tooltip: {
+				    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+				    valueDecimals: 2,
+				    split: true
+				},
+
+		        series: seriesOptions
+		    });
+		}
+
+		// this contains 
+		{% for currency_pair in currency_data %}
+
+			$.each(names, function (i, name) {
+				seriesOptions[i] = {
+					name: currency_pair.name,
+					data: currency_pair.data
+			    };
+				create_chart();
+
+				console.log(seriesOptions[i]);
+			});
+	    
+	    {% endfor %}
 	</script>	
 
 
