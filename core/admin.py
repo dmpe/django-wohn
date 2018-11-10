@@ -67,7 +67,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		two_col_df = pd.DataFrame.from_records(two_col, columns = ['today', str(currency)])
 
 		# export to json object - to try...
-		prossed_data = df.to_json()
+		prossed_data = two_col_df.to_json()
 		print(prossed_data)
 
 		return prossed_data
