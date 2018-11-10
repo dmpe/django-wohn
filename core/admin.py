@@ -32,16 +32,17 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 	# how many items appear on each paginated admin change list page
 	list_per_page = 5
 
-	def prepare_data(queryset=None, currency=None):
-		# select only two columns, date + currency
-		two_col = queryset.values("today", currency)
-		# convert to pandas
-		two_col_df = pd.DataFrame.from_records(two_col)
-		# export to json object - to try...
-		prossed_data = two_col_df.to_json()
-		print(prossed_data)
+	def changelist_view(self, request, extra_context=None):
+		
+		extra_context = extra_context or {}
+		extra_context['currency_data'] = self.get_forex_data(request)
 
-		return prossed_data
+		response = super().changelist_view(
+			request,
+			extra_context=extra_context,
+		)
+
+		return response
 
 	def get_forex_data(self, request):
 		dt = super(ExchangeRateAdmin, self).changelist_view(request)
@@ -55,23 +56,22 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		# needs to have JSON object with 3 large arrays - one for each currency
         # the same then applies to the data
         # convert time to epoch
-		dt.context_data['currency_data'] = prepare_data(qs, "OneEurCzk")
-		dt.context_data['currency_data'] += prepare_data(qs, "OneEurUsd")
-		dt.context_data['currency_data'] += prepare_data(qs, "OneUsdCzk")
+		dt.context_data['currency_data'] = self.prepare_data(qs, "OneEurCzk")
+		dt.context_data['currency_data'] += self.prepare_data(qs, "OneEurUsd")
+		dt.context_data['currency_data'] += self.prepare_data(qs, "OneUsdCzk")
 
 		return dt
 
-	def changelist_view(self, request, extra_context=None):
+	def prepare_data(self, queryset=None, currency=None):
+		# select only two columns, date + currency
+		two_col = queryset.values("today", currency)
+		# convert to pandas
+		two_col_df = pd.DataFrame.from_records(two_col)
+		# export to json object - to try...
+		prossed_data = two_col_df.to_json()
+		print(prossed_data)
+
+		return prossed_data
 		
-		extra_context = extra_context or {}
-		extra_context['currency_data'] = self.get_forex_data(request)
-
-		response = super().changelist_view(
-			request,
-			extra_context=extra_context,
-		)
-
-		return response
-
 admin.site.register(ApartmentType, ApartmentTypeAdmin)
 admin.site.register(ExchangeRate, ExchangeRateAdmin)
