@@ -1,10 +1,11 @@
 from django.contrib import admin
-
-from datetime import *
 from django.db.models import *
 from django.db.models.functions import *
 
+from datetime import *
+
 from .models import *
+
 import pandas as pd
 
 class ApartmentTypeAdmin(admin.ModelAdmin):
@@ -22,7 +23,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 	# the change list page will include a date-based 
 	# drilldown navigation by that field
 	# todo here
-	#date_hierarchy = 'ExchangeRate__today'
+	date_hierarchy = 'created'
 	
 	# only these fields are display, i.e. all
 	list_display = ['today', 
@@ -34,34 +35,27 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 	list_per_page = 5
 
 	def changelist_view(self, request, extra_context=None):
-		
-		extra_context = extra_context or {}
-		extra_context['currency_data'] = self.get_forex_data(request)
-
 		response = super().changelist_view(
 			request,
 			extra_context=extra_context,
 		)
 
-		return response
-
-	def get_forex_data(self, request):
-		dt = super(ExchangeRateAdmin, self).changelist_view(request)
-
 		try:
             # fetches "table" data 
-			qs = dt.context_data['cl'].queryset
+			qs = response.context_data['cl'].queryset
 		except (AttributeErtodayror, KeyError):
-			return dt
+			return response
         
 		# needs to have JSON object with 3 large arrays - one for each currency
         # the same then applies to the data
         # convert time to epoch
-		dt.context_data['currency_data'] = self.prepare_data(qs, "OneEurCzk")
-		dt.context_data['currency_data'] += self.prepare_data(qs, "OneEurUsd")
-		dt.context_data['currency_data'] += self.prepare_data(qs, "OneUsdCzk")
+		qs.context_data['currency_data'] = self.prepare_data(qs, "OneEurCzk")
+		qs.context_data['currency_data'] += self.prepare_data(qs, "OneEurUsd")
+		qs.context_data['currency_data'] += self.prepare_data(qs, "OneUsdCzk")
 
-		return dt
+		print(qs.context_data['currency_data'])
+		
+		return qs
 # {"OneEurCzk":{"0":26.358},"today":{"0":1541203200000}}
 # {"OneEurUsd":{"0":1.147},"today":{"0":1541203200000}}
 # {"OneUsdCzk":{"0":19.22},"today":{"0":1541203200000}}
