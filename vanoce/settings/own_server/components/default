@@ -31,6 +31,10 @@ server {
     	alias /home/jm/b40re.git/staticfiles/;
     }
 
+    location /favicon.ico {
+    	redirect 301 https://djangowohnreal1.blob.core.windows.net/images/favicon.ico
+    }
+
 	location / {
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
