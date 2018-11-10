@@ -23,7 +23,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 	# the change list page will include a date-based 
 	# drilldown navigation by that field
 	# todo here
-	date_hierarchy = 'created'
+	date_hierarchy = 'today'
 	
 	# only these fields are display, i.e. all
 	list_display = ['today', 
