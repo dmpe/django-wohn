@@ -7,6 +7,8 @@ from datetime import *
 from .models import *
 
 import pandas as pd
+import json
+from django.core.serializers.json import *
 
 class ApartmentTypeAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
@@ -68,7 +70,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 
 		# export to json object - to try...
 		prossed_data = two_col_df.to_json()
-		print(prossed_data)
+		print(serializers.serialize('json', list(queryset), fields=("today", currency)))
 
 		return prossed_data
 
