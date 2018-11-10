@@ -15,7 +15,7 @@
 	<a href="{% url 'user_profile' %}" class="btn btn-warning btn-lg" type="button" role="button">My profile</a>
 {% else %}
   <p>You are not logged in</p>
-  <button href="{% url 'login' %}">login</button>
+  <button href="{% url 'login' %}" class="btn btn-lg btn-primary">login</button>
 {% endif %}
 </div>
 
