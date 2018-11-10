@@ -5,6 +5,7 @@ from django.db.models import *
 from django.db.models.functions import *
 
 from .models import *
+import pandas as pd
 
 class ApartmentTypeAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
@@ -72,6 +73,6 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		print(prossed_data)
 
 		return prossed_data
-		
+
 admin.site.register(ApartmentType, ApartmentTypeAdmin)
 admin.site.register(ExchangeRate, ExchangeRateAdmin)
