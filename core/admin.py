@@ -23,30 +23,29 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 	list_per_page = 5
 
 	def get_forex_data(self, request):
-        dt = super(ExchangeRateAdmin, self).changelist_view(request, extra_context)
+		dt = super(ExchangeRateAdmin, self).changelist_view(request, extra_context)
 
 		try:
             # fetches "table" data 
-            qs = dt.context_data['cl'].queryset
-        except (AttributeError, KeyError):
-            return dt
+			qs = dt.context_data['cl'].queryset
+		except (AttributeError, KeyError):
+			return dt
         
-        currency_data = qs.annotate(
-            period=Trunc(
-                'today',
-                output_field=DateTimeField(),
-            ),
-        ).values('period').filter('').order_by('period')
+		currency_data = qs.annotate(
+			period=Trunc(
+				'today',
+				output_field=DateTimeField(),
+			),
+		).values('period').filter('').order_by('period')
 
 		# needs to have JSON object with 3 large arrays - one for each currency
         # the same then applies to the data
-        dt.context_data['currency_data'] = [{
-            'name': x['']
-            'data': x['data']
-        } for x in currency_data]
+		dt.context_data['currency_data'] = [{
+			'name': x['']
+			'data': x['data']
+		} for x in currency_data]
 
-        return dt
-
+		return dt
 
 	def changelist_view(self, request, extra_context=None):
 		
@@ -54,9 +53,9 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		extra_context['currency_data'] = self.get_forex_data(request)
 
 		response = super().changelist_view(
-            request,
-            extra_context=extra_context,
-        )
+			request,
+			extra_context=extra_context,
+		)
 
 		return response
 
