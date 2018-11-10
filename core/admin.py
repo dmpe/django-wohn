@@ -31,14 +31,14 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 	# how many items appear on each paginated admin change list page
 	list_per_page = 5
 
-	def prepare_data(queryset=None, *args):
+	def prepare_data(queryset=None, currency=None):
 		# select only two columns, date + currency
-		two_col = queryset.values(args)
+		two_col = queryset.values("today", currency)
 		# convert to pandas
 		two_col_df = pd.DataFrame.from_records(two_col)
 		# export to json object - to try...
 		prossed_data = two_col_df.to_json()
-		
+
 		return prossed_data
 
 	def get_forex_data(self, request):
@@ -53,9 +53,9 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		# needs to have JSON object with 3 large arrays - one for each currency
         # the same then applies to the data
         # convert time to epoch
-		dt.context_data['currency_data'] = prepare_data(qs, "today", "OneEurCzk")
-		dt.context_data['currency_data'] += prepare_data(qs, "today", "OneEurUsd")
-		dt.context_data['currency_data'] += prepare_data(qs, "today", "OneUsdCzk")
+		dt.context_data['currency_data'] = prepare_data(qs, "OneEurCzk")
+		dt.context_data['currency_data'] += prepare_data(qs, "OneEurUsd")
+		dt.context_data['currency_data'] += prepare_data(qs, "OneUsdCzk")
 
 		return dt
 
