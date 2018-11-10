@@ -8,9 +8,14 @@ class ApartmentTypeAdmin(admin.ModelAdmin):
 class ExchangeRateAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
 	template_list = "admin/currency_exchange_list.html"
-	list_display = ['today', 'OneEurCzk', 'OneEurUsd', 'OneUsdCzk']
+	list_display = [
+	'today', 
+	'OneEurCzk', 
+	'OneEurUsd', 
+	'OneUsdCzk']
 
-	
+	def get_forex_db():
+		
 
 
 admin.site.register(ApartmentType, ApartmentTypeAdmin)

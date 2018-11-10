@@ -17,14 +17,21 @@ https://docs.djangoproject.com/en/2.1/howto/static-files/
 import os
 import sys
 import logging
+# for bootstrap, to make message classes consistent with the framework
 from django.contrib.messages import constants as message_constants
+
+# for Azure Key Vault
 from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
 from azure.common.credentials import ServicePrincipalCredentials
+
+# for celery tasks - scheduling
 from celery.schedules import *
 
 credentials = None
+
 """
-Create a function that prepares to retrieve secret key value/other credentials
+Create a function that prepares to 
+retrieve secret key value/other credentials from AZURE Key Vault
 """
 def auth_callback(server, resource, scope):
     credentials = ServicePrincipalCredentials(

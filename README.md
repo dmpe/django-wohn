@@ -105,6 +105,14 @@ Run celery from b40re directory using
 celery -A vanoce worker -l info
 ```
 
+(Then,) to execute task(s) immediately 
+
+```
+python3 manage.py shell
+from userMng.tasks import parse_forex_data
+rst = parse_forex_data.apply()
+```
+Source: <https://stackoverflow.com/a/12900126/2171456>
 
 ## 2. Notes
 

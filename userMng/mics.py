@@ -14,11 +14,7 @@ from django.utils.safestring import *
 import re
 import json
 import requests as requests_library
-import pandas as pd
-import numpy as np
 
-#for forex data
-from pandasdmx import *
 
 # replaced by logic in contrib.auth.tokens
 def http_headers(request):
