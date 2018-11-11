@@ -72,7 +72,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		# export to json object - to try...
 		prossed_data = two_col_df.to_json()
 		print(queryset)
-		print(serializers.serialize('json', queryset)
+		print(serializers.serialize('json', queryset))
 		print(serializers.serialize('json', queryset, fields=("today", currency)))
 
 		return prossed_data
