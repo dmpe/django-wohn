@@ -68,7 +68,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 
 		# convert to pandas
 		two_col_df = pd.DataFrame.from_records(two_col, columns = ['today', currency])
-		two_col_df.sort_values(by = ['today'], axis=1, ascending=False )
+		two_col_df.sort_values(by = 'today', ascending=True)
 
 		print('we are in prepare_data func: df ->', two_col_df)
 		# export to json object - to try...
