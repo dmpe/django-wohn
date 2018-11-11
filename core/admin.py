@@ -52,10 +52,14 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		# needs to have JSON object with 3 large arrays - one for each currency
         # the same then applies to the data
         # convert time to epoch
-		response.context_data['currency_data'] = self.prepare_data(qs, "OneEurCzk")
-		response.context_data['currency_data'] = self.prepare_data(qs, "OneEurUsd")
-		response.context_data['currency_data'] = self.prepare_data(qs, "OneUsdCzk")
-		print("changelist_view -> ", response.context_data['currency_data'])
+        JSONdata = []
+
+        for i in ['OneEurCzk', 'OneEurUsd', 'OneUsdCzk']:
+        	JSONdata.append(self.prepare_data(qs, i))
+
+    	print("JSONDATA -> ", JSONdata)
+		response.context_data['currency_data'] = JSONdata
+
 		return response
 
 	def prepare_data(self, queryset=None, currency=None):
