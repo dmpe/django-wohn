@@ -67,10 +67,7 @@
 		    });
 		}
 
-		//var geodata = {{currency_data|escapejs}};
 		var geodata2 = {{currency_data|safe}};
-
-		console.log(geodata2);
 
 		$.each(names, function (i, name) {
 			seriesOptions[i] = {

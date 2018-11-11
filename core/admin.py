@@ -71,7 +71,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 
 		print('we are in prepare_data func: df ->', two_col_df)
 		# export to json object - to try...
-		prossed_data = two_col_df.to_json(orient='index')
+		prossed_data = two_col_df.to_json(orient='values')
 
 		print('we are in prepare_data func: prop ->', prossed_data)
 
