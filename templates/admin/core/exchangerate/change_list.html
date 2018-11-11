@@ -74,8 +74,8 @@
 		$(function() {
 			$.each(names, function (i, name) {
 				seriesOptions[i] = {
-					name: {{ currency_data[0].today | safe }},
-					data: {{ currency_data[0].OneEurCzk | safe }}
+					name: {{ currency_data[0].today }},
+					data: {{ currency_data[0].OneEurCzk }}
 				};
 				create_chart();
 
