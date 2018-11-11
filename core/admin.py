@@ -52,10 +52,10 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		# needs to have JSON object with 3 large arrays - one for each currency
         # the same then applies to the data
         # convert time to epoch
-		JSONdata = {}
+		JSONdata = []
 
 		for i in ['OneEurCzk', 'OneEurUsd', 'OneUsdCzk']:
-			JSONdata.update(self.prepare_data(qs, i))
+			JSONdata.append(self.prepare_data(qs, i))
 
 		print("JSONDATA -> ", JSONdata)
 		response.context_data['currency_data'] = JSONdata
