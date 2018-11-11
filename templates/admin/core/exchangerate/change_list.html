@@ -71,17 +71,17 @@
 		console.log(geodata);
 		console.log(geodata2);
 
-		$(function() {
-			$.each(names, function (i, name) {
-				seriesOptions[i] = {
-					name: {{ currency_data[0].today }},
-					data: {{ currency_data[0].OneEurCzk }}
-				};
-				create_chart();
+		// $(function() {
+		// 	$.each(names, function (i, name) {
+		// 		seriesOptions[i] = {
+		// 			name: {{ currency_data }},
+		// 			data: {{ currency_data }}
+		// 		};
+		// 		create_chart();
 
-				console.log(seriesOptions[i]);
-			});
-		});
+		// 		console.log(seriesOptions[i]);
+		// 	});
+		// });
 	</script>
 
 {% endblock %}
