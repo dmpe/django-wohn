@@ -55,7 +55,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		JSONdata = {}
 
 		for i in ['OneEurCzk', 'OneEurUsd', 'OneUsdCzk']:
-			JSONdata.append(self.prepare_data(qs, i))
+			JSONdata.update(self.prepare_data(qs, i))
 
 		print("JSONDATA -> ", JSONdata)
 		response.context_data['currency_data'] = JSONdata
