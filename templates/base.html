@@ -23,13 +23,13 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     <!-- Load CSS: Bootstrap + font-awesome + JavaScript Jquery -->
-    {% include 'javascript_libraries.html' %}
+    {% include 'base_splitting/javascript_libraries.html' %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'global_styles.css' %}">
 
-    {% include "webtools_verification.html" %}
+    {% include "base_splitting/webtools_verification.html" %}
 
-    {% include "tracking_js.html" %}
+    {% include "base_splitting/tracking_js.html" %}
 
   </head>
   <body>
@@ -39,7 +39,7 @@
     {% endblock %}
     
     {% include 'footer.html' %}
-    {% include "bootstrap_fontAwe_body_footer.html" %}
+    {% include "base_splitting/bootstrap_fontAwe_body_footer.html" %}
 
     <script src="{% static 'global_js.js' %}"></script>
   </body>
