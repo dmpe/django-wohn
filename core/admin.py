@@ -66,13 +66,17 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 	def prepare_data(self, queryset=None, currency=None):
 		# select only two columns, date + currency
 		two_col = queryset.values("today", currency)
-		# convert to pandas
-		two_col_df = pd.DataFrame.from_records(two_col, columns = ['today', str(currency)])
+		print('we are in prepare_data func ->', two_col)
 
+		# convert to pandas
+		two_col_df = pd.DataFrame.from_records(two_col, columns = ['today', currency])
+
+		print('we are in prepare_data func ->', two_col_df)
 		# export to json object - to try...
 		prossed_data = two_col_df.to_json()
-		print(serializers.serialize('json', queryset, fields=("today", currency)))
-		print(prossed_data)
+		print('we are in prepare_data func ->', serializers.serialize('json', queryset, fields=("today", currency)))
+		print('we are in prepare_data func ->', prossed_data)
+
 		return prossed_data
 
 admin.site.register(ApartmentType, ApartmentTypeAdmin)
