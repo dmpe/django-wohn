@@ -21,7 +21,7 @@
 	</div>	
 	
 	<script type="text/javascript">
-		var seriesOptions = [], names = ['OneEurCzk', 'OneEurUsd', 'OneUsdCzk'];
+		var seriesOptions = [], names = ['1 EUR - CZK', '1 EUR - USD', '1 USD - CZK'];
 
 	    function create_chart() {
 		    Highcharts.stockChart('container-hc', {
@@ -67,12 +67,12 @@
 		    });
 		}
 
-		var geodata2 = {{currency_data|safe}};
+		var forex = {{currency_data|safe}};
 
 		$.each(names, function (i, name) {
 			seriesOptions[i] = {
 				name: name,
-				data: JSON.parse(geodata2[i])
+				data: JSON.parse(forex[i])
 			};
 			create_chart();
 
