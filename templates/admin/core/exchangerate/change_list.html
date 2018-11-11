@@ -72,7 +72,7 @@
 		$.each(names, function (i, name) {
 			seriesOptions[i] = {
 				name: name,
-				data: geodata2[i]
+				data: Array.from(geodata2[i])
 			};
 			create_chart();
 
