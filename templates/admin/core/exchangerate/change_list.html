@@ -68,16 +68,16 @@
 		}
 
 		var forex = {{currency_data|safe}};
-
+		// color is always blue because we draw 3 seperate charts
 		$.each(names, function (i, name) {
 			seriesOptions[i] = {
 				name: name,
 				data: JSON.parse(forex[i])
 			};
-			create_chart();
 
 			console.log(seriesOptions[i]);
 		});
+		create_chart();
 	</script>
 
 {% endblock %}
