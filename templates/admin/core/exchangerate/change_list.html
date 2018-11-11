@@ -71,16 +71,14 @@
 		//console.log(geodata);
 		console.log(geodata2);
 
-		$(function() {
-			$.each(names, function (i, name) {
-				seriesOptions[i] = {
-					name: name,
-					data: geodata2[i]
-				};
-				create_chart();
+		$.each(names, function (i, name) {
+			seriesOptions[i] = {
+				name: name,
+				data: geodata2[i]
+			};
+			create_chart();
 
-				console.log(seriesOptions[i]);
-			});
+			console.log(seriesOptions[i]);
 		});
 	</script>
 
