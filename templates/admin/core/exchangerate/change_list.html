@@ -6,6 +6,8 @@
 
 {% block extrastyle %}
 	{{ block.super }}
+
+	{% include "javascript_libraries.html" %}
 	<script src="https://code.highcharts.com/lib/svg2pdf.js"></script>
 	<script src="https://code.highcharts.com/lib/canvg.js"></script>
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
