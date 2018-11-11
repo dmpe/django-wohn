@@ -68,10 +68,9 @@
 		//var geodata = {{currency_data|escapejs}};
 		var geodata2 = {{currency_data|safe}};
 
-		//console.log(geodata);
 		console.log(geodata2);
 
-		$.each(names, function (i, name) {
+		django.jQuery.$.each(names, function (i, name) {
 			seriesOptions[i] = {
 				name: name,
 				data: geodata2[i]
