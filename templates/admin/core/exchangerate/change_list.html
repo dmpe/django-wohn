@@ -66,15 +66,16 @@
 		}
 		
 	{% for currency_pair in currency_data %}
+		$(function() {
+			$.each(names, function (i, name) {
+				seriesOptions[i] = {
+					name: {{ 'currency_pair.name' }},
+					data: {{ 'currency_pair.data' }},
+				};
+				create_chart();
 
-		$.each(names, function (i, name) {
-			seriesOptions[i] = {
-				name: {{ 'currency_pair.name' }},
-				data: {{ 'currency_pair.data' }},
-			};
-			create_chart();
-
-			console.log(seriesOptions[i]);
+				console.log(seriesOptions[i]);
+			});
 		});
 	{% endfor %}
 	</script>
