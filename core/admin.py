@@ -53,8 +53,8 @@ class ExchangeRateAdmin(admin.ModelAdmin):
         # the same then applies to the data
         # convert time to epoch
 		response.context_data['currency_data'] = self.prepare_data(qs, "OneEurCzk")
-		response.context_data['currency_data'] += self.prepare_data(qs, "OneEurUsd")
-		response.context_data['currency_data'] += self.prepare_data(qs, "OneUsdCzk")
+		response.context_data['currency_data'] = self.prepare_data(qs, "OneEurUsd")
+		response.context_data['currency_data'] = self.prepare_data(qs, "OneUsdCzk")
 		print("changelist_view -> ", response.context_data['currency_data'])
 		return response
 
