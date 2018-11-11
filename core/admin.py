@@ -58,7 +58,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 			JSONdata.append(self.prepare_data(qs, i))
 
 		print("JSONDATA -> ", JSONdata)
-		response.context_data['currency_data'] = JSONdata
+		response.context_data['currency_data'] = json.dumps(JSONdata)
 
 		return response
 
