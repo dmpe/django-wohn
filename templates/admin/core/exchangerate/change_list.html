@@ -64,13 +64,19 @@
 		        series: seriesOptions
 		    });
 		}
-		
+
+		var geodata = JSON.parse("{{currency_data|escapejs}}");
+		var geodata2 = {{currency_data|safe}};
+
+		console.log(geodata);
+		console.log(geodata2);
+
 	{% for currency_pair in currency_data %}
 		$(function() {
 			$.each(names, function (i, name) {
 				seriesOptions[i] = {
-					name: {{ 'currency_pair.name' }},
-					data: {{ 'currency_pair.data' }},
+					name: {{ 'currency_pair.name' | safe }},
+					data: {{ 'currency_pair.data' | safe }}
 				};
 				create_chart();
 
