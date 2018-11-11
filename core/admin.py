@@ -55,8 +55,6 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 		response.context_data['currency_data'] = self.prepare_data(qs, "OneEurCzk")
 		# response.context_data['currency_data'] += self.prepare_data(qs, "OneEurUsd")
 		# response.context_data['currency_data'] += self.prepare_data(qs, "OneUsdCzk")
-
-		print(response.context_data['currency_data'])
 		
 		return response
 # {"OneEurCzk":{"0":26.358},"today":{"0":1541203200000}}
@@ -66,16 +64,15 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 	def prepare_data(self, queryset=None, currency=None):
 		# select only two columns, date + currency
 		two_col = queryset.values("today", currency)
-		print('we are in prepare_data func ->', two_col)
 
 		# convert to pandas
 		two_col_df = pd.DataFrame.from_records(two_col, columns = ['today', currency])
 
-		print('we are in prepare_data func ->', two_col_df)
+		print('we are in prepare_data func: df ->', two_col_df)
 		# export to json object - to try...
 		prossed_data = two_col_df.to_json()
-		print('we are in prepare_data func ->', serializers.serialize('json', queryset, fields=("today", currency)))
-		print('we are in prepare_data func ->', prossed_data)
+
+		print('we are in prepare_data func: prop ->', prossed_data)
 
 		return prossed_data
 
