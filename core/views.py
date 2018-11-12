@@ -81,7 +81,7 @@ class ContactView(View):
 		form = ContactForm()
 		return render(request, self.template_name, {"form": form })
 
-class AboutView(object):
+class AboutView(View):
 	"""docstring for AboutView
 	"""
 	template_name = "about.html"
@@ -95,4 +95,4 @@ class AboutView(object):
 		context['raw_markdown_html'] = html
 
 		return render(request, self.template_name, context)
-	
+
