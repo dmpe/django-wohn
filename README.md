@@ -94,9 +94,7 @@ sudo certbot --nginx certonly
 
 - Nginx 502 gateway issue after VM reboot
 
-(1. Change Azure Active Directory keys)
-
-2. Just **restart** nginx and then `gunicorn.service` without socket thing
+2. Just **restart** nginx, then `gunicorn.service` as well as stop that socket thing
 
 ### 1.6 Run Celery
 

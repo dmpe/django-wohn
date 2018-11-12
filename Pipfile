@@ -31,5 +31,6 @@ numpy = "*"
 pandas = "*"
 pandasdmx = "*"
 Celery ="*"
+markdown="*"
 
 [dev-packages]

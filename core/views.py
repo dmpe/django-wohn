@@ -14,6 +14,9 @@ from django.urls import *
 # for messages
 from django.utils.safestring import *
 
+# for rendering markdown files
+from markdown import *
+
 from .forms import *
 
 from userMng.mics import *
@@ -29,9 +32,6 @@ def core_index(request):
     return render(request, 'index.html')
 
 # FOOTER
-def about(request):
-    return render(request, 'about.html')
-
 def privacy(request):
 	return render(request, 'privacy.html')
 
@@ -81,3 +81,17 @@ class ContactView(View):
 		form = ContactForm()
 		return render(request, self.template_name, {"form": form })
 
+class AboutView(object):
+	"""docstring for AboutView
+	"""
+	template_name = "about.html"
+
+	def get(self, request):
+		
+	    context = super(AboutView, self).get_context_data(**kwargs)
+		input_file = codecs.open("README.md", mode="r", encoding="utf-8")
+		text = input_file.read()
+		html = markdown.markdown(text, output_format="html5")
+		context['raw_markdown_html'] = html
+
+		return render(request, self.template_name, context)

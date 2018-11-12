@@ -21,7 +21,7 @@ server {
 	listen [::]:80;
 
 	listen 443 ssl; 
-    listen [::]:443 ssl ipv6only=on; 
+    listen [::]:443 ssl http2 ipv6only=on; 
     
     server_name www.b40re.tk b40re.tk;
 
@@ -52,7 +52,7 @@ server {
 server {
 	listen 80;
 
-    listen 443 ssl; 
+    listen 443 ssl http2; 
 
     server_name www.pgadmin.b40re.tk pgadmin.b40re.tk;
 
