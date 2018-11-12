@@ -95,6 +95,6 @@ class AboutView(View):
 
 	def get(self, request):
 		# context = super(AboutView, self).get_context_data(**kwargs)
-		raw_markdown_html = self.return_markdown()
+		raw_markdown_html = return_markdown()
 		return render(request, self.template_name, {'raw_markdown_html':raw_markdown_html})
 
