@@ -32,5 +32,6 @@ pandas = "*"
 pandasdmx = "*"
 Celery ="*"
 markdown="*"
+pymdown-extensions="*"
 
 [dev-packages]

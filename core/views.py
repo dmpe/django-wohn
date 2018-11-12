@@ -90,7 +90,7 @@ class AboutView(View):
 	def return_markdown(self):
 		input_file = codecs.open("README.md", mode="r", encoding="utf-8")
 		text = input_file.read()
-		html = markdown.markdown(text, output_format="html5")
+		html = markdown.markdown(text, output_format="html5", ['pymdownx.extra', 'pymdownx.github'])
 		return html
 
 	def get(self, request):
