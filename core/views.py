@@ -88,10 +88,11 @@ class AboutView(object):
 
 	def get(self, request):
 		
-	    context = super(AboutView, self).get_context_data(**kwargs)
+		context = super(AboutView, self).get_context_data(**kwargs)
 		input_file = codecs.open("README.md", mode="r", encoding="utf-8")
 		text = input_file.read()
 		html = markdown.markdown(text, output_format="html5")
 		context['raw_markdown_html'] = html
 
 		return render(request, self.template_name, context)
+	
