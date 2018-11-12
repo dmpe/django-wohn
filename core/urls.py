@@ -8,7 +8,7 @@ from django.conf import settings
 urlpatterns = [
     path('', views.core_index, name='core_index'),
     
-    path('about', views.about, name='about'),
+    path('about', views.AboutView.as_view(), name='about'),
     path('contact', views.ContactView.as_view(), name='contact'),
     path('terms', views.terms, name='terms'),
     path('privacy', views.privacy, name='privacy'),
