@@ -87,7 +87,7 @@ class AboutView(View):
 	"""
 	template_name = "about.html"
 
-	def return_markdown():
+	def return_markdown(self):
 		input_file = codecs.open("README.md", mode="r", encoding="utf-8")
 		text = input_file.read()
 		html = markdown.markdown(text, output_format="html5")
@@ -95,6 +95,6 @@ class AboutView(View):
 
 	def get(self, request):
 		# context = super(AboutView, self).get_context_data(**kwargs)
-		raw_markdown_html = return_markdown()
+		raw_markdown_html = self.return_markdown()
 		return render(request, self.template_name, {'raw_markdown_html':raw_markdown_html})
 
