@@ -16,7 +16,7 @@ from django.urls import *
 from django.utils.safestring import *
 
 # for rendering markdown files
-from markdown import *
+import markdown
 
 from .forms import *
 
