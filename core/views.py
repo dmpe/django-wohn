@@ -4,6 +4,7 @@ from django.http import *
 from django.core.mail import *
 from django.contrib import *
 from django.views import View
+from django.views.generic import *
 from django.conf import settings
 from django.template import *
 from django.template.loader import render_to_string
@@ -99,6 +100,6 @@ class AboutView(View):
 
 	def get(self, request):
 		# context = super(AboutView, self).get_context_data(**kwargs)
-		context = self.get_context_data()
+		context = self.get_context_data(request)
 		return render(request, self.template_name, context)
 
