@@ -123,3 +123,4 @@ Idea source:
 - <https://www.respekt.cz/sousede/nekolik-nezavislych-lidi-bydli-v-jednom-pronajatem-byte> sort of.
 - <https://stackoverflow.com/a/40790734>
 - <https://stackoverflow.com/a/50309967>
+- Git post-recieve hook: <https://gist.github.com/lemiorhan/8912188>
