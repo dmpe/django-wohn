@@ -51,7 +51,9 @@ server {
 
 server {
 	listen 80;
-	listen [::]:80;
+
+    listen 443 ssl; 
+
     server_name www.pgadmin.b40re.tk pgadmin.b40re.tk;
 
 	location / {
@@ -62,6 +64,8 @@ server {
 		proxy_pass http://localhost:5050;
 	}
 
+    ssl_certificate /etc/letsencrypt/live/b40re.tk/fullchain.pem; 
+    ssl_certificate_key /etc/letsencrypt/live/b40re.tk/privkey.pem; 
 }
 
 
