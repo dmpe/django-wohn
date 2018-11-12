@@ -85,7 +85,7 @@ class AboutView(View):
 	"""docstring for AboutView
 	"""
 	template_name = "about.html"
-	
+
 	def return_markdown(self, request):
 		input_file = codecs.open("README.md", mode="r", encoding="utf-8")
 		text = input_file.read()
@@ -93,7 +93,7 @@ class AboutView(View):
 		return html
 
 	def get_context_data(self, **kwargs):
-		context = super(AboutView, self).get_context_data(**kwargs)
+		context = super().get_context_data(**kwargs)
 		context['raw_markdown_html'] = self.return_markdown()
 		return context
 
