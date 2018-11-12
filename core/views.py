@@ -93,13 +93,8 @@ class AboutView(View):
 		html = markdown.markdown(text, output_format="html5")
 		return html
 
-	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
-		context['raw_markdown_html'] = self.return_markdown()
-		return context
-
 	def get(self, request):
 		# context = super(AboutView, self).get_context_data(**kwargs)
-		context = get_context_data(request)
-		return render(request, self.template_name, context)
+		raw_markdown_html = self.return_markdown()
+		return render(request, self.template_name, {'raw_markdown_html':raw_markdown_html})
 
