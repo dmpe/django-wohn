@@ -100,6 +100,6 @@ class AboutView(View):
 
 	def get(self, request):
 		# context = super(AboutView, self).get_context_data(**kwargs)
-		context = self.get_context_data(request)
+		context = get_context_data(request)
 		return render(request, self.template_name, context)
 
