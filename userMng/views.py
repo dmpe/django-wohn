@@ -173,7 +173,8 @@ class RegistrationView(CreateView):
 			messages.add_message(request, messages.WARNING, 
 				mark_safe('<h6 class=''alert-heading''>New passwords do not match</h6>'
 				'<p>Make sure that they are same, e.g. by checking the capital letters.</p>'))
-
+			return render(request, self.template_name)
+			
 		auser = EmailUserNameAuthBackend.authenticate(self, request, username = inputUsername, password = inputNewPassword)
 
 		try:
