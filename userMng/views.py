@@ -109,7 +109,7 @@ class ResetPasswordStepOneView(View):
 class ResetPasswordNewStepTwoView(View):
 	"""
 	at this stage, a token should have been send to the user via email
-	user clicks, inputs passwords, confirms and should be able to load the main login screen
+	user clicks, inputs passwords, confirms and he should be able to load the main login screen
 	"""
 	template_name = 'reset_password_new.html'
 
@@ -156,12 +156,18 @@ class RegistrationView(CreateView):
 		inputNewPassword = request.POST.get('inputNewPassword', False)
 		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
 
-		# also validate on the fronend
 		if inputNewPassword == inputConfirmNewPassword:
 			ur = myUser.objects.create_user(inputUsername, inputEmail)
 			ur.set_password(inputNewPassword)
 			ur.is_active = True
-			ur.save()
+
+			try:	
+				ur.save()
+			except IntegrityError, ValidationError:
+				messages.add_message(request, messages.WARNING, 
+					mark_safe('<h6 class=''alert-heading''>Username or Email already exist</h6>'
+					'<p>It seems that your username and/or email already exist in your system.</p>
+					'<p>You can reset your password or provide again a unique combination of username & email.</p>'))
 		else: 
 			messages.add_message(request, messages.WARNING, 
 				mark_safe('<h6 class=''alert-heading''>New passwords do not match</h6>'

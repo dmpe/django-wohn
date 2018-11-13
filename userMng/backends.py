@@ -9,7 +9,7 @@ class EmailUserNameAuthBackend(ModelBackend):
 	This is used for authentication of myUsers
 	using either username or email in the input field.	
 	By default, username/password is used and this 
-	extends this with email/password.
+	extends the approach with the email/password.
 
 	Should work on /admin/ and on /administration/
 	"""
@@ -40,6 +40,8 @@ class EmailUserNameAuthBackend(ModelBackend):
 		"""
 		check in the database if the username or email does exist
 		if yes, return positive bool value
+		
+		Used for email-based password reset
 
 		:param inputString: either it can be a username or email
 
@@ -66,3 +68,6 @@ class EmailUserNameAuthBackend(ModelBackend):
 				pass
 		
 		return [presentInSystem, getUserObject]
+		
+		
+		
