@@ -21,7 +21,3 @@ class myUser(AbstractUser):
 	
 		class Meta:
 			unique_together = ("username", "email")
-
-
-	#def __str__(self):
-	#	return '{} ({})'.format(request.user.username,  request.user.email)
