@@ -163,7 +163,7 @@ class RegistrationView(CreateView):
 
 			try:	
 				ur.save()
-			except IntegrityError, ValidationError:
+			except (IntegrityError, ValidationError) as e:
 				messages.add_message(request, messages.WARNING, 
 					mark_safe('<h6 class=''alert-heading''>Username or Email already exist</h6>'
 					'<p>It seems that your username and/or email already exist in your system.</p>
