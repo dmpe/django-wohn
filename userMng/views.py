@@ -157,11 +157,10 @@ class RegistrationView(CreateView):
 		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
 
 		if inputNewPassword == inputConfirmNewPassword:
-			ur = myUser.objects.create_user(inputUsername, inputEmail)
-			ur.set_password(inputNewPassword)
-			ur.is_active = True
-
-			try:	
+			try:
+				ur = myUser.objects.create_user(inputUsername, inputEmail)
+				ur.set_password(inputNewPassword)
+				ur.is_active = True
 				ur.save()
 			except (IntegrityError, ValidationError) as e:
 				messages.add_message(request, messages.WARNING, 
