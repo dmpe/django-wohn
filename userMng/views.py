@@ -168,6 +168,8 @@ class RegistrationView(CreateView):
 					mark_safe('<h6 class=''alert-heading''>Username or Email already exist</h6>'
 					'<p>It seems that your username and/or email already exist in your system.</p>'
 					'<p>You can reset your password or provide again a unique combination of username & email.</p>'))
+				
+				return render(request, self.template_name)
 		else: 
 			messages.add_message(request, messages.WARNING, 
 				mark_safe('<h6 class=''alert-heading''>New passwords do not match</h6>'
