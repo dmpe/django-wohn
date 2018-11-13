@@ -19,5 +19,5 @@ class myUser(AbstractUser):
 	user_int_tel = PhoneNumberField(blank=True)
 	objects = MyUserManager()
 	
-    class Meta:
-        unique_together = ("username", "email")
+	class Meta:
+		unique_together = ("username", "email")
