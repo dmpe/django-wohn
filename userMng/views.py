@@ -164,7 +164,7 @@ class RegistrationView(CreateView):
 				ur.set_password(inputNewPassword)
 				ur.is_active = True
 				ur.save()
-			except (IntegrityError, ValidationError) as e:
+			except (IntegrityError, ValidationError, IndexError) as e:
 				messages.add_message(request, messages.WARNING, 
 					format_html('<h6 class=''alert-heading''>Username or Email already exist</h6>'
 					'<p>It seems that your username and/or email already exist in your system.</p>'

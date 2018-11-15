@@ -1,3 +1,4 @@
+from django.db import *
 from django.conf import settings
 from django.contrib.auth.hashers import *
 from django.contrib.auth.backends import ModelBackend
@@ -24,19 +25,25 @@ class EmailUserNameAuthBackend(ModelBackend):
 		# username as parameter is here just as 'something'
 		try:
 			user = myUser.objects.get(email=username)
-			if user.check_password(password):
-				return user
+			if len(user) >= 2:
+				raise IntegrityError("Login using username")
+			else:
+				if user.check_password(password):
+					return user
 
 		except myUser.DoesNotExist:
 			try:
 				# must always work
 				user = myUser.objects.get(username=username)
-				if user.check_password(password):
-					return user
+				if len(user) >= 2:
+					raise IntegrityError("Login using username")
+				else:
+					if user.check_password(password):
+						return user
 			except myUser.DoesNotExist:
 				return None
 	
-	def check_for_user_existance(self, inputString= None):
+	def check_for_user_existance(self, inputString = None):
 		"""
 		check in the database if the username or email does exist
 		if yes, return positive bool value
