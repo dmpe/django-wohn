@@ -27,11 +27,11 @@
 	</div>
 	
 	<div class="list-group">
-		<a href="#" class="list-group-item list-group-item-action active">
+		<a href="{% url 'userMng_index' %}" class="list-group-item list-group-item-action active">
 			Homepage
 		</a>
-		<a href="#" class="list-group-item list-group-item-action">My Profile</a>
-		<a href="#" class="list-group-item list-group-item-action">
+		<a href="{% url 'user_profile' %}" class="list-group-item list-group-item-action">My Profile</a>
+		<a href="{% url '' %}" class="list-group-item list-group-item-action">
 			Properties
 		    <span class="badge badge-primary badge-pill">{{ count_my_properties }}</span>
 		</a>

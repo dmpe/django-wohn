@@ -47,18 +47,57 @@ logger = logging.getLogger(__name__)
 #######
 ################
 
-# ADMINISTRATION
-def administrationView(request):
-	return render(request, 'administrace/index.html')
-
-def administrationView_UserProfile(request):
-	return render(request, 'administrace/user_profile.html')
-
 ################
 #######
 ####### Class based views
 #######
 ################
+
+################
+#######
+####### User Profile Administration / Listing of properties
+#######
+################
+
+class UserProfileIndex(View):
+	"""
+	"""
+	template_name = "index.html"
+	
+	def post():
+		"""docstring for post"""
+		# TODO: write code...
+	
+	def get():
+		"""docstring for get"""
+		# TODO: write code...
+
+class UserProfileAdministration(View):
+	"""
+	"""
+	template_name = "user_profile.html"
+	
+	def post():
+		"""docstring for post"""
+		# TODO: write code...
+	
+	def get():
+		"""docstring for get"""
+		# TODO: write code...
+		
+class UserProfileProperties(View):
+	"""
+	"""
+	template_name = "user_property.html"
+	
+	def post():
+		"""docstring for post"""
+		# TODO: write code...
+	
+	def get():
+		"""docstring for get"""
+		# TODO: write code...
+
 
 
 ###################################
