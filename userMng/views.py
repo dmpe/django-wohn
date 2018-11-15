@@ -94,12 +94,12 @@ class ResetPasswordStepOneView(View):
 				userPresent_uid= uid)
 
 			messages.add_message(request, messages.SUCCESS, 
-				mark_safe('<h6 class=''alert-heading''>Password reset was successful!</h6>'
+				mark_safe('<h4 class=''alert-heading''>Password reset was successful!</h4>'
 				'<p>Check your email now to set a new one.</p>'
 				'<p>You can now <strong>close</strong> this page.</p>'))
 		else: 
 			messages.add_message(request, messages.ERROR, 
-				mark_safe('<h6 class=''alert-heading''>Password reset cannot proceed!</h6>'
+				mark_safe('<h4 class=''alert-heading''>Password reset cannot proceed!</h4>'
 				'<p>Check your input as the user cound not be found in the database.</p>'
 				'<p>Please, try again.</p>'))
 
@@ -127,11 +127,11 @@ class ResetPasswordNewStepTwoView(View):
 			myuser.save()
 
 			messages.add_message(request, messages.SUCCESS, 
-				format_html(('<h6 class=''alert-heading''>Your Password has been changed!</h6>'
+				format_html(('<h4 class=''alert-heading''>Your Password has been changed!</h4>'
 				'<p>You can <a href="{}" class="alert-link">now login using new credentials on the login page</a>.</p>'), reverse('login')))
 		else:
 			messages.add_message(request, messages.WARNING, 
-				mark_safe('<h6 class=''alert-heading''>New passwords do not match</h6>'
+				mark_safe('<h4 class=''alert-heading''>New passwords do not match</h4>'
 				'<p>Make sure that they are same, e.g. by checking the capital letters.</p>'))
 
 		return render(request, self.template_name)
@@ -167,14 +167,14 @@ class RegistrationView(CreateView):
 				ur.save()
 			except (IndexError, IntegrityError, ValidationError) as e:
 				messages.add_message(request, messages.WARNING, 
-					format_html(('<h6 class=''alert-heading''>Username or Email already exist</h6>'
-					'<p>It seems that your username and/or email already exist in your system.</p>'
+					format_html(('<h4 class=''alert-heading''>Username or Email already exist</h4>'
+					'<p>It seems that your username and/or email already exist in our system.</p>'
 					'<p>You can reset <a class = ''alert-link'' href="{}">your password</a> or provide again a unique combination of username & email.</p>'), reverse('reset_password')))
 				
 				return render(request, self.template_name)
 		else: 
 			messages.add_message(request, messages.WARNING, 
-				mark_safe('<h6 class=''alert-heading''>New passwords do not match</h6>'
+				mark_safe('<h4 class=''alert-heading''>New passwords do not match</h4>'
 				'<p>Make sure that they are same, e.g. by checking the capital letters.</p>'))
 				
 			return render(request, self.template_name)
@@ -215,7 +215,7 @@ class LoginView(View):
 				
 				if auth_user is None:
 					messages.add_message(request, messages.WARNING, 
-						mark_safe('<h6 class=''alert-heading''>Such a user does not exist.</h6>'
+						mark_safe('<h4 class=''alert-heading''>Such a user does not exist.</h4>'
 						'<p>Make sure that username and password are correct.</p>'))
 				else: 	
 					try:
@@ -231,7 +231,7 @@ class LoginView(View):
 		# user is bot
 		else:
 			messages.add_message(request, messages.WARNING, 
-						mark_safe('<h6 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h6>'
+						mark_safe('<h4 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h4>'
 						'<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>'
 						'<p>Clear e.g. your cookies.</p>'))
 		
