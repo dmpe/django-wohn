@@ -87,7 +87,7 @@ class ResetPasswordStepOneView(View):
 			tk = token_obj.make_token(userPresent[1])
 			uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk)).decode()
 
-			self.prepare_psswd_reset_email(request, 
+			prepare_psswd_reset_email(request, 
 				userPresent_username = userPresent[1].get_username(), 
 				userPresent_email = userPresent[1].email, 
 				userPresent_token= tk, 
@@ -168,7 +168,7 @@ class RegistrationView(CreateView):
 				messages.add_message(request, messages.WARNING, 
 					mark_safe('<h6 class=''alert-heading''>Username or Email already exist</h6>'
 					'<p>It seems that your username and/or email already exist in your system.</p>'
-					'<p>You can reset <a class = ''alert-link''>your password</a> or provide again a unique combination of username & email.</p>'))
+					'<p>You can reset <a class = ''alert-link'' href="https:/b40re.tk/reset_password">your password</a> or provide again a unique combination of username & email.</p>'))
 				
 				return render(request, self.template_name)
 		else: 
