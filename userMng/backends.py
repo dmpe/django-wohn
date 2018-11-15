@@ -25,23 +25,17 @@ class EmailUserNameAuthBackend(ModelBackend):
 		# username as parameter is here just as 'something'
 		try:
 			user = myUser.objects.get(email=username)
-			if len(user) >= 2:
-				raise IntegrityError("Login using username")
-			else:
-				if user.check_password(password):
-					return user
+			if user.check_password(password):
+				return user
 
 		except myUser.DoesNotExist:
 			try:
 				# must always work
 				user = myUser.objects.get(username=username)
-				if len(user) >= 2:
-					raise IntegrityError("Login using username")
-				else:
 					if user.check_password(password):
 						return user
 			except myUser.DoesNotExist:
-				return None
+				return IntegrityError("Login using proper username/email!")
 	
 	def check_for_user_existance(self, inputString = None):
 		"""
