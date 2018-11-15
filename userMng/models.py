@@ -21,4 +21,4 @@ class myUser(AbstractUser):
 	objects = MyUserManager()
 	
 	class Meta:
-		unique_together = (("email", "username"),)
+		unique_together = (("email"),)
