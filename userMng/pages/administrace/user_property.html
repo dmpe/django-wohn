@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - User profile{% endblock %}
+
+{% block description %}This page has a description.{% endblock %}
+
+{% block robots %}index, follow{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+
+	<div class="list-group">
+		<a href="#" class="list-group-item list-group-item-action">
+			Homepage
+		</a>
+		<a href="#" class="list-group-item list-group-item-action">My Profile</a>
+		<a href="#" class="list-group-item list-group-item-action active">
+			Properties
+		    <span class="badge badge-primary badge-pill">{{ count_my_properties }}</span>
+		</a>
+	</div>
+
+
+
+
+
+
+
+</div>
+{% endblock %}
