@@ -14,9 +14,9 @@ If previously some deployments to the local PC have been executed, then one **ha
 
 ```
 sudo su postgres
-dropdb mydb
-createdb mydb
-su jm
+dropdb b40
+createdb b40
+exit
 ```
 
 #### 1.1.2 Collect static files
