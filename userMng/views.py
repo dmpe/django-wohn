@@ -64,39 +64,39 @@ class UserProfileIndex(View):
 	"""
 	template_name = "index.html"
 	
-	def post():
+	def post(self, request):
 		"""docstring for post"""
-		# TODO: write code...
+		pass
 	
-	def get():
+	def get(self, request):
 		"""docstring for get"""
-		# TODO: write code...
+		return render(request, self.template_name)
 
 class UserProfileAdministration(View):
 	"""
 	"""
 	template_name = "user_profile.html"
 	
-	def post():
+	def post(self, request):
 		"""docstring for post"""
-		# TODO: write code...
+		pass
 	
-	def get():
+	def get(self, request):
 		"""docstring for get"""
-		# TODO: write code...
+		return render(request, self.template_name)
 		
 class UserProfileProperties(View):
 	"""
 	"""
 	template_name = "user_property.html"
 	
-	def post():
+	def post(self, request):
 		"""docstring for post"""
-		# TODO: write code...
+		pass
 	
-	def get():
+	def get(self, request):
 		"""docstring for get"""
-		# TODO: write code...
+		return render(request, self.template_name)
 
 
 
