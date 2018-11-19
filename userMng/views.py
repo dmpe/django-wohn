@@ -53,11 +53,11 @@ logger = logging.getLogger(__name__)
 #######
 ################
 
-################
+###########################################
 #######
 ####### User Profile Administration / Listing of properties
 #######
-################
+###########################################
 
 class UserProfileIndex(View):
 	"""
