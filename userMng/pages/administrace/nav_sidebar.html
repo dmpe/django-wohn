@@ -3,12 +3,17 @@
 <div class="col-md-2">
     <div class="list-group">
     	<a href="{% url 'userMng_index' %}" class="list-group-item list-group-item-action {% if url_name == 'userMng_index' %}active{% endif %}">
+    		<i class="fas fa-home"></i>
     		Homepage
     	</a>
-    	<a href="{% url 'user_profile' %}" class="list-group-item list-group-item-action {% if url_name == 'user_profile' %}active{% endif %}">My Profile</a>
+    	<a href="{% url 'user_profile' %}" class="list-group-item list-group-item-action {% if url_name == 'user_profile' %}active{% endif %}">
+    	    <i class="fas fa-user"></i>
+    	    My Profile
+    	</a>
     	<a href="{% url 'user_properties' %}" class="list-group-item list-group-item-action {% if url_name == 'user_properties' %}active{% endif %}">
+    	    <i class="fas fa-hotel"></i>
     		Properties
-    	    <span class="badge badge-primary badge-pill">{{ count_my_properties }}</span>
+    	    <span class="badge badge-primary badge-pill"> 45 {{ count_my_properties }}</span>
     	</a>
     </div>
 </div>
