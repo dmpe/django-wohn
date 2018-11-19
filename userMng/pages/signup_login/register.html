@@ -13,7 +13,7 @@
 
 	<!-- Because of Recaptcha login -->
 	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5'></script>
-
+	
 	<script type="text/javascript">
 	// execute function and output the token into the browser console
 	grecaptcha.ready(function() {
@@ -79,11 +79,11 @@
 				<h1 class="card-title">Register</h1>
 			</div>
 			<div class="card-body">
-				<form id = "form-register" method="POST">
+				<form id = "form-register" method="POST" data-parsley-validate>
 					{% csrf_token %}
 					<div class="form-group spacing">
 						<div class="input-group">
-							<input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="Username">
+							<input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="Username" minlength="4">
 							<label class="sr-only" for="inputUsername">Username</label>
 						</div>
 					</div>
@@ -167,6 +167,13 @@
 		js.src = "https://connect.facebook.net/en_US/sdk.js";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
+	</script>
+	
+	<!--For form validation -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.min.js"></script>
+	
+	<script>
+		$('#form-register').parsley();
 	</script>
 </div>
 {% endblock %}
