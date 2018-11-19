@@ -79,24 +79,30 @@
 				<h1 class="card-title">Register</h1>
 			</div>
 			<div class="card-body">
-				<form id = "form-register" method="POST" data-parsley-validate="">
+				<form id = "form-register" method="POST">
 					{% csrf_token %}
 					<div class="form-group spacing">
 						<div class="input-group">
-							<input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="Username" minlength="4">
+							<input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="Username" minlength="4" required>
 							<label class="sr-only" for="inputUsername">Username</label>
+							<div class="invalid-tooltip">
+								Please choose a username with >= 4 letters.
+					        </div>
 						</div>
 					</div>
 					<div class="form-group spacing">
 						<div class="input-group">
-							<input class="form-control" type="email" id="inputEmail" name="inputEmail" placeholder="Email">
+							<input class="form-control" type="email" id="inputEmail" name="inputEmail" placeholder="Email" required>
 							<label class="sr-only" for="inputEmail">Email</label>
+							<div class="invalid-tooltip">
+								Please choose a valid email.
+					        </div>
 						</div>
 					</div>
 					<div class="form-group spacing">
 						<div class="input-group">
 							<!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
-							<input class="form-control" type="password" id="inputNewPassword" name ="inputNewPassword" placeholder="New Password">
+							<input class="form-control" type="password" id="inputNewPassword" name ="inputNewPassword" placeholder="New Password" required>
 							<div class="input-group-append">
 								<span class="input-group-text" id="inputGroupAppend">
 									<button href="" aria-hidden="true" id="buttonEYE2" type="button" class="resetIconStylesEYE">
@@ -110,7 +116,7 @@
 					<div class="form-group spacing">
 						<div class="input-group">
 							<!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
-							<input class="form-control" type="password" id="inputConfirmNewPassword" name="inputConfirmNewPassword" placeholder="Confirm New Password">
+							<input class="form-control" type="password" id="inputConfirmNewPassword" name="inputConfirmNewPassword" placeholder="Confirm New Password" required>
 							<div class="input-group-append">
 								<span class="input-group-text" id="inputGroupAppend">
 									<button href = "" aria-hidden="true" id="buttonEYE3" type="button" class="resetIconStylesEYE">
@@ -169,18 +175,6 @@
 	}(document, 'script', 'facebook-jssdk'));
 	</script>
 	
-	<!--For form validation -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.min.js"></script>
-	
-	<script>
-		$('#form-register').parsley({
-			errorClass: 'is-invalid text-danger',
-			successClass: 'is-valid', 
-			errorsWrapper: '<span class="form-text text-danger"></span>',
-			errorTemplate: '<span></span>',
-			trigger: 'change'
-		});
-	</script>
 </div>
 {% endblock %}
 
