@@ -1,6 +1,6 @@
 {% with url_name=request.resolver_match.url_name %}
 
-<div class="col-md-3">
+<div class="col-md-2">
     <div class="list-group">
     	<a href="{% url 'userMng_index' %}" class="list-group-item list-group-item-action {% if url_name == 'userMng_index' %}active{% endif %}">
     		Homepage

@@ -7,8 +7,11 @@ from django.core.mail import send_mail
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth import login as django_login
 from django.contrib.auth.tokens import *
+from django.contrib.auth.decorators import *
+from django.contrib.auth.mixins import *
 from django.contrib import messages
 from django.views import View
+
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
 from django.conf import settings
@@ -18,10 +21,9 @@ from django.utils.html import *
 from django.utils.http import *
 from django.utils.encoding import *
 from django.urls import reverse
+
 # for messages
 from django.utils.safestring import *
-
-import logging
 
 # used for logout redirect
 from core.views import *
@@ -39,6 +41,7 @@ from .forms import *
 from .mics import *
 
 # instance of a logger
+import logging
 logger = logging.getLogger(__name__)
 
 ################
@@ -59,8 +62,9 @@ logger = logging.getLogger(__name__)
 #######
 ###########################################
 
-class UserProfileIndex(View):
+class UserProfileIndex(LoginRequiredMixin, View):
 	"""
+	The homepage of the administration - the essential Dashboard for the User
 	"""
 	
 	template_name = "user_adm_index.html"
@@ -75,8 +79,9 @@ class UserProfileIndex(View):
 		"""
 		return render(request, self.template_name)
 
-class UserProfileAdministration(View):
+class UserProfileAdministration(LoginRequiredMixin, View):
 	"""
+	The homepage for user profile - where the settings can be changed
 	"""
 	
 	template_name = "user_profile.html"
@@ -91,8 +96,9 @@ class UserProfileAdministration(View):
 		"""
 		return render(request, self.template_name)
 		
-class UserProfileProperties(View):
+class UserProfileProperties(LoginRequiredMixin, View):
 	"""
+	The homepage for user's properties - their list and small dashboard
 	"""
 	
 	template_name = "user_property.html"
@@ -109,7 +115,7 @@ class UserProfileProperties(View):
 
 ###################################
 ################
-################ Passowrd Reset
+################ Passoword Reset
 ################
 ###################################
 class ResetPasswordStepOneView(View):

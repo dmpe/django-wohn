@@ -9,16 +9,14 @@
 {% block content %}
 <div class="container-fluid">
 
-{% if user.is_authenticated %}
 	<p class="lead">Hi {{ user.username }}!</p>
 	
 	<p>Check your profile</p>
-	<a href="{% url 'user_profile' %}" class="btn btn-warning btn-lg" type="button" role="button">My profile</a>
-	
+
 	<div class="row">
         {% include 'nav_sidebar.html' %}
 
-	    <div class="col-md-9">
+	    <div class="col-md-10">
 	        
 	    </div>
 	    
@@ -27,12 +25,4 @@
 	
 	
 	
-{% else %}
-  <p>You are not logged in</p>
-  <button href="{% url 'login' %}" class="btn btn-lg btn-primary">login</button>
-{% endif %}
-</div>
-
-
-
 {% endblock %}
