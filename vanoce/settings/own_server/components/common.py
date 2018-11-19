@@ -45,7 +45,6 @@ def auth_callback(server, resource, scope):
 
 client = KeyVaultClient(KeyVaultAuthentication(auth_callback))
 
-
 SOCIAL_AUTH_USER_MODEL = 'userMng.myUser'
 AUTH_USER_MODEL = 'userMng.myUser'
 
