@@ -62,32 +62,39 @@ logger = logging.getLogger(__name__)
 class UserProfileIndex(View):
 	"""
 	"""
-	template_name = "index.html"
+	
+	template_name = "user_adm_index.html"
 	
 	def post(self, request):
-		"""docstring for post"""
+		"""docstring for post
+		"""
 		pass
 	
 	def get(self, request):
-		"""docstring for get"""
+		"""docstring for get
+		"""
 		return render(request, self.template_name)
 
 class UserProfileAdministration(View):
 	"""
 	"""
+	
 	template_name = "user_profile.html"
 	
 	def post(self, request):
-		"""docstring for post"""
+		"""docstring for post
+		"""
 		pass
 	
 	def get(self, request):
-		"""docstring for get"""
+		"""docstring for get
+		"""
 		return render(request, self.template_name)
 		
 class UserProfileProperties(View):
 	"""
 	"""
+	
 	template_name = "user_property.html"
 	
 	def post(self, request):
