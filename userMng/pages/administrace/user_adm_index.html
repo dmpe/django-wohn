@@ -9,15 +9,24 @@
 {% block content %}
 <div class="container-fluid">
 
-	<p class="lead">Hi {{ user.username }}!</p>
-	
-	<p>Check your profile</p>
-
 	<div class="row">
         {% include 'nav_sidebar.html' %}
 
 	    <div class="col-md-10">
+			<p class="lead">{{ user.username }}, this is your profile overview !</p>
 	        
+	        <div class="row">
+	        	<div class="col-md-3">
+	        		Overview of existing Properties
+	        	</div>
+	        	<div class="col-md-3">
+	        		Blog/News
+	        	</div>
+	        	<div class="col-md-3">
+	        		Do you want more features ?
+	        	</div>
+	        	
+	        </div>
 	    </div>
 	    
 	</div>
