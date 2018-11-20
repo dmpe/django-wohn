@@ -67,7 +67,7 @@ class UserProfileIndex(LoginRequiredMixin, View):
 	The homepage of the administration - the essential Dashboard for the User
 	"""
 	
-	#redirect_field_name = "user_adm_index.html"
+	redirect_field_name = "administrace/user_adm_index.html"
 	template_name = "user_adm_index.html"
 	
 	def post(self, request):
@@ -85,7 +85,7 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	The homepage for user profile - where the settings can be changed
 	"""
 	
-	#redirect_field_name = 'user_profile.html'
+	redirect_field_name = 'administrace/user_profile.html'
 	template_name = "user_profile.html"
 	
 	def post(self, request):
@@ -103,15 +103,17 @@ class UserProfileProperties(LoginRequiredMixin, View):
 	The homepage for user's properties - their list and small dashboard
 	"""
 	
-	#redirect_field_name = 'user_property'
+	redirect_field_name = 'administrace/user_property.html'
 	template_name = "user_property.html"
 	
 	def post(self, request):
-		"""docstring for post"""
+		"""docstring for post
+		"""
 		pass
 	
 	def get(self, request):
-		"""docstring for get"""
+		"""docstring for get
+		"""
 		return render(request, self.template_name)
 
 
