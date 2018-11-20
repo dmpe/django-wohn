@@ -1,7 +1,7 @@
-from django.db import models
 from django.db import *
+from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from django.contrib.auth.models import AbstractUser, UserManager
+from django.contrib.auth.models import *
 from django.conf import settings
 
 class MyUserManager(UserManager):
@@ -15,8 +15,7 @@ class MyUserManager(UserManager):
 	return '{} ({})'.format(get_username(),  get_email_field_name())
 """
 class myUser(AbstractUser):
-	user_first_name = models.CharField(max_length = 200)
-	user_last_name = models.CharField(max_length = 200)
+	# email, username, first and last name are unnecessary
 	user_int_tel = PhoneNumberField(blank=True)
 	objects = MyUserManager()
 	

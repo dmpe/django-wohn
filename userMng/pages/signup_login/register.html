@@ -95,7 +95,7 @@
 							<input class="form-control" type="email" id="inputEmail" name="inputEmail" placeholder="Email" required>
 							<label class="sr-only" for="inputEmail">Email</label>
 							<div class="invalid-tooltip">
-								Please choose a valid email.
+								Please choose a valid email address.
 					        </div>
 						</div>
 					</div>
@@ -147,12 +147,13 @@
 	    </div>
 	</div>
 	
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
-	  fjs.parentNode.insertBefore(js, fjs);
+	<script>
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
+		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 
 	<script>
