@@ -249,8 +249,8 @@ SOCIAL_AUTH_FACEBOOK_KEY = client.get_secret("https://b40.vault.azure.net/", "SO
 SOCIAL_AUTH_FACEBOOK_SECRET = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-FACEBOOK-SECRET", "f439106e5d77442b8607165cf61cf260").value
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '3.1'
 
-SOCIAL_AUTH_LOGIN_URL = '/administrace/' # not same as LOGIN_URL !
-SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/administrace/user_profile' # keep it dry
+#SOCIAL_AUTH_LOGIN_URL = '/administrace/' # not same as LOGIN_URL !
+#SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/administrace/profile' # keep it dry
 SOCIAL_AUTH_LOGIN_ERROR_URL = '404'
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 'user_first_name', 'user_last_name', 'user_email', 'user_int_tel']
 
