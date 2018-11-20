@@ -67,7 +67,6 @@ class UserProfileIndex(LoginRequiredMixin, View):
 	The homepage of the administration - the essential Dashboard for the User
 	"""
 	
-	redirect_field_name = "user_adm_index"
 	template_name = "user_adm_index.html"
 	
 	def post(self, request):
@@ -85,7 +84,6 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	The homepage for user profile - where the settings can be changed
 	"""
 	
-	#redirect_field_name = 'profile'
 	template_name = "user_profile.html"
 	
 	def post(self, request):
@@ -103,7 +101,6 @@ class UserProfileProperties(LoginRequiredMixin, View):
 	The homepage for user's properties - their list and small dashboard
 	"""
 	
-	redirect_field_name = 'properties'
 	template_name = "user_property.html"
 	
 	def post(self, request):
@@ -290,7 +287,7 @@ class LoginView(View):
 			messages.add_message(request, messages.WARNING, 
 						mark_safe('<h4 class=''alert-heading''>Sorry, but you seem to be a computer bot.</h4>'
 						'<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>'
-						'<p>Clear e.g. your cookies.</p>'))
+						'<p>Solution: clear your cookies and try again.</p>'))
 		
 		return render(request, self.template_name)
 

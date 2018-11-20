@@ -42,7 +42,7 @@ textarea {
 	color: red;
 }
 
-/* 2. CSS on individual pages only
+/* 2. CSS on "individual" pages 
 //////////////////////
 Login page - Move google recaptha v3 badge up from the bottom footer
 ~ 60 px
@@ -50,6 +50,10 @@ Login page - Move google recaptha v3 badge up from the bottom footer
 .grecaptcha-badge {
 	bottom: 4rem !important;
 }
+
+/* //////////////////
+Adminstrace - Dashboard
+*/
 
 
 /* //////////////////
@@ -59,13 +63,15 @@ Contact page - Make responsive page iframe
     width:100%;
 }
 
-/* .input-group-text {
-	padding: 0.375rem 0.75rem 0rem 0.75rem !important;
-}
- */
-/* 3. CSS reused across >=2 pages
-Sign Up Pages {logic, reset pswd, etc}
+/* Password Reset Email
 //////////////////////*/
+
+
+
+
+/* //////////////////
+Sign Up Pages {logic, reset pswd, etc}
+*/
 .passwordReset {
 	width: 100%;
 	max-width: 420px;
@@ -96,7 +102,7 @@ https://developers.google.com/identity/branding-guidelines */
 	border: 1px solid black;
 }
 
-/* OR in the circle
+/* OR in the circle on login and registration pages
 ////////////////////*/
 .verticalLine {
 	width: 5px;
@@ -193,7 +199,8 @@ https://developers.google.com/identity/branding-guidelines */
     display: none;
 }
 
-/* Make typography responsive
+/*  ///////////////////
+Make typography responsive
 */
 .custom-display-text-size {
 	font-size: 2.5rem;
@@ -224,7 +231,4 @@ https://developers.google.com/identity/branding-guidelines */
 	line-height: 1.2;
   }
 }
-
-/* Password Reset Email
-//////////////////////*/
 
