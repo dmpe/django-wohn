@@ -17,7 +17,7 @@ urlpatterns = [
     
     # not in the Sitemap
 	path('administrace/', views.UserProfileIndex.as_view(), name='userMng_index'),    
-    path('administrace/user_profile', views.UserProfileAdministration.as_view(), name='user_profile'), 
+    path('administrace/profile', views.UserProfileAdministration.as_view(), name='user_profile'), 
     path('administrace/properties', views.UserProfileProperties.as_view(), name='user_properties'),
 
     path('oauth/', include('social_django.urls', namespace='social')),
