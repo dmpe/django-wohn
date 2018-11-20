@@ -1,7 +1,7 @@
 {% with url_name=request.resolver_match.url_name %}
 
 
-<nav class="col-md-2 bg-light">
+<nav class="col-md-2 bg-light sidebar">
     <div class="list-group">
     	<a href="{% url 'userMng_index' %}" class="list-group-item list-group-item-action {% if url_name == 'userMng_index' %}active{% endif %}">
     		<i class="fas fa-home"></i>
