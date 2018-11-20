@@ -234,7 +234,7 @@ STATICFILES_DIRS = [
 PHONENUMBER_DB_FORMAT = 'E164'
 
 LOGIN_URL = 'login' # where is login page
-LOGIN_REDIRECT_URL = '/administrace/'
+#LOGIN_REDIRECT_URL = '/administrace/'
 
 LOGOUT_REDIRECT_URL = 'core_index'
 
