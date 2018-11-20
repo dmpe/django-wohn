@@ -85,7 +85,7 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	The homepage for user profile - where the settings can be changed
 	"""
 	
-	redirect_field_name = 'profile'
+	#redirect_field_name = 'profile'
 	template_name = "user_profile.html"
 	
 	def post(self, request):
