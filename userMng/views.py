@@ -279,7 +279,7 @@ class LoginView(View):
 						# whether the user is active or not is already checked by the 
 						# ModelBackend we use
 						django_login(request, auth_user, backend = 'userMng.backends.EmailUserNameAuthBackend')
-						return redirect('userMng_index')
+						return redirect(request.POST.get('next','userMng_index'))
 					except Exception as e:
 						raise e
 
