@@ -1,22 +1,27 @@
 {% with url_name=request.resolver_match.url_name %}
 
-
-<nav class="col-md-2 bg-light sidebar">
-    <div class="list-group">
-    	<a href="{% url 'userMng_index' %}" class="list-group-item list-group-item-action {% if url_name == 'userMng_index' %}active{% endif %}">
-    		<i class="fas fa-home"></i>
-    		Homepage
-    	</a>
-    	<a href="{% url 'user_profile' %}" class="list-group-item list-group-item-action {% if url_name == 'user_profile' %}active{% endif %}">
-    	    <i class="fas fa-user"></i>
-    	    My Profile
-    	</a>
-    	<a href="{% url 'user_properties' %}" class="list-group-item list-group-item-action {% if url_name == 'user_properties' %}active{% endif %}">
-    	    <i class="fas fa-hotel"></i>
-    		Properties
-    	    <span class="badge badge-light badge-pill"> 45 {{ count_my_properties }}</span>
-    	</a>
-    </div>
-</nav>
+<aside class="col-md-2 bg-light sidebar h-100">
+    <ul class="nav flex-column">
+    	<li class="nav-item"> 
+        	<a href="{% url 'userMng_index' %}" class="nav-link {% if url_name == 'userMng_index' %}active{% endif %}">
+        		<i class="fas fa-home"></i>
+        		Homepage
+    		</a>
+    	</li>
+    	<li class="nav-item"> 
+    	    <a href="{% url 'user_profile' %}" class="nav-link {% if url_name == 'user_profile' %}active{% endif %}">
+        	    <i class="fas fa-user"></i>
+        	    My Profile
+        	</a>
+    	</li>
+    	<li class = "nav-item">
+        	<a href="{% url 'user_properties' %}" class="nav-link {% if url_name == 'user_properties' %}active{% endif %}">
+        	    <i class="fas fa-hotel"></i>
+        		Properties
+        	    <span class="badge badge-light badge-pill"> 45 {{ count_my_properties }}</span>
+        	</a>
+    	</li>
+    </ul>
+</aside>
 
 {% endwith %}
