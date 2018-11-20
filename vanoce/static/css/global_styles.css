@@ -55,7 +55,17 @@ Login page - Move google recaptha v3 badge up from the bottom footer
 Adminstrace - Dashboard
 */
 .sidebar {
-	min-height: 100vh;
+    position: absolute;
+    top: 0;
+    width: 33%;
+    left: -33%;
+    height: 100%;
+}
+
+.row-offcanvas {
+	position: relative;
+	left: -33%;
+	transition: all 0.25s ease-out;
 }
 
 /* //////////////////
