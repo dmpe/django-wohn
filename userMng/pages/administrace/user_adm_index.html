@@ -13,9 +13,21 @@
         {% include 'nav_sidebar.html' %}
 
 	    <div class="col-md-10">
-			<p class="lead">{{ user.username }}, this is your profile overview !</p>
+			<h1 class="display-4 d-none d-sm-block">Welcome back {{ user.username }}, here is your profile overview !</h1>
 	        
 	        <div class="row">
+	        	<div class="card">
+	        		Overview of existing Properties
+	        	</div>
+	        	<div class="card">
+	        		Blog/News
+	        	</div>
+	        	<div class="card">
+	        		Do you want more features ?
+	        	</div>
+	        </div>
+	        
+	        <div class = "row">
 	        	<div class="col-md-3">
 	        		Overview of existing Properties
 	        	</div>
@@ -25,7 +37,6 @@
 	        	<div class="col-md-3">
 	        		Do you want more features ?
 	        	</div>
-	        	
 	        </div>
 	    </div>
 	    
