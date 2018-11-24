@@ -16,25 +16,31 @@
 			<h1 class="display-4 d-none d-sm-block">Welcome back {{ user.username }}, here is your profile overview !</h1>
 	        
 	        <div class="row">
-	        	<div class="card bg-success text-white h-100">
-	        		<div class="card-body bg-success">
-		        		<h6 class="text-uppercase">Properties</h6>
-		        		<h2 class="display-2">15 {{ number_of_properties }}</h2>
-	        		</div>
+	        	<div class="col-md-3">
+		        	<div class="card bg-success text-white h-100">
+		        		<div class="card-body bg-success">
+			        		<h6 class="text-uppercase">Properties</h6>
+			        		<h2 class="display-2">15 {{ number_of_properties }}</h2>
+		        		</div>
+		        	</div>
 	        	</div>
 	        	
 	        	<div class="card bg-warning">
-	        		<div class="card-body bg-warning">
-		        		<h6 class="text-uppercase">Properties</h6>
-		        		<h2 class="display-2">15 {{ number_of_properties }}</h2>
-	        		</div>
+	        		<div class="col-md-3">
+		        		<div class="card-body bg-warning">
+			        		<h6 class="text-uppercase">Views</h6>
+			        		<h2 class="display-2">15 {{ number_of_properties }}</h2>
+		        		</div>
+		        	</div>
 	        	</div>
 	        	
 	        	<div class="card bg-danger">
-	        		<div class="card-body bg-warning">
-		        		<h6 class="text-uppercase">Properties</h6>
-		        		<h2 class="display-2">15 {{ number_of_properties }}</h2>
-	        		</div>
+	        		<div class="col-md-3">
+		        		<div class="card-body bg-warning">
+			        		<h6 class="text-uppercase">Messages</h6>
+			        		<h2 class="display-2">15 {{ number_of_properties }}</h2>
+		        		</div>
+		        	</div>
 	        	</div>
 	        </div>
 	        
