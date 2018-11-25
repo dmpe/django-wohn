@@ -121,7 +121,18 @@
 									<label class="sr-only" for="inputConfirmNewPassword">Confirm New Password</label>
 								</div>
 							</div>
-
+							<div class="form-group spacing">
+								<div class="form-check">
+								  	<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+									<label class="form-check-label" for="invalidCheck">
+										Agree to terms and conditions
+									</label>
+									<div class="invalid-feedback">
+										You must agree to <a href="{% url 'terms' %}">Terms and Conditions</a> as well as <a href="{% url 'privacy' %}">Privacy Policy</a> before submitting.
+									</div>
+								</div>
+							</div>
+									
 							<p class="float-left">
 								<a href="{% url 'reset_password' %}">Forgot your username or password?</a>
 							</p>
