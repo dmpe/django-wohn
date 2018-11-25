@@ -3,6 +3,11 @@ from django import forms
 # create a form for our myUser model
 #from .models import myUser
 
+# add crispy imports for sending (helper)
+from crispy_forms.helper import *
+from crispy_forms.layout import *
+from crispy_forms.bootstrap import *
+
 class RegisterForm(forms.Form):
 	"""docstring for RegisterForm
 	"""
@@ -23,3 +28,9 @@ class ResetFormStepOne(forms.Form):
 	"""docstring for ResetFormStepOne
 	"""
 	inputEmail_Username = forms.CharField(widget=forms.TextInput())
+
+class FeedbackForm(forms.Form):
+	"""docstring for ResetFormStepOne
+	"""
+	inputFeedback = forms.CharField(label = "Your feedback is about ....", widget = forms.Textarea)
+
