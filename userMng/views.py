@@ -65,15 +65,14 @@ logger = logging.getLogger(__name__)
 class UserProfileIndex(LoginRequiredMixin, View):
 	"""
 	The homepage of the administration - the essential Dashboard for the User
+	Used for displaing information and submitting new feature requests
 	"""
 	
 	template_name = "user_adm_index.html"
-	
-	def post(self, request):
-		"""docstring for post
-		"""
+
+	def post(self, requests):
 		pass
-	
+
 	def get(self, request):
 		"""docstring for get
 		"""

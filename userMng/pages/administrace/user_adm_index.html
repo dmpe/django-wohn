@@ -53,7 +53,31 @@
 	        		Blog/News
 	        	</div>
 	        	<div class="col-md-3">
-	        		Do you want more features ?
+	        		<div class="card">
+	        			<div class="card-header">
+	        				Do you want more features?	
+	        			</div>
+
+	        			<div class="card-body">
+	        				Submit here or <a href="https://github.com/dmpe/django-wohn/issues">open an issue at GitHub.</a>
+	        				<form method="POST" id="form-admin-feedback" class="">
+								{% csrf_token %}
+								{{ form.non_field_errors | crispy }}
+								{{ form.source.errors | crispy }}
+								{{ form.source | crispy }}
+
+
+							<div class="form-group">
+								{{ form.inputText.label_tag  }}
+								{{ form.inputText.errors  }}
+								{{ form.inputText |add_class:"form-control"|attr:"rows:8"|attr:"cols:35"}}
+							</div>
+
+							<button type="submit" class="btn btn-warning mb-5 btn-lg btn-block" id="recaptchaValidator">Submit feedback</button>
+
+	        				</form>
+	        			</div>
+	        		</div>
 	        	</div>
 	        </div>
 	    </div>
