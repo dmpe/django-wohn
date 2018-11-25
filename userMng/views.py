@@ -75,7 +75,7 @@ class UserProfileIndex(LoginRequiredMixin, View):
 		if form.is_valid():
 			feedback = form.cleaned_data['inputFeedback']
 
-			prepare_visitor_mssg_email(request, username = request.user.get_username(), email = request.user.email, subject="User's Feedback: ", text_msg = feedback)
+			prepare_visitor_mssg_email(request, userPresent_username = request.user.get_username(), userPresent_email = request.user.email, subject="User's Feedback: ", text_msg = feedback)
 
 			messages.add_message(request, messages.SUCCESS, 
 				mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
