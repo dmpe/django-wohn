@@ -90,7 +90,8 @@ class UserProfileIndex(LoginRequiredMixin, View):
 	def get(self, request):
 		"""docstring for get
 		"""
-		return render(request, self.template_name)
+		form = FeedbackForm()
+		return render(request, self.template_name, {"form": form })
 
 class UserProfileAdministration(LoginRequiredMixin, View):
 	"""
