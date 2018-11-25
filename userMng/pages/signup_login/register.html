@@ -128,16 +128,16 @@
 
 							<!-- Also includes Google Recaptcha v3 -->
 							<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" id="recaptchaValidator" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" name="g-recaptcha-response" data-callback="onSubmit">Register</button>
-
-							{% if messages %}		
-								{% for message in  messages %}
-									<div class="alert alert-{{ message.tags }} messageErrorLoginSignup" id="checkEmailAlert" role="alert">
-										{{ message }}
-									</div>
-								{% endfor %}
-							{% endif %}
 						</form>
 			    	</div>
+
+					{% if messages %}		
+						{% for message in  messages %}
+					<div class="alert alert-{{ message.tags }} messageErrorLoginSignup" id="checkEmailAlert" role="alert">
+					{{ message }}
+					</div>
+						{% endfor %}
+					{% endif %}
 			    </div>
 			</div>
 		</div>
