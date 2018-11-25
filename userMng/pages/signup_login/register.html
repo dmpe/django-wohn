@@ -125,7 +125,7 @@
 								<div class="form-check">
 								  	<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
 									<label class="form-check-label" for="invalidCheck">
-										Agree to terms and conditions
+										Agree to <a href="{% url 'terms' %}">Terms and Conditions</a> as well as <a href="{% url 'privacy' %}">Privacy Policy</a>
 									</label>
 									<div class="invalid-feedback">
 										You must agree to <a href="{% url 'terms' %}">Terms and Conditions</a> as well as <a href="{% url 'privacy' %}">Privacy Policy</a> before submitting.
