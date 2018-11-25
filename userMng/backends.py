@@ -35,7 +35,7 @@ class EmailUserNameAuthBackend(ModelBackend):
 				if user.check_password(password):
 					return user
 			except myUser.DoesNotExist:
-				return IntegrityError("Login using proper username/email!")
+				return None
 	
 	def check_for_user_existance(self, inputString = None):
 		"""
