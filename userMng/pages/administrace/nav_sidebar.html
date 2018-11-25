@@ -22,8 +22,8 @@
         	</a>
     	</li>
         <li class = "nav-item">
-            <a href="{% url 'messages' %}" class="nav-link {% if url_name == 'messages' %}active{% endif %}">
-                <i class="fas fa-hotel"></i>
+            <a href="{% url 'user_messages' %}" class="nav-link {% if url_name == 'user_messages' %}active{% endif %}">
+                <i class="fas fa-envelope"></i>
                 Properties
                 <span class="badge badge-light badge-pill"> 41 {{ count_my_messages }}</span>
             </a>
