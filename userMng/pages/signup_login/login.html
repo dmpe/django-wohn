@@ -41,8 +41,8 @@
 			</div>
 			
 			<div class="row card-body">
-				<div class="col-md-6">
-					<div class="text-center bg-light border-dark">
+				<div class="col-md-6 mr-1">
+					<div class="text-center">
 						<!-- Google Brand Guidelines on Azure/ in CSS: col-md-5 col-lg-3 mr-1 https://developers.google.com/identity/branding-guidelines -->
 						<div class="m-3">
 							<a type="button" class="btn btn-primary google_signin" href="{% url 'social:begin' 'google-oauth2' %}">
@@ -68,8 +68,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="text-center bg-light border-dark">
+
+				<div class="col-md-6 ">
+					<div class="text-center">
 						<form id = "form-login" method="POST">
 							{% csrf_token %}
 							<div class="form-group spacing">
@@ -100,6 +101,7 @@
 						</form>
 					</div>
 				</div>
+
 				{% if messages %}		
 					{% for message in  messages %}
 						<div class="alert alert-{{ message.tags }}" id="checkEmailAlert" role="alert">
@@ -108,18 +110,6 @@
 					{% endfor %}
 				{% endif %}
 			</div>
-			
-
-			<!-- show on display size between xs and sm -->
-			<!-- show on display size between md and xl -->
-			<!--
-			<div class="horizontalLine d-block d-xs-block d-sm-none pt-1 pb-1 my-5">
-				<h3 class="circle rounded-circle border border-warning m-0 text-center">OR</h3>
-			</div>
-			<div class="verticalLine d-none d-md-block d-xl-block mx-5">
-				<h3 class="circle rounded-circle border border-warning m-0 text-center">OR</h3>
-			</div>
-			-->	
 		</div>
 	</div>
 
