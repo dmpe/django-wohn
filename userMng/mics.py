@@ -92,9 +92,12 @@ def is_human(recaptcha_token = None):
 	else:
 		return False
 
+
 def prepare_psswd_reset_email(request, userPresent_username = None, 
 	userPresent_email = None, userPresent_token = None, userPresent_uid = None):
-
+	"""
+	This functions sends email to users, directly!
+	"""
 	subject = 'B40.cz: Password Reset'
 	smtp_email = settings.DEFAULT_FROM_EMAIL
 
@@ -117,6 +120,9 @@ def prepare_psswd_reset_email(request, userPresent_username = None,
 
 def prepare_visitor_mssg_email(request, userPresent_username = None, 
 	userPresent_email = None, subject = None, text_msg = None):
+	"""
+	For internal use
+	"""
 
 	subject = 'B40.cz: Message from the user/visitor: ' + subject
 	smtp_email = settings.DEFAULT_FROM_EMAIL
@@ -134,7 +140,6 @@ def prepare_visitor_mssg_email(request, userPresent_username = None,
 
 	try:
 		send_mail(subject, plain_message, smtp_email, [my_email], html_message=html_message)
-		print(send_mail(subject, plain_message, smtp_email, [my_email], html_message=html_message))
 	except BadHeaderError:
 		return HttpResponse('Invalid header found.')
 
