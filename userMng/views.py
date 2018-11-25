@@ -71,7 +71,22 @@ class UserProfileIndex(LoginRequiredMixin, View):
 	template_name = "user_adm_index.html"
 
 	def post(self, requests):
-		pass
+		form = FeedbackForm(request.POST)
+
+		if form.is_valid():
+			feedback = form.cleaned_data['inputFeedback']
+
+				prepare_visitor_mssg_email(request, username, email, subject, text_msg)
+
+				messages.add_message(request, messages.SUCCESS, 
+					mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
+					'<p>We wiill respond to you <strong>as soon as possible</strong>.</p>'))
+		else:
+			messages.add_message(request, messages.ERROR, 
+				mark_safe('<h6 class=''alert-heading''>You message does not fulfill our basic requirenements!</h6>'
+				'<p>Check that all fields are filled correctly.</p>'))
+
+		return render(request, self.template_name, {"form": form })	
 
 	def get(self, request):
 		"""docstring for get
