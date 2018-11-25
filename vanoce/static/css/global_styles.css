@@ -115,48 +115,10 @@ https://developers.google.com/identity/branding-guidelines */
 	border: 1px solid black;
 }
 
-/* OR in the circle on login and registration pages
-////////////////////*/
-.verticalLine {
-	width: 5px;
-	background-color: #2ecc71;
-	margin-top: 50px;
-	margin-bottom: 50px;
+.messageErrorLoginSignup {
+	margin-top: 6rem;
 }
 
-.verticalLine > .circle {
-	position: relative;
-	top: 30%;
-	left: -50px;
-	width: 100px;
-	height: 100px;
-	background-color: #ECEEEF;
-	z-index: 1; /* otherwise card bg-light will overflow the circle*/
-}
-
-.verticalLine > h3 {
-	line-height: 100px;
-}
-
-.horizontalLine {
-	width: 50%;
-	height: 3px;
-	background-color: #2ecc71;
-	z-index: 1;
-}
-
-.horizontalLine > .circle {
-	position: relative;
-	width: 100px;
-	left: 18%;
-	top: -50px;
-	height: 100px;
-	background-color: #ECEEEF;
-}
-
-.horizontalLine > h3 {
-	line-height: 100px;
-}
 
 .google_signin {
 	height: 46px;
