@@ -19,6 +19,7 @@ urlpatterns = [
 	path('administrace/', views.UserProfileIndex.as_view(), name='userMng_index'),    
     path('administrace/profile', views.UserProfileAdministration.as_view(), name='user_profile'), 
     path('administrace/properties', views.UserProfileProperties.as_view(), name='user_properties'),
+    path('administrace/messages', views.UserProfileMessages.as_view(), name='user_messages'),
 
     path('oauth/', include('social_django.urls', namespace='social')),
 ]

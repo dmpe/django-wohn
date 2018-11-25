@@ -113,6 +113,19 @@ class UserProfileProperties(LoginRequiredMixin, View):
 		"""
 		return render(request, self.template_name)
 
+class UserProfileMessages(LoginRequiredMixin, View):
+	"""docstring for UserProfileMessages"""
+	template_name = "user_messages.html"
+	
+	def post(self, request):
+		"""docstring for post
+		"""
+		pass
+	
+	def get(self, request):
+		"""docstring for get
+		"""
+		return render(request, self.template_name)
 
 
 ###################################

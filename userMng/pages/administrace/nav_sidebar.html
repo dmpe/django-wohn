@@ -21,6 +21,13 @@
         	    <span class="badge badge-light badge-pill"> 45 {{ count_my_properties }}</span>
         	</a>
     	</li>
+        <li class = "nav-item">
+            <a href="{% url 'messages' %}" class="nav-link {% if url_name == 'messages' %}active{% endif %}">
+                <i class="fas fa-hotel"></i>
+                Properties
+                <span class="badge badge-light badge-pill"> 41 {{ count_my_messages }}</span>
+            </a>
+        </li>
     </ul>
 </aside>
 
