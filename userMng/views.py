@@ -61,7 +61,6 @@ logger = logging.getLogger(__name__)
 ####### User Profile Administration / Listing of properties
 #######
 ###########################################
-
 class UserProfileIndex(LoginRequiredMixin, View):
 	"""
 	The homepage of the administration - the essential Dashboard for the User
@@ -76,10 +75,10 @@ class UserProfileIndex(LoginRequiredMixin, View):
 		if form.is_valid():
 			feedback = form.cleaned_data['inputFeedback']
 
-				prepare_visitor_mssg_email(request, username, email, subject, text_msg)
+			prepare_visitor_mssg_email(request, username = user.username, email = user.email, subject="User's Feedback: ", text_msg = feedback)
 
-				messages.add_message(request, messages.SUCCESS, 
-					mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
+			messages.add_message(request, messages.SUCCESS, 
+				mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
 					'<p>We wiill respond to you <strong>as soon as possible</strong>.</p>'))
 		else:
 			messages.add_message(request, messages.ERROR, 

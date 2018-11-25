@@ -134,6 +134,7 @@ def prepare_visitor_mssg_email(request, userPresent_username = None,
 
 	try:
 		send_mail(subject, plain_message, smtp_email, [my_email], html_message=html_message)
+		print(send_mail(subject, plain_message, smtp_email, [my_email], html_message=html_message))
 	except BadHeaderError:
 		return HttpResponse('Invalid header found.')
 
