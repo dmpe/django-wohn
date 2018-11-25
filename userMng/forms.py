@@ -32,5 +32,5 @@ class ResetFormStepOne(forms.Form):
 class FeedbackForm(forms.Form):
 	"""docstring for ResetFormStepOne
 	"""
-	inputFeedback = forms.CharField(label = "Your feedback is about ....", widget = forms.Textarea)
+	inputFeedback = forms.CharField(widget = forms.Textarea)
 

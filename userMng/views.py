@@ -69,7 +69,7 @@ class UserProfileIndex(LoginRequiredMixin, View):
 	
 	template_name = "user_adm_index.html"
 
-	def post(self, requests):
+	def post(self, request):
 		form = FeedbackForm(request.POST)
 
 		if form.is_valid():
