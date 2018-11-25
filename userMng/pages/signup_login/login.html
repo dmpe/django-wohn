@@ -35,9 +35,11 @@
 	<div id="fb-root"></div>
 
     <div class="row d-flex justify-content-center login_register_box">
-    	<div class="card">
-			<div class="card-header text-center">
-				<h1 class="card-title">Login</h1>
+    	<div class="card-group">
+    		<div class="card">
+				<div class="card-header text-center">
+					<h1 class="card-title">Login</h1>
+				</div>
 			</div>
 
 	    	<div class="card text-center bg-light border-dark col-md-5 col-lg-3 mr-1">
@@ -66,55 +68,57 @@
 				</div>
 	       	</div>
 	
-		<!-- show on display size between xs and sm -->
-		<!-- show on display size between md and xl -->
-    	<!--
-		<div class="horizontalLine d-block d-xs-block d-sm-none pt-1 pb-1 my-5">
-			<h3 class="circle rounded-circle border border-warning m-0 text-center">OR</h3>
-		</div>
-		<div class="verticalLine d-none d-md-block d-xl-block mx-5">
-			<h3 class="circle rounded-circle border border-warning m-0 text-center">OR</h3>
-		</div>
-		-->
-
-		<div class="card bg-light border-dark col-md-5 col-lg-4">
-			<form id = "form-login" method="POST">
-				{% csrf_token %}
-				<div class="form-group spacing">
-					<div class="input-group">
-						<input class="form-control" type="text" id="inputEmail_Username" name="inputEmail_Username"  placeholder="Your email or username">
-						<label class="sr-only" for="inputEmail_Username">Your email or username</label>
-					</div>
-				</div>
-				<div class="form-group spacing">
-					<div class="input-group">
-						<!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
-						<input type="password" id="inputNewPassword" name="inputNewPassword" class="form-control" placeholder="Password">
-						<div class="input-group-append">
-							<span class="input-group-text" id="inputGroupAppend">
-								<button href="" class="resetIconStylesEYE" id="buttonEYE2" aria-hidden="true" type="button">
-									<i class="fas fa-eye fa-lg"></i>
-								</button>
-							</span>
+			<!-- show on display size between xs and sm -->
+			<!-- show on display size between md and xl -->
+			<!--
+			<div class="horizontalLine d-block d-xs-block d-sm-none pt-1 pb-1 my-5">
+				<h3 class="circle rounded-circle border border-warning m-0 text-center">OR</h3>
+			</div>
+			<div class="verticalLine d-none d-md-block d-xl-block mx-5">
+				<h3 class="circle rounded-circle border border-warning m-0 text-center">OR</h3>
+			</div>
+			-->
+			<div class="card">
+				<div class="card-body bg-light border-dark col-md-5 col-lg-4">
+					<form id = "form-login" method="POST">
+						{% csrf_token %}
+						<div class="form-group spacing">
+							<div class="input-group">
+								<input class="form-control" type="text" id="inputEmail_Username" name="inputEmail_Username"  placeholder="Your email or username">
+								<label class="sr-only" for="inputEmail_Username">Your email or username</label>
+							</div>
 						</div>
-						<label class="sr-only" for="inputNewPassword">Password</label>
+						<div class="form-group spacing">
+							<div class="input-group">
+								<!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
+								<input type="password" id="inputNewPassword" name="inputNewPassword" class="form-control" placeholder="Password">
+								<div class="input-group-append">
+									<span class="input-group-text" id="inputGroupAppend">
+										<button href="" class="resetIconStylesEYE" id="buttonEYE2" aria-hidden="true" type="button">
+											<i class="fas fa-eye fa-lg"></i>
+										</button>
+									</span>
+								</div>
+								<label class="sr-only" for="inputNewPassword">Password</label>
+							</div>
+						</div>
+
+						<p class="float-left"><a href="{% url 'reset_password' %}">Forgot your username or password?</a></p>
+
+						<!-- Also includes Google Recaptcha v3 -->
+						<button class="btn btn-warning float-right btn-lg g-recaptcha" id="recaptchaValidator" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" name="g-recaptcha-response" type="submit" data-callback="onSubmit">Login</button>
+					</form>
+				</div>
+
+			{% if messages %}		
+				{% for message in  messages %}
+					<div class="alert alert-{{ message.tags }}" id="checkEmailAlert" role="alert">
+						{{ message }}
 					</div>
-				</div>
-
-				<p class="float-left"><a href="{% url 'reset_password' %}">Forgot your username or password?</a></p>
-
-				<!-- Also includes Google Recaptcha v3 -->
-				<button class="btn btn-warning float-right btn-lg g-recaptcha" id="recaptchaValidator" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" name="g-recaptcha-response" type="submit" data-callback="onSubmit">Login</button>
-			</form>
+				{% endfor %}
+			{% endif %}
+			</div>
 		</div>
-
-		{% if messages %}		
-			{% for message in  messages %}
-				<div class="alert alert-{{ message.tags }}" id="checkEmailAlert" role="alert">
-					{{ message }}
-				</div>
-			{% endfor %}
-		{% endif %}
 	</div>
 
 	<script>(function(d, s, id) {
