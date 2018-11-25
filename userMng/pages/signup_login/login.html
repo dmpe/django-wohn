@@ -99,15 +99,14 @@
 							<button class="btn btn-warning float-right btn-lg g-recaptcha" id="recaptchaValidator" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" name="g-recaptcha-response" type="submit" data-callback="onSubmit">Login</button>
 						</form>
 					</div>
-
-					{% if messages %}		
-						{% for message in  messages %}
-							<div class="alert alert-{{ message.tags }}" id="checkEmailAlert" role="alert">
-								{{ message }}
-							</div>
-						{% endfor %}
-					{% endif %}
 				</div>
+				{% if messages %}		
+					{% for message in  messages %}
+						<div class="alert alert-{{ message.tags }}" id="checkEmailAlert" role="alert">
+							{{ message }}
+						</div>
+					{% endfor %}
+				{% endif %}
 			</div>
 			
 
