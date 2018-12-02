@@ -11,7 +11,7 @@
     	<li class="nav-item"> 
     	    <a href="{% url 'user_profile' %}" class="nav-link {% if url_name == 'user_profile' %}active{% endif %}">
         	    <i class="fas fa-user"></i>
-        	    My Profile
+        	    My profile
         	</a>
     	</li>
     	<li class = "nav-item">
@@ -24,7 +24,7 @@
         <li class = "nav-item">
             <a href="{% url 'user_messages' %}" class="nav-link {% if url_name == 'user_messages' %}active{% endif %}">
                 <i class="fas fa-envelope"></i>
-                Recieved messages
+                Messages
                 <span class="badge badge-light badge-pill"> 41 {{ count_my_messages }}</span>
             </a>
         </li>
