@@ -25,7 +25,7 @@ class ExchangeRate(models.Model):
 	OneEurUsd = models.DecimalField("1 EUR - USD", max_digits=7, decimal_places=3)
 	OneUsdCzk = models.DecimalField("1 USD - CZK", max_digits=7, decimal_places=3)
 	
-class UserMessages(models.Model):
+class UserMessage(models.Model):
 	"""
 	For private communication.
 	"""
