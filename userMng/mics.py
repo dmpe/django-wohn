@@ -152,7 +152,7 @@ def fetch_gravatar(email, default = "https://www.ienglishstatus.com/wp-content/u
 	"""
 	size = 40
 	gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower().encode('utf-8')).hexdigest() + "?"
-	gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
+	gravatar_url += urllib.parse.urlencode({'d':default, 's':str(size)})
 	print(gravatar_url)
 	
 	return gravatar_url
