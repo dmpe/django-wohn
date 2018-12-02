@@ -32,4 +32,4 @@ class UserMessage(models.Model):
 	send_date = models.TimeField(auto_now_add=True) # will not display
 	from_whom = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	to_whom = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-	inputMessage = models.TextField(required=True)
+	inputMessage = models.TextField()
