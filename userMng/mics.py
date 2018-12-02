@@ -14,7 +14,8 @@ from django.utils.safestring import *
 import re
 import json
 import requests as requests_library
-
+# for gravatar
+import urllib, hashlib
 
 # replaced by logic in contrib.auth.tokens
 def http_headers(request):
@@ -145,3 +146,11 @@ def prepare_visitor_mssg_email(request, userPresent_username = None,
 
 	return None
 
+def fetch_gravatar(email, default = "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg"):
+	"""docstring for fetch_gravatar
+	https://en.gravatar.com/site/implement/images/python/
+	"""
+	size = 40
+	gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
+	gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
+	return gravatar_url
