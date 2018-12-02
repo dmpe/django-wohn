@@ -39,7 +39,7 @@ def parse_forex_data(*init, **kwargs):
 	"""
 	# {EUR, USD} <> CZK
 	csob_forex = "https://www.csob.cz/portal/lide/kurzovni-listek/-/date/kurzy.txt"
-	data = pd.read_csv(csob_forex, delimiter = ";", skiprows=3, encoding="utf-8")
+	data = pd.read_csv(csob_forex, delimiter = ";", skiprows=3, encoding="utf-8", thousands='.', decimal=',')
 	data = data.rename({"Měna": 'currency', "Střed.1":'exchange_rate_czk'}, axis='columns')
 	
 	Oneeur_czk = data[data['currency'].isin(["EUR", "USD"])].iloc[0]['exchange_rate_czk']
