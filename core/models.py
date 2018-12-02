@@ -24,3 +24,12 @@ class ExchangeRate(models.Model):
 	OneEurCzk = models.DecimalField("1 EUR - CZK", max_digits=7, decimal_places=3)
 	OneEurUsd = models.DecimalField("1 EUR - USD", max_digits=7, decimal_places=3)
 	OneUsdCzk = models.DecimalField("1 USD - CZK", max_digits=7, decimal_places=3)
+	
+class UserMessages(models.Model):
+	"""
+	For private communication.
+	"""
+	send_date = models.TimeField(auto_now_add=True) # will not display
+	from_whom = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	to_whom = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	inputMessage = models.TextField(required=True)

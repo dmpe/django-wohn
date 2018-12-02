@@ -91,7 +91,7 @@ def parse_forex_data(*init, **kwargs):
 		return exchange_dict
 	
 	else:
-		print("var Oneeur_usd is empty/null because connection to the server could not have been done")
+		print("var Oneeur_usd is empty/null because connection to the server could not have been established")
 		return None
 
 	# write results to a file txt -> in production read from the file

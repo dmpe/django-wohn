@@ -21,3 +21,4 @@ class myUser(AbstractUser):
 	
 	class Meta:
 		unique_together = (("email"),)
+
