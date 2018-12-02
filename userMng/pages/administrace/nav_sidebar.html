@@ -1,6 +1,6 @@
 {% with url_name=request.resolver_match.url_name %}
 
-<aside class="col-md-3 pt-3">
+<aside class="col-md-2 pt-3">
     <ul class="nav d-md-flex flex-md-column">
     	<li class="nav-item"> 
         	<a href="{% url 'userMng_index' %}" class="nav-link {% if url_name == 'userMng_index' %}active{% endif %}">
