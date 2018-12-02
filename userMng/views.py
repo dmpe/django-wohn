@@ -113,6 +113,7 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 		"""
 		gravatar_url = fetch_gravatar(request.user.email)
 		context["gravatar_url"] = gravatar_url
+		
 		return render(request, self.template_name, {"gravatar_url": gravatar_url})
 		
 class UserProfileProperties(LoginRequiredMixin, View):
