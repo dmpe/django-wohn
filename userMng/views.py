@@ -100,7 +100,7 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	"""
 	The homepage for user profile - where the settings can be changed
 	"""
-	
+	context = {}
 	template_name = "user_profile.html"
 	
 	def post(self, request):
@@ -111,7 +111,9 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	def get(self, request):
 		"""docstring for get
 		"""
-		return render(request, self.template_name)
+		gravatar_url = fetch_gravatar(request.user.email)
+		context["gravatar_url"] = gravatar_url
+		return render(request, self.template_name, {"gravatar_url": gravatar_url})
 		
 class UserProfileProperties(LoginRequiredMixin, View):
 	"""
@@ -143,9 +145,7 @@ class UserProfileMessages(LoginRequiredMixin, View):
 	def get(self, request):
 		"""docstring for get
 		"""
-		gravatar_url = fetch_gravatar(request.user.email)
-		context["gravatar_url"] = gravatar_url
-		return render(request, self.template_name, {"gravatar_url": gravatar_url})
+		return render(request, self.template_name)
 
 
 ###################################
