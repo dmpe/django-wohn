@@ -121,7 +121,7 @@ def prepare_psswd_reset_email(request, userPresent_username = None,
 def prepare_visitor_mssg_email(request, userPresent_username = None, 
 	userPresent_email = None, subject = None, text_msg = None):
 	"""
-	For internal use
+	For internal use, e.g. feedback, contact etc.
 	"""
 
 	subject = 'B40.cz: Message from the user/visitor: ' + subject
