@@ -28,8 +28,9 @@ class ExchangeRate(models.Model):
 class UserMessage(models.Model):
 	"""
 	For private communication.
+	https://stackoverflow.com/questions/35310283/how-to-model-messages-exchanged-between-users-er-diagram
 	"""
 	send_date = models.TimeField(auto_now_add=True) # will not display
-	from_whom = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-	to_whom = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	from_whom = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="from_whom_user", on_delete=models.CASCADE)
+	to_whom = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="to_whom_user", on_delete=models.CASCADE)
 	inputMessage = models.TextField()
