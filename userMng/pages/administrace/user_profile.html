@@ -6,6 +6,9 @@
 
 {% block robots %}index, follow{% endblock %}
 
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
 {% block content %}
 <div class="container-fluid">
 
@@ -17,7 +20,7 @@
         {% include 'nav_sidebar.html' %}
 
 	    <div class="col-md-9 p-2 m-2">
-	    	<div class="row d-md-flex flex-md-column">
+	    	<div class="row">
 	        	<div class="col-xl-3 col-sm-6 m-2 p-2">
 			        <img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded">
 		        </div>
