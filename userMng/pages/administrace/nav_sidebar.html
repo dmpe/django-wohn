@@ -1,7 +1,7 @@
 {% with url_name=request.resolver_match.url_name %}
 
 <aside class="col-md-2 pt-3">
-    <ul class="nav d-md-flex flex-md-column">
+    <ul class="nav d-md-flex flex-md-column d-none d-sm-none d-md-block">
     	<li class="nav-item"> 
         	<a href="{% url 'userMng_index' %}" class="nav-link {% if url_name == 'userMng_index' %}active{% endif %}">
         		<i class="fas fa-home"></i>
