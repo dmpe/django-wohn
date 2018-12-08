@@ -345,7 +345,7 @@ class LogoutView(View):
 ###################################
 class AdvertisingStatistics(object):
 	"""docstring for AdvertisingStatistics"""
-	template_name = 'ads/login.html'
+	template_name = 'ads/statistics.html'
 
 	def get():
 		return render(request, self.template_name)
@@ -364,7 +364,7 @@ class AdvertisingNewAd(object):
 	def post():
 		pass
 
-class UserAds(object):
+class AdvertisingMyAdd(object):
 	"""docstring for UserAds"""
 	template_name = 'ads/my_ads.html'
 

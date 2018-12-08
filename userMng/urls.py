@@ -22,7 +22,7 @@ urlpatterns = [
     path('administrace/messages', views.UserProfileMessages.as_view(), name='user_messages'),
 
     path('administrace/create_new_ad', views.AdvertisingNewAd.as_view(), name='create_new_ad'), 
-    path('administrace/my_property_ads', views.UserAds.as_view(), name='my_property_ads'),
+    path('administrace/my_property_ads', views.AdvertisingMyAdd.as_view(), name='my_property_ads'),
     path('administrace/ad_statistics', views.AdvertisingStatistics.as_view(), name='ad_statistics'),
 
     path('oauth/', include('social_django.urls', namespace='social')),
