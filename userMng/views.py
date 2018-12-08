@@ -108,7 +108,7 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 		pass
 	
 	def get(self, request):
-		"""docstring for get
+		"""by default the image is something from gravatar
 		"""
 		context = {}
 		gravatar_url = fetch_gravatar(request.user.email)
