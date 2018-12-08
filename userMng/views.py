@@ -337,3 +337,39 @@ class LogoutView(View):
 	def get(self, request):
 		django_logout(request)
 		return redirect('core_index')
+
+###################################
+################
+################ For advertising purpose
+################
+###################################
+class AdvertisingStatistics(object):
+	"""docstring for AdvertisingStatistics"""
+	template_name = 'ads/login.html'
+
+	def get():
+		return render(request, self.template_name)
+
+	def post():
+		pass
+
+
+class AdvertisingNewAd(object):
+	"""docstring for AdvertisingNewAd"""
+	template_name = 'ads/create_new.html'
+
+	def get():
+		return render(request, self.template_name)
+
+	def post():
+		pass
+
+class UserAds(object):
+	"""docstring for UserAds"""
+	template_name = 'ads/my_ads.html'
+
+	def get():
+		return render(request, self.template_name)
+
+	def post():
+		pass
