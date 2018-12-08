@@ -20,6 +20,7 @@ urlpatterns = [
     path('administrace/profile', views.UserProfileAdministration.as_view(), name='user_profile'), 
     path('administrace/properties', views.UserProfileProperties.as_view(), name='user_properties'),
     path('administrace/messages', views.UserProfileMessages.as_view(), name='user_messages'),
+    
     path('administrace/create_new_ads', views.AdvertisingNewAd.as_view(), name='ads'), 
     path('administrace/my_property_ads', views.UserAds.as_view(), name='property_ads'),
     path('administrace/ad_statistics', views.AdvertisingStatistics.as_view(), name='ad_statistics'),
