@@ -55,7 +55,9 @@ Login page - Move google recaptha v3 badge up from the bottom footer
 /* //////////////////
 Adminstrace - Dashboard
 */
-
+.card_homepage_styling {
+	text-decoration: none;
+}
 /* //////////////////
 Contact page - Make responsive page iframe
 */
