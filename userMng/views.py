@@ -343,7 +343,17 @@ class LogoutView(View):
 ################ For advertising purpose
 ################
 ###################################
-class AdvertisingStatistics(object):
+class AdvertisingMyAdd(LoginRequiredMixin, View):
+	"""docstring for UserAds"""
+	template_name = 'ads/my_ads.html'
+
+	def get():
+		return render(request, self.template_name)
+
+	def post():
+		pass
+
+class AdvertisingStatistics(LoginRequiredMixin, View):
 	"""docstring for AdvertisingStatistics"""
 	template_name = 'ads/statistics.html'
 
@@ -354,7 +364,7 @@ class AdvertisingStatistics(object):
 		pass
 
 
-class AdvertisingNewAd(object):
+class AdvertisingNewAd(LoginRequiredMixin, View):
 	"""docstring for AdvertisingNewAd"""
 	template_name = 'ads/create_new.html'
 
@@ -364,12 +374,3 @@ class AdvertisingNewAd(object):
 	def post():
 		pass
 
-class AdvertisingMyAdd(object):
-	"""docstring for UserAds"""
-	template_name = 'ads/my_ads.html'
-
-	def get():
-		return render(request, self.template_name)
-
-	def post():
-		pass
