@@ -55,7 +55,7 @@ Login page - Move google recaptha v3 badge up from the bottom footer
 /* //////////////////
 Adminstrace - Dashboard
 */
-.card_homepage_styling {
+.card_homepage_styling:hover, .card_homepage_styling:visited, .card_homepage_styling:link, .card_homepage_styling:active {
 	text-decoration: none !important;
 	color: inherit;
 }
