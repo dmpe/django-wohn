@@ -347,7 +347,7 @@ class AdvertisingMyAdd(LoginRequiredMixin, View):
 	"""docstring for UserAds"""
 	template_name = 'ads/my_ads.html'
 
-	def get():
+	def get(self, request):
 		return render(request, self.template_name)
 
 	def post():
@@ -357,7 +357,7 @@ class AdvertisingStatistics(LoginRequiredMixin, View):
 	"""docstring for AdvertisingStatistics"""
 	template_name = 'ads/statistics.html'
 
-	def get():
+	def get(self, request):
 		return render(request, self.template_name)
 
 	def post():
@@ -368,7 +368,7 @@ class AdvertisingNewAd(LoginRequiredMixin, View):
 	"""docstring for AdvertisingNewAd"""
 	template_name = 'ads/create_new.html'
 
-	def get():
+	def get(self, request):
 		return render(request, self.template_name)
 
 	def post():
