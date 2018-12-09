@@ -66,7 +66,6 @@ class UserProfileIndex(LoginRequiredMixin, View):
 	The homepage of the administration - the essential Dashboard for the User
 	Used for displaing information and submitting new feature requests
 	"""
-	
 	template_name = "user_adm_index.html"
 
 	def post(self, request):
@@ -110,9 +109,7 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	def get(self, request):
 		"""by default the image is something from gravatar
 		"""
-		# context = {}
 		gravatar_url = fetch_gravatar(request.user.email)
-		# context["gravatar_url"] = gravatar_url
 		
 		return render(request, self.template_name, {"gravatar_url": gravatar_url})
 		
@@ -120,7 +117,6 @@ class UserProfileProperties(LoginRequiredMixin, View):
 	"""
 	The homepage for user's properties - their list and small dashboard
 	"""
-	
 	template_name = "user_property.html"
 	
 	def post(self, request):
@@ -136,7 +132,6 @@ class UserProfileProperties(LoginRequiredMixin, View):
 class UserProfileMessages(LoginRequiredMixin, View):
 	"""docstring for UserProfileMessages"""
 	template_name = "user_messages.html"
-	context = {}
 	
 	def post(self, request):
 		"""docstring for post
@@ -344,7 +339,8 @@ class LogoutView(View):
 ################
 ###################################
 class AdvertisingMyAdd(LoginRequiredMixin, View):
-	"""docstring for UserAds"""
+	"""docstring for UserAds
+	"""
 	template_name = 'ads/my_ads.html'
 
 	def get(self, request):
@@ -354,7 +350,8 @@ class AdvertisingMyAdd(LoginRequiredMixin, View):
 		pass
 
 class AdvertisingStatistics(LoginRequiredMixin, View):
-	"""docstring for AdvertisingStatistics"""
+	"""docstring for AdvertisingStatistics
+	"""
 	template_name = 'ads/statistics.html'
 
 	def get(self, request):
@@ -365,7 +362,8 @@ class AdvertisingStatistics(LoginRequiredMixin, View):
 
 
 class AdvertisingNewAd(LoginRequiredMixin, View):
-	"""docstring for AdvertisingNewAd"""
+	"""docstring for AdvertisingNewAd
+	"""
 	template_name = 'ads/create_new.html'
 
 	def get(self, request):
