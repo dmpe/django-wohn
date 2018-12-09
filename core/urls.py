@@ -6,7 +6,7 @@ from django.conf import settings
 #app_name = 'core'
 
 urlpatterns = [
-    path('', views.core_index, name='core_index'),
+    path('', views.HomepageView.as_view(), name='homepage'),
     
     path('about', views.AboutView.as_view(), name='about'),
     path('contact', views.ContactView.as_view(), name='contact'),

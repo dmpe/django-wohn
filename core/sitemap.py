@@ -17,7 +17,7 @@ class B40_Sitemap(Sitemap):
 	protocol = "https"
 
 	def items(self):
-		return ['core_index', 'contact', 'privacy', 'about', 'terms']
+		return ['homepage', 'contact', 'privacy', 'about', 'terms']
 
 	def location(self, item):
 		return reverse(item)
