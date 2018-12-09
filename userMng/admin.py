@@ -27,7 +27,8 @@ class UserAdmin(BaseUserAdmin):
 	# add_form = UserCreateForm
 	class Meta:
 		user = myUser
-			
+		fields = ('user_timezone', 'user_int_tel')
+		
 	list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'user_timezone', 'user_int_tel')
 	
 	# fieldsets = (
@@ -35,7 +36,7 @@ class UserAdmin(BaseUserAdmin):
 	# 	('Personal info', {'fields': ('first_name', 'last_name', 'user_timezone', 'user_int_tel',)})
 	# )
 
-	add_fieldsets = ('user_timezone', 'user_int_tel')
+	
 	
 
 admin.site.register(myUser, UserAdmin)
