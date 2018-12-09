@@ -30,3 +30,4 @@ class myUser(AbstractUser):
 	class Meta:
 		unique_together = (("email"),)
 
+myUser._meta.get_field('email')._blank = True
