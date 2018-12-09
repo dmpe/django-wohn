@@ -23,7 +23,7 @@ class MyUserManager(UserManager):
 """
 class myUser(AbstractUser):
 	# email, username, first and last name are unnecessary
-	user_int_tel = PhoneNumberField(blank=True)
+	user_int_tel = PhoneNumberField(blank=True, null=True)
 	user_timezone = TimeZoneField(default=settings.TIME_ZONE)
 	objects = MyUserManager()
 	
