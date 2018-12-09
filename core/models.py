@@ -14,11 +14,12 @@ class Property(models.Model):
 	# Characteristics for each house and apartment
 	property_rooms = models.IntegerField()
 	# calculate square foot on the fly, via pint
-	property_size_in_sq_meters = models.DecimalField(max_digits=7, decimal_places=2) 
+	property_size_in_sq_meters = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True)
+	property_size_in_sq_foot = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True) 
 	# used for calculated prices, same principle
-	property_price_in_eur = models.DecimalField(max_digits=7, decimal_places=2) 
-	property_price_in_czk = models.DecimalField(max_digits=7, decimal_places=2) 
-	property_price_in_usd = models.DecimalField(max_digits=7, decimal_places=2) 
+	property_price_in_eur = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True) 
+	property_price_in_czk = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True) 
+	property_price_in_usd = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True) 
 
 	class Meta:
 		verbose_name_plural = "properties"
@@ -35,12 +36,3 @@ class ExchangeRate(models.Model):
 	OneEurUsd = models.DecimalField("1 EUR - USD", max_digits=7, decimal_places=3)
 	OneUsdCzk = models.DecimalField("1 USD - CZK", max_digits=7, decimal_places=3)
 	
-class UserMessage(models.Model):
-	"""
-	For private communication.
-	https://stackoverflow.com/questions/35310283/how-to-model-messages-exchanged-between-users-er-diagram
-	"""
-	send_date = models.TimeField(auto_now_add=True) # will not display
-	from_whom = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="from_whom_user", on_delete=models.CASCADE)
-	to_whom = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="to_whom_user", on_delete=models.CASCADE)
-	inputMessage = models.TextField()

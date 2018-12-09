@@ -8,7 +8,18 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 # Register your models here.
 from .models import myUser
 
+class UserMessageAdmin(admin.ModelAdmin):
+	"""docstring for ClassName"""
+	pass
+
 class UserCreatingFormInAdmin(UserCreationForm):
+	"""
+	By default, email is not added to the registration form
+	and thus hacking is required:
+	https://stackoverflow.com/a/48605586/2171456
+
+	We extend here that user registration. 
+	"""
 	email = forms.EmailField(required=True)
 
 	class Meta:
@@ -45,3 +56,4 @@ class UserAdmin(BaseUserAdmin):
 	)
 
 admin.site.register(myUser, UserAdmin)
+admin.site.register(UserMessage, UserMessageAdmin)
