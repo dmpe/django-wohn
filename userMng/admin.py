@@ -8,11 +8,16 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 # Register your models here.
 from .models import myUser
 
-class UserAdmin(BaseUserAdmin):
-	# add_form = UserCreateForm
+class UserCreatingFormInAdmin(UserCreationForm):
+	
+	class Meta:
+		model = myUser
+		fields = ('username', 'password1', 'password2', 'email')	
+		
 
-	# class Meta:
-	# 	user = myUser
+
+
+class UserAdmin(BaseUserAdmin):
 
 	fieldsets = (
 		(None, {'fields': ('username', 'password')}),
@@ -22,12 +27,5 @@ class UserAdmin(BaseUserAdmin):
 	)
 
 	list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'user_timezone', 'user_int_tel')
-
-	# add_fieldsets = (
-	# 	(None, {
-	# 		'classes': ('wide',),
-	# 		'fields': ('username', 'password', 'email')
-	# 	})
-	# )
 
 admin.site.register(myUser, UserAdmin)

@@ -30,4 +30,8 @@ class myUser(AbstractUser):
 	class Meta:
 		unique_together = (("email"),)
 
+# hacking around the requirenment of the email address on the manual creation 
+# of the user. Here saying that email can be black, or it will be
+# frontend is not impacted due to validation
+# https://stackoverflow.com/a/48605586/2171456
 myUser._meta.get_field('email')._blank = True
