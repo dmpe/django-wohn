@@ -63,6 +63,16 @@ Adminstrace - Dashboard
 	text-decoration: none !important;
 	color: inherit;
 }
+
+.horizontal_line {
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100px;
+	background-color:#666;
+	opacity: 0.5;
+}
+
 /* //////////////////
 Contact page - Make responsive page iframe
 */

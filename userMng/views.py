@@ -110,9 +110,9 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	def get(self, request):
 		"""by default the image is something from gravatar
 		"""
-		context = {}
+		# context = {}
 		gravatar_url = fetch_gravatar(request.user.email)
-		context["gravatar_url"] = gravatar_url
+		# context["gravatar_url"] = gravatar_url
 		
 		return render(request, self.template_name, {"gravatar_url": gravatar_url})
 		
