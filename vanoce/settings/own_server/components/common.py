@@ -92,6 +92,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'widget_tweaks',
     'markdownx',
+    'timezone_field',
 ]
 
 MIDDLEWARE = [
