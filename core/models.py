@@ -26,10 +26,11 @@ class Property(models.Model):
 
 	def calculate_eur_czk():
 		"""
+		TODO
 		From eur to CZK
 		"""
 		exr_rat = ExchangeRate.objects.last()
-		
+		return exr_rat
 
 class ExchangeRate(models.Model):
 	"""

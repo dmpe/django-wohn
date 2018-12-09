@@ -98,7 +98,8 @@ class AboutView(View):
 #######
 ################
 class HomepageView(object):
-	"""docstring for ClassName
+	"""
+	TODO
 	"""
 	template_name = "index.html"
 
