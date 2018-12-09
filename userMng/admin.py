@@ -27,7 +27,7 @@ class UserCreatingFormInAdmin(UserCreationForm):
 
 class UserAdmin(BaseUserAdmin):
 	add_form = UserCreatingFormInAdmin
-	
+
 	fieldsets = (
 		(None, {'fields': ('username', 'password')}),
 		('Personal info', {'fields': ('first_name', 'last_name', 'email', 'user_timezone', 'user_int_tel')}),
@@ -36,5 +36,12 @@ class UserAdmin(BaseUserAdmin):
 	)
 
 	list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'user_timezone', 'user_int_tel')
-
+    
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('username', 'password1', 'password2', 'email')}
+        ),
+    )
+    
 admin.site.register(myUser, UserAdmin)
