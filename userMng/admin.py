@@ -25,7 +25,9 @@ from .models import myUser
 
 class UserAdmin(BaseUserAdmin):
 	# add_form = UserCreateForm
-
+	class Meta:
+		user = myUser
+			
 	list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'user_timezone', 'user_int_tel')
 	
 	fieldsets = (
