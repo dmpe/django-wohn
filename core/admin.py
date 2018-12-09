@@ -11,7 +11,7 @@ import json
 from django.core import serializers
 from django.core.serializers.json import *
 
-class ApartmentTypeAdmin(admin.ModelAdmin):
+class PropertyAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
 	pass
 
@@ -80,6 +80,6 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 
 		return prossed_data
 
-admin.site.register(ApartmentType, ApartmentTypeAdmin)
+admin.site.register(Property, PropertyAdmin)
 admin.site.register(ExchangeRate, ExchangeRateAdmin)
 admin.site.register(UserMessage, UserMessageAdmin)
