@@ -6,13 +6,21 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import myUser
 
 
-# class UserCreationForm(forms.ModelForm):
-# 	"""docstring for UserCreationForm"""
-# 	model = myUser
-# 	fields = ('user_timezone', 'user_int_tel')
+class UserCreationForm(forms.ModelForm):
+	"""docstring for UserCreationForm"""
+	class Meta:
+		model = myUser
+		fields = '__all__'
 
 class UserAdmin(BaseUserAdmin):
-	model = myUser
-	filter_horizontal = ('user_timezone', 'user_int_tel')
+	add_form = UserCreationForm
+	add_fieldsets = (
+		('None', {
+			'classes': ('wide',),
+			'fields': ('user_timezone', 'user_int_tel')}
+		), 
+	)
 	
+	filter_horizontal = ('user_timezone', 'user_int_tel')
+
 admin.site.register(myUser, UserAdmin)
