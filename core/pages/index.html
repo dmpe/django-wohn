@@ -10,7 +10,7 @@
 <div class="container-fluid">
 	<p>Testing homapage of B40</p>
 	
-    {# {% for a_place in living_places %} #}
+    {% for a_place in living_places %} 
     <div class="row">
         <div class="col-md-7">
             <a href="#">
@@ -20,6 +20,9 @@
         <div class="col-md-5">
             <h3>Project One</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+            <p>{{ price_in_euro }}</p>
+            <p>{{ price_in_czk }}</p>
+            <p>{{ price_in_usd }}</p>
             <a class="btn btn-primary" href="#">View Project</a>
         </div>
     </div>

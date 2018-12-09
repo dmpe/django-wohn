@@ -27,11 +27,6 @@ from userMng.mics import *
 ####### Function based views
 #######
 ################
-
-# HOMEPAGE
-def core_index(request):
-    return render(request, 'index.html')
-
 # FOOTER
 def privacy(request):
 	return render(request, 'privacy.html')
@@ -94,7 +89,25 @@ class AboutView(View):
 		return html
 
 	def get(self, request):
-		# context = super(AboutView, self).get_context_data(**kwargs)
 		raw_markdown_html = self.return_markdown()
 		return render(request, self.template_name, {'raw_markdown_html':raw_markdown_html})
 
+################
+#######
+####### Main Page/Homepage 
+#######
+################
+class HomepageView(object):
+	"""docstring for ClassName"""
+	template_name = "index.html"
+
+	def post(self, request):
+		pass
+
+	def get(self, request):
+		def get_context_data(self, **kwargs):
+		    context = super(HomepageView, self).get_context_data(**kwargs)
+		    context["living_places"] = Property.objects.last()
+		    return context
+
+		return render(request, self.template_name, {"price_in_euro": price_in_euro })
