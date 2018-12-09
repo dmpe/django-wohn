@@ -4,27 +4,27 @@
     <ul class="nav d-md-flex flex-md-column d-none d-sm-none d-md-block">
     	<li class="nav-item"> 
         	<a href="{% url 'userMng_index' %}" class="nav-link {% if url_name == 'userMng_index' %}active{% endif %}">
-        		<i class="fas fa-home"></i>
-        		Homepage
+        		<i class="fas fa-home fa-lg"></i>
+        		<span class="pl-1">Homepage</span>
     		</a>
     	</li>
     	<li class="nav-item"> 
     	    <a href="{% url 'user_profile' %}" class="nav-link {% if url_name == 'user_profile' %}active{% endif %}">
-        	    <i class="fas fa-user"></i>
-        	    My profile
+        	    <i class="fas fa-user fa-lg"></i>
+        	   <span class="pl-1">My profile</span>
         	</a>
     	</li>
     	<li class = "nav-item">
         	<a href="{% url 'user_properties' %}" class="nav-link {% if url_name == 'user_properties' %}active{% endif %}">
-        	    <i class="fas fa-hotel"></i>
-        		Properties
+        	    <i class="fas fa-hotel fa-lg"></i>
+                <span class="pl-1">Properties</span>
         	    <span class="badge badge-light badge-pill"> 45 {{ count_my_properties }}</span>
         	</a>
     	</li>
         <li class = "nav-item">
             <a href="{% url 'user_messages' %}" class="nav-link {% if url_name == 'user_messages' %}active{% endif %}">
-                <i class="fas fa-envelope"></i>
-                Messages
+                <i class="fas fa-envelope fa-lg"></i>
+                <span class="pl-1">Messages</span>
                 <span class="badge badge-light badge-pill"> 41 {{ count_my_messages }}</span>
             </a>
         </li>
@@ -33,19 +33,19 @@
         {% if request.user.is_active and request.user.is_staff %}
         <li class = "nav-item">
             <a href="{% url 'my_property_ads' %}" class="nav-link {% if url_name == 'my_property_ads' %}active{% endif %}">
-                <i class="fas fa-ad"></i>
-                My property ads
+                <i class="fas fa-ad fa-lg"></i>
+                <span class="pl-1">My property ads</span>
             </a>
         </li>
         <li class = "nav-item">
             <a href="{% url 'create_new_ad' %}" class="nav-link {% if url_name == 'create_new_ad' %}active{% endif %}">
-                <i class="fas fa-plus-square"></i>
-                <span class="ml-1">Create new ad</span>
+                <i class="fas fa-plus-square fa-lg"></i>
+                <span class="pl-1">Create new ad</span>
             </a>
         </li>
         <li class = "nav-item">
             <a href="{% url 'ad_statistics' %}" class="nav-link {% if url_name == 'ad_statistics' %}active{% endif %}">
-                <i class="fas fa-signal"></i>
+                <i class="fas fa-signal fa-lg"></i>
                 <span class="pl-1">Statistics</span>
             </a>
         </li>
