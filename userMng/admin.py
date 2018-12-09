@@ -9,16 +9,25 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import myUser
 
 class UserCreatingFormInAdmin(UserCreationForm):
-	
+	email = forms.EmailField(required=True)
+
 	class Meta:
 		model = myUser
 		fields = ('username', 'password1', 'password2', 'email')	
 		
-
-
+	def __init__(self, *args, **kwargs):
+		super(UserCreatingFormInAdmin, self).__init__(*args, **kwargs)
+	
+	def save(self, commit=True):
+		user = super(UserCreatingFormInAdmin, self).save(commit=False)
+		user.email = self.cleaned_data["email"]
+		if commit:
+			user.save()
+		return user
 
 class UserAdmin(BaseUserAdmin):
-
+	add_form = UserCreatingFormInAdmin
+	
 	fieldsets = (
 		(None, {'fields': ('username', 'password')}),
 		('Personal info', {'fields': ('first_name', 'last_name', 'email', 'user_timezone', 'user_int_tel')}),
