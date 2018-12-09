@@ -24,6 +24,13 @@ class Property(models.Model):
 	class Meta:
 		verbose_name_plural = "properties"
 
+	def calculate_eur_czk():
+		"""
+		From eur to CZK
+		"""
+		exr_rat = ExchangeRate.objects.last()
+		
+
 class ExchangeRate(models.Model):
 	"""
 	parse_forex_data in misc.py

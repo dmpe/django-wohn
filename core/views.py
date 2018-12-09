@@ -98,16 +98,18 @@ class AboutView(View):
 #######
 ################
 class HomepageView(object):
-	"""docstring for ClassName"""
+	"""docstring for ClassName
+	"""
 	template_name = "index.html"
 
 	def post(self, request):
 		pass
 
 	def get(self, request):
+
 		def get_context_data(self, **kwargs):
 		    context = super(HomepageView, self).get_context_data(**kwargs)
 		    context["living_places"] = Property.objects.last()
 		    return context
 
-		return render(request, self.template_name, {"price_in_euro": price_in_euro })
+		return render(request, self.template_name, context)
