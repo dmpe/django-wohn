@@ -2,16 +2,26 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth import get_user_model
 
-class ApartmentType(models.Model):
+class Property(models.Model):
 	"""
 	Define each apartment, 1-to-n with Users
+	unit conversion --> https://pint.readthedocs.io/en/latest/
 	"""
-	apartment_offered_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-	apartment_rooms = models.IntegerField()
-	apartment_created = models.DateTimeField(auto_now_add=True) # will not display
-	# https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt?date=13.04.2018
-	apartment_price_eur = models.PositiveSmallIntegerField() # 0 to 32767
-	apartment_price_czk = models.PositiveIntegerField() # 0 to 2147483647
+	property_created = models.DateTimeField(auto_now_add=True) # will not display
+
+	property_offered_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	
+	# Characteristics for each house and apartment
+	property_rooms = models.IntegerField()
+	# calculate square foot on the fly, via pint
+	property_size_in_sq_meters = models.DecimalField(max_digits=7, decimal_places=2) 
+	# used for calculated prices, same principle
+	property_price_in_eur = models.DecimalField(max_digits=7, decimal_places=2) 
+	property_price_in_czk = models.DecimalField(max_digits=7, decimal_places=2) 
+	property_price_in_usd = models.DecimalField(max_digits=7, decimal_places=2) 
+
+	class Meta:
+		verbose_name_plural = "properties"
 
 class ExchangeRate(models.Model):
 	"""
