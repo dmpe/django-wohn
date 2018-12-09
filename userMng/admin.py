@@ -35,7 +35,7 @@ class UserAdmin(BaseUserAdmin):
 	# 	('Personal info', {'fields': ('first_name', 'last_name', 'user_timezone', 'user_int_tel',)})
 	# )
 
-	add_fieldsets = ('Personal info', {'fields': ('user_timezone', 'user_int_tel')})
+	add_fieldsets = ('user_timezone', 'user_int_tel')
 	
 
 admin.site.register(myUser, UserAdmin)
