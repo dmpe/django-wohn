@@ -40,11 +40,21 @@ class NewUserChangeForm(forms.ModelForm):
 
 class UserAdmin(BaseUserAdmin):
 	add_form = UserCreationForm
+	form = NewUserChangeForm
+
+	list_display = ('username', 'user_timezone', 'user_int_tel', 'first_name', 'last_name', 'last_login',)
+	fieldsets = (
+		(None, {'fields': ('username', 'password1')}),
+		('Personal info', {'fields': ('first_name', 'last_name', 'user_timezone', 'user_int_tel',)}),
+		('Permissions', {'fields' : ('is_active', 'is_staff', 'last_login')})
+	)
+
 	add_fieldsets = (
 		('None', {
 			'classes': ('wide',),
-			'fields': ('username', 'email', 'first_name', 'last_name', 'user_timezone', 'user_int_tel')}
+			'fields': ('username', 'email', 'password1', 'password2')}
 		), 
 	)
+	
 
 admin.site.register(myUser, UserAdmin)
