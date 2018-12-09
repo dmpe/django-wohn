@@ -6,7 +6,7 @@ from django.contrib.auth.forms import *
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 # Register your models here.
-from .models import myUser
+from .models import *
 
 class UserMessageAdmin(admin.ModelAdmin):
 	"""docstring for ClassName"""
