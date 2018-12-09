@@ -1,8 +1,15 @@
 from django.db import *
 from django.db import models
-from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import *
-from django.conf import settings
+from django.conf import *
+
+# for storing user's timezone, default is Prague (CET) stored in settings.py
+import pytz
+from timezone_field import TimeZoneField
+
+# store users phone number
+from phonenumber_field.modelfields import PhoneNumberField
+
 
 class MyUserManager(UserManager):
     pass
@@ -17,6 +24,7 @@ class MyUserManager(UserManager):
 class myUser(AbstractUser):
 	# email, username, first and last name are unnecessary
 	user_int_tel = PhoneNumberField(blank=True)
+	user_timezone = TimeZoneField(default=settings.TIME_ZONE)
 	objects = MyUserManager()
 	
 	class Meta:
