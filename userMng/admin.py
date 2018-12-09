@@ -15,19 +15,19 @@ class UserAdmin(BaseUserAdmin):
 		user = myUser
 
 	fieldsets = (
-        (None, {'fields': ('username', 'password')}),
-        ('Personal info', {'fields': ('first_name', 'last_name', 'email', 'user_timezone', 'user_int_tel')}),
-        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
-        ('Important dates', {'fields': ('last_login', 'date_joined')})
-    )
+		(None, {'fields': ('username', 'password')}),
+		('Personal info', {'fields': ('first_name', 'last_name', 'email', 'user_timezone', 'user_int_tel')}),
+		('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
+		('Important dates', {'fields': ('last_login', 'date_joined')})
+	)
 
 	list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'user_timezone', 'user_int_tel')
-    
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('username', 'password', 'email')
-        })
-    )
+
+	add_fieldsets = (
+		(None, {
+		'classes': ('wide',),
+		'fields': ('username', 'password', 'email')
+		})
+	)
 
 admin.site.register(myUser, UserAdmin)
