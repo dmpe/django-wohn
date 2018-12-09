@@ -36,12 +36,12 @@ class UserAdmin(BaseUserAdmin):
 	)
 
 	list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'user_timezone', 'user_int_tel')
-    
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('username', 'password1', 'password2', 'email')}
-        ),
-    )
-    
+
+	add_fieldsets = (
+		(None, {
+			'classes': ('wide',),
+			'fields': ('username', 'password1', 'password2', 'email')}
+		),
+	)
+
 admin.site.register(myUser, UserAdmin)
