@@ -19,8 +19,8 @@
 			<h1 class="display-4 d-none d-sm-block">Welcome back {{ user.username }}</h1>
 			<h3></h3>
 	        
-	        <div class="d-flex flex-row">
-	        	<div class="col-xl-3 col-sm-5 p-2">
+	        <div class="d-flex flex-wrap">
+	        	<div class="col-lg-4 col-sm-5 p-2">
 		        	<div class="card bg-success text-white h-100">
 		        		<a href="{% url 'user_properties' %}" class="card_homepage_styling">
 			        		<div class="card-body bg-success">
@@ -31,7 +31,7 @@
 		        	</div>
 	        	</div>
 	        	
-        		<div class="col-xl-3 col-sm-5 p-2">
+        		<div class="col-lg-4 col-sm-5 p-2">
 		        	<div class="card bg-warning">
 		        		<div class="card-body bg-warning">
 			        		<h6 class="text-uppercase">Views</h6>
@@ -40,7 +40,7 @@
 		        	</div>
 	        	</div>
 	        	
-        		<div class="col-xl-3 col-sm-5 p-2">
+        		<div class="col-lg-4 col-sm-5 p-2">
 		        	<div class="card bg-danger">
 		        		<a href="{% url 'user_messages' %}" class="card_homepage_styling">
 			        		<div class="card-body bg-warning">
@@ -52,8 +52,8 @@
 	        	</div>
 			</div>
 			
-			<div class="row">       	
-	        	<div class="col-xl-3 col-sm-5 p-2">
+			<div class="d-flex flex-row">       	
+	        	<div class="col-lg-4 col-sm-5 p-2">
 	        		<div class="card">
 	        			<div class="card-header">
 	        				Our Blog
