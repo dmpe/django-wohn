@@ -65,12 +65,10 @@ Adminstrace - Dashboard
 }
 
 .horizontal_line {
-	width: 300px;
-	margin-left: auto;
-	margin-right: auto;
-	height: 100px;
-	background-color:#666;
-	opacity: 0.5;
+	width: auto;
+	height: 30px;
+	font-size: .75rem;
+	text-transform: uppercase;
 }
 
 /* //////////////////
