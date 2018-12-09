@@ -11,8 +11,8 @@ from .models import myUser
 class UserAdmin(BaseUserAdmin):
 	# add_form = UserCreateForm
 
-	class Meta:
-		user = myUser
+	# class Meta:
+	# 	user = myUser
 
 	fieldsets = (
 		(None, {'fields': ('username', 'password')}),
