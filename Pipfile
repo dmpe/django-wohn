@@ -33,5 +33,7 @@ pandasdmx = "*"
 Celery ="*"
 markdown="*"
 pymdown-extensions="*"
+django-timezone-field="*"
+pint="*"
 
 [dev-packages]
