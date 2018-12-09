@@ -1,3 +1,7 @@
+from django import forms
+from django.contrib.auth.models import *
+from django.contrib.auth.forms import *
+
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
@@ -20,7 +24,7 @@ class UserAdmin(BaseUserAdmin):
 			'fields': ('user_timezone', 'user_int_tel')}
 		), 
 	)
-	
+
 	filter_horizontal = ('user_timezone', 'user_int_tel')
 
 admin.site.register(myUser, UserAdmin)
