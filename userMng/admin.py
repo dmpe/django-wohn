@@ -24,6 +24,4 @@ class UserAdmin(BaseUserAdmin):
 		), 
 	)
 
-	filter_horizontal = ('user_timezone', 'user_int_tel')
-
 admin.site.register(myUser, UserAdmin)
