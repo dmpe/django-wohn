@@ -81,7 +81,7 @@ class Google_Analytics():
 		print(google_analytics_dimensions_metrics_dict)
 		return google_analytics_dimensions_metrics_dict
 	
-	def main():
+	def main(self):
 		analytics = initialize_analyticsreporting()
 		response = get_report(analytics)
 		print_response(response)
