@@ -1,7 +1,7 @@
 from googleapiclient.discovery import *
 from oauth2client.service_account import *
 
-class Google_Analytics(object):
+class Google_Analytics():
 	"""
 	Google Analytics Reporting API V4.
 	https://developers.google.com/analytics/devguides/reporting/core/dimsmets
