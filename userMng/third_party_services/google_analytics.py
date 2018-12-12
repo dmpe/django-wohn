@@ -19,7 +19,7 @@ class Google_Analytics:
 		An authorized Analytics Reporting API V4 service object.
 		"""
 
-		credentials = ServiceAccountCredentials.from_json_keyfile_name(self.KEY_FILE_LOCATION, self.SCOPES)
+		credentials = ServiceAccountCredentials.from_json_keyfile_name(KEY_FILE_LOCATION, SCOPES)
 	
 		# Build the service object.
 		analytics = build('analyticsreporting', 'v4', credentials=credentials)
@@ -41,7 +41,7 @@ class Google_Analytics:
 				body={
 					'reportRequests': [
 					{
-						'viewId': self.VIEW_ID,
+						'viewId': VIEW_ID,
 						'dateRanges': [{'startDate': '7daysAgo', 'endDate': 'today'}],
 						'metrics': [{'expression': 'ga:sessions', "expression":"ga:pageviews"}],
 						'dimensions': [{'name': 'ga:country', "name":"ga:browser"}]
