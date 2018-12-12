@@ -21,7 +21,8 @@ class Google_Analytics:
 		"""
 		SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
 		KEY_FILE_LOCATION = 'client_secrets.json'
-		fl = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(KEY_FILE_LOCATION)))
+		fl = os.path.abspath(os.path.join(os.path.dirname(__file__),KEY_FILE_LOCATION))
+		print(fl)
 		
 		credentials = ServiceAccountCredentials.from_json_keyfile_name(self.KEY_FILE_LOCATION, self.SCOPES)
 	
