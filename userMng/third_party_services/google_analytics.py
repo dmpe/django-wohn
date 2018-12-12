@@ -24,7 +24,7 @@ class Google_Analytics:
 		fl = os.path.abspath(os.path.join(os.path.dirname(__file__),KEY_FILE_LOCATION))
 		print(fl)
 		
-		credentials = ServiceAccountCredentials.from_json_keyfile_name(self.KEY_FILE_LOCATION, self.SCOPES)
+		credentials = ServiceAccountCredentials.from_json_keyfile_name(fl, self.SCOPES)
 	
 		# Build the service object.
 		analytics = build('analyticsreporting', 'v4', credentials=credentials)
