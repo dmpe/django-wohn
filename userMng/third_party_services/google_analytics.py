@@ -8,7 +8,9 @@ class Google_Analytics:
 	https://developers.google.com/analytics/devguides/reporting/core/dimsmets
 	https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py
 	"""
-
+	SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
+	KEY_FILE_LOCATION = 'client_secrets.json'
+	VIEW_ID = '181239651'
 	
 	def initialize_analyticsreporting(self):
 		"""
@@ -21,7 +23,7 @@ class Google_Analytics:
 		KEY_FILE_LOCATION = 'client_secrets.json'
 		fl = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(KEY_FILE_LOCATION)))
 		
-		credentials = ServiceAccountCredentials.from_json_keyfile_name(fl, SCOPES)
+		credentials = ServiceAccountCredentials.from_json_keyfile_name(self.KEY_FILE_LOCATION, self.SCOPES)
 	
 		# Build the service object.
 		analytics = build('analyticsreporting', 'v4', credentials=credentials)
@@ -44,7 +46,7 @@ class Google_Analytics:
 				body={
 					'reportRequests': [
 					{
-						'viewId': VIEW_ID,
+						'viewId': self.VIEW_ID,
 						'dateRanges': [{'startDate': '7daysAgo', 'endDate': 'today'}],
 						'metrics': [{'expression': 'ga:sessions', "expression":"ga:pageviews"}],
 						'dimensions': [{'name': 'ga:country', "name":"ga:browser"}]
