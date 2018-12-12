@@ -342,7 +342,7 @@ class LogoutView(View):
 	"""
 	def get(self, request):
 		django_logout(request)
-		return redirect('core_index')
+		return redirect('homepage')
 
 ###################################
 ################
