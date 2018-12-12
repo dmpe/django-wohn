@@ -157,4 +157,3 @@ def fetch_gravatar(email, default = "https://www.ienglishstatus.com/wp-content/u
 
 	return gravatar_url
 
-

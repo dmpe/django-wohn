@@ -93,7 +93,13 @@ class UserProfileIndex(LoginRequiredMixin, View):
 		"""docstring for get
 		"""
 		form = FeedbackForm()
-		return render(request, self.template_name, {"form": form })
+		
+		gh = Google_Analytics()
+		analytics = gh.initialize_analyticsreporting()
+		response = gh.get_report(analytics)
+		number_of_views = gh.print_response(response)
+		
+		return render(request, self.template_name, {"form": form, "number_of_views": number_of_views})
 
 class UserProfileAdministration(LoginRequiredMixin, View):
 	"""

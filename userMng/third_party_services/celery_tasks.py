@@ -19,7 +19,7 @@ from pandasdmx import *
 from pandasdmx.api import *
 
 # some other imports too
-from .mics import *
+from userMng.mics import *
 
 # imports settings and our schedulling for the task
 from vanoce.celery import app

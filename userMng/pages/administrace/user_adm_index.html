@@ -25,7 +25,7 @@
 		        		<a href="{% url 'user_properties' %}" class="card_homepage_styling">
 			        		<div class="card-body bg-success">
 				        		<h6 class="text-uppercase">Properties</h6>
-				        		<h2 class="display-2">14 {{ number_of_properties }}</h2>
+				        		<h2 class="display-2">{{ number_of_properties }}</h2>
 			        		</div>
 			        	</a>
 		        	</div>
@@ -35,7 +35,7 @@
 		        	<div class="card bg-warning">
 		        		<div class="card-body bg-warning">
 			        		<h6 class="text-uppercase">Views</h6>
-			        		<h2 class="display-2">14 {{ number_of_properties }}</h2>
+			        		<h2 class="display-2">{{ number_of_views }}</h2>
 		        		</div>
 		        	</div>
 	        	</div>
@@ -45,7 +45,7 @@
 		        		<a href="{% url 'user_messages' %}" class="card_homepage_styling">
 			        		<div class="card-body bg-warning">
 				        		<h6 class="text-uppercase">Messages</h6>
-				        		<h2 class="display-2">14 {{ number_of_properties }}</h2>
+				        		<h2 class="display-2">{{ number_of_messages }}</h2>
 			        		</div>
 			        	</a>
 		        	</div>
