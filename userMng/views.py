@@ -99,7 +99,7 @@ class UserProfileIndex(LoginRequiredMixin, View):
 		response = gh.get_report(analytics)
 		number_of_views = gh.print_response(response)
 		
-		return render(request, self.template_name, {"form": form, "number_of_views": number_of_views})
+		return render(request, self.template_name, {"form": form, "number_of_views": number_of_views.get("ga:pageviews")})
 
 class UserProfileAdministration(LoginRequiredMixin, View):
 	"""
@@ -136,7 +136,9 @@ class UserProfileProperties(LoginRequiredMixin, View):
 		return render(request, self.template_name)
 
 class UserProfileMessages(LoginRequiredMixin, View):
-	"""docstring for UserProfileMessages"""
+	"""docstring for UserProfileMessages
+	"""
+	
 	template_name = "user_messages.html"
 	
 	def post(self, request):
