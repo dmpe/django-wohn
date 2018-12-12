@@ -97,7 +97,7 @@ class AboutView(View):
 ####### Main Page/Homepage 
 #######
 ################
-class HomepageView(object):
+class HomepageView(View):
 	"""
 	TODO
 	"""
@@ -108,9 +108,9 @@ class HomepageView(object):
 
 	def get(self, request):
 
-		def get_context_data(self, **kwargs):
-		    context = super(HomepageView, self).get_context_data(**kwargs)
-		    context["living_places"] = Property.objects.last()
-		    return context
+		# def get_context_data(self, **kwargs):
+		#     context = super(HomepageView, self).get_context_data(**kwargs)
+		#     context["living_places"] = Property.objects.last()
+		#     return context
 
-		return render(request, self.template_name, context)
+		return render(request, self.template_name)

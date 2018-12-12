@@ -40,6 +40,9 @@ from .forms import *
 # for sending emails with right headers
 from .mics import *
 
+# for google analytics
+from userMng.google_analytics import *
+
 # instance of a logger
 import logging
 logger = logging.getLogger(__name__)
