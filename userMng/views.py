@@ -41,7 +41,7 @@ from .forms import *
 from .mics import *
 
 # for google analytics
-from third_party_services import *
+from userMng.third_party_services import *
 
 # instance of a logger
 import logging
