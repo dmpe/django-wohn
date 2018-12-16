@@ -93,6 +93,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'markdownx',
     'timezone_field',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
