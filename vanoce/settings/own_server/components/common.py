@@ -236,7 +236,7 @@ STATICFILES_DIRS = [
 PHONENUMBER_DB_FORMAT = 'E164'
 
 LOGIN_URL = 'login' # where is login page
-# LOGIN_REDIRECT_URL = 'userMng_index'
+LOGIN_REDIRECT_URL = 'userMng_index'
 
 LOGOUT_REDIRECT_URL = 'homepage'
 
