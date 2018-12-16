@@ -31,7 +31,7 @@ class Google_Analytics:
 		# credentials = ServiceAccountCredentials.from_json_keyfile_name(fl, self.SCOPES)
 	
 		# Build the service object.
-		analytics = build('analyticsreporting', 'v4', credentials=scoped_credentials)
+		analytics = build('analyticsreporting', 'v4', credentials=scoped_credentials, cache_discovery=False)
 	
 		return analytics
 		
