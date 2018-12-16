@@ -35,5 +35,7 @@ markdown="*"
 pymdown-extensions="*"
 django-timezone-field="*"
 pint="*"
+google-api-python-client="*"
+googleapis-common-protos="*"
 
 [dev-packages]
