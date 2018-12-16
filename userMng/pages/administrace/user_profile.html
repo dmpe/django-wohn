@@ -1,3 +1,6 @@
+{% load static %}
+{% load staticfiles %}
+
 {% extends 'base.html' %}
 
 {% block title %}Dashboard - User profile{% endblock %}
@@ -6,7 +9,7 @@
 
 {% block robots %}index, follow{% endblock %}
 
-{% block additional_head %}<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">{% endblock %}
+{% block additional_head %}<link rel="stylesheet" href="{% static "flags/sprite.css" %}">{% endblock %}
 
 {% load crispy_forms_tags %}
 {% load widget_tweaks %}
