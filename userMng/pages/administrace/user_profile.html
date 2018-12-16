@@ -25,32 +25,39 @@ https://github.com/dmpe/django-wohn/issues/18
 			        <img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded" style="width:250px;height: 250px;">
 		        </div>
 
-				<form>
-					<div class="form-group">
-						<h5>Change Email</h5>
-						<label for="inputEmail">Current Email</label>
-						<input type="text" readonly class="form-control" id="inputEmail" value="{{ user.email }}">
-						
-						<label for="inputEmailNew">New Email</label>
-						<input type="email" class="form-control" id="inputEmailNew">
-						<button>Save</button>
-					</div>
-				</form>
+		        <div class="col-md-6 col-sm-6">
+					<form>
+						<div class="form-group">
+							<h5>Change Email</h5>
+							<label for="inputEmail">Current Email</label>
+							<input type="text" readonly class="form-control" id="inputEmail" value="{{ user.email }}">
 
-				<form>
-					<div class="form-group">
-						<h5>Change Username</h5>
-						<label for="inputUsername">Current Username</label>
-						<input type="text" readonly class="form-control" id="inputUsername" value="{{ user.get_username }}">
+							<label for="inputEmailNew">New Email</label>
+							<input type="email" class="form-control" id="inputEmailNew">
+							<button>Save</button>
+						</div>
+					</form>
 
-						<label for="inputUsernameNew">New Username</label>
-						<input type="text" class="form-control" id="inputUsernameNew">
-						<button>Save</button>
-					</div>
-				</form>
+					<form>
+						<div class="form-group">
+							<h5>Change Username</h5>
+							<label for="inputUsername">Current Username</label>
+							<input type="text" readonly class="form-control" id="inputUsername" value="{{ user.get_username }}">
 
-				<hr />
+							<label for="inputUsernameNew">New Username</label>
+							<input type="text" class="form-control" id="inputUsernameNew">
+							<button>Save</button>
+						</div>
+					</form>
+				</div>
 
+				<!--
+		        <p>Change password</p>
+				<p>Change timezone, because default is CET</p>
+		        <p>Change currency, because default is CZK</p>
+		        <p>Change mt^2 to sq. foot</p> -->
+	        </div>
+	        <div class="row">
 				<form>
 					<div class="form-group">
 						<h5>Change Password</h5>
@@ -82,11 +89,7 @@ https://github.com/dmpe/django-wohn/issues/18
 					</div>
 					<button>Save</button>
 				</form>
-				<!--
-		        <p>Change password</p>
-				<p>Change timezone, because default is CET</p>
-		        <p>Change currency, because default is CZK</p>
-		        <p>Change mt^2 to sq. foot</p> -->
+	        	
 	        </div>
 	    </div>
 	    
