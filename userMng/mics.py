@@ -151,7 +151,7 @@ def fetch_gravatar(email, default = "https://www.ienglishstatus.com/wp-content/u
 	https://en.gravatar.com/site/implement/images/python/
 	If none is found to be associated with the email adress, then default image is used
 	"""
-	size = 40
+	size = 20
 	gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower().encode('utf-8')).hexdigest() + "?"
 	gravatar_url += urllib.parse.urlencode({'d':default, 's':str(size)})
 

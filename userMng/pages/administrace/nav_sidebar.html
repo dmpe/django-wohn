@@ -28,9 +28,9 @@
                 <span class="badge badge-danger badge-pill"> 41 {{ count_my_messages }}</span>
             </a>
         </li>
-        <li class="horizontal_line d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">Advertising</li>
         {# IDEA: if user is advertisor, see stage-2 #}
         {% if request.user.is_active and request.user.is_staff %}
+        <li class="horizontal_line d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">Advertising</li>
         <li class = "nav-item">
             <a href="{% url 'my_property_ads' %}" class="nav-link {% if url_name == 'my_property_ads' %}active{% endif %}">
                 <i class="fas fa-ad fa-lg"></i>

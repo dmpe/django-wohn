@@ -22,16 +22,18 @@ https://github.com/dmpe/django-wohn/issues/18
 	    <div class="col-md-9 col-lg-9 col-xl-10 pt-5">
 	    	<div class="row">
 	        	<div class="col-xl-3 col-sm-6 p-2">
-			        <img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded">
+			        <img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded" style="width:250px;height: 250px;">
 		        </div>
 
 				<form>
-					<div class="form-group row">
+					<div class="form-group">
 						<h5>Change Email</h5>
 						<label for="staticEmail">Current Email</label>
 						<input type="text" readonly class="form-control" id="staticEmail" value="{{ user.email }}">
+
+						<input type="text" readonly class="form-control" id="staticEmail" value="{{ user.email }}">
 					</div>
-					<div class="form-group row">
+					<div class="form-group">
 						<h5>Change Username</h5>
 						<label for="staticUsername">Current Username</label>
 						<input type="text" readonly class="form-control" id="staticUsername" value="{{ user.get_username }}">
