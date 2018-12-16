@@ -27,8 +27,6 @@ class Google_Analytics:
 		ga_credentials = service_account.Credentials.from_service_account_file(fl)
 		scoped_credentials = ga_credentials.with_scopes(SCOPES)
 		authed_session = AuthorizedSession(scoped_credentials)
-		print(authed_session)
-		# credentials = ServiceAccountCredentials.from_json_keyfile_name(fl, self.SCOPES)
 	
 		# Build the service object.
 		analytics = build('analyticsreporting', 'v4', credentials=scoped_credentials, cache_discovery=False)
