@@ -21,22 +21,54 @@ https://github.com/dmpe/django-wohn/issues/18
 
 	    <div class="col-md-9 col-lg-9 col-xl-10 pt-5">
 	    	<div class="row">
-	        	<div class="col-xl-3 col-sm-6 p-2">
+	        	<div class="col-xl-3 col-sm-6 pr-2">
 			        <img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded" style="width:250px;height: 250px;">
 		        </div>
 
 				<form>
 					<div class="form-group">
 						<h5>Change Email</h5>
-						<label for="staticEmail">Current Email</label>
-						<input type="text" readonly class="form-control" id="staticEmail" value="{{ user.email }}">
+						<label for="inputEmail">Current Email</label>
+						<input type="text" readonly class="form-control" id="inputEmail" value="{{ user.email }}">
 
-						<input type="text" readonly class="form-control" id="staticEmail" value="{{ user.email }}">
+						<input type="email" class="form-control" id="inputEmail">
 					</div>
 					<div class="form-group">
 						<h5>Change Username</h5>
-						<label for="staticUsername">Current Username</label>
-						<input type="text" readonly class="form-control" id="staticUsername" value="{{ user.get_username }}">
+						<label for="inputUsername">Current Username</label>
+						<input type="text" readonly class="form-control" id="inputUsername" value="{{ user.get_username }}">
+					</div>
+				</form>
+				<hr />
+				
+				<form>
+					<div class="form-group">
+						<h5>Change Password</h5>
+						<div class="form-group spacing">
+							<div class="input-group">
+								<input class="form-control" type="password" id="inputNewPassword" name="inputNewPassword" nameclass="form-control" placeholder="New password" required autofocus>
+								<div class="input-group-append mr-1">
+									<span class="input-group-text" id="inputGroupAppend">
+										<button class="fa-eye resetIconStylesEYE" id="buttonEYE2" aria-hidden="true" type="button">
+											<i class="fas fa-eye fa-lg"></i>
+										</button>
+									</span>
+								</div>
+								<label class="sr-only" for="inputNewPassword">New password</label>
+							</div>
+						</div>
+						<div class="form-group spacing">
+							<div class="input-group">
+								<input class="form-control" type="password" id="inputConfirmNewPassword" name="inputConfirmNewPassword" placeholder="Confirm new password" required autofocus>
+								<div class="input-group-append mr-1">
+									<span class="input-group-text" id="inputGroupAppend">
+										<button class="fa-eye resetIconStylesEYE" id="buttonEYE3" aria-hidden="true" type="button">
+											<i class="fas fa-eye fa-lg"></i></button>
+									</span>
+								</div>
+								<label class="sr-only" for="inputConfirmNewPassword">Confirm new password</label>
+							</div>
+						</div>
 					</div>
 				</form>
 				<!--
