@@ -6,8 +6,11 @@
 
 {% block robots %}index, follow{% endblock %}
 
+{% block additional_head %}<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">{% endblock %}
+
 {% load crispy_forms_tags %}
 {% load widget_tweaks %}
+{% load countries %}
 
 {% block content %}
 <div class="container-fluid">
@@ -55,26 +58,28 @@ https://github.com/dmpe/django-wohn/issues/18
 				<p>Change timezone, because default is CET</p>
 		        <p>Change currency, because default is CZK</p>
 		        <p>Change mt^2 to sq. foot</p> -->
+
 				<fieldset class="form-group">
-				<div class="row">
-				<legend class="col-form-label col-sm-2 pt-0">Units of area</legend>
-				<div class="col-sm-10">
-				<div class="form-check">
-				<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-				<label class="form-check-label" for="gridRadios1">
-				Metric System of Measurement: (Square) meters, kilometers, etc. 
-				</label>
-				</div>
-				<div class="form-check">
-				<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-				<label class="form-check-label" for="gridRadios2">
-				Imperial System of Measurement (USA centric): foot, mile
-				</label>
-				</div>
-				</div>
-				</div>
+					<div class="row">
+						<legend class="col-form-label col-sm-2 pt-0">Units of area</legend>
+						<div class="col-sm-10">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+								<label class="form-check-label" for="gridRadios1">
+									Metric System of Measurement: (Square) meters, kilometers, etc. 
+								</label>
+							</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+								<label class="form-check-label" for="gridRadios2">
+									Imperial System of Measurement (USA centric): foot, mile
+								</label>
+							</div>
+						</div>
+					</div>
 				</fieldset>
 	        </div>
+
 	        <div class="row">
 				<form>
 					<div class="form-group">
