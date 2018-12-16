@@ -30,17 +30,27 @@ https://github.com/dmpe/django-wohn/issues/18
 						<h5>Change Email</h5>
 						<label for="inputEmail">Current Email</label>
 						<input type="text" readonly class="form-control" id="inputEmail" value="{{ user.email }}">
-
-						<input type="email" class="form-control" id="inputEmail">
+						
+						<label for="inputEmailNew">New Email</label>
+						<input type="email" class="form-control" id="inputEmailNew">
+						<button>Save</button>
 					</div>
+				</form>
+
+				<form>
 					<div class="form-group">
 						<h5>Change Username</h5>
 						<label for="inputUsername">Current Username</label>
 						<input type="text" readonly class="form-control" id="inputUsername" value="{{ user.get_username }}">
+
+						<label for="inputUsernameNew">New Username</label>
+						<input type="text" class="form-control" id="inputUsernameNew">
+						<button>Save</button>
 					</div>
 				</form>
+
 				<hr />
-				
+
 				<form>
 					<div class="form-group">
 						<h5>Change Password</h5>
@@ -70,6 +80,7 @@ https://github.com/dmpe/django-wohn/issues/18
 							</div>
 						</div>
 					</div>
+					<button>Save</button>
 				</form>
 				<!--
 		        <p>Change password</p>
