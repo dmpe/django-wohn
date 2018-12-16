@@ -17,16 +17,12 @@ class ContactForm(forms.Form):
 		('help_me', 'Help me with something')
 	)
 
-	inputName = forms.CharField(required=True, label = "Name", 
-		max_length = 30)
-	inputEmail = forms.EmailField(label = "Email", required=True, 
-		widget=forms.EmailInput())
-	inputSubject = forms.ChoiceField(label = "Message deals with...", required=True, 
-		choices=SubjectHeadlineChoice)
+	inputName = forms.CharField(required=True, label = "Name", max_length = 30)
+	inputEmail = forms.EmailField(label = "Email", required=True, widget=forms.EmailInput())
+	inputSubject = forms.ChoiceField(label = "Message deals with...", required=True, choices=SubjectHeadlineChoice)
 	# we can have more than 255 chars in the message, hence TextField
 	# and not CharField
-	inputText = forms.CharField(label = "Your message is about....", widget = forms.Textarea, 
-		required=True)
+	inputText = forms.CharField(label = "Your message is about....", widget = forms.Textarea, required=True)
 
 
 

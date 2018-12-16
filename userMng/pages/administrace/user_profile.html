@@ -12,27 +12,26 @@
 {% block content %}
 <div class="container-fluid">
 
-	<script type="text/javascript">
-	
-	</script>
-<!-- https://github.com/mfogel/django-timezone-field
-https://github.com/dmpe/django-wohn/issues/18 -->
+<!-- 
+https://github.com/mfogel/django-timezone-field
+https://github.com/dmpe/django-wohn/issues/18 
+-->
 	<div class="row">
         {% include 'nav_sidebar.html' %}
 
 	    <div class="col-md-9 col-lg-9 col-xl-10 pt-5">
 	    	<div class="row">
-	        	<div class="col-xl-3 col-sm-6 m-2 p-2">
+	        	<div class="col-xl-3 col-sm-6">
 			        <img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded">
 		        </div>
 
-		        <div class="form-group row">
-		        	<h5>Change Email</h5>
-		        	<br>
-    				<label for="staticEmail" class="col-sm-2 col-form-label">Current Email</label>
-  					<input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-		        </div>
-
+				<form>
+					<div class="form-group row">
+						<h5>Change Email</h5>
+						<label for="staticEmail" class="col-sm-2 col-form-label">Current Email</label>
+						<input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ user.email }}">
+					</div>
+				</form>
 		        <!--<p>Change username</p>
 		        <p>Change email</p>
 		        <p>Change password</p>

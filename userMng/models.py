@@ -10,10 +10,8 @@ from timezone_field import TimeZoneField
 # store users phone number
 from phonenumber_field.modelfields import PhoneNumberField
 
-
 class MyUserManager(UserManager):
     pass
-
 
 class myUser(AbstractUser):
 	# email, username, first and last name are unnecessary
@@ -23,7 +21,6 @@ class myUser(AbstractUser):
 	
 	class Meta:
 		unique_together = (("email"),)
-
 
 class UserMessage(models.Model):
 	"""
