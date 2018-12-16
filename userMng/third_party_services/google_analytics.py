@@ -1,5 +1,7 @@
 from googleapiclient.discovery import *
 from oauth2client.service_account import *
+from google.oauth2 import *
+from google.auth.transport.requests import *
 import os
 
 class Google_Analytics:
@@ -21,13 +23,16 @@ class Google_Analytics:
 		"""
 		SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
 		KEY_FILE_LOCATION = 'client_secrets.json'
-		fl = os.path.abspath(os.path.join(os.path.dirname(__file__),KEY_FILE_LOCATION))
-		print(fl)
+		fl = os.path.abspath(os.path.join(os.path.dirname(__file__), KEY_FILE_LOCATION))
 		
-		credentials = ServiceAccountCredentials.from_json_keyfile_name(fl, self.SCOPES)
+		credentials = service_account.Credentials.from_service_account_file(fl)
+		scoped_credentials = credentials.with_scope(SCOPES)
+		authed_session = AuthorizedSession(scoped_credentials)
+		print(authed_session)
+		# credentials = ServiceAccountCredentials.from_json_keyfile_name(fl, self.SCOPES)
 	
 		# Build the service object.
-		analytics = build('analyticsreporting', 'v4', credentials=credentials)
+		analytics = build('analyticsreporting', 'v4', credentials=scoped_credentials)
 	
 		return analytics
 		
