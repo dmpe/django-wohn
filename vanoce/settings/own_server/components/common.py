@@ -236,7 +236,7 @@ STATICFILES_DIRS = [
 PHONENUMBER_DB_FORMAT = 'E164'
 
 LOGIN_URL = 'login' # where is login page
-LOGIN_REDIRECT_URL = '/administrace/'
+# LOGIN_REDIRECT_URL = 'userMng_index'
 
 LOGOUT_REDIRECT_URL = 'homepage'
 
@@ -251,10 +251,10 @@ SOCIAL_AUTH_FACEBOOK_KEY = client.get_secret("https://b40.vault.azure.net/", "SO
 SOCIAL_AUTH_FACEBOOK_SECRET = client.get_secret("https://b40.vault.azure.net/", "SOCIAL-AUTH-FACEBOOK-SECRET", "f439106e5d77442b8607165cf61cf260").value
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '3.1'
 
-SOCIAL_AUTH_LOGIN_URL = '/administrace/' # not same as LOGIN_URL !
-SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/administrace/' # keep it dry
+SOCIAL_AUTH_LOGIN_URL = 'userMng_index' # not same as LOGIN_URL !
+SOCIAL_AUTH_NEW_USER_REDIRECT_URL = 'user_profile' # keep it dry
 SOCIAL_AUTH_LOGIN_ERROR_URL = '404'
-SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 'user_first_name', 'user_last_name', 'user_email', 'user_int_tel']
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 'user_first_name', 'user_last_name', 'user_email', 'user_int_tel', 'country']
 
 SITE_ID = 1
 
