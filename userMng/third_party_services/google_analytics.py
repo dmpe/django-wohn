@@ -25,7 +25,7 @@ class Google_Analytics:
 		fl = os.path.abspath(os.path.join(os.path.dirname(__file__), KEY_FILE_LOCATION))
 		
 		ga_credentials = service_account.Credentials.from_service_account_file(fl)
-		scoped_credentials = ga_credentials.with_scope(SCOPES)
+		scoped_credentials = ga_credentials.with_scopes(SCOPES)
 		authed_session = AuthorizedSession(scoped_credentials)
 		print(authed_session)
 		# credentials = ServiceAccountCredentials.from_json_keyfile_name(fl, self.SCOPES)
