@@ -33,8 +33,3 @@ class FeedbackForm(forms.Form):
 	"""docstring for ResetFormStepOne
 	"""
 	inputFeedback = forms.CharField(widget = forms.Textarea)
-
-class Change_UserName(forms.Form):
-	"""docstring for ClassName
-	"""
-	inputUsername = forms.CharField(max_length = 30)
