@@ -9,10 +9,6 @@ class Google_Analytics:
 	https://developers.google.com/analytics/devguides/reporting/core/dimsmets
 	https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py
 	"""
-	SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
-	KEY_FILE_LOCATION = 'client_secrets.json'
-	VIEW_ID = '181239651'
-	
 	def initialize_analyticsreporting(self):
 		"""
 		Initializes an Analytics Reporting API V4 service object.
@@ -22,6 +18,7 @@ class Google_Analytics:
 		"""
 		SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
 		KEY_FILE_LOCATION = 'client_secrets.json'
+		
 		fl = os.path.abspath(os.path.join(os.path.dirname(__file__), KEY_FILE_LOCATION))
 		
 		ga_credentials = service_account.Credentials.from_service_account_file(fl)
@@ -49,7 +46,7 @@ class Google_Analytics:
 				body={
 					'reportRequests': [
 					{
-						'viewId': self.VIEW_ID,
+						'viewId': VIEW_ID,
 						'dateRanges': [{'startDate': '7daysAgo', 'endDate': 'today'}],
 						'metrics': [{'expression': 'ga:sessions', "expression":"ga:pageviews"}],
 						'dimensions': [{'name': 'ga:country', "name":"ga:browser"}]
@@ -86,18 +83,11 @@ class Google_Analytics:
 						google_analytics_dimensions_metrics_dict[metricHeader.get('name')] = value
 						print(metricHeader.get('name') + ': ' + value)
 						
-		print(google_analytics_dimensions_metrics_dict)
 		return google_analytics_dimensions_metrics_dict
 	
 	def main(self):
 		analytics = initialize_analyticsreporting()
 		response = get_report(analytics)
 		print_response(response)
-	
-# if __name__ == '__main__':
-# 	gh = Google_Analytics()
-# 	analytics = gh.initialize_analyticsreporting()
-# 	response = gh.get_report(analytics)
-# 	gh.print_response(response)
 
 

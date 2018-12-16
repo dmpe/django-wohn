@@ -34,3 +34,7 @@ class FeedbackForm(forms.Form):
 	"""
 	inputFeedback = forms.CharField(widget = forms.Textarea)
 
+class Change_UserName(forms.Form):
+	"""docstring for ClassName
+	"""
+	inputUsername = forms.CharField(max_length = 30)
