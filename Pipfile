@@ -37,5 +37,5 @@ django-timezone-field="*"
 pint="*"
 google-api-python-client="*"
 googleapis-common-protos="*"
-
+django-countries="*"
 [dev-packages]

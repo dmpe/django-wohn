@@ -12,6 +12,7 @@ django-widget-tweaks
 django-crispy-forms
 django-markdownx
 django-timezone-field
+django-countries
 google-api-python-client
 googleapis-common-protos
 git+git://github.com/python-social-auth/social-core.git#egg=elasticutils
