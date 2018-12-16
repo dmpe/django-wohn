@@ -1,8 +1,7 @@
 from googleapiclient.discovery import *
-from google.oauth2 import *
+from google.oauth2 import service_account
 from google.auth.transport.requests import *
 import os
-# from oauth2client.service_account import *
 
 class Google_Analytics:
 	"""
