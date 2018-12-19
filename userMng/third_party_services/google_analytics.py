@@ -2,6 +2,9 @@ from googleapiclient.discovery import *
 from google.oauth2 import service_account
 from google.auth.transport.requests import *
 import os
+import logging
+
+logger = logging.getLogger(__name__)
 
 class Google_Analytics:
 	"""
@@ -19,7 +22,10 @@ class Google_Analytics:
 		SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
 		KEY_FILE_LOCATION = 'client_secrets.json'
 		
-		fl = os.path.abspath(os.path.join(os.path.dirname(__file__), KEY_FILE_LOCATION))
+		try:
+			fl = os.path.abspath(os.path.join(os.path.dirname(__file__), KEY_FILE_LOCATION))
+		except :
+			logger.exception("clients_secrets.json not found on the server")
 		
 		ga_credentials = service_account.Credentials.from_service_account_file(fl)
 		scoped_credentials = ga_credentials.with_scopes(SCOPES)
@@ -29,7 +35,6 @@ class Google_Analytics:
 		analytics = build('analyticsreporting', 'v4', credentials=scoped_credentials, cache_discovery=False)
 	
 		return analytics
-		
 		
 	def get_report(self, analytics):
 		"""

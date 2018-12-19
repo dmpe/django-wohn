@@ -1,5 +1,5 @@
 from __future__ import absolute_import, unicode_literals
-# because it must occur there at the beginning
+# because it must be located at the beginning of the file
 
 # to save forex data in the python's pickle 
 import pickle
@@ -39,6 +39,7 @@ def parse_forex_data(*init, **kwargs):
 	"""
 	# {EUR, USD} <> CZK
 	csob_forex = "https://www.csob.cz/portal/lide/kurzovni-listek/-/date/kurzy.txt"
+	
 	data = pd.read_csv(csob_forex, delimiter = ";", skiprows=3, encoding="utf-8", thousands='.', decimal=',')
 	data = data.rename({"Měna": 'currency', "Střed.1":'exchange_rate_czk'}, axis='columns')
 	
@@ -53,30 +54,28 @@ def parse_forex_data(*init, **kwargs):
 	ecb = Request('ECB')
 
 	try:
-		exr_flow = ecb.data(resource_id = 'EXR', 
-			key={'CURRENCY': 'USD'}, 
-			params = {'startPeriod': str(current_date.year)})
+		exr_flow = ecb.data(resource_id = 'EXR', key={'CURRENCY': 'USD'}, params = {'startPeriod': str(current_date.year)})
 		daily = (s for s in exr_flow.data.series if s.key.FREQ == 'D')
 
-		# write to pandas dataset
+		# write to pandas dataset, first the the top
 		cur_df = exr_flow.write(daily)
 		Oneeur_usd = np.array(cur_df.iloc[[-1]]).item(0)
-
-	# server maintanance - e.g. error 500
+		
 	except SDMXException as e:
+		# server maintanance - e.g. error 500
 		print(e)
 		logger.WARNING(e)
 	
 	if (Oneeur_usd is not None):
 		# selected 
 		exchange_dict = {
-			#'date': current_date,
+			# 'date': current_date,
 			'1eur_czk': Oneeur_czk,
 			'1usd_czk': Oneusd_czk,
 			'1eur_usd': Oneeur_usd
 		}
 
-		#Pickling to file system
+		# Pickling to file system
 		cur_list = [(k,v) for k,v in exchange_dict.items()]
 		with open("currency_list_pickle", "wb") as fp:   
 			pickle.dump(cur_list, fp)
