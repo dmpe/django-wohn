@@ -136,6 +136,7 @@ https://github.com/dmpe/django-wohn/issues/18
 				</div>
 			</form>			
 			
+			{% get_current_timezone as TIME_ZONE %}
 			<form>
 				<div class="input-group ">
 					<h5>Change your timezone</h5>
@@ -144,8 +145,7 @@ https://github.com/dmpe/django-wohn/issues/18
 						<label for="inputTimezones" class="input-group-text">Current timezone</label>
 					</div>
 					
-					{% get_current_timezone as TIME_ZONE %}
-					<select class="custom-select" id="inputTimezones">
+					<select class="custom-select" id="inputTimezones" name="timezone">
 						{% for tz in timezones %}
 						<option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
 						{% endfor %}
