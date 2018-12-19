@@ -14,6 +14,7 @@
 {% load crispy_forms_tags %}
 {% load widget_tweaks %}
 {% load countries %}
+{% load tz %}
 
 {% block content %}
 <div class="container-fluid">
@@ -33,6 +34,7 @@ https://github.com/dmpe/django-wohn/issues/18
 
 		        <div class="col-md-6 col-sm-6">
 					<form>
+						{% csrf_token %}
 						<div class="form-group">
 							<h5>Change Email</h5>
 							<label for="inputEmail">Current Email</label>
@@ -45,6 +47,7 @@ https://github.com/dmpe/django-wohn/issues/18
 					</form>
 
 					<form>
+						{% csrf_token %}
 						<div class="form-group">
 							<h5>Change Username</h5>
 							<label for="inputUsername">Current Username</label>
@@ -83,6 +86,7 @@ https://github.com/dmpe/django-wohn/issues/18
 	        </div>
 
 			<form>
+				{% csrf_token %}
 				<div class="form-group">
 					<h5>Change Password</h5>
 					<div class="form-group spacing">
@@ -115,22 +119,40 @@ https://github.com/dmpe/django-wohn/issues/18
 			</form>
 			
 			<form>
-				<div class="input-group">
+				<div class="input-group ">
 					<h5>Change your country</h5>
+					
 					<div class="input-group-prepend">
 						<label for="inputCountries" class="input-group-text">Current country</label>
 					</div>
+					
 					{% get_countries as countries %}
 					<select class="custom-select" id="inputCountries">
 						{% for country in countries %}
-						<option value="{{ country.code}}">{{ country.code }}</option>
+						<option value="{{ country.code }}">{{ country.name }}</option>
 						{% endfor %}
 					</select>
 					<button>Save</button>
 				</div>
 			</form>			
 			
-			
+			<form>
+				<div class="input-group ">
+					<h5>Change your timezone</h5>
+					
+					<div class="input-group-prepend">
+						<label for="inputTimezones" class="input-group-text">Current timezone</label>
+					</div>
+					
+					{% get_current_timezones as TIME_ZONE %}
+					<select class="custom-select" id="inputTimezones">
+						{% for tz in timezones %}
+						<option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
+						{% endfor %}
+					</select>
+					<button>Save</button>
+				</div>
+			</form>				
 			
 	    </div>
 	</div>
