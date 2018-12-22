@@ -38,4 +38,5 @@ pint="*"
 google-api-python-client="*"
 googleapis-common-protos="*"
 django-countries="*"
+django_extensions="*"
 [dev-packages]
