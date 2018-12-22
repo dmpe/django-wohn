@@ -27,27 +27,25 @@ https://github.com/dmpe/django-wohn/issues/18
         {% include 'nav_sidebar.html' %}
 
 	    <div class="col-md-9 col-lg-9 col-xl-10 pt-5">
-			<form>
-			{% csrf_token %}
-		    	<div class="row">
-		        	<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 pr-2">
-				        <img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded" style="width:250px;height: 250px;">
-			        </div>
-			        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 pr-2">
-						<form>
-						{% csrf_token %}
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text">First and last name</span>
-								</div>
-								<input type="text" aria-label="First name" class="form-control" value="">
-								<input type="text" aria-label="Last name" class="form-control" value="">
-							</div>
-						</form>
-					</div>
-				</div>				
+			<div class="row">
+				<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 pr-2">
+			        <img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded" style="width:250px;height: 250px;">
+			    </div>
+			</div>
 
-				<div class="row">
+		    <div class="row">
+				<form>
+				{% csrf_token %}
+			        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 pr-2">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">First and last name</span>
+							</div>
+							<input type="text" aria-label="First name" class="form-control" value="">
+							<input type="text" aria-label="Last name" class="form-control" value="">
+						</div>
+					</div>
+
 					<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 						<fieldset class="form-group">
 							<div class="row">
@@ -86,67 +84,13 @@ https://github.com/dmpe/django-wohn/issues/18
 					</div>
 				</div>
 			</form>						
-			
+		
 
 
 
 
 
-				<div class="row">
-					<div class="col-md-6 col-lg-6 col-xl-6">
-						<form>
-							{% csrf_token %}
-							<div class="form-group">
-								<label for="inputUsername">Your Username</label>
-								<input type="text" class="form-control" id="inputUsername" value="{{ user.get_username }}">
-								<button>Save</button>
-							</div>
-						</form>
-					</div>
-					<div class="col-md-6 col-lg-6 col-xl-6">
-						<form>
-							{% csrf_token %}
-							<div class="form-group">
-								<label for="inputEmail">Your Email</label>
-								<input type="email" class="form-control" id="inputEmail" value="{{ user.email }}">
-								<button>Save</button>
-							</div>
-						</form>
-					</div>
-					<div class="col-md-6 col-lg-6 col-xl-6">
-						<form>
-						{% csrf_token %}
-							<div class="form-group">
-								<h5>Change Password</h5>
-								<div class="form-group spacing">
-									<div class="input-group">
-										<input class="form-control" type="password" id="inputNewPassword" name="inputNewPassword" nameclass="form-control" placeholder="New password" required autofocus>
-										<div class="input-group-append mr-1">
-											<span class="input-group-text" id="inputGroupAppend">
-												<button class="fa-eye resetIconStylesEYE" id="buttonEYE2" aria-hidden="true" type="button">
-													<i class="fas fa-eye fa-lg"></i>
-												</button>
-											</span>
-										</div>
-										<label class="sr-only" for="inputNewPassword">New password</label>
-									</div>
-								</div>
-								<div class="form-group spacing">
-									<div class="input-group">
-										<input class="form-control" type="password" id="inputConfirmNewPassword" name="inputConfirmNewPassword" placeholder="Confirm new password" required autofocus>
-										<div class="input-group-append mr-1">
-											<span class="input-group-text" id="inputGroupAppend">
-												<button class="fa-eye resetIconStylesEYE" id="buttonEYE3" aria-hidden="true" type="button">
-													<i class="fas fa-eye fa-lg"></i></button>
-											</span>
-										</div>
-										<label class="sr-only" for="inputConfirmNewPassword">Confirm new password</label>
-									</div>
-								</div>
-							</div>
-							<button>Save</button>
-						</form>
-					</div>
+				
 				<!--
 		        <p>Change currency, because default is CZK</p>
 		        <p>Change mt^2 to sq. foot</p> -->
