@@ -34,7 +34,7 @@ https://github.com/dmpe/django-wohn/issues/18
 	        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-9 ">
 				<form>
 				{% csrf_token %}
-					<div class="input-group">
+					<div class="input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text">First and last name</span>
 						</div>
@@ -44,7 +44,7 @@ https://github.com/dmpe/django-wohn/issues/18
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+							<span class="input-group-text" id="inputGroup-sizing-default">Telephone</span>
 						</div>
 						<input type="phone" class="form-control" class="form-control" value="{{ user.user_int_tel }}">
 					</div>
@@ -82,11 +82,11 @@ https://github.com/dmpe/django-wohn/issues/18
 					{% get_current_timezone as TIME_ZONE %}
 					<div class="input-group ">						
 						<div class="input-group-prepend">
-							<label for="inputTimezones" class="input-group-text">Timezone for the website interface/GUI</label>
+							<label for="inputTimezones" class="input-group-text">Website's timezone</label>
 						</div>
 						<select class="custom-select" id="inputTimezones" name="timezone">
 							{% for tz in pytz.common_timezones %}
-								<option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
+								<option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ user.user_timezone }}</option>
 							{% endfor %}
 						</select>
 					</div>
