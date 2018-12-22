@@ -86,7 +86,7 @@ https://github.com/dmpe/django-wohn/issues/18
 						</div>
 						<select class="custom-select" id="inputTimezones" name="timezone">
 							{% for tz in pytz.common_timezones %}
-								<option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ user.user_timezone }}</option>
+								<option value="{{ user.user_timezone }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ user.user_timezone }}</option>
 							{% endfor %}
 						</select>
 					</div>
