@@ -13,7 +13,7 @@ class Property(models.Model):
 	
 	# Characteristics for each house and apartment
 	property_rooms = models.IntegerField()
-	# calculate square foot on the fly, via pint
+	# do not delete because part of US/Metric if else switch
 	property_size_in_sq_meters = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True)
 	property_size_in_sq_foot = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True) 
 	# used for calculated prices, same principle
