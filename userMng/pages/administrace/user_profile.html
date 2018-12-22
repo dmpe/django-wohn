@@ -38,8 +38,15 @@ https://github.com/dmpe/django-wohn/issues/18
 						<div class="input-group-prepend">
 							<span class="input-group-text">First and last name</span>
 						</div>
-						<input type="text" aria-label="First name" class="form-control" value="">
-						<input type="text" aria-label="Last name" class="form-control" value="">
+						<input type="text" aria-label="First name" class="form-control" value="{{ user.first_name }}">
+						<input type="text" aria-label="Last name" class="form-control" value="{{ user.last_name }}">
+					</div>
+
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+						</div>
+						<input type="phone" class="form-control" class="form-control" value="{{ user.user_int_tel }}">
 					</div>
 
 					<fieldset class="form-group">
@@ -63,16 +70,25 @@ https://github.com/dmpe/django-wohn/issues/18
 					</fieldset>
 					<div class="input-group">						
 						<div class="input-group-prepend">
-							<label for="inputCountries" class="input-group-text">Current country</label>
+							<label for="inputCountries" class="input-group-text">Your country</label>
 						</div>
-						
 						{% get_countries as countries %}
 						<select class="custom-select" id="inputCountries">
 							{% for country in countries %}
 								<option value="{{ country.code }}">{{ country.name }}</option>
 							{% endfor %}
 						</select>
-						<button>Save</button>
+					</div>
+					{% get_current_timezone as TIME_ZONE %}
+					<div class="input-group ">						
+						<div class="input-group-prepend">
+							<label for="inputTimezones" class="input-group-text">Timezone for the website interface/GUI</label>
+						</div>
+						<select class="custom-select" id="inputTimezones" name="timezone">
+							{% for tz in pytz.common_timezones %}
+								<option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
+							{% endfor %}
+						</select>
 					</div>
 				</form>						
 			
