@@ -69,8 +69,7 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_BEAT_SCHEDULE = {
     'parse_forex_data': {
         'task': 'userMng.tasks.parse_forex_data',
-        'schedule': crontab(minute=13, hour=13, 
-            day_of_month = '*', day_of_week =1, month_of_year = '1-12')
+        'schedule': crontab(minute=13, hour=13, day_of_month = '*', day_of_week = 1, month_of_year = '1-12')
     }
 }
 

@@ -7,7 +7,7 @@ class Property(models.Model):
 	Define each apartment, 1-to-n with Users
 	unit conversion --> https://pint.readthedocs.io/en/latest/
 	"""
-	property_created = models.DateTimeField(auto_now_add=True) # will not display
+	property_created = models.DateTimeField(auto_now_add = True) # will not display
 
 	property_offered_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	

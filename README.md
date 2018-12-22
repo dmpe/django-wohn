@@ -70,7 +70,9 @@ Execute on remote server following commands whenever models change.
 
 **Onelines**
 
-```python3 manage.py makemigrations core && python3 manage.py makemigrations userMng && python3 manage.py migrate && sudo systemctl restart gunicorn.service ```
+```
+python3 manage.py makemigrations core && python3 manage.py makemigrations userMng && python3 manage.py migrate && sudo systemctl restart gunicorn.service 
+```
 
 **Common issues:**
 
@@ -94,7 +96,17 @@ sudo certbot --nginx certonly
 
 - Nginx 502 gateway issue after VM reboot
 
-2. Just **restart** nginx, then `gunicorn.service` as well as stop that socket thing
+Just **restart** nginx, then `gunicorn.service` as well as stop that socket thing
+
+- Create **ER** Diagramms
+
+<https://django-extensions.readthedocs.io/en/latest/graph_models.html>
+
+![amazing_server_configuration/my_project_visualized.png](amazing_server_configuration/my_project_visualized.png)
+
+```
+python3 manage.py graph_models -a -g -o amazing_server_configuration/my_project_visualized.png
+```
 
 ### 1.6 Run Celery
 
@@ -122,3 +134,4 @@ Idea source:
 - <https://stackoverflow.com/a/40790734>
 - <https://stackoverflow.com/a/50309967>
 - Git post-recieve hook: <https://gist.github.com/lemiorhan/8912188>
+[]: 
