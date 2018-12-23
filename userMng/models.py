@@ -19,6 +19,7 @@ class myUser(AbstractUser):
 	GENDER_CHOICES = (
 		('M', 'Mr.'),
 		('F', 'Mrs. or Miss'),
+		('O', 'Other or prefer not to say')
 	)
 	user_gender = models.CharField(max_length=1, choices = GENDER_CHOICES, null = True)
 	user_int_tel = PhoneNumberField(blank=True, null=True)
