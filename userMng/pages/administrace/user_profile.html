@@ -34,19 +34,19 @@ https://github.com/dmpe/django-wohn/issues/18
 	        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-9 ">
 				<form>
 				{% csrf_token %}
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text">First and last name</span>
+					<div class="form-row mb-3">
+						<div class="col">
+							<input type="text" aria-label="First name" class="form-control" value="{{ user.first_name }}">
 						</div>
-						<input type="text" aria-label="First name" class="form-control" value="{{ user.first_name }}">
-						<input type="text" aria-label="Last name" class="form-control" value="{{ user.last_name }}">
+						<div class="col">
+							<input type="text" aria-label="Last name" class="form-control" value="{{ user.last_name }}">
+						</div>
 					</div>
 
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-default">Telephone</span>
+					<div class="form-row mb-3">
+						<div class="col">
+							<input type="phone" class="form-control" class="form-control" placeholder="Telephone" value="{{ user.user_int_tel }}">
 						</div>
-						<input type="phone" class="form-control" class="form-control" value="{{ user.user_int_tel }}">
 					</div>
 
 					<fieldset class="form-group">
