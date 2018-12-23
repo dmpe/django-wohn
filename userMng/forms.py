@@ -1,5 +1,6 @@
 from django import forms
 from django.db import *
+from django.urls import *
 
 # create a form for our myUser model, for user settings in profile administration
 from .models import myUser
@@ -41,7 +42,8 @@ class UserProfileForm(forms.ModelForm, RegisterForm):
 	"""
 	class Meta:
 		model = myUser
-		fields = ['user_gender', 'user_int_tel', 'user_timezone', 'country', 
-			'user_units_system', 'inputUsername', 'inputEmail', 'inputNewPassword', 
-			'inputConfirmNewPassword']
+		fields = ['user_gender', 'user.firstname', 'user.lastname', 
+			'user_units_system', 'user_timezone', 'country', 
+			'user_int_tel', 'inputUsername', 'inputEmail', 
+			'inputNewPassword', 'inputConfirmNewPassword']
 			
