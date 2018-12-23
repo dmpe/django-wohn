@@ -35,18 +35,15 @@ https://github.com/dmpe/django-wohn/issues/18
 				<form>
 				{% csrf_token %}					
 					<div class="form-row mb-3">
-						<div class="col">
-							<label class="mr-2 sr-only" for="inlineFormGenderSelect">Select your gender</label>
-							<div class="input-group-prepend">
-								<div class="input-group-text">Gender</div>
-							</div>						
-						</div>		
-							<select id="inlineFormGenderSelect">
-								<option name="gridRadios" id="gridRadiosMale" value="M" selected>Male</option>
-								<option name="gridRadios" id="gridRadiosFemale" value="F">Female</option>
-								<option name="gridRadios" id="gridRadiosOther" value="O">Other</option>
-							</select>
-						
+						<label class="mr-2 sr-only" for="inlineFormGenderSelect">Select your gender</label>
+						<div class="input-group-prepend">
+							<div class="input-group-text">Gender</div>
+						</div>							
+						<select id="inlineFormGenderSelect">
+							<option name="gridRadios" id="gridRadiosMale" value="M" selected>Male</option>
+							<option name="gridRadios" id="gridRadiosFemale" value="F">Female</option>
+							<option name="gridRadios" id="gridRadiosOther" value="O">Other</option>
+						</select>
 						<div class="col">
 							<input type="text" aria-label="First name" class="form-control" value="{{ user.first_name }}">
 						</div>
@@ -61,25 +58,16 @@ https://github.com/dmpe/django-wohn/issues/18
 						</div>
 					</div>
 
-					<fieldset class="form-group">
-						<div class="row">
-							<legend class="col-form-label col-sm-2 pt-0">System of units</legend>
-							<div class="col-sm-12">
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="imperial">
-									<label class="form-check-label" for="gridRadios2">
-										Imperial (USA centric)
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="metric" checked>
-									<label class="form-check-label" for="gridRadios1">
-										Metric (Rest of the World)
-									</label>
-								</div>
-							</div>
-						</div>
-					</fieldset>
+					<div class="form-row mb-3">
+						<label class="mr-2 sr-only" for="inlineFormUnitsSystemSelect">Select your system of units</label>
+						<div class="input-group-prepend">
+							<div class="input-group-text">System of units</div>
+						</div>							
+						<select id="inlineFormUnitsSystemSelect">
+							<option name="gridRadios" id="gridRadiosMale" value="Imperial">Imperial (USA centric)</option>
+							<option name="gridRadios" id="gridRadiosFemale" value="Metric" selected>Metric (Rest of the World)</option>
+						</select>
+					</div>
 
 					<div class="input-group mb-3">						
 						<div class="input-group-prepend">

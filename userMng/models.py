@@ -22,9 +22,16 @@ class myUser(AbstractUser):
 		('O', 'Other or prefer not to say')
 	)
 	user_gender = models.CharField(max_length=1, choices = GENDER_CHOICES, null = True)
-	user_int_tel = PhoneNumberField(blank=True, null=True)
-	user_timezone = TimeZoneField(default=settings.TIME_ZONE)
-	country = CountryField(blank=True)
+	user_int_tel = PhoneNumberField(blank = True, null = True)
+	user_timezone = TimeZoneField(default = settings.TIME_ZONE)
+	country = CountryField(blank = True)
+	
+	UNITS_SYSTEM = (
+		('Imperial', 'Imperial'),
+		('Metric', 'Metric'),
+	)
+	user_units_system = models.CharField(max_length=10, choices = UNITS_SYSTEM, null = True, default = "Metric")
+
 	objects = MyUserManager()
 	
 	class Meta:
