@@ -43,6 +43,19 @@ class UserProfileForm(forms.ModelForm, RegisterForm):
 	"""
 	for user profile settings
 	"""
+	def __init__(self, *args, **kwargs):
+		super(UserProfileForm, self).__init__(*args, **kwargs)
+		self.fields['user_gender'].label = "Select your gender"
+		self.fields['first_name'].label = "First Name"
+		self.fields['last_name'].label = "Last Name"
+		self.fields['user_units_system'].label = "Imperial (USA) or Metric (Rest of the World) system of units"
+		self.fields['user_timezone'].label = "Timezone"
+		self.fields['country'].label = "Country"
+		self.fields['user_int_tel'].label = "Phone number"
+		self.fields['inputUsername'].label = "Username"
+		self.fields['inputEmail'].label = "Email"
+		self.fields['inputNewPassword'].label = "New Password"
+		self.fields['inputConfirmNewPassword'].label = "Confirm new password"
 
 	class Meta:
 		model = myUser

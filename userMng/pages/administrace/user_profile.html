@@ -39,33 +39,33 @@ https://github.com/dmpe/django-wohn/issues/18
 					{{ form.source | crispy }}
 
 					<div class="form-row">
-						<div class="form-group col-md-12 col-sm-5">
+						<div class="form-group col-md-3">
 							{{ form.user_gender.label_tag  }}
 							{{ form.user_gender.errors  }}
 							{{ form.user_gender |add_class:"form-control"}}
 						</div>
-						<div class="form-group col-md-12 col-sm-5">
+						<div class="form-group col-md-3 col-sm-5">
 							{{ form.user.firstname.label_tag  }}
 							{{ form.user.firstname.errors  }}
 							{{ form.user.firstname |add_class:"form-control"}}
 						</div>
-						<div class="form-group col-md-12 col-sm-5">
+						<div class="form-group col-md-3 col-sm-5">
 							{{ form.user.lastname.label_tag  }}
 							{{ form.user.lastname.errors  }}
 							{{ form.user.lastname |add_class:"form-control"}}
 						</div>
-						<div class="form-group col-md-12 col-sm-5">
+						<div class="form-group col-md-3 col-sm-5">
 							{{ form.user_units_system.label_tag  }}
 							{{ form.user_units_system.errors  }}
 							{{ form.user_units_system |add_class:"form-control"}}
 						</div>								
-						<div class="form-group col-md-12 col-sm-5">
+						<div class="form-group col-md-3 col-sm-5">
 							{{ form.inputUsername.label_tag  }}
 							{{ form.inputUsername.errors  }}
 							{{ form.inputUsername |add_class:"form-control"}}
 						</div>
 
-						<div class="form-group col-md-12 col-sm-7">
+						<div class="form-group col-md-3 col-sm-7">
 							{{ form.inputEmail.label_tag  }}
 							{{ form.inputEmail.errors  }}
 							{{ form.inputEmail |add_class:"form-control"}}
