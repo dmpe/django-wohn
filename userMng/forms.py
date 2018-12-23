@@ -35,7 +35,7 @@ class FeedbackForm(forms.Form):
 	"""
 	inputFeedback = forms.CharField(widget = forms.Textarea)
 
-class UserProfileForm(RegisterForm, forms.ModelForm):
+class UserProfileForm(forms.ModelForm, RegisterForm):
 	"""
 	for user profile settings
 	"""
