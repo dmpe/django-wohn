@@ -34,6 +34,24 @@ https://github.com/dmpe/django-wohn/issues/18
 	        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-9 ">
 				<form>
 				{% csrf_token %}
+					
+					<fieldset class="form-group row">
+						<legend class="col-form-legend col-sm-2">Gender</legend>
+						<div class="col-sm-10">
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>Male
+								</label>
+								<label class="form-check-label">
+									<input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="option2">Female
+								</label>
+								<label class="form-check-label disabled">
+									<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>Other
+								</label>
+							</div>
+						</div>
+					</fieldset>
+
 					<div class="form-row mb-3">
 						<div class="col">
 							<input type="text" aria-label="First name" class="form-control" value="{{ user.first_name }}">
