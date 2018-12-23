@@ -218,6 +218,7 @@ USE_TZ = True
 
 COUNTRIES_FIRST = ["CZ", "SK"]
 COUNTRIES_FIRST_REPEAT = True
+COUNTRIES_FIRST_BREAK = "---------------"
 
 DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
 AZURE_EMULATED_MODE = True
