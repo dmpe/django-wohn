@@ -44,30 +44,12 @@ https://github.com/dmpe/django-wohn/issues/18
 							<option name="gridRadios" id="gridRadiosFemale" value="F">Female</option>
 							<option name="gridRadios" id="gridRadiosOther" value="O">Other</option>
 						</select>
-						<div class="">
+						<div class="col-md-4">
 							<input type="text" aria-label="First name" class="form-control" value="{{ user.first_name }}">
 						</div>
-						<div class="">
+						<div class="col-md-4">
 							<input type="text" aria-label="Last name" class="form-control" value="{{ user.last_name }}">
 						</div>
-					</div>
-
-					<div class="form-row mb-3">
-						<div class="">
-							<input type="phone" class="form-control" class="form-control" placeholder="Telephone" value="{{ user.user_int_tel }}">
-						</div>
-					</div>
-
-					<div class="input-group mb-3">						
-						<div class="input-group-prepend">
-							<label for="inputCountries" class="input-group-text">Your country</label>
-						</div>
-						{% get_countries as countries %}
-						<select class="custom-select" id="inputCountries">
-							{% for country in countries %}
-								<option value="{{ country.code }}">{{ country.name }}</option>
-							{% endfor %}
-						</select>
 					</div>
 
 					<div class="form-row mb-3">
@@ -80,6 +62,28 @@ https://github.com/dmpe/django-wohn/issues/18
 							<option name="gridRadios" id="gridRadiosFemale" value="Metric" selected>Metric (Rest of the World)</option>
 						</select>
 					</div>
+
+					<div class="form-row mb-3">						
+						<div class="input-group-prepend">
+							<label for="inputCountries" class="input-group-text">Your country</label>
+						</div>
+						{% get_countries as countries %}
+						<select class="custom-select" id="inputCountries">
+							{% for country in countries %}
+								<option value="{{ country.code }}">{{ country.name }}</option>
+							{% endfor %}
+						</select>
+					</div>
+
+					<div class="form-row mb-3">
+						<div class="col">
+							<input type="phone" class="form-control" class="form-control" placeholder="Telephone" value="{{ user.user_int_tel }}">
+						</div>
+					</div>
+
+
+
+
 
 
 
