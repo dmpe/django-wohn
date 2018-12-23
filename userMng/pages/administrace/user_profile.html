@@ -44,26 +44,27 @@ https://github.com/dmpe/django-wohn/issues/18
 							<option name="gridRadios" id="gridRadiosFemale" value="F">Female</option>
 							<option name="gridRadios" id="gridRadiosOther" value="O">Other</option>
 						</select>
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<input type="text" aria-label="First name" class="form-control" value="{{ user.first_name }}">
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<input type="text" aria-label="Last name" class="form-control" value="{{ user.last_name }}">
 						</div>
+						<div class="form-row mb-3">
+							<label class="mr-2 sr-only" for="inlineFormUnitsSystemSelect">Select your system of units</label>
+							<div class="input-group-prepend">
+								<div class="input-group-text">System of units</div>
+							</div>							
+							<select id="inlineFormUnitsSystemSelect">
+								<option name="gridRadios" id="gridRadiosMale" value="Imperial">Imperial (USA centric)</option>
+								<option name="gridRadios" id="gridRadiosFemale" value="Metric" selected>Metric (Rest of the World)</option>
+							</select>
+						</div>						
 					</div>
 
-					<div class="form-row mb-3">
-						<label class="mr-2 sr-only" for="inlineFormUnitsSystemSelect">Select your system of units</label>
-						<div class="input-group-prepend">
-							<div class="input-group-text">System of units</div>
-						</div>							
-						<select id="inlineFormUnitsSystemSelect">
-							<option name="gridRadios" id="gridRadiosMale" value="Imperial">Imperial (USA centric)</option>
-							<option name="gridRadios" id="gridRadiosFemale" value="Metric" selected>Metric (Rest of the World)</option>
-						</select>
-					</div>
 
-					<div class="form-row mb-3">						
+
+					<div class="input-group mb-3">						
 						<div class="input-group-prepend">
 							<label for="inputCountries" class="input-group-text">Your country</label>
 						</div>
