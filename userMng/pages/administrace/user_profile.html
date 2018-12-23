@@ -35,22 +35,20 @@ https://github.com/dmpe/django-wohn/issues/18
 				<form>
 				{% csrf_token %}
 					
-					<fieldset class="form-group row">
-						<legend class="col-form-legend col-md-3">Gender</legend>
-						<div class="col-md-9">
-							<div class="form-check">
-								<label class="form-check-label">
-									<input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadiosMale" value="male" checked>Male
-								</label>
-								<label class="form-check-label">
-									<input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadiosFemale" value="female">Female
-								</label>
-								<label class="form-check-label">
-									<input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosOther" value="other" disabled>Other
-								</label>
-							</div>
+					<div class="form-row">
+						<div class="form-check form-check-inline">
+							<label class="form-check-label" for="gridRadiosMale">Male</label>
+							<input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadiosMale" value="male">
 						</div>
-					</fieldset>
+						<div class="form-check form-check-inline">
+							<label class="form-check-label" for="gridRadiosFemale">Female</label>
+							<input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadiosFemale" value="female">
+						</div>
+						<div class="form-check form-check-inline">
+							<label class="form-check-label" for="gridRadiosOther">Other</label>
+							<input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosOther" value="other">
+						</div>
+					</div>
 
 					<div class="form-row mb-3">
 						<div class="col">
