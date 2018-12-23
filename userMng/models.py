@@ -20,7 +20,7 @@ class myUser(AbstractUser):
 		('M', 'Mr.'),
 		('F', 'Mrs. or Miss'),
 	)
-	user_gender = models.CharField(max_length=1, choices = GENDER_CHOICES)
+	user_gender = models.CharField(max_length=1, choices = GENDER_CHOICES, null = True)
 	user_int_tel = PhoneNumberField(blank=True, null=True)
 	user_timezone = TimeZoneField(default=settings.TIME_ZONE)
 	country = CountryField(blank=True)
