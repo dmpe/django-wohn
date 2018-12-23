@@ -63,17 +63,35 @@ https://github.com/dmpe/django-wohn/issues/18
 							</div>
 						</div>
 					</div>
-
-					<div class="input-group mb-3">						
-						<div class="input-group-prepend">
-							<label for="inputCountries" class="input-group-text">Your country</label>
+					
+					<div class="form-row">
+						<div class="col-md-6">
+							<div class="input-group mb-3">						
+								<div class="input-group-prepend">
+									<label for="inputCountries" class="input-group-text">Your country</label>
+								</div>
+								{% get_countries as countries %}
+								<select class="custom-select" id="inputCountries">
+									{% for country in countries %}
+										<option value="{{ country.code }}">{{ country.name }}</option>
+									{% endfor %}
+								</select>
+							</div>
 						</div>
-						{% get_countries as countries %}
-						<select class="custom-select" id="inputCountries">
-							{% for country in countries %}
-								<option value="{{ country.code }}">{{ country.name }}</option>
-							{% endfor %}
-						</select>
+
+						<div class="col-md-6">
+							{% get_current_timezone as TIME_ZONE %}
+							<div class="input-group mb-3">						
+								<div class="input-group-prepend">
+									<label for="inputTimezones" class="input-group-text">Website's timezone</label>
+								</div>
+								<select class="custom-select" id="inputTimezones" name="timezone">
+									{% for tz in pytz.common_timezones %}
+										<option value="{{ user.user_timezone }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ user.user_timezone }}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
 					</div>
 
 					<div class="form-row mb-3">
@@ -83,22 +101,6 @@ https://github.com/dmpe/django-wohn/issues/18
 					</div>
 
 
-
-
-
-
-
-					{% get_current_timezone as TIME_ZONE %}
-					<div class="input-group mb-3">						
-						<div class="input-group-prepend">
-							<label for="inputTimezones" class="input-group-text">Website's timezone</label>
-						</div>
-						<select class="custom-select" id="inputTimezones" name="timezone">
-							{% for tz in pytz.common_timezones %}
-								<option value="{{ user.user_timezone }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ user.user_timezone }}</option>
-							{% endfor %}
-						</select>
-					</div>
 				</form>						
 			
 
