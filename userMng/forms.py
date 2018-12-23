@@ -10,6 +10,10 @@ from crispy_forms.helper import *
 from crispy_forms.layout import *
 from crispy_forms.bootstrap import *
 
+
+# for countries
+from django_countries.widgets import *
+
 class RegisterForm(forms.Form):
 	"""docstring for RegisterForm
 	"""
@@ -43,7 +47,7 @@ class UserProfileForm(forms.ModelForm, RegisterForm):
 
 	COUNTRIES_FIRST = ["CZ", "SK"]
 	COUNTRIES_FIRST_REPEAT = True
-	
+
 	class Meta:
 		model = myUser
 		fields = ['user_gender', 'first_name', 'last_name', 
