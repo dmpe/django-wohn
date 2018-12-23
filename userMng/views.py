@@ -303,6 +303,7 @@ class LoginView(View):
 		username_email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
 		recap_token = request.POST.get('g-recaptcha-response', False)
+		logger.info("print recaptha token: ", recap_token)
 
 		if is_human(recap_token):
 			try:
