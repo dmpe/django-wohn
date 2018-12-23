@@ -47,10 +47,18 @@ https://github.com/dmpe/django-wohn/issues/18
 							</div>							
 						</div>
 						<div class="col-md-3">
-							<input type="text" aria-label="First name" class="form-control" value="{{ user.first_name }}">
+							<div class="input-group-prepend">
+								<div class="input-group-text">First</div>
+									<input type="text" aria-label="First name" class="form-control" value="{{ user.first_name }}">
+								</div>
+							</div>
 						</div>
 						<div class="col-md-3">
-							<input type="text" aria-label="Last name" class="form-control" value="{{ user.last_name }}">
+							<div class="input-group-prepend">
+								<div class="input-group-text">Last</div>							
+									<input type="text" aria-label="Last name" class="form-control" value="{{ user.last_name }}">
+								</div>
+							</div>
 						</div>
 						<div class="col-md-4">
 							<label class="mr-2 sr-only" for="inlineFormUnitsSystemSelect">Select your system of units</label>
