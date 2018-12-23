@@ -32,7 +32,7 @@ from core.views import *
 from .backends import EmailUserNameAuthBackend
 
 # for registration of users
-from .models import myUser
+from .models import *
 
 # forms from forms.py file
 from .forms import *
@@ -113,8 +113,8 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	def post(self, request):
 		"""call UserProfileForm
 		"""
-		form = UserProfileForm(request.POST)
-		return render(request, self.template_name, {"form": form })	
+		# form = UserProfileForm(request.POST)
+		return render(request, self.template_name)	
 	
 	def get(self, request):
 		"""by default the image is something from gravatar
