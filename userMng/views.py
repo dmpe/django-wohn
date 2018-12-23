@@ -113,7 +113,7 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	def post(self, request):
 		"""call UserProfileForm
 		"""
-		form = UserProfileForm()
+		form = UserProfileForm(request.POST)
 		return render(request, self.template_name, {"form": form })	
 	
 	def get(self, request):
