@@ -119,9 +119,10 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	def get(self, request):
 		"""by default the image is something from gravatar
 		"""
+		form = UserProfileForm()
 		gravatar_url = fetch_gravatar(request.user.email)
 		
-		return render(request, self.template_name, {"gravatar_url": gravatar_url})
+		return render(request, self.template_name, {"form": form, "gravatar_url": gravatar_url})
 		
 class UserProfileProperties(LoginRequiredMixin, View):
 	"""
@@ -302,7 +303,7 @@ class LoginView(View):
 		username_email = request.POST.get('inputEmail_Username', False)
 		user_password = request.POST.get('inputNewPassword', False)
 		recap_token = request.POST.get('g-recaptcha-response', False)
-		print(recap_token)
+		logger.INFO(recap_token)
 
 		if is_human(recap_token):
 			try:
