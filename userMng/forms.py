@@ -1,6 +1,5 @@
 from django import forms
 from django.db import *
-from django.forms import *
 
 # create a form for our myUser model, for user settings in profile administration
 from .models import myUser
@@ -36,7 +35,7 @@ class FeedbackForm(forms.Form):
 	"""
 	inputFeedback = forms.CharField(widget = forms.Textarea)
 
-class UserProfileForm(RegisterForm, ModelForm):
+class UserProfileForm(RegisterForm, forms.ModelForm):
 	"""
 	for user profile settings
 	"""
