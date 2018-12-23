@@ -1,7 +1,8 @@
 from django import forms
+from django.db import *
 
-# create a form for our myUser model
-#from .models import myUser
+# create a form for our myUser model, for user settings in profile administration
+from .models import myUser
 
 # add crispy imports for sending (helper)
 from crispy_forms.helper import *
@@ -33,3 +34,14 @@ class FeedbackForm(forms.Form):
 	"""docstring for ResetFormStepOne
 	"""
 	inputFeedback = forms.CharField(widget = forms.Textarea)
+
+class UserProfileForm(RegisterForm, ModelForm):
+	"""
+	for user profile settings
+	"""
+	class Meta:
+		model = myUser
+		fields = ['user_gender', 'user_int_tel', 'user_timezone', 'country', 
+			'user_units_system', 'inputUsername', 'inputEmail', 'inputNewPassword', 
+			'inputConfirmNewPassword']
+			
