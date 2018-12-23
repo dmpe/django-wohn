@@ -24,7 +24,7 @@ class myUser(AbstractUser):
 	user_gender = models.CharField(max_length=1, choices = GENDER_CHOICES, null = True)
 	user_int_tel = PhoneNumberField(blank = True, null = True)
 	user_timezone = TimeZoneField(default = settings.TIME_ZONE)
-	country = CountryField(blank = True)
+	country = CountryField(default = "CZ")
 	
 	UNITS_SYSTEM = (
 		('Imperial', 'Imperial'),
