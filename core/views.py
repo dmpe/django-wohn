@@ -114,3 +114,4 @@ class HomepageView(View):
 		#     return context
 
 		return render(request, self.template_name)
+

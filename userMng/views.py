@@ -111,9 +111,10 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	template_name = "user_profile.html"
 	
 	def post(self, request):
-		"""docstring for post
+		"""call UserProfileForm
 		"""
-		pass
+		form = UserProfileForm()
+		return render(request, self.template_name, {"form": form })	
 	
 	def get(self, request):
 		"""by default the image is something from gravatar
