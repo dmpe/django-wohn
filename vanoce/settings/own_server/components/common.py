@@ -216,6 +216,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+COUNTRIES_FIRST = ["CZ", "SK"]
+COUNTRIES_FIRST_REPEAT = True
+
 DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
 AZURE_EMULATED_MODE = True
 AZURE_ACCOUNT_NAME = "djangowohnreal1"
