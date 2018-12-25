@@ -65,5 +65,5 @@ class UserProfileForm(forms.ModelForm, RegisterForm):
 			'user_int_tel', 'inputUsername', 'inputEmail', 
 			'inputNewPassword', 'inputConfirmNewPassword']
 
-		widgets = {'country': CountrySelectWidget(layout="'<div class='input-group-prepend'><div class='input-group-text'>{widget}<img class="country-select-flag" id="{flag_id}" src="{country.flag}"></div></div>'")}
+		widgets = {'country': CountrySelectWidget(layout="<div class='input-group-prepend'><div class='input-group-text'>{widget}<img class='country-select-flag' id='{flag_id}' src='{country.flag}'></div></div>")}
 			
