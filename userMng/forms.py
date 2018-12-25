@@ -52,6 +52,7 @@ class UserProfileForm(forms.ModelForm, RegisterForm):
 		self.fields['user_timezone'].label = "Timezone"
 		self.fields['country'].label = "Country"
 		self.fields['user_int_tel'].label = "Phone number"
+		
 		self.fields['inputUsername'].label = "Username"
 		self.fields['inputEmail'].label = "Email"
 		self.fields['inputNewPassword'].label = "New Password"
