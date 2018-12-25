@@ -43,11 +43,6 @@ textarea {
 	color: red;
 }
 
-.radioAsButton input[type="radio"] {
-	-webkit-appearance: button;
-	-moz-appearance:    button;
-	appearance:         button;
-}
 /* 2. CSS on "individual" pages 
 //////////////////////
 Login page - Move google recaptha v3 badge up from the bottom footer
