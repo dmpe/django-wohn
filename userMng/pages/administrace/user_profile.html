@@ -79,12 +79,21 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.inputUsername.errors  }}
 							{{ form.inputUsername | add_class:"form-control"}}
 						</div>
-
 						<div class="form-group col-md-3 col-sm-5">
 							{{ form.inputEmail.label_tag  }}
 							{{ form.inputEmail.errors  }}
 							{{ form.inputEmail | add_class:"form-control"}}
 						</div>
+						<div class="form-group col-md-3 col-sm-5">
+							{{ form.inputNewPassword.label_tag  }}
+							{{ form.inputNewPassword.errors  }}
+							{{ form.inputNewPassword | add_class:"form-control"}}
+						</div>
+						<div class="form-group col-md-3 col-sm-5">
+							{{ form.inputConfirmNewPassword.label_tag  }}
+							{{ form.inputConfirmNewPassword.errors  }}
+							{{ form.inputConfirmNewPassword | add_class:"form-control"}}
+						</div>											
 					</div>
 					
 
