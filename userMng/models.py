@@ -36,7 +36,7 @@ class myUser(AbstractUser):
 		('VFN', 'Visible first name'),
 		('VLN', 'Visible last name'),
 	)
-	user_first_lastname_visibility = models.CharField(max_length=10, choices = NAME_VISIBILITY, default = "VFN")
+	user_first_lastname_visibility = models.CharField(max_length=3, choices = NAME_VISIBILITY, null = True, default = "VFN")
 
 	objects = MyUserManager()
 	
