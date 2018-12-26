@@ -53,8 +53,8 @@ class UserProfileForm(forms.ModelForm, RegisterForm):
 		self.fields['country'].label = "Country"
 		self.fields['user_int_tel'].label = "Phone number"
 
-		self.fields['inputUsername'].label = "Username"
-		self.fields['inputEmail'].label = "Email"
+		self.fields['inputUsername'].label = "New username"
+		self.fields['inputEmail'].label = "New email"
 		self.fields['inputNewPassword'].label = "New Password"
 		self.fields['inputConfirmNewPassword'].label = "Confirm new password"
 
