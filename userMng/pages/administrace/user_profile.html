@@ -78,7 +78,19 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.inputUsername.label_tag  }}
 							{{ form.inputUsername.errors  }}
 							{{ form.inputUsername | add_class:"form-control"}}
-						</div>
+						</div>										
+					</div>
+					
+
+					<button type="submit" class="btn btn-warning mb-5 btn-lg btn-block">Save</button>
+				</form>
+
+				<form method="POST" id="form-user-settings" class="mb-5">
+				{% csrf_token %}		
+					{{ form.non_field_errors | crispy }}
+					{{ form.source.errors | crispy }}
+					{{ form.source | crispy }}
+						
 						<div class="form-group col-md-3 col-sm-5">
 							{{ form.inputEmail.label_tag  }}
 							{{ form.inputEmail.errors  }}
@@ -93,11 +105,7 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.inputConfirmNewPassword.label_tag  }}
 							{{ form.inputConfirmNewPassword.errors  }}
 							{{ form.inputConfirmNewPassword | add_class:"form-control"}}
-						</div>											
-					</div>
-					
-
-					<button type="submit" class="btn btn-warning mb-5 btn-lg btn-block">Save</button>
+						</div>						
 				</form>
 			</div>
 
