@@ -61,7 +61,7 @@ class UserProfileForm(forms.ModelForm, RegisterForm):
 
 	class Meta:
 		model = myUser
-		fields = ['user_gender', 'first_name', 'last_name', user_first_lastname_visibility,
+		fields = ['user_gender', 'first_name', 'last_name', 'user_first_lastname_visibility',
 			'user_units_system', 'user_timezone', 'country', 
 			'user_int_tel', 'inputUsername', 'inputEmail', 
 			'inputNewPassword', 'inputConfirmNewPassword']
