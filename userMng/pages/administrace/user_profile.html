@@ -77,15 +77,26 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.user_units_system.errors  }}
 							{{ form.user_units_system | add_class:"form-control"}}
 						</div>								
+									
+					</div>
+					<button type="submit" class="btn btn-warning mb-5 btn-lg btn-block">Save</button>
+				</form>
+
+				<form method="POST" id="form-user-username" class="mb-5">
+				{% csrf_token %}		
+					{{ form.non_field_errors | crispy }}
+					{{ form.source.errors | crispy }}
+					{{ form.source | crispy }}
+
+						<div class="form-group col-md-3 col-sm-5">
+							<input class="form-control" type="text" name="" value="{{ user.get_username }}" readonly="">
+						</div>	
+
 						<div class="form-group col-md-3 col-sm-5">
 							{{ form.inputUsername.label_tag  }}
 							{{ form.inputUsername.errors  }}
 							{{ form.inputUsername | add_class:"form-control"}}
-						</div>										
-					</div>
-					
-
-					<button type="submit" class="btn btn-warning mb-5 btn-lg btn-block">Save</button>
+						</div>					
 				</form>
 
 				<form method="POST" id="form-user-email" class="mb-5">
@@ -95,9 +106,7 @@ https://github.com/dmpe/django-wohn/issues/18
 					{{ form.source | crispy }}
 
 						<div class="form-group col-md-3 col-sm-5">
-							<div class="form-control">
-								<input type="text" name="" value="{{ user.email }}" readonly="">
-							</div>
+							<input class="form-control" type="text" name="" value="{{ user.email }}" readonly="">
 						</div>	
 
 						<div class="form-group col-md-3 col-sm-5">
@@ -112,12 +121,6 @@ https://github.com/dmpe/django-wohn/issues/18
 					{{ form.non_field_errors | crispy }}
 					{{ form.source.errors | crispy }}
 					{{ form.source | crispy }}
-						
-						<div class="form-group col-md-3 col-sm-5">
-							{{ form.inputEmail.label_tag  }}
-							{{ form.inputEmail.errors  }}
-							{{ form.inputEmail | add_class:"form-control"}}
-						</div>
 						
 						<div class="form-group col-md-3 col-sm-5">
 							{{ form.inputNewPassword.label_tag  }}
