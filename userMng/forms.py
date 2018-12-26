@@ -65,5 +65,4 @@ class UserProfileForm(forms.ModelForm, RegisterForm):
 			'user_int_tel', 'inputUsername', 'inputEmail', 
 			'inputNewPassword', 'inputConfirmNewPassword']
 
-		widgets = {'country': CountrySelectWidget(layout="{widget}<img class='country-select-flag' id='{flag_id}' src='{country.flag}'>")}
 			
