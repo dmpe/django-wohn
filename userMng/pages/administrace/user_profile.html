@@ -9,7 +9,10 @@
 
 {% block robots %}index, follow{% endblock %}
 
-{% block additional_head %}<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">{% include "base_splitting/country_phone_libraries.html" %}{% endblock %}
+{% block additional_head %}
+	<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">
+	{% include "base_splitting/country_phone_libraries.html" %}
+{% endblock %}
 
 {% load crispy_forms_tags %}
 {% load widget_tweaks %}
