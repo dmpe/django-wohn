@@ -58,6 +58,11 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.last_name | add_class:"form-control"}}
 						</div>
 						<div class="form-group col-md-3 col-sm-5">
+							{{ form.user_first_lastname_visibility.label_tag  }}
+							{{ form.user_first_lastname_visibility.errors  }}
+							{{ form.user_first_lastname_visibility | add_class:"form-control"}}
+						</div>						
+						<div class="form-group col-md-3 col-sm-5">
 							{{ form.user_int_tel.label_tag  }}
 							{{ form.user_int_tel.errors  }}
 							<input type="tel" name="phone" id="phone" class="form-control">

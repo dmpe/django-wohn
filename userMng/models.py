@@ -32,6 +32,12 @@ class myUser(AbstractUser):
 	)
 	user_units_system = models.CharField(max_length=10, choices = UNITS_SYSTEM, null = True, default = "Metric")
 
+	NAME_VISIBILITY = (
+		('VFN', 'Visible first name'),
+		('VLN', 'Visible last name'),
+	)
+	user_first_lastname_visibility = models.CharField(max_length=10, choices = NAME_VISIBILITY, default = "VFN")
+
 	objects = MyUserManager()
 	
 	class Meta:
