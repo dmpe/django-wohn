@@ -101,6 +101,14 @@ Sign Up Pages {logic, reset pswd, etc}
 	border: 1px solid black;
 }
 
+/* User Profile 
+*/
+.iti-flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/img/flags.png");}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .iti-flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/img/flags@2x.png");}
+}
+
 /* Login 
 https://developers.google.com/identity/branding-guidelines */
 .login_register_box {

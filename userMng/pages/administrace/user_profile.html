@@ -9,7 +9,7 @@
 
 {% block robots %}index, follow{% endblock %}
 
-{% block additional_head %}<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">{% endblock %}
+{% block additional_head %}<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">{% include "base_splitting/country_phone_libraries.html" %}{% endblock %}
 
 {% load crispy_forms_tags %}
 {% load widget_tweaks %}
@@ -57,7 +57,7 @@ https://github.com/dmpe/django-wohn/issues/18
 						<div class="form-group col-md-3 col-sm-5">
 							{{ form.user_int_tel.label_tag  }}
 							{{ form.user_int_tel.errors  }}
-							{{ form.user_int_tel | add_class:"form-control"}}
+							{{ form.user_int_tel | add_class:"form-control" type:"tel" id:"contactPhone"}}
 						</div>
 						<div class="form-group col-md-3 col-sm-5">
 							{{ form.country.label_tag  }}
@@ -92,10 +92,8 @@ https://github.com/dmpe/django-wohn/issues/18
 					{{ form.source | crispy }}
 
 						<div class="form-group col-md-3 col-sm-5">
-							{{ form.inputEmail.label_tag  }}
-							{{ form.inputEmail.errors  }}
 							<div class="form-control">
-								<input type="" name="" value="{{ user.email }}" readonly="">
+								<input type="text" name="" value="{{ user.email }}" readonly="">
 							</div>
 						</div>	
 
@@ -131,10 +129,14 @@ https://github.com/dmpe/django-wohn/issues/18
 			</div>
 
 
-
-
-
-				
+			<script>
+				var input = document.querySelector("#phone");
+				window.intlTelInput(input, {
+					preferredCountries: ["cz", "sk"],
+					separateDialCode: true,
+					utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/js/utils.js"
+				});
+			</script>				
 				<!--
 		        <p>Change currency, because default is CZK</p>
 		        <p>Change mt^2 to sq. foot</p> -->
