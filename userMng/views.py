@@ -119,7 +119,7 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 			myUser.objects.filter(pk=request.user.pk).update(**request.data)
 			myUser.save()
 
-		return render(request, self.template_name)	
+		return render(request, self.template_name, {"form": form})	
 	
 	def get(self, request):
 		"""by default the image is something from gravatar
