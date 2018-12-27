@@ -113,7 +113,12 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 	def post(self, request):
 		"""call UserProfileForm
 		"""
-		# form = UserProfileForm(request.POST)
+		form = UserProfileForm(request.POST)
+		
+		if form.is_valid():
+			myUser.objects.filter(pk=request.user.pk).update(**request.data)
+			myUser.save()
+
 		return render(request, self.template_name)	
 	
 	def get(self, request):
@@ -254,7 +259,6 @@ class RegistrationView(CreateView):
 		inputNewPassword = request.POST.get('inputNewPassword', False)
 		inputConfirmNewPassword = request.POST.get('inputConfirmNewPassword', False)
 		
-
 		if inputNewPassword == inputConfirmNewPassword:
 			try:
 				ur = myUser.objects.create_user(inputUsername, inputEmail)

@@ -140,23 +140,21 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.inputConfirmNewPassword | add_class:"form-control"}}
 						</div>						
 				</form>				
-			</div>
-
-
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/js/utils.js" integrity="sha256-HyY1jj/bmTrQzLTgsoa+VMFCQaSLwjMYlH2t1I/deEE=" crossorigin="anonymous"></script>
-
-			<script>
-				var input = document.querySelector("#phone");
-				window.intlTelInput(input, {
-					preferredCountries: ["cz", "sk"],
-					separateDialCode: true,
-					utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/js/utils.js"
-				});
-			</script>				
+			</div>		
 				<!--
 		        <p>Change currency, because default is CZK</p>
 		        <p>Change mt^2 to sq. foot</p> -->
 		</div>
 	</div>
+	
+	<script>
+		var input = document.querySelector("#phone");
+		window.intlTelInput(input, {
+			preferredCountries: ["cz", "sk"],
+			separateDialCode: true,
+			utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/js/utils.js"
+		});
+	</script>		
+	
 </div>
 {% endblock %}
