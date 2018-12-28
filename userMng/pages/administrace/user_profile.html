@@ -30,7 +30,9 @@ https://github.com/dmpe/django-wohn/issues/18
         {% include 'nav_sidebar.html' %}
 
 	    <div class="row col-md-9 col-lg-9 col-xl-10 pt-5">
-			<img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded col-sm-6 col-md-6 col-lg-6 col-xl-3 pr-2">
+	    	<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 pr-2">
+				<img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded img-fluid">
+			</div>
 
 	        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-9 ">
 				<form method="POST" id="form-user-settings" class="mb-5">
