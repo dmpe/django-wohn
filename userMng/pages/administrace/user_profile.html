@@ -30,10 +30,8 @@ https://github.com/dmpe/django-wohn/issues/18
         {% include 'nav_sidebar.html' %}
 
 	    <div class="row col-md-9 col-lg-9 col-xl-10 pt-5">
-			<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 pr-2">
-		        <img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded">
-		    </div>
-	        
+			<img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded col-sm-6 col-md-6 col-lg-6 col-xl-3 pr-2">
+
 	        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-9 ">
 				<form method="POST" id="form-user-settings" class="mb-5">
 				{% csrf_token %}		
@@ -57,7 +55,7 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.last_name.errors }}
 							{{ form.last_name | add_class:"form-control"}}
 						</div>
-						<div class="form-group col-sm-5 col-md-4 col-lg-4">
+						<div class="form-group col-sm-5 col-md-4 col-lg-3">
 							{{ form.user_first_lastname_visibility.label_tag  }}
 							{{ form.user_first_lastname_visibility.errors  }}
 							{{ form.user_first_lastname_visibility | add_class:"form-control"}}
