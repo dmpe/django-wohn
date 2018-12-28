@@ -42,17 +42,17 @@ https://github.com/dmpe/django-wohn/issues/18
 					{{ form.source | crispy }}
 
 					<div class="form-row">
-						<div class="form-group col-md-3 col-sm-5">
+						<div class="form-group col-md-5 col-lg-3">
 							{{ form.user_gender.label_tag  }}
 							{{ form.user_gender.errors  }}
 							{{ form.user_gender | add_class:"form-control"}}
 						</div>
-						<div class="form-group col-md-3 col-sm-5">
+						<div class="form-group col-md-4 col-lg-5">
 							{{ form.first_name.label_tag  }}
 							{{ form.first_name.errors  }}							
 							{{ form.first_name | add_class:"form-control"}}
 						</div>
-						<div class="form-group col-md-3 col-sm-5">
+						<div class="form-group col-md-4 col-lg-5">
 							{{ form.last_name.label_tag  }}
 							{{ form.last_name.errors  }}
 							{{ form.last_name | add_class:"form-control"}}
@@ -62,24 +62,24 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.user_first_lastname_visibility.errors  }}
 							{{ form.user_first_lastname_visibility | add_class:"form-control"}}
 						</div>						
-						<div class="form-group col-md-3 col-sm-5">
+						<div class="form-group col-md-5">
 							{{ form.user_int_tel.label_tag  }}
 							{{ form.user_int_tel.errors  }}
 							<input type="tel" name="phone" id="phone" class="form-control">
 						</div>
-						<div class="form-group col-md-3 col-sm-5">
-							{{ form.country.label_tag  }}
-							{{ form.country.errors  }}
+						<div class="form-group col-md-5">
+							{{ form.country.label_tag }}
+							{{ form.country.errors }}
 							{{ form.country | add_class:"form-control"}}
 						</div>
 						<div class="form-group col-md-3 col-sm-5">
-							{{ form.user_timezone.label_tag  }}
-							{{ form.user_timezone.errors  }}
+							{{ form.user_timezone.label_tag }}
+							{{ form.user_timezone.errors }}
 							{{ form.user_timezone | add_class:"form-control"}}
 						</div>										
 						<div class="form-group col-md-3 col-sm-5">
-							{{ form.user_units_system.label_tag  }}
-							{{ form.user_units_system.errors  }}
+							{{ form.user_units_system.label_tag }}
+							{{ form.user_units_system.errors }}
 							{{ form.user_units_system | add_class:"form-control"}}
 						</div>								
 									
