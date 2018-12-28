@@ -88,11 +88,11 @@ https://github.com/dmpe/django-wohn/issues/18
 				</form>
 
 				<form method="POST" id="form-user-username" class="mb-5">
-				{% csrf_token %}		
+				{% csrf_token %}
 					{{ form.non_field_errors | crispy }}
 					{{ form.source.errors | crispy }}
 					{{ form.source | crispy }}
-
+					<div class="row">
 						<div class="form-group col-md-3 col-sm-5">
 							<label for="user_id_username">Current username</label>
 							<input class="form-control" type="text" name="user_id_username" value="{{ user.get_username }}" readonly="">
@@ -102,7 +102,8 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.inputUsername.label_tag  }}
 							{{ form.inputUsername.errors  }}
 							{{ form.inputUsername | add_class:"form-control"}}
-						</div>					
+						</div>		
+					</div>
 				</form>
 
 				<form method="POST" id="form-user-email" class="mb-5">
