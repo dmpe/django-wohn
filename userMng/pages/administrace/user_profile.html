@@ -111,7 +111,7 @@ https://github.com/dmpe/django-wohn/issues/18
 					{{ form.non_field_errors | crispy }}
 					{{ form.source.errors | crispy }}
 					{{ form.source | crispy }}
-
+					<div class="row">
 						<div class="form-group col-md-3 col-sm-5">
 							<label for="user_id_email">Current email</label>
 							<input class="form-control" type="text" name="" value="{{ user.email }}" readonly="">
@@ -121,7 +121,8 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.inputEmail.label_tag  }}
 							{{ form.inputEmail.errors  }}
 							{{ form.inputEmail | add_class:"form-control"}}
-						</div>					
+						</div>
+					</div>
 				</form>
 
 				<form method="POST" id="form-user-password" class="mb-5">
@@ -129,7 +130,7 @@ https://github.com/dmpe/django-wohn/issues/18
 					{{ form.non_field_errors | crispy }}
 					{{ form.source.errors | crispy }}
 					{{ form.source | crispy }}
-						
+					<div class="row">
 						<div class="form-group col-md-3 col-sm-5">
 							{{ form.inputNewPassword.label_tag  }}
 							{{ form.inputNewPassword.errors  }}
@@ -139,7 +140,8 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.inputConfirmNewPassword.label_tag  }}
 							{{ form.inputConfirmNewPassword.errors  }}
 							{{ form.inputConfirmNewPassword | add_class:"form-control"}}
-						</div>						
+						</div>
+					</div>
 				</form>				
 			</div>		
 				<!--
