@@ -33,9 +33,8 @@ class MyUserManager(UserManager):
 		return gravatar_url
 
 	def fetch_owners_properties_count(self, user_id):
-		property_owner = myUser.objects.filter(pk=user_id)
-		print(property_owner)
-		property_count = Property.objects.filter(property_offered_by = property_owner).count()
+		property_owner = myUser.objects.filter(pk=user_id).first()
+		property_count = Property.objects.filter(property_offered_by__in = property_owner).count()
 		print(property_count)
 
 		return property_count
