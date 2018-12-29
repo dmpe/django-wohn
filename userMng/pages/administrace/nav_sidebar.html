@@ -79,17 +79,17 @@
         </li>
 
         {% if request.user.is_active and request.user.is_staff %}
-	        <li class="list-group-item">			   
+	        <li class="list-group-item justify-content-between align-items-center">			   
 	        	<a href="{% url 'my_property_ads' %}" class="nav-link {% if url_name == 'my_property_ads' %}active{% endif %}">
 					<i class="fas fa-ad fa-lg"></i>
 			    </a>
 			</li>
-	        <li class="list-group-item">
+	        <li class="list-group-item justify-content-between align-items-center">
 	        	<a href="{% url 'create_new_ad' %}" class="nav-link {% if url_name == 'create_new_ad' %}active{% endif %}">
 			        <i class="fas fa-plus-square fa-lg"></i>
 				</a>
 			</li>
-	        <li class="list-group-item">
+	        <li class="list-group-item justify-content-between align-items-center">
 	        	<a href="{% url 'ad_statistics' %}" class="nav-link {% if url_name == 'ad_statistics' %}active{% endif %}">
 			        <i class="fas fa-signal fa-lg"></i>
 			    </a>
