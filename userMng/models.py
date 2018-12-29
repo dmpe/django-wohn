@@ -14,7 +14,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 class MyUserManager(UserManager):
 
-    def fetch_gravatar(email, default = "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg"):
+	def fetch_gravatar(email, default = "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg"):
 	"""
 	fetching gravatar image
 	https://en.gravatar.com/site/implement/images/python/
@@ -29,7 +29,7 @@ class MyUserManager(UserManager):
 	def fetch_number_of_properties_per_author(self, user_id):
 		property_owner = myUser.objects.get(id=user_id)
 		property_count = Property.objects.filter(property_offered_by = property_owner).count()
-		
+
 		return property_count
 
 class myUser(AbstractUser):
