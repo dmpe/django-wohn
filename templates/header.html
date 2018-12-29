@@ -15,36 +15,22 @@
 		<!-- LOGIC: BUT on {register, reset_password, new_password, login}.html do not show -->
 		<!-- LOGIC: CREATE logout button + click to userprofile as well -->
 		<div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
- 			<!-- <form role="form" class="form-inline" action="user_profile" method="POST">{% csrf_token %}
-				<div class="form-group">
-					<input type="text" name="username" class="form-control m-1" placeholder="Username or Email" id="inputUsernameOrEmail">
-					<label class="sr-only" for="inputUsernameOrEmail">Username or Email</label>
-				</div>
-
-				<div class="from-group">
-					<div class="input-group">
-						<input type="password" name="password" class="form-control ml-1" placeholder="Password" id="inputPassword" aria-describedby="inputGroupAppend">
-						<div class="input-group-append mr-1">
-							<span class="input-group-text" id="inputGroupAppend">
-								<button href="" class="fa fa-eye fa-lg resetIconStylesEYE" id="buttonEYE" aria-hidden="true" type="button"></button>
-							</span>
-						</div>
-					</div>
-					<label class="sr-only" for="inputPassword">Password</label>
-				</div> -->
-
-				<div class="d-flex flex-row">
-					{% if user.is_authenticated is True %}
+			<div class="d-flex flex-row">
+				{% if user.is_authenticated is True %}
 					<a href="{% url 'userMng_index' %}" type="button" class="btn btn-warning m-1">My Profile</a>
 					<a href="{% url 'logout' %}" type="button" class="btn btn-dark m-1">Logout</a>	
-					{% else %}
-					{# This is for anonymous user #}
+				{% else %}
 					<a href="{% url 'login' %}" type="button" class="btn btn-success ml-0 mt-1 mb-1 mr-1">Login</a>
 					<a href="{% url 'register' %}" type="button" class="btn btn-danger m-1 pr-1">Register to add new listings</a>
-					{% endif %}
+				{% endif %}
+			</div>
 
-				</div>
-			<!--</form>-->
+			{# Search functionality, see #50, #35 #}
+			<form role="form" class="form-inline my-2 my-lg-0" method="POST">
+				{% csrf_token %}
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>			
 		</div>
 	</nav>
 </header>
