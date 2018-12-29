@@ -20,20 +20,19 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 class MyUserManager(UserManager):
 
-	def fetch_gravatar(email, default = "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg"):
+	def fetch_gravatar(self, email, default = "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg"):
 		"""
 		fetching gravatar image
 		https://en.gravatar.com/site/implement/images/python/
 		If none is found to be associated with the email adress, then default image is used
 		"""
 		size = 20
-		self.email = email
 		gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(str(email).lower().encode('utf-8')).hexdigest() + "?"
 		gravatar_url += urllib.parse.urlencode({'d':default, 's':str(size)})
 
 		return gravatar_url
 
-	def fetch_owners_properties_count(user_id):
+	def fetch_owners_properties_count(self, user_id):
 		property_owner = myUser.objects.filter(pk=user_id)
 		print(property_owner)
 		property_count = Property.objects.filter(property_offered_by = property_owner).count()
