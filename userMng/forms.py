@@ -51,7 +51,7 @@ class UserProfileForm(forms.ModelForm, RegisterForm):
 		self.fields['user_first_lastname_visibility'].label = "Publically visible name"
 		self.fields['user_units_system'].label = "Imperial or Metric"
 		self.fields['user_timezone'].label = "Timezone"
-		self.fields['country'].label = "Country"
+		self.fields['user_country'].label = "Country"
 		self.fields['user_int_tel'].label = "Phone number"
 
 		self.fields['inputUsername'].label = "New username"
@@ -62,7 +62,7 @@ class UserProfileForm(forms.ModelForm, RegisterForm):
 	class Meta:
 		model = myUser
 		fields = ['user_gender', 'first_name', 'last_name', 'user_first_lastname_visibility',
-			'user_units_system', 'user_timezone', 'country', 
+			'user_units_system', 'user_timezone', 'user_country', 
 			'user_int_tel', 'inputUsername', 'inputEmail', 
 			'inputNewPassword', 'inputConfirmNewPassword']
 
