@@ -101,8 +101,11 @@ class UserProfileIndex(LoginRequiredMixin, View):
 		analytics = gh.initialize_analyticsreporting()
 		response = gh.get_report(analytics)
 		number_of_views = gh.print_response(response)
-		
-		return render(request, self.template_name, {"form": form, "number_of_views": number_of_views.get("ga:pageviews")})
+
+		number_of_user_properties = myUser.objects.fetch_owners_properties_count(user_id=request.user.pk)
+
+		return render(request, self.template_name, {"form": form, 
+			"number_of_views": number_of_views.get("ga:pageviews"), , "number_of_properties": number_of_user_properties})
 
 class UserProfileAdministration(LoginRequiredMixin, View):
 	"""
@@ -127,11 +130,8 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 		"""
 		form = UserProfileForm()
 		gravatar_url = myUser.objects.fetch_gravatar(email=request.user.email)
-		number_of_user_properties = myUser.objects.fetch_owners_properties_count(user_id=request.user.pk)
-		print(number_of_user_properties)
 
-		return render(request, self.template_name, {"form": form, 
-			"gravatar_url": gravatar_url, "number_of_properties": number_of_user_properties})
+		return render(request, self.template_name, {"form": form, "gravatar_url": gravatar_url})
 		
 class UserProfileProperties(LoginRequiredMixin, View):
 	"""
