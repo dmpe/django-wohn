@@ -48,7 +48,7 @@ class UserProfileForm(forms.ModelForm, RegisterForm):
 		self.fields['user_gender'].label = "Select your gender"
 		self.fields['first_name'].label = "First Name"
 		self.fields['last_name'].label = "Last Name"
-		self.fields['user_first_lastname_visibility'].label = "Which name will be publically visible?"
+		self.fields['user_first_lastname_visibility'].label = "Publically visible name"
 		self.fields['user_units_system'].label = "Imperial or Metric"
 		self.fields['user_timezone'].label = "Timezone"
 		self.fields['country'].label = "Country"
