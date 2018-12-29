@@ -26,7 +26,7 @@
 			<!-- LOGIC: if not registered and not loged in, then show -->
 			<!-- LOGIC: BUT on {register, reset_password, new_password, login}.html do not show -->
 			<!-- LOGIC: CREATE logout button + click to userprofile as well -->
-			<div class="collapse navbar-collapse flex-row-reverse flex-fill w-100 justify-content-end" id="navbarLoginForm">
+			<div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
 				<div class="d-flex flex-row">
 					{% if user.is_authenticated is True %}
 						<a href="{% url 'userMng_index' %}" type="button" class="btn btn-warning m-1">My Profile</a>
@@ -37,5 +37,6 @@
 					{% endif %}
 				</div>
 			</div>
+		</div>
 	</nav>
 </header>
