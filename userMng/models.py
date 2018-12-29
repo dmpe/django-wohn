@@ -9,9 +9,15 @@ from core.models import *
 # for storing user's timezone, default is Prague (CET) stored in settings.py
 import pytz
 from timezone_field import TimeZoneField
-
+# for gravatar
+import urllib, hashlib
 # store users phone number
 from phonenumber_field.modelfields import PhoneNumberField
+# for messages
+from django.utils.safestring import *
+import re
+import json
+import requests as requests_library
 
 class MyUserManager(UserManager):
 
@@ -27,12 +33,12 @@ class MyUserManager(UserManager):
 
 		return gravatar_url
 
-	def fetch_number_of_properties_per_author(self, user_id):
+	def fetch_number_of_properties_per_author(user_id):
 		property_owner = myUser.objects.get(id=user_id)
 		print(property_owner)
 		property_count = Property.objects.filter(property_offered_by = property_owner).count()
 		print(property_count)
-		
+
 		return property_count
 
 class myUser(AbstractUser):
