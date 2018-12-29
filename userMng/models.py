@@ -1,8 +1,12 @@
+import re
+import json
+
 from django.db import *
 from django.db import models
 from django.contrib.auth.models import *
 from django.conf import *
 from django_countries.fields import *
+from django.utils.safestring import *
 
 # for MyUserManager custom functions
 from core.models import *
@@ -13,11 +17,6 @@ from timezone_field import TimeZoneField
 import urllib, hashlib
 # store users phone number
 from phonenumber_field.modelfields import PhoneNumberField
-# for messages
-from django.utils.safestring import *
-import re
-import json
-import requests as requests_library
 
 class MyUserManager(UserManager):
 

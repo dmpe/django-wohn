@@ -125,11 +125,11 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 		"""by default the image is something from gravatar
 		"""
 		form = UserProfileForm()
-		gravatar_url = myUser.objects.fetch_gravatar(request.user.email)
+		gravatar_url = myUser.objects.fetch_gravatar(email=request.user.email)
 		print(gravatar_url)
-		number_of_user_properties = myUser.objects.fetch_number_of_properties_per_author(requests.user.id)
+		number_of_user_properties = myUser.objects.fetch_number_of_properties_per_author(user_id=requests.user.id)
 		print(number_of_user_properties)
-		
+
 		return render(request, self.template_name, {"form": form, 
 			"gravatar_url": gravatar_url, "number_of_properties": number_of_user_properties})
 		
