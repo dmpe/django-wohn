@@ -4,6 +4,7 @@ from django.contrib.auth.models import *
 from django.conf import *
 from django_countries.fields import *
 
+from core.models import *
 # for storing user's timezone, default is Prague (CET) stored in settings.py
 import pytz
 from timezone_field import TimeZoneField
@@ -12,7 +13,24 @@ from timezone_field import TimeZoneField
 from phonenumber_field.modelfields import PhoneNumberField
 
 class MyUserManager(UserManager):
-    pass
+
+    def fetch_gravatar(email, default = "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg"):
+	"""
+	fetching gravatar image
+	https://en.gravatar.com/site/implement/images/python/
+	If none is found to be associated with the email adress, then default image is used
+	"""
+		size = 20
+		gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower().encode('utf-8')).hexdigest() + "?"
+		gravatar_url += urllib.parse.urlencode({'d':default, 's':str(size)})
+
+		return gravatar_url
+
+	def fetch_number_of_properties_per_author(self, user_id):
+		property_owner = myUser.objects.get(id=user_id)
+		property_count = Property.objects.filter(property_offered_by = property_owner).count()
+		
+		return property_count
 
 class myUser(AbstractUser):
 	# email, username, first and last name are unnecessary

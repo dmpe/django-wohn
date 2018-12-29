@@ -145,15 +145,3 @@ def prepare_visitor_mssg_email(request, userPresent_username = None,
 		return HttpResponse('Invalid header found.')
 
 	return None
-
-def fetch_gravatar(email, default = "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg"):
-	"""fetching gravatar image
-	https://en.gravatar.com/site/implement/images/python/
-	If none is found to be associated with the email adress, then default image is used
-	"""
-	size = 20
-	gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower().encode('utf-8')).hexdigest() + "?"
-	gravatar_url += urllib.parse.urlencode({'d':default, 's':str(size)})
-
-	return gravatar_url
-
