@@ -51,6 +51,31 @@
         </li>
         {% endif %}
     </ul>
+
+    <ul class="d-flex flex-row d-block d-sm-block">
+        <li>
+            <a href="{% url 'userMng_index' %}" class="nav-link {% if url_name == 'userMng_index' %}active{% endif %}">
+                <i class="fas fa-home fa-lg"></i>
+            </a>
+        </li>
+        <li> 
+            <a href="{% url 'user_profile' %}" class="nav-link {% if url_name == 'user_profile' %}active{% endif %}">
+                <i class="fas fa-user fa-lg"></i>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'user_properties' %}" class="nav-link {% if url_name == 'user_properties' %}active{% endif %}">
+                <i class="fas fa-hotel fa-lg"></i>
+                <span class="badge badge-success badge-pill"> 45 {{ count_my_properties }}</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'user_messages' %}" class="nav-link {% if url_name == 'user_messages' %}active{% endif %}">
+                <i class="fas fa-envelope fa-lg"></i>
+                <span class="badge badge-danger badge-pill"> 41 {{ count_my_messages }}</span>
+            </a>
+        </li>
+    </ul>
 </aside>
 
 {% endwith %}
