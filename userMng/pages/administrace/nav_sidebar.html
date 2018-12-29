@@ -51,8 +51,10 @@
         </li>
         {% endif %}
     </ul>
+</aside>
 
-    <ul class="d-flex flex-row d-none d-sm-block d-md-none">
+<div class="row d-none d-sm-block d-md-none">
+    <ul class="d-flex flex-row">
         <li>
             <a href="{% url 'userMng_index' %}" class="nav-link {% if url_name == 'userMng_index' %}active{% endif %}">
                 <i class="fas fa-home fa-lg"></i>
@@ -76,6 +78,5 @@
             </a>
         </li>
     </ul>
-</aside>
-
+</div>
 {% endwith %}
