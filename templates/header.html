@@ -1,6 +1,6 @@
 <header>
 	<nav class="navbar navbar-expand-sm navbar-light headerFooterBackground" role="navigation">
-		<div class="d-flex">
+	    <div class="container justify-content-center">
 			<a class="navbar-brand mb-0 flex-fill" href="/">B40.cz
 				<span class="navbar-text d-md-inline-flex d-none d-md-block">
 					<!-- be inline next to brand; hiden on small screens, i.e. display only on >= md (d-lg-block d-xl-block) -->
@@ -13,7 +13,7 @@
 			</button>
 
 			{# Search functionality, see #50, #35 #}
-			<form role="form" class="form-inline my-2 my-lg-0 flex-fill" method="POST">
+			<form role="form" class="form-inline my-2 my-lg-0 flex-fill justify-content-center" method="POST">
 				{% csrf_token %}
 					<div class="input-group">
 					<input class="form-control py-2 border-right-0 border" type="search" placeholder="Search" id="example-search-input">
@@ -26,7 +26,7 @@
 			<!-- LOGIC: if not registered and not loged in, then show -->
 			<!-- LOGIC: BUT on {register, reset_password, new_password, login}.html do not show -->
 			<!-- LOGIC: CREATE logout button + click to userprofile as well -->
-			<div class="collapse navbar-collapse flex-row-reverse flex-fill" id="navbarLoginForm">
+			<div class="collapse navbar-collapse flex-row-reverse flex-fill w-100 justify-content-end" id="navbarLoginForm">
 				<div class="d-flex flex-row">
 					{% if user.is_authenticated is True %}
 						<a href="{% url 'userMng_index' %}" type="button" class="btn btn-warning m-1">My Profile</a>
@@ -37,6 +37,5 @@
 					{% endif %}
 				</div>
 			</div>
-		</div>
 	</nav>
 </header>
