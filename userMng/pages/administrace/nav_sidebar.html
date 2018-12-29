@@ -62,13 +62,13 @@
 		<li class="list-group-item d-flex justify-content-between align-items-center">
 			<a href="{% url 'user_properties' %}" class="nav-link {% if url_name == 'user_properties' %}active{% endif %}">
 				<i class="fas fa-hotel fa-lg"></i>
-				<span class="badge badge-success badge-pill"> 45 {{ count_my_properties }}</span>
+				<span class="badge badge-success badge-pill"> {{ number_of_properties }}</span>
 			</a>
 		</li>
 		<li class="list-group-item d-flex justify-content-between align-items-center">
 			<a href="{% url 'user_messages' %}" class="nav-link {% if url_name == 'user_messages' %}active{% endif %}">
 				<i class="fas fa-envelope fa-lg"></i>
-				<span class="badge badge-danger badge-pill"> 41 {{ count_my_messages }}</span>
+				<span class="badge badge-danger badge-pill"> {{ number_of_messages }}</span>
 			</a>
 		</li>
 
