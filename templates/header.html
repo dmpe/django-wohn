@@ -11,6 +11,17 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
+		{# Search functionality, see #50, #35 #}
+		<form role="form" class="form-inline my-2 my-lg-0 d-flex justify-content-center" method="POST">
+			{% csrf_token %}
+				<div class="input-group">
+				<input class="form-control py-2 border-right-0 border" type="search" placeholder="Search" id="example-search-input">
+				<span class="input-group-append">
+					<div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+				</span>
+			</div>
+		</form>	
+
 		<!-- LOGIC: if not registered and not loged in, then show -->
 		<!-- LOGIC: BUT on {register, reset_password, new_password, login}.html do not show -->
 		<!-- LOGIC: CREATE logout button + click to userprofile as well -->
@@ -24,17 +35,7 @@
 					<a href="{% url 'register' %}" type="button" class="btn btn-danger m-1 pr-1">Register to add new listings</a>
 				{% endif %}
 			</div>
-
-			{# Search functionality, see #50, #35 #}
-			<form role="form" class="form-inline my-2 my-lg-0 d-flex justify-content-center" method="POST">
-				{% csrf_token %}
- 				<div class="input-group">
-					<input class="form-control py-2 border-right-0 border" type="Search" value="Search" id="example-search-input">
-					<span class="input-group-append">
-						<div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
-					</span>
-				</div>
-			</form>			
 		</div>
+
 	</nav>
 </header>
