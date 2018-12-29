@@ -16,11 +16,11 @@ from phonenumber_field.modelfields import PhoneNumberField
 class MyUserManager(UserManager):
 
 	def fetch_gravatar(email, default = "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg"):
-	"""
-	fetching gravatar image
-	https://en.gravatar.com/site/implement/images/python/
-	If none is found to be associated with the email adress, then default image is used
-	"""
+		"""
+		fetching gravatar image
+		https://en.gravatar.com/site/implement/images/python/
+		If none is found to be associated with the email adress, then default image is used
+		"""
 		size = 20
 		gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower().encode('utf-8')).hexdigest() + "?"
 		gravatar_url += urllib.parse.urlencode({'d':default, 's':str(size)})
