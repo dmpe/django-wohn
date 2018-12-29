@@ -32,6 +32,10 @@ https://github.com/dmpe/django-wohn/issues/18
 	    <div class="row col-md-9 col-lg-9 col-xl-10 pt-3">
 	    	<div class="col-xs-12 col-md-6 col-lg-5 col-xl-3 pr-2">
 				<img src="{{ gravatar_url }}" alt="My Profile picture" class="rounded img-fluid">
+				<div class="custom-file">
+					<input type="file" class="custom-file-input" id="customFile">
+					<label class="custom-file-label" for="customFile">Choose new profile image</label>
+				</div>
 			</div>
 
 	        <div class="col-xs-12 col-md-6 col-lg-7 col-xl-9 pt-2">
@@ -154,13 +158,18 @@ https://github.com/dmpe/django-wohn/issues/18
 	</div>
 	
 	<script>
+		$(document).ready(function() {
+			bsCustomFileInput.init()
+		});
+
 		var input = document.querySelector("#phone");
+		
 		window.intlTelInput(input, {
 			preferredCountries: ["cz", "sk"],
 			separateDialCode: true,
 			utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/js/utils.js"
 		});
 	</script>		
-	
+	<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input@1.3.1/dist/bs-custom-file-input.min.js" integrity="sha256-Kf72uYqY9REOgAOMF5o3jzROuWqX0CFpDUKaOHX27dQ=" crossorigin="anonymous"></script>
 </div>
 {% endblock %}
