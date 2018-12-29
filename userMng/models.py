@@ -4,6 +4,7 @@ from django.contrib.auth.models import *
 from django.conf import *
 from django_countries.fields import *
 
+# for MyUserManager custom functions
 from core.models import *
 # for storing user's timezone, default is Prague (CET) stored in settings.py
 import pytz
