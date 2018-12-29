@@ -120,7 +120,7 @@ celery -A vanoce worker -l info
 
 ```
 python3 manage.py shell
-from userMng.tasks import parse_forex_data
+from userMng.third_party_services.celery_tasks import parse_forex_data
 rst = parse_forex_data.apply()
 ```
 Source: <https://stackoverflow.com/a/12900126/2171456>

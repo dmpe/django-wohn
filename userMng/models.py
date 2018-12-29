@@ -29,8 +29,10 @@ class MyUserManager(UserManager):
 
 	def fetch_number_of_properties_per_author(self, user_id):
 		property_owner = myUser.objects.get(id=user_id)
+		print(property_owner)
 		property_count = Property.objects.filter(property_offered_by = property_owner).count()
-
+		print(property_count)
+		
 		return property_count
 
 class myUser(AbstractUser):
