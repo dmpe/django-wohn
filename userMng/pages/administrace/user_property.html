@@ -13,7 +13,10 @@
         {% include 'nav_sidebar.html' %}
 
 	    <div class="col-md-10">
-	        
+	        <form method="POST" id="form-new-user-property" class="mb-5">
+				{% csrf_token %}	
+	        	 {{ form }}
+	        </form>
 	    </div>
 	    
 	</div>

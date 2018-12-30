@@ -142,12 +142,14 @@ class UserProfileProperties(LoginRequiredMixin, View):
 	template_name = "user_property.html"
 	
 	def post(self, request):
-		"""docstring for post
+		"""
+		docstring for post
 		"""
 		pass
 	
 	def get(self, request):
-		"""docstring for get
+		"""
+		docstring for get
 		"""
 		form = NewPropertyForm()
 		return render(request, self.template_name, {"form": form, "number_of_properties": number_of_user_properties})
@@ -383,16 +385,3 @@ class AdvertisingStatistics(LoginRequiredMixin, View):
 
 	def post():
 		pass
-
-
-class AdvertisingNewAd(LoginRequiredMixin, View):
-	"""docstring for AdvertisingNewAd
-	"""
-	template_name = 'ads/create_new.html'
-
-	def get(self, request):
-		return render(request, self.template_name)
-
-	def post():
-		pass
-
