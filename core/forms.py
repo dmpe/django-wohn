@@ -35,8 +35,7 @@ class NewPropertyForm(forms.ModelForm):
 
 	class Meta:
 		model = Property
-		fields = __all__
-
+		fields = '__all__'
 
 
 
