@@ -61,6 +61,7 @@ git push master heroku
 #### 1.4.1 Dont forget to create superuser
 
 ```
+python3 manage.py createsuperuser --username admin --email ci@se.cz
 heroku run python3 manage.py createsuperuser --username admin --email ci@se.cz
 ```
 
