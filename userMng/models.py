@@ -36,6 +36,18 @@ def upload_profile_image(instance, filename):
 
 class MyUserManager(UserManager):
 
+	def return_profile_image(self, email):
+		"""
+		This functions takes user_profile_image = models.ImageField and adds gravatar logic to it as well
+		1 fetch "user uploaded pictire", if none then use gravatar function
+		"""
+		pass		
+		# if():
+		# 	avatar_profile = 
+		# else:
+		# 	avatar_profile = fetch_gravatar(email=email)
+		# return avatar_profile
+
 	def fetch_gravatar(self, email, default = "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg"):
 		"""
 		fetching gravatar image
