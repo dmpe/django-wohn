@@ -1,5 +1,6 @@
 import re
 import json
+import os
 
 from django.db import *
 from django.db import models
@@ -8,15 +9,30 @@ from django.conf import *
 from django_countries.fields import *
 from django.utils.safestring import *
 
+# rename each user profile image to have its unique name
+import uuid
+
 # for MyUserManager custom functions
 from core.models import *
+
 # for storing user's timezone, default is Prague (CET) stored in settings.py
 import pytz
 from timezone_field import TimeZoneField
+
 # for gravatar
 import urllib, hashlib
+
 # store users phone number
 from phonenumber_field.modelfields import PhoneNumberField
+
+def upload_profile_image(instance, filename):
+	"""
+	https://djangowohnreal1.blob.core.windows.net/
+	images-profile-pictures/user-profile-photos/user_id_UUID
+	"""
+	azure_folder = "user-profile-photos/"
+	URL_path = "_".join(["user", str(instance.id), str(uuid.uuid4())])
+	return azure_folder + URL_path
 
 class MyUserManager(UserManager):
 
@@ -51,7 +67,7 @@ class myUser(AbstractUser):
 	user_timezone = TimeZoneField(default = settings.TIME_ZONE)
 	user_country = CountryField(default = "CZ")
 	
-	user_profile_image = models.ImageField(upload_to = "user-profile-photos")
+	user_profile_image = models.ImageField(upload_to = upload_profile_image, black = True, null = True)
 	
 	UNITS_SYSTEM = (
 		('Imperial', 'Imperial'),
