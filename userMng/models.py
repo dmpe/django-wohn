@@ -79,7 +79,7 @@ class myUser(AbstractUser):
 	user_timezone = TimeZoneField(default = settings.TIME_ZONE)
 	user_country = CountryField(default = "CZ")
 	
-	user_profile_image = models.ImageField(upload_to = upload_profile_image, black = True, null = True)
+	user_profile_image = models.ImageField(upload_to = upload_profile_image, blank = True, null = True)
 	
 	UNITS_SYSTEM = (
 		('Imperial', 'Imperial'),
