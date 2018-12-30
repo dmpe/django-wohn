@@ -1,4 +1,5 @@
-######### This class is for a variety of purposes.
+######### This class is for a variety of purposes
+#####
 from werkzeug.useragents import *
 from django.utils.html import *
 from django.utils.http import *
@@ -14,8 +15,7 @@ from django.utils.safestring import *
 import re
 import json
 import requests as requests_library
-# for gravatar
-import urllib, hashlib
+
 
 # replaced by logic in contrib.auth.tokens
 def http_headers(request):
@@ -145,3 +145,13 @@ def prepare_visitor_mssg_email(request, userPresent_username = None,
 		return HttpResponse('Invalid header found.')
 
 	return None
+
+
+def upload_profile_image(instance, filename):
+	"""
+	Function used by the user model to upload to AZURE avatars
+	https://djangowohnreal1.blob.core.windows.net/images-profile-pictures/user-profile-photos/user_id_UUID
+	"""
+	azure_folder = "user-profile-photos/"
+	URL_path = "_".join(["user", str(instance.id), str(uuid.uuid4())])
+	return azure_folder + URL_path

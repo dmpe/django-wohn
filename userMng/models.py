@@ -1,6 +1,10 @@
-import re
-import json
 import os
+# for time related tasks, incl. timezone
+import pytz
+# for gravatar URLs and user's profile image and its unique name
+import urllib
+import hashlib
+import uuid
 
 from django.db import *
 from django.db import models
@@ -9,30 +13,17 @@ from django.conf import *
 from django_countries.fields import *
 from django.utils.safestring import *
 
-# rename each user profile image to have its unique name
-import uuid
-
 # for MyUserManager custom functions
 from core.models import *
 
 # for storing user's timezone, default is Prague (CET) stored in settings.py
-import pytz
-from timezone_field import TimeZoneField
+from timezone_field import *
 
-# for gravatar
-import urllib, hashlib
+# for gravatar/profile pictures
+from .mics import *
 
 # store users phone number
-from phonenumber_field.modelfields import PhoneNumberField
-
-def upload_profile_image(instance, filename):
-	"""
-	https://djangowohnreal1.blob.core.windows.net/
-	images-profile-pictures/user-profile-photos/user_id_UUID
-	"""
-	azure_folder = "user-profile-photos/"
-	URL_path = "_".join(["user", str(instance.id), str(uuid.uuid4())])
-	return azure_folder + URL_path
+from phonenumber_field.modelfields import *
 
 class MyUserManager(UserManager):
 
