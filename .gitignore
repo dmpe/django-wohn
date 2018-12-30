@@ -4,7 +4,6 @@ staticfiles
 .env
 env
 *.ico
-*.png
 *.sh
 *.log
 *.pot
