@@ -2,6 +2,8 @@ from django import forms
 from django.db import *
 from django.urls import *
 
+from .models import *
+
 # add crispy imports for sending (helper)
 from crispy_forms.helper import *
 from crispy_forms.layout import *
