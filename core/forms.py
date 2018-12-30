@@ -25,6 +25,14 @@ class ContactForm(forms.Form):
 	inputText = forms.CharField(label = "Your message is about....", widget = forms.Textarea, required=True)
 
 
+class NewPropertyForm(forms.ModelForm):
+	"""
+	Form for adding new properties
+	"""
+
+	class Meta:
+		model = Property
+		fields = __all__
 
 
 

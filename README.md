@@ -114,6 +114,7 @@ python3 manage.py graph_models -a -g -o amazing_server_configuration/my_project_
 Run celery from b40re directory using
 
 ```
+sudo systemctl restart rabbitmq....
 celery -A vanoce worker -l info
 ```
 

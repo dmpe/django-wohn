@@ -25,8 +25,9 @@ from django.urls import reverse
 # for messages
 from django.utils.safestring import *
 
-# used for logout redirect
+# used for logout redirect and new properties form
 from core.views import *
+from core.forms import *
 
 # for using not only username/pswd but also email/pswd
 from .backends import EmailUserNameAuthBackend
@@ -148,8 +149,8 @@ class UserProfileProperties(LoginRequiredMixin, View):
 	def get(self, request):
 		"""docstring for get
 		"""
-		pass
-		#return render(request, self.template_name, {"form": form, "number_of_properties": number_of_user_properties})
+		form = NewPropertyForm()
+		return render(request, self.template_name, {"form": form, "number_of_properties": number_of_user_properties})
 
 class UserProfileMessages(LoginRequiredMixin, View):
 	"""docstring for UserProfileMessages
