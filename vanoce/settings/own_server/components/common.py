@@ -94,6 +94,7 @@ INSTALLED_APPS = [
     'markdownx',
     'timezone_field',
     'django_countries',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
