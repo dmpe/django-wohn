@@ -4,6 +4,7 @@ brotlipy
 Celery
 Django
 dj-database-url
+django-filter 
 django-phonenumber-field
 django-storages
 django-split-settings
@@ -14,6 +15,7 @@ django-markdownx
 django-timezone-field
 django-countries
 django_extensions
+djangorestframework
 google-api-python-client
 googleapis-common-protos
 git+git://github.com/python-social-auth/social-core.git#egg=elasticutils

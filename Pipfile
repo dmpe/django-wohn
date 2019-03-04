@@ -4,10 +4,8 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [requires]
 python_version = "3.7.0"
-
 
 [packages]
 Django = "*"
@@ -42,4 +40,5 @@ google-api-python-client="*"
 googleapis-common-protos="*"
 django-countries="*"
 django_extensions="*"
+
 [dev-packages]

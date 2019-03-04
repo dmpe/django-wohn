@@ -129,11 +129,12 @@ Source: <https://stackoverflow.com/a/12900126/2171456>
 
 ## 2. Notes
 
-When you add new css/js to `static` folder, it is good idea to still run locally `python3 manage.py collectstatic` which will overwrite `staticfiles` & which again can be pushed to heroku (unless being ignored by `gitignore`. 
+When you add new css/js to `static` folder, it is good idea to still run locally `python3 manage.py collectstatic` which will overwrite `staticfiles` & which again can be pushed to heroku (unless being ignored by `gitignore`). 
 
 Idea source: 
 - <https://www.respekt.cz/sousede/nekolik-nezavislych-lidi-bydli-v-jednom-pronajatem-byte> sort of.
 - <https://stackoverflow.com/a/40790734>
 - <https://stackoverflow.com/a/50309967>
 - Git post-recieve hook: <https://gist.github.com/lemiorhan/8912188>
-[]: 
+
+
