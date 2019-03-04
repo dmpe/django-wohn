@@ -14,6 +14,7 @@ from django.urls import *
 from django.utils.safestring import *
 import re
 import json
+import uuid
 import requests as requests_library
 
 

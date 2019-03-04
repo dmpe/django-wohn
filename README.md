@@ -13,9 +13,9 @@ If **models have been changed**, following needs to be run on a **LOCAL PC**:
 If previously some deployments to the local PC have been executed, then one **has** to clean & prepare database again. 
 
 ```
-sudo su postgres
-dropdb b40
-createdb b40
+sudo su -u postgres psql
+dropdb b40;
+createdb b40;
 exit
 ```
 
@@ -133,8 +133,12 @@ When you add new css/js to `static` folder, it is good idea to still run locally
 
 Idea source: 
 - <https://www.respekt.cz/sousede/nekolik-nezavislych-lidi-bydli-v-jednom-pronajatem-byte> sort of.
+
 - <https://stackoverflow.com/a/40790734>
+
 - <https://stackoverflow.com/a/50309967>
+
 - Git post-recieve hook: <https://gist.github.com/lemiorhan/8912188>
+
 
 
