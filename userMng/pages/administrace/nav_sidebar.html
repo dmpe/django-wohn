@@ -68,7 +68,7 @@
 		<li class="list-group-item d-flex justify-content-between align-items-center">
 			<a href="{% url 'pinax_messages:inbox' %}" class="nav-link {% if url_name == 'pinax_messages:inbox' %}active{% endif %}">
 				<i class="fas fa-envelope fa-lg"></i>
-				<span class="badge badge-danger badge-pill"> {{ number_of_messages }}</span>
+				<span class="badge badge-danger badge-pill"> {{ unread_thread_count }}</span>
 			</a>
 		</li>
 

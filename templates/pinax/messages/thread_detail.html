@@ -2,7 +2,7 @@
 
 {% block body_class %}{{ block.super }} pinax-messages pinax-messages-thread{% endblock %}
 
-{% load bootstrap %}
+{% load %}
 
 {% block content %}
 <div class="pinax-messages-thread-detail-container">
@@ -25,7 +25,7 @@
 
     <form class="comment-form" action="{% url "pinax_messages:thread_detail" thread.pk %}" method="post">
         {% csrf_token %}
-        {{ form|bootstrap }}
+        {{ form }}
         <div class="form-actions">
             <a href="{% url "pinax_messages:inbox" %}" class="cancel">Cancel</a>
             <button>Send</button>
