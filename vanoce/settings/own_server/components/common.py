@@ -27,7 +27,7 @@ from azure.common.credentials import ServicePrincipalCredentials
 # for celery tasks - scheduling
 from celery.schedules import *
 
-from storages.backends.azure_storage import *
+# from storages.backends.azure_storage import *
 
 credentials = None
 
