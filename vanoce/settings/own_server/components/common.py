@@ -95,8 +95,7 @@ INSTALLED_APPS = [
     'timezone_field',
     'django_countries',
     'rest_framework',
-    "bootstrapform",
-    "pinax.templates",
+    'pinax.templates',
     'pinax.messages',
 ]
 
@@ -225,17 +224,19 @@ COUNTRIES_FIRST = ["CZ", "SK"]
 COUNTRIES_FIRST_REPEAT = True
 COUNTRIES_FIRST_BREAK = "---------------"
 
-DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+# Static files (CSS, JavaScript, Images)
+DEFAULT_FILE_STORAGE = 'backend.custom_azure.AzureMediaStorage'
+STATICFILES_STORAGE = 'backend.custom_azure.AzureStaticStorage'
+
+MEDIA_LOCATION = "user-profile-photos"
+MEDIA_URL = 'https://djangowohnreal1.blob.core.windows.net/%s/' % MEDIA_LOCATION
+
+AZURE_CUSTOM_DOMAIN = 'https://djangowohnreal1.blob.core.windows.net/
+STATIC_URL = AZURE_CUSTOM_DOMAIN
+
 AZURE_EMULATED_MODE = False
 AZURE_OVERWRITE_FILES = True
-AZURE_ACCOUNT_NAME = "djangowohnreal1"
-AZURE_ACCOUNT_KEY = client.get_secret("https://b40.vault.azure.net/", "AZURE-ACCOUNT-KEY", "2c71faab5f684de88893557e09c24fbf").value
-AZURE_CONTAINER = "images-profile-pictures"
-MEDIA_URL = 'https://djangowohnreal1.blob.core.windows.net/%s/' % AZURE_CONTAINER
 
-# Static files (CSS, JavaScript, Images)
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
