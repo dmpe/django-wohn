@@ -3,16 +3,25 @@
 {% block body_class %}{{ block.super }} pinax-messages-create{% endblock %}
 
 {% block content %}
-<div class="pinax-messages-create-container">
-    <h2>New Message</h2>
+<div class="container-fluid">
 
-    <form class="comment-form" action="{% url "pinax_messages:message_create" %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <div class="form-actions">
-            <a href="{% url "pinax_messages:inbox" %}" class="cancel">Cancel</a>
-            <button>Send</button>
-        </div>
-    </form>
+	<div class="row">
+        {% include 'nav_sidebar.html' %}
+
+	    <div class="col-md-10">
+            <div class="pinax-messages-create-container">
+                <h2>New Message</h2>
+            
+                <form class="comment-form" action="{% url "pinax_messages:message_create" %}" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <div class="form-actions">
+                        <a href="{% url "pinax_messages:inbox" %}" class="cancel">Cancel</a>
+                        <button>Send</button>
+                    </div>
+                </form>
+            </div>
+	    </div>
+	</div>
 </div>
 {% endblock %}

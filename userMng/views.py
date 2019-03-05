@@ -155,25 +155,6 @@ class UserProfileProperties(LoginRequiredMixin, View):
 		number_of_user_properties = myUser.objects.fetch_owners_properties_count(user_id=request.user.pk)
 		return render(request, self.template_name, {"form": form, "number_of_properties": number_of_user_properties})
 
-class UserProfileMessages(LoginRequiredMixin, View):
-	"""docstring for UserProfileMessages
-	"""
-	
-	template_name = "user_messages.html"
-	
-	def post(self, request):
-		"""docstring for post
-		"""
-		pass
-	
-	def get(self, request):
-		"""
-		Return number of outstanding messages
-		"""
-		#number_of_user_messages = myUser.objects
-		return render(request, self.template_name)
-
-
 ###################################
 ################
 ################ Passoword Reset
