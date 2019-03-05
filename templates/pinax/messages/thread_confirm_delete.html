@@ -26,7 +26,7 @@
                     {% csrf_token %}
                     <div class="form-actions">
                         <a href="{% url "pinax_messages:inbox" %}" class="cancel">{% trans "Cancel" %}</a>
-                        <button>{% trans "Delete" %}</button>
+                        <button type="button" class="btn btn-primary">{% trans "Delete" %}</button>
                     </div>
                 </form>
     	    </div>
