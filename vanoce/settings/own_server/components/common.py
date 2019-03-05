@@ -231,7 +231,7 @@ STATICFILES_STORAGE = 'backend.custom_azure.AzureStaticStorage'
 MEDIA_LOCATION = "user-profile-photos"
 MEDIA_URL = 'https://djangowohnreal1.blob.core.windows.net/%s/' % MEDIA_LOCATION
 
-AZURE_CUSTOM_DOMAIN = 'https://djangowohnreal1.blob.core.windows.net/
+AZURE_CUSTOM_DOMAIN = 'https://djangowohnreal1.blob.core.windows.net/'
 STATIC_URL = AZURE_CUSTOM_DOMAIN
 
 AZURE_EMULATED_MODE = False
