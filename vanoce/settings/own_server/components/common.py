@@ -240,24 +240,23 @@ class AzureStaticStorage(AzureStorage):
     expiration_secs = None
 
 # Static files (CSS, JavaScript, Images)
-DEFAULT_FILE_STORAGE = 'vanoce.settings.own_server.components.common.AzureMediaStorage'
-STATICFILES_STORAGE = 'vanoce.settings.own_server.components.common.AzureStaticStorage'
+DEFAULT_FILE_STORAGE = 'backend.custom_azure.AzureMediaStorage'
+STATICFILES_STORAGE = 'backend.custom_azure.AzureStaticStorage'
 
 MEDIA_LOCATION = "user-profile-photos"
 MEDIA_URL = 'https://djangowohnreal1.blob.core.windows.net/%s/' % MEDIA_LOCATION
 
-AZURE_CUSTOM_DOMAIN = 'https://djangowohnreal1.blob.core.windows.net/'
-STATIC_URL = AZURE_CUSTOM_DOMAIN
+STATIC_URL = 'https://djangowohnreal1.blob.core.windows.net/'
 
 AZURE_EMULATED_MODE = False
 AZURE_OVERWRITE_FILES = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'static/css/'),
-    os.path.join(PROJECT_ROOT, 'static/js/'),
-]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
+#     os.path.join(PROJECT_ROOT, 'static/css/'),
+#     os.path.join(PROJECT_ROOT, 'static/js/'),
+# ]
 
 PHONENUMBER_DB_FORMAT = 'E164'
 
