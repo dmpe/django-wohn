@@ -18,15 +18,15 @@
             
                 {% url "pinax_messages:thread_delete" thread.pk as post_url %}
             
-                <div class="delete-warning" role="alert">
+                <div class="alert alert-danger" role="alert">
                     {% trans "Are you sure you want to delete this thread?" %}
                 </div>
             
                 <form action="{{ post_url }}" method="POST">
                     {% csrf_token %}
                     <div class="form-actions">
-                        <a href="{% url "pinax_messages:inbox" %}" class="cancel">{% trans "Cancel" %}</a>
-                        <button type="button" class="btn btn-primary">{% trans "Delete" %}</button>
+                        <a href="{% url "pinax_messages:inbox" %}" type="button" class="btn btn-light">{% trans "Cancel" %}</a>
+                        <button type="button" class="btn btn-danger">{% trans "Delete" %}</button>
                     </div>
                 </form>
     	    </div>
