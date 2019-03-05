@@ -171,8 +171,7 @@ class UserProfileMessages(LoginRequiredMixin, View):
 		Return number of outstanding messages
 		"""
 		#number_of_user_messages = myUser.objects
-		pass
-		#return render(request, self.template_name, {"number_of_messages": number_of_messages})
+		return render(request, self.template_name)
 
 
 ###################################
