@@ -58,7 +58,6 @@ class MyUserManager(UserManager):
 
 		return property_count
 
-
 class myUser(AbstractUser):
 	# email, username, first and last name are unnecessary
 	GENDER_CHOICES = (

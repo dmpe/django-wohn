@@ -147,7 +147,6 @@ def prepare_visitor_mssg_email(request, userPresent_username = None,
 
 	return None
 
-
 def upload_profile_image(instance, filename):
 	"""
 	Function used by the user model to upload to AZURE avatars
