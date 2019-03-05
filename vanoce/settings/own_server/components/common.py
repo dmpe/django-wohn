@@ -226,20 +226,10 @@ COUNTRIES_FIRST = ["CZ", "SK"]
 COUNTRIES_FIRST_REPEAT = True
 COUNTRIES_FIRST_BREAK = "---------------"
 
-
-class AzureMediaStorage(AzureStorage):
-    account_name = 'djangowohnreal1'
-    account_key = client.get_secret("https://b40.vault.azure.net/", "AZURE-ACCOUNT-KEY", "2c71faab5f684de88893557e09c24fbf").value
-    azure_container = 'images-profile-pictures'
-    expiration_secs = None
-
-class AzureStaticStorage(AzureStorage):
-    account_name = 'djangowohnreal1'
-    account_key = client.get_secret("https://b40.vault.azure.net/", "AZURE-ACCOUNT-KEY", "2c71faab5f684de88893557e09c24fbf").value
-    azure_container = 'static'
-    expiration_secs = None
-
 # Static files (CSS, JavaScript, Images)
+AZURE_ACCOUNT_NAME = "djangowohnreal1"
+AZURE_ACCOUNT_KEY = client.get_secret("https://b40.vault.azure.net/", "AZURE-ACCOUNT-KEY", "2c71faab5f684de88893557e09c24fbf").value
+
 DEFAULT_FILE_STORAGE = 'backend.custom_azure.AzureMediaStorage'
 STATICFILES_STORAGE = 'backend.custom_azure.AzureStaticStorage'
 
