@@ -71,6 +71,25 @@ Adminstrace - Dashboard
 	text-transform: uppercase;
 }
 
+/* ///////////////////
+User Messages
+*/
+.no-messages {
+	font-size: 1.2rem;
+	padding: .5rem;
+	background: #f8f9fa;
+	border: 1px solid #e9ecef;
+	color: #868e96;
+	border-radius: 5px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.with-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* //////////////////
 Contact page - Make responsive page iframe
 */
