@@ -9,17 +9,19 @@
         {% include 'nav_sidebar.html' %}
 
 	    <div class="col-md-10">
-            <div class="pinax-messages-create-container">
-                <h2>New Message</h2>
-            
-                <form class="comment-form" action="{% url "pinax_messages:message_create" %}" method="post">
-                    {% csrf_token %}
-                    {{ form }}
-                    <div class="form-actions">
-                        <a href="{% url "pinax_messages:inbox" %}" type="button" class="btn btn-light">Cancel</a>
-                        <button type="button" class="btn btn-primary">Send</button>
-                    </div>
-                </form>
+	        <div class="pinax-content-body">
+                <div class="pinax-messages-create-container">
+                    <h2>New Message</h2>
+                
+                    <form class="comment-form" action="{% url "pinax_messages:message_create" %}" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <div class="form-actions">
+                            <a href="{% url "pinax_messages:inbox" %}" type="button" class="btn btn-light">Cancel</a>
+                            <button type="button" class="btn btn-primary">Send</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 	    </div>
 	</div>
