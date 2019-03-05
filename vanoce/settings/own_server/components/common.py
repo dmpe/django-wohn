@@ -95,6 +95,7 @@ INSTALLED_APPS = [
     'timezone_field',
     'django_countries',
     'rest_framework',
+    'pinax.messages',
 ]
 
 MIDDLEWARE = [
@@ -179,6 +180,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
+                'pinax.messages.context_processors.user_messages',
             ],
             'debug': DEBUG,
         },

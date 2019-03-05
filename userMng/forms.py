@@ -14,7 +14,8 @@ from crispy_forms.bootstrap import *
 from django_countries.widgets import *
 
 class RegisterForm(forms.Form):
-	"""docstring for RegisterForm
+	"""
+	docstring for RegisterForm
 	"""
 	inputUsername = forms.CharField(max_length = 30)
 	inputEmail = forms.EmailField(widget=forms.EmailInput())

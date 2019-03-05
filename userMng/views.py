@@ -167,9 +167,12 @@ class UserProfileMessages(LoginRequiredMixin, View):
 		pass
 	
 	def get(self, request):
-		"""docstring for get
 		"""
-		return render(request, self.template_name)
+		Return number of outstanding messages
+		"""
+		#number_of_user_messages = myUser.objects
+		pass
+		#return render(request, self.template_name, {"number_of_messages": number_of_messages})
 
 
 ###################################
