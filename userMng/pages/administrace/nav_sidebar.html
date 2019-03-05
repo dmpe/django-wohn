@@ -22,10 +22,10 @@
 			</a>
 		</li>
 		<li class = "nav-item">
-			<a href="{% url 'user_messages' %}" class="nav-link {% if url_name == 'user_messages' %}active{% endif %}">
+			<a href="{% url 'pinax_messages:inbox' %}" class="nav-link {% if url_name == 'pinax_messages:inbox' %}active{% endif %}">
 				<i class="fas fa-envelope fa-lg"></i>
 				<span class="ml-3">Messages</span>
-				<span class="badge badge-danger badge-pill"> {{ number_of_messages }}</span>
+				<span class="badge badge-danger badge-pill"> {{ unread_thread_count }}</span>
 			</a>
 		</li>
 		{# IDEA: if user is advertisor, see stage-2 #}
