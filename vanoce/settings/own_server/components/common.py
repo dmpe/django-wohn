@@ -95,6 +95,8 @@ INSTALLED_APPS = [
     'timezone_field',
     'django_countries',
     'rest_framework',
+    "bootstrapform",
+    "pinax.templates",
     'pinax.messages',
 ]
 
