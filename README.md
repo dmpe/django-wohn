@@ -7,6 +7,14 @@ This has been developed for learning Django 2+ & Python 3+.
 The idea source was this article <https://www.respekt.cz/sousede/nekolik-nezavislych-lidi-bydli-v-jednom-pronajatem-byte>. 
 The reason being is that, as of 2019, a real-estate portal dedicated to the student housing does not existist - in the same form as it is in DACH region - in the Czech Republic. There are some similar sites but nothing compared to <https://www.wg-gesucht.de>. The objective is to fill the gap. 
 
+
+## Azure Cloud Services Used
+
+- Virtual Machines
+- Key Vault
+- DNS
+- Blob Storage Account
+
 ## 1. How to deploy
 
 ### 1.1 Common tasks for <u>local and Heroku</u>
