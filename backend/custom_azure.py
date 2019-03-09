@@ -1,27 +1,12 @@
 # for Azure Key Vault
 from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
 from azure.common.credentials import ServicePrincipalCredentials
+from msrestazure.azure_active_directory import MSIAuthentication
 
 from storages.backends.azure_storage import *
 
-CREDENTIALS = None
-
-"""
-	Create a function that prepares to
-	retrieve secret key value/other credentials from AZURE Key Vault
-	
-"""
-def auth_callback(server, resource, scope):
-	CREDENTIALS = ServicePrincipalCredentials(
-		client_id = 'fffff2a3-935f-448c-9e4b-d0bdfb76deda', #client id
-		secret = 'W|{e)|4_c#L*&.**&}->p--0Q',
-		tenant = '0f510a1b-c5e3-4209-8b58-1312c3193849',
-		resource = "https://vault.azure.net"
-	)
-	token = CREDENTIALS.token
-	return token['token_type'], token['access_token']
-
-client = KeyVaultClient(KeyVaultAuthentication(auth_callback))
+credentials = MSIAuthentication(resource='https://vault.azure.net')
+client = KeyVaultClient(credentials)
 
 class AzureMediaStorage(AzureStorage):
 	account_name = 'djangowohnreal1'

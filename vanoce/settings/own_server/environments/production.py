@@ -17,23 +17,10 @@ import os
 import sys
 from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
 from azure.common.credentials import ServicePrincipalCredentials
+from msrestazure.azure_active_directory import MSIAuthentication
 
-credentials = None
-"""
-    Create a function that prepares to retrieve secret key value/other credentials
-"""
-def auth_callback(server, resource, scope):
-    credentials = ServicePrincipalCredentials(
-        client_id = 'fffff2a3-935f-448c-9e4b-d0bdfb76deda',
-        secret = 'W|{e)|4_c#L*&.**&}->p--0Q',
-        tenant = '0f510a1b-c5e3-4209-8b58-1312c3193849',
-        resource = "https://vault.azure.net"
-    )
-    token = credentials.token
-    return token['token_type'], token['access_token']
-
-client = KeyVaultClient(KeyVaultAuthentication(auth_callback))
-
+credentials = MSIAuthentication(resource='https://vault.azure.net')
+client = KeyVaultClient(credentials)
 
 #later sometimes
 #DEBUG = False
