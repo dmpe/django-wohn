@@ -17,6 +17,7 @@
 import os
 import sys
 import logging
+
 # for bootstrap, to make message classes consistent with the framework
 from django.contrib.messages import constants as message_constants
 
@@ -26,8 +27,6 @@ from azure.common.credentials import ServicePrincipalCredentials
 
 # for celery tasks - scheduling
 from celery.schedules import *
-
-# from storages.backends.azure_storage import *
 
 credentials = None
 

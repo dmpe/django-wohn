@@ -1,6 +1,11 @@
 # Django 2+ based real-estate website
 
-This has been developed by me for learning Django 2+ / Python 3+. 
+This has been developed for learning Django 2+ & Python 3+. 
+
+**Goal:** To create something akin to <https://www.wg-gesucht.de> which would provide end-users (i.e. mostly students but also landlords) a way to advertise their free rooms.
+
+The idea source was this article <https://www.respekt.cz/sousede/nekolik-nezavislych-lidi-bydli-v-jednom-pronajatem-byte>. 
+The reason being is that, as of 2019, a real-estate portal dedicated to the student housing does not existist - in the same form as it is in DACH region - in the Czech Republic. There are some similar sites but nothing compared to <https://www.wg-gesucht.de>. The objective is to fill the gap. 
 
 ## 1. How to deploy
 
@@ -21,13 +26,13 @@ exit
 
 #### 1.1.2 Collect static files
 
-This also acts as a sort of test that can identify some errors early on.
+This also acts as a sort of test that can identify some errors early on. It also uploads static and media files directly to the Azure blob container.
 
 ```
 python3 manage.py collectstatic
 ```
 
-### 1.2 Prepare migrations files
+### 1.1.3 Prepare migrations files
 
 - Find and delete all `migrations` folders
 
@@ -38,11 +43,10 @@ find -type d -name migrations -prune -exec rm -rf {} \;
 - Run makemigrations again
 
 ```
-python3 manage.py makemigrations core
-python3 manage.py makemigrations userMng
+python3 manage.py makemigrations core && python3 manage.py makemigrations userMng
 ```
 
-### 1.3 Deploy to local PC
+### 1.1.4 Deploy to local PC
 
 - Continue from previous steps
 
@@ -50,7 +54,7 @@ python3 manage.py makemigrations userMng
 python3 manage.py migrate
 ```
 
-### 1.4 Deploy to Heroku
+### 1.1.5 Deploy to Heroku
 
 Heroku automatically runs collectstatic.
 
@@ -58,24 +62,29 @@ Heroku automatically runs collectstatic.
 git push master heroku
 ```
 
-#### 1.4.1 Dont forget to create superuser
+#### 1.2 Dont forget to create superuser
 
+On local PC:
 ```
 python3 manage.py createsuperuser --username admin --email ci@se.cz
+```
+
+On Heroku (via their cli):
+```
 heroku run python3 manage.py createsuperuser --username admin --email ci@se.cz
 ```
 
-### 1.5. Deploy to own server
+### 1.3 Deploy to own server
 
 Execute on remote server following commands whenever models change.
 
-**Onelines**
+**Oneliners**
 
 ```
 python3 manage.py makemigrations core && python3 manage.py makemigrations userMng && python3 manage.py migrate && sudo systemctl restart gunicorn.service 
 ```
 
-**Common issues:**
+#2. Common issues
 
 - Kill heroku dyno
 
@@ -97,7 +106,7 @@ sudo certbot --nginx certonly
 
 - Nginx 502 gateway issue after VM reboot
 
-Just **restart** nginx, then `gunicorn.service` as well as stop that socket thing
+Just **restart** nginx, then `sudo systemctl restart gunicorn.service` as well as stop that socket thing
 
 - Create **ER** Diagramms
 
@@ -109,30 +118,30 @@ Just **restart** nginx, then `gunicorn.service` as well as stop that socket thin
 python3 manage.py graph_models -a -g -o amazing_server_configuration/my_project_visualized.png
 ```
 
-### 1.6 Run Celery
+#3. Run Celery
 
 Run celery from b40re directory using
 
 ```
-sudo systemctl restart rabbitmq....
+sudo systemctl restart rabbitmq<TAB>
 celery -A vanoce worker -l info
 ```
 
-(Then,) to execute task(s) immediately 
+Then, in an another bash window, execute below so that tasks such as fetching forex/currency data are run immediately.
 
 ```
 python3 manage.py shell
 from userMng.third_party_services.celery_tasks import parse_forex_data
 rst = parse_forex_data.apply()
 ```
+
 Source: <https://stackoverflow.com/a/12900126/2171456>
 
-## 2. Notes
+#4. Notes
 
 When you add new css/js to `static` folder, it is good idea to still run locally `python3 manage.py collectstatic` which will overwrite `staticfiles` & which again can be pushed to heroku (unless being ignored by `gitignore`). 
 
-Idea source: 
-- <https://www.respekt.cz/sousede/nekolik-nezavislych-lidi-bydli-v-jednom-pronajatem-byte> sort of.
+#5. Sources
 
 - <https://stackoverflow.com/a/40790734>
 
