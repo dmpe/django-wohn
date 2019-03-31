@@ -72,7 +72,7 @@ class myUser(AbstractUser):
 	
 	# using a function here 
 	user_profile_image = models.ImageField(upload_to = upload_profile_image, 
-		null = True, default = "https://content-static.upwork.com/uploads/2014/10/02123010/profilephoto_goodcrop.jpg")
+		null = True)
 	
 	UNITS_SYSTEM = (
 		('Imperial', 'Imperial'),
