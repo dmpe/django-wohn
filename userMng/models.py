@@ -71,7 +71,8 @@ class myUser(AbstractUser):
 	user_country = CountryField(default = "CZ")
 	
 	# using a function here 
-	user_profile_image = models.ImageField(upload_to = upload_profile_image, blank = True, null = True)
+	user_profile_image = models.ImageField(upload_to = upload_profile_image, 
+		null = True, default = "https://content-static.upwork.com/uploads/2014/10/02123010/profilephoto_goodcrop.jpg")
 	
 	UNITS_SYSTEM = (
 		('Imperial', 'Imperial'),
@@ -88,5 +89,6 @@ class myUser(AbstractUser):
 
 	objects = MyUserManager()
 	
+	# username and email must always be unique
 	class Meta:
 		unique_together = (("email"),)
