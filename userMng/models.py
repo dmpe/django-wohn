@@ -70,6 +70,7 @@ class myUser(AbstractUser):
 	user_timezone = TimeZoneField(default = settings.TIME_ZONE)
 	user_country = CountryField(default = "CZ")
 	
+	# using a function here 
 	user_profile_image = models.ImageField(upload_to = upload_profile_image, blank = True, null = True)
 	
 	UNITS_SYSTEM = (
@@ -82,7 +83,8 @@ class myUser(AbstractUser):
 		('VFN', 'First name'),
 		('VLN', 'Last name'),
 	)
-	user_first_lastname_visibility = models.CharField(max_length=3, choices = NAME_VISIBILITY, null = True, default = "VFN")
+	user_first_lastname_visibility = models.CharField(max_length=3, choices = NAME_VISIBILITY, 
+		null = True, default = "VFN")
 
 	objects = MyUserManager()
 	

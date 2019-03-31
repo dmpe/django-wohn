@@ -133,7 +133,8 @@ class UserProfileAdministration(LoginRequiredMixin, View):
 		gravatar_url = myUser.objects.fetch_gravatar(email=request.user.email)
 		number_of_user_properties = myUser.objects.fetch_owners_properties_count(user_id=request.user.pk)
 
-		return render(request, self.template_name, {"form": form, "gravatar_url": gravatar_url, "number_of_properties": number_of_user_properties})
+		return render(request, self.template_name, {"form": form, "gravatar_url": gravatar_url, 
+			"number_of_properties": number_of_user_properties})
 		
 class UserProfileProperties(LoginRequiredMixin, View):
 	"""

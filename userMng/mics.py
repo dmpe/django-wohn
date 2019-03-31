@@ -153,5 +153,6 @@ def upload_profile_image(instance, filename):
 	https://djangowohnreal1.blob.core.windows.net/images-profile-pictures/user-profile-photos/user_id_UUID
 	"""
 	azure_folder = "user-profile-photos/"
+	# user_id_UUID
 	URL_path = "_".join(["user", str(instance.id), str(uuid.uuid4())])
 	return azure_folder + URL_path

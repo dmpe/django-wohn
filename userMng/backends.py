@@ -48,7 +48,6 @@ class EmailUserNameAuthBackend(ModelBackend):
 
 		:returns: user object if user found and bool value (TRUE, FALSE)
 		"""
-		# define object and bool value
 		getUserObject, presentInSystem = None, False
 		is_valid = valid_email(in_str = inputString)
 
