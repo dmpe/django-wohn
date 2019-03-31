@@ -39,7 +39,7 @@ class MyUserManager(UserManager):
 		# 	avatar_profile = fetch_gravatar(email=email)
 		# return avatar_profile
 
-	def fetch_gravatar(self, email, default = "https://content-static.upwork.com/uploads/2014/10/02123010/profilephoto_goodcrop.jpg"):
+	def fetch_gravatar(self, email, default = "https://via.placeholder.com/150"):
 		"""
 		fetching gravatar image
 		https://en.gravatar.com/site/implement/images/python/
