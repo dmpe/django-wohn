@@ -106,7 +106,8 @@ class UserProfileIndex(LoginRequiredMixin, View):
 		number_of_user_properties = myUser.objects.fetch_owners_properties_count(user_id=request.user.pk)
 
 		return render(request, self.template_name, {"form": form, 
-			"number_of_views": number_of_views.get("ga:pageviews"), "number_of_properties": number_of_user_properties})
+			"number_of_views": number_of_views.get("ga:pageviews"), 
+			"number_of_properties": number_of_user_properties})
 
 class UserProfileAdministration(LoginRequiredMixin, View):
 	"""

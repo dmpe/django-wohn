@@ -38,15 +38,15 @@ https://github.com/dmpe/django-wohn/issues/18
 				</div>
 				<div class="col-md-12">
 					<div class="pt-2">
-						<form class="" action="POST" enctype="multipart/form-data">
+						<form class="" action="POST" id = "form-user-profile-image" enctype="multipart/form-data">
 						{% csrf_token %}
 							<div class="input-group mb-3">
 								<div class="custom-file">
 									<input type="file" name="image" class="custom-file-input" id="customFile">
-									<label class="custom-file-label" for="customFile">Choose image...</label>
+									<label class="custom-file-label" for="customFile" aria-describedby="inputGroupFileAddon02">Image...</label>
 								</div>
 								<div class="input-group-append">
-									<span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+									<button type="submit" class="btn input-group-text" id="inputGroupFileAddon02">Upload</button>
 								</div>
 							</div>
 						</form>
