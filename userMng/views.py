@@ -181,7 +181,7 @@ class ResetPasswordStepOneView(View):
 
 		if userPresent[0] is True:
 			tk = token_obj.make_token(userPresent[1])
-			uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk)).decode()
+			uid = urlsafe_base64_encode(force_bytes(userPresent[1].pk))
 
 			prepare_psswd_reset_email(request, 
 				userPresent_username = userPresent[1].get_username(), 
