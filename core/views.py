@@ -181,7 +181,7 @@ class ResetPasswordNewStepTwoView(View):
 
 			messages.add_message(request, messages.SUCCESS, 
 				format_html(('<h4 class=''alert-heading''>Your Password has been changed!</h4>'
-				'<p>You can <a href="{}" class="alert-link">now login using new credentials on the login page</a>.</p>'), reverse('login')))
+				'<p>You can <a href="{}" class="alert-link">now login using new credentials on the login page</a>.</p>'), reverse('core:login')))
 		else:
 			messages.add_message(request, messages.WARNING, 
 				mark_safe('<h4 class=''alert-heading''>New passwords do not match</h4>'
