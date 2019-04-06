@@ -7,7 +7,9 @@ from pinax.messages import *
 # app_name = 'userMng'
 # https://stackoverflow.com/questions/49655525/django-2-0-not-a-valid-view-function-or-pattern-name-customizing-auth-views
 
-urlpatterns = [  
+urlpatterns = [
+    path('', include('core.urls', namespace='core')),
+
     path('register', views.RegistrationView.as_view(), name='register'),
     
     path('login', views.LoginView.as_view(), name='login'),
