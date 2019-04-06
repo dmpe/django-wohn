@@ -232,7 +232,7 @@ class RegistrationView(CreateView):
 			password = inputNewPassword)
 
 		try:
-			django_login(request, auser, backend = 'userMng.backends.EmailUserNameAuthBackend')
+			django_login(request, auser, backend = 'core.backends.EmailUserNameAuthBackend')
 			return redirect('userMng:userMng_index')
 		except Exception as e:
 			return redirect(settings.LOGIN_URL)
@@ -271,8 +271,8 @@ class LoginView(View):
 					try:
 						# whether the user is active or not is already checked by the 
 						# ModelBackend we use
-						django_login(request, auth_user, backend = 'userMng.backends.EmailUserNameAuthBackend')
-						return redirect(request.POST.get('next','userMng_index'))
+						django_login(request, auth_user, backend = 'core.backends.EmailUserNameAuthBackend')
+						return redirect("userMng:userMng_index")
 					except Exception as e:
 						raise e
 
