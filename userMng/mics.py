@@ -117,7 +117,7 @@ def prepare_psswd_reset_email(request, userPresent_username = None,
 		"browser": client_headers[2], "browser_version": client_headers[3]}
 
 	html_message = render_to_string('reset_password_email.html', cntxt)
-	plain_message = strip_tags(html_message)
+	# plain_message = strip_tags(html_message)
 
 	message = Mail(
 		from_email=smtp_email,
