@@ -149,7 +149,7 @@ Then, in an another `bash` window, execute commands below so that tasks such as 
 
 ```
 python3 manage.py shell
-from userMng.third_party_services.celery_tasks import parse_forex_data
+from core.third_party_services.celery_tasks import parse_forex_data
 rst = parse_forex_data.apply()
 ```
 
