@@ -126,16 +126,16 @@ def prepare_psswd_reset_email(request, userPresent_username = None,
 		html_content=html_message)
 	try:
 		response = settings.SENDGRID_API_KEY.send(message)
-		print(response.status_code)
-		print(response.body)
-		print(response.headers)
+		# print(response.status_code)
+		# print(response.body)
+		# print(response.headers)
 	except Exception as e:
 		print(e.message)
 
-	try:
-		send_mail(subject, plain_message, smtp_email, [userPresent_email], html_message=html_message)
-	except BadHeaderError:
-		return HttpResponse('Invalid header found.')
+	# try:
+	# 	send_mail(subject, plain_message, smtp_email, [userPresent_email], html_message=html_message)
+	# except BadHeaderError:
+	# 	return HttpResponse('Invalid header found.')
 
 	return None
 
