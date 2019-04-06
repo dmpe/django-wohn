@@ -305,21 +305,7 @@ class LogoutView(View):
 ####### Main Page/Homepage 
 #######
 ################
-class HomepageView(View):
-	"""
-	TODO
-	"""
-	template_name = "index.html"
+def homepage(request):
+	return render(request, 'index.html')
 
-	def post(self, request):
-		pass
-
-	def get(self, request):
-
-		# def get_context_data(self, **kwargs):
-		#     context = super(HomepageView, self).get_context_data(**kwargs)
-		#     context["living_places"] = Property.objects.last()
-		#     return context
-
-		return render(request, self.template_name)
 
