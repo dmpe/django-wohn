@@ -233,10 +233,10 @@ AZURE_OVERWRITE_FILES = True
 
 PHONENUMBER_DB_FORMAT = 'E164'
 
-LOGIN_URL = 'login' # where is login page
-LOGIN_REDIRECT_URL = 'userMng_index'
+LOGIN_URL = 'core:login' # where is login page
+LOGIN_REDIRECT_URL = 'userMng:userMng_index'
 
-LOGOUT_REDIRECT_URL = 'homepage'
+LOGOUT_REDIRECT_URL = 'core:homepage'
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
