@@ -7,7 +7,7 @@
     <div class="pinax-messages-thread-detail-container">
         <h2 class="with-actions">
             {{ thread.subject }}
-            <a class="btn btn-primary" href="{% url "pinax_messages:thread_delete" thread.pk %}">Delete Thread</a>
+            <a class="btn btn-primary" href="{% url 'pinax_messages:thread_delete' thread.pk %}">Delete Thread</a>
         </h2>
     
         <section class="thread-messages">
@@ -22,11 +22,11 @@
             {% endfor %}
         </section>
     
-        <form class="comment-form" action="{% url "pinax_messages:thread_detail" thread.pk %}" method="post">
+        <form class="comment-form" action="{% url 'pinax_messages:thread_detail' thread.pk %}" method="post">
             {% csrf_token %}
             {{ form }}
             <div class="form-actions">
-                <a href="{% url "pinax_messages:inbox" %}" class="cancel">Cancel</a>
+                <a href="{% url 'pinax_messages:inbox' %}" class="cancel">Cancel</a>
                 <button type="button" class="btn btn-primary">Send</button>
             </div>
         </form>
