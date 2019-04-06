@@ -27,14 +27,12 @@ def http_headers(request):
 	""" extracts HTTP headers from client's request
 	"""
 	ua = UserAgent(request.META['HTTP_USER_AGENT'])
-	ip = request.META['REMOTE_ADDR']
 
 	operating_system = ua.platform
-	ip_address = ip
 	browser = ua.browser
 	browser_version = ua.version
 
-	return [operating_system, ip_address, browser, browser_version]
+	return [operating_system, browser, browser_version]
 
 def valid_email(in_str = None):
 	""" 
@@ -114,7 +112,7 @@ def prepare_psswd_reset_email(request, userPresent_username = None,
 	cntxt = {"username": userPresent_username, "token": userPresent_token, 
 		"password_expire": settings.PASSWORD_RESET_TIMEOUT_DAYS, "uid": userPresent_uid,
 		"operating_system": client_headers[0], "ip_address": client_ip, 
-		"browser": client_headers[2], "browser_version": client_headers[3]}
+		"browser": client_headers[1], "browser_version": client_headers[2]}
 
 	html_message = render_to_string('reset_password_email.html', cntxt)
 	# plain_message = strip_tags(html_message)
@@ -144,17 +142,17 @@ def prepare_visitor_mssg_email(request, userPresent_username = None,
 	"""
 	For internal use, e.g. feedback, contact etc.
 	"""
-
 	subject = 'B40.cz: Message from the user/visitor: ' + subject
 	smtp_email = settings.DEFAULT_FROM_EMAIL
 	my_email = settings.MY_EMAIL
 	from_email = userPresent_email
 
 	client_headers = http_headers(request)
+	client_ip, is_routable = get_client_ip(request)
 
 	cntxt = {"username": userPresent_username, "from_email" : from_email, "text_msg": text_msg,
-		"operating_system": client_headers[0], "ip_address": client_headers[1], 
-		"browser": client_headers[2], "browser_version": client_headers[3]}
+		"operating_system": client_headers[0], "ip_address": client_ip, 
+		"browser": client_headers[1], "browser_version": client_headers[2]}
 
 	html_message = render_to_string("new_visitor_email.html", cntxt)
 	plain_message = strip_tags(html_message)

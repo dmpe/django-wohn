@@ -7,15 +7,7 @@ from pinax.messages import *
 # app_name = 'userMng'
 # https://stackoverflow.com/questions/49655525/django-2-0-not-a-valid-view-function-or-pattern-name-customizing-auth-views
 
-urlpatterns = [
-    path('register', views.RegistrationView.as_view(), name='register'),
-    
-    path('login', views.LoginView.as_view(), name='login'),
-    path('logout', views.LogoutView.as_view(), name='logout'),
-    
-    path('reset_password', views.ResetPasswordStepOneView.as_view(), name='reset_password'),
-    path('new_password/<uidb64>/<token>/', views.ResetPasswordNewStepTwoView.as_view(), name='new_password'),
-    
+urlpatterns = [   
     # not in the Sitemap
 	path('administrace/', views.UserProfileIndex.as_view(), name='userMng_index'),    
     path('administrace/profile', views.UserProfileAdministration.as_view(), name='user_profile'), 
@@ -25,7 +17,5 @@ urlpatterns = [
     path('administrace/my_property_ads', views.AdvertisingMyAdd.as_view(), name='my_property_ads'),
     path('administrace/ad_statistics', views.AdvertisingStatistics.as_view(), name='ad_statistics'),
 
-    path('oauth/', include('social_django.urls', namespace='social')),
-    path('', include('core.urls')),
 ]
 

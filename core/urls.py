@@ -2,7 +2,6 @@ from . import views
 from django.urls import path
 from django.conf.urls import include
 from django.conf import settings
-# from userMng.urls import *
 
 app_name = 'core'
 
@@ -13,7 +12,15 @@ urlpatterns = [
     path('contact', views.ContactView.as_view(), name='contact'),
     path('terms', views.terms, name='terms'),
     path('privacy', views.privacy, name='privacy'),
-	# path('', include('userMng.urls')),
+	
+    path('register', views.RegistrationView.as_view(), name='register'),
+    
+    path('login', views.LoginView.as_view(), name='login'),
+    path('logout', views.LogoutView.as_view(), name='logout'),
+    
+    path('reset_password', views.ResetPasswordStepOneView.as_view(), name='reset_password'),
+    path('new_password/<uidb64>/<token>/', views.ResetPasswordNewStepTwoView.as_view(), name='new_password'),
+    path('oauth/', include('social_django.urls', namespace='social')),
 
 ]
 

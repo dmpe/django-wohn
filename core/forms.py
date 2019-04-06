@@ -4,10 +4,35 @@ from django.urls import *
 
 from .models import *
 
+# for countries
+from django_countries.widgets import *
+
 # add crispy imports for sending (helper)
 from crispy_forms.helper import *
 from crispy_forms.layout import *
 from crispy_forms.bootstrap import *
+
+class RegisterForm(forms.Form):
+	"""
+	docstring for RegisterForm
+	"""
+	inputUsername = forms.CharField(max_length = 30)
+	inputEmail = forms.EmailField(widget=forms.EmailInput())
+	inputNewPassword = forms.CharField(widget=forms.PasswordInput())
+	inputConfirmNewPassword = forms.CharField(widget=forms.PasswordInput())
+
+class LoginForm(forms.Form):
+	"""
+	Users can login either via username or email. 
+	Hence, input type="text"
+	"""
+	inputEmail_Username = forms.CharField(widget=forms.TextInput())
+	inputNewPassword = forms.CharField(widget=forms.PasswordInput())
+		
+class ResetFormStepOne(forms.Form):
+	"""docstring for ResetFormStepOne
+	"""
+	inputEmail_Username = forms.CharField(widget=forms.TextInput())
 
 class ContactForm(forms.Form):
 	"""
@@ -26,16 +51,6 @@ class ContactForm(forms.Form):
 	# we can have more than 255 chars in the message, hence TextField
 	# and not CharField
 	inputText = forms.CharField(label = "Your message is about....", widget = forms.Textarea, required=True)
-
-
-class NewPropertyForm(forms.ModelForm):
-	"""
-	Form for adding new properties
-	"""
-
-	class Meta:
-		model = Property
-		fields = '__all__'
 
 
 
