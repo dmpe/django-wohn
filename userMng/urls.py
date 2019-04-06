@@ -26,6 +26,6 @@ urlpatterns = [
     path('administrace/ad_statistics', views.AdvertisingStatistics.as_view(), name='ad_statistics'),
 
     path('oauth/', include('social_django.urls', namespace='social')),
-    path('', include('core.urls')),
+    path('', include('core.urls', namespace='core')),
 ]
 
