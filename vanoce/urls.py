@@ -21,8 +21,9 @@ from django.views.generic import TemplateView
 from django.conf.urls import url
 
 from core import views
-from core.sitemap import B40_Sitemap, UserMNG_Sitemap
 from userMng import views
+
+from core.sitemap import *
 
 sitemaps = {
     'core': B40_Sitemap,
