@@ -124,9 +124,9 @@ def prepare_psswd_reset_email(request, userPresent_username = None,
 		html_content=html_message)
 	try:
 		response = settings.SENDGRID_API_KEY.send(message)
-		# print(response.status_code)
-		# print(response.body)
-		# print(response.headers)
+		print(response.status_code)
+		print(response.body)
+		print(response.headers)
 	except Exception as e:
 		print(e.message)
 
