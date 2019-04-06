@@ -111,7 +111,7 @@ class myUser(AbstractUser):
 	user_country = CountryField(default = "CZ")
 	
 	# using a function here 
-	user_profile_image = models.ImageField(upload_to = upload_profile_image, 
+	user_profile_image = models.ImageField(upload_to = upload_profile_image, blank = True,
 		null = True)
 	
 	UNITS_SYSTEM = (
