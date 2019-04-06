@@ -33,8 +33,8 @@ from celery.schedules import *
 credentials = MSIAuthentication(resource='https://vault.azure.net')
 client = KeyVaultClient(credentials)
 
-SOCIAL_AUTH_USER_MODEL = 'userMng.myUser'
-AUTH_USER_MODEL = 'userMng.myUser'
+SOCIAL_AUTH_USER_MODEL = 'core.myUser'
+AUTH_USER_MODEL = 'core.myUser'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
