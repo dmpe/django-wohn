@@ -34,6 +34,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 	path('', include('core.urls')),
     path('', include('userMng.urls')),
+    path('oauth/', include('social_django.urls', namespace='social')),
+    path('administrace/messages/', include("pinax.messages.urls", namespace="pinax_messages")),
     path('api-auth/', include('rest_framework.urls')),
     
     url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type="text/plain"), name="robots_file"),
