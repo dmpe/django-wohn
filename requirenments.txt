@@ -29,5 +29,6 @@ pint
 psycopg2-binary
 pymdown-extensions
 requests
+sendgrid
 whitenoise
 Werkzeug
