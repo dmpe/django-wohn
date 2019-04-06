@@ -26,10 +26,17 @@ If previously some deployments to the local PC have been executed, then one **ha
 
 ```
 sudo su postgres 
-psql
 dropdb b40;
 createdb b40;
-exit
+logout
+```
+
+Co create DB via `psql`, use 
+
+```
+CREATE DATABASE b40re;
+CREATE USER jm WITH ENCRYPTED PASSWORD 'yourpass';
+GRANT ALL PRIVILEGES ON DATABASE b40re TO jm;
 ```
 
 #### 1.1.2 Collect static files

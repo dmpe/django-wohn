@@ -56,7 +56,7 @@ CELERY_TASK_SERIALIZER = 'json'
 # https://crontab.guru/#13_13_*_1-12_1
 CELERY_BEAT_SCHEDULE = {
     'parse_forex_data': {
-        'task': 'userMng.tasks.parse_forex_data',
+        'task': 'userMng.third_party_services.parse_forex_data',
         'schedule': crontab(minute=13, hour=13, day_of_month = '*', day_of_week = 1, month_of_year = '1-12')
     }
 }
@@ -113,7 +113,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',  # for Google authentication
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
-    'userMng.backends.EmailUserNameAuthBackend', # for username and (!) email authentication
+    'core.backends.EmailUserNameAuthBackend', # for username and (!) email authentication
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -156,9 +156,8 @@ TEMPLATES = [
                 'core/pages/',
                 'core/pages/emails',
                 'core/pages/footer', 
+                'core/pages/signup_login',
                 'userMng/pages/',
-                'userMng/pages/emails',
-                'userMng/pages/signup_login',
                 'userMng/pages/administrace'],
         'APP_DIRS': True,
         'OPTIONS': {

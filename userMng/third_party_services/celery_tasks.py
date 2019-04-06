@@ -19,14 +19,13 @@ from pandasdmx import *
 from pandasdmx.api import *
 
 # some other imports too
-from userMng.mics import *
+from core.mics import *
 
 # imports settings and our schedulling for the task
 from vanoce.celery import app
 
 # for logging the ECB connection
 import logging
-
 logger = logging.getLogger(__name__)
 
 @app.task
