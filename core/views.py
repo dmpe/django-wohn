@@ -222,7 +222,7 @@ class RegistrationView(CreateView):
 
 		try:
 			django_login(request, auser, backend = 'userMng.backends.EmailUserNameAuthBackend')
-			return redirect('userMng_index')
+			return redirect('userMng:userMng_index')
 		except Exception as e:
 			return redirect(settings.LOGIN_URL)
 
@@ -287,7 +287,7 @@ class LogoutView(View):
 	"""
 	def get(self, request):
 		django_logout(request)
-		return redirect('homepage')
+		return redirect('core:homepage')
 
 ################
 #######
