@@ -3,7 +3,6 @@ from django.urls import path
 from django.conf.urls import include
 from django.conf import settings
 from pinax.messages import *
-from core.urls import *
 
 # app_name = 'userMng'
 # https://stackoverflow.com/questions/49655525/django-2-0-not-a-valid-view-function-or-pattern-name-customizing-auth-views
