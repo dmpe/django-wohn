@@ -45,6 +45,10 @@ logger = logging.getLogger(__name__)
 ####### Function based views
 #######
 ################
+# Main Page/Homepage 
+def homepage(request):
+	return render(request, 'index.html')
+
 # FOOTER
 def privacy(request):
 	return render(request, 'privacy.html')
@@ -300,12 +304,5 @@ class LogoutView(View):
 		django_logout(request)
 		return redirect('core:homepage')
 
-################
-#######
-####### Main Page/Homepage 
-#######
-################
-def homepage(request):
-	return render(request, 'index.html')
 
 
