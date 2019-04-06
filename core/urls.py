@@ -3,7 +3,7 @@ from django.urls import path
 from django.conf.urls import include
 from django.conf import settings
 
-#app_name = 'core'
+app_name = 'core'
 
 urlpatterns = [
     path('', views.HomepageView.as_view(), name='homepage'),
