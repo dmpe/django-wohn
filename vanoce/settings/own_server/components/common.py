@@ -213,7 +213,6 @@ COUNTRIES_FIRST_REPEAT = True
 COUNTRIES_FIRST_BREAK = "---------------"
 
 # Static files (CSS, JavaScript, Images)
-AZURE_ACCOUNT_NAME = "djangowohnreal1"
 AZURE_ACCOUNT_KEY = client.get_secret("https://b40.vault.azure.net/", "AZURE-ACCOUNT-KEY", "2c71faab5f684de88893557e09c24fbf").value
 
 DEFAULT_FILE_STORAGE = 'backend.custom_azure.AzureMediaStorage'
@@ -227,11 +226,11 @@ STATIC_URL = 'https://djangowohnreal1.blob.core.windows.net/'
 AZURE_EMULATED_MODE = False
 AZURE_OVERWRITE_FILES = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'static/css/'),
-    os.path.join(PROJECT_ROOT, 'static/js/'),
-]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = [
+#     os.path.join(PROJECT_ROOT, 'static/css/'),
+#     os.path.join(PROJECT_ROOT, 'static/js/'),
+# ]
 
 PHONENUMBER_DB_FORMAT = 'E164'
 
