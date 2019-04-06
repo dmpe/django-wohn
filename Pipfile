@@ -41,5 +41,6 @@ googleapis-common-protos="*"
 django-countries="*"
 django_extensions="*"
 sendgrid = "*"
+django-ipware = "*"
 
 [dev-packages]

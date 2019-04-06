@@ -20,6 +20,7 @@ import requests as requests_library
 # for sending emails via sendgrid 
 from sendgrid import *
 from sendgrid.helpers.mail import *
+from ipware import get_client_ip
 
 # replaced by logic in contrib.auth.tokens
 def http_headers(request):
@@ -106,11 +107,13 @@ def prepare_psswd_reset_email(request, userPresent_username = None,
 	subject = 'B40.cz: Password Reset'
 	smtp_email = settings.DEFAULT_FROM_EMAIL
 
+	# fetch user metadata including ip address
 	client_headers = http_headers(request)
+	client_ip, is_routable = get_client_ip(request)
 
 	cntxt = {"username": userPresent_username, "token": userPresent_token, 
 		"password_expire": settings.PASSWORD_RESET_TIMEOUT_DAYS, "uid": userPresent_uid,
-		"operating_system": client_headers[0], "ip_address": client_headers[1], 
+		"operating_system": client_headers[0], "ip_address": client_ip, 
 		"browser": client_headers[2], "browser_version": client_headers[3]}
 
 	html_message = render_to_string('reset_password_email.html', cntxt)

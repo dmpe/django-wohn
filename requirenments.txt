@@ -15,6 +15,7 @@ django-markdownx
 django-timezone-field
 django-countries
 django_extensions
+django-ipware
 djangorestframework
 google-api-python-client
 googleapis-common-protos

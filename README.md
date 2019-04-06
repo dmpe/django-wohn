@@ -105,7 +105,7 @@ heroku ps && heroku ps:stop web.1
 - Start Django manually
 
 ```
-python3 manage.py runserver
+python3 manage.py runserver --nostatic
 ```
 
 - Adding new SSL certificates via certbot (letsencrypt)
