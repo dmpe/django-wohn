@@ -25,6 +25,7 @@ from django.contrib.messages import constants as message_constants
 from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
 from azure.common.credentials import ServicePrincipalCredentials
 from msrestazure.azure_active_directory import MSIAuthentication
+from sendgrid import *
 
 # for celery tasks - scheduling
 from celery.schedules import *
@@ -257,12 +258,14 @@ SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['user_id', 'user_created', 'user_name', 
 
 SITE_ID = 1
 
-EMAIL_HOST = 'smtp.seznam.cz'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
-EMAIL_HOST_USER = client.get_secret("https://b40.vault.azure.net/", "EMAIL-HOST-USER", "8ca9c85be1af435089625708ae33ff7d").value
-EMAIL_HOST_PASSWORD = client.get_secret("https://b40.vault.azure.net/", "EMAIL-HOST-PASSWORD", "7c102a1f35434ec981b50b8c41dd7d89").value
+EMAIL_HOST = 'smtp.sendgrid.net'
+#EMAIL_PORT = 465
+#EMAIL_USE_SSL = True
+EMAIL_HOST_USER = "azure_a880e6655cecd4d33d0a10c5f893868f@azure.com"
+EMAIL_HOST_PASSWORD = client.get_secret("https://b40.vault.azure.net/", "EMAIL-HOST-PASSWORD", "08655250f5ab42a88971cc19eaedd241").value
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+SENDGRID_API_KEY = SendGridAPIClient(client.get_secret("https://b40.vault.azure.net/", "SENDGRID-API-KEY", "5e84e665a6624d98982c836808220c7a").value)
 
 GOOGLE_RECAPTCHA_V3 = client.get_secret("https://b40.vault.azure.net/", "GOOGLE-RECAPTCHA-V3", "7bd3d869a8be4835b3a3a6b27ce411b5").value
 
