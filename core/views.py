@@ -17,6 +17,17 @@ from django.utils.encoding import *
 from django.urls import *
 # for messages
 from django.utils.safestring import *
+from django.db import *
+from django.core.exceptions import *
+from django.contrib.auth import logout as django_logout
+from django.contrib.auth import login as django_login
+from django.contrib.auth.tokens import *
+from django.contrib.auth.decorators import *
+from django.contrib.auth.mixins import *
+from django.contrib import messages
+
+# a generic view for creating and saving an object (e.g. user)
+from django.views.generic.edit import CreateView
 
 # for using not only username/pswd but also email/pswd
 from .backends import EmailUserNameAuthBackend
