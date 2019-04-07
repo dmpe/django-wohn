@@ -31,7 +31,7 @@ createdb b40;
 logout
 ```
 
-Co create DB via `psql`, use 
+To create DB via `psql`, use 
 
 ```
 CREATE DATABASE b40re;
