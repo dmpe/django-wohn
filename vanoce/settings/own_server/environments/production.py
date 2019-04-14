@@ -22,7 +22,7 @@ from msrestazure.azure_active_directory import MSIAuthentication
 credentials = MSIAuthentication(resource='https://vault.azure.net')
 client = KeyVaultClient(credentials)
 
-#later sometimes
+# later sometimes
 #DEBUG = False
 
 SECRET_KEY = client.get_secret("https://b40.vault.azure.net/", "SECRET-KEY", "98d11c2fddcd400c985e1ba61fa030bb").value
