@@ -4,7 +4,6 @@ staticfiles
 *.sh
 *.pyc
 Pipfile.lock
-/amazing_server_configuration/
 .vscode
 
 # Byte-compiled / optimized / DLL files
