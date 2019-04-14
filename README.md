@@ -11,7 +11,7 @@ The reason being is that, as of 2019, a real-estate portal dedicated to just the
 
 - Virtual Machines
 - Key Vault
-- DNS
+- DNS zone
 - Blob Storage Account
 
 ## 1. How to deploy
@@ -136,7 +136,14 @@ python3 manage.py graph_models -a -g -o amazing_server_configuration/my_project_
 ![amazing_server_configuration/my_project_visualized.png](amazing_server_configuration/my_project_visualized.png)
 
 
-# 3. Run Celery
+# 3. Run Celery and RabbitMQ Management UI
+
+First install RabbitMQ
+
+```
+sudo rabbitmqctl add_user jm password
+sudo rabbitmqctl set_user_tags jm administrator
+```
 
 Run celery from b40re directory using
 
