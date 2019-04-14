@@ -17,7 +17,7 @@
 ##
 
 server {
-    listen [::]:80 ipv6only=on;
+    listen 80;
     listen [::]:443 ssl http2 ipv6only=on; 
     
     server_name www.b40re.tk b40re.tk;
@@ -25,10 +25,10 @@ server {
     index index.html index.htm index.nginx-debian.html;
 
     location /static/ {
-       alias /home/jm/b40re.git/staticfiles/;
+       alias /home/honzaValinaDjangu/b40re/staticfiles/;
     }
 
-    if ($http_x_forwarded_proto = "http") {
+    if ($scheme = http) {
        return 301 https://$server_name$request_uri;
     }   
    
@@ -37,11 +37,11 @@ server {
     }
 
     location / {
-	proxy_set_header Host $host;
-	proxy_set_header X-Real-IP $remote_addr;
-	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	proxy_set_header X-Forwarded-Proto https;
-	proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_pass http://127.0.0.1:8000;
     }
 
     ssl_certificate /etc/letsencrypt/live/b40re.tk/fullchain.pem; # managed by Certbot
@@ -49,20 +49,21 @@ server {
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
+
 }
 
 server {
-    listen [::]:80;
+    listen 80;
     listen 443 ssl http2; 
         
     server_name pgadmin.b40re.tk www.pgadmin.b40re.tk;
 
     location / {
-	proxy_set_header Host $host;
-	proxy_set_header X-Real-IP $remote_addr;
-	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto https;
-	proxy_pass http://localhost:5050;
+        proxy_pass http://localhost:5050;
     }
     
     if ($scheme = http) {
@@ -108,28 +109,28 @@ server {
 # RabbitMQ Server
 server {
 
-     listen 443 ssl http2;
-     listen 80;
-     server_name rabbit.b40re.tk www.rabbit.b40re.tk;
+    listen 443 ssl http2;
+    listen 80;
+    server_name rabbit.b40re.tk www.rabbit.b40re.tk;
 
-     location / {
-         client_body_buffer_size 128k;
-         proxy_send_timeout   90;
-         proxy_read_timeout   90;
-         proxy_buffer_size    4k;
-         proxy_buffers     16 32k;
-         proxy_busy_buffers_size 64k;
-         proxy_temp_file_write_size 64k;
-         proxy_connect_timeout 30s;
-         proxy_pass   http://localhost:15672;
-         proxy_set_header   Host   $host;
-         proxy_set_header   X-Real-IP  $remote_addr;
-         proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-     }
+    location / {
+        client_body_buffer_size 128k;
+        proxy_send_timeout   90;
+        proxy_read_timeout   90;
+        proxy_buffer_size    4k;
+        proxy_buffers     16 32k;
+        proxy_busy_buffers_size 64k;
+        proxy_temp_file_write_size 64k;
+        proxy_connect_timeout 30s;
+        proxy_pass   http://localhost:15672;
+        proxy_set_header   Host   $host;
+        proxy_set_header   X-Real-IP  $remote_addr;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
 
-     if ($http_x_forwarded_proto = "http") {
-         return 301 https://$server_name$request_uri;
-     }    
+    if ($http_x_forwarded_proto = "http") {
+        return 301 https://$server_name$request_uri;
+    }    
 
     ssl_certificate /etc/letsencrypt/live/b40re.tk/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/b40re.tk/privkey.pem; # managed by Certbot
@@ -144,12 +145,12 @@ server {
     server_name rstudio.b40re.tk www.rstudio.b40re.tk;
 
     location / {
-         proxy_pass http://localhost:8787/;
-         proxy_redirect http://localhost:8787/ $scheme://$host/;
-         proxy_http_version 1.1;
-         #proxy_set_header Upgrade $http_upgrade;
-         #proxy_set_header Connection $connection_upgrade;
-         proxy_read_timeout 20d;
+        proxy_pass http://localhost:8787/;
+        proxy_redirect http://localhost:8787/ $scheme://$host/;
+        proxy_http_version 1.1;
+        #proxy_set_header Upgrade $http_upgrade;
+        #proxy_set_header Connection $connection_upgrade;
+        proxy_read_timeout 20d;
     }
 
     if ($http_x_forwarded_proto = "http") {

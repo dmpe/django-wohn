@@ -27,6 +27,8 @@ pandas
 pandasdmx
 phonenumbers
 pint
+pinax-messages
+pinax-templates
 psycopg2-binary
 pymdown-extensions
 requests
