@@ -17,10 +17,10 @@
 ##
 
 server {
+    listen 443 ssl http2 ipv6only=on; 
     listen 80;
-    listen 443 ssl http2; 
     
-    server_name www.b40re.tk b40re.tk;
+    server_name b40re.tk www.b40re.tk;
 
     index index.html index.htm index.nginx-debian.html;
 
