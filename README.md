@@ -138,14 +138,14 @@ python3 manage.py graph_models -a -g -o amazing_server_configuration/my_project_
 
 # 3. Run Celery and RabbitMQ Management UI
 
-First install RabbitMQ
+First install `RabbitMQ`, then `Celery`.
 
 ```
 sudo rabbitmqctl add_user jm password
 sudo rabbitmqctl set_user_tags jm administrator
 ```
 
-Run celery from b40re directory using
+Run `Celery` from b40re directory using
 
 ```
 sudo systemctl restart rabbitmq<TAB>
@@ -161,6 +161,14 @@ rst = parse_forex_data.apply()
 ```
 
 Source: <https://stackoverflow.com/a/12900126/2171456>
+
+## 3.1 Setup Git Repo with post-recieve hook
+
+The goal is to use AWS Cloud9 IDE to push -- on the same server (username@b40re.tk:/home/username/b40_push.git)-- to the git repository which acts as deployment repo. 
+
+* E.g. for AWS Cloud9 IDE, first clone this repo 
+* Create a new bare repo which is used for pushing and in it, add/register `post-recieve` hook. 
+* See this guide <https://stackoverflow.com/a/40479963>
 
 # 4. Notes
 
