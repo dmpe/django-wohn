@@ -5,7 +5,7 @@ from celery import Celery
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vanoce.settings')
 
-app = Celery('vanoce', backend='amqp', broker='amqp://jm:159753@localhost//')
+app = Celery('vanoce', backend='rpc', broker='amqp://jm:159753@localhost//')
 
 # This reads, e.g., CELERY_ACCEPT_CONTENT = ['json'] from settings.py:
 app.config_from_object('django.conf:settings')
