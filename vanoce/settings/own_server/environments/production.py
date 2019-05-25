@@ -31,7 +31,7 @@ DATABASES = {
    'default': {
 	   'ENGINE': 'django.db.backends.postgresql_psycopg2',
 	   'NAME': client.get_secret("https://b40.vault.azure.net/", "DATABASE-NAME", "4cda1508f1734f9eb17dff2f714d1c9f").value,
-	   'USER': client.get_secret("https://b40.vault.azure.net/", "DATABASE-USER", "19587b1b69d640c6b46f797b66dc9973").value,
+	   'USER': client.get_secret("https://b40.vault.azure.net/", "DATABASE-USER", "6f6c1f6668ae45c0b85c54c1526d8d45").value,
 	   'PASSWORD': client.get_secret("https://b40.vault.azure.net/", "DATABASE-PASSWORD", "d45eb57cec9d4e3ca95b54545854ffd2").value,
 	   'HOST': client.get_secret("https://b40.vault.azure.net/", "DATABASE-HOST", "4c6a2e23959349a6a8021387957efcdc").value,
 	   'PORT': '5432',
