@@ -26,9 +26,7 @@ If previously some deployments to the local PC have been executed, then one **ha
 
 ```
 sudo su postgres 
-dropdb b40;
-createdb b40;
-logout
+psql
 ```
 
 To create DB via `psql`, use 
@@ -61,9 +59,7 @@ find -type d -name migrations -prune -exec rm -rf {} \;
 python3 manage.py makemigrations core && python3 manage.py makemigrations userMng
 ```
 
-#### 1.1.4 Deploy to local PC
-
-- Continue from previous steps
+Deploy to local/on remote server
 
 ```
 python3 manage.py migrate
@@ -141,6 +137,7 @@ python3 manage.py graph_models -a -g -o amazing_server_configuration/my_project_
 First install `RabbitMQ`, then `Celery`.
 
 ```
+sudo rabbitmq-plugins enable rabbitmq_management
 sudo rabbitmqctl add_user jm password
 sudo rabbitmqctl set_user_tags jm administrator
 ```
