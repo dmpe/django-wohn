@@ -37,6 +37,8 @@ CREATE USER jm WITH ENCRYPTED PASSWORD 'yourpass';
 GRANT ALL PRIVILEGES ON DATABASE b40re TO jm;
 ```
 
+To install pgadmin4, follow <https://www.pgadmin.org/docs/pgadmin4/4.x/server_deployment.html>
+
 #### 1.1.2 Collect static files
 
 This also acts as a sort of test that can identify some errors early on. It also uploads static and media files directly to the Azure blob container.
