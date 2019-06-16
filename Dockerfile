@@ -1,19 +1,18 @@
-# The first instruction is what image we want to base our container on
-# We Use an official Python runtime as a parent image
 FROM python:latest
+MAINTAINER John Malc <cincenko@outlook.com>
 
-# The enviroment variable ensures that the python output is set straight
-# to the terminal with out buffering it first
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# create root directory for our project in the container
-RUN mkdir /music_service
+RUN apt-get update && apt-get upgrade -y && apt-get autoremove && apt-get autoclean
 
-# Set the working directory to /music_service
-WORKDIR /music_service
+RUN mkdir /wohn
+WORKDIR /wohn
 
-# Copy the current directory contents into the container at /music_service
-ADD . /music_service/
+ADD . /wohn/
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
+
+EXPOSE 8000
+CMD exec gunicorn vanoce.wsgi:application --bind 0.0.0.0:8000 --workers 3

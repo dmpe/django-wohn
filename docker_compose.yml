@@ -22,21 +22,24 @@ services:
     ports:
       - 80:80
       - 443:443
-
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=hello_django
+      - POSTGRES_DB=b40re
 
 # https://hub.docker.com/r/dpage/pgadmin4/      
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin4
     env:
-      - PGADMIN_DEFAULT_EMAIL
-      - PGADMIN_DEFAULT_PASSWORD
+      - PGADMIN_DEFAULT_EMAIL=cincenko@seznam.cz
+      - PGADMIN_DEFAULT_PASSWORD=
       - PGADMIN_LISTEN_PORT
     ports:
       - 80:80
       - 443:443
     depends_on:
-    - postgres
+      - postgres
     networks:
       - docker-network
 
@@ -44,8 +47,8 @@ services:
     container_name: rabbit
     image: rabbitmq:latest
     environment:
-        - RABBITMQ_DEFAULT_USER=admin
-        - RABBITMQ_DEFAULT_PASS=mypass
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=mypass
     ports:
       - "5672:5672"  # we forward this port because it's useful for debugging
       - "15672:15672"  # here, we can access rabbitmq management plugin
@@ -53,11 +56,12 @@ services:
       - docker-network
 
 
-web:
-    build: .
-    command: gunicorn vanoce.wsgi
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - .:/code
+      - .:/work
     ports:
       - 8000:8000
     depends_on:
