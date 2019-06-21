@@ -1,0 +1,86 @@
+version: '3'
+services:
+  nginx: 
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./amz_server_config/nginx_default_config:/etc/nginx/conf.d/
+      - ./b40re.tk:/etc/letsencrypt/live/
+    ports:
+      - 80:8000
+      - 443:8000
+    networks:
+      - docker-network
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - "54320:5432"
+    volumes:
+      - /data/postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=hello_django
+      - POSTGRES_DB=b40re
+
+# https://hub.docker.com/r/dpage/pgadmin4/      
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=cincenko@seznam.cz
+      - PGADMIN_DEFAULT_PASSWORD=123456
+      - PGADMIN_LISTEN_PORT=5050
+#      - PGADMIN_ENABLE_TLS=False
+    ports:
+      - 5050:80
+    depends_on:
+      - postgres
+    networks:
+      - docker-network
+    # volumes:
+    #   - "/data/pgadmin:/certs/server.cert"
+
+  rabbit:
+    container_name: rabbit
+    image: rabbitmq:latest
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=mypass
+    ports:
+      - "5672:5672"    # we forward this port because it's useful for debugging
+      - "15672:15672"  # here, we can access rabbitmq management plugin
+    networks:
+      - docker-network
+
+
+  # web:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/work
+  #   ports:
+  #     - 80:8000
+  #   depends_on:
+  #     - nginx
+  #     - postgres
+  #     - pgadmin
+  #     - rabbit
+  #   networks:
+  #     - docker-network
+
+networks:
+  docker-network:
+    driver: bridge
+
+volumes:
+  data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind 
+      device: $HOME/docker_volumes
