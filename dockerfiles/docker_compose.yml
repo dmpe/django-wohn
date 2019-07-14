@@ -1,4 +1,7 @@
-version: '3'
+version: '3.7'
+
+# https://hub.docker.com/_/nginx
+# https://tomlankhorst.nl/secure-nginx-docker-container-with-lets-encrypt/
 services:
   nginx: 
     image: nginx:latest
@@ -12,8 +15,9 @@ services:
     networks:
       - docker-network
 
+# https://hub.docker.com/_/postgres
   postgres:
-    image: postgres:latest
+    image: postgres:11
     container_name: postgres
     ports:
       - "54320:5432"
@@ -23,15 +27,15 @@ services:
       - 5432:5432
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=hello_django
+      - POSTGRES_PASSWORD=django
       - POSTGRES_DB=b40re
 
 # https://hub.docker.com/r/dpage/pgadmin4/      
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:latest
     container_name: pgadmin4
     environment:
-      - PGADMIN_DEFAULT_EMAIL=cincenko@seznam.cz
+      - PGADMIN_DEFAULT_EMAIL=cincenko@outlook.com
       - PGADMIN_DEFAULT_PASSWORD=123456
       - PGADMIN_LISTEN_PORT=5050
 #      - PGADMIN_ENABLE_TLS=False
@@ -44,34 +48,34 @@ services:
     # volumes:
     #   - "/data/pgadmin:/certs/server.cert"
 
-  rabbit:
-    container_name: rabbit
-    image: rabbitmq:latest
-    environment:
-      - RABBITMQ_DEFAULT_USER=admin
-      - RABBITMQ_DEFAULT_PASS=mypass
-    ports:
-      - "5672:5672"    # we forward this port because it's useful for debugging
-      - "15672:15672"  # here, we can access rabbitmq management plugin
-    networks:
-      - docker-network
-
-
-  # web:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - .:/work
+  # rabbit:
+  #   container_name: rabbit
+  #   image: rabbitmq:latest
+  #   environment:
+  #     - RABBITMQ_DEFAULT_USER=admin
+  #     - RABBITMQ_DEFAULT_PASS=mypass
   #   ports:
-  #     - 80:8000
-  #   depends_on:
-  #     - nginx
-  #     - postgres
-  #     - pgadmin
-  #     - rabbit
+  #     - "5672:5672"    # we forward this port because it's useful for debugging
+  #     - "15672:15672"  # here, we can access rabbitmq management plugin
   #   networks:
   #     - docker-network
+
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/work
+    ports:
+      - 80:8000
+    depends_on:
+      - nginx
+      - postgres
+      - pgadmin
+    #  - rabbit
+    networks:
+      - docker-network
 
 networks:
   docker-network:
