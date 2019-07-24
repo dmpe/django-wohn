@@ -8,7 +8,7 @@ services:
     container_name: nginx
     volumes:
       - ./amz_server_config/nginx_default_config:/etc/nginx/conf.d/
-      - ./b40re.tk:/etc/letsencrypt/live/
+      - /data/nginx/certs:/etc/letsencrypt/live
     ports:
       - 80:8000
       - 443:8000
@@ -45,8 +45,8 @@ services:
       - postgres
     networks:
       - docker-network
-    # volumes:
-    #   - "/data/pgadmin:/certs/server.cert"
+    volumes:
+      - /data/pgadmin:/...
 
   # rabbit:
   #   container_name: rabbit
@@ -61,13 +61,13 @@ services:
   #     - docker-network
 
   watchtower:
-      image: containrrr/watchtower
-      environment: 
-        - WATCHTOWER_CLEANUP=true
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-        - /root/.docker/config.json:/config.json
-      command: --interval 60
+    image: containrrr/watchtower:latest
+    environment: 
+      - WATCHTOWER_CLEANUP=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker/config.json:/config.json
+    command: --interval 60
 
   web:
     build:
@@ -95,4 +95,4 @@ volumes:
     driver_opts:
       type: none
       o: bind 
-      device: $HOME/docker_volumes
+      device: ~/datadrive
