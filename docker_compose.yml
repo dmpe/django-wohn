@@ -17,9 +17,8 @@ services:
           - traefik_proxy
 
     django_web:
-      build:
-        context: .
-        dockerfile: Dockerfile
+      image: f789gh/django-wohn:latest
+      container_name: django_web
       volumes:
         - /data/django_web:/work
       ports:
@@ -92,7 +91,7 @@ services:
   #     - "15672:15672"  # here, we can access rabbitmq management plugin
   #   networks:
   #     - docker-network
-  
+
     portainer:
         image: portainer/portainer:latest
         command: -H unix:///var/run/docker.sock
