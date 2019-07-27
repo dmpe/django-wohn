@@ -19,7 +19,7 @@ services:
     django_web:
       build:
         context: .
-        dockerfile: dockerfiles/Dockerfile
+        dockerfile: Dockerfile
       volumes:
         - /data/django_web:/work
       ports:
