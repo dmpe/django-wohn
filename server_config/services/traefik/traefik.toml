@@ -1,23 +1,13 @@
 debug = false
 logLevel = "INFO"
 
-[web]
-  address = ":8080"
-  [web.auth.basic]
-    users = ["admin:$apr1$ciQGGpnM$qQuteuC8B.h6P.k3zl05P0"]
-
-[api]
-  entryPoint = "traefik"
-  dashboard = true
-  address = ":8080"
-
 defaultEntryPoints = ["http", "https"]
 
 [entryPoints]
     [entryPoints.http]
     address = ":80"
-			[entryPoints.http.redirect]
-			entryPoint = "https"
+		#	[entryPoints.http.redirect]
+		#	entryPoint = "https"
 
     [entryPoints.https]
     address = ":443"
@@ -29,6 +19,15 @@ defaultEntryPoints = ["http", "https"]
      #    "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
      #    "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
      #  ]
+    [entryPoints.traefik]
+    address = ":8083"
+      [entryPoints.traefik.auth]
+        [entryPoints.traefik.auth.basic]
+        users = ["admin:$apr1$ciQGGpnM$qQuteuC8B.h6P.k3zl05P0"]
+
+[api]
+  entryPoint = "traefik"
+  dashboard = true
 
 [file]
 watch = true
