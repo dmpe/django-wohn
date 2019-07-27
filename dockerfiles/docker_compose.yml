@@ -61,30 +61,30 @@ services:
   #   networks:
   #     - docker-network
 
-  watchtower:
-    image: containrrr/watchtower:latest
-    environment: 
-      - WATCHTOWER_CLEANUP=true
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /root/.docker/config.json:/config.json
-    command: --interval 60
+  # watchtower:
+  #   image: containrrr/watchtower:latest
+  #   environment: 
+  #     - WATCHTOWER_CLEANUP=true
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #     - /root/.docker/config.json:/config.json
+  #   command: --interval 60
 
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - .:/work
-    ports:
-      - 80:8000
-    depends_on:
-      - nginx
-      - postgres
-      - pgadmin
-    #  - rabbit
-    networks:
-      - docker-network
+  # web:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/work
+  #   ports:
+  #     - 80:8000
+  #   depends_on:
+  #     - nginx
+  #     - postgres
+  #     - pgadmin
+  #   #  - rabbit
+  #   networks:
+  #     - docker-network
 
 networks:
   docker-network:
