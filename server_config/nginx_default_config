@@ -44,7 +44,7 @@ server {
 
 server {
     listen 80;
-    listen 443 ssl http2; 
+#    listen 443 ssl http2; 
         
     server_name pgadmin.melive.xyz www.pgadmin.melive.xyz;
 
@@ -64,10 +64,10 @@ server {
        return 301 https://pgadmin.melive.xyz/static/favicon.ico;
     }
 
-    ssl_certificate /etc/letsencrypt/live/melive.xyz/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/melive.xyz/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+#    ssl_certificate /etc/letsencrypt/live/melive.xyz/fullchain.pem; # managed by Certbot
+#    ssl_certificate_key /etc/letsencrypt/live/melive.xyz/privkey.pem; # managed by Certbot
+#    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
 }
 
