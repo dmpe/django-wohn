@@ -11,7 +11,7 @@ services:
         ports:
           - "80:80"
           - "443:443"
-          - "8080:8080"
+          # - "8080:8080"
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
           - ../server_config/services/traefik/traefik.toml:/traefik.toml
@@ -26,9 +26,10 @@ services:
           - "traefik.frontend.rule=Host:monitor.melive.xyz"
           - "traefik.backend=traefik"
           - "traefik.port=8080"
-          - "traefik.docker.network=web"
+          - "traefik.docker.network=traefik_proxy"
         networks:
-          - web
+          - default
+          - traefik_proxy
 
     # nginx: 
     #     image: nginx:latest
@@ -59,11 +60,11 @@ services:
           - POSTGRES_PASSWORD=django
           - POSTGRES_DB=b40re
         networks:
-          - web
+          - default
         labels:
           - "traefik.enable=false"
-          - "traefik.port=5432"
-          - "traefik.docker.network=web"
+        #   - "traefik.port=5432"
+        #   - "traefik.docker.network=web"
 
 # https://hub.docker.com/r/dpage/pgadmin4/      
     pgadmin:
@@ -79,7 +80,8 @@ services:
         depends_on:
           - postgres
         networks:
-          - web
+          - default
+          - traefik_proxy
         volumes:
           - /data/pgadmin:/var/lib/pgadmin
           - /data/pgadmin:/var/log/pgadmin
@@ -89,7 +91,7 @@ services:
           - "traefik.basic.frontend.rule=Host:pgadmin.melive.xyz"
           - "traefik.port=5050"
           - "traefik.backend=pgadmin"
-          - "traefik.docker.network=web"
+          - "traefik.docker.network=traefik_proxy"
 
     watchtower:
         image: containrrr/watchtower:latest
@@ -133,8 +135,11 @@ services:
   #     - docker-network
 
 networks:
-  web:
-    external: true
+  traefik_proxy:
+    external:
+      name: traefik_proxy
+  default:
+    driver: bridge
 
 volumes:
   data:

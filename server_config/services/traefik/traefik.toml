@@ -1,9 +1,15 @@
 debug = false
 logLevel = "INFO"
 
+[web]
+  address = ":8080"
+  [web.auth.basic]
+    users = ["admin:$apr1$ciQGGpnM$qQuteuC8B.h6P.k3zl05P0"]
+
 [api]
-  entryPoint = "dashboard"
+  entryPoint = "traefik"
   dashboard = true
+  address = ":8080"
 
 defaultEntryPoints = ["http", "https"]
 
@@ -24,12 +30,6 @@ defaultEntryPoints = ["http", "https"]
      #    "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
      #  ]
 
-		[entryPoints.dashboard]
-		address = ":8080"
-		[entryPoints.dashboard.auth]
-		  [entryPoints.dashboard.auth.basic]
-		    users = ["admin:$apr1$ciQGGpnM$qQuteuC8B.h6P.k3zl05P0"]
-
 [file]
 watch = true
 
@@ -38,6 +38,7 @@ endpoint = "unix:///var/run/docker.sock"
 domain = "melive.xyz"
 watch = true
 exposedByDefault = true
+# network = "traefik-proxy"
 
 [acme]
 email = "cincenko@outlook.com"
