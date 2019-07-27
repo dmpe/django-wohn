@@ -9,7 +9,7 @@ services:
         volumes:
         #  - /django-wohn/server_config/domain:/usr/share/nginx/html
           - /django-wohn/server_config/domain/acme-webroot:/usr/share/nginx/html
-          - /django-wohn/server_config/services/nginx:/etc/nginx
+        #  - /django-wohn/server_config/services/nginx:/etc/nginx
         #  - /data/nginx/certs:/etc/letsencrypt/live
         ports:
           - 80:80
