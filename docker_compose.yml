@@ -23,7 +23,6 @@ services:
       volumes:
         - /data/django_web:/work
       depends_on:
-        - nginx
         - postgres
         - pgadmin
       #  - rabbit
