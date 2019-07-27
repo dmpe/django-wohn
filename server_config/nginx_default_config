@@ -1,256 +1,240 @@
-##
-# You should look at the following URL's in order to grasp a solid understanding
-# of Nginx configuration files in order to fully unleash the power of Nginx.
-# https://www.nginx.com/resources/wiki/start/
-# https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/
-# https://wiki.debian.org/Nginx/DirectoryStructure
-#
-# In most cases, administrators will remove this file from sites-enabled/ and
-# leave it as reference inside of sites-available where it will continue to be
-# updated by the nginx packaging team.
-#
-# This file will automatically load configuration files provided by other
-# applications, such as Drupal or Wordpress. These applications will be made
-# available underneath a path with that package name, such as /drupal8.
-#
-# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
-##
+
 
 server {
-    listen 443 ssl http2 ipv6only=on; 
+    # listen 443 ssl http2 ipv6only=on; 
     listen 80;
     
-    server_name b40re.tk www.b40re.tk;
+    server_name melive.xyz www.melive.xyz;
 
     index index.html index.htm index.nginx-debian.html;
 
-    location /static/ {
-       alias /home/honzaValinaDjangu/b40re/staticfiles/;
-    }
+#    location /static/ {
+#       alias /home/ub_django/b40re/staticfiles/;
+#    }
 
-    if ($scheme = http) {
-       return 301 https://$server_name$request_uri;
-    }   
+    # if ($scheme = http) {
+    #    return 301 https://$server_name$request_uri;
+    # }   
    
-    location /favicon.ico {      
-       return 301 https://djangowohnreal1.blob.core.windows.net/images/favicon.ico;
-    }
+#    location /favicon.ico {      
+#       return 301 https://djangowohnreal1.blob.core.windows.net/images/favicon.ico;
+#    }
 
-    location / {
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto https;
-        proxy_pass http://127.0.0.1:8000;
-    }
+    # location / {
+    #     proxy_set_header Host $host;
+    #     proxy_set_header X-Real-IP $remote_addr;
+    #     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    #     proxy_set_header X-Forwarded-Proto https;
+    #     proxy_pass http://127.0.0.1:8000;
+    # }
 
-    ssl_certificate /etc/letsencrypt/live/b40re.tk/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/b40re.tk/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+#    ssl_certificate /etc/letsencrypt/live/melive.xyz/fullchain.pem; # managed by Certbot
+#    ssl_certificate_key /etc/letsencrypt/live/melive.xyz/privkey.pem; # managed by Certbot
+#    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
 
 }
 
-server {
-    listen 80;
-    listen 443 ssl http2; 
+# server {
+#     listen 80;
+#     listen 443 ssl http2; 
         
-    server_name pgadmin.b40re.tk www.pgadmin.b40re.tk;
+#     server_name pgadmin.melive.xyz www.pgadmin.melive.xyz;
 
-    location / {
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto https;
-        proxy_pass http://localhost:5050;
-    }
+#     location / {
+#         proxy_set_header Host $host;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#         proxy_set_header X-Forwarded-Proto https;
+#         proxy_pass http://localhost:5050;
+#     }
     
-    if ($scheme = http) {
-       return 301 https://$server_name$request_uri;
-    }
+#     if ($scheme = http) {
+#        return 301 https://$server_name$request_uri;
+#     }
 
-    location /favicon.ico {
-       return 301 https://pgadmin.b40re.tk/static/favicon.ico;
-    }
+#     location /favicon.ico {
+#        return 301 https://pgadmin.melive.xyz/static/favicon.ico;
+#     }
 
-    ssl_certificate /etc/letsencrypt/live/b40re.tk/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/b40re.tk/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+#     ssl_certificate /etc/letsencrypt/live/melive.xyz/fullchain.pem; # managed by Certbot
+#     ssl_certificate_key /etc/letsencrypt/live/melive.xyz/privkey.pem; # managed by Certbot
+#     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-}
+# }
+
+
+# # server {
+# # 	# Git repos are browsable at http://example.com:4321/
+# # 	listen 443 ssl;
+# # 	listen 80;
+# # 	server_name git.melive.xyz www.git.melive.xyz;
+
+# # 	location /index.cgi {
+# # 		root /usr/share/gitweb/;
+# # 		include fastcgi_params;
+# # 		gzip off;
+# # 		fastcgi_param SCRIPT_NAME $uri;
+# # 		fastcgi_param GITWEB_CONFIG /etc/gitweb.conf;
+# # 		fastcgi_pass  unix:/var/run/fcgiwrap.socket;
+# # 	}
+
+# # 	location / {
+# # 		root /usr/share/gitweb/;
+# # 		index index.cgi;
+# # 	}
+
+# # 	ssl_certificate /etc/letsencrypt/live/melive.xyz/fullchain.pem; 
+# # 	ssl_certificate_key /etc/letsencrypt/live/melive.xyz/privkey.pem; 
+# # }
+
+# # RabbitMQ Server
+# server {
+
+#     listen 443 ssl http2;
+#     listen 80;
+#     server_name rabbit.melive.xyz www.rabbit.melive.xyz;
+
+#     location / {
+#         client_body_buffer_size 128k;
+#         proxy_send_timeout   90;
+#         proxy_read_timeout   90;
+#         proxy_buffer_size    4k;
+#         proxy_buffers     16 32k;
+#         proxy_busy_buffers_size 64k;
+#         proxy_temp_file_write_size 64k;
+#         proxy_connect_timeout 30s;
+#         proxy_pass   http://localhost:15672;
+#         proxy_set_header   Host   $host;
+#         proxy_set_header   X-Real-IP  $remote_addr;
+#         proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+#     }
+
+#     if ($http_x_forwarded_proto = "http") {
+#         return 301 https://$server_name$request_uri;
+#     }    
+
+#     ssl_certificate /etc/letsencrypt/live/melive.xyz/fullchain.pem; # managed by Certbot
+#     ssl_certificate_key /etc/letsencrypt/live/melive.xyz/privkey.pem; # managed by Certbot
+#     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+# }
+
+# server {
+#     listen 80;
+#     listen 443 ssl http2;
+
+#     server_name rstudio.melive.xyz www.rstudio.melive.xyz;
+
+#     location / {
+#         proxy_pass http://localhost:8787/;
+#         proxy_redirect http://localhost:8787/ $scheme://$host/;
+#         proxy_http_version 1.1;
+#         proxy_read_timeout 20d;
+#     }
+
+#     if ($http_x_forwarded_proto = "http") {
+#       return 301 https://$server_name$request_uri;
+#     }
+	
+#     ssl_certificate /etc/letsencrypt/live/melive.xyz/fullchain.pem; # managed by Certbot
+#     ssl_certificate_key /etc/letsencrypt/live/melive.xyz/privkey.pem; # managed by Certbot
+#     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+# }
+
 
 
 # server {
-# 	# Git repos are browsable at http://example.com:4321/
-# 	listen 443 ssl;
-# 	listen 80;
-# 	server_name git.b40re.tk www.git.b40re.tk;
+#     listen 80;
+#     listen 443 ssl http2;
 
-# 	location /index.cgi {
-# 		root /usr/share/gitweb/;
-# 		include fastcgi_params;
-# 		gzip off;
-# 		fastcgi_param SCRIPT_NAME $uri;
-# 		fastcgi_param GITWEB_CONFIG /etc/gitweb.conf;
-# 		fastcgi_pass  unix:/var/run/fcgiwrap.socket;
-# 	}
+#     server_name jupyter.melive.xyz www.jupyter.melive.xyz;
 
-# 	location / {
-# 		root /usr/share/gitweb/;
-# 		index index.cgi;
-# 	}
+#     location / {
+# 	proxy_pass http://localhost:3514;
+# 	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+# 	proxy_set_header X-Real-IP $remote_addr;
+# 	proxy_set_header Host $http_host;
+# 	proxy_http_version 1.1;
+# 	proxy_redirect off;
+# 	proxy_buffering off;
+# 	proxy_read_timeout 86400;
+#     }
 
-# 	ssl_certificate /etc/letsencrypt/live/b40re.tk/fullchain.pem; 
-# 	ssl_certificate_key /etc/letsencrypt/live/b40re.tk/privkey.pem; 
+#     if ($http_x_forwarded_proto = "http") {
+#       return 301 https://$server_name$request_uri;
+#     }
+	
+#     ssl_certificate /etc/letsencrypt/live/melive.xyz/fullchain.pem; # managed by Certbot
+#     ssl_certificate_key /etc/letsencrypt/live/melive.xyz/privkey.pem; # managed by Certbot
+#     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
 # }
 
-# RabbitMQ Server
-server {
+# server {
+#     listen 80;
+#     listen 443 ssl http2;
 
-    listen 443 ssl http2;
-    listen 80;
-    server_name rabbit.b40re.tk www.rabbit.b40re.tk;
+#     server_name jupyter.melive.xyz www.jupyter.melive.xyz;
 
-    location / {
-        client_body_buffer_size 128k;
-        proxy_send_timeout   90;
-        proxy_read_timeout   90;
-        proxy_buffer_size    4k;
-        proxy_buffers     16 32k;
-        proxy_busy_buffers_size 64k;
-        proxy_temp_file_write_size 64k;
-        proxy_connect_timeout 30s;
-        proxy_pass   http://localhost:15672;
-        proxy_set_header   Host   $host;
-        proxy_set_header   X-Real-IP  $remote_addr;
-        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-    }
+#     location / {
+#         proxy_pass http://localhost:3514;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header Host $http_host;
+#         proxy_http_version 1.1;
+#         proxy_redirect off;
+#         proxy_buffering off;
+#         proxy_read_timeout 86400;
+#         proxy_set_header      Upgrade "websocket";
+#         proxy_set_header      Connection "Upgrade";
+#     }
 
-    if ($http_x_forwarded_proto = "http") {
-        return 301 https://$server_name$request_uri;
-    }    
+#     if ($http_x_forwarded_proto = "http") {
+#       return 301 https://$server_name$request_uri;
+#     }
 
-    ssl_certificate /etc/letsencrypt/live/b40re.tk/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/b40re.tk/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-}
+#     ssl_certificate /etc/letsencrypt/live/melive.xyz/fullchain.pem; # managed by Certbot
+#     ssl_certificate_key /etc/letsencrypt/live/melive.xyz/privkey.pem; # managed by Certbot
+#     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-server {
-    listen 80;
-    listen 443 ssl http2;
+# }
 
-    server_name rstudio.b40re.tk www.rstudio.b40re.tk;
+# server {
+#     listen 80;
+#     listen 443 ssl http2;
 
-    location / {
-        proxy_pass http://localhost:8787/;
-        proxy_redirect http://localhost:8787/ $scheme://$host/;
-        proxy_http_version 1.1;
-        proxy_read_timeout 20d;
-    }
+#     server_name jhub.melive.xyz www.jhub.melive.xyz;
 
-    if ($http_x_forwarded_proto = "http") {
-      return 301 https://$server_name$request_uri;
-    }
-	
-    ssl_certificate /etc/letsencrypt/live/b40re.tk/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/b40re.tk/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+#     location / {
+#         proxy_pass http://127.0.0.1:8456;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header Host $http_host;
+#         proxy_http_version 1.1;
+#         proxy_redirect off;
+#         proxy_buffering off;
+#         proxy_read_timeout 86400;
+#         proxy_set_header      Upgrade "websocket";
+#         proxy_set_header      Connection "Upgrade";
+#     }
 
-}
+#     if ($http_x_forwarded_proto = "http") {
+#       return 301 https://$server_name$request_uri;
+#     }
 
+#     ssl_certificate /etc/letsencrypt/live/melive.xyz/fullchain.pem; # managed by Certbot
+#     ssl_certificate_key /etc/letsencrypt/live/melive.xyz/privkey.pem; # managed by Certbot
+#     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-
-server {
-    listen 80;
-    listen 443 ssl http2;
-
-    server_name jupyter.b40re.tk www.jupyter.b40re.tk;
-
-    location / {
-	proxy_pass http://localhost:3514;
-	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	proxy_set_header X-Real-IP $remote_addr;
-	proxy_set_header Host $http_host;
-	proxy_http_version 1.1;
-	proxy_redirect off;
-	proxy_buffering off;
-	proxy_read_timeout 86400;
-    }
-
-    if ($http_x_forwarded_proto = "http") {
-      return 301 https://$server_name$request_uri;
-    }
-	
-    ssl_certificate /etc/letsencrypt/live/b40re.tk/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/b40re.tk/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-}
-
-server {
-    listen 80;
-    listen 443 ssl http2;
-
-    server_name jupyter.b40re.tk www.jupyter.b40re.tk;
-
-    location / {
-        proxy_pass http://localhost:3514;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header Host $http_host;
-        proxy_http_version 1.1;
-        proxy_redirect off;
-        proxy_buffering off;
-        proxy_read_timeout 86400;
-        proxy_set_header      Upgrade "websocket";
-        proxy_set_header      Connection "Upgrade";
-    }
-
-    if ($http_x_forwarded_proto = "http") {
-      return 301 https://$server_name$request_uri;
-    }
-
-    ssl_certificate /etc/letsencrypt/live/b40re.tk/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/b40re.tk/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-}
-
-server {
-    listen 80;
-    listen 443 ssl http2;
-
-    server_name jhub.b40re.tk www.jhub.b40re.tk;
-
-    location / {
-        proxy_pass http://127.0.0.1:8456;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header Host $http_host;
-        proxy_http_version 1.1;
-        proxy_redirect off;
-        proxy_buffering off;
-        proxy_read_timeout 86400;
-        proxy_set_header      Upgrade "websocket";
-        proxy_set_header      Connection "Upgrade";
-    }
-
-    if ($http_x_forwarded_proto = "http") {
-      return 301 https://$server_name$request_uri;
-    }
-
-    ssl_certificate /etc/letsencrypt/live/b40re.tk/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/b40re.tk/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-}
+# }
 
 
 

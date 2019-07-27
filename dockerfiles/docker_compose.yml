@@ -7,7 +7,7 @@ services:
     image: nginx:latest
     container_name: nginx
     volumes:
-      - ./amz_server_config/nginx_default_config:/etc/nginx/conf.d/
+      - /django-wohn/server_config/services/nginx_default_config:/etc/nginx/conf.d
       - /data/nginx/certs:/etc/letsencrypt/live
     ports:
       - 80:8000
@@ -19,8 +19,6 @@ services:
   postgres:
     image: postgres:11
     container_name: postgres
-    ports:
-      - "54320:5432"
     volumes:
       - /data/postgres:/var/lib/postgresql/data
     ports:
@@ -46,7 +44,9 @@ services:
     networks:
       - docker-network
     volumes:
-      - /data/pgadmin:/...
+      - /data/pgadmin:/var/lib/pgadmin
+      - /data/pgadmin:/var/log/pgadmin
+      - /django-wohn/server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
 
   # rabbit:
   #   container_name: rabbit
