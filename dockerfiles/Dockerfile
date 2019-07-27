@@ -9,7 +9,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get autoremove && apt-get autocl
 RUN mkdir /wohn
 WORKDIR /wohn
 
-COPY requirements.txt requirements.txt
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
