@@ -9,7 +9,7 @@ services:
         volumes:
         #  - /django-wohn/server_config/domain:/usr/share/nginx/html
           - /django-wohn/server_config/domain/acme-webroot:/usr/share/nginx/html
-        #  - /django-wohn/server_config/services/nginx:/etc/nginx
+          - /django-wohn/server_config/services/nginx:/etc/nginx/conf.d:Z
         #  - /data/nginx/certs:/etc/letsencrypt/live
         ports:
           - 80:80
@@ -29,6 +29,8 @@ services:
           - POSTGRES_USER=postgres
           - POSTGRES_PASSWORD=django
           - POSTGRES_DB=b40re
+        networks:
+          - docker-network
 
 # https://hub.docker.com/r/dpage/pgadmin4/      
     pgadmin:
@@ -70,6 +72,9 @@ services:
   #     - /var/run/docker.sock:/var/run/docker.sock
   #     - /root/.docker/config.json:/config.json
   #   command: --interval 60
+  #      networks:
+  #        - docker-network
+  
 
   # web:
   #   build:
