@@ -58,4 +58,4 @@ onHostRule = true
 [[acme.domains]]
   main = "*.melive.xyz"
 [[acme.domains]]
-  main = "pgadmin.melive.com"
+  main = "pgadmin.melive.xyz"
