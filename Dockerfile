@@ -1,4 +1,4 @@
-FROM python:3-slim
+FROM python:latest
 MAINTAINER John Malc <cincenko@outlook.com>
 
 ENV PYTHONDONTWRITEBYTECODE 1
