@@ -20,7 +20,7 @@ services:
           - OVH_ENDPOINT=ovh-eu
           - OVH_APPLICATION_KEY=Ii7zr75vRbivjRvo
           - OVH_APPLICATION_SECRET=XLl2pBxADunF2P7dB5KrqAwFCdyZPU7c
-          - OVH_CONSUMER_KEY=g5khLE47bfRNqxV8JKtr2hu3qavE3PFm
+          - OVH_CONSUMER_KEY=0dU1gxpJVVbdC82gVnhqaS3rBccPgPmM
         labels:
           - "traefik.enable=true"
           - "traefik.frontend.rule=Host:monitor.melive.xyz"
