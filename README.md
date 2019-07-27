@@ -1,3 +1,6 @@
+[!image](https://img.shields.io/github/license/dmpe/django-wohn?style=for-the-badge)
+
+
 # Django 2+ based real-estate website
 
 This has been developed for learning Django 2+ & Python 3+. 
