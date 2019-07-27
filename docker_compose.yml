@@ -92,7 +92,16 @@ services:
   #     - "15672:15672"  # here, we can access rabbitmq management plugin
   #   networks:
   #     - docker-network
-
+  
+    portainer:
+        image: portainer/portainer:latest
+        command: -H unix:///var/run/docker.sock
+        restart: always
+        ports:
+          - 9000:9000
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - /data/portainer_data:/data
 
 
 networks:
