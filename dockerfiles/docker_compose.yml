@@ -8,8 +8,8 @@ services:
         container_name: nginx
         volumes:
         #  - /django-wohn/server_config/domain:/usr/share/nginx/html
-          - $(pwd)/server_config/services/nginx/nginx.conf:/etc/nginx/nginx.conf
-          - /django-wohn/server_config/domain/acme-webroot:/usr/share/nginx/html
+          - ./server_config/services/nginx/nginx.conf:/etc/nginx/nginx.conf
+          - ./server_config/domain/acme-webroot:/usr/share/nginx/html
         #  - /data/nginx/certs:/etc/letsencrypt/live
         ports:
           - 80:80
