@@ -16,6 +16,22 @@ services:
         networks:
           - traefik_proxy
 
+    django_web:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      volumes:
+        - /data/django_web:/work
+      ports:
+        - 80:8000
+      depends_on:
+        - nginx
+        - postgres
+        - pgadmin
+      #  - rabbit
+      networks:
+        - traefik_proxy
+
 # https://hub.docker.com/_/postgres
     postgres:
         image: postgres:11
@@ -77,21 +93,7 @@ services:
   #   networks:
   #     - docker-network
 
-  # django_web:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - .:/work
-  #   ports:
-  #     - 80:8000
-  #   depends_on:
-  #     - nginx
-  #     - postgres
-  #     - pgadmin
-  #   #  - rabbit
-  #   networks:
-  #     - docker-network
+
 
 networks:
   traefik_proxy:
