@@ -57,7 +57,8 @@ services:
         networks:
           - docker-network
         labels:
-          - traefik.enable=false
+          - "traefik.enable=false"
+          - "traefik.port=5432"
 
 # https://hub.docker.com/r/dpage/pgadmin4/      
     pgadmin:
@@ -81,7 +82,7 @@ services:
         labels:
           - "traefik.enable=true"
           - "traefik.basic.frontend.rule=Host:pgadmin.melive.xyz"
-          - "traefik.basic.port=5050"
+          - "traefik.port=5050"
           - "traefik.backend=pgadmin"
 
   # rabbit:

@@ -52,10 +52,7 @@ caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
 onHostRule = true
     [acme.dnsChallenge]
     provider = "ovh"
-    main = "*.melive.xyz"
-  	sans = ["melive.xyz"]
+    delayBeforeCheck = 0
 
 [[acme.domains]]
   main = "*.melive.xyz"
-[[acme.domains]]
-  main = "pgadmin.melive.xyz"
