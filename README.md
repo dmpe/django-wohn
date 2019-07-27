@@ -1,4 +1,4 @@
-[!image](https://img.shields.io/github/license/dmpe/django-wohn?style=for-the-badge)
+![image](https://img.shields.io/github/license/dmpe/django-wohn?style=for-the-badge)
 
 
 # Django 2+ based real-estate website
