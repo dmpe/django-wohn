@@ -27,7 +27,7 @@ services:
           - "traefik.port=8080"
           - "traefik.docker.network=web"
         networks:
-          - traefik_webgateway
+          - traefik
           
     nginx: 
         image: nginx:latest
@@ -37,7 +37,7 @@ services:
           - ../server_config/domain/acme-webroot:/usr/share/nginx/html
         #  - ../server_config/domain/certs:/etc/nginx/ssl/melive.xyz
         networks:
-          - traefik_webgateway
+          - traefik
         labels:
           - "traefik.backend=nginx"
           - "traefik.enable=true"
@@ -58,7 +58,7 @@ services:
           - POSTGRES_PASSWORD=django
           - POSTGRES_DB=b40re
         networks:
-          - traefik_webgateway
+          - traefik
         labels:
           - "traefik.enable=false"
           - "traefik.port=5432"
@@ -78,7 +78,7 @@ services:
         depends_on:
           - postgres
         networks:
-          - traefik_webgateway
+          - traefik
         volumes:
           - /data/pgadmin:/var/lib/pgadmin
           - /data/pgadmin:/var/log/pgadmin
@@ -112,7 +112,7 @@ services:
         - ~/.docker/config.json:/config.json
       command: --interval 60
       networks:
-        - traefik_webgateway
+        - traefik
       labels:
       - "traefik.docker.network=web"
 
