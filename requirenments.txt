@@ -19,8 +19,10 @@ django-ipware
 djangorestframework
 google-api-python-client
 googleapis-common-protos
-git+git://github.com/python-social-auth/social-core.git#egg=elasticutils
-git+git://github.com/python-social-auth/social-app-django.git#egg=social-app-django
+social-auth-core
+social-auth-app-django
+#git+git://github.com/python-social-auth/social-core.git#egg=elasticutils
+#git+git://github.com/python-social-auth/social-app-django.git#egg=social-app-django
 markdown
 numpy
 pandas
