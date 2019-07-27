@@ -134,8 +134,7 @@ services:
 
 networks:
   traefik:
-    external:
-      name: traefik_webgateway
+    driver: bridge
 
 volumes:
   data:
