@@ -26,9 +26,9 @@ services:
           - "traefik.backend=proxy"
           - "traefik.port=8080"
           - "traefik.docker.network=web"
-        networks:
-          - traefik
-          
+        # networks:
+        #   - traefik
+
     # nginx: 
     #     image: nginx:latest
     #     container_name: nginx
@@ -57,8 +57,8 @@ services:
           - POSTGRES_USER=postgres
           - POSTGRES_PASSWORD=django
           - POSTGRES_DB=b40re
-        networks:
-          - traefik
+        # networks:
+        #   - traefik
         labels:
           - "traefik.enable=false"
           - "traefik.port=5432"
@@ -77,8 +77,8 @@ services:
           - 5050:5050
         depends_on:
           - postgres
-        networks:
-          - traefik
+        # networks:
+        #   - traefik
         volumes:
           - /data/pgadmin:/var/lib/pgadmin
           - /data/pgadmin:/var/log/pgadmin
@@ -111,10 +111,10 @@ services:
         - /var/run/docker.sock:/var/run/docker.sock
         - ~/.docker/config.json:/config.json
       command: --interval 60
-      networks:
-        - traefik
+      # networks:
+      #   - traefik
       labels:
-      - "traefik.docker.network=web"
+        - "traefik.docker.network=web"
 
   # django_web:
   #   build:

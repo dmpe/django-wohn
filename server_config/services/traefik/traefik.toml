@@ -10,19 +10,19 @@ defaultEntryPoints = ["http", "https"]
 [entryPoints]
     [entryPoints.http]
     address = ":80"
-#        [entryPoints.http.redirect]
-#        entryPoint = "https"
+			[entryPoints.http.redirect]
+			entryPoint = "https"
 
     [entryPoints.https]
     address = ":443"
     [entryPoints.https.tls]
-	 #    minVersion = "VersionTLS12"
-   #    cipherSuites = [
-   #      "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
-   #      "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
-   #      "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
-   #      "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
-   #    ]
+	    minVersion = "VersionTLS12"
+      cipherSuites = [
+        "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
+        "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+        "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
+        "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+      ]
 
 		[entryPoints.dashboard]
 		address = ":8080"
@@ -30,14 +30,12 @@ defaultEntryPoints = ["http", "https"]
 		  [entryPoints.dashboard.auth.basic]
 		    users = ["admin:$apr1$ciQGGpnM$qQuteuC8B.h6P.k3zl05P0"]
 
-[retry]
-
 [file]
 watch = true
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
-domain = "melive.xyz"
+# domain = "melive.xyz"
 watch = true
 exposedByDefault = true
 
