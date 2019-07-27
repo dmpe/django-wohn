@@ -92,18 +92,18 @@ services:
           - "traefik.docker.network=web"
 
     watchtower:
-      image: containrrr/watchtower:latest
-      container_name: watchtower
-      environment: 
-        - WATCHTOWER_CLEANUP=true
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-        - ~/.docker/config.json:/config.json
-      command: --interval 60
-      networks:
-        - web
-      labels:
-        - "traefik.docker.network=web"
+        image: containrrr/watchtower:latest
+        container_name: watchtower
+        environment: 
+          - WATCHTOWER_CLEANUP=true
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - ~/.docker/config.json:/config.json
+        command: --interval 60
+        networks:
+          - web
+        labels:
+          - "traefik.docker.network=web"
   # rabbit:
   #   container_name: rabbit
   #   image: rabbitmq:latest
