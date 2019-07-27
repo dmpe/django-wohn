@@ -2,7 +2,7 @@ debug = false
 logLevel = "ERROR"
 
 [api]
-  entryPoint = "traefik"
+  entryPoint = "dashboard"
   dashboard = true
 
 
@@ -28,14 +28,12 @@ defaultEntryPoints = ["http", "https"]
         "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384",
         "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
       ]
+
 		[entryPoints.dashboard]
 		address = ":8080"
 		[entryPoints.dashboard.auth]
 		  [entryPoints.dashboard.auth.basic]
 		    users = ["admin:$apr1$ciQGGpnM$qQuteuC8B.h6P.k3zl05P0"]
-
-[api]
-entrypoint="dashboard"
 
 [retry]
 
@@ -44,7 +42,7 @@ watch = true
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
-domain = "melive.io"
+domain = "melive.xyz"
 watch = true
 exposedByDefault = true
 
@@ -61,10 +59,6 @@ onHostRule = true
   	sans = ["melive.xyz"]
 
 [[acme.domains]]
-  main = "*.melive.com"
+  main = "*.melive.xyz"
 [[acme.domains]]
   main = "pgadmin.melive.com"
-[[acme.domains]]
-  main = "*.local3.com"
-[[acme.domains]]
-  main = "*.local4.com"
