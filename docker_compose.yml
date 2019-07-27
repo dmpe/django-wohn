@@ -76,10 +76,7 @@ services:
           - /var/run/docker.sock:/var/run/docker.sock
           - ~/.docker/config.json:/config.json
         command: --interval 60
-        # networks:
-        #   - web
-        # labels:
-        #   - "traefik.docker.network=web"
+
   # rabbit:
   #   container_name: rabbit
   #   image: rabbitmq:latest
