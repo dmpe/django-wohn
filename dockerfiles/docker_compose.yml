@@ -2,6 +2,7 @@ version: "3"
 
 # https://hub.docker.com/_/nginx
 # https://tomlankhorst.nl/secure-nginx-docker-container-with-lets-encrypt/
+# https://api.ovh.com/console/#/auth/credential#POST
 services:
     proxy:
         image: traefik:latest
@@ -15,6 +16,11 @@ services:
           - /var/run/docker.sock:/var/run/docker.sock
           - ../server_config/services/traefik/traefik.toml:/traefik.toml
           - ../server_config/services/traefik/acme.json:/acme.json
+        environment:
+          - OVH_ENDPOINT=ovh-eu (or ovh-ca)
+          - OVH_APPLICATION_KEY=Ii7zr75vRbivjRvo
+          - OVH_APPLICATION_SECRET=XLl2pBxADunF2P7dB5KrqAwFCdyZPU7c
+          - OVH_CONSUMER_KEY=E4OjXgoWN8uJLLY3Hyi7cYRqqLg25Bru
         labels:
           - "traefik.enable=true"
           - "traefik.frontend.rule=Host:monitor.melive.xyz"
