@@ -3,19 +3,41 @@ version: "3"
 # https://hub.docker.com/_/nginx
 # https://tomlankhorst.nl/secure-nginx-docker-container-with-lets-encrypt/
 services:
+    proxy:
+        image: traefik:latest
+        container_name: proxy
+        restart: always
+        ports:
+          - "80:80"
+          - "443:443"
+          - "8080:8080"
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - ../server_config/services/traefik/traefik.toml:/traefik.toml
+          - /data/traefik/acme.json:/acme.json
+        labels:
+          - "traefik.enable=true"
+          - "traefik.frontend.rule=Host:monitor.melive.xyz"
+          - "traefik.backend=proxy"
+          - "traefik.port=8080"
+
     nginx: 
         image: nginx:latest
         container_name: nginx
         volumes:
           - ../server_config/services/nginx/nginx.conf:/etc/nginx/nginx.conf
           - ../server_config/domain/acme-webroot:/usr/share/nginx/html
+        #  - ../server_config/domain/certs:/etc/nginx/ssl/melive.xyz
         ports:
           - 80:80
           - 443:443
         networks:
           - docker-network
         labels:
-          - sh.acme.autoload.domain=melive.xyz
+          - "traefik.backend=nginx"
+          - "traefik.enable=true"
+          - "traefik.frontend.rule=Host:www.melive.xyz"
+          - "traefik.port=80"
 
 # https://hub.docker.com/_/postgres
     postgres:
@@ -31,7 +53,9 @@ services:
           - POSTGRES_DB=b40re
         networks:
           - docker-network
-
+        labels:
+          - traefik.enable=false
+          
 # https://hub.docker.com/r/dpage/pgadmin4/      
     pgadmin:
         image: dpage/pgadmin4:latest
@@ -51,24 +75,11 @@ services:
           - /data/pgadmin:/var/lib/pgadmin
           - /data/pgadmin:/var/log/pgadmin
           - ../server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
-
-# https://github.com/Neilpang/acme.sh/wiki/deploy-to-docker-containers
-    acme.sh:
-      image: neilpang/acme.sh
-      container_name: acme.sh    
-      command: daemon
-      volumes:
-        - ./acmeout:/acme.sh
-        - /var/run/docker.sock:/var/run/docker.sock 
-      environment:
-        - DEPLOY_DOCKER_CONTAINER_LABEL=sh.acme.autoload.domain=melive.xyz
-        - DEPLOY_DOCKER_CONTAINER_KEY_FILE=/etc/nginx/ssl/melive.xyz/key.pem
-        - DEPLOY_DOCKER_CONTAINER_CERT_FILE="/etc/nginx/ssl/melive.xyz/cert.pem"
-        - DEPLOY_DOCKER_CONTAINER_CA_FILE="/etc/nginx/ssl/melive.xyz/ca.pem"
-        - DEPLOY_DOCKER_CONTAINER_FULLCHAIN_FILE="/etc/nginx/ssl/melive.xyz/full.pem"
-        - DEPLOY_DOCKER_CONTAINER_RELOAD_CMD="service nginx force-reload"
-      networks:
-        - docker-network
+        labels:
+          - "traefik.enable=true"
+          - "traefik.basic.frontend.rule=Host:pgadmin.melive.xyz"
+          - "traefik.basic.port=5050"
+          - "traefik.backend=pgadmin"
 
   # rabbit:
   #   container_name: rabbit
@@ -82,16 +93,16 @@ services:
   #   networks:
   #     - docker-network
 
-  # watchtower:
-  #   image: containrrr/watchtower:latest
-  #   environment: 
-  #     - WATCHTOWER_CLEANUP=true
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #     - /root/.docker/config.json:/config.json
-  #   command: --interval 60
-  #   networks:
-  #     - docker-network
+    watchtower:
+      image: containrrr/watchtower:latest
+      environment: 
+        - WATCHTOWER_CLEANUP=true
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ~/.docker/config.json:/config.json
+      command: --interval 60
+      networks:
+        - docker-network
 
 
   # django_web:
