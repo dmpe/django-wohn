@@ -4,7 +4,9 @@ MAINTAINER John Malc <cincenko@outlook.com>
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && apt-get upgrade -y && apt-get autoremove && apt-get autoclean
+RUN apt-get update && apt-get upgrade -y && \
+	apt-get install -y --no-install-recommends gcc and-build-dependencies && \
+    rm -rf /var/lib/apt/lists/* 
 
 RUN mkdir /wohn
 WORKDIR /wohn
