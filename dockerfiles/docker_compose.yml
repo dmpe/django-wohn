@@ -9,7 +9,7 @@ services:
         volumes:
           - /django-wohn/server_config/domain/acme-webroot/.well-known:/usr/share/nginx/html/.well-known
           - /django-wohn/server_config/services/nginx_default_config:/etc/nginx/sites-available/default
-          - /data/nginx/certs:/etc/letsencrypt/live
+        #  - /data/nginx/certs:/etc/letsencrypt/live
         ports:
           - 80:8000
           - 443:8000
