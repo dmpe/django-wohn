@@ -7,6 +7,7 @@ services:
         image: nginx:latest
         container_name: nginx
         volumes:
+          - /django-wohn/server_config/domain/acme-webroot/.well-known:/usr/share/nginx/html/.well-known
           - /django-wohn/server_config/services/nginx_default_config:/etc/nginx/sites-available/default
           - /data/nginx/certs:/etc/letsencrypt/live
         ports:
