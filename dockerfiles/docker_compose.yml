@@ -17,10 +17,10 @@ services:
           - ../server_config/services/traefik/traefik.toml:/traefik.toml
           - ../server_config/services/traefik/acme.json:/acme.json
         environment:
-          - OVH_ENDPOINT=ovh-eu (or ovh-ca)
+          - OVH_ENDPOINT=ovh-eu
           - OVH_APPLICATION_KEY=Ii7zr75vRbivjRvo
           - OVH_APPLICATION_SECRET=XLl2pBxADunF2P7dB5KrqAwFCdyZPU7c
-          - OVH_CONSUMER_KEY=E4OjXgoWN8uJLLY3Hyi7cYRqqLg25Bru
+          - OVH_CONSUMER_KEY=t7QDWHWrONPxfrp0weAFK7lRX2TEVT6h
         labels:
           - "traefik.enable=true"
           - "traefik.frontend.rule=Host:monitor.melive.xyz"
