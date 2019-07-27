@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update && apt-get upgrade -y && \
-	apt-get install -y --no-install-recommends gcc and-build-dependencies && \
+	apt-get install -y --no-install-recommends gcc build-base && \
     rm -rf /var/lib/apt/lists/* 
 
 RUN mkdir /wohn
