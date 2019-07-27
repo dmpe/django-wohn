@@ -4,9 +4,9 @@ version: "3"
 # https://tomlankhorst.nl/secure-nginx-docker-container-with-lets-encrypt/
 # https://api.ovh.com/console/#/auth/credential#POST
 services:
-    proxy:
+    traefik:
         image: traefik:latest
-        container_name: proxy
+        container_name: traefik
         restart: always
         ports:
           - "80:80"
@@ -20,11 +20,11 @@ services:
           - OVH_ENDPOINT=ovh-eu
           - OVH_APPLICATION_KEY=Ii7zr75vRbivjRvo
           - OVH_APPLICATION_SECRET=XLl2pBxADunF2P7dB5KrqAwFCdyZPU7c
-          - OVH_CONSUMER_KEY=0dU1gxpJVVbdC82gVnhqaS3rBccPgPmM
+          - OVH_CONSUMER_KEY=v50EU9oS4WumqtClH8GsOMwcYm7x1mHa
         labels:
           - "traefik.enable=true"
           - "traefik.frontend.rule=Host:monitor.melive.xyz"
-          - "traefik.backend=proxy"
+          - "traefik.backend=traefik"
           - "traefik.port=8080"
           - "traefik.docker.network=web"
         networks:
@@ -91,18 +91,6 @@ services:
           - "traefik.backend=pgadmin"
           - "traefik.docker.network=web"
 
-  # rabbit:
-  #   container_name: rabbit
-  #   image: rabbitmq:latest
-  #   environment:
-  #     - RABBITMQ_DEFAULT_USER=admin
-  #     - RABBITMQ_DEFAULT_PASS=mypass
-  #   ports:
-  #     - "5672:5672"    # we forward this port because it's useful for debugging
-  #     - "15672:15672"  # here, we can access rabbitmq management plugin
-  #   networks:
-  #     - docker-network
-
     watchtower:
       image: containrrr/watchtower:latest
       container_name: watchtower
@@ -116,6 +104,17 @@ services:
         - web
       labels:
         - "traefik.docker.network=web"
+  # rabbit:
+  #   container_name: rabbit
+  #   image: rabbitmq:latest
+  #   environment:
+  #     - RABBITMQ_DEFAULT_USER=admin
+  #     - RABBITMQ_DEFAULT_PASS=mypass
+  #   ports:
+  #     - "5672:5672"    # we forward this port because it's useful for debugging
+  #     - "15672:15672"  # here, we can access rabbitmq management plugin
+  #   networks:
+  #     - docker-network
 
   # django_web:
   #   build:

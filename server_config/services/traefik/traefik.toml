@@ -47,9 +47,10 @@ KeyType = "EC384"
 resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
 caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
 onHostRule = true
-    [acme.dnsChallenge]
-    provider = "ovh"
-    delayBeforeCheck = 0
+  [acme.dnsChallenge]
+  provider = "ovh"
+  delayBeforeCheck = 10
 
 [[acme.domains]]
   main = "*.melive.xyz"
+	sans = ["melive.xyz"]
