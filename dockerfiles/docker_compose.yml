@@ -7,15 +7,15 @@ services:
         image: nginx:latest
         container_name: nginx
         volumes:
-        #  - /django-wohn/server_config/domain:/usr/share/nginx/html
           - ../server_config/services/nginx/nginx.conf:/etc/nginx/nginx.conf
           - ../server_config/domain/acme-webroot:/usr/share/nginx/html
-        #  - /data/nginx/certs:/etc/letsencrypt/live
         ports:
           - 80:80
           - 443:443
         networks:
           - docker-network
+        labels:
+          - sh.acme.autoload.domain=melive.xyz
 
 # https://hub.docker.com/_/postgres
     postgres:
@@ -50,7 +50,25 @@ services:
         volumes:
           - /data/pgadmin:/var/lib/pgadmin
           - /data/pgadmin:/var/log/pgadmin
-          - /django-wohn/server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
+          - ../server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
+
+# https://github.com/Neilpang/acme.sh/wiki/deploy-to-docker-containers
+    acme.sh:
+      image: neilpang/acme.sh
+      container_name: acme.sh    
+      command: daemon
+      volumes:
+        - ./acmeout:/acme.sh
+        - /var/run/docker.sock:/var/run/docker.sock 
+      environment:
+        - DEPLOY_DOCKER_CONTAINER_LABEL=sh.acme.autoload.domain=melive.xyz
+        - DEPLOY_DOCKER_CONTAINER_KEY_FILE=/etc/nginx/ssl/melive.xyz/key.pem
+        - DEPLOY_DOCKER_CONTAINER_CERT_FILE="/etc/nginx/ssl/melive.xyz/cert.pem"
+        - DEPLOY_DOCKER_CONTAINER_CA_FILE="/etc/nginx/ssl/melive.xyz/ca.pem"
+        - DEPLOY_DOCKER_CONTAINER_FULLCHAIN_FILE="/etc/nginx/ssl/melive.xyz/full.pem"
+        - DEPLOY_DOCKER_CONTAINER_RELOAD_CMD="service nginx force-reload"
+      networks:
+        - docker-network
 
   # rabbit:
   #   container_name: rabbit
@@ -72,11 +90,11 @@ services:
   #     - /var/run/docker.sock:/var/run/docker.sock
   #     - /root/.docker/config.json:/config.json
   #   command: --interval 60
-  #      networks:
-  #        - docker-network
-  
+  #   networks:
+  #     - docker-network
 
-  # web:
+
+  # django_web:
   #   build:
   #     context: .
   #     dockerfile: Dockerfile
