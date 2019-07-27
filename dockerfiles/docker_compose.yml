@@ -25,7 +25,10 @@ services:
           - "traefik.frontend.rule=Host:monitor.melive.xyz"
           - "traefik.backend=proxy"
           - "traefik.port=8080"
-
+          - "traefik.docker.network=web"
+        networks:
+          - traefik_webgateway
+          
     nginx: 
         image: nginx:latest
         container_name: nginx
@@ -34,12 +37,13 @@ services:
           - ../server_config/domain/acme-webroot:/usr/share/nginx/html
         #  - ../server_config/domain/certs:/etc/nginx/ssl/melive.xyz
         networks:
-          - docker-network
+          - traefik_webgateway
         labels:
           - "traefik.backend=nginx"
           - "traefik.enable=true"
           - "traefik.frontend.rule=Host:www.melive.xyz"
           - "traefik.port=80"
+          - "traefik.docker.network=web"
 
 # https://hub.docker.com/_/postgres
     postgres:
@@ -54,10 +58,11 @@ services:
           - POSTGRES_PASSWORD=django
           - POSTGRES_DB=b40re
         networks:
-          - docker-network
+          - traefik_webgateway
         labels:
           - "traefik.enable=false"
           - "traefik.port=5432"
+          - "traefik.docker.network=web"
 
 # https://hub.docker.com/r/dpage/pgadmin4/      
     pgadmin:
@@ -73,7 +78,7 @@ services:
         depends_on:
           - postgres
         networks:
-          - docker-network
+          - traefik_webgateway
         volumes:
           - /data/pgadmin:/var/lib/pgadmin
           - /data/pgadmin:/var/log/pgadmin
@@ -83,6 +88,7 @@ services:
           - "traefik.basic.frontend.rule=Host:pgadmin.melive.xyz"
           - "traefik.port=5050"
           - "traefik.backend=pgadmin"
+          - "traefik.docker.network=web"
 
   # rabbit:
   #   container_name: rabbit
@@ -106,8 +112,9 @@ services:
         - ~/.docker/config.json:/config.json
       command: --interval 60
       networks:
-        - docker-network
-
+        - traefik_webgateway
+      labels:
+      - "traefik.docker.network=web"
 
   # django_web:
   #   build:
@@ -126,8 +133,9 @@ services:
   #     - docker-network
 
 networks:
-  docker-network:
-    driver: bridge
+  traefik:
+    external:
+      name: traefik_webgateway
 
 volumes:
   data:

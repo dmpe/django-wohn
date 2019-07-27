@@ -40,6 +40,7 @@ endpoint = "unix:///var/run/docker.sock"
 domain = "melive.xyz"
 watch = true
 exposedByDefault = true
+network = "web"
 
 [acme]
 email = "cincenko@outlook.com"
