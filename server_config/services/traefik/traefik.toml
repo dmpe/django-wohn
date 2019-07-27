@@ -5,7 +5,6 @@ logLevel = "DEBUG"
   entryPoint = "dashboard"
   dashboard = true
 
-
 defaultEntryPoints = ["http", "https"]
 
 [entryPoints]
