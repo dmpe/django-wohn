@@ -3,51 +3,50 @@ version: "3.7"
 # https://hub.docker.com/_/nginx
 # https://tomlankhorst.nl/secure-nginx-docker-container-with-lets-encrypt/
 services:
-  nginx: 
-    image: nginx:latest
-    container_name: nginx
-    volumes:
-      - 
-      - /django-wohn/server_config/services/nginx_default_config:/etc/nginx/sites-available/default
-      - /data/nginx/certs:/etc/letsencrypt/live
-    ports:
-      - 80:8000
-      - 443:8000
-    networks:
-      - docker-network
+    nginx: 
+        image: nginx:latest
+        container_name: nginx
+        volumes:
+          - /django-wohn/server_config/services/nginx_default_config:/etc/nginx/sites-available/default
+          - /data/nginx/certs:/etc/letsencrypt/live
+        ports:
+          - 80:8000
+          - 443:8000
+        networks:
+          - docker-network
 
 # https://hub.docker.com/_/postgres
-  postgres:
-    image: postgres:11
-    container_name: postgres
-    volumes:
-      - /data/postgres:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=django
-      - POSTGRES_DB=b40re
+    postgres:
+        image: postgres:11
+        container_name: postgres
+        volumes:
+          - /data/postgres:/var/lib/postgresql/data
+        ports:
+          - 5432:5432
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=django
+          - POSTGRES_DB=b40re
 
 # https://hub.docker.com/r/dpage/pgadmin4/      
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: pgadmin4
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=cincenko@outlook.com
-      - PGADMIN_DEFAULT_PASSWORD=123456
-      - PGADMIN_LISTEN_PORT=5050
-#      - PGADMIN_ENABLE_TLS=False
-    ports:
-      - 5050:80
-    depends_on:
-      - postgres
-    networks:
-      - docker-network
-    volumes:
-      - /data/pgadmin:/var/lib/pgadmin
-      - /data/pgadmin:/var/log/pgadmin
-      - /django-wohn/server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
+    pgadmin:
+        image: dpage/pgadmin4:latest
+        container_name: pgadmin4
+        environment:
+          - PGADMIN_DEFAULT_EMAIL=cincenko@outlook.com
+          - PGADMIN_DEFAULT_PASSWORD=123456
+          - PGADMIN_LISTEN_PORT=5050
+        #      - PGADMIN_ENABLE_TLS=False
+        ports:
+          - 5050:80
+        depends_on:
+          - postgres
+        networks:
+          - docker-network
+        volumes:
+          - /data/pgadmin:/var/lib/pgadmin
+          - /data/pgadmin:/var/log/pgadmin
+          - /django-wohn/server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
 
   # rabbit:
   #   container_name: rabbit
