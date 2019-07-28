@@ -151,4 +151,5 @@ networks:
 
 volumes:
   data:
-    external: true
+    external:
+      name: datadrive
