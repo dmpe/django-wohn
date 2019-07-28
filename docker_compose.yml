@@ -41,8 +41,9 @@ services:
     #       - ./server_config/domain/acme-webroot:/usr/share/nginx/html
     #     ports:
     #       - 8000:80
-    #     networks:
-    #       - traefik_proxy
+          # networks:
+          #   - default
+          #   - traefik_proxy
     #     depends_on:
     #       - djangoWohn
 
@@ -52,12 +53,13 @@ services:
       volumes:
         - datadrive_django:/work
       ports:
-        - 5050:5050
+        - 80:8000
       depends_on:
         - postgres
         - pgadmin
       #  - rabbit
       networks:
+        - default
         - traefik_proxy
       labels:
        - "traefik.enable=true"
