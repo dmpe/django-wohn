@@ -14,6 +14,7 @@ services:
         - "0.0.0.0:80:80"
         - "0.0.0.0:443:443"
         - "9115:8080" 
+      restart: always
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - ./server_config/services/traefik/traefik.toml:/traefik.toml
@@ -62,6 +63,7 @@ services:
         container_name: postgres
         volumes:
           - datadrive_postgress:/var/lib/postgresql/data
+        restart: always
         ports:
           - 5432:5432
         environment:
@@ -82,6 +84,7 @@ services:
         #      - PGADMIN_ENABLE_TLS=False
         ports:
           - 5050:5050
+        restart: always
         depends_on:
           - postgres
         networks:
