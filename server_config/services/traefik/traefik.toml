@@ -54,4 +54,4 @@ onDemand = true
 
 [[acme.domains]]
   main = "*.melive.xyz"
-	sans = ["melive.xyz"]
+	sans = ["melive.xyz", "pgadmin.melive.xyz", "portainer.melive.xyz", "monitor.melive.xyz"]

@@ -44,11 +44,11 @@ services:
     #     networks:
     #       - traefik_proxy
     #     depends_on:
-    #       - django_web
+    #       - djangoWohn
 
-    django_web:
+    djangoWohn:
       image: f789gh/django-wohn:latest
-      container_name: django_web
+      container_name: djangoWohn
       volumes:
         - datadrive_django:/work
       ports:
@@ -61,7 +61,7 @@ services:
         - traefik_proxy
       labels:
        - "traefik.enable=true"
-       - "traefik.backend=django_web"
+       - "traefik.backend=djangoWohn"
        - "traefik.port=80"
        - "traefik.frontend.rule=Host:melive.xyz,www.melive.xyz"
 
