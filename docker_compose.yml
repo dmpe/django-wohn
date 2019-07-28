@@ -14,7 +14,7 @@ services:
       container_name: traefik
       ports:
         - "0.0.0.0:80:80"
-       # - "127.0.0.1:9115:8080"
+      #  - "127.0.0.1:9115:8080"
         - "9115:8080" 
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
@@ -90,8 +90,7 @@ services:
           - traefik_proxy
         volumes:
           - /data/pgadmin:/var/lib/pgadmin
-          - /data/pgadmin:/var/log/pgadmin
-          - ../server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
+          - ./server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
         labels:
           - "traefik.enable=true"
           - "traefik.backend=pgadmin"
@@ -128,8 +127,8 @@ services:
         #  - "--admin-password='$2y$05$cGpsTM0q7UTl1LrTbtTPeeaehCGbHtc8Gf/nLPeHFY8tkyQKKXcRe'"
         restart: always
         ports:
-          - "9000:9000"
-          - "8000:8000"
+        #  - "9000:9000"
+        #  - "8000:8000"
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
           - /data/portainer_data:/data
