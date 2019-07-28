@@ -15,6 +15,7 @@ services:
       container_name: traefik
       ports:
         - "0.0.0.0:80:80"
+        - "0.0.0.0:443:443"
         - "9115:8080" 
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
@@ -98,15 +99,17 @@ services:
           - "traefik.port=5050"
           - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz`)"
 
-    # watchtower:
-    #     image: containrrr/watchtower:latest
-    #     container_name: watchtower
-    #     environment: 
-    #       - WATCHTOWER_CLEANUP=true
-    #     volumes:
-    #       - /var/run/docker.sock:/var/run/docker.sock
-    #       - ~/.docker/config.json:/config.json
-    #     command: --interval 60
+    watchtower:
+        image: containrrr/watchtower:latest
+        container_name: watchtower
+        ports:
+          - 7884:7884
+        environment: 
+          - WATCHTOWER_CLEANUP=true
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - ~/.docker/config.json:/config.json
+        command: --interval 60
 
   # rabbit:
   #   container_name: rabbit
