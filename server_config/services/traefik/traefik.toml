@@ -52,7 +52,7 @@ debug=true
         resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
 
 [providers.docker]
-endpoint = "unix:///var/run/docker.sock"
-domain = "melive.xyz"
-watch = true
-exposedByDefault = true
+# endpoint = "unix:///var/run/docker.sock"
+  domain = "melive.xyz"
+  watch = true
+  exposedByDefault = true
