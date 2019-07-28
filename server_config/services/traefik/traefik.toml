@@ -1,4 +1,8 @@
-defaultEntryPoints = ["http", "https"]
+debug = true
+logLevel = "INFO"
+InsecureSkipVerify = true
+
+defaultEntryPoints = ["http"]
 
 [entryPoints]
   [entryPoints.dashboard]
@@ -17,6 +21,7 @@ defaultEntryPoints = ["http", "https"]
 [api]
 entrypoint="dashboard"
 dashboard=true
+debug=true
 
 # [acme]
 # email = "your_email@your_domain"
