@@ -6,10 +6,15 @@ version: "3"
 services:
     traefik:
       image: traefik:v2.0
-      command: --api --providers.docker
+      command: 
+        - "--api=true"
+        - "--global.sendanonymoususage=false"
+        - "--providers.docker=true"
+        - "--entrypoints.web.address=:80" 
       container_name: traefik
       ports:
-        - "80:80" 
+        - "0.0.0.0:80:80"
+       # - "127.0.0.1:9115:8080"
         - "9115:8080" 
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
@@ -18,8 +23,14 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.backend=traefik"
-        - "traefik.http.middlewares.test-auth.basicauth.users=$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"
+        - "traefik.port=9115"
+        - "traefik.http.middlewares.test-auth.basicauth.users=admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"
         - "traefik.http.routers.traefik.rule=Host(`traefik.melive.xyz`)"
+      #environment:
+      #  - "OVH_ENDPOINT=xxx"
+      #  - "OVH_APPLICATION_KEY=xxx"
+      #  - "OVH_APPLICATION_SECRET=xxx"
+      #  - "OVH_CONSUMER_KEY=xxx"
     # nginx: 
     #     image: nginx:latest
     #     container_name: nginx
@@ -119,7 +130,7 @@ services:
         labels:
           - "traefik.enable=true"
           - "traefik.backend=portainer"
-          - "traefik.port=9000"
+          - "traefik.http.middlewares.portainer.redirectscheme.port=9000"
           - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`)"
 
 
