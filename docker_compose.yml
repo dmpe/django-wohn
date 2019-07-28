@@ -53,7 +53,7 @@ services:
       volumes:
         - datadrive_django:/work
       ports:
-        - 80:8000
+        - 8000:8000
       depends_on:
         - postgres
         - pgadmin
@@ -64,7 +64,7 @@ services:
       labels:
        - "traefik.enable=true"
        - "traefik.backend=djangoWohn"
-       - "traefik.port=80"
+       - "traefik.port=8000"
        - "traefik.frontend.rule=Host:melive.xyz,www.melive.xyz"
 
 # https://hub.docker.com/_/postgres
@@ -128,7 +128,7 @@ services:
         labels:
           - "traefik.enable=false"
           - "traefik.backend=watchtower"
-          - "traefik.port=5432"
+          - "traefik.port=7884"
   # rabbit:
   #   container_name: rabbit
   #   image: rabbitmq:latest
