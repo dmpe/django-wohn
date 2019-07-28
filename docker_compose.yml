@@ -149,8 +149,10 @@ networks:
   default:
     driver: bridge
 
-# volumes:
-#   datadrive:
-#   datadrive_postgress:
-#   datadrive_portainer:
-#   datadrive_pgadmin:
+volumes:
+  datadrive_postgress:
+    external: true
+  datadrive_portainer:
+    external: true
+  datadrive_pgadmin:
+    external: true
