@@ -1,23 +1,46 @@
 ![image](https://img.shields.io/github/license/dmpe/django-wohn?style=for-the-badge)
+[![Build Status](https://johnmalc.visualstudio.com/DJango-Wohn/_apis/build/status/dmpe.django-wohn?branchName=master)](https://johnmalc.visualstudio.com/DJango-Wohn/_build/latest?definitionId=7&branchName=master)
 
+# Basics: Python3/DJango2-based real-estate website
 
-# Django 2+ based real-estate website
+:heavy_exclamation_mark: This has been developed for learning Django 2+ & Python 3+ & Microsoft Azure & DevOps (Docker, Traefik, etc.). 
 
-This has been developed for learning Django 2+ & Python 3+. 
+:triangular_flag_on_post: To create something akin to <https://www.wg-gesucht.de> which would provide students and landlords a way to advertise their free rooms.
 
-**Goal:** To create something akin to <https://www.wg-gesucht.de> which would provide end-users (i.e. mostly students but also landlords) a way to advertise their free rooms.
+The source of this "idea" was an article <https://www.respekt.cz/sousede/nekolik-nezavislych-lidi-bydli-v-jednom-pronajatem-byte>. 
+In the Czech Republic, there are a lot of real-estate portals but very few exist which are dedicated to just student housing. 
+Compared to <https://www.wg-gesucht.de>, in the similar form and scale there is nothing and thus the objective is to create a web application which fills the gap. 
 
-The idea source was this article <https://www.respekt.cz/sousede/nekolik-nezavislych-lidi-bydli-v-jednom-pronajatem-byte>. 
-The reason being is that, as of 2019, a real-estate portal dedicated to just the student housing does not exist - in the same form as it is in DACH region - in the Czech Republic. There are some similar sites but nothing compared to <https://www.wg-gesucht.de>. The objective is to fill the gap. 
+## Development overtime 
 
-## Azure Cloud Services Used
+![arch/evolution.png](arch/evolution.png)
+
+## Azure Cloud Services
 
 - Virtual Machines
-- Key Vault
-- DNS zone
-- Blob Storage Account
+- Azure KeyVault
+- DNS zone -> 3rd Party Hosting Provider
+- Azure Blob Storage
 
 ## 1. How to deploy
+
+### 1.0 On (close to any) cloud provider
+
+1. Create VM (scale set)
+
+2. Install Docker
+
+With `cloud-init`, you can do
+```
+#include https://get.docker.com
+```
+
+2.1 Create a separate docker volume for **each** container, e.g. `docker volume create --driver local --opt type=none --opt device=/datadrive/django --opt o=bind datadrive_django
+`
+
+3. Clone this repo and cd' into it
+
+4. Start `docker-compose -f docker-compose.yaml up (-d)`
 
 ### 1.1 Common tasks for <u>local and Heroku</u>
 
@@ -126,15 +149,15 @@ sudo certbot --nginx certonly
 
 Just **restart** nginx, then `sudo systemctl restart gunicorn.service` as well as stop that socket thing
 
-### The **ER** Diagramm
+### The **ER**/Class Diagramms
 
 Created using <https://django-extensions.readthedocs.io/en/latest/graph_models.html> and 
 
 ```
-python3 manage.py graph_models -a -g -o amazing_server_configuration/my_project_visualized.png
+python3 manage.py graph_models -a -g -o arch/class_diagramm.png
 ```
 
-![arch/my_project_visualized.png](amazing_server_configuration/my_project_visualized.png)
+![arch/class_diagramm.png](arch/class_diagramm.png)
 
 
 # 3. Run Celery and RabbitMQ Management UI
