@@ -11,13 +11,14 @@ services:
         - "--global.sendanonymoususage=false"
         - "--providers.docker=true"
         - "--entrypoints.web.address=:80" 
+        - "--entrypoints.websecure.address=:443"
       container_name: traefik
       ports:
         - "0.0.0.0:80:80"
         - "9115:8080" 
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
-  #      - ./django-wohn/server_config/services/traefik/traefik.toml:/traefik.toml
+        - ./django-wohn/server_config/services/traefik/traefik.toml:/traefik.toml
         - ./django-wohn/server_config/services/traefik/acme.json:/acme.json
       labels:
         - "traefik.enable=true"
@@ -25,11 +26,12 @@ services:
         - "traefik.port=9115"
         - "traefik.http.middlewares.traefik.basicauth.users=admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"
         - "traefik.http.routers.traefik.rule=Host(`traefik.melive.xyz`)"
+        - "traefik.http.routers.whoami.tls.certresolver=myhttpchallenge"
       environment:
        - "OVH_ENDPOINT=ovh-eu"
-       - "OVH_APPLICATION_KEY=Ii7zr75vRbivjRvo"
-       - "OVH_APPLICATION_SECRET=xxx"
-       - "OVH_CONSUMER_KEY=xxx"
+       - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
+       - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
+       - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 
     # nginx: 
     #     image: nginx:latest
@@ -123,7 +125,7 @@ services:
         container_name: portainer
         #command: 
         #  - "--entrypoints.web.address=:9000" 
-        #  - "--admin-password='$2y$05$cGpsTM0q7UTl1LrTbtTPeeaehCGbHtc8Gf/nLPeHFY8tkyQKKXcRe'"
+        #  - "--admin-password=$2y$05$cGpsTM0q7UTl1LrTbtTPeeaehCGbHtc8Gf/nLPeHFY8tkyQKKXcRe"
         restart: always
         ports:
           - "9000:9000"
@@ -139,7 +141,6 @@ services:
           - "traefik.backend=portainer"
           - "traefik.port=9000"
           - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`)"
-
 
 networks:
   traefik_proxy:

@@ -2,16 +2,16 @@ debug = true
 logLevel = "INFO"
 InsecureSkipVerify = true
 
-defaultEntryPoints = ["http"]
+defaultEntryPoints = ["http", "https"]
 
-[entryPoints]
-  [entryPoints.dashboard]
-    address = ":9115"
-    [entryPoints.dashboard.auth]
-      [entryPoints.dashboard.auth.basic]
-        users = ["admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"]
-  [entryPoints.http]
-    address = ":80"
+# [entryPoints]
+#   [entryPoints.dashboard]
+#     address = ":9115"
+#     [entryPoints.dashboard.auth]
+#       [entryPoints.dashboard.auth.basic]
+#         users = ["admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"]
+#   [entryPoints.http]
+#     address = ":80"
       # [entryPoints.http.redirect]
       #   entryPoint = "https"
   # [entryPoints.https]
@@ -22,13 +22,13 @@ defaultEntryPoints = ["http"]
 dashboard=true
 debug=true
 
-# [certificatesResolvers.sample.acme]
+# [certificatesResolvers.myhttpchallenge.acme]
 # email = "cincenko@outlook.com"
 # storage = "acme.json"
 # entryPoint = "https"
 # caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
 # onHostRule = true
-#   [certificatesResolvers.sample.acme.dnsChallenge]
+#   [certificatesResolvers.myhttpchallenge.acme.dnsChallenge]
 #   resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
 #   provider = "ovh"
 #   delayBeforeCheck = 10
@@ -39,6 +39,17 @@ debug=true
 
 # [[acme.domains]]
 #    main = "melive.xyz"
+
+[certificatesResolvers]
+  [certificatesResolvers.myhttpchallenge]
+    [certificatesResolvers.myhttpchallenge.acme]
+      email = "cincenko@outlook.com"
+      caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+      storage = "acme.json"
+      [certificatesResolvers.myhttpchallenge.acme.dnsChallenge]
+        provider = "ovh"
+        delayBeforeCheck = 10
+        resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
 
 [providers.docker]
 endpoint = "unix:///var/run/docker.sock"
