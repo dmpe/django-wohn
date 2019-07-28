@@ -2,6 +2,10 @@ debug = true
 logLevel = "INFO"
 InsecureSkipVerify = true
 
+[global]
+  # Send anonymous usage data
+  sendAnonymousUsage = true
+
 defaultEntryPoints = ["http", "https"]
 
 # [entryPoints]

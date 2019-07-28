@@ -8,7 +8,6 @@ services:
       image: traefik:v2.0
       command: 
         - "--api=true"
-        - "--global.sendanonymoususage=false"
         - "--providers.docker=true"
         - "--entrypoints.web.address=:80" 
         - "--entrypoints.websecure.address=:443"
