@@ -23,5 +23,5 @@ steps:
     containerRegistry: 'docker_hub'
     repository: 'django-wohn'
     command: 'buildAndPush'
-    Dockerfile: 'dockerfiles/Dockerfile'
+    Dockerfile: 'Dockerfile'
     tags: '$(Build.SourceVersion)'

@@ -5,10 +5,10 @@ version: '3.7'
 # https://api.ovh.com/console/#/auth/credential#POST
 services:
     traefik:
-      image: traefik:v2.0
-      command: 
-        - "--api=true"
-        - "--providers.docker=true"
+      image: traefik:latest
+      command: --api --docker
+      #  - "--api=true"
+      #  - "--providers.docker=true"
       container_name: traefik
       ports:
         - "0.0.0.0:80:80"
@@ -23,8 +23,9 @@ services:
         - "traefik.enable=true"
         - "traefik.backend=traefik"
         - "traefik.port=9115"
-        - "traefik.http.middlewares.traefik.basicauth.users=my-basic-auth"
-        - "traefik.http.routers.traefik.rule=Host(`monitor.melive.xyz`)"
+        - "traefik.frontend.rule=Host:monitor.melive.xyz"
+      #  - "traefik.http.middlewares.traefik.basicauth.users=my-basic-auth"
+      #  - "traefik.http.routers.traefik.rule=Host(`monitor.melive.xyz`)"
       #  - "traefik.http.routers.whoami.tls.certresolver=myhttpchallenge"
       environment:
        - "OVH_ENDPOINT=ovh-eu"
@@ -49,14 +50,18 @@ services:
     #   image: f789gh/django-wohn:latest
     #   container_name: django_web
     #   volumes:
-    #     - /data/django_web:/work
+    #     - /datadrive/django:/work
     #   depends_on:
     #     - postgres
     #     - pgadmin
     #   #  - rabbit
     #   networks:
     #     - traefik_proxy
-
+    #  labels:
+    #    - "traefik.enable=true"
+    #    - "traefik.backend=traefik"
+    #    - "traefik.port=80"
+    #    - "traefik.frontend.rule=Host:monitor.melive.xyz"
 # https://hub.docker.com/_/postgres
     postgres:
         image: postgres:11
@@ -97,7 +102,8 @@ services:
           - "traefik.enable=true"
           - "traefik.backend=pgadmin"
           - "traefik.port=5050"
-          - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz`)"
+          - "traefik.frontend.rule=Host:pgadmin.melive.xyz"
+        #  - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz`)"
 
     watchtower:
         image: containrrr/watchtower:latest
@@ -143,7 +149,8 @@ services:
           - "traefik.enable=true"
           - "traefik.backend=portainer"
           - "traefik.port=9000"
-          - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`)"
+          - "traefik.frontend.rule=Host:portainer.melive.xyz"         
+        #  - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`)"
 
 networks:
   traefik_proxy:
