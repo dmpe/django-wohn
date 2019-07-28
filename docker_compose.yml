@@ -59,7 +59,7 @@ services:
       #  - rabbit
       networks:
         - traefik_proxy
-     labels:
+      labels:
        - "traefik.enable=true"
        - "traefik.backend=django_web"
        - "traefik.port=80"
