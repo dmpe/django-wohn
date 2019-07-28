@@ -134,7 +134,7 @@ Created using <https://django-extensions.readthedocs.io/en/latest/graph_models.h
 python3 manage.py graph_models -a -g -o amazing_server_configuration/my_project_visualized.png
 ```
 
-![amazing_server_configuration/my_project_visualized.png](amazing_server_configuration/my_project_visualized.png)
+![arch/my_project_visualized.png](amazing_server_configuration/my_project_visualized.png)
 
 
 # 3. Run Celery and RabbitMQ Management UI

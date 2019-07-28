@@ -14,7 +14,10 @@ ADD . /wohn
 
 # Install any needed packages specified in requirenments.txt
 RUN pip install -r requirenments.txt
-
-#CMD exec gunicorn vanoce.wsgi:application --bind 0.0.0.0:8000 --workers 3
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "vanoce.wsgi:application", "-workers", "3"]
 EXPOSE 8000
+
+RUN chmod +x start_django.sh
+ENTRYPOINT ["./start_django.sh"]
+#CMD exec gunicorn vanoce.wsgi:application --bind 0.0.0.0:8000 --workers 3
+#CMD ["gunicorn", "-b", "0.0.0.0:8000", "vanoce.wsgi:application", "--workers", "3"]
+
