@@ -77,7 +77,9 @@ services:
           - POSTGRES_DB=b40re
         networks:
           - default
-
+        labels:
+          - "traefik.enable=false"
+          
 # https://hub.docker.com/r/dpage/pgadmin4/      
     pgadmin:
         image: dpage/pgadmin4:latest
@@ -116,7 +118,8 @@ services:
           - /var/run/docker.sock:/var/run/docker.sock
           - ~/.docker/config.json:/config.json
         command: --interval 60
-
+        labels:
+          - "traefik.enable=false"
   # rabbit:
   #   container_name: rabbit
   #   image: rabbitmq:latest

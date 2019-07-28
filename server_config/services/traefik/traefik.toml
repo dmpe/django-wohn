@@ -20,7 +20,7 @@ defaultEntryPoints = ["http", "https"]
       ]
 
     [entryPoints.traefik]
-    address = ":8123"
+    address = ":9115"
       [entryPoints.traefik.auth]
         [entryPoints.traefik.auth.basic]
         users = ["admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"]
@@ -44,7 +44,7 @@ email = "cincenko@outlook.com"
 storage = "acme.json"
 entryPoint = "https"
 resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
-#caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
 onHostRule = true
   [acme.dnsChallenge]
   provider = "ovh"
@@ -53,6 +53,3 @@ onHostRule = true
 [[acme.domains]]
   main = "*.melive.xyz"
 	sans = ["melive.xyz"]
-
-[[acme.domains]]
-   main = "melive.xyz"
