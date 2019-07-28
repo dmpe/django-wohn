@@ -53,6 +53,6 @@ debug=true
 
 [providers.docker]
 # endpoint = "unix:///var/run/docker.sock"
-  domain = "melive.xyz"
-  watch = true
+  # domain = "melive.xyz"
+  # watch = true
   exposedByDefault = true
