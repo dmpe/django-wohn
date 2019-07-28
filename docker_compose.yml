@@ -176,3 +176,5 @@ volumes:
     external: true
   datadrive_pgadmin:
     external: true
+  datadrive_django:
+    external: true
