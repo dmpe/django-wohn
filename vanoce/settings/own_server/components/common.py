@@ -265,8 +265,6 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 SENDGRID_API_KEY = SendGridAPIClient(client.get_secret("https://b40.vault.azure.net/", "SENDGRID-API-KEY", "5e84e665a6624d98982c836808220c7a").value)
 
-GOOGLE_RECAPTCHA_V3 = client.get_secret("https://b40.vault.azure.net/", "GOOGLE-RECAPTCHA-V3", "7bd3d869a8be4835b3a3a6b27ce411b5").value
-
 MY_EMAIL = client.get_secret("https://b40.vault.azure.net/", "MY-EMAIL", "27ba21440e1f41798df0217622c54dda").value
 
 # used when pushing via git

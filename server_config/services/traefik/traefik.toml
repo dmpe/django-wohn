@@ -12,36 +12,51 @@ defaultEntryPoints = ["http"]
         users = ["admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"]
   [entryPoints.http]
     address = ":80"
-      # [entryPoints.http.redirect]
-      #   entryPoint = "https"
-  # [entryPoints.https]
-  #   address = ":443"
-  #     [entryPoints.https.tls]
+			[entryPoints.http.redirect]
+			entryPoint = "https"
+
+    [entryPoints.https]
+    address = ":443"
+    [entryPoints.https.tls]
+      minVersion = "VersionTLS12"
+      cipherSuites = [
+        "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+        "TLS_RSA_WITH_AES_256_GCM_SHA384"
+      ]
+
+    [entryPoints.traefik]
+    address = ":9115"
+    #  [entryPoints.traefik.auth]
+    #    [entryPoints.traefik.auth.basic]
+    #    users = ["admin:$$2y$$05$$rwTXazYt3S4Yp3cUWRpZdO7DQX5WckETjbROy2vOAg9PedrhsCuIe"]
 
 [api]
-dashboard=true
-debug=true
+  entryPoint = "traefik"
+  dashboard = true
+  debug = true
+# [file]
+# watch = true
 
-# [certificatesResolvers.sample.acme]
-# email = "cincenko@outlook.com"
-# storage = "acme.json"
-# entryPoint = "https"
-# caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
-# onHostRule = true
-#   [certificatesResolvers.sample.acme.dnsChallenge]
-#   resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
-#   provider = "ovh"
-#   delayBeforeCheck = 10
-
-# [[acme.domains]]
-#   main = "*.melive.xyz"
-#   sans = ["melive.xyz"]
-
-# [[acme.domains]]
-#    main = "melive.xyz"
-
-[providers.docker]
+[docker]
 endpoint = "unix:///var/run/docker.sock"
 domain = "melive.xyz"
 watch = true
 exposedByDefault = true
+# network = "traefik-proxy"
+
+[acme]
+email = "cincenko@outlook.com"
+storage = "acme.json"
+entryPoint = "https"
+resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
+#caServer = "https://acme-v02.api.letsencrypt.org/directory"
+#caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+onHostRule = true
+onDemand = true
+  [acme.dnsChallenge]
+  provider = "ovh"
+  delayBeforeCheck = 10
+
+[[acme.domains]]
+  main = "*.melive.xyz"
+	sans = ["melive.xyz", "pgadmin.melive.xyz", "portainer.melive.xyz", "monitor.melive.xyz"]
