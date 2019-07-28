@@ -4,30 +4,46 @@ version: "3"
 # https://tomlankhorst.nl/secure-nginx-docker-container-with-lets-encrypt/
 # https://api.ovh.com/console/#/auth/credential#POST
 services:
-    nginx: 
-        image: nginx:latest
-        container_name: nginx
-        volumes:
-          - ./server_config/services/nginx/nginx.conf:/etc/nginx/nginx.conf
-          - ./server_config/domain/acme-webroot:/usr/share/nginx/html
-        ports:
-          - 8000:80
-        networks:
-          - traefik_proxy
-        depends_on:
-          - django_web
-
-    django_web:
-      image: f789gh/django-wohn:latest
-      container_name: django_web
+    traefik:
+      image: traefik:v2.0
+      command: --api --providers.docker
+      container_name: traefik
+      ports:
+        - "80:80" 
+        - "9115:8080" 
       volumes:
-        - /data/django_web:/work
-      depends_on:
-        - postgres
-        - pgadmin
-      #  - rabbit
-      networks:
-        - traefik_proxy
+        - /var/run/docker.sock:/var/run/docker.sock
+  #      - ./django-wohn/server_config/services/traefik/traefik.toml:/traefik.toml
+  #      - ./django-wohn/server_config/services/traefik/acme.json:/acme.json
+      labels:
+        - "traefik.enable=true"
+        - "traefik.backend=traefik"
+        - "traefik.http.middlewares.test-auth.basicauth.users=$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"
+        - "traefik.http.routers.traefik.rule=Host(`traefik.melive.xyz`)"
+    # nginx: 
+    #     image: nginx:latest
+    #     container_name: nginx
+    #     volumes:
+    #       - ./server_config/services/nginx/nginx.conf:/etc/nginx/nginx.conf
+    #       - ./server_config/domain/acme-webroot:/usr/share/nginx/html
+    #     ports:
+    #       - 8000:80
+    #     networks:
+    #       - traefik_proxy
+    #     depends_on:
+    #       - django_web
+
+    # django_web:
+    #   image: f789gh/django-wohn:latest
+    #   container_name: django_web
+    #   volumes:
+    #     - /data/django_web:/work
+    #   depends_on:
+    #     - postgres
+    #     - pgadmin
+    #   #  - rabbit
+    #   networks:
+    #     - traefik_proxy
 
 # https://hub.docker.com/_/postgres
     postgres:
@@ -100,6 +116,12 @@ services:
         networks:
           - default
           - traefik_proxy
+        labels:
+          - "traefik.enable=true"
+          - "traefik.backend=portainer"
+          - "traefik.port=9000"
+          - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`)"
+
 
 networks:
   traefik_proxy:

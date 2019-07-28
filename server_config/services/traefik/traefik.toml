@@ -9,7 +9,7 @@ defaultEntryPoints = ["http"]
     address = ":9115"
     [entryPoints.dashboard.auth]
       [entryPoints.dashboard.auth.basic]
-        users = ["admin:123"]
+        users = ["admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"]
   [entryPoints.http]
     address = ":80"
       # [entryPoints.http.redirect]
@@ -19,20 +19,29 @@ defaultEntryPoints = ["http"]
   #     [entryPoints.https.tls]
 
 [api]
-entrypoint="dashboard"
 dashboard=true
 debug=true
 
-# [acme]
-# email = "your_email@your_domain"
-# storage = "acme.json"
-# entryPoint = "https"
-# onHostRule = true
-#   [acme.httpChallenge]
-#   entryPoint = "http"
+[certificatesResolvers.sample.acme]
+email = "cincenko@outlook.com"
+storage = "acme.json"
+entryPoint = "https"
+caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+onHostRule = true
+  [certificatesResolvers.sample.acme.dnsChallenge]
+  resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
+  provider = "ovh"
+  delayBeforeCheck = 10
 
-[docker]
+[[acme.domains]]
+  main = "*.melive.xyz"
+  sans = ["melive.xyz"]
+
+[[acme.domains]]
+   main = "melive.xyz"
+
+[providers.docker]
 endpoint = "unix:///var/run/docker.sock"
 domain = "melive.xyz"
 watch = true
-#network = "traefik-proxy"
+exposedByDefault = true
