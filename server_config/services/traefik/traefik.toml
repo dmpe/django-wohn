@@ -4,12 +4,6 @@ InsecureSkipVerify = true
 [global]
   sendAnonymousUsage = true
 
-#Dynamic configuration
-
-
-
-# defaultEntryPoints = ["http", "https"]
-
 [entryPoints]
   [entryPoints.dashboard]
     address = ":9115"
