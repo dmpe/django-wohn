@@ -149,7 +149,7 @@ networks:
   default:
     driver: bridge
 
-# volumes:
-#   data:
-#     external: true
-#     name: datadrive
+volumes:
+  datadrive:
+    external: true
+    # name: datadrive
