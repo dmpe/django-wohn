@@ -92,16 +92,21 @@ services:
           - /data/pgadmin:/var/lib/pgadmin
           - /data/pgadmin:/var/log/pgadmin
           - ../server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
+        labels:
+          - "traefik.enable=true"
+          - "traefik.backend=pgadmin"
+          - "traefik.port=5050"
+          - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz`)"
 
-    watchtower:
-        image: containrrr/watchtower:latest
-        container_name: watchtower
-        environment: 
-          - WATCHTOWER_CLEANUP=true
-        volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
-          - ~/.docker/config.json:/config.json
-        command: --interval 60
+    # watchtower:
+    #     image: containrrr/watchtower:latest
+    #     container_name: watchtower
+    #     environment: 
+    #       - WATCHTOWER_CLEANUP=true
+    #     volumes:
+    #       - /var/run/docker.sock:/var/run/docker.sock
+    #       - ~/.docker/config.json:/config.json
+    #     command: --interval 60
 
   # rabbit:
   #   container_name: rabbit
@@ -118,7 +123,7 @@ services:
     portainer:
         image: portainer/portainer:latest
         container_name: portainer
-        command: -H unix:///var/run/docker.sock
+        command: --admin-password='$2y$05$cGpsTM0q7UTl1LrTbtTPeeaehCGbHtc8Gf/nLPeHFY8tkyQKKXcRe'
         restart: always
         ports:
           - 9000:9000
