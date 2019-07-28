@@ -2,14 +2,14 @@ defaultEntryPoints = ["http", "https"]
 
 [entryPoints]
   [entryPoints.dashboard]
-    address = ":8123"
+    address = ":9115"
     [entryPoints.dashboard.auth]
       [entryPoints.dashboard.auth.basic]
         users = ["admin:123"]
   [entryPoints.http]
     address = ":80"
-      [entryPoints.http.redirect]
-        entryPoint = "https"
+      # [entryPoints.http.redirect]
+      #   entryPoint = "https"
   # [entryPoints.https]
   #   address = ":443"
   #     [entryPoints.https.tls]
@@ -30,4 +30,4 @@ dashboard=true
 endpoint = "unix:///var/run/docker.sock"
 domain = "melive.xyz"
 watch = true
-network = "traefik-proxy"
+#network = "traefik-proxy"
