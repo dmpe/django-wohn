@@ -63,7 +63,7 @@ services:
         image: postgres:11
         container_name: postgres
         volumes:
-          - datadrive/postgres_data:/var/lib/postgresql/data
+          - datadrive:/var/lib/postgresql/data
         ports:
           - 5432:5432
         environment:
