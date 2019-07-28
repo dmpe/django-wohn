@@ -2,10 +2,15 @@ debug = true
 logLevel = "INFO"
 InsecureSkipVerify = true
 
-defaultEntryPoints = ["http", "https"]
+defaultEntryPoints = ["http"]
 
 [entryPoints]
-    [entryPoints.http]
+  [entryPoints.dashboard]
+    address = ":9115"
+    [entryPoints.dashboard.auth]
+      [entryPoints.dashboard.auth.basic]
+        users = ["admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"]
+  [entryPoints.http]
     address = ":80"
 			[entryPoints.http.redirect]
 			entryPoint = "https"
