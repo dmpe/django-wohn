@@ -32,7 +32,7 @@ watch = true
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
-domain = "melive.xyz"
+#domain = "melive.xyz"
 watch = true
 exposedByDefault = true
 # network = "traefik-proxy"
