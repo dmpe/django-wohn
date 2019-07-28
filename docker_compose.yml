@@ -23,7 +23,7 @@ services:
         - "traefik.enable=true"
         - "traefik.backend=traefik"
         - "traefik.port=9115"
-        - "traefik.frontend.rule=Host:monitor.melive.xyz"
+        - "traefik.frontend.rule=Host:monitor.melive.xyz,www.monitor.melive.xyz"
       #  - "traefik.http.middlewares.traefik.basicauth.users=my-basic-auth"
       #  - "traefik.http.routers.traefik.rule=Host(`monitor.melive.xyz`)"
       #  - "traefik.http.routers.whoami.tls.certresolver=myhttpchallenge"
@@ -61,7 +61,8 @@ services:
     #    - "traefik.enable=true"
     #    - "traefik.backend=traefik"
     #    - "traefik.port=80"
-    #    - "traefik.frontend.rule=Host:monitor.melive.xyz"
+    #    - "traefik.frontend.rule=Host:melive.xyz,www.melive.xyz"
+
 # https://hub.docker.com/_/postgres
     postgres:
         image: postgres:11
@@ -78,8 +79,10 @@ services:
         networks:
           - default
         labels:
-          - "traefik.enable=false"
-          
+          - "traefik.enable=true"
+          - "traefik.backend=postgres"
+          - "traefik.port=5432"
+
 # https://hub.docker.com/r/dpage/pgadmin4/      
     pgadmin:
         image: dpage/pgadmin4:latest
@@ -104,7 +107,7 @@ services:
           - "traefik.enable=true"
           - "traefik.backend=pgadmin"
           - "traefik.port=5050"
-          - "traefik.frontend.rule=Host:pgadmin.melive.xyz"
+          - "traefik.frontend.rule=Host:pgadmin.melive.xyz,www.pgadmin.melive.xyz"
         #  - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz`)"
 
     watchtower:
@@ -152,7 +155,7 @@ services:
           - "traefik.enable=true"
           - "traefik.backend=portainer"
           - "traefik.port=9000"
-          - "traefik.frontend.rule=Host:portainer.melive.xyz"         
+          - "traefik.frontend.rule=Host:portainer.melive.xyz,www.portainer.melive.xyz"         
         #  - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`)"
 
 networks:
