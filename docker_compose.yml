@@ -19,8 +19,8 @@ services:
         - "9115:8080" 
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
-        - ./django-wohn/server_config/services/traefik/traefik.toml:/traefik.toml
-        - ./django-wohn/server_config/services/traefik/acme.json:/acme.json
+        - ./server_config/services/traefik/traefik.toml:/traefik.toml
+        - ./server_config/services/traefik/acme.json:/acme.json
       labels:
         - "traefik.enable=true"
         - "traefik.backend=traefik"
