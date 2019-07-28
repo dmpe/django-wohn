@@ -30,10 +30,10 @@ SECRET_KEY = client.get_secret("https://b40.vault.azure.net/", "SECRET-KEY", "98
 DATABASES = {
    'default': {
 	   'ENGINE': 'django.db.backends.postgresql_psycopg2',
-	   'NAME': client.get_secret("https://b40.vault.azure.net/", "DATABASE-NAME", "4cda1508f1734f9eb17dff2f714d1c9f").value,
-	   'USER': client.get_secret("https://b40.vault.azure.net/", "DATABASE-USER", "6f6c1f6668ae45c0b85c54c1526d8d45").value,
-	   'PASSWORD': client.get_secret("https://b40.vault.azure.net/", "DATABASE-PASSWORD", "d45eb57cec9d4e3ca95b54545854ffd2").value,
-	   'HOST': client.get_secret("https://b40.vault.azure.net/", "DATABASE-HOST", "4c6a2e23959349a6a8021387957efcdc").value,
+	   'NAME': client.get_secret("https://b40.vault.azure.net/", "DATABASE-NAME", "98d25be241404e9a8b8cf8e9b4d4a2d6").value,
+	   'USER': client.get_secret("https://b40.vault.azure.net/", "DATABASE-USER", "e3db601b72f14eabb9ed15073a71ffe9").value,
+	   'PASSWORD': client.get_secret("https://b40.vault.azure.net/", "DATABASE-PASSWORD", "a95457ce8aef465a83811f2cf49e397e").value,
+	   'HOST': client.get_secret("https://b40.vault.azure.net/", "DATABASE-HOST", "16d79eed6c5448f49933d51dc5d58e70").value,
 	   'PORT': '5432',
  	}
 }
