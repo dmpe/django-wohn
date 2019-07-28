@@ -22,23 +22,23 @@ defaultEntryPoints = ["http"]
 dashboard=true
 debug=true
 
-[certificatesResolvers.sample.acme]
-email = "cincenko@outlook.com"
-storage = "acme.json"
-entryPoint = "https"
-caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
-onHostRule = true
-  [certificatesResolvers.sample.acme.dnsChallenge]
-  resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
-  provider = "ovh"
-  delayBeforeCheck = 10
+# [certificatesResolvers.sample.acme]
+# email = "cincenko@outlook.com"
+# storage = "acme.json"
+# entryPoint = "https"
+# caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+# onHostRule = true
+#   [certificatesResolvers.sample.acme.dnsChallenge]
+#   resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
+#   provider = "ovh"
+#   delayBeforeCheck = 10
 
-[[acme.domains]]
-  main = "*.melive.xyz"
-  sans = ["melive.xyz"]
+# [[acme.domains]]
+#   main = "*.melive.xyz"
+#   sans = ["melive.xyz"]
 
-[[acme.domains]]
-   main = "melive.xyz"
+# [[acme.domains]]
+#    main = "melive.xyz"
 
 [providers.docker]
 endpoint = "unix:///var/run/docker.sock"

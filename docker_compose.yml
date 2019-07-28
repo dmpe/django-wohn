@@ -31,6 +31,7 @@ services:
       #  - "OVH_APPLICATION_KEY=xxx"
       #  - "OVH_APPLICATION_SECRET=xxx"
       #  - "OVH_CONSUMER_KEY=xxx"
+
     # nginx: 
     #     image: nginx:latest
     #     container_name: nginx
@@ -121,6 +122,7 @@ services:
         restart: always
         ports:
           - 9000:9000
+          - 8000:8000
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
           - /data/portainer_data:/data
@@ -130,7 +132,7 @@ services:
         labels:
           - "traefik.enable=true"
           - "traefik.backend=portainer"
-          - "traefik.http.middlewares.portainer.redirectscheme.port=9000"
+          - "traefik.port=9000"
           - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`)"
 
 
