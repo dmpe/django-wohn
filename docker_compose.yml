@@ -9,8 +9,6 @@ services:
       command: 
         - "--api=true"
         - "--providers.docker=true"
-        - "--entrypoints.web.address=:80" 
-        - "--entrypoints.websecure.address=:443"
       container_name: traefik
       ports:
         - "0.0.0.0:80:80"
@@ -24,8 +22,8 @@ services:
         - "traefik.enable=true"
         - "traefik.backend=traefik"
         - "traefik.port=9115"
-        - "traefik.http.middlewares.traefik.basicauth.users=admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"
-        - "traefik.http.routers.traefik.rule=Host(`traefik.melive.xyz`)"
+        # - "traefik.http.middlewares.traefik.basicauth.users=admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"
+        # - "traefik.http.routers.traefik.rule=Host(`monitor.melive.xyz`)"
       #  - "traefik.http.routers.whoami.tls.certresolver=myhttpchallenge"
       environment:
        - "OVH_ENDPOINT=ovh-eu"
