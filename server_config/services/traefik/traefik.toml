@@ -1,4 +1,4 @@
-debug = false
+debug = true
 logLevel = "INFO"
 
 defaultEntryPoints = ["http", "https"]
@@ -27,8 +27,8 @@ defaultEntryPoints = ["http", "https"]
   entryPoint = "traefik"
   dashboard = true
 
-[file]
-watch = true
+# [file]
+# watch = true
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
