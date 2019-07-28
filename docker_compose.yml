@@ -63,7 +63,7 @@ services:
         image: postgres:11
         container_name: postgres
         volumes:
-          - data/postgres_data:/var/lib/postgresql/data
+          - datadrive/postgres_data:/var/lib/postgresql/data
         ports:
           - 5432:5432
         environment:
@@ -90,7 +90,7 @@ services:
           - default
           - traefik_proxy
         volumes:
-          - data/pgadmin_data:/var/lib/pgadmin
+          - datadrive/pgadmin_data:/var/lib/pgadmin
           - ./server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
         labels:
           - "traefik.enable=true"
@@ -132,7 +132,7 @@ services:
           - "8000:8000"
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
-          - data/portainer_data:/data
+          - datadrive/portainer_data:/data
         networks:
           - default
           - traefik_proxy
@@ -152,4 +152,4 @@ networks:
 volumes:
   data:
     external: true
-    name: /datadrive
+    name: datadrive
