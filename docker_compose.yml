@@ -46,22 +46,24 @@ services:
     #     depends_on:
     #       - django_web
 
-    # django_web:
-    #   image: f789gh/django-wohn:latest
-    #   container_name: django_web
-    #   volumes:
-    #     - /datadrive/django:/work
-    #   depends_on:
-    #     - postgres
-    #     - pgadmin
-    #   #  - rabbit
-    #   networks:
-    #     - traefik_proxy
-    #  labels:
-    #    - "traefik.enable=true"
-    #    - "traefik.backend=traefik"
-    #    - "traefik.port=80"
-    #    - "traefik.frontend.rule=Host:melive.xyz,www.melive.xyz"
+    django_web:
+      image: f789gh/django-wohn:latest
+      container_name: django_web
+      volumes:
+        - datadrive_django:/work
+      ports:
+        - 5050:5050
+      depends_on:
+        - postgres
+        - pgadmin
+      #  - rabbit
+      networks:
+        - traefik_proxy
+     labels:
+       - "traefik.enable=true"
+       - "traefik.backend=django_web"
+       - "traefik.port=80"
+       - "traefik.frontend.rule=Host:melive.xyz,www.melive.xyz"
 
 # https://hub.docker.com/_/postgres
     postgres:
@@ -123,6 +125,8 @@ services:
         command: --interval 60
         labels:
           - "traefik.enable=false"
+          - "traefik.backend=watchtower"
+          - "traefik.port=5432"
   # rabbit:
   #   container_name: rabbit
   #   image: rabbitmq:latest
