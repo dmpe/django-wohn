@@ -19,7 +19,7 @@ defaultEntryPoints = ["http", "https"]
         "TLS_RSA_WITH_AES_256_GCM_SHA384"
       ]
     [entryPoints.traefik]
-    address = ":8080"
+    address = ":8123"
       [entryPoints.traefik.auth]
         [entryPoints.traefik.auth.basic]
         users = ["admin:$apr1$ciQGGpnM$qQuteuC8B.h6P.k3zl05P0"]
