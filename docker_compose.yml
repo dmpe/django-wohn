@@ -4,30 +4,57 @@ version: "3"
 # https://tomlankhorst.nl/secure-nginx-docker-container-with-lets-encrypt/
 # https://api.ovh.com/console/#/auth/credential#POST
 services:
-    nginx: 
-        image: nginx:latest
-        container_name: nginx
-        volumes:
-          - ./server_config/services/nginx/nginx.conf:/etc/nginx/nginx.conf
-          - ./server_config/domain/acme-webroot:/usr/share/nginx/html
-        ports:
-          - 8000:80
-        networks:
-          - traefik_proxy
-        depends_on:
-          - django_web
-
-    django_web:
-      image: f789gh/django-wohn:latest
-      container_name: django_web
+    traefik:
+      image: traefik:v2.0
+      command: 
+        - "--api=true"
+        - "--global.sendanonymoususage=false"
+        - "--providers.docker=true"
+        - "--entrypoints.web.address=:80" 
+      container_name: traefik
+      ports:
+        - "0.0.0.0:80:80"
+        - "9115:8080" 
       volumes:
-        - /data/django_web:/work
-      depends_on:
-        - postgres
-        - pgadmin
-      #  - rabbit
-      networks:
-        - traefik_proxy
+        - /var/run/docker.sock:/var/run/docker.sock
+  #      - ./django-wohn/server_config/services/traefik/traefik.toml:/traefik.toml
+        - ./django-wohn/server_config/services/traefik/acme.json:/acme.json
+      labels:
+        - "traefik.enable=true"
+        - "traefik.backend=traefik"
+        - "traefik.port=9115"
+        - "traefik.http.middlewares.traefik.basicauth.users=admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"
+        - "traefik.http.routers.traefik.rule=Host(`traefik.melive.xyz`)"
+      environment:
+       - "OVH_ENDPOINT=ovh-eu"
+       - "OVH_APPLICATION_KEY=Ii7zr75vRbivjRvo"
+       - "OVH_APPLICATION_SECRET=xxx"
+       - "OVH_CONSUMER_KEY=xxx"
+
+    # nginx: 
+    #     image: nginx:latest
+    #     container_name: nginx
+    #     volumes:
+    #       - ./server_config/services/nginx/nginx.conf:/etc/nginx/nginx.conf
+    #       - ./server_config/domain/acme-webroot:/usr/share/nginx/html
+    #     ports:
+    #       - 8000:80
+    #     networks:
+    #       - traefik_proxy
+    #     depends_on:
+    #       - django_web
+
+    # django_web:
+    #   image: f789gh/django-wohn:latest
+    #   container_name: django_web
+    #   volumes:
+    #     - /data/django_web:/work
+    #   depends_on:
+    #     - postgres
+    #     - pgadmin
+    #   #  - rabbit
+    #   networks:
+    #     - traefik_proxy
 
 # https://hub.docker.com/_/postgres
     postgres:
@@ -62,18 +89,22 @@ services:
           - traefik_proxy
         volumes:
           - /data/pgadmin:/var/lib/pgadmin
-          - /data/pgadmin:/var/log/pgadmin
-          - ../server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
+          - ./server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
+        labels:
+          - "traefik.enable=true"
+          - "traefik.backend=pgadmin"
+          - "traefik.port=5050"
+          - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz`)"
 
-    watchtower:
-        image: containrrr/watchtower:latest
-        container_name: watchtower
-        environment: 
-          - WATCHTOWER_CLEANUP=true
-        volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
-          - ~/.docker/config.json:/config.json
-        command: --interval 60
+    # watchtower:
+    #     image: containrrr/watchtower:latest
+    #     container_name: watchtower
+    #     environment: 
+    #       - WATCHTOWER_CLEANUP=true
+    #     volumes:
+    #       - /var/run/docker.sock:/var/run/docker.sock
+    #       - ~/.docker/config.json:/config.json
+    #     command: --interval 60
 
   # rabbit:
   #   container_name: rabbit
@@ -90,16 +121,25 @@ services:
     portainer:
         image: portainer/portainer:latest
         container_name: portainer
-        command: -H unix:///var/run/docker.sock
+        #command: 
+        #  - "--entrypoints.web.address=:9000" 
+        #  - "--admin-password='$2y$05$cGpsTM0q7UTl1LrTbtTPeeaehCGbHtc8Gf/nLPeHFY8tkyQKKXcRe'"
         restart: always
         ports:
-          - 9000:9000
+          - "9000:9000"
+          - "8000:8000"
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
           - /data/portainer_data:/data
         networks:
           - default
           - traefik_proxy
+        labels:
+          - "traefik.enable=true"
+          - "traefik.backend=portainer"
+          - "traefik.port=9000"
+          - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`)"
+
 
 networks:
   traefik_proxy:
