@@ -152,4 +152,4 @@ networks:
 volumes:
   data:
     external: true
-    name: datadrive
+    name: /datadrive
