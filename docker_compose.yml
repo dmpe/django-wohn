@@ -79,7 +79,7 @@ services:
         networks:
           - default
         labels:
-          - "traefik.enable=true"
+          - "traefik.enable=false"
           - "traefik.backend=postgres"
           - "traefik.port=5432"
 
