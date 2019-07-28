@@ -6,7 +6,7 @@ InsecureSkipVerify = true
   # Send anonymous usage data
   sendAnonymousUsage = true
 
-defaultEntryPoints = ["http", "https"]
+# defaultEntryPoints = ["http", "https"]
 
 # [entryPoints]
 #   [entryPoints.dashboard]
