@@ -1,5 +1,6 @@
 debug = true
 logLevel = "INFO"
+InsecureSkipVerify = true
 
 defaultEntryPoints = ["http", "https"]
 
@@ -26,13 +27,13 @@ defaultEntryPoints = ["http", "https"]
 [api]
   entryPoint = "traefik"
   dashboard = true
-
+  debug = true
 # [file]
 # watch = true
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
-#domain = "melive.xyz"
+domain = "melive.xyz"
 watch = true
 exposedByDefault = true
 # network = "traefik-proxy"
@@ -51,3 +52,6 @@ exposedByDefault = true
 # [[acme.domains]]
 #   main = "*.melive.xyz"
 # 	sans = ["melive.xyz"]
+
+# [[acme.domains]]
+#    main = "melive.xyz"
