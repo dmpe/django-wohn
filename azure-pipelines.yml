@@ -6,7 +6,6 @@ variables:
   dockerId: f789gh
   imageName: django-wohn
 
-
 trigger:
 - master
 
@@ -25,7 +24,7 @@ steps:
 # https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
 - task: AzureKeyVault@1
   inputs:
-    azureSubscription: 'Azure pro studenty(077cd376-fc51-40bb-9feb-51362d3fdc04)'
+    azureSubscription: 'Azureprostudenty'
     KeyVaultName: 'b40'
     SecretsFilter: '*'
 
