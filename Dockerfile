@@ -4,7 +4,7 @@ MAINTAINER John Malc <cincenko@outlook.com>
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir /wohn
+RUN mkdir -p /wohn
 WORKDIR /wohn
 ADD . /wohn
 
