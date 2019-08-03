@@ -2,6 +2,10 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+  dockerId: f789gh
+  imageName: django-wohn
+
 trigger:
 - master
 
@@ -17,11 +21,31 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-# Starter pipeline
+# https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
+- task: AzureKeyVault@1
+  inputs:
+    azureSubscription: 'Azureprostudenty'
+    KeyVaultName: 'b40'
+    SecretsFilter: '*'
+
 - task: Docker@2
   inputs:
     containerRegistry: 'docker_hub'
-    repository: 'django-wohn'
+    command: 'login'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'docker_hub'
+    repository: 'f789gh/django-wohn'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
     tags: '$(Build.SourceVersion)'
+
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'sonarcloud'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'dmpe_django-wohn'
+    cliProjectName: 'django-wohn'
+    cliSources: '.'

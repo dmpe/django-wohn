@@ -1,9 +1,9 @@
+acme.json
 
 /certs/
 /.idea/
 staticfiles
 *.ico
-*.sh
 *.pyc
 Pipfile.lock
 .vscode

@@ -95,9 +95,8 @@ services:
           - PGADMIN_DEFAULT_EMAIL=cincenko@outlook.com
           - PGADMIN_DEFAULT_PASSWORD=123456
           - PGADMIN_LISTEN_PORT=5050
-        #      - PGADMIN_ENABLE_TLS=False
-        ports:
-          - 5050:5050
+        # ports:
+        #   - 5050:5050
         restart: always
         depends_on:
           - postgres
@@ -148,9 +147,9 @@ services:
         #  - "--entrypoints.web.address=:9000" 
         #  - "--admin-password=$2y$05$cGpsTM0q7UTl1LrTbtTPeeaehCGbHtc8Gf/nLPeHFY8tkyQKKXcRe"
         restart: always
-        ports:
-          - "9000:9000"
-          - "8000:8000"
+        # ports:
+        #   - "9000:9000"
+        #   - "8000:8000"
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
           - datadrive_portainer:/data
