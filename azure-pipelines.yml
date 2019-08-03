@@ -33,11 +33,10 @@ steps:
     containerRegistry: 'docker_hub'
     command: 'login'
 
-# Starter pipeline
 - task: Docker@2
   inputs:
     containerRegistry: 'docker_hub'
-    repository: 'django-wohn'
+    repository: 'f789gh/django-wohn'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
     tags: '$(Build.SourceVersion)'
