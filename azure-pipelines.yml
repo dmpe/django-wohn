@@ -33,6 +33,7 @@ stages:
           SecretsFilter: '*'
 
       - task: SonarCloudPrepare@1
+        displayName: "Connect to SonarCloud"
         inputs:
           SonarCloud: 'SonarCloud'
           organization: 'dmpe-github'
@@ -42,10 +43,10 @@ stages:
       - task: SonarCloudAnalyze@1
       
       - task: Docker@2
-        displayName: "Build our Website"
+        displayName: "Build our Image now"
         inputs:
           containerRegistry: 'docker_hub'
-          repository: '$(dockerId)/$(imageName)'
+          repository: $(dockerId)/$(imageName)
           command: 'build'
           Dockerfile: 'Dockerfile'
           tags: $(major).$(minor)
@@ -55,14 +56,14 @@ stages:
           containerRegistry: 'docker_hub'
           command: 'login'
 
-- stage: PushDockerHub
+- stage: FinalSteps
   displayName: Push Docker Build to DH
   jobs:
     - job: PushDH
       steps:
       - task: Docker@2
         displayName: "Push to Docker Hub"
-        condition: 
+        # condition: 
         inputs:
           containerRegistry: 'docker_hub'
           command: 'push'
