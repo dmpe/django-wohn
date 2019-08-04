@@ -13,7 +13,7 @@ Compared to <https://www.wg-gesucht.de>, in the similar form and scale there is 
 
 ## Development overtime 
 
-![arch/evolution.png](arch/evolution.png)
+![arch/evolution.jpg](arch/evolution.jpg)
 
 ## Azure Cloud Services
 
