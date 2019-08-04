@@ -1,12 +1,14 @@
 from __future__ import absolute_import
-import os
-from django.conf import settings
-from celery import Celery
 
-# for Azure Key Vault
-from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
+import os
+
 from azure.common.credentials import ServicePrincipalCredentials
+# for Azure Key Vault
+from azure.keyvault import KeyVaultAuthentication, KeyVaultClient
+from celery import Celery
+from django.conf import settings
 from msrestazure.azure_active_directory import MSIAuthentication
+
 credentials = MSIAuthentication(resource='https://vault.azure.net')
 client = KeyVaultClient(credentials)
 

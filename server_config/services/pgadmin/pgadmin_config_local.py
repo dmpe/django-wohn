@@ -4,4 +4,3 @@ SESSION_DB_PATH = '/var/lib/pgadmin4/sessions'
 STORAGE_DIR = '/var/lib/pgadmin4/storage'
 
 SERVER_MODE = True
-

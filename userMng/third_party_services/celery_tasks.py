@@ -1,31 +1,32 @@
 from __future__ import absolute_import, unicode_literals
-# because it must be located at the beginning of the file
-
-# to save forex data in the python's pickle 
-import pickle
 
 # dont need because when saved, date/time is automatically added
 # but still needed due to UTC and year in the request
 import datetime
-from django.utils.timezone import utc
+# for logging the ECB connection
+import logging
+# to save forex data in the python's pickle 
+import pickle
 
-# store forex data in the model
-from core.models import *
-
+import numpy as np
 # import for (forex) data processing
 import pandas as pd
-import numpy as np
+from core.mics import *
+from core.models import *
+from django.utils.timezone import utc
 from pandasdmx import *
 from pandasdmx.api import *
-
-# some other imports too
-from core.mics import *
-
 # imports settings and our schedulling for the task
 from vanoce.celery import app
 
-# for logging the ECB connection
-import logging
+# because it must be located at the beginning of the file
+
+
+
+
+
+
+
 logger = logging.getLogger(__name__)
 
 @app.task
@@ -95,4 +96,3 @@ def parse_forex_data(*init, **kwargs):
 	# write results to a file txt -> in production read from the file
 	# with open("test.txt", "rb") as fp:   # Unpickling
 		# b = pickle.load(fp)
-	

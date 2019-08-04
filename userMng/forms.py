@@ -1,12 +1,10 @@
+from core.forms import RegisterForm
+from core.models import *
 from django import forms
 from django.db import *
 from django.urls import *
-
-from core.forms import RegisterForm
-from core.models import *
-
-# for countries
 from django_countries.widgets import *
+
 
 class FeedbackForm(forms.Form):
 	"""docstring for ResetFormStepOne
