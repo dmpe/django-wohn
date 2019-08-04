@@ -12,14 +12,13 @@ variables:
 pr:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 stages:
 - stage: PrepareAndBuild
   displayName: Prepare Docker Build
   jobs:
     - job: BuildJob
+      pool:
+        vmImage: 'ubuntu-latest'
       steps:
       - script: |
           echo Add other tasks to build, test, and deploy your project.
