@@ -32,17 +32,15 @@ stages:
           KeyVaultName: 'b40'
           SecretsFilter: '*'
 
-      - task: SonarQubePrepare@4
+      - task: SonarCloudPrepare@1
         inputs:
-          SonarQube: 'sonarcloud'
+          SonarCloud: 'SonarCloud'
+          organization: 'dmpe-github'
           scannerMode: 'CLI'
-          configMode: 'manual'
-          cliProjectKey: 'dmpe_$(imageName)'
-          cliProjectName: '$(imageName)'
-          cliSources: '.'
-
-      - task: SonarQubeAnalyze@4
-
+          configMode: 'file'
+      
+      - task: SonarCloudAnalyze@1
+      
       - task: Docker@2
         displayName: "Build our Website"
         inputs:
