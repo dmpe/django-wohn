@@ -5,16 +5,16 @@
 variables:
   dockerId: f789gh
   imageName: django-wohn
+  major: 1
+  minor: $[counter(variables['major'], 3)]
 
-trigger:
+pr:
 - master
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
@@ -34,12 +34,19 @@ steps:
     command: 'login'
 
 - task: Docker@2
+  displayName: "Build our Website"
   inputs:
     containerRegistry: 'docker_hub'
     repository: 'f789gh/django-wohn'
-    command: 'buildAndPush'
+    command: 'build'
     Dockerfile: 'Dockerfile'
-    tags: '$(Build.SourceVersion)'
+    tags: $(major)$(minor)
+
+# - task: Docker@2
+#   displayName: "Push to Docker Hub"
+#   inputs:
+#     containerRegistry: 'docker_hub'
+#     command: 'push'
 
 - task: SonarQubePrepare@4
   inputs:
