@@ -8,51 +8,63 @@ variables:
   major: 1
   minor: $[counter(variables['major'], 3)]
 
+# test all commits in Pull Re. which target master
 pr:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+- stage: PrepareAndBuild
+  displayName: Prepare Docker Build
+  jobs:
+    - job: BuildJob
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - script: |
+          echo Add other tasks to build, test, and deploy your project.
+          echo See https://aka.ms/yaml
+        displayName: 'Run a multi-line script'
 
 # https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
-- task: AzureKeyVault@1
-  inputs:
-    azureSubscription: 'Azureprostudenty'
-    KeyVaultName: 'b40'
-    SecretsFilter: '*'
+      - task: AzureKeyVault@1
+        inputs:
+          azureSubscription: 'Azureprostudenty'
+          KeyVaultName: 'b40'
+          SecretsFilter: '*'
 
-- task: Docker@2
-  inputs:
-    containerRegistry: 'docker_hub'
-    command: 'login'
+      - task: SonarCloudPrepare@1
+        displayName: "Connect to SonarCloud"
+        inputs:
+          SonarCloud: 'SonarCloud'
+          organization: 'dmpe-github'
+          scannerMode: 'CLI'
+          configMode: 'file'
+      
+      - task: SonarCloudAnalyze@1
+      
+      - task: Docker@2
+        displayName: "Build our Image now"
+        inputs:
+          containerRegistry: 'docker_hub'
+          repository: $(dockerId)/$(imageName)
+          command: 'build'
+          Dockerfile: 'Dockerfile'
+          tags: $(major).$(minor)
 
-- task: Docker@2
-  displayName: "Build our Website"
-  inputs:
-    containerRegistry: 'docker_hub'
-    repository: 'f789gh/django-wohn'
-    command: 'build'
-    Dockerfile: 'Dockerfile'
-    tags: $(major).$(minor)
+      - task: Docker@2
+        inputs:
+          containerRegistry: 'docker_hub'
+          command: 'login'
 
-# - task: Docker@2
-#   displayName: "Push to Docker Hub"
-#   inputs:
-#     containerRegistry: 'docker_hub'
-#     command: 'push'
+- stage: FinalSteps
+  displayName: Push Docker Build to DH
+  jobs:
+    - job: PushDH
+      steps:
+      - task: Docker@2
+        displayName: "Push to Docker Hub"
+        # condition: 
+        inputs:
+          containerRegistry: 'docker_hub'
+          command: 'push'
 
-- task: SonarQubePrepare@4
-  inputs:
-    SonarQube: 'sonarcloud'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'dmpe_django-wohn'
-    cliProjectName: 'django-wohn'
-    cliSources: '.'
