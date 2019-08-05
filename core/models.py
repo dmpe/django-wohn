@@ -1,27 +1,23 @@
+import hashlib
 import os
-# for time related tasks, incl. timezone
-import pytz
 # for gravatar URLs and user's profile image and its unique name
 import urllib
-import hashlib
 import uuid
 
+# for time related tasks, incl. timezone
+import pytz
+from django.conf import *
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import *
 from django.db import *
 from django.db import models
-from django.contrib.auth.models import *
-from django.contrib.auth import get_user_model
-from django.conf import *
-from django_countries.fields import *
 from django.utils.safestring import *
-
-# for storing user's timezone, default is Prague (CET) stored in settings.py
+from django_countries.fields import *
+from phonenumber_field.modelfields import *
 from timezone_field import *
 
-# for gravatar/profile pictures
 from .mics import *
 
-# store users phone number
-from phonenumber_field.modelfields import *
 
 class Property(models.Model):
 	"""

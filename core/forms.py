@@ -1,16 +1,13 @@
+from crispy_forms.bootstrap import *
+from crispy_forms.helper import *
+from crispy_forms.layout import *
 from django import forms
 from django.db import *
 from django.urls import *
+from django_countries.widgets import *
 
 from .models import *
 
-# for countries
-from django_countries.widgets import *
-
-# add crispy imports for sending (helper)
-from crispy_forms.helper import *
-from crispy_forms.layout import *
-from crispy_forms.bootstrap import *
 
 class RegisterForm(forms.Form):
 	"""
@@ -51,9 +48,3 @@ class ContactForm(forms.Form):
 	# we can have more than 255 chars in the message, hence TextField
 	# and not CharField
 	inputText = forms.CharField(label = "Your message is about....", widget = forms.Textarea, required=True)
-
-
-
-
-
-

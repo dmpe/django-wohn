@@ -1,43 +1,39 @@
 # for rendering markdown files
-import markdown
+# instance of a logger
+import logging
 
+import markdown
 from django import forms
-from django.shortcuts import *
-from django.http import *
-from django.core.mail import *
-from django.contrib import *
-from django.views import View
-from django.views.generic import *
 from django.conf import settings
-from django.template import *
-from django.template.loader import render_to_string
-from django.utils.html import *
-from django.utils.http import *
-from django.utils.encoding import *
-from django.urls import *
-# for messages
-from django.utils.safestring import *
-from django.db import *
-from django.core.exceptions import *
-from django.contrib.auth import logout as django_logout
+from django.contrib import *
+from django.contrib import messages
 from django.contrib.auth import login as django_login
-from django.contrib.auth.tokens import *
+from django.contrib.auth import logout as django_logout
 from django.contrib.auth.decorators import *
 from django.contrib.auth.mixins import *
-from django.contrib import messages
-
+from django.contrib.auth.tokens import *
+from django.core.exceptions import *
+from django.core.mail import *
+from django.db import *
+from django.http import *
+from django.shortcuts import *
+from django.template import *
+from django.template.loader import render_to_string
+from django.urls import *
+from django.utils.encoding import *
+from django.utils.html import *
+from django.utils.http import *
+from django.utils.safestring import *
+from django.views import View
+from django.views.generic import *
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
 
 # for using not only username/pswd but also email/pswd
 from .backends import EmailUserNameAuthBackend
-
+from .forms import *
 from .mics import *
 
-from .forms import *
-
-# instance of a logger
-import logging
 logger = logging.getLogger(__name__)
 
 ################
@@ -303,6 +299,3 @@ class LogoutView(View):
 	def get(self, request):
 		django_logout(request)
 		return redirect('core:homepage')
-
-
-

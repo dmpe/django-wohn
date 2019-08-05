@@ -1,9 +1,11 @@
-from django.db import *
 from django.conf import settings
-from django.contrib.auth.hashers import *
 from django.contrib.auth.backends import ModelBackend
-from .models import myUser
+from django.contrib.auth.hashers import *
+from django.db import *
+
 from .mics import *
+from .models import myUser
+
 
 class EmailUserNameAuthBackend(ModelBackend):
 	"""
@@ -68,6 +70,3 @@ class EmailUserNameAuthBackend(ModelBackend):
 				pass
 		
 		return [presentInSystem, getUserObject]
-		
-		
-		

@@ -14,21 +14,18 @@
     https://docs.djangoproject.com/en/2.1/topics/i18n/
     https://docs.djangoproject.com/en/2.1/howto/static-files/
 """
+import logging
 import os
 import sys
-import logging
 
+from azure.common.credentials import ServicePrincipalCredentials
+# for Azure Key Vault
+from azure.keyvault import KeyVaultAuthentication, KeyVaultClient
+from celery.schedules import *
 # for bootstrap, to make message classes consistent with the framework
 from django.contrib.messages import constants as message_constants
-
-# for Azure Key Vault
-from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
-from azure.common.credentials import ServicePrincipalCredentials
 from msrestazure.azure_active_directory import MSIAuthentication
 from sendgrid import *
-
-# for celery tasks - scheduling
-from celery.schedules import *
 
 credentials = MSIAuthentication(resource='https://vault.azure.net')
 client = KeyVaultClient(credentials)
@@ -272,5 +269,3 @@ logging.basicConfig(
     level = logging.DEBUG,
     format = '%(asctime)s %(levelname)s %(message)s',
 )
-
-

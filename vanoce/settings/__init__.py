@@ -13,11 +13,12 @@ To change settings file: `DJANGO_ENV=production python manage.py runserver`
 # when heroku then switch only here -> own_server or heroku
 
 """
-from split_settings.tools import optional, include
 from os import environ
-from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
+
 from azure.common.credentials import ServicePrincipalCredentials
+from azure.keyvault import KeyVaultAuthentication, KeyVaultClient
 from msrestazure.azure_active_directory import MSIAuthentication
+from split_settings.tools import include, optional
 
 credentials = None
 """

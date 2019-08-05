@@ -1,8 +1,8 @@
+from datetime import *
+
 from django.contrib import sitemaps
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-
-from datetime import *
 
 # todo automatic generation of sitemaps
 # see "that" package on github
@@ -36,7 +36,3 @@ class UserMNG_Sitemap(Sitemap):
 
 	def location(self, item):
 		return reverse(item)
-
-
-
-

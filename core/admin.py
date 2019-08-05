@@ -1,20 +1,20 @@
-import pandas as pd
 import json
-
-from django import forms
-from django.db.models import *
-from django.db.models.functions import *
-from django.core import serializers
-from django.core.serializers.json import *
-from django.contrib import admin
-from django.contrib.auth import *
-from django.contrib.auth.models import *
-from django.contrib.auth.forms import *
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-
 from datetime import *
 
+import pandas as pd
+from django import forms
+from django.contrib import admin
+from django.contrib.auth import *
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.forms import *
+from django.contrib.auth.models import *
+from django.core import serializers
+from django.core.serializers.json import *
+from django.db.models import *
+from django.db.models.functions import *
+
 from .models import *
+
 
 class UserCreatingFormInAdmin(UserCreationForm):
 	"""
@@ -128,6 +128,3 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 admin.site.register(myUser, UserAdmin)
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(ExchangeRate, ExchangeRateAdmin)
-
-
-

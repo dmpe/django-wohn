@@ -1,8 +1,7 @@
 # for Azure Key Vault
-from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
 from azure.common.credentials import ServicePrincipalCredentials
+from azure.keyvault import KeyVaultAuthentication, KeyVaultClient
 from msrestazure.azure_active_directory import MSIAuthentication
-
 from storages.backends.azure_storage import *
 
 credentials = MSIAuthentication(resource='https://vault.azure.net')
@@ -19,4 +18,3 @@ class AzureStaticStorage(AzureStorage):
 	account_key = client.get_secret("https://b40.vault.azure.net/", "AZURE-ACCOUNT-KEY", "2c71faab5f684de88893557e09c24fbf").value
 	azure_container = 'static'
 	expiration_secs = None
-

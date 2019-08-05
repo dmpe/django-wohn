@@ -1,7 +1,8 @@
-from . import views
-from django.urls import path
-from django.conf.urls import include
 from django.conf import settings
+from django.conf.urls import include
+from django.urls import path
+
+from . import views
 
 app_name = 'core'
 
@@ -23,4 +24,3 @@ urlpatterns = [
     path('oauth/', include('social_django.urls', namespace='social')),
 
 ]
-

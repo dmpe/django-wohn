@@ -1,26 +1,26 @@
 ######### This class is for a variety of purposes
 #####
-from werkzeug.useragents import *
-from django.utils.html import *
-from django.utils.http import *
-from django.core.mail import *
-from django.utils.encoding import *
-from django.contrib.auth.tokens import *
-from django.contrib.auth import *
-from django.conf import settings
-from django.template.loader import render_to_string
-from django.urls import *
-# for messages
-from django.utils.safestring import *
-import re
 import json
+import re
 import uuid
+
 import requests as requests_library
 
-# for sending emails via sendgrid 
+from django.conf import settings
+from django.contrib.auth import *
+from django.contrib.auth.tokens import *
+from django.core.mail import *
+from django.template.loader import render_to_string
+from django.urls import *
+from django.utils.encoding import *
+from django.utils.html import *
+from django.utils.http import *
+from django.utils.safestring import *
+from ipware import get_client_ip
 from sendgrid import *
 from sendgrid.helpers.mail import *
-from ipware import get_client_ip
+from werkzeug.useragents import *
+
 
 # replaced by logic in contrib.auth.tokens
 def http_headers(request):

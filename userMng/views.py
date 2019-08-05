@@ -1,35 +1,29 @@
 from django import forms
-from django.db import *
-from django.core.exceptions import *
-from django.shortcuts import *
-from django.http import *
-from django.core.mail import send_mail
-from django.contrib.auth import logout as django_logout
+from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth import login as django_login
-from django.contrib.auth.tokens import *
+from django.contrib.auth import logout as django_logout
 from django.contrib.auth.decorators import *
 from django.contrib.auth.mixins import *
-from django.contrib import messages
-from django.views import View
-
-# a generic view for creating and saving an object (e.g. user)
-from django.views.generic.edit import CreateView
-from django.conf import settings
+from django.contrib.auth.tokens import *
+from django.core.exceptions import *
+from django.core.mail import send_mail
+from django.db import *
+from django.http import *
+from django.shortcuts import *
 from django.template import *
 from django.template.loader import render_to_string
+from django.urls import reverse
+from django.utils.encoding import *
 from django.utils.html import *
 from django.utils.http import *
-from django.utils.encoding import *
-from django.urls import reverse
-
-# for messages
 from django.utils.safestring import *
-
-# forms from forms.py file
-from .forms import *
-
-# for google analytics
+from django.views import View
+# a generic view for creating and saving an object (e.g. user)
+from django.views.generic.edit import CreateView
 from userMng.third_party_services.google_analytics import *
+
+from .forms import *
 
 ################
 #######

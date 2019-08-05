@@ -1,8 +1,10 @@
-from googleapiclient.discovery import *
-from google.oauth2 import service_account
-from google.auth.transport.requests import *
-import os
 import logging
+import os
+
+from google.auth.transport.requests import *
+from google.oauth2 import service_account
+from googleapiclient.discovery import *
+
 logger = logging.getLogger(__name__)
 
 class Google_Analytics:
@@ -93,5 +95,3 @@ class Google_Analytics:
 		analytics = initialize_analyticsreporting()
 		response = get_report(analytics)
 		print_response(response)
-
-

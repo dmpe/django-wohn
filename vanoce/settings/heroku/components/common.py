@@ -14,9 +14,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 https://docs.djangoproject.com/en/2.1/topics/i18n/
 https://docs.djangoproject.com/en/2.1/howto/static-files/
 """
+import logging
 import os
 import sys
-import logging
+
 from django.contrib.messages import constants as message_constants
 
 SOCIAL_AUTH_USER_MODEL = 'userMng.myUser'
