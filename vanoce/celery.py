@@ -12,7 +12,7 @@ from msrestazure.azure_active_directory import MSIAuthentication
 credentials = MSIAuthentication(resource='https://vault.azure.net')
 client = KeyVaultClient(credentials)
 
-BLOB_STORAGE_CON_STRING = client.get_secret("https://b40.vault.azure.net/", "AZURE-STORAGE-KEY-CON-STRING", "f74b5febb5e649fba53e7222a7e29d92").value
+BLOB_STORAGE_CON_STRING = client.get_secret("https://b40.vault.azure.net/", "AZURE-STORAGE-KEY-CON-STRING", "691d5b63e44d41e48dd4a45feb90fc46").value
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vanoce.settings')
 
