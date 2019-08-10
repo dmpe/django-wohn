@@ -96,8 +96,8 @@ services:
           - PGADMIN_DEFAULT_EMAIL=cincenko@outlook.com
           - PGADMIN_DEFAULT_PASSWORD=123456
           - PGADMIN_LISTEN_PORT=5050
-        # ports:
-        #   - 5050:5050
+        ports:
+          - 5050:5050
         restart: always
         depends_on:
           - postgres
