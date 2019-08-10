@@ -13,16 +13,16 @@ services:
       ports:
         - "0.0.0.0:80:80"
         - "0.0.0.0:443:443"
-        - "9115:8080" 
+        - "9116:8080" 
       restart: always
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - ./server_config/services/traefik/traefik.toml:/traefik.toml
-        - ./server_config/services/traefik/acme.json:/acme.json
+        - ./server_config/services/traefik:/acme
       labels:
         - "traefik.enable=true"
         - "traefik.backend=traefik"
-        - "traefik.port=9115"
+        - "traefik.port=9116"
         - "traefik.frontend.rule=Host:monitor.melive.xyz,www.monitor.melive.xyz"
       #  - "traefik.http.middlewares.traefik.basicauth.users=my-basic-auth"
       #  - "traefik.http.routers.traefik.rule=Host(`monitor.melive.xyz`)"
@@ -52,6 +52,7 @@ services:
         container_name: djangoWohn
         volumes:
           - datadrive_django:/work
+        restart: always          
         ports:
           - 8123:8123
         depends_on:
@@ -95,8 +96,8 @@ services:
           - PGADMIN_DEFAULT_EMAIL=cincenko@outlook.com
           - PGADMIN_DEFAULT_PASSWORD=123456
           - PGADMIN_LISTEN_PORT=5050
-        # ports:
-        #   - 5050:5050
+        ports:
+          - 5050:5050
         restart: always
         depends_on:
           - postgres
@@ -116,6 +117,7 @@ services:
     watchtower:
         image: containrrr/watchtower:latest
         container_name: watchtower
+        restart: always        
         ports:
           - 7884:7884
         environment: 

@@ -2,14 +2,9 @@ debug = true
 logLevel = "INFO"
 InsecureSkipVerify = true
 
-defaultEntryPoints = ["http"]
+defaultEntryPoints = ["http", "https"]
 
 [entryPoints]
-  [entryPoints.dashboard]
-    address = ":9115"
-    [entryPoints.dashboard.auth]
-      [entryPoints.dashboard.auth.basic]
-        users = ["admin:$$apr1$$IBa8vpEo$$T7M3PWdYfMIkQhn2MAI6n1"]
   [entryPoints.http]
     address = ":80"
 			[entryPoints.http.redirect]
@@ -25,7 +20,7 @@ defaultEntryPoints = ["http"]
       ]
 
     [entryPoints.traefik]
-    address = ":9115"
+    address = ":9116"
     #  [entryPoints.traefik.auth]
     #    [entryPoints.traefik.auth.basic]
     #    users = ["admin:$$2y$$05$$rwTXazYt3S4Yp3cUWRpZdO7DQX5WckETjbROy2vOAg9PedrhsCuIe"]
@@ -46,17 +41,15 @@ exposedByDefault = true
 
 [acme]
 email = "cincenko@outlook.com"
-storage = "acme.json"
+storage = "acme/certs.json"
 entryPoint = "https"
 resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
-#caServer = "https://acme-v02.api.letsencrypt.org/directory"
+caServer = "https://acme-v02.api.letsencrypt.org/directory"
 #caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
 onHostRule = true
-onDemand = true
   [acme.dnsChallenge]
   provider = "ovh"
   delayBeforeCheck = 10
 
 [[acme.domains]]
   main = "*.melive.xyz"
-	sans = ["melive.xyz", "pgadmin.melive.xyz", "portainer.melive.xyz", "monitor.melive.xyz"]
