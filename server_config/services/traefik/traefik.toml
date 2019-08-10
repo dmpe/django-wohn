@@ -41,7 +41,7 @@ exposedByDefault = true
 
 [acme]
 email = "cincenko@outlook.com"
-storage = "acme.json"
+storage = "acme/certs.json"
 entryPoint = "https"
 resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
 #caServer = "https://acme-v02.api.letsencrypt.org/directory"
