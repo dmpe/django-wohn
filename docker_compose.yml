@@ -6,7 +6,7 @@ version: '3.7'
 services:
     traefik:
       image: traefik:latest
-      command: --docker
+      command: --api --docker
       #  - "--api=true"
       #  - "--providers.docker=true"
       container_name: traefik
