@@ -25,7 +25,7 @@ defaultEntryPoints = ["http"]
       ]
 
     [entryPoints.traefik]
-    address = ":9115"
+    address = ":9116"
     #  [entryPoints.traefik.auth]
     #    [entryPoints.traefik.auth.basic]
     #    users = ["admin:$$2y$$05$$rwTXazYt3S4Yp3cUWRpZdO7DQX5WckETjbROy2vOAg9PedrhsCuIe"]
