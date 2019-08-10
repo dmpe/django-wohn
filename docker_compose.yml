@@ -13,7 +13,7 @@ services:
       ports:
         - "0.0.0.0:80:80"
         - "0.0.0.0:443:443"
-        - "9116:8080" 
+        - "9115:8080" 
       restart: always
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
@@ -22,7 +22,7 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.backend=traefik"
-        - "traefik.port=9116"
+        - "traefik.port=9115"
         - "traefik.frontend.rule=Host:monitor.melive.xyz,www.monitor.melive.xyz"
       #  - "traefik.http.middlewares.traefik.basicauth.users=my-basic-auth"
       #  - "traefik.http.routers.traefik.rule=Host(`monitor.melive.xyz`)"
