@@ -1,0 +1,48 @@
+# Project information
+site_name: 'Material for MkDocs'
+site_description: 'A Material Design theme for MkDocs'
+site_author: 'Martin Donath'
+site_url: 'https://squidfunk.github.io/mkdocs-material/'
+
+# Repository
+repo_name: 'squidfunk/mkdocs-material'
+repo_url: 'https://github.com/squidfunk/mkdocs-material'
+
+# Copyright
+copyright: 'Copyright &copy; 2016 - 2017 Martin Donath'
+
+
+theme:
+  name: 'material'
+  language: 'en'
+  feature:
+    tabs: true
+  palette:
+    primary: 'light green'
+    accent: 'light green'
+  extra:
+    search: 
+      language: 'en'
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
