@@ -33,7 +33,7 @@ steps:
 - bash: |
     mkdocs build
     ls 
-    cp site/ $(Build.StagingDirectory)/site
+    cp site/ $(Build.StagingDirectory)
     tree $(Build.StagingDirectory)
   displayName: Build site folder
 
@@ -43,8 +43,8 @@ steps:
     cd $(Build.StagingDirectory)
     git clone --depth=1 https://github.com/dmpe/django-wohn.git .
     ls 
-    git checkout gh-pages
+    git branch gh-pages
     cp $(Build.StagingDirectory)/site .
     git add .
     git commit -m "Azure Pipeline MkDocs Build and Push"
-    git push https://$(GitHubPAT)@github.com/dmpe/django-wohn.git
+    git push https://$(GitHubPAT)@github.com/dmpe/django-wohn.git gh-pages
