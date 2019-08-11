@@ -1,0 +1,13 @@
+[Unit]
+Description=B40re.tk application
+After=network.target
+
+[Service]
+Restart=on-failure
+User=honzaValinaDjangu
+Group=honzaValinaDjangu
+WorkingDirectory=/home/honzaValinaDjangu/b40re
+ExecStart=/usr/bin/gunicorn3 vanoce.wsgi
+
+[Install]
+WantedBy=multi-user.target
