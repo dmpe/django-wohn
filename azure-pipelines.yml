@@ -1,3 +1,7 @@
+# Fetch secrets from "Library"
+variables:
+- group: VarGroup1
+
 pool:
   vmImage: "ubuntu-latest"
 
@@ -10,15 +14,37 @@ steps:
     versionSpec: '3.x'
     addToPath: true
     architecture: 'x64'
+
+- checkout: self
+  persistCredentials: true
+
+- script: apt install tree locate 
+
 - script: python -m pip install --upgrade pip setuptools wheel
   displayName: 'Install tools'
+
 - bash: |
-    pip3 install --upgrade pip
+    git config --global user.email "cincenko@outlook.com"
+    git config --global user.name "dmpe"
     pip3 install mkdocs mkdocs-material
     mkdocs --version
   displayName: Install PIP packages and print mkdocs version
+
 - bash: |
-    pwd
-    ls
     mkdocs build
     ls 
+    cp site/ $(Build.StagingDirectory)/site
+    tree $(Build.StagingDirectory)
+  displayName: Build site folder
+
+# move site to other dir 
+
+- bash: |
+    cd $(Build.StagingDirectory)
+    git clone --depth=1 https://github.com/dmpe/django-wohn.git .
+    ls 
+    git checkout gh-pages
+    cp $(Build.StagingDirectory)/site .
+    git add .
+    git commit -m "Azure Pipeline MkDocs Build and Push"
+    git push https://$(GitHubPAT)@github.com/dmpe/django-wohn.git
