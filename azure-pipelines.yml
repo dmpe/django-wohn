@@ -1,6 +1,16 @@
-
-
-
+pool:
+  vmImage: "ubuntu-latest"
 
 trigger:
   - docs
+
+steps:
+- bash: |
+    pip3 install mkdocs mkdocs-material
+    mkdocs --version
+  displayName: Install PIP packages and print mkdocs version
+- bash: |
+    pwd
+    ls
+    mkdocs build
+    ls 
