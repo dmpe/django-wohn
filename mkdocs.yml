@@ -1,16 +1,15 @@
 # Project information
-site_name: 'Material for MkDocs'
-site_description: 'A Material Design theme for MkDocs'
-site_author: 'Martin Donath'
-site_url: 'https://squidfunk.github.io/mkdocs-material/'
+site_name: 'Developer Documentation for Django-Wohn Project'
+site_description: 'Documentation for django-wohn'
+site_author: 'John Malc (@dmpe)'
+site_url: 'https://dmpe.github.io/django-wohn/'
 
 # Repository
-repo_name: 'squidfunk/mkdocs-material'
-repo_url: 'https://github.com/squidfunk/mkdocs-material'
+repo_name: 'dmpe/django-wohn'
+repo_url: 'https://github.com/dmpe/django-wohn'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2017 Martin Donath'
-
+copyright: 'Copyright &copy; John Malc'
 
 theme:
   name: 'material'
