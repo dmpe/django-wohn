@@ -5,7 +5,15 @@ trigger:
   - docs
 
 steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+    architecture: 'x64'
+- script: python -m pip install --upgrade pip setuptools wheel
+  displayName: 'Install tools'
 - bash: |
+    pip3 install --upgrade pip
     pip3 install mkdocs mkdocs-material
     mkdocs --version
   displayName: Install PIP packages and print mkdocs version
