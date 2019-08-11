@@ -1,19 +1,3 @@
-![image](https://img.shields.io/github/license/dmpe/django-wohn?style=for-the-badge)
-[![Build Status](https://johnmalc.visualstudio.com/DJango-Wohn/_apis/build/status/dmpe.django-wohn?branchName=master)](https://johnmalc.visualstudio.com/DJango-Wohn/_build/latest?definitionId=7&branchName=master)
-
-# Basics: Python3/DJango2-based real-estate website
-
-:heavy_exclamation_mark: This has been developed for learning Django 2+ & Python 3+ & Microsoft Azure & DevOps (Docker, Traefik, etc.). 
-
-:triangular_flag_on_post: To create something akin to <https://www.wg-gesucht.de> which would provide students and landlords a way to advertise their free rooms.
-
-The source of this "idea" was an article <https://www.respekt.cz/sousede/nekolik-nezavislych-lidi-bydli-v-jednom-pronajatem-byte>. 
-In the Czech Republic, there are a lot of real-estate portals but very few exist which are dedicated to just student housing. 
-Compared to <https://www.wg-gesucht.de>, in the similar form and scale there is nothing and thus the objective is to create a web application which fills the gap. 
-
-## Development overtime 
-
-![arch/evolution.jpg](arch/evolution.jpg)
 
 ## Azure Cloud Services
 
@@ -149,15 +133,7 @@ sudo certbot --nginx certonly
 
 Just **restart** nginx, then `sudo systemctl restart gunicorn.service` as well as stop that socket thing
 
-### The **ER**/Class Diagramms
 
-Created using <https://django-extensions.readthedocs.io/en/latest/graph_models.html> and 
-
-```
-python3 manage.py graph_models -a -g -o arch/class_diagramm.png
-```
-
-![arch/class_diagramm.png](arch/class_diagramm.png)
 
 
 # 3. Run Celery and RabbitMQ Management UI
