@@ -1,5 +1,15 @@
-![image](https://img.shields.io/github/license/dmpe/django-wohn?style=for-the-badge)
+![image](https://img.shields.io/github/license/dmpe/django-wohn)
 [![Build Status](https://johnmalc.visualstudio.com/DJango-Wohn/_apis/build/status/dmpe.django-wohn?branchName=master)](https://johnmalc.visualstudio.com/DJango-Wohn/_build/latest?definitionId=7&branchName=master)
+![GitHub language count](https://img.shields.io/github/languages/count/dmpe/django-wohn)
+[![Requirements Status](https://requires.io/github/dmpe/django-wohn/requirements.svg?branch=master)](https://requires.io/github/dmpe/django-wohn/requirements/?branch=master)
+![GitHub repo size](https://img.shields.io/github/repo-size/dmpe/django-wohn)
+![Docker Pulls](https://img.shields.io/docker/pulls/f789gh/django-wohn)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/dmpe/django-wohn)
+![HSTS Domain](https://img.shields.io/hsts/preload/melive.xyz)
+![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/melive.xyz?publish)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/dmpe/django-wohn)
+
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=dmpe_django-wohn)](https://sonarcloud.io/dashboard?id=dmpe_django-wohn)
 
 # Python 3 / Django 2-based real-estate website
 
