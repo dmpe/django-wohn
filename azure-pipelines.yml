@@ -9,7 +9,7 @@ variables:
   minor: $[counter(variables['major'], 3)]
 
 # test all commits in Pull Re. which target master
-pr:
+trigger:
 - master
 
 stages:
@@ -58,12 +58,12 @@ stages:
 
 - stage: FinalSteps
   displayName: Push Docker Build to DH
+  dependsOn: PrepareAndBuild # by default they run sequantially
   jobs:
     - job: PushDH
       steps:
       - task: Docker@2
         displayName: "Push to Docker Hub"
-        # condition: 
         inputs:
           containerRegistry: 'docker_hub'
           command: 'push'

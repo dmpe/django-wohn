@@ -1,5 +1,5 @@
 FROM python:latest
-MAINTAINER John Malc <cincenko@outlook.com>
+LABEL author="John Malc <cincenko@outlook.com>"
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
