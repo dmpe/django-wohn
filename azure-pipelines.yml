@@ -3,7 +3,7 @@ variables:
 - group: VarGroup1
 
 pool:
-  vmImage: "ubuntu-latest"
+  vmImage: "windows-latest"
 
 trigger:
   - docs
@@ -18,34 +18,42 @@ steps:
 - checkout: self
   persistCredentials: true
 
-- script: sudo apt-get update && sudo apt-get install -y tree locate 
-
 - script: python -m pip install --upgrade pip setuptools wheel
   displayName: 'Install tools'
 
-- bash: |
+- script: |
     git config --global user.email "cincenko@outlook.com"
     git config --global user.name "dmpe"
     pip3 install mkdocs mkdocs-material
     mkdocs --version
   displayName: Install PIP packages and print mkdocs version
 
-- bash: |
+#    md $(Build.SourcesDirectory)\outcomes -ea 0
+#    Copy-Item -Path site\ -Destination $(Build.SourcesDirectory)\outcomes -Recurse
+
+- pwsh: |
+    dir
     mkdocs build
-    ls 
-    cp -avr site/ $(Build.StagingDirectory)
-    tree $(Build.StagingDirectory)
+    dir 
   displayName: Build site folder
 
-# move site to other dir 
-
-- bash: |
+- pwsh: |
+    $ErrorActionPreference = "Continue" 
     cd $(Build.StagingDirectory)
-    git clone --depth=1 https://github.com/dmpe/django-wohn.git .
-    ls 
-    git branch gh-pages
-    ls
-    cp $(Build.StagingDirectory)/site .
-    git add .
-    git commit -m "Azure Pipeline MkDocs Build and Push"
-    git push https://$(GitHubPAT)@github.com/dmpe/django-wohn.git gh-pages
+    $var1 = $env:GitHubPAT
+    git clone https://dmpe:$var1@github.com/dmpe/django-wohn.git .
+    git checkout gh-pages
+    Copy-Item -Path $(Build.SourcesDirectory)\site\* -Destination . -Recurse -Force -Verbose
+    Write-Host "Done here"
+
+- pwsh: |
+    cd $(Build.StagingDirectory) 
+    dir
+    git checkout gh-pages
+    git add --all
+    git commit -a -m "Azure Pipeline MkDocs Build and Push"
+    git remote -v
+    #git remote add origin https://dmpe:$(GitHubPAT)@github.com/dmpe/django-wohn.git
+    git push https://dmpe:$(GitHubPAT)@github.com/dmpe/django-wohn.git gh-pages
+
+
