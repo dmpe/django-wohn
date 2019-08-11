@@ -8,13 +8,13 @@ credentials = MSIAuthentication(resource='https://vault.azure.net')
 client = KeyVaultClient(credentials)
 
 class AzureMediaStorage(AzureStorage):
-	account_name = 'djangowohnreal1'
-	account_key = client.get_secret("https://b40.vault.azure.net/", "AZURE-ACCOUNT-KEY", "2c71faab5f684de88893557e09c24fbf").value
+	account_name = 'melivexyz5555'
+	account_key = client.get_secret("https://b40.vault.azure.net/", "AZURE-ACCOUNT-KEY", "36456572c12640afa4c2ba448169ee66").value
 	azure_container = 'images-profile-pictures'
 	expiration_secs = None
 
 class AzureStaticStorage(AzureStorage):
-	account_name = 'djangowohnreal1' # Must be replaced by your storage_account_name
-	account_key = client.get_secret("https://b40.vault.azure.net/", "AZURE-ACCOUNT-KEY", "2c71faab5f684de88893557e09c24fbf").value
+	account_name = 'melivexyz5555' # Must be replaced by your storage_account_name
+	account_key = client.get_secret("https://b40.vault.azure.net/", "AZURE-ACCOUNT-KEY", "36456572c12640afa4c2ba448169ee66").value
 	azure_container = 'static'
 	expiration_secs = None
