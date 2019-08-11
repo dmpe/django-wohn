@@ -17,8 +17,8 @@ services:
       restart: always
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
-        - ./server_config/services/traefik/traefik.toml:/traefik.toml
-        - ./server_config/services/traefik:/acme
+        - ./services/containers/traefik/traefik.toml:/traefik.toml
+        - ./services/containers/traefik:/acme
       labels:
         - "traefik.enable=true"
         - "traefik.backend=traefik"
@@ -106,7 +106,7 @@ services:
           - traefik_proxy
         volumes:
           - datadrive_pgadmin:/var/lib/pgadmin
-          - ./server_config/services/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
+          - ./services/containers/pgadmin/pgadmin_config_local.py:/var/lib/pgadmin/config_local.py
         labels:
           - "traefik.enable=true"
           - "traefik.backend=pgadmin"

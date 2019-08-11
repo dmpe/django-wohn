@@ -24,8 +24,7 @@ InsecureSkipVerify = true
     [http.routers.router0.tls]
       options = "acme"
       [[http.routers.router0.tls.domains]]
-              main = "melive.xyz"
-              sans = "*.melive.xyz"
+          main = "*.melive.xyz"
     # Add the middleware
     [http.middlewares]
       [http.middlewares.my-basic-auth.basicAuth]
@@ -51,23 +50,19 @@ InsecureSkipVerify = true
 dashboard=true
 debug=true
 
-# [certificatesResolvers.myhttpchallenge.acme]
-# email = "cincenko@outlook.com"
-# storage = "acme.json"
-# entryPoint = "https"
-# caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
-# onHostRule = true
-#   [certificatesResolvers.myhttpchallenge.acme.dnsChallenge]
-#   resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
-#   provider = "ovh"
-#   delayBeforeCheck = 10
+[certificatesResolvers.myhttpchallenge.acme]
+email = "cincenko@outlook.com"
+storage = "acme/certs.json"
+entryPoint = "https"
+caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+onHostRule = true
+  [certificatesResolvers.myhttpchallenge.acme.dnsChallenge]
+  resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
+  provider = "ovh"
+  delayBeforeCheck = 10
 
-# [[acme.domains]]
-#   main = "*.melive.xyz"
-#   sans = ["melive.xyz"]
-
-# [[acme.domains]]
-#    main = "melive.xyz"
+[[acme.domains]]
+  main = "*.melive.xyz"
 
 [certificatesResolvers]
   [certificatesResolvers.myhttpchallenge]
@@ -81,7 +76,7 @@ debug=true
         resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
 
 [providers.docker]
-  # endpoint = "unix:///var/run/docker.sock"
-  # domain = "melive.xyz"
-  # watch = true
+  endpoint = "unix:///var/run/docker.sock"
+  domain = "melive.xyz"
+  watch = true
   exposedByDefault = true

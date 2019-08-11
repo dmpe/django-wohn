@@ -1,4 +1,5 @@
 #!/bin/bash
+# Git post-recieve hook to move from one to other directory
 # Taken from https://gist.github.com/lemiorhan/8912188
 
 target_branch="master"

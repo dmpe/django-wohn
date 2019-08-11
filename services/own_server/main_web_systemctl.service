@@ -1,5 +1,5 @@
 [Unit]
-Description=B40re.tk application
+Description=Web application
 After=network.target
 
 [Service]
