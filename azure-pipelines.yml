@@ -18,7 +18,7 @@ steps:
 - checkout: self
   persistCredentials: true
 
-- script: apt install tree locate 
+- script: apt-get -y tree locate 
 
 - script: python -m pip install --upgrade pip setuptools wheel
   displayName: 'Install tools'
