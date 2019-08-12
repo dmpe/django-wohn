@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://dmpe.github.io/django-wohn/</loc>
-     <lastmod>2019-08-11</lastmod>
+     <lastmod>2019-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/architecture/</loc>
-     <lastmod>2019-08-11</lastmod>
+     <lastmod>2019-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/development/container/</loc>
-     <lastmod>2019-08-11</lastmod>
+     <lastmod>2019-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/development/heroku/</loc>
-     <lastmod>2019-08-11</lastmod>
+     <lastmod>2019-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/development/own_server/</loc>
-     <lastmod>2019-08-11</lastmod>
+     <lastmod>2019-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
