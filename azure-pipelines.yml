@@ -47,16 +47,18 @@ steps:
     Write-Host "Done here"
 
 - pwsh: |
-    Set-PSDebug -Trace 2;
-    git config credential.helper
-    git config --global credential.helper manager
+    $env:GIT_REDIRECT_STDERR = '2>&1'
     cd $(Build.StagingDirectory) 
     dir
     git checkout gh-pages
     git add --all
-    git commit -a -m "Azure Pipeline MkDocs Build and Push"
-    git remote -v
-    #git remote add origin https://dmpe:$(GitHubPAT)@github.com/dmpe/django-wohn.git
-    git push https://dmpe:$(GitHubPAT)@github.com/dmpe/django-wohn.git gh-pages
+    git commit -a -m "Azure Pipeline MkDocs Build and Push $(Build.BuildId)"
+    git push -q https://dmpe:$(GitHubPAT)@github.com/dmpe/django-wohn.git gh-pages
+    if (-not $?) {
+        throw "Error has been thrown with git push!"
+    }
+    Write-Host "I run after the git push command. Everything OK!"
+
+
 
 
