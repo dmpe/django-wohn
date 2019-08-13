@@ -47,6 +47,7 @@ steps:
     Write-Host "Done here"
 
 - pwsh: |
+    Set-PSDebug -Trace 2;
     cd $(Build.StagingDirectory) 
     dir
     git checkout gh-pages
