@@ -48,6 +48,8 @@ steps:
 
 - pwsh: |
     Set-PSDebug -Trace 2;
+    git config credential.helper
+    git config --global credential.helper manager
     cd $(Build.StagingDirectory) 
     dir
     git checkout gh-pages
