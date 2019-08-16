@@ -68,3 +68,4 @@ stages:
           containerRegistry: 'docker_hub'
           command: 'push'
 
+# TODO: take picture from output and commit it to docs directory
