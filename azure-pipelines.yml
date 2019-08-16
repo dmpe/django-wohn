@@ -45,10 +45,15 @@ steps:
   displayName: Clone site and overwrite files in git repo
 
 - pwsh: |
+    $env:GIT_REDIRECT_STDERR = '2>&1'
     cd $(Build.StagingDirectory) 
     git checkout gh-pages
     git add --all
-    git commit -a -m "Azure Pipeline MkDocs Build and Push - Build ID: $env:Build.BuildId "
-    git push https://dmpe:$(GitHubPAT)@github.com/dmpe/django-wohn.git gh-pages
+    git commit -a -m "Azure Pipeline MkDocs Build and Push - Build ID: $(Build.BuildId)"
+    git push -q https://dmpe:$(GitHubPAT)@github.com/dmpe/django-wohn.git gh-pages
+    if (-not $?) {
+        throw "Error has been thrown with git push!"
+    }
+    Write-Host "I run after the git push command. Everything OK!"
   displayName: Git Add & Commit and Push
 
