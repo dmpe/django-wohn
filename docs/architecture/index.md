@@ -1,9 +1,10 @@
 ## Development overtime 
 
+This graphic shows how CI/CD + architecture looked like in the past.
+
 ![arch/evolution.jpg](arch/evolution.jpg)
 
-
-## The **ER**/Class Diagramm
+## App's Class Diagramm 
 
 Created using <https://django-extensions.readthedocs.io/en/latest/graph_models.html> and 
 

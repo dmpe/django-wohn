@@ -28,9 +28,6 @@ steps:
     mkdocs --version
   displayName: Install PIP packages and print mkdocs version
 
-#    md $(Build.SourcesDirectory)\outcomes -ea 0
-#    Copy-Item -Path site\ -Destination $(Build.SourcesDirectory)\outcomes -Recurse
-
 - pwsh: |
     dir
     mkdocs build
@@ -45,15 +42,13 @@ steps:
     git checkout gh-pages
     Copy-Item -Path $(Build.SourcesDirectory)\site\* -Destination . -Recurse -Force -Verbose
     Write-Host "Done here"
+  displayName: Clone site and overwrite files in git repo
 
 - pwsh: |
     cd $(Build.StagingDirectory) 
-    dir
     git checkout gh-pages
     git add --all
-    git commit -a -m "Azure Pipeline MkDocs Build and Push"
-    git remote -v
-    #git remote add origin https://dmpe:$(GitHubPAT)@github.com/dmpe/django-wohn.git
+    git commit -a -m "Azure Pipeline MkDocs Build and Push - Build ID: $env:Build.BuildId "
     git push https://dmpe:$(GitHubPAT)@github.com/dmpe/django-wohn.git gh-pages
-
+  displayName: Git Add & Commit and Push
 
