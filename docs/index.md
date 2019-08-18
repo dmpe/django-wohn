@@ -1,30 +1,4 @@
 
-## Azure Cloud Services
-
-- Virtual Machines
-- Azure KeyVault
-- DNS zone -> 3rd Party Hosting Provider
-- Azure Blob Storage
-
-## 1. How to deploy
-
-### 1.0 On (close to any) cloud provider
-
-1. Create VM (scale set)
-
-2. Install Docker
-
-With `cloud-init`, you can do
-```
-#include https://get.docker.com
-```
-
-2.1 Create a separate docker volume for **each** container, e.g. `docker volume create --driver local --opt type=none --opt device=/datadrive/django --opt o=bind datadrive_django
-`
-
-3. Clone this repo and cd' into it
-
-4. Start `docker-compose -f docker-compose.yaml up (-d)`
 
 ### 1.1 Common tasks for <u>local and Heroku</u>
 
