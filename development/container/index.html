@@ -372,6 +372,47 @@
     Container Setup
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-use" title="In use" class="md-nav__link">
+    In use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-used-anymore" title="Not used anymore" class="md-nav__link">
+    Not used anymore
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-prepare-your-vm" title="1. Prepare your VM" class="md-nav__link">
+    1. Prepare your VM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-new-docker-volume-for-each-container" title="2. New docker volume for each container" class="md-nav__link">
+    2. New docker volume for each container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-launch-docker-containers" title="3. Launch docker containers" class="md-nav__link">
+    3. Launch docker containers
+  </a>
+  
 </li>
       
       
@@ -437,6 +478,47 @@
     Container Setup
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-use" title="In use" class="md-nav__link">
+    In use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-used-anymore" title="Not used anymore" class="md-nav__link">
+    Not used anymore
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-prepare-your-vm" title="1. Prepare your VM" class="md-nav__link">
+    1. Prepare your VM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-new-docker-volume-for-each-container" title="2. New docker volume for each container" class="md-nav__link">
+    2. New docker volume for each container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-launch-docker-containers" title="3. Launch docker containers" class="md-nav__link">
+    3. Launch docker containers
+  </a>
+  
 </li>
       
       
@@ -462,6 +544,59 @@
                 
                 <h2 id="container-setup">Container Setup<a class="headerlink" href="#container-setup" title="Permanent link">&para;</a></h2>
 <p>Docker containers are currently used for building images and starting them with docker-compose.</p>
+<p>This project has been in migration state quite a lot of times. 
+Currently, it is run on Azure Cloud and therefore uses many of its services, for example:</p>
+<h5 id="in-use">In use<a class="headerlink" href="#in-use" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Azure Virtual Machines</li>
+<li>Azure KeyVault</li>
+<li>Azure Blob Storage</li>
+</ul>
+<h5 id="not-used-anymore">Not used anymore<a class="headerlink" href="#not-used-anymore" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Azure DNS Zone due to its <a href="https://docs.microsoft.com/en-us/azure/dns/dns-faq">limitations</a> -&gt; Moved to 3<sup>rd</sup> Party Hosting Provider (OVH)</li>
+</ul>
+<h2 id="1-prepare-your-vm">1. Prepare your VM<a class="headerlink" href="#1-prepare-your-vm" title="Permanent link">&para;</a></h2>
+<p>On (close to any) cloud provider, create VM and use <code>cloud-init</code> <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a> statements to install required applications right during the initial VM setup. </p>
+<div class="codehilite"><pre><span></span>#include https://get.docker.com
+package_update: true
+package_upgrade: true
+packages:
+  - git
+  - curl
+  - python3-pip
+runcmd:
+  - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+  - apt install -y nodejs
+  - curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  - echo &quot;deb https://dl.yarnpkg.com/debian/ stable main&quot; | sudo tee /etc/apt/sources.list.d/yarn.list
+  - apt update 
+  - apt install -y yarn
+  - [sh, -c, &#39;sudo curl -L https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep &quot;tag_name&quot; | cut -d \&quot; -f4)/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose&#39;]
+  - [sh, -c, &#39;sudo chmod +x /usr/local/bin/docker-compose&#39;]
+final_message: &quot;The system is finally up, after $UPTIME seconds&quot;
+</pre></div>
+
+<p>as installing Docker daemon is a major component on the VM. </p>
+<h2 id="2-new-docker-volume-for-each-container">2. New docker volume for <strong>each</strong> container<a class="headerlink" href="#2-new-docker-volume-for-each-container" title="Permanent link">&para;</a></h2>
+<p>You want to have a persistent docker volume on a separate hard disk - in case your VM crashes, or you need to change it with its OS hard disk.</p>
+<p>This command already assumes that a data disk has already been mounted into VM. </p>
+<div class="codehilite"><pre><span></span>docker volume create --driver local --opt type=none --opt device=/datadrive/_name_of_container --opt o=bind datadrive_name_of_container
+</pre></div>
+
+<h2 id="3-launch-docker-containers">3. Launch docker containers<a class="headerlink" href="#3-launch-docker-containers" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Clone this repo and cd' into it</li>
+</ol>
+<div class="codehilite"><pre><span></span>git clone https://github.com/dmpe/django-wohn .
+cd django-wohn 
+git switch server-config
+git status
+</pre></div>
+
+<ol>
+<li>Start <code>docker-compose -f docker-compose.yaml up (-d)</code></li>
+</ol>
                 
                   
                 
