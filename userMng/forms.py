@@ -1,9 +1,10 @@
-from core.forms import RegisterForm
-from core.models import *
 from django import forms
 from django.db import *
 from django.urls import *
 from django_countries.widgets import *
+
+from core.forms import RegisterForm
+from core.models import *
 
 
 class FeedbackForm(forms.Form):

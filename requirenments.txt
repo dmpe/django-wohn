@@ -20,6 +20,8 @@ djangorestframework
 google-api-python-client
 googleapis-common-protos
 gunicorn
+isort[requirements]
+ipware
 social-auth-core
 social-auth-app-django
 #git+git://github.com/python-social-auth/social-core.git#egg=elasticutils
@@ -38,4 +40,3 @@ requests
 sendgrid
 whitenoise
 Werkzeug
-isort[requirements]

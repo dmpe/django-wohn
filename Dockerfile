@@ -13,6 +13,6 @@ EXPOSE 8000
 
 RUN chmod +x start_django.sh
 CMD ["./start_django.sh"]
-#CMD exec gunicorn vanoce.wsgi:application --bind 0.0.0.0:8000 --workers 3
-#CMD ["gunicorn", "-b", "0.0.0.0:8000", "vanoce.wsgi:application", "--workers", "3"]
+#CMD exec gunicorn melive.wsgi:application --bind 0.0.0.0:8000 --workers 3
+#CMD ["gunicorn", "-b", "0.0.0.0:8000", "melive.wsgi:application", "--workers", "3"]
 

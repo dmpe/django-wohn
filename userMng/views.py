@@ -21,6 +21,7 @@ from django.utils.safestring import *
 from django.views import View
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
+
 from userMng.third_party_services.google_analytics import *
 
 from .forms import *

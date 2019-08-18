@@ -14,9 +14,9 @@ client = KeyVaultClient(credentials)
 
 BLOB_STORAGE_CON_STRING = client.get_secret("https://b40.vault.azure.net/", "AZURE-STORAGE-KEY-CON-STRING", "691d5b63e44d41e48dd4a45feb90fc46").value
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vanoce.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'melive.settings')
 
-app = Celery('vanoce', azureblockblob_container_name = "celery", backend=BLOB_STORAGE_CON_STRING, broker='amqp://jm:159753@localhost//')
+app = Celery('melive', azureblockblob_container_name = "celery", backend=BLOB_STORAGE_CON_STRING, broker='amqp://jm:159753@localhost//')
 
 # This reads, e.g., CELERY_ACCEPT_CONTENT = ['json'] from settings.py:
 app.config_from_object('django.conf:settings')

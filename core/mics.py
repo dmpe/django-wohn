@@ -5,7 +5,6 @@ import re
 import uuid
 
 import requests as requests_library
-
 from django.conf import settings
 from django.contrib.auth import *
 from django.contrib.auth.tokens import *

@@ -1,6 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 
-# dont need because when saved, date/time is automatically added
+# don't need because when saved, date/time is automatically added
 # but still needed due to UTC and year in the request
 import datetime
 # for logging the ECB connection
@@ -11,21 +11,16 @@ import pickle
 import numpy as np
 # import for (forex) data processing
 import pandas as pd
-from core.mics import *
-from core.models import *
 from django.utils.timezone import utc
 from pandasdmx import *
 from pandasdmx.api import *
-# imports settings and our schedulling for the task
-from vanoce.celery import app
+
+from core.mics import *
+from core.models import *
+# imports settings and our shedulling for the task
+from melive.celery import app
 
 # because it must be located at the beginning of the file
-
-
-
-
-
-
 
 logger = logging.getLogger(__name__)
 
