@@ -6,7 +6,6 @@ staticfiles
 *.ico
 *.pyc
 Pipfile.lock
-.vscode
 client_secrets.json
 
 # Byte-compiled / optimized / DLL files
