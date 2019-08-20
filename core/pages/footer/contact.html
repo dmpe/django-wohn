@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title %}B40.cz - Contact us{% endblock %}
+{% block title %}melive.xyz - Contact us{% endblock %}
 
-{% block description %}Contact people behind B40.cz{% endblock %}
+{% block description %}Contact people behind melive.xyz{% endblock %}
 
 {% block robots %}index, follow{% endblock %}
 
@@ -11,23 +11,6 @@
 
 {% block content %}
 <div class="container">
-
-	<!-- Because of Recaptcha login -->
-	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5'></script>
-
-	<script>
-	// execute function and output the token into the browser console
-	grecaptcha.ready(function() {
-		grecaptcha.execute('6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5', {action: 'contact'}).then(function(token) {
-			console.log(token);
-			$("#recaptchaValidator").val(token);
-		});
-	});
-	// used for automatically binding the challenge to a button/form
-	function onSubmit(token) {
-		document.getElementById("form-contact").submit();
-	}
-    </script>
 
 	<div class="row">
     	<div class="col-lg-6 col-md-8 col-sm-12 offset-md-3 text-center">
@@ -71,7 +54,7 @@
 							</script>
 						</address>
 						<i class="fab fa-twitter-square fa-3x mb-3"></i>
-						<i class="fab fa-facebook-square fa-3x mb-3"></i> 
+						<i class="fab fa-facebook-square fa-3x mb-3"></i>
 						<iframe class="my-1 responsive-map" src="https://api.mapy.cz/frame?params=%7B%22x%22%3A14.419088677425833%2C%22y%22%3A50.08932926711133%2C%22base%22%3A%221%22%2C%22layers%22%3A%5B%5D%2C%22zoom%22%3A17%2C%22url%22%3A%22https%3A%2F%2Fen.mapy.cz%2Fs%2F3983p%22%2C%22mark%22%3A%7B%22x%22%3A%2214.419083313007807%22%2C%22y%22%3A%2250.089570190430784%22%2C%22title%22%3A%22ulice%20Pa%C5%99%C3%AD%C5%BEsk%C3%A1%2097%2F15%2C%20Praha%22%7D%2C%22overview%22%3Afalse%7D&amp;width=470&amp;height=333&amp;lang=en" width="470" height="333" style="border:none" frameBorder="0"></iframe>
 					</div>
 				</div>
@@ -81,7 +64,7 @@
 		<div class="col-md-5 col-sm-12">
 			<form method="POST" id="form-contact" class="mb-5">
 				{% csrf_token %}
-							
+
 				{{ form.non_field_errors | crispy }}
 				{{ form.source.errors | crispy }}
 				{{ form.source | crispy }}
@@ -115,7 +98,7 @@
 				<button type="submit" name="g-recaptcha-response" class="btn btn-warning mb-5 btn-lg btn-block g-recaptcha" id="recaptchaValidator" data-callback="onSubmit" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5">Submit message to Marek</button>
 			</form>
 
-			{% if messages %}		
+			{% if messages %}
 				{% for message in  messages %}
 					<div class="alert alert-{{ message.tags }} mb-5" id="checkEmailAlert" role="alert">
 						{{ message }}

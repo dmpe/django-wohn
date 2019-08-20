@@ -5,5 +5,12 @@
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
   "workbench.editor.enablePreview": false,
-  "python.pythonPath": "/bin/python3"
+  "python.pythonPath": "/bin/python3",
+  "editor.wordWrap": "on",
+  "editor.rulers": [80, 120],
+  "editor.wordWrapColumn": 100,
+  // The number of spaces a tab is equal to.
+  "editor.tabSize": 4,
+  "files.trimTrailingWhitespace": true,
+  "editor.insertSpaces": true
 }

@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title %}B40.cz - Register to add new listings{% endblock %}
+{% block title %}melive.xyz - Register to add new listings{% endblock %}
 
-{% block descip %}Register a new account for adding new real estate listings - B40.cz{% endblock %}
+{% block descip %}Register a new account for adding new real estate listings - melive.xyz{% endblock %}
 
 {% block robots %}index, follow{% endblock %}
 
@@ -10,26 +10,6 @@
 
 {% block content %}
 <div class="container-fluid">
-
-	<!-- Because of Recaptcha login -->
-	<script src='https://www.google.com/recaptcha/api.js?render=6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5'></script>
-	
-	<script type="text/javascript">
-	// execute function and output the token into the browser console
-	grecaptcha.ready(function() {
-		grecaptcha.execute('6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5', {action: 'register'}).then(function(token) {
-			console.log(token);
-			$("#recaptchaValidator").val(token);
-		});
-	});
-	</script>
-
-	<script>
-	// used for automatically binding the challenge to a button/form
-	function onSubmit(token) {
-		document.getElementById("form-register").submit();
-	}
-    </script>
 
 	<!-- Because of Facebook login -->
 	<div id="fb-root"></div>
@@ -40,7 +20,7 @@
 			<div class="card-header text-center">
 				<h1 class="card-title">Register</h1>
 			</div>
-			
+
 			<div class="row card-body">
 				<div class="col-md-6">
 					<div class="text-center">
@@ -60,7 +40,7 @@
 								<p class="text-center mt-1 text-white">Sign Up With Twitter</p>
 							</a>
 						</div>
-						
+
 						<!-- https://developers.facebook.com/docs/facebook-login/web/login-button -->
 						<div class="m-3">
 							<a type="button" class="btn btn-white facebook_singin" data-onsuccess="onSignIn" href="{% url 'social:begin' 'facebook' %}">
@@ -132,17 +112,17 @@
 									</div>
 								</div>
 							</div>
-									
+
 							<p class="float-left">
 								<a href="{% url 'core:reset_password' %}">Forgot your username or password?</a>
 							</p>
 
 							<!-- Also includes Google Recaptcha v3 -->
-							<button type="submit" class="btn btn-warning float-right btn-lg g-recaptcha" id="recaptchaValidator" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" name="g-recaptcha-response" data-callback="onSubmit">Register</button>
+							<button type="submit" class="btn btn-warning float-right btn-lg">Register</button>
 						</form>
 			    	</div>
 
-					{% if messages %}		
+					{% if messages %}
 						{% for message in messages %}
 							<div class="alert alert-{{ message.tags }} messageErrorLoginSignup" id="checkEmailAlert" role="alert">
 								{{ message }}
@@ -153,7 +133,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<script>
 	(function(d, s, id) {
 		var js, fjs = d.getElementsByTagName(s)[0];
@@ -182,7 +162,7 @@
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	</script>
-	
+
 </div>
 {% endblock %}
 
