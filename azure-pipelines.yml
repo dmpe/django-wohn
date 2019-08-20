@@ -39,9 +39,9 @@ stages:
           organization: 'dmpe-github'
           scannerMode: 'CLI'
           configMode: 'file'
-      
+
       - task: SonarCloudAnalyze@1
-      
+
       - task: Docker@2
         displayName: "Build our Image now"
         inputs:
@@ -58,7 +58,7 @@ stages:
 
 - stage: FinalSteps
   displayName: Push Docker Build to DH
-  dependsOn: PrepareAndBuild # by default they run sequantially
+  dependsOn: PrepareAndBuild # by default they run sequentially
   jobs:
     - job: PushDH
       steps:
