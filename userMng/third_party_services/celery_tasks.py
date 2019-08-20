@@ -5,7 +5,7 @@ from __future__ import absolute_import, unicode_literals
 import datetime
 # for logging the ECB connection
 import logging
-# to save forex data in the python's pickle 
+# to save forex data in the python's pickle
 import pickle
 
 import numpy as np
@@ -34,10 +34,10 @@ def parse_forex_data(*init, **kwargs):
 	"""
 	# {EUR, USD} <> CZK
 	csob_forex = "https://www.csob.cz/portal/lide/kurzovni-listek/-/date/kurzy.txt"
-	
+
 	data = pd.read_csv(csob_forex, delimiter = ";", skiprows=3, encoding="utf-8", thousands='.', decimal=',')
 	data = data.rename({"Měna": 'currency', "Střed.1":'exchange_rate_czk'}, axis='columns')
-	
+
 	Oneeur_czk = data[data['currency'].isin(["EUR", "USD"])].iloc[0]['exchange_rate_czk']
 	Oneusd_czk = data[data['currency'].isin(["EUR", "USD"])].iloc[1]['exchange_rate_czk']
 	Oneeur_usd = None
@@ -55,14 +55,14 @@ def parse_forex_data(*init, **kwargs):
 		# write to pandas dataset, first the the top
 		cur_df = exr_flow.write(daily)
 		Oneeur_usd = np.array(cur_df.iloc[[-1]]).item(0)
-		
+
 	except SDMXException as e:
-		# server maintanance - e.g. error 500
+		# server maintenance - e.g. error 500
 		print(e)
 		logger.WARNING(e)
-	
+
 	if (Oneeur_usd is not None):
-		# selected 
+		# selected
 		exchange_dict = {
 			# 'date': current_date,
 			'1eur_czk': Oneeur_czk,
@@ -72,10 +72,10 @@ def parse_forex_data(*init, **kwargs):
 
 		# Pickling to file system
 		cur_list = [(k,v) for k,v in exchange_dict.items()]
-		with open("currency_list_pickle", "wb") as fp:   
+		with open("currency_list_pickle", "wb") as fp:
 			pickle.dump(cur_list, fp)
-		
-		# write our data to the database model so that we can query it in the 
+
+		# write our data to the database model so that we can query it in the
 		# admin page and show highstock chart
 		forex_model = ExchangeRate()
 		forex_model.OneEurCzk = exchange_dict['1eur_czk']
@@ -83,7 +83,7 @@ def parse_forex_data(*init, **kwargs):
 		forex_model.OneEurUsd = exchange_dict['1eur_usd']
 		forex_model.save()
 		return exchange_dict
-	
+
 	else:
 		print("var Oneeur_usd is empty/null because connection to the server could not have been established")
 		return None

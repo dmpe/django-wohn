@@ -11,6 +11,7 @@
   "editor.wordWrapColumn": 100,
   // The number of spaces a tab is equal to.
   "editor.tabSize": 4,
+  "editor.detectIndentation": false,
   "files.trimTrailingWhitespace": true,
   "editor.insertSpaces": true
 }
