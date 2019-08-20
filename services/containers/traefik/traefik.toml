@@ -26,15 +26,12 @@ defaultEntryPoints = ["http", "https"]
   entryPoint = "traefik"
   dashboard = true
   debug = true
-# [file]
-# watch = true
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
 domain = "melive.xyz"
 watch = true
 exposedByDefault = true
-# network = "traefik-proxy"
 
 [acme]
 email = "cincenko@outlook.com"
@@ -42,7 +39,7 @@ storage = "acme/certs.json"
 entryPoint = "https"
 resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
 caServer = "https://acme-v02.api.letsencrypt.org/directory"
-#caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+# caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
 onHostRule = true
   [acme.dnsChallenge]
   provider = "ovh"

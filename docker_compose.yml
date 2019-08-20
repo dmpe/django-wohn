@@ -5,35 +5,30 @@ version: '3.7'
 # https://api.ovh.com/console/#/auth/credential#POST
 services:
     traefik:
-      image: traefik:latest
-      command: --api --docker
-      #  - "--api=true"
-      #  - "--providers.docker=true"
-      container_name: traefik
-      ports:
-        - "0.0.0.0:80:80"
-        - "0.0.0.0:443:443"
-        - "9116:8080" 
-      restart: always
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-        - ./services/containers/traefik/traefik.toml:/traefik.toml
-        - ./services/containers/traefik:/acme
-      labels:
-        - "traefik.enable=true"
-        - "traefik.backend=traefik"
-        - "traefik.port=9116"
-        - "traefik.frontend.rule=Host:monitor.melive.xyz,www.monitor.melive.xyz"
-      #  - "traefik.http.middlewares.traefik.basicauth.users=my-basic-auth"
-      #  - "traefik.http.routers.traefik.rule=Host(`monitor.melive.xyz`)"
-      #  - "traefik.http.routers.whoami.tls.certresolver=myhttpchallenge"
-      environment:
-       - "OVH_ENDPOINT=ovh-eu"
-       - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
-       - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
-       - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
+        image: traefik:latest
+        command: --api --docker
+        container_name: traefik
+        ports:
+          - "0.0.0.0:80:80"
+          - "0.0.0.0:443:443"
+          - "9116:8080"
+        restart: always
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - ./services/containers/traefik/traefik.toml:/traefik.toml
+          - ./services/containers/traefik:/acme
+        labels:
+          - "traefik.enable=true"
+          - "traefik.backend=traefik"
+          - "traefik.port=9116"
+          - "traefik.frontend.rule=Host:monitor.melive.xyz,www.monitor.melive.xyz"
+        environment:
+          - "OVH_ENDPOINT=ovh-eu"
+          - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
+          - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
+          - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 
-    # nginx: 
+    # nginx:
     #     image: nginx:latest
     #     container_name: nginx
     #     volumes:
@@ -52,7 +47,7 @@ services:
         container_name: djangoWohn
         volumes:
           - datadrive_django:/work
-        restart: always          
+        restart: always
         ports:
           - 8123:8123
         depends_on:
@@ -88,7 +83,7 @@ services:
           - "traefik.backend=postgres"
           - "traefik.port=5432"
 
-# https://hub.docker.com/r/dpage/pgadmin4/      
+# https://hub.docker.com/r/dpage/pgadmin4/
     pgadmin:
         image: dpage/pgadmin4:latest
         container_name: pgadmin4
@@ -112,15 +107,14 @@ services:
           - "traefik.backend=pgadmin"
           - "traefik.port=5050"
           - "traefik.frontend.rule=Host:pgadmin.melive.xyz,www.pgadmin.melive.xyz"
-        #  - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz`)"
 
     watchtower:
         image: containrrr/watchtower:latest
         container_name: watchtower
-        restart: always        
+        restart: always
         ports:
           - 7884:7884
-        environment: 
+        environment:
           - WATCHTOWER_CLEANUP=true
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
@@ -130,24 +124,34 @@ services:
           - "traefik.enable=false"
           - "traefik.backend=watchtower"
           - "traefik.port=7884"
-  # rabbit:
-  #   container_name: rabbit
-  #   image: rabbitmq:latest
-  #   environment:
-  #     - RABBITMQ_DEFAULT_USER=admin
-  #     - RABBITMQ_DEFAULT_PASS=mypass
-  #   ports:
-  #     - "5672:5672"    # we forward this port because it's useful for debugging
-  #     - "15672:15672"  # here, we can access rabbitmq management plugin
-  #   networks:
-  #     - docker-network
+
+    rabbit:
+        hostname: rabbit
+        container_name: rabbit
+        image: rabbitmq:3-management
+        environment:
+          - RABBITMQ_DEFAULT_USER=admin
+          - RABBITMQ_DEFAULT_PASS=123456
+        ports:
+          - "5672:5672"    # we forward this port because it's useful for debugging
+          - "15672:15672"  # here, we can access rabbitmq management plugin
+        networks:
+          - default
+          - traefik_proxy
+        volumes:
+          - datadrive_rabbit:/data
+        labels:
+          - "traefik.enable=true"
+          - "traefik.backend=rabbit"
+          - "traefik.port=5672"
+          # add a segment label for 2nd port
+          - "traefik.mngm.backend=rabbit-management"
+          - "traefik.mngm.port=15672"
+          - "traefik.mngm.frontend.rule=Host:rabbit.melive.xyz,www.rabbit.melive.xyz"
 
     portainer:
         image: portainer/portainer:latest
         container_name: portainer
-        #command: 
-        #  - "--entrypoints.web.address=:9000" 
-        #  - "--admin-password=$2y$05$cGpsTM0q7UTl1LrTbtTPeeaehCGbHtc8Gf/nLPeHFY8tkyQKKXcRe"
         restart: always
         ports:
           - "9000:9000"
@@ -162,8 +166,7 @@ services:
           - "traefik.enable=true"
           - "traefik.backend=portainer"
           - "traefik.port=9000"
-          - "traefik.frontend.rule=Host:portainer.melive.xyz,www.portainer.melive.xyz"         
-        #  - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`)"
+          - "traefik.frontend.rule=Host:portainer.melive.xyz,www.portainer.melive.xyz"
 
 networks:
   traefik_proxy:
@@ -180,4 +183,6 @@ volumes:
   datadrive_pgadmin:
     external: true
   datadrive_django:
+    external: true
+  datadrive_rabbit:
     external: true

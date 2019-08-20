@@ -1,6 +1,7 @@
 debug = true
 logLevel = "INFO"
 InsecureSkipVerify = true
+
 [global]
   sendAnonymousUsage = true
 
