@@ -12,11 +12,13 @@ from msrestazure.azure_active_directory import MSIAuthentication
 credentials = MSIAuthentication(resource='https://vault.azure.net')
 client = KeyVaultClient(credentials)
 
-BLOB_STORAGE_CON_STRING = client.get_secret("https://b40.vault.azure.net/", "AZURE-STORAGE-KEY-CON-STRING", "691d5b63e44d41e48dd4a45feb90fc46").value
+BLOB_STORAGE_CON_STRING = client.get_secret("https://b40.vault.azure.net/",
+                        "AZURE-STORAGE-KEY-CON-STRING", "691d5b63e44d41e48dd4a45feb90fc46").value
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'melive.settings')
 
-app = Celery('melive', azureblockblob_container_name = "celery", backend=BLOB_STORAGE_CON_STRING, broker='amqp://jm:159753@localhost//')
+app = Celery('melive', azureblockblob_container_name = "celery",
+        backend=BLOB_STORAGE_CON_STRING, broker='amqp://jm:159753@localhost//')
 
 # This reads, e.g., CELERY_ACCEPT_CONTENT = ['json'] from settings.py:
 app.config_from_object('django.conf:settings')
@@ -26,12 +28,12 @@ app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 @app.task(bind=True)
 def debug_task(self):
-	print("Request: {0!r}".format(self.request))
+    print("Request: {0!r}".format(self.request))
 
 app.conf.update(
-	result_expires=3600,
-	timezone = 'Europe/Prague'
+    result_expires=3600,
+    timezone = 'Europe/Prague'
 )
 
 if __name__ == '__main__':
-	app.start()
+    app.start()
