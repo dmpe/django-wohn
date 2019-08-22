@@ -1,7 +1,0 @@
-{
-    "azureFunctions.deploySubpath": "ECBForex/ECBForex.zip",
-    "azureFunctions.projectLanguage": "Python",
-    "azureFunctions.projectRuntime": "~2",
-    "debug.internalConsoleOptions": "neverOpen",
-    "azureFunctions.preDeployTask": "func: pack"
-}
