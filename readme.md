@@ -16,5 +16,6 @@ pyenv local 3.6.9
 #### 2. Start Docker and Build Dockerfile
 
 ```
-
+sudo systemctl start docker
+sudo func azure functionapp publish django-wohn --build-native-deps
 ```

@@ -7,7 +7,7 @@ import pandas as pd
 from pandasdmx import *
 from pandasdmx.api import *
 
-def parse_forex_data(mytimer: func.TimerRequest) -> None:
+def main(mytimer: func.TimerRequest) -> None:
   """
   Runs every month
   https://stackoverflow.com/a/38286238
