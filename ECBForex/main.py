@@ -25,7 +25,7 @@ def main(mytimer: func.TimerRequest) -> None:
   Oneeur_usd = None
 
   # used for ECB request and exchange_dict if necessary
-  current_date = datetime.datetime.utcnow().replace(tzinfo=utc)
+  current_date = datetime.datetime.utcnow().replace(tzinfo=pytz.utc)
 
   # 1 EUR <> USD
   ecb = Request('ECB')
@@ -40,7 +40,7 @@ def main(mytimer: func.TimerRequest) -> None:
     
   except SDMXException as e:
     # server maintenance - e.g. error 500
-    print(e)
+    logging.info(e)
     logger.WARNING(e)
 
   if (Oneeur_usd is not None):
@@ -57,7 +57,7 @@ def main(mytimer: func.TimerRequest) -> None:
     with open("currency_list_pickle", "wb") as fp:   
       pickle.dump(cur_list, fp)
     
-    print("Done!")
+    logging.info("Done!")
     # write our data to the database model so that we can query it in the 
     # admin page and show highstock chart
     # forex_model = ExchangeRate()
@@ -65,11 +65,11 @@ def main(mytimer: func.TimerRequest) -> None:
     # forex_model.OneUsdCzk = exchange_dict['1usd_czk']
     # forex_model.OneEurUsd = exchange_dict['1eur_usd']
     # forex_model.save()
-    return exchange_dict
+    # return exchange_dict
 
   else:
-    print("1 EUR/USD pair is empty/null because connection to the server could not have been established")
-    return None
+    logging.info("1 EUR/USD pair is empty/null because connection to the server could not have been established")
+    # return None
 
   # write results to a file txt -> in production read from the file
   # with open("test.txt", "rb") as fp:   # Unpickling
