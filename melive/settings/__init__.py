@@ -21,22 +21,22 @@ from msrestazure.azure_active_directory import MSIAuthentication
 from split_settings.tools import include, optional
 
 credentials = None
-"""
-Create a function that prepares to retrieve secret key value/other credentials
-"""
+
+# Retrieve secret key value/other credentials
 credentials = MSIAuthentication(resource='https://vault.azure.net')
 client = KeyVaultClient(credentials)
 
 ENV = client.get_secret("https://b40.vault.azure.net/", "DJANGO-ENV", "baf42a60cc1e4b588831fba2c9f2ce50").value or 'development'
 
 base_settings = [
-    'own_server/components/common.py',  # standard django settings
+  # standard django settings
+  '/components/common.py',
 
-    # Select the right env:
-    'own_server/environments/%s.py' % ENV,
+  # Select the right env:
+  '/environments/%s.py' % ENV,
 
-    # Optionally override some settings:
-    # optional('environments/local.py'),
+  # Optionally override some settings:
+  # optional('environments/local.py'),
 ]
 
 # Include settings:
