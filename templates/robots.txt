@@ -4,4 +4,4 @@ Disallow:
 Disallow: /admin/
 Disallow: /administrace/
 
-Sitemap: http://b40.tk/sitemap.xml
+Sitemap: http://melive.xyz/sitemap.xml

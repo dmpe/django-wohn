@@ -1,10 +1,8 @@
 argon2-cffi
 azure
 brotlipy
-Celery
 Django
-dj-database-url
-django-filter 
+django-filter
 django-phonenumber-field
 django-storages
 django-split-settings
@@ -20,12 +18,12 @@ djangorestframework
 google-api-python-client
 googleapis-common-protos
 gunicorn
+isort[requirements]
 social-auth-core
 social-auth-app-django
 #git+git://github.com/python-social-auth/social-core.git#egg=elasticutils
 #git+git://github.com/python-social-auth/social-app-django.git#egg=social-app-django
 markdown
-numpy
 pandas
 pandasdmx
 phonenumbers
@@ -38,4 +36,3 @@ requests
 sendgrid
 whitenoise
 Werkzeug
-isort[requirements]

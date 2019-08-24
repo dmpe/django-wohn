@@ -6,7 +6,6 @@ staticfiles
 *.ico
 *.pyc
 Pipfile.lock
-.vscode
 client_secrets.json
 
 # Byte-compiled / optimized / DLL files
@@ -125,3 +124,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.python_packages/
+node_modules/

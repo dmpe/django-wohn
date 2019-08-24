@@ -9,10 +9,7 @@ WORKDIR /wohn
 ADD . /wohn
 
 RUN pip install -r requirenments.txt
-EXPOSE 8000
+EXPOSE 8000 8123
 
 RUN chmod +x start_django.sh
 CMD ["./start_django.sh"]
-#CMD exec gunicorn vanoce.wsgi:application --bind 0.0.0.0:8000 --workers 3
-#CMD ["gunicorn", "-b", "0.0.0.0:8000", "vanoce.wsgi:application", "--workers", "3"]
-

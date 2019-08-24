@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.hashers import *
+from django.core.validators import *
 from django.db import *
 
 from .mics import *
@@ -10,13 +11,13 @@ from .models import myUser
 class EmailUserNameAuthBackend(ModelBackend):
 	"""
 	This is used for authentication of myUsers
-	using either username or email in the input field.	
-	By default, username/password is used and this 
+	using either username or email in the input field.
+	By default, username/password is used and this
 	extends the approach with the email/password.
 
 	Should work on /admin/ and on /administration/
 	"""
-	
+
 	def get_user(self, user_id):
 		try:
 			return myUser.objects.get(pk=user_id)
@@ -38,12 +39,12 @@ class EmailUserNameAuthBackend(ModelBackend):
 					return user
 			except myUser.DoesNotExist:
 				return None
-	
-	def check_for_user_existance(self, inputString = None):
+
+	def check_for_user_existence(self, inputString = None):
 		"""
 		check in the database if the username or email does exist
 		if yes, return positive bool value
-		
+
 		Used for email-based password reset
 
 		:param inputString: either it can be a username or email
@@ -51,7 +52,7 @@ class EmailUserNameAuthBackend(ModelBackend):
 		:returns: user object if user found and bool value (TRUE, FALSE)
 		"""
 		getUserObject, presentInSystem = None, False
-		is_valid = valid_email(in_str = inputString)
+		is_valid = validate_email(inputString)
 
 		if is_valid is True:
 			#if the input was email
@@ -66,7 +67,7 @@ class EmailUserNameAuthBackend(ModelBackend):
 				user_exists_id = myUser.objects.filter(username=inputString).first().pk
 				getUserObject = myUser.objects.get(id=user_exists_id)
 				presentInSystem = True
-			except BaseException:	
+			except BaseException:
 				pass
-		
+
 		return [presentInSystem, getUserObject]

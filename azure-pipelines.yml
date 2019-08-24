@@ -20,17 +20,12 @@ stages:
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-      - script: |
-          echo Add other tasks to build, test, and deploy your project.
-          echo See https://aka.ms/yaml
-        displayName: 'Run a multi-line script'
-
-# https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
       - task: AzureKeyVault@1
         inputs:
           azureSubscription: 'Azureprostudenty'
           KeyVaultName: 'b40'
           SecretsFilter: '*'
+# https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
 
       - task: SonarCloudPrepare@1
         displayName: "Connect to SonarCloud"
@@ -39,9 +34,9 @@ stages:
           organization: 'dmpe-github'
           scannerMode: 'CLI'
           configMode: 'file'
-      
+
       - task: SonarCloudAnalyze@1
-      
+
       - task: Docker@2
         displayName: "Build our Image now"
         inputs:
@@ -58,14 +53,16 @@ stages:
 
 - stage: FinalSteps
   displayName: Push Docker Build to DH
-  dependsOn: PrepareAndBuild # by default they run sequantially
+  dependsOn: PrepareAndBuild # by default they run sequentially
   jobs:
     - job: PushDH
       steps:
       - task: Docker@2
         displayName: "Push to Docker Hub"
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         inputs:
           containerRegistry: 'docker_hub'
+          repository: $(dockerId)/$(imageName)
           command: 'push'
 
 # TODO: take picture from output and commit it to docs directory
