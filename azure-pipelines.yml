@@ -20,17 +20,12 @@ stages:
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-      - script: |
-          echo Add other tasks to build, test, and deploy your project.
-          echo See https://aka.ms/yaml
-        displayName: 'Run a multi-line script'
-
-# https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
       - task: AzureKeyVault@1
         inputs:
           azureSubscription: 'Azureprostudenty'
           KeyVaultName: 'b40'
           SecretsFilter: '*'
+# https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
 
       - task: SonarCloudPrepare@1
         displayName: "Connect to SonarCloud"
@@ -64,8 +59,10 @@ stages:
       steps:
       - task: Docker@2
         displayName: "Push to Docker Hub"
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         inputs:
           containerRegistry: 'docker_hub'
+          repository: $(dockerId)/$(imageName)
           command: 'push'
 
 # TODO: take picture from output and commit it to docs directory

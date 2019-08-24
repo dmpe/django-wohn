@@ -15,10 +15,11 @@ from django.utils.encoding import *
 from django.utils.html import *
 from django.utils.http import *
 from django.utils.safestring import *
-from ipware import get_client_ip
 from sendgrid import *
 from sendgrid.helpers.mail import *
 from werkzeug.useragents import *
+
+from ipware import get_client_ip
 
 
 # replaced by logic in contrib.auth.tokens

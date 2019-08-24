@@ -15,6 +15,7 @@ from django.db.models.functions import *
 
 from .models import *
 
+
 class UserCreatingFormInAdmin(UserCreationForm):
     """
     By default, email is not added to the registration form

@@ -2,6 +2,7 @@
 from azure.common.credentials import ServicePrincipalCredentials
 from azure.keyvault import KeyVaultAuthentication, KeyVaultClient
 from msrestazure.azure_active_directory import MSIAuthentication
+
 from storages.backends.azure_storage import *
 
 credentials = MSIAuthentication(resource='https://vault.azure.net')

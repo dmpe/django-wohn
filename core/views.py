@@ -2,7 +2,6 @@
 # instance of a logger
 import logging
 
-import markdown
 from django import forms
 from django.conf import settings
 from django.contrib import *
@@ -27,6 +26,8 @@ from django.views import View
 from django.views.generic import *
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
+
+import markdown
 
 # for using not only username/pswd but also email/pswd
 from .backends import EmailUserNameAuthBackend

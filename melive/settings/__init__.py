@@ -18,6 +18,7 @@ from os import environ
 from azure.common.credentials import ServicePrincipalCredentials
 from azure.keyvault import KeyVaultAuthentication, KeyVaultClient
 from msrestazure.azure_active_directory import MSIAuthentication
+
 from split_settings.tools import include, optional
 
 credentials = None
