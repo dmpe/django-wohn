@@ -1,6 +1,6 @@
 # Project information
-site_name: 'Documentation for Django-Wohn'
-site_description: 'Developer Documentation for django-wohn'
+site_name: 'Melive.xyz Documentation'
+site_description: 'Developer Documentation for Melive.xyz'
 site_author: 'John Malc (@dmpe)'
 site_url: 'https://dmpe.github.io/django-wohn/'
 edit_uri: 'edit/gh-pages/docs/'
@@ -21,7 +21,7 @@ theme:
     primary: 'light green'
     accent: 'light green'
   extra:
-    search: 
+    search:
       language: 'en'
 
 markdown_extensions:
@@ -29,7 +29,7 @@ markdown_extensions:
   - codehilite:
       guess_lang: false
   - toc:
-      permalink: true
+      permalink: false
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
