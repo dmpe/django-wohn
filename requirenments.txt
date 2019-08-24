@@ -1,5 +1,6 @@
 argon2-cffi
-azure
+azure-mgmt
+azure-keyvault
 brotlipy
 Django
 django-filter
@@ -9,7 +10,6 @@ django-split-settings
 django-cors-headers
 django-widget-tweaks
 django-crispy-forms
-django-markdownx
 django-timezone-field
 django-countries
 django_extensions
@@ -18,14 +18,13 @@ djangorestframework
 google-api-python-client
 googleapis-common-protos
 gunicorn
-isort[requirements]
+isort
 social-auth-core
 social-auth-app-django
 #git+git://github.com/python-social-auth/social-core.git#egg=elasticutils
 #git+git://github.com/python-social-auth/social-app-django.git#egg=social-app-django
 markdown
 pandas
-pandasdmx
 phonenumbers
 pint
 pinax-messages
@@ -34,5 +33,4 @@ psycopg2-binary
 pymdown-extensions
 requests
 sendgrid
-whitenoise
 Werkzeug
