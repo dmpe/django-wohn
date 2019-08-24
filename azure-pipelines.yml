@@ -51,12 +51,6 @@ stages:
           containerRegistry: 'docker_hub'
           command: 'login'
 
-- stage: FinalSteps
-  displayName: Push Docker Build to DH
-  dependsOn: PrepareAndBuild # by default they run sequentially
-  jobs:
-    - job: PushDH
-      steps:
       - task: Docker@2
         displayName: "Push to Docker Hub"
         condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
@@ -64,5 +58,5 @@ stages:
           containerRegistry: 'docker_hub'
           repository: $(dockerId)/$(imageName)
           command: 'push'
-
+      
 # TODO: take picture from output and commit it to docs directory
