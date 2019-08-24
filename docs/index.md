@@ -1,4 +1,4 @@
 # Home
 
-This project is high-level overview of Django-Wohn, aka Melive.xyz, project.
+This documentation providers a high-level overview of Django-Wohn, aka Melive.xyz, project.
 
