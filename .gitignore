@@ -129,4 +129,7 @@ appsettings.json
 local.settings.json
 .python_packages
 django-wohn.zip
-django-wohn/django-wohn.zip
+
+.git*
+test
+.venv
