@@ -7,7 +7,7 @@ We used **Azure Functions** to react or trigger events (functions) for some task
     - [See GitHub issue](https://github.com/dmpe/django-wohn/issues/7) for more ideas.
 
 **Consumption plan** should be enough.
-Though a premium plan which enables to use full docker images can be better due to large Python3 dependancies.
+Though a premium plan which enables to use full docker images can be better due to large Python3 dependencies.
 
 ## Our Branch
 
@@ -16,9 +16,12 @@ The branch with Azure functions: `azure-functions`, see [link here](https://gith
 
 ## Build
 
-Source:
+Sources:
+
 - <https://docs.microsoft.com/de-de/azure/azure-functions/functions-reference-python>
+
 - <https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image>
+
 - <https://amaral.northwestern.edu/resources/guides/pyenv-tutorial>
 
 ### 1. Pyenv

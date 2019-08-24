@@ -1,4 +1,4 @@
-# Primary tools to run this application
+# Container
 
 Docker containers are currently used for building images and starting them with docker-compose.
 

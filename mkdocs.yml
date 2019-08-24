@@ -3,7 +3,7 @@ site_name: 'Melive.xyz Documentation'
 site_description: 'Developer Documentation for Melive.xyz'
 site_author: 'John Malc (@dmpe)'
 site_url: 'https://dmpe.github.io/django-wohn/'
-edit_uri: 'edit/gh-pages/docs/'
+edit_uri: 'edit/docs/docs/'
 
 # Repository
 repo_name: 'dmpe/django-wohn'
@@ -29,7 +29,7 @@ markdown_extensions:
   - codehilite:
       guess_lang: false
   - toc:
-      permalink: false
+      permalink: true
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
