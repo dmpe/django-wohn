@@ -1,21 +1,5 @@
-## Azure Functions for Django-Wohn
+# Azure Functions for Melive.xyz
 
-### Build
+This branch contains azure function(s) for our website. 
 
-Source: 
-- <https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image>
-- <https://amaral.northwestern.edu/resources/guides/pyenv-tutorial>
-
-#### 1. Pyenv
-
-Use `pyenv` in this repository. Execute in the root:
-
-```
-pyenv local 3.6.9
-```
-#### 2. Start Docker and Build Dockerfile
-
-```
-sudo systemctl start docker
-func azure functionapp publish django-wohn --build-native-deps
-```
+See Documentation here: <https://dmpe.github.io/django-wohn>
