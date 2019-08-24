@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="Developer Documentation for django-wohn">
+        <meta name="description" content="Developer Documentation for Melive.xyz">
       
       
         <link rel="canonical" href="https://dmpe.github.io/django-wohn/development/heroku/">
@@ -38,17 +38,17 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
     
     
       
-        <title>Heroku - Documentation for Django-Wohn</title>
+        <title>Heroku - Melive.xyz Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://dmpe.github.io/django-wohn/" title="Documentation for Django-Wohn" class="md-header-nav__button md-logo">
+        <a href="https://dmpe.github.io/django-wohn/" title="Melive.xyz Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Documentation for Django-Wohn
+              Melive.xyz Documentation
             </span>
             <span class="md-header-nav__topic">
               
@@ -240,12 +240,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://dmpe.github.io/django-wohn/" title="Documentation for Django-Wohn" class="md-nav__button md-logo">
+    <a href="https://dmpe.github.io/django-wohn/" title="Melive.xyz Documentation" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    Documentation for Django-Wohn
+    Melive.xyz Documentation
   </label>
   
     <div class="md-nav__source">
@@ -307,9 +307,45 @@
 
 
   <li class="md-nav__item">
-    <a href="../../architecture/" title="Index" class="md-nav__link">
-      Index
+    <a href="../../architecture/" title="Development overtime" class="md-nav__link">
+      Development overtime
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Components
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Components
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../architecture/components/functions/" title="Azure Functions" class="md-nav__link">
+      Azure Functions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -345,8 +381,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../container/" title="Container" class="md-nav__link">
-      Container
+    <a href="../container/" title="Primary tools to run this application" class="md-nav__link">
+      Primary tools to run this application
     </a>
   </li>
 
@@ -522,9 +558,9 @@
                 
                 <p>Heroku requires several files to be in the root of the repository, see <a href="https://devcenter.heroku.com/articles/deploying-python">https://devcenter.heroku.com/articles/deploying-python</a></p>
 <p>Some of the necessary files can be found in the <code>services/heroku/</code> folder of a dedicated branch.</p>
-<h2 id="1-common-tasks-for-local-and-heroku">1. Common tasks for <u>local and Heroku</u><a class="headerlink" href="#1-common-tasks-for-local-and-heroku" title="Permanent link">&para;</a></h2>
+<h2 id="1-common-tasks-for-local-and-heroku">1. Common tasks for <u>local and Heroku</u></h2>
 <p>If <strong>models have been changed</strong>, following needs to be run on a <strong>LOCAL PC</strong>:</p>
-<h3 id="11-clean-postgresql-database">1.1 Clean PostgreSQL database<a class="headerlink" href="#11-clean-postgresql-database" title="Permanent link">&para;</a></h3>
+<h3 id="11-clean-postgresql-database">1.1 Clean PostgreSQL database</h3>
 <p>If previously some deployments to the local PC have been executed, then one <strong>has</strong> to clean &amp; prepare database again. </p>
 <div class="codehilite"><pre><span></span>sudo su postgres 
 psql
@@ -536,18 +572,18 @@ CREATE USER jm WITH ENCRYPTED PASSWORD &#39;yourpass&#39;;
 GRANT ALL PRIVILEGES ON DATABASE b40re TO jm;
 </pre></div>
 
-<h3 id="12-collect-static-files">1.2 Collect static files<a class="headerlink" href="#12-collect-static-files" title="Permanent link">&para;</a></h3>
+<h3 id="12-collect-static-files">1.2 Collect static files</h3>
 <p>This also acts as a sort of test where you can spot some errors early on. 
 It also uploads static and media files directly to the Azure blob container.</p>
 <div class="codehilite"><pre><span></span>python3 manage.py collectstatic
 </pre></div>
 
-<h3 id="125-create-django-superuser">1.2.5 Create DJango superuser<a class="headerlink" href="#125-create-django-superuser" title="Permanent link">&para;</a></h3>
+<h3 id="125-create-django-superuser">1.2.5 Create DJango superuser</h3>
 <p>Via their cli</p>
 <div class="codehilite"><pre><span></span>heroku run python3 manage.py createsuperuser --username admin --email ci@se.cz
 </pre></div>
 
-<h3 id="13-prepare-migrations-files">1.3 Prepare migrations files<a class="headerlink" href="#13-prepare-migrations-files" title="Permanent link">&para;</a></h3>
+<h3 id="13-prepare-migrations-files">1.3 Prepare migrations files</h3>
 <p><a href="https://stackoverflow.com/a/40790734">https://stackoverflow.com/a/40790734</a></p>
 <ul>
 <li>Find and delete all <code>migrations</code> folders</li>
@@ -566,19 +602,19 @@ It also uploads static and media files directly to the Azure blob container.</p>
 <div class="codehilite"><pre><span></span>python3 manage.py migrate
 </pre></div>
 
-<h3 id="14-deploy-to-heroku">1.4 Deploy to Heroku<a class="headerlink" href="#14-deploy-to-heroku" title="Permanent link">&para;</a></h3>
+<h3 id="14-deploy-to-heroku">1.4 Deploy to Heroku</h3>
 <p>Heroku automatically runs collectstatic.</p>
 <div class="codehilite"><pre><span></span>git push master heroku
 </pre></div>
 
-<h2 id="2-common-issues">2. Common issues<a class="headerlink" href="#2-common-issues" title="Permanent link">&para;</a></h2>
+<h2 id="2-common-issues">2. Common issues</h2>
 <ul>
 <li>Kill heroku dyno</li>
 </ul>
 <div class="codehilite"><pre><span></span>heroku ps &amp;&amp; heroku ps:stop web.1
 </pre></div>
 
-<h1 id="3-other-notes">3. Other notes<a class="headerlink" href="#3-other-notes" title="Permanent link">&para;</a></h1>
+<h1 id="3-other-notes">3. Other notes</h1>
 <p>When you add new css/js to <code>static</code> folder, it is good idea to still run locally <code>python3 manage.py collectstatic</code> which will overwrite <code>staticfiles</code> &amp; which again can be pushed to heroku (unless being ignored by <code>gitignore</code>). </p>
                 
                   
@@ -600,7 +636,7 @@ It also uploads static and media files directly to the Azure blob container.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../container/" title="Container" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../container/" title="Primary tools to run this application" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -609,7 +645,7 @@ It also uploads static and media files directly to the Azure blob container.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Container
+                Primary tools to run this application
               </span>
             </div>
           </a>
@@ -653,7 +689,7 @@ It also uploads static and media files directly to the Azure blob container.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      <script src="../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
