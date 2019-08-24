@@ -47,6 +47,7 @@ stages:
           tags: $(major).$(minor)
 
       - task: Docker@2
+        displayName: "Docker login"
         inputs:
           containerRegistry: 'docker_hub'
           command: 'login'
