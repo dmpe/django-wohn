@@ -20,24 +20,22 @@ def main(mytimer: func.TimerRequest) -> None:
   data = pd.read_csv(csob_forex, delimiter = ";", skiprows=3, encoding="utf-8", thousands='.', decimal=',')
   data = data.rename({"Měna": 'currency', "Střed.1":'exchange_rate_czk'}, axis='columns')
 
+  # For EUR & USD -> CZK we fetch data from CSOB
   Oneeur_czk = data[data['currency'].isin(["EUR", "USD"])].iloc[0]['exchange_rate_czk']
   Oneusd_czk = data[data['currency'].isin(["EUR", "USD"])].iloc[1]['exchange_rate_czk']
+
+  # For EUR <> USD, we use ECB and thus request it from their DW
   Oneeur_usd = None
-
-  # used for ECB request and exchange_dict if necessary
   current_date = datetime.datetime.utcnow().replace(tzinfo=pytz.utc)
-
-  # 1 EUR <> USD
   ecb = Request('ECB')
 
   try:
     exr_flow = ecb.data(resource_id = 'EXR', key={'CURRENCY': 'USD'}, params = {'startPeriod': str(current_date.year)})
     daily = (s for s in exr_flow.data.series if s.key.FREQ == 'D')
 
-    # write to pandas dataset, first the the top
+    # write to pandas dataset, the last in the list is our desired exchange value
     cur_df = exr_flow.write(daily)
     Oneeur_usd = np.array(cur_df.iloc[[-1]]).item(0)
-    
   except SDMXException as e:
     # server maintenance - e.g. error 500
     logging.info(e)

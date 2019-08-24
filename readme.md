@@ -17,5 +17,5 @@ pyenv local 3.6.9
 
 ```
 sudo systemctl start docker
-sudo func azure functionapp publish django-wohn --build-native-deps
+func azure functionapp publish django-wohn --build-native-deps
 ```
