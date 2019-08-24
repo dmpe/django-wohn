@@ -2,9 +2,9 @@
 
 We used **Azure Functions** to react or trigger events (functions) for some tasks, namely:
 
-    - Getting forex exchange data from (central) banks and storing them in the database.
-    - When creating real estate posting, user can send pictures via email (instead of uploading them).
-    - [See GitHub issue](https://github.com/dmpe/django-wohn/issues/7) for more ideas.
+- Getting forex exchange data from (central) banks and storing them in the database.
+- When creating real estate posting, user can send pictures via email (instead of uploading them).
+- [See GitHub issue](https://github.com/dmpe/django-wohn/issues/7) for more ideas.
 
 **Consumption plan** should be enough.
 Though a premium plan which enables to use full docker images can be better due to large Python3 dependencies.
@@ -28,7 +28,7 @@ Sources:
 
 Use `pyenv` in this worktree. Execute in the root:
 
-```
+```shell
 git switch azure-functions
 pyenv install 3.6.9 # Azure is currently compatible only with Python 3.6
 pyenv local 3.6.9
@@ -36,7 +36,7 @@ pyenv local 3.6.9
 
 ### 2. Start Docker and Build Dockerfile
 
-```
+```shell
 sudo systemctl start docker
 func azure functionapp publish django-wohn --build-native-deps
 ```

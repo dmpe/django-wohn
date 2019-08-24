@@ -11,13 +11,13 @@ To install pgadmin4, follow <https://www.pgadmin.org/docs/pgadmin4/4.x/server_de
 
 ### Create Django superuser
 
-```
+```shell
 python3 manage.py createsuperuser --username admin --email ci@se.cz
 ```
 
 Then, execute on remote server following commands whenever Django model(s) change.
 
-```
+```shell
 python3 manage.py makemigrations <model> && python3 manage.py migrate && sudo systemctl restart gunicorn.service
 ```
 
@@ -37,13 +37,13 @@ Today, this is totally obsolete with VS Code (remote development or Eclipse Che)
 
 - Start Django manually
 
-```
+```shell
 python3 manage.py runserver --nostatic
 ```
 
 - Adding new SSL certificates via certbot (letsencrypt)
 
-```
+```shell
 sudo certbot --nginx certonly
 ```
 
@@ -61,7 +61,7 @@ Source:
 
 First install `RabbitMQ` (message broker), then `Celery` ("worker").
 
-```
+```shell
 sudo rabbitmq-plugins enable rabbitmq_management
 sudo rabbitmqctl add_user jm password
 sudo rabbitmqctl set_user_tags jm administrator
@@ -69,7 +69,7 @@ sudo rabbitmqctl set_user_tags jm administrator
 
 Run `Celery` from `b40re` directory using:
 
-```
+```shell
 sudo systemctl restart rabbitmq<TAB>
 celery -A vanoce worker -l info
 ```
@@ -77,7 +77,7 @@ celery -A vanoce worker -l info
 Then, in an another `bash` window, execute commands below so that tasks such as
 fetching forex/currency data are run immediately.
 
-```
+```shell
 python3 manage.py shell
 from userMng.third_party_services.celery_tasks import parse_forex_data
 rst = parse_forex_data.apply()

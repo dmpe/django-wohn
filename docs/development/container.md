@@ -22,7 +22,7 @@ On (close to any) cloud provider, create a VM and use `cloud-init` [cloud-init](
 
 This should already include major components like Docker daemon.
 
-```
+```shell
 #include https://get.docker.com
 package_update: true
 package_upgrade: true
@@ -48,7 +48,7 @@ Once installed, you need to have persistent volumes for images on a separate har
 
 The command below already assumes that a data disk has been mounted & properly setup in VM.
 
-```
+```shell
 docker volume create --driver local --opt type=none --opt device=/datadrive/_name_of_container --opt o=bind datadrive_name_of_container
 ```
 
@@ -56,7 +56,7 @@ docker volume create --driver local --opt type=none --opt device=/datadrive/_nam
 
 1. Clone this repo and cd' into it
 
-```
+```shell
 git clone https://github.com/dmpe/django-wohn .
 cd django-wohn
 git switch server-config
