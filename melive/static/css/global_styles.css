@@ -43,7 +43,7 @@ textarea {
 	color: red;
 }
 
-/* 2. CSS on "individual" pages 
+/* 2. CSS on "individual" pages
 //////////////////////
 Login page - Move google recaptha v3 badge up from the bottom footer
 ~ 60 px
@@ -56,9 +56,9 @@ Login page - Move google recaptha v3 badge up from the bottom footer
 Adminstrace - Dashboard
 */
 .card_homepage_styling,
-.card_homepage_styling:hover, 
-.card_homepage_styling:visited, 
-.card_homepage_styling:link, 
+.card_homepage_styling:hover,
+.card_homepage_styling:visited,
+.card_homepage_styling:link,
 .card_homepage_styling:active {
 	text-decoration: none !important;
 	color: inherit;
@@ -128,15 +128,15 @@ Sign Up Pages {logic, reset pswd, etc}
 	border: 1px solid black;
 }
 
-/* User Profile 
+/* User Profile
 */
-.iti-flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/img/flags.png");}
+.iti__flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/img/flags.png");}
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .iti-flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/img/flags@2x.png");}
+  .iti__flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/img/flags@2x.png");}
 }
 
-/* Login 
+/* Login
 https://developers.google.com/identity/branding-guidelines */
 .login_register_box {
 	padding: 50px 15px 50px 15px;

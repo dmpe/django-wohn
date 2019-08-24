@@ -9,12 +9,12 @@
 
     <meta name="description" content="{% block descip %}{% endblock %}">
     <meta name="robots" content="{% block robots %}{% endblock %}">
-    <!-- 
+    <!--
       https://favicon.io/favicon-generator/?t=b40&ff=Jacques+Francois&fs=65&fc=%23000&b=rounded&bc=%23DDD
     	https://www.1and1.com/favicon-generator
     -->
     <link rel="shortcut icon" type="image/png" href="https://djangowohnreal1.blob.core.windows.net/images/favicon.ico"/>
-    <!-- 
+    <!--
     Frondend Rewrite: uses now vue.js
     -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -25,18 +25,18 @@
     <meta name="google-signin-scope" content="profile email">
 
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
+
     <!-- Load CSS: Bootstrap + font-awesome + JavaScript Jquery -->
-    {% include 'base_splitting/javascript_libraries.html' %}
-    
+    {% include 'library_templates/javascript_libraries.html' %}
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'global_styles.css' %}">
 
     {% block additional_head %}{% endblock %}
-    
-    {% include "base_splitting/webtools_verification.html" %}
 
-    {% include "base_splitting/tracking_js.html" %}
+    {% include "library_templates/webtools_verification.html" %}
+
+    {% include "library_templates/tracking_js.html" %}
 
   </head>
   <body>
@@ -46,7 +46,7 @@
     {% endblock %}
 
     {% include 'footer.html' %}
-    {% include "base_splitting/bootstrap_fontAwe_body_footer.html" %}
+    {% include "library_templates/bootstrap_fontAwe_body_footer.html" %}
 
     <script src="{% static 'global_js.js' %}"></script>
   </body>

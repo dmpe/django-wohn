@@ -33,22 +33,6 @@ def http_headers(request):
 
     return [operating_system, browser, browser_version]
 
-def valid_email(in_str = None):
-    """
-    validating emails are mess
-    applies idea that it must have @ and >=1 . after @
-    https://stackoverflow.com/a/8022584
-    """
-    email_regex = re.compile(r"[^@]+@[^@]+\.[^@]+")
-    email_valid = False
-
-    if not email_regex.match(in_str):
-        email_valid = False
-    else:
-        email_valid = True
-
-    return email_valid
-
 def get_uid_token(request):
     """
     string that one gets is

@@ -1,10 +1,8 @@
 argon2-cffi
 azure
 brotlipy
-Celery
 Django
-dj-database-url
-django-filter 
+django-filter
 django-phonenumber-field
 django-storages
 django-split-settings
@@ -27,7 +25,6 @@ social-auth-app-django
 #git+git://github.com/python-social-auth/social-core.git#egg=elasticutils
 #git+git://github.com/python-social-auth/social-app-django.git#egg=social-app-django
 markdown
-numpy
 pandas
 pandasdmx
 phonenumbers

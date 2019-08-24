@@ -46,7 +46,7 @@ from .forms import *
 class UserProfileIndex(LoginRequiredMixin, View):
     """
     The homepage of the administration - the essential Dashboard for the User
-    Used for displaing information and submitting new feature requests
+    Used for displaying information and submitting new feature requests
     """
     template_name = "user_adm_index.html"
 
@@ -62,11 +62,11 @@ class UserProfileIndex(LoginRequiredMixin, View):
 
             messages.add_message(request, messages.SUCCESS,
                 mark_safe('<h6 class=''alert-heading''>Thank you for sending us the message!</h6>'
-                    '<p>We wiill respond to you <strong>as soon as possible</strong>.</p>'))
+                    '<p>We will respond to you <strong>as soon as possible</strong>.</p>'))
         else:
             # form must contain some text !
             messages.add_message(request, messages.ERROR,
-                mark_safe('<h6 class=''alert-heading''>You message does not fulfill our basic requirenements!</h6>'
+                mark_safe('<h6 class=''alert-heading''>You message does not fulfill our basic requirements!</h6>'
                 '<p>Check that all fields are filled correctly.</p>'))
 
         return render(request, self.template_name, {"form": form })
