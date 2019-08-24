@@ -47,6 +47,7 @@ stages:
           tags: $(major).$(minor)
 
       - task: Docker@2
+        displayName: "Docker login"
         inputs:
           containerRegistry: 'docker_hub'
           command: 'login'
@@ -58,5 +59,6 @@ stages:
           containerRegistry: 'docker_hub'
           repository: $(dockerId)/$(imageName)
           command: 'push'
-      
+          tags: $(major).$(minor)
+
 # TODO: take picture from output and commit it to docs directory
