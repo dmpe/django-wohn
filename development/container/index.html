@@ -573,29 +573,29 @@
 <h2 id="1-prepare-your-vm">1. Prepare your VM<a class="headerlink" href="#1-prepare-your-vm" title="Permanent link">&para;</a></h2>
 <p>On (close to any) cloud provider, create a VM and use <code>cloud-init</code> <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a> commands to install required applications right during the initial setup.</p>
 <p>This should already include major components like Docker daemon.</p>
-<div class="codehilite"><pre><span></span>#include https://get.docker.com
-package_update: true
-package_upgrade: true
+<div class="codehilite"><pre><span></span><span class="c1">#include https://get.docker.com</span>
+package_update: <span class="nb">true</span>
+package_upgrade: <span class="nb">true</span>
 packages:
   - git
   - curl
   - python3-pip
 runcmd:
-  - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+  - curl -sL https://deb.nodesource.com/setup_12.x <span class="p">|</span> sudo -E bash -
   - apt install -y nodejs
-  - curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  - echo &quot;deb https://dl.yarnpkg.com/debian/ stable main&quot; | sudo tee /etc/apt/sources.list.d/yarn.list
+  - curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg <span class="p">|</span> sudo apt-key add -
+  - <span class="nb">echo</span> <span class="s2">&quot;deb https://dl.yarnpkg.com/debian/ stable main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/yarn.list
   - apt update
   - apt install -y yarn
-  - [sh, -c, &#39;sudo curl -L https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep &quot;tag_name&quot; | cut -d \&quot; -f4)/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose&#39;]
-  - [sh, -c, &#39;sudo chmod +x /usr/local/bin/docker-compose&#39;]
-final_message: &quot;The system is finally up, after $UPTIME seconds&quot;
+  - <span class="o">[</span>sh, -c, <span class="s1">&#39;sudo curl -L https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep &quot;tag_name&quot; | cut -d \&quot; -f4)/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose&#39;</span><span class="o">]</span>
+  - <span class="o">[</span>sh, -c, <span class="s1">&#39;sudo chmod +x /usr/local/bin/docker-compose&#39;</span><span class="o">]</span>
+final_message: <span class="s2">&quot;The system is finally up, after </span><span class="nv">$UPTIME</span><span class="s2"> seconds&quot;</span>
 </pre></div>
 
 <h2 id="2-new-docker-volume-for-each-container">2. New docker volume for <strong>each</strong> container<a class="headerlink" href="#2-new-docker-volume-for-each-container" title="Permanent link">&para;</a></h2>
 <p>Once installed, you need to have persistent volumes for images on a separate hard disk - in case your VM crashes, or you need to change VM's OS hard disk.</p>
 <p>The command below already assumes that a data disk has been mounted &amp; properly setup in VM.</p>
-<div class="codehilite"><pre><span></span>docker volume create --driver local --opt type=none --opt device=/datadrive/_name_of_container --opt o=bind datadrive_name_of_container
+<div class="codehilite"><pre><span></span>docker volume create --driver <span class="nb">local</span> --opt <span class="nv">type</span><span class="o">=</span>none --opt <span class="nv">device</span><span class="o">=</span>/datadrive/_name_of_container --opt <span class="nv">o</span><span class="o">=</span><span class="nb">bind</span> datadrive_name_of_container
 </pre></div>
 
 <h2 id="3-launch-docker-containers">3. Launch docker containers<a class="headerlink" href="#3-launch-docker-containers" title="Permanent link">&para;</a></h2>
@@ -603,7 +603,7 @@ final_message: &quot;The system is finally up, after $UPTIME seconds&quot;
 <li>Clone this repo and cd' into it</li>
 </ol>
 <div class="codehilite"><pre><span></span>git clone https://github.com/dmpe/django-wohn .
-cd django-wohn
+<span class="nb">cd</span> django-wohn
 git switch server-config
 git status
 </pre></div>

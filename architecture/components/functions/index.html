@@ -558,12 +558,11 @@
                 
                 <h1 id="azure-functions">Azure Functions<a class="headerlink" href="#azure-functions" title="Permanent link">&para;</a></h1>
 <p>We used <strong>Azure Functions</strong> to react or trigger events (functions) for some tasks, namely:</p>
-<div class="codehilite"><pre><span></span>- Getting forex exchange data from (central) banks and storing them in the database.
-- When creating real estate posting, user can send pictures via email (instead of uploading them).
-- [See GitHub issue](https://github.com/dmpe/django-wohn/issues/7) for more ideas.
-</pre></div>
-
-
+<ul>
+<li>Getting forex exchange data from (central) banks and storing them in the database.</li>
+<li>When creating real estate posting, user can send pictures via email (instead of uploading them).</li>
+<li><a href="https://github.com/dmpe/django-wohn/issues/7">See GitHub issue</a> for more ideas.</li>
+</ul>
 <p><strong>Consumption plan</strong> should be enough.
 Though a premium plan which enables to use full docker images can be better due to large Python3 dependencies.</p>
 <h2 id="our-branch">Our Branch<a class="headerlink" href="#our-branch" title="Permanent link">&para;</a></h2>
@@ -584,8 +583,8 @@ Though a premium plan which enables to use full docker images can be better due 
 <h3 id="1-pyenv">1. Pyenv<a class="headerlink" href="#1-pyenv" title="Permanent link">&para;</a></h3>
 <p>Use <code>pyenv</code> in this worktree. Execute in the root:</p>
 <div class="codehilite"><pre><span></span>git switch azure-functions
-pyenv install 3.6.9 # Azure is currently compatible only with Python 3.6
-pyenv local 3.6.9
+pyenv install <span class="m">3</span>.6.9 <span class="c1"># Azure is currently compatible only with Python 3.6</span>
+pyenv <span class="nb">local</span> <span class="m">3</span>.6.9
 </pre></div>
 
 <h3 id="2-start-docker-and-build-dockerfile">2. Start Docker and Build Dockerfile<a class="headerlink" href="#2-start-docker-and-build-dockerfile" title="Permanent link">&para;</a></h3>

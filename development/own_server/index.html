@@ -579,7 +579,7 @@ See heroku page as well.</p>
 </pre></div>
 
 <p>Then, execute on remote server following commands whenever Django model(s) change.</p>
-<div class="codehilite"><pre><span></span>python3 manage.py makemigrations &lt;model&gt; &amp;&amp; python3 manage.py migrate &amp;&amp; sudo systemctl restart gunicorn.service
+<div class="codehilite"><pre><span></span>python3 manage.py makemigrations &lt;model&gt; <span class="o">&amp;&amp;</span> python3 manage.py migrate <span class="o">&amp;&amp;</span> sudo systemctl restart gunicorn.service
 </pre></div>
 
 <p>After git commit &amp; push to the server, you can also use a special post-receive hook <a href="https://gist.github.com/lemiorhan/8912188">https://gist.github.com/lemiorhan/8912188</a>.</p>
@@ -615,7 +615,7 @@ See heroku page as well.</p>
 <li><a href="https://stackoverflow.com/a/12900126/2171456">https://stackoverflow.com/a/12900126/2171456</a></li>
 </ul>
 <p>First install <code>RabbitMQ</code> (message broker), then <code>Celery</code> ("worker").</p>
-<div class="codehilite"><pre><span></span>sudo rabbitmq-plugins enable rabbitmq_management
+<div class="codehilite"><pre><span></span>sudo rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management
 sudo rabbitmqctl add_user jm password
 sudo rabbitmqctl set_user_tags jm administrator
 </pre></div>
@@ -629,7 +629,7 @@ celery -A vanoce worker -l info
 fetching forex/currency data are run immediately.</p>
 <div class="codehilite"><pre><span></span>python3 manage.py shell
 from userMng.third_party_services.celery_tasks import parse_forex_data
-rst = parse_forex_data.apply()
+<span class="nv">rst</span> <span class="o">=</span> parse_forex_data.apply<span class="o">()</span>
 </pre></div>
                 
                   
