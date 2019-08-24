@@ -448,8 +448,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../development/container/" title="Primary tools to run this application" class="md-nav__link">
-      Primary tools to run this application
+    <a href="../../../development/container/" title="Container" class="md-nav__link">
+      Container
     </a>
   </li>
 
@@ -472,8 +472,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../development/own_server/" title="Own server" class="md-nav__link">
-      Own server
+    <a href="../../../development/own_server/" title="Own Server" class="md-nav__link">
+      Own Server
     </a>
   </li>
 
@@ -553,10 +553,10 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dmpe/django-wohn/edit/gh-pages/docs/architecture/components/functions.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/dmpe/django-wohn/edit/docs/docs/architecture/components/functions.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="azure-functions">Azure Functions</h1>
+                <h1 id="azure-functions">Azure Functions<a class="headerlink" href="#azure-functions" title="Permanent link">&para;</a></h1>
 <p>We used <strong>Azure Functions</strong> to react or trigger events (functions) for some tasks, namely:</p>
 <div class="codehilite"><pre><span></span>- Getting forex exchange data from (central) banks and storing them in the database.
 - When creating real estate posting, user can send pictures via email (instead of uploading them).
@@ -565,22 +565,30 @@
 
 
 <p><strong>Consumption plan</strong> should be enough.
-Though a premium plan which enables to use full docker images can be better due to large Python3 dependancies.</p>
-<h2 id="our-branch">Our Branch</h2>
+Though a premium plan which enables to use full docker images can be better due to large Python3 dependencies.</p>
+<h2 id="our-branch">Our Branch<a class="headerlink" href="#our-branch" title="Permanent link">&para;</a></h2>
 <p>The branch with Azure functions: <code>azure-functions</code>, see <a href="https://github.com/dmpe/django-wohn/tree/azure-functions">link here</a>.</p>
-<h2 id="build">Build</h2>
-<p>Source:
-- <a href="https://docs.microsoft.com/de-de/azure/azure-functions/functions-reference-python">https://docs.microsoft.com/de-de/azure/azure-functions/functions-reference-python</a>
-- <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image">https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image</a>
-- <a href="https://amaral.northwestern.edu/resources/guides/pyenv-tutorial">https://amaral.northwestern.edu/resources/guides/pyenv-tutorial</a></p>
-<h3 id="1-pyenv">1. Pyenv</h3>
+<h2 id="build">Build<a class="headerlink" href="#build" title="Permanent link">&para;</a></h2>
+<p>Sources:</p>
+<ul>
+<li>
+<p><a href="https://docs.microsoft.com/de-de/azure/azure-functions/functions-reference-python">https://docs.microsoft.com/de-de/azure/azure-functions/functions-reference-python</a></p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image">https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-linux-custom-image</a></p>
+</li>
+<li>
+<p><a href="https://amaral.northwestern.edu/resources/guides/pyenv-tutorial">https://amaral.northwestern.edu/resources/guides/pyenv-tutorial</a></p>
+</li>
+</ul>
+<h3 id="1-pyenv">1. Pyenv<a class="headerlink" href="#1-pyenv" title="Permanent link">&para;</a></h3>
 <p>Use <code>pyenv</code> in this worktree. Execute in the root:</p>
 <div class="codehilite"><pre><span></span>git switch azure-functions
 pyenv install 3.6.9 # Azure is currently compatible only with Python 3.6
 pyenv local 3.6.9
 </pre></div>
 
-<h3 id="2-start-docker-and-build-dockerfile">2. Start Docker and Build Dockerfile</h3>
+<h3 id="2-start-docker-and-build-dockerfile">2. Start Docker and Build Dockerfile<a class="headerlink" href="#2-start-docker-and-build-dockerfile" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>sudo systemctl start docker
 func azure functionapp publish django-wohn --build-native-deps
 </pre></div>
@@ -619,13 +627,13 @@ func azure functionapp publish django-wohn --build-native-deps
           </a>
         
         
-          <a href="../../../development/container/" title="Primary tools to run this application" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../../development/container/" title="Container" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Primary tools to run this application
+                Container
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

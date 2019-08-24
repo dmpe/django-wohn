@@ -42,7 +42,7 @@
     
     
       
-        <title>Own server - Melive.xyz Documentation</title>
+        <title>Own Server - Melive.xyz Documentation</title>
       
     
     
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#1-deploy-to-own-server" tabindex="1" class="md-skip">
+      <a href="#own-server" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -117,7 +117,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Own server
+                Own Server
               
             </span>
           
@@ -381,8 +381,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../container/" title="Primary tools to run this application" class="md-nav__link">
-      Primary tools to run this application
+    <a href="../container/" title="Container" class="md-nav__link">
+      Container
     </a>
   </li>
 
@@ -410,18 +410,22 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Own server
+        Own Server
       </label>
     
-    <a href="./" title="Own server" class="md-nav__link md-nav__link--active">
-      Own server
+    <a href="./" title="Own Server" class="md-nav__link md-nav__link--active">
+      Own Server
     </a>
     
       
 <nav class="md-nav md-nav--secondary">
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
@@ -436,8 +440,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-superuser" title="Create superuser" class="md-nav__link">
-    Create superuser
+  <a href="#create-django-superuser" title="Create Django superuser" class="md-nav__link">
+    Create Django superuser
   </a>
   
 </li>
@@ -455,8 +459,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-common-issues" title="2. Common issues" class="md-nav__link">
-    2. Common issues
+  <a href="#2-some-common-issues" title="2. Some common issues" class="md-nav__link">
+    2. Some common issues
   </a>
   
 </li>
@@ -498,6 +502,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -511,8 +517,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-superuser" title="Create superuser" class="md-nav__link">
-    Create superuser
+  <a href="#create-django-superuser" title="Create Django superuser" class="md-nav__link">
+    Create Django superuser
   </a>
   
 </li>
@@ -530,8 +536,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-common-issues" title="2. Common issues" class="md-nav__link">
-    2. Common issues
+  <a href="#2-some-common-issues" title="2. Some common issues" class="md-nav__link">
+    2. Some common issues
   </a>
   
 </li>
@@ -559,34 +565,33 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dmpe/django-wohn/edit/gh-pages/docs/development/own_server.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/dmpe/django-wohn/edit/docs/docs/development/own_server.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Own server</h1>
-                
-                <p>Before I have switched to container based CI/CD, I have installed everything on server myself...</p>
+                <h1 id="own-server">Own Server<a class="headerlink" href="#own-server" title="Permanent link">&para;</a></h1>
+<p>Before I have switched to container based, CI/CD workflow, I have installed everything needed on my server myself...</p>
 <p>Some important components are located in <code>services/own_server</code>.
 See heroku page as well.</p>
-<p>To install pgadmin4, follow <a href="https://www.pgadmin.org/docs/pgadmin4/4.x/server_deployment.html">https://www.pgadmin.org/docs/pgadmin4/4.x/server_deployment.html</a></p>
-<h2 id="1-deploy-to-own-server">1. Deploy to own server</h2>
-<h3 id="create-superuser">Create superuser</h3>
+<p>To install pgadmin4, follow <a href="https://www.pgadmin.org/docs/pgadmin4/4.x/server_deployment.html">https://www.pgadmin.org/docs/pgadmin4/4.x/server_deployment.html</a> guideline.</p>
+<h2 id="1-deploy-to-own-server">1. Deploy to own server<a class="headerlink" href="#1-deploy-to-own-server" title="Permanent link">&para;</a></h2>
+<h3 id="create-django-superuser">Create Django superuser<a class="headerlink" href="#create-django-superuser" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>python3 manage.py createsuperuser --username admin --email ci@se.cz
 </pre></div>
 
-<p>Then, execute on remote server following commands whenever models change.</p>
-<div class="codehilite"><pre><span></span>python3 manage.py makemigrations core &amp;&amp; python3 manage.py makemigrations userMng &amp;&amp; python3 manage.py migrate &amp;&amp; sudo systemctl restart gunicorn.service
+<p>Then, execute on remote server following commands whenever Django model(s) change.</p>
+<div class="codehilite"><pre><span></span>python3 manage.py makemigrations &lt;model&gt; &amp;&amp; python3 manage.py migrate &amp;&amp; sudo systemctl restart gunicorn.service
 </pre></div>
 
-<p>After pushing a commit to the server, see a special post-receive hook <a href="https://gist.github.com/lemiorhan/8912188">https://gist.github.com/lemiorhan/8912188</a> too.</p>
-<h3 id="setup-git-repo-with-post-receive-hook">Setup Git Repo with post-receive hook</h3>
-<p>The goal was to use AWS Cloud9 IDE to push -- on the same server (username@domain:/home/username/domain_push.git) -- to the git repository which acts as deployment repo.</p>
-<p>Today, this is totally obsolete which VS Code (remote development or Eclipse Che) for instance.</p>
+<p>After git commit &amp; push to the server, you can also use a special post-receive hook <a href="https://gist.github.com/lemiorhan/8912188">https://gist.github.com/lemiorhan/8912188</a>.</p>
+<h3 id="setup-git-repo-with-post-receive-hook">Setup Git Repo with post-receive hook<a class="headerlink" href="#setup-git-repo-with-post-receive-hook" title="Permanent link">&para;</a></h3>
+<p>At certain point of time, the goal was to use AWS Cloud9 IDE to edit <strong>and</strong> push -- on the same server (username@domain:/home/username/domain_push.git) -- to the git repository, from which website was "deployment" (aka gunicorn restarted).</p>
+<p>Today, this is totally obsolete with VS Code (remote development or Eclipse Che) for instance.</p>
 <ul>
 <li>See this guide <a href="https://stackoverflow.com/a/40479963">https://stackoverflow.com/a/40479963</a></li>
-<li>E.g. for AWS Cloud9 IDE, first clone this repo somewhere</li>
-<li>Create a new bare repo which is used for pushing and in it, add/register aforementioned <code>post-recieve</code> hook.</li>
+<li>E.g. for AWS Cloud9 IDE, first clone git repo somewhere</li>
+<li>Then create a new <strong>bare</strong> repo which is used for pushing to it and now you have to add/register aforementioned <code>post-recieve</code> hook.</li>
 </ul>
-<h2 id="2-common-issues">2. Common issues</h2>
+<h2 id="2-some-common-issues">2. Some common issues<a class="headerlink" href="#2-some-common-issues" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Start Django manually</li>
 </ul>
@@ -603,15 +608,19 @@ See heroku page as well.</p>
 <li>Nginx 502 gateway issue after VM reboot</li>
 </ul>
 <p>Just <strong>restart</strong> nginx, then <code>sudo systemctl restart gunicorn.service</code> as well as stop that socket thing</p>
-<h2 id="3-run-celery-and-rabbitmq-management-ui">3. Run Celery and RabbitMQ Management UI</h2>
-<p>// TODO: Could be moved to Azure Functions</p>
-<p>First install <code>RabbitMQ</code>, then <code>Celery</code>.</p>
+<h2 id="3-run-celery-and-rabbitmq-management-ui">3. Run Celery and RabbitMQ Management UI<a class="headerlink" href="#3-run-celery-and-rabbitmq-management-ui" title="Permanent link">&para;</a></h2>
+<p>(This could have been moved to Azure Functions for example.)</p>
+<p>Source:</p>
+<ul>
+<li><a href="https://stackoverflow.com/a/12900126/2171456">https://stackoverflow.com/a/12900126/2171456</a></li>
+</ul>
+<p>First install <code>RabbitMQ</code> (message broker), then <code>Celery</code> ("worker").</p>
 <div class="codehilite"><pre><span></span>sudo rabbitmq-plugins enable rabbitmq_management
 sudo rabbitmqctl add_user jm password
 sudo rabbitmqctl set_user_tags jm administrator
 </pre></div>
 
-<p>Run <code>Celery</code> from b40re directory using</p>
+<p>Run <code>Celery</code> from <code>b40re</code> directory using:</p>
 <div class="codehilite"><pre><span></span>sudo systemctl restart rabbitmq&lt;TAB&gt;
 celery -A vanoce worker -l info
 </pre></div>
@@ -622,8 +631,6 @@ fetching forex/currency data are run immediately.</p>
 from userMng.third_party_services.celery_tasks import parse_forex_data
 rst = parse_forex_data.apply()
 </pre></div>
-
-<p>Source: <a href="https://stackoverflow.com/a/12900126/2171456">https://stackoverflow.com/a/12900126/2171456</a></p>
                 
                   
                 
