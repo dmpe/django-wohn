@@ -39,7 +39,6 @@ services:
         depends_on:
           - postgres
           - pgadmin
-        #  - rabbit
         networks:
           - default
           - traefik_proxy
