@@ -1,0 +1,6 @@
+.*
+*.yml
+test*
+*.md
+*.properties
+LICENSE
