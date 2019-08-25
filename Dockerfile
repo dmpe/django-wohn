@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:3-slim
 LABEL author="John Malc <cincenko@outlook.com>"
 
 ENV PYTHONDONTWRITEBYTECODE 1
