@@ -44,7 +44,9 @@ stages:
           repository: $(dockerId)/$(imageName)
           command: 'build'
           Dockerfile: 'Dockerfile'
-          tags: $(major).$(minor)
+          tags: |
+            $(major).$(minor)
+            latest
 
       - task: Docker@2
         displayName: "Docker login"
@@ -54,11 +56,14 @@ stages:
 
       - task: Docker@2
         displayName: "Push to Docker Hub"
+        # only push on master branch, i.e. when PR is merged
         # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         inputs:
           containerRegistry: 'docker_hub'
           repository: $(dockerId)/$(imageName)
           command: 'push'
-          tags: $(major).$(minor)
+          tags: |
+            $(major).$(minor)
+            latest
 
 # TODO: take picture from output and commit it to docs directory
