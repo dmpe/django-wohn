@@ -105,7 +105,7 @@ services:
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
           - ~/.docker/config.json:/config.json
-        command: --interval 60
+        command: --interval 60 --debug true
         labels:
           - "traefik.enable=false"
           - "traefik.backend=watchtower"
