@@ -28,20 +28,6 @@ services:
           - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
           - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 
-    # nginx:
-    #     image: nginx:latest
-    #     container_name: nginx
-    #     volumes:
-    #       - ./server_config/services/nginx/nginx.conf:/etc/nginx/nginx.conf
-    #       - ./server_config/domain/acme-webroot:/usr/share/nginx/html
-    #     ports:
-    #       - 8000:80
-          # networks:
-          #   - default
-          #   - traefik_proxy
-    #     depends_on:
-    #       - djangoWohn
-
     djangoWohn:
         image: f789gh/django-wohn:latest
         container_name: djangoWohn
@@ -125,30 +111,6 @@ services:
           - "traefik.backend=watchtower"
           - "traefik.port=7884"
 
-    rabbit:
-        hostname: rabbit
-        container_name: rabbit
-        image: rabbitmq:3-management
-        environment:
-          - RABBITMQ_DEFAULT_USER=admin
-          - RABBITMQ_DEFAULT_PASS=123456
-        ports:
-          - "5672:5672"    # we forward this port because it's useful for debugging
-          - "15672:15672"  # here, we can access rabbitmq management plugin
-        networks:
-          - default
-          - traefik_proxy
-        volumes:
-          - datadrive_rabbit:/data
-        labels:
-          - "traefik.enable=true"
-          - "traefik.backend=rabbit"
-          - "traefik.port=5672"
-          # add a segment label for 2nd port
-          - "traefik.mngm.backend=rabbit-management"
-          - "traefik.mngm.port=15672"
-          - "traefik.mngm.frontend.rule=Host:rabbit.melive.xyz,www.rabbit.melive.xyz"
-
     portainer:
         image: portainer/portainer:latest
         container_name: portainer
@@ -183,6 +145,4 @@ volumes:
   datadrive_pgadmin:
     external: true
   datadrive_django:
-    external: true
-  datadrive_rabbit:
     external: true
