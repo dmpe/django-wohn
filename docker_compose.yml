@@ -85,8 +85,8 @@ services:
           - default
           - traefik_proxy
         volumes:
-          - datadrive_pgadmin:/var/lib/pgadmin
           - ./services/containers/pgadmin:/var/lib/pgadmin
+          - datadrive_pgadmin:/var/lib/pgadmin
         labels:
           - "traefik.enable=true"
           - "traefik.backend=pgadmin"
