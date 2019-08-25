@@ -8,6 +8,9 @@ RUN mkdir -p /wohn
 WORKDIR /wohn
 ADD . /wohn
 
+RUN apt update && apt install -y software-properties-common \
+      tree build-essential
+
 RUN pip install -r requirenments.txt
 EXPOSE 8000 8123
 
