@@ -60,7 +60,7 @@ class ExchangeRate(models.Model):
 	OneEurUsd = models.DecimalField("1 EUR - USD", max_digits=7, decimal_places=3)
 	OneUsdCzk = models.DecimalField("1 USD - CZK", max_digits=7, decimal_places=3)
 
-class MyUserManager(UserManager):
+class MyUserManager(models.UserManager):
 
 	def return_profile_image(self, email):
 		"""
@@ -93,7 +93,7 @@ class MyUserManager(UserManager):
 
 		return property_count
 
-class myUser(AbstractUser):
+class myUser(models.AbstractUser):
 	# email, username, first and last name are unnecessary
 	GENDER_CHOICES = (
 		('M', 'Mr.'),
