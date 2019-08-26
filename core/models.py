@@ -7,7 +7,7 @@ import uuid
 # for time related tasks, incl. timezone
 import pytz
 from django.conf import *
-from django.contrib.auth import *
+from django.contrib.auth.models import AbstractUser, UserManager
 from django.db import *
 from django.utils.safestring import *
 
@@ -60,7 +60,7 @@ class ExchangeRate(models.Model):
 	OneEurUsd = models.DecimalField("1 EUR - USD", max_digits=7, decimal_places=3)
 	OneUsdCzk = models.DecimalField("1 USD - CZK", max_digits=7, decimal_places=3)
 
-class MyUserManager(models.UserManager):
+class MyUserManager(UserManager):
 
 	def return_profile_image(self, email):
 		"""
@@ -93,7 +93,7 @@ class MyUserManager(models.UserManager):
 
 		return property_count
 
-class myUser(models.AbstractUser):
+class myUser(AbstractUser):
 	# email, username, first and last name are unnecessary
 	GENDER_CHOICES = (
 		('M', 'Mr.'),
