@@ -31,10 +31,10 @@ ENV = client.get_secret("https://b40.vault.azure.net/", "DJANGO-ENV", "baf42a60c
 
 base_settings = [
   # standard django settings
-  '/components/common.py',
+  'components/common.py',
 
   # Select the right env:
-  '/environments/%s.py' % ENV,
+  'environments/%s.py' % ENV,
 
   # Optionally override some settings:
   # optional('environments/local.py'),

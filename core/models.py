@@ -7,8 +7,7 @@ import uuid
 # for time related tasks, incl. timezone
 import pytz
 from django.conf import *
-from django.contrib.auth import get_user_model
-from django.contrib.auth.models import *
+from django.contrib.auth import *
 from django.db import *
 from django.utils.safestring import *
 
@@ -27,16 +26,16 @@ class Property(models.Model):
 	property_created = models.DateTimeField(auto_now_add = True) # will not display
 
 	property_offered_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-	
+
 	# Characteristics for each house and apartment
 	property_rooms = models.IntegerField()
 	# do not delete because part of US/Metric if else switch
 	property_size_in_sq_meters = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True)
-	property_size_in_sq_foot = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True) 
+	property_size_in_sq_foot = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True)
 	# used for calculated prices, same principle
-	property_price_in_eur = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True) 
-	property_price_in_czk = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True) 
-	property_price_in_usd = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True) 
+	property_price_in_eur = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True)
+	property_price_in_czk = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True)
+	property_price_in_usd = models.DecimalField(max_digits=7, decimal_places=2, null = True, blank = True)
 
 	class Meta:
 		verbose_name_plural = "properties"
@@ -53,14 +52,14 @@ class ExchangeRate(models.Model):
 	"""
 	parse_forex_data in misc.py
 	Q: are we going to calculate forex dynamically via JS or we need to
-	store all there pairs. Does user have the capability to put 
+	store all there pairs. Does user have the capability to put
 	different number ?
 	"""
 	today = models.DateField("Today's Date", auto_now_add=True) # will not display
 	OneEurCzk = models.DecimalField("1 EUR - CZK", max_digits=7, decimal_places=3)
 	OneEurUsd = models.DecimalField("1 EUR - USD", max_digits=7, decimal_places=3)
 	OneUsdCzk = models.DecimalField("1 USD - CZK", max_digits=7, decimal_places=3)
-	
+
 class MyUserManager(UserManager):
 
 	def return_profile_image(self, email):
@@ -68,9 +67,9 @@ class MyUserManager(UserManager):
 		This functions takes user_profile_image = models.ImageField and adds gravatar logic to it as well
 		1 fetch "user uploaded pictire", if none then use gravatar function
 		"""
-		pass		
+		pass
 		# if():
-		# 	avatar_profile = 
+		# 	avatar_profile =
 		# else:
 		# 	avatar_profile = fetch_gravatar(email=email)
 		# return avatar_profile
@@ -105,11 +104,11 @@ class myUser(AbstractUser):
 	user_int_tel = PhoneNumberField(blank = True, null = True)
 	user_timezone = TimeZoneField(default = settings.TIME_ZONE)
 	user_country = CountryField(default = "CZ")
-	
-	# using a function here 
+
+	# using a function here
 	user_profile_image = models.ImageField(upload_to = upload_profile_image, blank = True,
 		null = True)
-	
+
 	UNITS_SYSTEM = (
 		('Imperial', 'Imperial'),
 		('Metric', 'Metric'),
@@ -120,11 +119,11 @@ class myUser(AbstractUser):
 		('VFN', 'First name'),
 		('VLN', 'Last name'),
 	)
-	user_first_lastname_visibility = models.CharField(max_length=3, choices = NAME_VISIBILITY, 
+	user_first_lastname_visibility = models.CharField(max_length=3, choices = NAME_VISIBILITY,
 		null = True, default = "VFN")
 
 	objects = MyUserManager()
-	
+
 	# username and email must always be unique
 	class Meta:
 		unique_together = (("email"),)

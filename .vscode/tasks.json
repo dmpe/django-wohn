@@ -1,0 +1,25 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "isort",
+        "type": "shell",
+        "command": "isort -rc .",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      },
+      {
+        "label": "Docker build",
+        "type": "shell",
+        "command": "docker build -t dj-wohn .",
+        "group": {
+          "kind": "test",
+          "isDefault": true
+        }
+      }
+    ]
+}

@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'crispy_forms',
     'widget_tweaks',
-    'markdownx',
     'timezone_field',
     'django_countries',
     'rest_framework',

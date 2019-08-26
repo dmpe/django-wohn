@@ -12,4 +12,4 @@ RUN pip install -r requirenments.txt
 EXPOSE 8000 8123
 
 RUN chmod +x start_django.sh
-CMD ["./start_django.sh"]
+ENTRYPOINT ["./start_django.sh"]
