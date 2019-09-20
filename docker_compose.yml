@@ -28,25 +28,25 @@ services:
           - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
           - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 
-    djangoWohn:
-        image: f789gh/django-wohn:latest
-        container_name: djangoWohn
-        volumes:
-          - datadrive_django:/work
-        restart: always
-        ports:
-          - 8123:8123
-        depends_on:
-          - postgres
-          - pgadmin
-        networks:
-          - default
-          - traefik_proxy
-        labels:
-         - "traefik.enable=true"
-         - "traefik.backend=djangoWohn"
-         - "traefik.port=8123"
-         - "traefik.frontend.rule=Host:melive.xyz,www.melive.xyz"
+    # djangoWohn:
+    #     image: f789gh/django-wohn:latest
+    #     container_name: djangoWohn
+    #     volumes:
+    #       - datadrive_django:/work
+    #     restart: always
+    #     ports:
+    #       - 8123:8123
+    #     depends_on:
+    #       - postgres
+    #       - pgadmin
+    #     networks:
+    #       - default
+    #       - traefik_proxy
+    #     labels:
+    #      - "traefik.enable=true"
+    #      - "traefik.backend=djangoWohn"
+    #      - "traefik.port=8123"
+    #      - "traefik.frontend.rule=Host:melive.xyz,www.melive.xyz"
 
 # https://hub.docker.com/_/postgres
     postgres:
