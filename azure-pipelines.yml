@@ -37,6 +37,10 @@ stages:
 
       - task: SonarCloudAnalyze@1
 
+      - task: SonarCloudPublish@1
+        inputs:
+          pollingTimeoutSec: '300'
+
       - task: Docker@2
         displayName: "Build our Image now"
         inputs:
@@ -60,10 +64,9 @@ stages:
         # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         inputs:
           containerRegistry: 'docker_hub'
-          repository: $(dockerId)/$(imageName)
+          repository: '$(dockerId)/$(imageName)'
           command: 'push'
           tags: |
             $(major).$(minor)
             latest
-
 # TODO: take picture from output and commit it to docs directory
