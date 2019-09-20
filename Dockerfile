@@ -8,8 +8,11 @@ RUN mkdir -p /wohn
 WORKDIR /wohn
 ADD . /wohn
 
-RUN pip install -r requirenments.txt
+RUN apt update && apt install -y nano tree && \
+    pip install -r requirenments.txt && chmod +x start_django.sh
+
 EXPOSE 8000 8123
 
-RUN chmod +x start_django.sh
-ENTRYPOINT ["./start_django.sh"]
+# TODO: set entrypoint once container can start
+# ENTRYPOINT ["./start_django.sh"]
+CMD ["./start_django.sh"]
