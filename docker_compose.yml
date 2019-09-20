@@ -5,7 +5,7 @@ version: '3.7'
 # https://api.ovh.com/console/#/auth/credential#POST
 services:
     traefik:
-        image: traefik:latest
+        image: traefik:1.7
         command: --api --docker
         container_name: traefik
         ports:
