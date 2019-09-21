@@ -64,3 +64,14 @@ git status
 ```
 
 2. Start `docker-compose -f docker-compose.yaml up (-d)`
+
+### Test your Django-Wohn image
+
+During development phase, you may encounter that your image does not work properly.
+For example it does not start or you need to develop something locally.
+
+For that case, you can push image to DockerHub, download it on your server VM and from there execute:
+
+```shell
+docker run -it f789gh/django-wohn:latest
+```
