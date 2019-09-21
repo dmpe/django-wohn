@@ -14,27 +14,26 @@ To change settings file: `DJANGO_ENV=production python manage.py runserver`
 
 """
 from os import environ
-
 from azure.common.credentials import ServicePrincipalCredentials
-from azure.keyvault import KeyVaultAuthentication, KeyVaultClient
 from msrestazure.azure_active_directory import MSIAuthentication
+from azure.keyvault import KeyVaultAuthentication, KeyVaultClient
+
+from dotenv import load_dotenv
 
 from split_settings.tools import include, optional
 
-credentials = None
+from backend.custom_azure import AzureConnection
 
-# Retrieve secret key value/other credentials
-credentials = MSIAuthentication(resource='https://vault.azure.net')
-client = KeyVaultClient(credentials)
-
-ENV = client.get_secret("https://b40.vault.azure.net/", "DJANGO-ENV", "baf42a60cc1e4b588831fba2c9f2ce50").value or 'development'
+azCon = AzureConnection()
+print("test")
+print(azCon.env)
 
 base_settings = [
   # standard django settings
   'components/common.py',
 
   # Select the right env:
-  'environments/%s.py' % ENV,
+  'environments/%s.py' % azCon.env,
 
   # Optionally override some settings:
   # optional('environments/local.py'),
