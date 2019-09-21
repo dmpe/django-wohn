@@ -5,8 +5,8 @@ import urllib
 # for time related tasks, incl. timezone
 import pytz
 from django.conf import *
-from django.db import *
-from django.contrib.auth.models import AbstractUser, UserManager
+from django.db import models
+from django.contrib.auth.models import (AbstractUser, UserManager)
 from django.utils.safestring import *
 
 from django_countries.fields import *
