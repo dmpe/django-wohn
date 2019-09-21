@@ -17,7 +17,7 @@ from django.utils.http import *
 from django.utils.safestring import *
 from sendgrid import *
 from sendgrid.helpers.mail import *
-from werkzeug.useragents import *
+from werkzeug.useragents import UserAgent
 
 from ipware import get_client_ip
 
