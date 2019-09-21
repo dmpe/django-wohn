@@ -14,8 +14,8 @@ trigger:
 - pr
 
 stages:
-- stage: PrepareAndBuild
-  displayName: Prepare Docker Build
+- stage: PrepareBuildAndPush
+  displayName: Prepare Docker Build and push to DockerHub
   jobs:
     - job: BuildJob
       pool:
@@ -27,20 +27,6 @@ stages:
           KeyVaultName: 'b40'
           SecretsFilter: '*'
 # https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
-
-      - task: SonarCloudPrepare@1
-        displayName: "Connect to SonarCloud"
-        inputs:
-          SonarCloud: 'SonarCloud'
-          organization: 'dmpe-github'
-          scannerMode: 'CLI'
-          configMode: 'file'
-
-      - task: SonarCloudAnalyze@1
-
-      - task: SonarCloudPublish@1
-        inputs:
-          pollingTimeoutSec: '300'
 
       - task: Docker@2
         displayName: "Build our Image now"
@@ -70,4 +56,25 @@ stages:
           tags: |
             $(major).$(minor)
             latest
+
+- stage: SendToSonarQube
+  displayName: Run SonarQube scannerMode
+  jobs:
+    - job: ScanJob
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - task: SonarCloudPrepare@1
+        displayName: "Connect to SonarCloud"
+        inputs:
+          SonarCloud: 'SonarCloud'
+          organization: 'dmpe-github'
+          scannerMode: 'CLI'
+          configMode: 'file'
+
+      - task: SonarCloudAnalyze@1
+
+      - task: SonarCloudPublish@1
+        inputs:
+          pollingTimeoutSec: '300'
 # TODO: take picture from output and commit it to docs directory
