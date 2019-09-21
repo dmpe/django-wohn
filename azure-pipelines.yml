@@ -11,6 +11,7 @@ variables:
 # test all commits in Pull Re. which target master
 trigger:
 - master
+- pr
 
 stages:
 - stage: PrepareAndBuild
