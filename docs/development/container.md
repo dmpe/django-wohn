@@ -75,3 +75,5 @@ For that case, you can push image to DockerHub, download it on your server VM an
 ```shell
 docker run -it f789gh/django-wohn:latest
 ```
+
+Or wait until `watchtower` image will download latest version by itself.
