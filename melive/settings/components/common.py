@@ -17,9 +17,12 @@ from azure.keyvault import KeyVaultAuthentication, KeyVaultClient
 from django.contrib.messages import constants as message_constants
 from msrestazure.azure_active_directory import MSIAuthentication
 from sendgrid import *
+from backend.custom_azure import AzureConnection
 
-credentials = MSIAuthentication(resource='https://vault.azure.net')
-client = KeyVaultClient(credentials)
+azCon = AzureConnection()
+client = KeyVaultClient(azCon.credentials)
+print("test333333333333333")
+
 
 SOCIAL_AUTH_USER_MODEL = 'core.myUser'
 AUTH_USER_MODEL = 'core.myUser'

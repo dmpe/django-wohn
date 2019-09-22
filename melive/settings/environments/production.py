@@ -12,7 +12,7 @@ client = KeyVaultClient(credentials)
 #DEBUG = False
 
 SECRET_KEY = client.get_secret("https://b40.vault.azure.net/", "SECRET-KEY",
-      "98d11c2fddcd400c985e1ba61fa030bb").value
+    "98d11c2fddcd400c985e1ba61fa030bb").value
 
 DATABASES = {
   'default': {
