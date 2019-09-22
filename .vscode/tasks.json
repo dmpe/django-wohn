@@ -20,7 +20,7 @@
       {
         "label": "black",
         "type": "shell",
-        "command": "black ."
+        "command": "black . --target-version py37"
       },
       {
         "label": "flake8",

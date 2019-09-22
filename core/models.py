@@ -2,25 +2,25 @@ import hashlib
 
 # for gravatar URLs and user's profile image and its unique name
 import urllib
-
+import django
 # for time related tasks, incl. timezone
 import pytz
-from django.conf import *
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser, UserManager
 from django.db import models
 from django.utils.safestring import *
-from django_countries.fields import *
-from phonenumber_field.modelfields import *
-from timezone_field import *
+from django_countries.fields import CountryField
+from phonenumber_field.modelfields import PhoneNumberField
+from timezone_field import TimeZoneField, TimeZoneFormField
 
-from .mics import *
+from .mics import upload_profile_image
 
 
-class Property(models.Model):
+class Property(django.db.models.Model):
     """
-  Define each apartment, 1-to-n with Users
-  unit conversion --> https://pint.readthedocs.io/en/latest/
-  """
+    Define each apartment, 1-to-n with Users
+    unit conversion --> https://pint.readthedocs.io/en/latest/
+    """
 
     property_created = models.DateTimeField(auto_now_add=True)  # will not display
 
@@ -53,20 +53,21 @@ class Property(models.Model):
 
     def calculate_eur_czk():
         """
-    TODO
-    From eur to CZK
-    """
+        TODO
+        From eur to CZK
+        """
         exr_rat = ExchangeRate.objects.last()
         return exr_rat
 
 
 class ExchangeRate(models.Model):
     """
-  parse_forex_data in misc.py
-  Q: are we going to calculate forex dynamically via JS or we need to
-  store all there pairs. Does user have the capability to put
-  different number ?
-  """
+    parse_forex_data in misc.py
+
+    Q: are we going to calculate forex dynamically via JS or we need to
+    store all there pairs. Does user have the capability to put
+    different number ?
+    """
 
     today = models.DateField("Today's Date", auto_now_add=True)  # will not display
     OneEurCzk = models.DecimalField("1 EUR - CZK", max_digits=7, decimal_places=3)
@@ -75,11 +76,16 @@ class ExchangeRate(models.Model):
 
 
 class MyUserManager(UserManager):
+    """
+    New manager in town.
+    """
+
     def return_profile_image(self, email):
         """
-    This functions takes user_profile_image = models.ImageField and adds gravatar logic to it as well
-    1 fetch "user uploaded pictire", if none then use gravatar function
-    """
+        This functions takes user_profile_image = models.ImageField and adds gravatar logic to it as well
+
+        1 fetch "user uploaded pictire", if none then use gravatar function
+        """
         pass
         # if():
         #   avatar_profile =
@@ -89,10 +95,11 @@ class MyUserManager(UserManager):
 
     def fetch_gravatar(self, email, default="https://via.placeholder.com/150"):
         """
-    fetching gravatar image
-    https://en.gravatar.com/site/implement/images/python/
-    If none is found to be associated with the email adress, then default image is used
-    """
+        fetching gravatar image
+
+        https://en.gravatar.com/site/implement/images/python/
+        If none is found to be associated with the email adress, then default image is used
+        """
         size = 20
         gravatar_url = (
             "https://www.gravatar.com/avatar/"
@@ -104,6 +111,8 @@ class MyUserManager(UserManager):
         return gravatar_url
 
     def fetch_owners_properties_count(self, user_id):
+        """
+        """
         property_owner = myUser.objects.filter(pk=user_id).first()
         property_count = Property.objects.filter(
             property_offered_by=property_owner

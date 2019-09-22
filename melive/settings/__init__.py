@@ -12,7 +12,9 @@ To change settings file: `DJANGO_ENV=production python manage.py runserver`
 
 """
 from os import environ
+
 from split_settings.tools import include, optional
+
 from backend.az_connect import AzureConnection
 
 azCon = AzureConnection()
@@ -23,9 +25,7 @@ base_settings = [
     "environments/%s.py" % azCon.env,
     # standard django settings
     "components/common.py",
-
     # Optionally override some settings:
     # optional('environments/local.py'),
 ]
-print(azCon.env)
 include(*base_settings)

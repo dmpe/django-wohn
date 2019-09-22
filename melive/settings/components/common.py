@@ -9,14 +9,11 @@
 import logging
 import os
 
-from azure.common.credentials import ServicePrincipalCredentials
-
 # for Azure Key Vault
-from azure.keyvault import KeyVaultAuthentication, KeyVaultClient
+from azure.keyvault import KeyVaultClient
 
 # for bootstrap, to make message classes consistent with the framework
 from django.contrib.messages import constants as message_constants
-from msrestazure.azure_active_directory import MSIAuthentication
 from sendgrid import *
 
 from backend.az_connect import AzureConnection
@@ -25,8 +22,6 @@ from backend.az_storage import *
 azCon = AzureConnection()
 azCon.main()
 client = KeyVaultClient(azCon.credentials)
-print("test333333333333333")
-
 
 SOCIAL_AUTH_USER_MODEL = "core.myUser"
 AUTH_USER_MODEL = "core.myUser"
@@ -164,9 +159,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 WSGI_APPLICATION = "melive.wsgi.application"
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -196,8 +189,12 @@ AZURE_ACCOUNT_KEY = client.get_secret(
     "2c71faab5f684de88893557e09c24fbf",
 ).value
 
-DEFAULT_FILE_STORAGE = "backend.custom_azure.AzureMediaStorage"
-STATICFILES_STORAGE = "backend.custom_azure.AzureStaticStorage"
+# DEFAULT_FILE_STORAGE = "backend.az_storage.AzureMediaStorage"
+STATICFILES_STORAGE = "backend.az_storage.AzureStaticStorage"
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+# STATICFILES_STORAGE = 'backend.az_storage.AzureStaticStorage'
 
 MEDIA_LOCATION = "user-profile-photos"
 MEDIA_URL = "https://melivexyz5555.blob.core.windows.net/%s/" % MEDIA_LOCATION
