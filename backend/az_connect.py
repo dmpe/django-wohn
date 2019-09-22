@@ -57,7 +57,7 @@ class AzureConnection:
     def main(self):
         self.connection()
         self.devOrProd(localDev=False)
-        # print(self.env)
+        print(self.env)
 
 
 if __name__ == "__main__":

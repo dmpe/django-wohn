@@ -1,10 +1,14 @@
-# for Azure Key Vault
 from azure.keyvault import KeyVaultClient
 from storages.backends.azure_storage import AzureStorage
 from backend.az_connect import AzureConnection
 
+# for Azure Key Vault
+azCon = AzureConnection()
+azCon.main()
+client = KeyVaultClient(azCon.credentials)
 
-class AzureMediaStorage(AzureStorage, AzureConnection):
+
+class AzureMediaStorage(AzureStorage):
     """
     Replace with Azure Storage Account data
 
@@ -12,11 +16,6 @@ class AzureMediaStorage(AzureStorage, AzureConnection):
 
     The account key becomes a secret, fetched from Azure Key Vault
     """
-    print("testing grounds")
-    azCon = AzureConnection()
-    azCon.main()
-    client = KeyVaultClient(azCon.credentials)
-    print(client, azCon.credentials)
     account_name = "melivexyz5555"
     account_key = client.get_secret(
         "https://b40.vault.azure.net/",
@@ -27,17 +26,12 @@ class AzureMediaStorage(AzureStorage, AzureConnection):
     expiration_secs = None
 
 
-class AzureStaticStorage(AzureStorage, AzureConnection):
+class AzureStaticStorage(AzureStorage):
     """
     Same as previous class
 
     Used for statics files, e.g. css, js, etc.
     """
-    print("testing grounds 2")
-    azCon = AzureConnection()
-    azCon.main()
-    client = KeyVaultClient(azCon.credentials)
-    print(client, azCon.credentials)
     account_name = "melivexyz5555"
     account_key = client.get_secret(
         "https://b40.vault.azure.net/",

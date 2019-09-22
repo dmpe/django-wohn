@@ -182,24 +182,8 @@ COUNTRIES_FIRST = ["CZ", "SK"]
 COUNTRIES_FIRST_REPEAT = True
 COUNTRIES_FIRST_BREAK = "---------------"
 
-# Static files (CSS, JavaScript, Images)
-AZURE_ACCOUNT_KEY = client.get_secret(
-    "https://b40.vault.azure.net/",
-    "AZURE-ACCOUNT-KEY",
-    "2c71faab5f684de88893557e09c24fbf",
-).value
-
-# DEFAULT_FILE_STORAGE = "backend.az_storage.AzureMediaStorage"
+DEFAULT_FILE_STORAGE = "backend.az_storage.AzureMediaStorage"
 STATICFILES_STORAGE = "backend.az_storage.AzureStaticStorage"
-
-
-DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-# STATICFILES_STORAGE = 'backend.az_storage.AzureStaticStorage'
-
-MEDIA_LOCATION = "user-profile-photos"
-MEDIA_URL = "https://melivexyz5555.blob.core.windows.net/%s/" % MEDIA_LOCATION
-
-STATIC_URL = "https://melivexyz5555.blob.core.windows.net/"
 
 AZURE_EMULATED_MODE = False
 AZURE_OVERWRITE_FILES = True
