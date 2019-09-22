@@ -1,5 +1,6 @@
 from azure.keyvault import KeyVaultClient
 from storages.backends.azure_storage import AzureStorage
+
 from backend.az_connect import AzureConnection
 
 # for Azure Key Vault
@@ -16,6 +17,7 @@ class AzureMediaStorage(AzureStorage):
 
     The account key becomes a secret, fetched from Azure Key Vault
     """
+
     account_name = "melivexyz5555"
     account_key = client.get_secret(
         "https://b40.vault.azure.net/",
@@ -32,6 +34,7 @@ class AzureStaticStorage(AzureStorage):
 
     Used for statics files, e.g. css, js, etc.
     """
+
     account_name = "melivexyz5555"
     account_key = client.get_secret(
         "https://b40.vault.azure.net/",
