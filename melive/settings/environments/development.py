@@ -14,7 +14,6 @@
     https://docs.djangoproject.com/en/2.1/howto/static-files/
 """
 import os
-import sys
 
 SECRET_KEY = "ldj33(^$nibo($d939^(mc5k)#^!b6^4yr80_4iv-7_wtm5gvzwz"
 

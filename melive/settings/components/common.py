@@ -190,7 +190,8 @@ AZURE_OVERWRITE_FILES = True
 
 PHONENUMBER_DB_FORMAT = "E164"
 
-LOGIN_URL = "core:login"  # where is login page
+# where is login page
+LOGIN_URL = "core:login"
 LOGIN_REDIRECT_URL = "userMng:userMng_index"
 
 LOGOUT_REDIRECT_URL = "core:homepage"
@@ -230,8 +231,9 @@ SOCIAL_AUTH_FACEBOOK_SECRET = client.get_secret(
 ).value
 SOCIAL_AUTH_FACEBOOK_API_VERSION = "4.0"
 
-SOCIAL_AUTH_LOGIN_URL = "/administrace/"  # not same as LOGIN_URL !
-SOCIAL_AUTH_NEW_USER_REDIRECT_URL = "/administrace/profile"  # keep it dry
+# not same as LOGIN_URL !
+SOCIAL_AUTH_LOGIN_URL = "/administrace/"
+SOCIAL_AUTH_NEW_USER_REDIRECT_URL = "/administrace/profile"
 SOCIAL_AUTH_LOGIN_ERROR_URL = "404"
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = [
     "user_id",

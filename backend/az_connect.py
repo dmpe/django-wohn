@@ -6,7 +6,7 @@ from dotenv import find_dotenv, load_dotenv
 from msrestazure.azure_active_directory import MSIAuthentication
 
 
-class AzureConnection:
+class AzureConnection(object):
     """
     docstring for AzureConnection
     """
@@ -28,9 +28,6 @@ class AzureConnection:
         except Exception:
             print("MSIAuthentication: Check your development: local vs. Azure")
             load_dotenv(find_dotenv("secrets.env"))
-            # print(os.getenv("client_id"))
-            # print(os.getenv("secret"))
-            # print(os.getenv("tenant"))
 
             self.credentials = ServicePrincipalCredentials(
                 client_id=os.getenv("client_id"),
@@ -39,10 +36,10 @@ class AzureConnection:
             )
         return self.credentials
 
-    def devOrProd(self, localDev=False):
+    def dev_or_prod(self, local_dev=False):
         client = KeyVaultClient(self.credentials)
         try:
-            if localDev:
+            if local_dev:
                 self.env = client.get_secret(
                     "https://b40.vault.azure.net/",
                     "DJANGO-ENV",
@@ -56,7 +53,7 @@ class AzureConnection:
 
     def main(self):
         self.connection()
-        self.devOrProd(localDev=False)
+        self.dev_or_prod(local_dev=False)
         print(self.env)
 
 
