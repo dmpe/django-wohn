@@ -21,9 +21,14 @@ stages:
       pool:
         vmImage: 'ubuntu-latest'
       steps:
+      - task: Docker@2
+        displayName: "Docker login"
+        inputs:
+          containerRegistry: 'docker_hub'
+          command: 'login'
       - task: AzureKeyVault@1
         inputs:
-          azureSubscription: 'Azureprostudenty'
+          azureSubscription: 'Azure'
           KeyVaultName: 'b40'
           SecretsFilter: '*'
 # https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
@@ -38,12 +43,6 @@ stages:
           tags: |
             $(major).$(minor)
             latest
-
-      - task: Docker@2
-        displayName: "Docker login"
-        inputs:
-          containerRegistry: 'docker_hub'
-          command: 'login'
 
       - task: Docker@2
         displayName: "Push to Docker Hub"
