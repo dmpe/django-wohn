@@ -16,6 +16,7 @@ services:
         networks:
           - default
           - traefik_proxy
+          - exclusive-net
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
           - ./services/containers/traefik/traefik.toml:/traefik.toml
@@ -46,11 +47,12 @@ services:
         networks:
           - default
           - traefik_proxy
+          - exclusive-net
         labels:
          - "traefik.enable=true"
          - "traefik.backend=djangoWohn"
          - "traefik.port=8123"
-         - "traefik.docker.network=traefik_proxy"
+         - "traefik.docker.network=exclusive-net"
          - "traefik.frontend.rule=Host:melive.xyz,www.melive.xyz"
 
 # https://hub.docker.com/_/postgres
@@ -69,10 +71,12 @@ services:
         networks:
           - default
           - traefik_proxy
+          - exclusive-net
         labels:
           - "traefik.enable=false"
           - "traefik.backend=postgres"
           - "traefik.port=5432"
+          - "traefik.docker.network=exclusive-net"
 
 # https://hub.docker.com/r/dpage/pgadmin4/
     pgadmin:
@@ -146,6 +150,11 @@ networks:
       name: traefik_proxy
   default:
     driver: bridge
+  traefik_proxy:
+    external:
+      name: exclusive-net
+
+
 
 volumes:
   datadrive_postgress:
