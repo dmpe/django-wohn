@@ -3,6 +3,7 @@ from storages.backends.azure_storage import AzureStorage
 
 from backend.az_connect import AzureConnection
 
+# Execute AzCon class to return client class.
 # for Azure Key Vault
 azCon = AzureConnection()
 azCon.main()
@@ -11,11 +12,12 @@ client = KeyVaultClient(azCon.credentials)
 
 class AzureMediaStorage(AzureStorage):
     """
-    Replace with Azure Storage Account data
+    Fetch Azure Storage Account data.
 
-    Used for media files.
+    Used for uploading (static/media) files to Azure Blob Storage.
 
-    The account key becomes a secret, fetched from Azure Key Vault
+    An Azure Key Vault secret is fetched using AzureConnection class
+    and assigned to azure key variable.
     """
 
     account_name = "melivexyz5555"
@@ -30,7 +32,7 @@ class AzureMediaStorage(AzureStorage):
 
 class AzureStaticStorage(AzureStorage):
     """
-    Same as previous class
+    Same as previous class.
 
     Used for statics files, e.g. css, js, etc.
     """

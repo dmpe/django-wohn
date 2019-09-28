@@ -11,10 +11,8 @@ class AzureConnection(object):
     Class used for local development and connecting to Azure Cloud.
 
     Provide methods for reaching to secret keys in Azure Key Vault.
-    Can be executed with simple
-
-
-
+    Can be executed with simple `python3 az_connect.py`
+    Result should be "development" on local PC
     """
 
     def __init__(self, env, credentials):
@@ -33,13 +31,15 @@ class AzureConnection(object):
             self.credentials = MSIAuthentication(resource="https://vault.azure.net")
         except Exception:
             print("MSIAuthentication: Check your development: local vs. Azure")
-            load_dotenv(find_dotenv("secrets.env"))
-
-            self.credentials = ServicePrincipalCredentials(
-                client_id=os.getenv("client_id"),
-                secret=os.getenv("secret"),
-                tenant=os.getenv("tenant"),
-            )
+            try:
+                load_dotenv(find_dotenv("secrets.env"))
+                self.credentials = ServicePrincipalCredentials(
+                    client_id=os.getenv("client_id"),
+                    secret=os.getenv("secret"),
+                    tenant=os.getenv("tenant"),
+                )
+            except FileNotFoundError:
+                print("ensure that secrets file exists and that keys are from (ALL) application in Azure")
         return self.credentials
 
     def dev_or_prod(self, local_dev=False):
