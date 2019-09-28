@@ -21,7 +21,7 @@ DATABASES = {
         "NAME": "b40re",
         "USER": "postgres",
         "PASSWORD": "django",
-        "HOST": "postgres",
+        "HOST": "host.docker.internal",
         "PORT": "5432",
     }
 }
