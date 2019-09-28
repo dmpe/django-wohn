@@ -30,7 +30,7 @@ stages:
 
       - task: AzureKeyVault@1
         inputs:
-          azureSubscription: 'AzureDJango'
+          azureSubscription: 'DjangoAzure'
           KeyVaultName: 'b40'
           SecretsFilter: '*'
 # https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
