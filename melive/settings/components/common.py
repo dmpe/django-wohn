@@ -14,10 +14,10 @@ from azure.keyvault import KeyVaultClient
 
 # for bootstrap, to make message classes consistent with the framework
 from django.contrib.messages import constants as message_constants
-from sendgrid import *
+from sendgrid import SendGridAPIClient
 
 from backend.az_connect import AzureConnection
-from backend.az_storage import *
+from backend.az_storage import AzureMediaStorage, AzureStaticStorage
 
 azCon = AzureConnection()
 azCon.main()
@@ -33,12 +33,12 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
+# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_SSL_REDIRECT = False
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_CREDENTIALS = True
 
 INSTALLED_APPS = [
     "django_extensions",
