@@ -114,6 +114,7 @@ class MyUserManager(UserManager):
 
     def fetch_owners_properties_count(self, user_id):
         """
+        Returns number of properties per owner.
         """
         property_owner = myUser.objects.filter(pk=user_id).first()
         property_count = Property.objects.filter(

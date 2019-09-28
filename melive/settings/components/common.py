@@ -186,6 +186,11 @@ COUNTRIES_FIRST_BREAK = "---------------"
 DEFAULT_FILE_STORAGE = "backend.az_storage.AzureMediaStorage"
 STATICFILES_STORAGE = "backend.az_storage.AzureStaticStorage"
 
+MEDIA_LOCATION = "user-profile-photos"
+MEDIA_URL = 'https://melivexyz5555.blob.core.windows.net/%s/' % MEDIA_LOCATION
+
+STATIC_URL = 'https://melivexyz5555.blob.core.windows.net/'
+
 AZURE_EMULATED_MODE = False
 AZURE_OVERWRITE_FILES = True
 
