@@ -3,8 +3,8 @@ from storages.backends.azure_storage import AzureStorage
 
 from backend.az_connect import AzureConnection
 
-# Execute AzCon class to return client class.
-# for Azure Key Vault
+# Execute AzCon class to return client object.
+# used for Azure Key Vault
 azCon = AzureConnection()
 azCon.main()
 client = KeyVaultClient(azCon.credentials)

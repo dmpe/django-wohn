@@ -12,7 +12,11 @@ class AzureConnection(object):
 
     Provide methods for reaching to secret keys in Azure Key Vault.
     Can be executed with simple `python3 az_connect.py`
-    Result should be "development" on local PC
+    Result below, on local PC
+
+    >> python3 az_connect.py
+    MSIAuthentication: Check your development: local vs. Azure
+    development
     """
 
     def __init__(self, env, credentials):
