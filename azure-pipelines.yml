@@ -27,6 +27,7 @@ stages:
         inputs:
           containerRegistry: 'docker_hub'
           command: 'login'
+
       - task: AzureKeyVault@1
         inputs:
           azureSubscription: 'AzureDJango'
