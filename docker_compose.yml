@@ -33,7 +33,7 @@ services:
 
     djwohn:
         image: f789gh/django-wohn:latest
-        container_name: djangoWohn
+        container_name: djwohn
         volumes:
           - datadrive_django:/work
         restart: always
@@ -47,7 +47,7 @@ services:
           - traefik_proxy
         labels:
          - "traefik.enable=true"
-         - "traefik.backend=postgres"
+         - "traefik.backend=djwohn"
          - "traefik.port=8123"
          - "traefik.docker.network=traefik_proxy"
          - "traefik.frontend.rule=Host:melive.xyz,www.melive.xyz"
