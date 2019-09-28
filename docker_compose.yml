@@ -22,7 +22,6 @@ services:
           - ./services/containers/traefik:/acme
         labels:
           - "traefik.enable=true"
-          - "traefik.docker.network=traefik_proxy"
           - "traefik.backend=traefik"
           - "traefik.port=9116"
           - "traefik.frontend.rule=Host:monitor.melive.xyz,www.monitor.melive.xyz"
@@ -46,12 +45,11 @@ services:
         networks:
           - default
           - traefik_proxy
-          - exclusive-net
         labels:
          - "traefik.enable=true"
          - "traefik.backend=djangoWohn"
          - "traefik.port=8123"
-         - "traefik.docker.network=exclusive-net"
+         - "traefik.docker.network=traefik_proxy"
          - "traefik.frontend.rule=Host:melive.xyz,www.melive.xyz"
 
 # https://hub.docker.com/_/postgres
@@ -68,14 +66,12 @@ services:
           - POSTGRES_PASSWORD=django
           - POSTGRES_DB=b40re
         networks:
-          - default
           - traefik_proxy
-          - exclusive-net
         labels:
           - "traefik.enable=false"
           - "traefik.backend=postgres"
           - "traefik.port=5432"
-          - "traefik.docker.network=exclusive-net"
+          - "traefik.docker.network=traefik_proxy"
 
 # https://hub.docker.com/r/dpage/pgadmin4/
     pgadmin:
@@ -113,7 +109,6 @@ services:
           - WATCHTOWER_NOTIFICATIONS=slack
           - WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL=https://hooks.slack.com/services/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
           - WATCHTOWER_NOTIFICATION_SLACK_IDENTIFIER=watchtower
-          - WATCHTOWER_NOTIFICATION_SLACK_ICON_EMOJI=':whale:'
           - WATCHTOWER_NOTIFICATIONS_LEVEL=debug
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
@@ -136,7 +131,6 @@ services:
           - datadrive_portainer:/data
         networks:
           - default
-          - traefik_proxy
         labels:
           - "traefik.enable=true"
           - "traefik.backend=portainer"
@@ -149,9 +143,6 @@ networks:
       name: traefik_proxy
   default:
     driver: bridge
-  traefik_proxy:
-    external:
-      name: exclusive-net
 
 
 
