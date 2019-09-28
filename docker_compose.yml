@@ -16,7 +16,6 @@ services:
         networks:
           - default
           - traefik_proxy
-          - exclusive-net
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
           - ./services/containers/traefik/traefik.toml:/traefik.toml
