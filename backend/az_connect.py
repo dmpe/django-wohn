@@ -8,7 +8,13 @@ from msrestazure.azure_active_directory import MSIAuthentication
 
 class AzureConnection(object):
     """
-    docstring for AzureConnection
+    Class used for local development and connecting to Azure Cloud.
+
+    Provide methods for reaching to secret keys in Azure Key Vault.
+    Can be executed with simple
+
+
+
     """
 
     def __init__(self, env, credentials):

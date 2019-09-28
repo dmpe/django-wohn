@@ -7,8 +7,8 @@
 ![Docker Automated](https://img.shields.io/docker/automated/f789gh/django-wohn)
 ![Docker Builds](https://img.shields.io/docker/build/f789gh/django-wohn)
 [![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/dmpe/django-wohn)](https://github.com/dmpe/django-wohn/pulls?q=is%3Apr+is%3Aclosed)
-[![HSTS Domain](https://img.shields.io/hsts/preload/melive.xyz)]()
-![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/melive.xyz?publish)
+[![HSTS Domain](https://img.shields.io/hsts/preload/monitor.melive.xyz)](https://dev.ssllabs.com/ssltest/analyze.html?d=monitor.melive.xyz&hideResults=on)
+![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/monitor.melive.xyz?publish)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/dmpe/django-wohn)
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=dmpe_django-wohn)](https://sonarcloud.io/dashboard?id=dmpe_django-wohn)
