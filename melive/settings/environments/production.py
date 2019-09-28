@@ -36,7 +36,7 @@ DATABASES = {
         "HOST": client.get_secret(
             "https://b40.vault.azure.net/",
             "DATABASE-HOST",
-            "16d79eed6c5448f49933d51dc5d58e70",
+            "cb280e8752c14512ac58953016a475f8",
         ).value,
         "PORT": "5432",
     }
