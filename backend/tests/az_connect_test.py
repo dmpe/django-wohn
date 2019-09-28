@@ -1,10 +1,10 @@
 from azure.keyvault import KeyVaultClient
-from pytest import *
+import pytest
 
 from backend.az_connect import AzureConnection
 
-
-def test_Azure_Connection_LocalPC(self):
+def test_Azure_Connection_LocalPC(capfd):
     azCon = AzureConnection()
     azCon.main()
-    assert 
+    stringMSI, err = capfd.readouterr()
+    assert len(stringMSI) >= 10
