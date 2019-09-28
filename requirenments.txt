@@ -30,6 +30,7 @@ pinax-messages
 pinax-templates
 psycopg2-binary
 pymdown-extensions
+python-dotenv
 requests
 sendgrid
 Werkzeug
