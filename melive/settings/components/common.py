@@ -189,7 +189,7 @@ STATICFILES_STORAGE = "backend.az_storage.AzureStaticStorage"
 MEDIA_LOCATION = "user-profile-photos"
 MEDIA_URL = 'https://melivexyz5555.blob.core.windows.net/%s/' % MEDIA_LOCATION
 
-STATIC_URL = 'https://melivexyz5555.blob.core.windows.net/static/'
+STATIC_URL = 'https://melivexyz5555.blob.core.windows.net/'
 
 AZURE_EMULATED_MODE = False
 AZURE_OVERWRITE_FILES = True

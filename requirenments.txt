@@ -28,6 +28,7 @@ markdown
 pandas
 phonenumbers
 pint
+Pillow
 pinax-messages
 pinax-templates
 psycopg2-binary
