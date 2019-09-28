@@ -15,40 +15,29 @@ SECRET_KEY = client.get_secret(
     "https://b40.vault.azure.net/", "SECRET-KEY", "98d11c2fddcd400c985e1ba61fa030bb"
 ).value
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": client.get_secret(
-#             "https://b40.vault.azure.net/",
-#             "DATABASE-NAME",
-#             "98d25be241404e9a8b8cf8e9b4d4a2d6",
-#         ).value,
-#         "USER": client.get_secret(
-#             "https://b40.vault.azure.net/",
-#             "DATABASE-USER",
-#             "e3db601b72f14eabb9ed15073a71ffe9",
-#         ).value,
-#         "PASSWORD": client.get_secret(
-#             "https://b40.vault.azure.net/",
-#             "DATABASE-PASSWORD",
-#             "a95457ce8aef465a83811f2cf49e397e",
-#         ).value,
-#         "HOST": client.get_secret(
-#             "https://b40.vault.azure.net/",
-#             "DATABASE-HOST",
-#             "cb280e8752c14512ac58953016a475f8",
-#         ).value,
-#         "PORT": "5432",
-#     }
-# }
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "b40re",
-        "USER": "postgres",
-        "PASSWORD": "django",
-        "HOST": "postgres",
+        "NAME": client.get_secret(
+            "https://b40.vault.azure.net/",
+            "DATABASE-NAME",
+            "98d25be241404e9a8b8cf8e9b4d4a2d6",
+        ).value,
+        "USER": client.get_secret(
+            "https://b40.vault.azure.net/",
+            "DATABASE-USER",
+            "e3db601b72f14eabb9ed15073a71ffe9",
+        ).value,
+        "PASSWORD": client.get_secret(
+            "https://b40.vault.azure.net/",
+            "DATABASE-PASSWORD",
+            "a95457ce8aef465a83811f2cf49e397e",
+        ).value,
+        "HOST": client.get_secret(
+            "https://b40.vault.azure.net/",
+            "DATABASE-HOST",
+            "cb280e8752c14512ac58953016a475f8",
+        ).value,
         "PORT": "5432",
     }
 }
