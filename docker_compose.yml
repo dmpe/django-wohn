@@ -39,6 +39,8 @@ services:
         restart: always
         ports:
           - 8123:8123
+        environment:
+          - DATABASE_URL=postgres://todoapp@postgres/todos
         depends_on:
           - postgres
           - pgadmin
@@ -143,8 +145,6 @@ networks:
       name: traefik_proxy
   default:
     driver: bridge
-
-
 
 volumes:
   datadrive_postgress:
