@@ -21,7 +21,7 @@ DATABASES = {
         "NAME": "b40re",
         "USER": "postgres",
         "PASSWORD": "django",
-        "HOST": "172.25.0.2",
+        "HOST": "172.25.0.1",
         "PORT": "5432",
     }
 }
