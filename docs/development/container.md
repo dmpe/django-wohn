@@ -77,3 +77,9 @@ docker run -it f789gh/django-wohn:latest
 ```
 
 Or wait until `watchtower` image will download latest version by itself.
+
+#### Docker Compose with Django and Postgres
+
+An important configuration step is to make sure that Django application has in 'DATABASES' property
+correct host name.
+This must be equal to the docker-compose one.
