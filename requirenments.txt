@@ -1,4 +1,6 @@
 argon2-cffi
+azure-storage-common
+azure-storage-blob
 azure-keyvault
 azure-mgmt-keyvault
 brotlipy
@@ -15,6 +17,7 @@ django-countries
 django_extensions
 django-ipware
 djangorestframework
+dj-database-url
 google-api-python-client
 googleapis-common-protos
 gunicorn
@@ -26,10 +29,13 @@ markdown
 pandas
 phonenumbers
 pint
+Pillow
 pinax-messages
 pinax-templates
 psycopg2-binary
+pygraphviz
 pymdown-extensions
+python-dotenv
 requests
 sendgrid
 Werkzeug

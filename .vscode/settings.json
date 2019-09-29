@@ -14,5 +14,6 @@
   "editor.detectIndentation": false,
   "files.trimTrailingWhitespace": true,
   "editor.insertSpaces": true,
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "python.linting.flake8Enabled": true
 }

@@ -15,24 +15,24 @@ from django.utils.encoding import *
 from django.utils.html import *
 from django.utils.http import *
 from django.utils.safestring import *
+from ipware import get_client_ip
 from sendgrid import *
 from sendgrid.helpers.mail import *
-from werkzeug.useragents import *
-
-from ipware import get_client_ip
+from werkzeug.useragents import UserAgent
 
 
 # replaced by logic in contrib.auth.tokens
 def http_headers(request):
     """ extracts HTTP headers from client's request
     """
-    ua = UserAgent(request.META['HTTP_USER_AGENT'])
+    ua = UserAgent(request.META["HTTP_USER_AGENT"])
 
     operating_system = ua.platform
     browser = ua.browser
     browser_version = ua.version
 
     return [operating_system, browser, browser_version]
+
 
 def get_uid_token(request):
     """
@@ -46,6 +46,7 @@ def get_uid_token(request):
     token = current_url.split("/")[3]
 
     return [uid, token]
+
 
 def validate_password_reset(request):
     """
@@ -65,13 +66,16 @@ def validate_password_reset(request):
         print("token is not valid")
         return None
 
-def is_human(recaptcha_token = None):
+
+def is_human(recaptcha_token=None):
     """
     Used for token verification.
     Borrowed from https://techmonger.github.io/5/python-flask-recaptcha/
     """
-    payload = {'response':recaptcha_token, 'secret':settings.GOOGLE_RECAPTCHA_V3}
-    response_ggl = requests_library.post("https://www.google.com/recaptcha/api/siteverify", payload)
+    payload = {"response": recaptcha_token, "secret": settings.GOOGLE_RECAPTCHA_V3}
+    response_ggl = requests_library.post(
+        "https://www.google.com/recaptcha/api/siteverify", payload
+    )
     response_text = json.loads(response_ggl.text)
     print(response_text)
 
@@ -81,31 +85,43 @@ def is_human(recaptcha_token = None):
         return False
 
 
-def prepare_psswd_reset_email(request, userPresent_username = None,
-    userPresent_email = None, userPresent_token = None, userPresent_uid = None):
+def prepare_psswd_reset_email(
+    request,
+    userPresent_username=None,
+    userPresent_email=None,
+    userPresent_token=None,
+    userPresent_uid=None,
+):
     """
     This functions sends email to users, directly!
     """
-    subject = 'B40.cz: Password Reset'
+    subject = "B40.cz: Password Reset"
     smtp_email = settings.DEFAULT_FROM_EMAIL
 
     # fetch user metadata including ip address
     client_headers = http_headers(request)
     client_ip, is_routable = get_client_ip(request)
 
-    cntxt = {"username": userPresent_username, "token": userPresent_token,
-        "password_expire": settings.PASSWORD_RESET_TIMEOUT_DAYS, "uid": userPresent_uid,
-        "operating_system": client_headers[0], "ip_address": client_ip,
-        "browser": client_headers[1], "browser_version": client_headers[2]}
+    cntxt = {
+        "username": userPresent_username,
+        "token": userPresent_token,
+        "password_expire": settings.PASSWORD_RESET_TIMEOUT_DAYS,
+        "uid": userPresent_uid,
+        "operating_system": client_headers[0],
+        "ip_address": client_ip,
+        "browser": client_headers[1],
+        "browser_version": client_headers[2],
+    }
 
-    html_message = render_to_string('reset_password_email.html', cntxt)
+    html_message = render_to_string("reset_password_email.html", cntxt)
     # plain_message = strip_tags(html_message)
 
     message = Mail(
         from_email=smtp_email,
         to_emails=userPresent_email,
         subject=subject,
-        html_content=html_message)
+        html_content=html_message,
+    )
     try:
         response = settings.SENDGRID_API_KEY.send(message)
         print(response.status_code)
@@ -121,12 +137,18 @@ def prepare_psswd_reset_email(request, userPresent_username = None,
 
     return None
 
-def prepare_visitor_mssg_email(request, userPresent_username = None,
-    userPresent_email = None, subject = None, text_msg = None):
+
+def prepare_visitor_mssg_email(
+    request,
+    userPresent_username=None,
+    userPresent_email=None,
+    subject=None,
+    text_msg=None,
+):
     """
     For internal use, e.g. feedback, contact etc.
     """
-    subject = 'B40.cz: Message from the user/visitor: ' + subject
+    subject = "B40.cz: Message from the user/visitor: " + subject
     smtp_email = settings.DEFAULT_FROM_EMAIL
     my_email = settings.MY_EMAIL
     from_email = userPresent_email
@@ -134,19 +156,28 @@ def prepare_visitor_mssg_email(request, userPresent_username = None,
     client_headers = http_headers(request)
     client_ip, is_routable = get_client_ip(request)
 
-    cntxt = {"username": userPresent_username, "from_email" : from_email, "text_msg": text_msg,
-        "operating_system": client_headers[0], "ip_address": client_ip,
-        "browser": client_headers[1], "browser_version": client_headers[2]}
+    cntxt = {
+        "username": userPresent_username,
+        "from_email": from_email,
+        "text_msg": text_msg,
+        "operating_system": client_headers[0],
+        "ip_address": client_ip,
+        "browser": client_headers[1],
+        "browser_version": client_headers[2],
+    }
 
     html_message = render_to_string("new_visitor_email.html", cntxt)
     plain_message = strip_tags(html_message)
 
     try:
-        send_mail(subject, plain_message, smtp_email, [my_email], html_message=html_message)
+        send_mail(
+            subject, plain_message, smtp_email, [my_email], html_message=html_message
+        )
     except BadHeaderError:
-        return HttpResponse('Invalid header found.')
+        return HttpResponse("Invalid header found.")
 
     return None
+
 
 def upload_profile_image(instance, filename):
     """

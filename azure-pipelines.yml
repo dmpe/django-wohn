@@ -11,35 +11,29 @@ variables:
 # test all commits in Pull Re. which target master
 trigger:
 - master
+- pr
 
 stages:
-- stage: PrepareAndBuild
-  displayName: Prepare Docker Build
+- stage: PrepareBuildAndPush
+  displayName: Prepare Docker Build and push to DockerHub
   jobs:
     - job: BuildJob
       pool:
         vmImage: 'ubuntu-latest'
       steps:
+
+      - task: Docker@2
+        displayName: "Docker login"
+        inputs:
+          containerRegistry: 'docker_hub'
+          command: 'login'
+
       - task: AzureKeyVault@1
         inputs:
-          azureSubscription: 'Azureprostudenty'
+          azureSubscription: 'DjangoAzure'
           KeyVaultName: 'b40'
           SecretsFilter: '*'
 # https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
-
-      - task: SonarCloudPrepare@1
-        displayName: "Connect to SonarCloud"
-        inputs:
-          SonarCloud: 'SonarCloud'
-          organization: 'dmpe-github'
-          scannerMode: 'CLI'
-          configMode: 'file'
-
-      - task: SonarCloudAnalyze@1
-
-      - task: SonarCloudPublish@1
-        inputs:
-          pollingTimeoutSec: '300'
 
       - task: Docker@2
         displayName: "Build our Image now"
@@ -53,12 +47,6 @@ stages:
             latest
 
       - task: Docker@2
-        displayName: "Docker login"
-        inputs:
-          containerRegistry: 'docker_hub'
-          command: 'login'
-
-      - task: Docker@2
         displayName: "Push to Docker Hub"
         # only push on master branch, i.e. when PR is merged
         # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
@@ -69,4 +57,25 @@ stages:
           tags: |
             $(major).$(minor)
             latest
+
+- stage: SendToSonarQube
+  displayName: Run SonarQube scannerMode
+  jobs:
+    - job: ScanJob
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - task: SonarCloudPrepare@1
+        displayName: "Connect to SonarCloud"
+        inputs:
+          SonarCloud: 'SonarCloud'
+          organization: 'dmpe-github'
+          scannerMode: 'CLI'
+          configMode: 'file'
+
+      - task: SonarCloudAnalyze@1
+
+      - task: SonarCloudPublish@1
+        inputs:
+          pollingTimeoutSec: '300'
 # TODO: take picture from output and commit it to docs directory
