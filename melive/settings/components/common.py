@@ -130,7 +130,6 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             os.path.join(BASE_DIR, "templates"),
-            "templates/base_splitting",
             "core/pages/",
             "core/pages/emails",
             "core/pages/footer",
