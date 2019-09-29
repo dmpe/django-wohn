@@ -11,14 +11,15 @@ import os
 
 # for Azure Key Vault
 from azure.keyvault import KeyVaultClient
-
 # for bootstrap, to make message classes consistent with the framework
 from django.contrib.messages import constants as message_constants
 from sendgrid import SendGridAPIClient
 
+import dj_database_url
+DATABASES['default'] = dj_database_url.parse('postgres://postgres:django@172.25.0.1:5432/b40re', conn_max_age=600)
+
 from backend.az_connect import AzureConnection
 from backend.az_storage import *
-
 azCon = AzureConnection()
 azCon.main()
 client = KeyVaultClient(azCon.credentials)

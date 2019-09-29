@@ -17,6 +17,7 @@ django-countries
 django_extensions
 django-ipware
 djangorestframework
+dj-database-url
 google-api-python-client
 googleapis-common-protos
 gunicorn
