@@ -125,6 +125,10 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
 
 ROOT_URLCONF = "melive.urls"
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
