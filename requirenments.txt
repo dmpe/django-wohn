@@ -33,6 +33,7 @@ Pillow
 pinax-messages
 pinax-templates
 psycopg2-binary
+pygraphviz
 pymdown-extensions
 python-dotenv
 requests
