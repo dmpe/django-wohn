@@ -7,15 +7,16 @@
 {% block extrastyle %}
 	{{ block.super }}
 
-	{% include "javascript_libraries.html" %}
-	{% include "highcharts.html" %}
+  {% include 'library_templates/js/bootstrap_fontAwe.html' %}
+  {% include 'library_templates/js/jquery_popper.html' %}
+	{% include "library_templates/js/highcharts.html" %}
 {% endblock %}
 
 {% block footer %}
 	<div id="footer">
 		<div id="container-hc" class="" style="height:400px;">
-	</div>	
-	
+	</div>
+
 	<script type="text/javascript">
 		var seriesOptions = [], names = ['1 EUR - CZK', '1 EUR - USD', '1 USD - CZK'];
 
@@ -40,7 +41,7 @@
 
 				title: {
 					text: "Used foreign exchange, by week: EUR-CZK-USD"
-				}, 
+				},
 
 				subtitle: {
 					text: "Subtitle for later use"
@@ -64,7 +65,7 @@
 		}
 
 		var forex = {{currency_data|safe}};
-		// create chart funct must be outside of the loop, 
+		// create chart funct must be outside of the loop,
 		// otherwise we draw 3 seperate charts
 		$.each(names, function (i, name) {
 			seriesOptions[i] = {

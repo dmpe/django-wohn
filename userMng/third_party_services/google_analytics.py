@@ -10,18 +10,18 @@ logger = logging.getLogger(__name__)
 
 class Google_Analytics:
     """
-	Google Analytics Reporting API V4.
-	https://developers.google.com/analytics/devguides/reporting/core/dimsmets
-	https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py
-	"""
+    Google Analytics Reporting API V4.
+    https://developers.google.com/analytics/devguides/reporting/core/dimsmets
+    https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py
+    """
 
     def initialize_analyticsreporting(self):
         """
-		Initializes an Analytics Reporting API V4 service object.
-	
-		Returns:
-		An authorized Analytics Reporting API V4 service object.
-		"""
+        Initializes an Analytics Reporting API V4 service object.
+
+        Returns:
+        An authorized Analytics Reporting API V4 service object.
+        """
         SCOPES = ["https://www.googleapis.com/auth/analytics.readonly"]
         KEY_FILE_LOCATION = "client_secrets.json"
 
@@ -29,7 +29,7 @@ class Google_Analytics:
             fl = os.path.abspath(
                 os.path.join(os.path.dirname(__file__), KEY_FILE_LOCATION)
             )
-        except:
+        except Exception:
             logger.exception("clients_secrets.json not found on the server")
 
         ga_credentials = service_account.Credentials.from_service_account_file(fl)
@@ -48,14 +48,14 @@ class Google_Analytics:
 
     def get_report(self, analytics):
         """
-		Queries the Analytics Reporting API V4.
-	
-		Args:
-			analytics: An authorized Analytics Reporting API V4 service object.
-		Returns:
-			The Analytics Reporting API V4 response.
-			
-		"""
+        Queries the Analytics Reporting API V4.
+
+        Args:
+            analytics: An authorized Analytics Reporting API V4 service object.
+        Returns:
+            The Analytics Reporting API V4 response.
+
+        """
         VIEW_ID = "181239651"
         return (
             analytics.reports()
@@ -85,11 +85,11 @@ class Google_Analytics:
 
     def print_response(self, response):
         """
-		Parses and prints the Analytics Reporting API V4 response.
-	
-		Args:
-			response: An Analytics Reporting API V4 response.
-		"""
+        Parses and prints the Analytics Reporting API V4 response.
+
+        Args:
+            response: An Analytics Reporting API V4 response.
+        """
         google_analytics_dimensions_metrics_dict = dict()
 
         for report in response.get("reports", []):

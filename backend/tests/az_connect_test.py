@@ -1,7 +1,8 @@
-from azure.keyvault import KeyVaultClient
 import pytest
+from azure.keyvault import KeyVaultClient
 
 from backend.az_connect import AzureConnection
+
 
 def test_Azure_Connection_LocalPC(capfd):
     azCon = AzureConnection()

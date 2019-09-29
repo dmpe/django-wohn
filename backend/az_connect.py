@@ -43,7 +43,9 @@ class AzureConnection(object):
                     tenant=os.getenv("tenant"),
                 )
             except FileNotFoundError:
-                print("ensure that secrets file exists and that keys are from (ALL) application in Azure")
+                print(
+                    "ensure that secrets file exists and that keys are from (ALL) application in Azure"
+                )
         return self.credentials
 
     def dev_or_prod(self, local_dev=False):
