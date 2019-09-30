@@ -23,7 +23,6 @@ services:
           - "traefik.http.routers.traefik.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
           - "traefik.http.services.traefik.loadbalancer.server.port=9116"
           - "traefik.http.routers.traefik.entrypoints=https"
-          - "traefik.http.middlewares.traefik.redirectscheme.scheme=https"
         environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
