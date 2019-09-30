@@ -20,7 +20,7 @@ services:
           - ./services/containers/traefik/traefik.toml:/traefik.toml
           - ./services/containers/traefik:/acme
         labels:
-          - "traefik.http.routers.myrouter.entrypoints=traefik"
+          - "traefik.http.routers.traefik.entrypoints=traefik"
         environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
