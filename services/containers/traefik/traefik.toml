@@ -16,6 +16,15 @@
   [entryPoints.traefik]
     address = ":9116"
 
+[tls.options]
+  [tls.options.default]
+    minVersion = "VersionTLS13"
+    cipherSuites = [
+        "TLS13-CHACHA20-POLY1305-SHA256",
+        "TLS13-AES-256-GCM-SHA384",
+        "TLS13-AES-128-GCM-SHA256"
+    ]
+
 [providers]
   providersThrottleDuration = "2s"
   [providers.docker]
@@ -41,3 +50,4 @@
       [certificatesResolvers.default.acme.dnsChallenge]
         provider = "ovh"
         delayBeforeCheck = "10s"
+        resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
