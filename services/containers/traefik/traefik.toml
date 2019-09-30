@@ -11,18 +11,23 @@
 [http]
   [http.routers]
     [http.routers.traefik]
-      entryPoints = ["http","https"]
+      entryPoints = ["http"]
       rule = "Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
-      service = "traefik"
+    #   service = "traefik"
+      middlewares = ["httpsredirect"]
       [http.routers.traefik-secure.tls]
         certResolver = "default"
 
-#   [http.services]
-#     [http.services.traefik]
-#       [http.services.traefik.loadBalancer]
-#         [[http.services.traefik.loadBalancer.servers]]
-#           port = "http://whoami:80"
+# [http.services]
+# [http.services.traefik]
+#     [http.services.traefik.loadBalancer]
+#     [[http.services.traefik.loadBalancer.servers]]
+#         port = "http://whoami:80"
 
+[http.middlewares]
+  [http.middlewares.httpsredirect.redirectScheme]
+    scheme = "https"
+    permanent = true
 
 [tls.options]
   [tls.options.default]
