@@ -8,13 +8,21 @@
   insecureSkipVerify = true
   maxIdleConnsPerHost = 0
 
-[entryPoints]
-  [entryPoints.http]
-    address = ":80"
-  [entryPoints.https]
-    address = ":443"
-  [entryPoints.traefik]
-    address = ":9116"
+[http]
+  [http.routers]
+    [http.routers.traefik]
+      entryPoints = ["http","https"]
+      rule = "Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
+      service = "traefik"
+      [http.routers.traefik-secure.tls]
+        certResolver = "default"
+
+#   [http.services]
+#     [http.services.traefik]
+#       [http.services.traefik.loadBalancer]
+#         [[http.services.traefik.loadBalancer.servers]]
+#           port = "http://whoami:80"
+
 
 [tls.options]
   [tls.options.default]

@@ -20,8 +20,7 @@ services:
           - ./services/containers/traefik/traefik.toml:/traefik.toml
           - ./services/containers/traefik:/acme
         labels:
-          - "traefik.http.routers.traefik.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
-          - "traefik.http.services.traefik.loadbalancer.server.port=9116"
+          - "traefik.http.routers.myrouter.entrypoints=traefik"
         environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
