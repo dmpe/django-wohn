@@ -17,29 +17,8 @@
 [entryPoints.others]
   address = ":9116"
 
-
-[http]
-  [http.routers]
-    [http.routers.traefik]
-      entryPoints = ["http"]
-      rule = "Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
-      service = "traefik"
-      middlewares = ["httpsredirect"]
-
-    # [http.routers.traefik2]
-    #   entryPoints = ["https"]
-    #   rule = "Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
-    #   service = "traefik"
-    #   [http.routers.traefik2.tls]
-    #     certResolver = "default"
-
-[http.services]
-    [http.services.traefik]
-        [http.services.traefik.loadBalancer]
-        [[http.services.traefik.loadBalancer.servers]]
-            port = "http://localhost:9116"
-
 [http.middlewares]
+[thttp.middlewares.httpsredirect]
   [http.middlewares.httpsredirect.redirectScheme]
     scheme = "https"
     permanent = true
