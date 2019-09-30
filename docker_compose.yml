@@ -20,10 +20,11 @@ services:
           - ./services/containers/traefik/traefik.toml:/traefik.toml
           - ./services/containers/traefik:/acme
         labels:
+          - "traefik.enable=true"
           - "traefik.http.routers.traefik.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
-          - "traefik.http.routers.traefik.entrypoints=http,https"
+        #   - "traefik.http.routers.traefik.entrypoints=http,https"
           - "traefik.http.services.traefik.loadbalancer.server.port=9116"
-        #   - "traefik.http.routers.traefik.middlewares=httpsredirect"
+          - "traefik.http.routers.traefik.middlewares=httpsredirect"
         environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
@@ -45,6 +46,7 @@ services:
           - default
           - traefik_proxy
         labels:
+          - "traefik.enable=true"
           - "traefik.http.services.djwohn.loadbalancer.server.port=8123"
           - "traefik.docker.network=traefik_proxy"
           - "traefik.http.routers.djwohn.rule=Host(`melive.xyz`, `www.melive.xyz`)"
