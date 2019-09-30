@@ -8,14 +8,29 @@
   insecureSkipVerify = true
   maxIdleConnsPerHost = 0
 
+[entryPoints.http]
+  address = ":80"
+
+[entryPoints.https]
+  address = ":443"
+
+[entryPoints.others]
+  address = ":9116"
+
+
 [http]
   [http.routers]
     [http.routers.traefik]
       entryPoints = ["http"]
       rule = "Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
-    #   service = "traefik"
+      service = "traefik"
       middlewares = ["httpsredirect"]
-      [http.routers.traefik-secure.tls]
+
+    [http.routers.traefik2]
+      entryPoints = ["https"]
+      rule = "Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
+      service = "traefik"
+      [http.routers.traefik2.tls]
         certResolver = "default"
 
 # [http.services]
