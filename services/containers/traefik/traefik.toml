@@ -24,7 +24,7 @@
       entryPoints = ["http"]
       rule = "Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
       service = "traefik"
-    #   middlewares = ["httpsredirect"]
+      middlewares = ["httpsredirect"]
 
     # [http.routers.traefik2]
     #   entryPoints = ["https"]
@@ -53,6 +53,17 @@
         "TLS13-AES-128-GCM-SHA256"
     ]
 
+[certificatesResolvers]
+  [certificatesResolvers.default]
+    [certificatesResolvers.default.acme]
+      email = "cincenko@outlook.com"
+      caServer = "https://acme-v02.api.letsencrypt.org/directory"
+      storage = "acme/certs.json"
+      [certificatesResolvers.default.acme.dnsChallenge]
+        provider = "ovh"
+        delayBeforeCheck = "10s"
+        resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
+
 [providers]
   providersThrottleDuration = "2s"
   [providers.docker]
@@ -69,13 +80,3 @@
 [log]
   level = "INFO"
 
-[certificatesResolvers]
-  [certificatesResolvers.default]
-    [certificatesResolvers.default.acme]
-      email = "cincenko@outlook.com"
-      caServer = "https://acme-v02.api.letsencrypt.org/directory"
-      storage = "acme/certs.json"
-      [certificatesResolvers.default.acme.dnsChallenge]
-        provider = "ovh"
-        delayBeforeCheck = "10s"
-        resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
