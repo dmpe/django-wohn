@@ -87,6 +87,7 @@ services:
           - datadrive_pgadmin:/var/lib/pgadmin
           - ./services/containers/pgadmin/config_local.py:/config_local.py
         labels:
+          - "traefik.enable=true"
           - "traefik.http.services.pgadmin.loadbalancer.server.port=5050"
           - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz`, `www.pgadmin.melive.xyz`)"
 
@@ -123,8 +124,9 @@ services:
         networks:
           - default
         labels:
+          - "traefik.enable=true"
           - "traefik.http.services.portainer.loadbalancer.server.port=9000"
-          - "traefik.http.routers.pgadmin.rule=Host(`portainer.melive.xyz`, `www.portainer.melive.xyz`)"
+          - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`, `www.portainer.melive.xyz`)"
 
 networks:
   traefik_proxy:
