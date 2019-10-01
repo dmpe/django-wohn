@@ -8,14 +8,14 @@
   insecureSkipVerify = true
   maxIdleConnsPerHost = 0
 
-# [entryPoints.http]
-#   address = ":80"
+[entryPoints.http]
+  address = ":80"
 
-# [entryPoints.https]
-#   address = ":443"
+[entryPoints.https]
+  address = ":443"
 
-# [entryPoints.others]
-#   address = ":9116"
+[entryPoints.others]
+  address = ":9116"
 
 # [tls.options]
 #   [tls.options.default]
