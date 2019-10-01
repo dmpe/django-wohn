@@ -8,22 +8,22 @@
   insecureSkipVerify = true
   maxIdleConnsPerHost = 0
 
-[entryPoints.http]
-  address = ":80"
+# [entryPoints.http]
+#   address = ":80"
 
-[entryPoints.https]
-  address = ":443"
+# [entryPoints.https]
+#   address = ":443"
 
-[entryPoints.others]
-  address = ":9116"
+# [entryPoints.others]
+#   address = ":9116"
 
-[tls.options]
-  [tls.options.default]
-    minVersion = "VersionTLS12"
-    cipherSuites = [
-        "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
-        "TLS_RSA_WITH_AES_256_GCM_SHA384"
-    ]
+# [tls.options]
+#   [tls.options.default]
+#     minVersion = "VersionTLS12"
+#     cipherSuites = [
+#         "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+#         "TLS_RSA_WITH_AES_256_GCM_SHA384"
+#     ]
 
 [certificatesResolvers]
   [certificatesResolvers.default]
