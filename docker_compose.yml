@@ -22,9 +22,12 @@ services:
         labels:
           - "traefik.enable=true"
           - "traefik.http.routers.traefik.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
-        #   - "traefik.http.routers.traefik.entrypoints=http,https"
+          - "traefik.http.routers.traefik.entrypoints=http,https"
+          - "traefik.http.routers.traefik.middlewares=httpsredirect"
           - "traefik.http.services.traefik.loadbalancer.server.port=9116"
-        #   - "traefik.http.routers.traefik.middlewares=httpsredirect"
+          - "traefik.http.routers.traefik.tls=true"
+          - "traefik.http.routers.traefik.tls.domains[0].main=melive.xyz"
+          - "traefik.http.middlewares.traefik.redirectscheme.scheme=https"
         environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"

@@ -1,5 +1,6 @@
 acme.json
 
+*.env
 /certs/
 /.idea/
 staticfiles
