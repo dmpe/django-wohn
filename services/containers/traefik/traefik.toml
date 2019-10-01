@@ -19,11 +19,10 @@
 
 [tls.options]
   [tls.options.default]
-    minVersion = "VersionTLS13"
+    minVersion = "VersionTLS12"
     cipherSuites = [
-        "TLS13-CHACHA20-POLY1305-SHA256",
-        "TLS13-AES-256-GCM-SHA384",
-        "TLS13-AES-128-GCM-SHA256"
+        "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+        "TLS_RSA_WITH_AES_256_GCM_SHA384"
     ]
 
 [certificatesResolvers]
@@ -51,5 +50,5 @@
   debug = true
 
 [log]
-  level = "INFO"
+  level = "DEBUG"
 
