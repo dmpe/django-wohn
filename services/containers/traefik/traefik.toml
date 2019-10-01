@@ -17,17 +17,6 @@
 [entryPoints.others]
   address = ":9116"
 
-
-
-
-
-
-[http.middlewares]
-[thttp.middlewares.httpsredirect]
-  [http.middlewares.httpsredirect.redirectScheme]
-    scheme = "https"
-    permanent = true
-
 [tls.options]
   [tls.options.default]
     minVersion = "VersionTLS13"

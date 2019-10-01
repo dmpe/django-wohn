@@ -26,6 +26,7 @@ services:
           - "traefik.http.routers.traefik.middlewares=httpsredirect"
           - "traefik.http.services.traefik.loadbalancer.server.port=9116"
           - "traefik.http.routers.traefik.tls=true"
+          - "traefik.http.routers.traefik.tls.options=default"
           - "traefik.http.routers.traefik.tls.domains[0].main=melive.xyz"
           - "traefik.http.middlewares.traefik.redirectscheme.scheme=https"
         environment:
