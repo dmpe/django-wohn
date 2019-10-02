@@ -15,7 +15,7 @@
   address = ":443"
 
 [entryPoints.others]
-  address = ":9116"
+  address = ":8080"
 
 # [tls.options]
 #   [tls.options.default]
