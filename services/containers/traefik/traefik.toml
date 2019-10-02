@@ -43,7 +43,7 @@
     exposedByDefault = true
     swarmMode = false
     network = "traefik_proxy"
-    useBindPortIP = true
+    # useBindPortIP = true
 
 [api]
   insecure = true
