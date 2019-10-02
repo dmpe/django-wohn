@@ -29,7 +29,6 @@
 #   [certificatesResolvers.default]
 #     [certificatesResolvers.default.acme]
 #       email = "cincenko@outlook.com"
-#       caServer = "https://acme-v02.api.letsencrypt.org/directory"
 #       storage = "acme/certs.json"
 #       [certificatesResolvers.default.acme.dnsChallenge]
 #         provider = "ovh"
