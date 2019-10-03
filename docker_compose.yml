@@ -106,6 +106,9 @@ services:
           - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz`, `www.pgadmin.melive.xyz`)"
           - "traefik.http.middlewares.pgadmin-redirect.redirectscheme.scheme=https"
           - "traefik.http.routers.pgadmin.middlewares=pgadmin-redirect"
+          - "traefik.http.routers.pgadmin.tls=true"
+          - "traefik.http.routers.pgadmin.tls.certresolver=default"
+          - "traefik.http.routers.pgadmin.service=pgadmin"
         environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
