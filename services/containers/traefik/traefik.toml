@@ -15,9 +15,6 @@
 [entryPoints.web-secure]
   address = ":443"
 
-[entryPoints.others]
-  address = ":9116"
-
 [tls.options]
   [tls.options.default]
     minVersion = "VersionTLS12"
