@@ -52,5 +52,5 @@
   debug = true
 
 [log]
-  level = "INFO"
+  level = "DEBUG"
 
