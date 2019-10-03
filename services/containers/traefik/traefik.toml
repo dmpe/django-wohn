@@ -1,49 +1,51 @@
-debug = true
-logLevel = "INFO"
-InsecureSkipVerify = true
+# Traefik version 2
+# static settings
 
-defaultEntryPoints = ["http", "https"]
+[global]
+  checkNewVersion = true
+  sendAnonymousUsage = true
 
-[entryPoints]
-  [entryPoints.http]
-    address = ":80"
-			[entryPoints.http.redirect]
-			entryPoint = "https"
+[serversTransport]
+  insecureSkipVerify = true
+  maxIdleConnsPerHost = 0
 
-    [entryPoints.https]
-    address = ":443"
-    [entryPoints.https.tls]
-      minVersion = "VersionTLS12"
-      cipherSuites = [
+[entryPoints.web]
+  address = ":80"
+
+[entryPoints.web-secure]
+  address = ":443"
+
+[tls.options]
+  [tls.options.default]
+    minVersion = "VersionTLS13"
+    cipherSuites = [
         "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
         "TLS_RSA_WITH_AES_256_GCM_SHA384"
-      ]
+    ]
 
-    [entryPoints.traefik]
-    address = ":9116"
+[certificatesResolvers]
+  [certificatesResolvers.default]
+    [certificatesResolvers.default.acme]
+      email = "cincenko@outlook.com"
+      storage = "acme/certs.json"
+      [certificatesResolvers.default.acme.dnsChallenge]
+        provider = "ovh"
+        delayBeforeCheck = "10s"
+        resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
+
+[providers]
+  providersThrottleDuration = "2s"
+  [providers.docker]
+    watch = true
+    endpoint = "unix:///var/run/docker.sock"
+    exposedByDefault = true
+    swarmMode = false
 
 [api]
-  entryPoint = "traefik"
+  insecure = true
   dashboard = true
   debug = true
 
-[docker]
-endpoint = "unix:///var/run/docker.sock"
-domain = "melive.xyz"
-watch = true
-exposedByDefault = true
+[log]
+  level = "INFO"
 
-[acme]
-email = "cincenko@outlook.com"
-storage = "acme/certs.json"
-entryPoint = "https"
-resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
-caServer = "https://acme-v02.api.letsencrypt.org/directory"
-# caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
-onHostRule = true
-  [acme.dnsChallenge]
-  provider = "ovh"
-  delayBeforeCheck = 10
-
-[[acme.domains]]
-  main = "*.melive.xyz"

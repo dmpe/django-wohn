@@ -5,13 +5,11 @@ version: '3.7'
 # https://api.ovh.com/console/#/auth/credential#POST
 services:
     traefik:
-        image: traefik:1.7
-        command: --api --docker
+        image: traefik:latest #v2
         container_name: traefik
         ports:
-          - "0.0.0.0:80:80"
-          - "0.0.0.0:443:443"
-          - "9116:8080"
+          - "80:80"
+          - "443:443"
         restart: always
         networks:
           - default
@@ -22,9 +20,14 @@ services:
           - ./services/containers/traefik:/acme
         labels:
           - "traefik.enable=true"
-          - "traefik.backend=traefik"
-          - "traefik.port=9116"
-          - "traefik.frontend.rule=Host:monitor.melive.xyz,www.monitor.melive.xyz"
+          - "traefik.http.routers.monitor.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
+          - "traefik.http.routers.monitorsec.tls=true"
+          - "traefik.http.routers.monitorsec.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
+          - "traefik.http.routers.monitorsec.tls.certresolver=default"
+          - "traefik.http.routers.monitorsec.service=monitor"
+          - "traefik.http.services.monitor.loadbalancer.server.port=8080"
+          - "traefik.http.middlewares.monitor-redirect.redirectscheme.scheme=https"
+          - "traefik.http.routers.monitor.middlewares=monitor-redirect"
         environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
@@ -39,8 +42,6 @@ services:
         restart: always
         ports:
           - 8123:8123
-        environment:
-          - DATABASE_URL=postgres://todoapp@postgres/todos
         depends_on:
           - postgres
           - pgadmin
@@ -48,11 +49,20 @@ services:
           - default
           - traefik_proxy
         labels:
-         - "traefik.enable=true"
-         - "traefik.backend=djwohn"
-         - "traefik.port=8123"
-         - "traefik.docker.network=traefik_proxy"
-         - "traefik.frontend.rule=Host:melive.xyz,www.melive.xyz"
+          - "traefik.enable=true"
+          - "traefik.http.routers.djwohn.rule=Host(`melive.xyz`, `www.melive.xyz`)"
+          - "traefik.http.routers.djwohnsec.tls=true"
+          - "traefik.http.routers.djwohnsec.rule=Host(`melive.xyz`, `www.melive.xyz`)"
+          - "traefik.http.routers.djwohnsec.tls.certresolver=default"
+          - "traefik.http.routers.djwohnsec.service=djwohn"
+          - "traefik.http.services.djwohn.loadbalancer.server.port=8123"
+          - "traefik.http.middlewares.djwohn-redirect.redirectscheme.scheme=https"
+          - "traefik.http.routers.djwohn.middlewares=djwohn-redirect"
+        environment:
+          - "OVH_ENDPOINT=ovh-eu"
+          - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
+          - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
+          - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 
 # https://hub.docker.com/_/postgres
     postgres:
@@ -71,39 +81,47 @@ services:
           - traefik_proxy
         labels:
           - "traefik.enable=false"
-          - "traefik.backend=postgres"
-          - "traefik.port=5432"
-          - "traefik.docker.network=traefik_proxy"
+          - "traefik.http.services.postgres.loadbalancer.server.port=5432"
 
 # https://hub.docker.com/r/dpage/pgadmin4/
     pgadmin:
         image: dpage/pgadmin4:latest
-        container_name: pgadmin4
-        environment:
-          - PGADMIN_DEFAULT_EMAIL=cincenko@outlook.com
-          - PGADMIN_DEFAULT_PASSWORD=123456
-          - PGADMIN_LISTEN_PORT=5050
+        container_name: pgadmin
         ports:
-          - 5050:5050
+          - 3456:3456
         restart: always
         depends_on:
           - postgres
         networks:
           - default
-          - traefik_proxy
         volumes:
           - datadrive_pgadmin:/var/lib/pgadmin
           - ./services/containers/pgadmin/config_local.py:/config_local.py
         labels:
           - "traefik.enable=true"
-          - "traefik.backend=pgadmin"
-          - "traefik.port=5050"
-          - "traefik.frontend.rule=Host:pgadmin.melive.xyz,www.pgadmin.melive.xyz"
+          - "traefik.http.services.pgadmin.loadbalancer.server.port=3456"
+          - "traefik.http.routers.pgadminsec.rule=Host(`pgadmin.melive.xyz`, `www.pgadmin.melive.xyz`)"
+          - "traefik.http.middlewares.pgadmin-redirect.redirectscheme.scheme=https"
+          - "traefik.http.routers.pgadmin.middlewares=pgadmin-redirect"
+          - "traefik.http.routers.pgadminsec.tls=true"
+          - "traefik.http.routers.pgadminsec.tls.certresolver=default"
+          - "traefik.http.routers.pgadminsec.service=pgadmin"
+          - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz`, `www.pgadmin.melive.xyz`)"
+        environment:
+          - "OVH_ENDPOINT=ovh-eu"
+          - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
+          - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
+          - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
+          - PGADMIN_DEFAULT_EMAIL=cincenko@outlook.com
+          - PGADMIN_DEFAULT_PASSWORD=123456
+          - PGADMIN_LISTEN_PORT=3456
 
     watchtower:
         image: containrrr/watchtower:latest
         container_name: watchtower
         restart: always
+        networks:
+          - default
         ports:
           - 7884:7884
         environment:
@@ -118,8 +136,7 @@ services:
         command: --interval 30
         labels:
           - "traefik.enable=false"
-          - "traefik.backend=watchtower"
-          - "traefik.port=7884"
+          - "traefik.http.services.watchtower.loadbalancer.server.port=7884"
 
     portainer:
         image: portainer/portainer:latest
@@ -135,10 +152,19 @@ services:
           - default
         labels:
           - "traefik.enable=true"
-          - "traefik.backend=portainer"
-          - "traefik.port=9000"
-          - "traefik.frontend.rule=Host:portainer.melive.xyz,www.portainer.melive.xyz"
-
+          - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+          - "traefik.http.routers.portainersec.rule=Host(`portainer.melive.xyz`, `www.portainer.melive.xyz`)"
+          - "traefik.http.middlewares.portainer-redirect.redirectscheme.scheme=https"
+          - "traefik.http.routers.portainer.middlewares=portainer-redirect"
+          - "traefik.http.routers.portainersec.tls=true"
+          - "traefik.http.routers.portainersec.tls.certresolver=default"
+          - "traefik.http.routers.portainersec.service=portainer"
+          - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`, `www.portainer.melive.xyz`)"
+        environment:
+          - "OVH_ENDPOINT=ovh-eu"
+          - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
+          - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
+          - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 networks:
   traefik_proxy:
     external:
