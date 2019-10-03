@@ -40,8 +40,6 @@
     endpoint = "unix:///var/run/docker.sock"
     exposedByDefault = true
     swarmMode = false
-    # network = "traefik_proxy"
-    # useBindPortIP = true
 
 [api]
   insecure = true

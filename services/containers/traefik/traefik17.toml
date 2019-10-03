@@ -1,3 +1,6 @@
+#Traefik version 1.7
+# static configuration, you need to use appropriate docker compose file
+
 debug = true
 logLevel = "INFO"
 InsecureSkipVerify = true
