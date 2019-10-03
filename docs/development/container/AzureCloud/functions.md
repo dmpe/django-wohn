@@ -7,7 +7,7 @@ We used **Azure Functions** to react or trigger events (functions) for some task
 - [See GitHub issue](https://github.com/dmpe/django-wohn/issues/7) for more ideas.
 
 **Consumption plan** should be enough.
-Though a premium plan which enables to use full docker images can be better due to large Python3 dependencies.
+Though a **premium** plan, which enables to use full docker images, can be better due to large Python3 dependencies.
 
 ## Our Branch
 
@@ -27,6 +27,8 @@ Sources:
 ### 1. Pyenv
 
 Use `pyenv` in this worktree. Execute in the root:
+
+:warning: Be careful on using VSCode with Python/"Live autocompl." plugins as VSCode will inevitably crash.
 
 ```shell
 git switch azure-functions

@@ -1,4 +1,4 @@
-# Development overtime
+# Development over the time
 
 Shows how CI/CD + architecture looked like in the past.
 
@@ -12,7 +12,9 @@ Shows current deployment pipeline, from local changes to building a container on
 
 # App's Class Diagramm
 
-Created using <https://django-extensions.readthedocs.io/en/latest/graph_models.html> and
+Created using <https://django-extensions.readthedocs.io/en/latest/graph_models.html>.
+
+During container runtime, executed manually:
 
 ```shell
 python3 manage.py graph_models -a -g -o arch/class_diagramm.png
