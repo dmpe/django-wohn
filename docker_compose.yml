@@ -88,7 +88,7 @@ services:
         image: dpage/pgadmin4:latest
         container_name: pgadmin
         ports:
-          - 5050:5050
+          - 3456:3456
         restart: always
         depends_on:
           - postgres
@@ -100,7 +100,7 @@ services:
           - ./services/containers/pgadmin/config_local.py:/config_local.py
         labels:
           - "traefik.enable=true"
-          - "traefik.http.services.pgadmin.loadbalancer.server.port=5050"
+          - "traefik.http.services.pgadmin.loadbalancer.server.port=3456"
           - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz/`, `www.pgadmin.melive.xyz`)"
           - "traefik.http.routers.pgadminsec.rule=Host(`pgadmin.melive.xyz`, `www.pgadmin.melive.xyz`)"
           - "traefik.http.middlewares.pgadmin-redirect.redirectscheme.scheme=https"
@@ -116,7 +116,7 @@ services:
           - PGADMIN_DEFAULT_EMAIL=cincenko@outlook.com
           - PGADMIN_DEFAULT_PASSWORD=123456
           - PGADMIN_LISTEN_ADDRESS=127.0.0.1
-          - PGADMIN_LISTEN_PORT=5050
+          - PGADMIN_LISTEN_PORT=3456
 
     watchtower:
         image: containrrr/watchtower:latest
