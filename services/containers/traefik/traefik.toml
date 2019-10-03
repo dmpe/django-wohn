@@ -1,4 +1,5 @@
 # Traefik version 2
+# static settings
 
 [global]
   checkNewVersion = true
@@ -8,19 +9,6 @@
   insecureSkipVerify = true
   maxIdleConnsPerHost = 0
 
-# [http]
-#   [http.routers]
-#     [http.routers.dashboard]
-#       entryPoints = ["web"]
-#       service = "monitor"
-#       rule = "Path(`/foo`)"
-
-#     [http.services]
-#       [http.services.monitor]
-#         [http.services.monitor.loadBalancer]
-#           [[http.services.monitor.loadBalancer.servers]]
-#             url = "http://foo/"
-
 [entryPoints.web]
   address = ":80"
 
@@ -28,25 +16,25 @@
   address = ":443"
 
 [entryPoints.others]
-  address = ":7070"
+  address = ":9116"
 
-# [tls.options]
-#   [tls.options.default]
-#     minVersion = "VersionTLS12"
-#     cipherSuites = [
-#         "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
-#         "TLS_RSA_WITH_AES_256_GCM_SHA384"
-#     ]
+[tls.options]
+  [tls.options.default]
+    minVersion = "VersionTLS12"
+    cipherSuites = [
+        "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+        "TLS_RSA_WITH_AES_256_GCM_SHA384"
+    ]
 
-# [certificatesResolvers]
-#   [certificatesResolvers.default]
-#     [certificatesResolvers.default.acme]
-#       email = "cincenko@outlook.com"
-#       storage = "acme/certs.json"
-#       [certificatesResolvers.default.acme.dnsChallenge]
-#         provider = "ovh"
-#         delayBeforeCheck = "10s"
-#         resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
+[certificatesResolvers]
+  [certificatesResolvers.default]
+    [certificatesResolvers.default.acme]
+      email = "cincenko@outlook.com"
+      storage = "acme/certs.json"
+      [certificatesResolvers.default.acme.dnsChallenge]
+        provider = "ovh"
+        delayBeforeCheck = "10s"
+        resolvers = ["1.1.1.1:53", "8.8.8.8:53"]
 
 [providers]
   providersThrottleDuration = "2s"
