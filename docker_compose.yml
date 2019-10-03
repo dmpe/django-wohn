@@ -84,13 +84,14 @@ services:
 # https://hub.docker.com/r/dpage/pgadmin4/
     pgadmin:
         image: dpage/pgadmin4:latest
-        container_name: pgadmin4
+        container_name: pgadmin
         environment:
           - PGADMIN_DEFAULT_EMAIL=cincenko@outlook.com
           - PGADMIN_DEFAULT_PASSWORD=123456
           - PGADMIN_LISTEN_PORT=5050
         ports:
-          - 5050:5050
+          - "80:80"
+          - "443:443"
         restart: always
         depends_on:
           - postgres
