@@ -50,9 +50,12 @@ services:
           - traefik_proxy
         labels:
           - "traefik.enable=true"
+          - "traefik.http.routers.djwohn.rule=Host(`djwohn.melive.xyz`, `www.djwohn.melive.xyz`)"
+          - "traefik.http.routers.djwohnsec.tls=true"
+          - "traefik.http.routers.djwohnsec.rule=Host(`djwohn.melive.xyz`, `www.djwohn.melive.xyz`)"
+          - "traefik.http.routers.djwohnsec.tls.certresolver=default"
+          - "traefik.http.routers.djwohnsec.service=djwohn"
           - "traefik.http.services.djwohn.loadbalancer.server.port=8123"
-          - "traefik.docker.network=traefik_proxy"
-          - "traefik.http.routers.djwohn.rule=Host(`melive.xyz`, `www.melive.xyz`)"
           - "traefik.http.middlewares.djwohn-redirect.redirectscheme.scheme=https"
           - "traefik.http.routers.djwohn.middlewares=djwohn-redirect"
         environment:
@@ -79,7 +82,6 @@ services:
         labels:
           - "traefik.enable=false"
           - "traefik.http.services.postgres.loadbalancer.server.port=5432"
-          - "traefik.docker.network=traefik_proxy"
 
 # https://hub.docker.com/r/dpage/pgadmin4/
     pgadmin:
@@ -120,6 +122,8 @@ services:
         image: containrrr/watchtower:latest
         container_name: watchtower
         restart: always
+        networks:
+          - default
         ports:
           - 7884:7884
         environment:
