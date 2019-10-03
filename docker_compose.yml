@@ -50,9 +50,9 @@ services:
           - traefik_proxy
         labels:
           - "traefik.enable=true"
-          - "traefik.http.routers.djwohn.rule=Host(`djwohn.melive.xyz`, `www.djwohn.melive.xyz`)"
+          - "traefik.http.routers.djwohn.rule=Host(`melive.xyz`, `www.melive.xyz`)"
           - "traefik.http.routers.djwohnsec.tls=true"
-          - "traefik.http.routers.djwohnsec.rule=Host(`djwohn.melive.xyz`, `www.djwohn.melive.xyz`)"
+          - "traefik.http.routers.djwohnsec.rule=Host(`melive.xyz`, `www.melive.xyz`)"
           - "traefik.http.routers.djwohnsec.tls.certresolver=default"
           - "traefik.http.routers.djwohnsec.service=djwohn"
           - "traefik.http.services.djwohn.loadbalancer.server.port=8123"
