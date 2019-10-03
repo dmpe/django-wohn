@@ -115,7 +115,8 @@ services:
           - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
           - PGADMIN_DEFAULT_EMAIL=cincenko@outlook.com
           - PGADMIN_DEFAULT_PASSWORD=123456
-        #   - PGADMIN_LISTEN_PORT=5050
+          - PGADMIN_LISTEN_ADDRESS=127.0.0.1
+          - PGADMIN_LISTEN_PORT=5050
 
     watchtower:
         image: containrrr/watchtower:latest
