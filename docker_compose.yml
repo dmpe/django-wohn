@@ -26,7 +26,6 @@ services:
           - "traefik.http.routers.monitorsec.tls.certresolver=default"
           - "traefik.http.routers.monitorsec.service=monitor"
           - "traefik.http.services.monitor.loadbalancer.server.port=8080"
-          - "traefik.http.routers.monitorsec.service=api@internal"
           - "traefik.docker.network=traefik_proxy"
         environment:
           - "OVH_ENDPOINT=ovh-eu"
