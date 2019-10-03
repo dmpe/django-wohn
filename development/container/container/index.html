@@ -13,7 +13,7 @@
         <meta name="description" content="Developer Documentation for Melive.xyz">
       
       
-        <link rel="canonical" href="https://dmpe.github.io/django-wohn/development/own_server/">
+        <link rel="canonical" href="https://dmpe.github.io/django-wohn/development/container/container/">
       
       
         <meta name="author" content="John Malc (@dmpe)">
@@ -37,18 +37,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
     
     
       
-        <title>Own Server - Melive.xyz Documentation</title>
+        <title>Container - Melive.xyz Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -66,7 +66,7 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
     
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#own-server" tabindex="1" class="md-skip">
+      <a href="#container" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -117,7 +117,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Own Server
+                Container
               
             </span>
           
@@ -194,7 +194,7 @@
         
   <li class="md-tabs__item">
     
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -206,7 +206,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../architecture/" class="md-tabs__link">
+        <a href="../../../architecture/" class="md-tabs__link">
           Architecture
         </a>
       
@@ -219,7 +219,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../heroku/" class="md-tabs__link md-tabs__link--active">
+        <a href="../../heroku/" class="md-tabs__link md-tabs__link--active">
           Development
         </a>
       
@@ -276,7 +276,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -307,7 +307,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../architecture/" title="Development over the time" class="md-nav__link">
+    <a href="../../../architecture/" title="Development over the time" class="md-nav__link">
       Development over the time
     </a>
   </li>
@@ -345,11 +345,44 @@
 
 
   <li class="md-nav__item">
-    <a href="../heroku/" title="Heroku" class="md-nav__link">
+    <a href="../../heroku/" title="Heroku" class="md-nav__link">
       Heroku
     </a>
   </li>
 
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../own_server/" title="Own Server" class="md-nav__link">
+      Own Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Container
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Container
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
         
           
           
@@ -366,11 +399,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Own Server
+        Container
       </label>
     
-    <a href="./" title="Own Server" class="md-nav__link md-nav__link--active">
-      Own Server
+    <a href="./" title="Container" class="md-nav__link md-nav__link--active">
+      Container
     </a>
     
       
@@ -384,23 +417,52 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-deploy-to-own-server" class="md-nav__link">
-    1. Deploy to own server
+  <a href="#in-use" class="md-nav__link">
+    In use
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-used-anymore" class="md-nav__link">
+    Not used anymore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-prepare-your-vm" class="md-nav__link">
+    1. Prepare your VM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-new-docker-volume-for-each-container" class="md-nav__link">
+    2. New docker volume for each container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-launch-docker-containers" class="md-nav__link">
+    3. Launch docker containers
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-django-superuser" class="md-nav__link">
-    Create Django superuser
+  <a href="#test-your-django-wohn-image" class="md-nav__link">
+    Test your Django-Wohn image
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setup-git-repo-with-post-receive-hook" class="md-nav__link">
-    Setup Git Repo with post-receive hook
+  <a href="#docker-compose-with-django-and-postgres" class="md-nav__link">
+    Docker Compose with Django and Postgres
   </a>
   
 </li>
@@ -409,18 +471,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#2-some-common-issues" class="md-nav__link">
-    2. Some common issues
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-run-celery-and-rabbitmq-management-ui" class="md-nav__link">
-    3. Run Celery and RabbitMQ Management UI
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -432,37 +485,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
-    
-    <label class="md-nav__link" for="nav-3-3">
-      Container
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-3">
-        Container
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../container/container/" title="Container" class="md-nav__link">
-      Container
-    </a>
   </li>
 
         
@@ -491,7 +513,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../container/AzureCloud/CICD/" title="CI & CD jobs" class="md-nav__link">
+    <a href="../AzureCloud/CICD/" title="CI & CD jobs" class="md-nav__link">
       CI & CD jobs
     </a>
   </li>
@@ -503,7 +525,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../container/AzureCloud/functions/" title="Azure Functions" class="md-nav__link">
+    <a href="../AzureCloud/functions/" title="Azure Functions" class="md-nav__link">
       Azure Functions
     </a>
   </li>
@@ -545,23 +567,52 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-deploy-to-own-server" class="md-nav__link">
-    1. Deploy to own server
+  <a href="#in-use" class="md-nav__link">
+    In use
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-used-anymore" class="md-nav__link">
+    Not used anymore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-prepare-your-vm" class="md-nav__link">
+    1. Prepare your VM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-new-docker-volume-for-each-container" class="md-nav__link">
+    2. New docker volume for each container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-launch-docker-containers" class="md-nav__link">
+    3. Launch docker containers
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-django-superuser" class="md-nav__link">
-    Create Django superuser
+  <a href="#test-your-django-wohn-image" class="md-nav__link">
+    Test your Django-Wohn image
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setup-git-repo-with-post-receive-hook" class="md-nav__link">
-    Setup Git Repo with post-receive hook
+  <a href="#docker-compose-with-django-and-postgres" class="md-nav__link">
+    Docker Compose with Django and Postgres
   </a>
   
 </li>
@@ -570,18 +621,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#2-some-common-issues" class="md-nav__link">
-    2. Some common issues
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-run-celery-and-rabbitmq-management-ui" class="md-nav__link">
-    3. Run Celery and RabbitMQ Management UI
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -601,72 +643,76 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dmpe/django-wohn/edit/docs/docs/development/own_server.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/dmpe/django-wohn/edit/docs/docs/development/container/container.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="own-server">Own Server<a class="headerlink" href="#own-server" title="Permanent link">&para;</a></h1>
-<p>Before I have switched to container based, CI/CD workflow, I have installed everything needed on my server myself...</p>
-<p>Some important components are located in <code>services/own_server</code>.
-See heroku page as well.</p>
-<p>To install pgadmin4, follow <a href="https://www.pgadmin.org/docs/pgadmin4/4.x/server_deployment.html">https://www.pgadmin.org/docs/pgadmin4/4.x/server_deployment.html</a> guideline.</p>
-<h2 id="1-deploy-to-own-server">1. Deploy to own server<a class="headerlink" href="#1-deploy-to-own-server" title="Permanent link">&para;</a></h2>
-<h3 id="create-django-superuser">Create Django superuser<a class="headerlink" href="#create-django-superuser" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>python3 manage.py createsuperuser --username admin --email ci@se.cz
-</pre></div>
-
-<p>Then, execute on remote server following commands whenever Django model(s) change.</p>
-<div class="codehilite"><pre><span></span>python3 manage.py makemigrations &lt;model&gt; <span class="o">&amp;&amp;</span> python3 manage.py migrate <span class="o">&amp;&amp;</span> sudo systemctl restart gunicorn.service
-</pre></div>
-
-<p>After git commit &amp; push to the server, you can also use a special post-receive hook <a href="https://gist.github.com/lemiorhan/8912188">https://gist.github.com/lemiorhan/8912188</a>.</p>
-<h3 id="setup-git-repo-with-post-receive-hook">Setup Git Repo with post-receive hook<a class="headerlink" href="#setup-git-repo-with-post-receive-hook" title="Permanent link">&para;</a></h3>
-<p>At certain point of time, the goal was to use AWS Cloud9 IDE to edit <strong>and</strong> push -- on the same server (username@domain:/home/username/domain_push.git) -- to the git repository, from which website was "deployment" (aka gunicorn restarted).</p>
-<p>Today, this is totally obsolete with VS Code (remote development or Eclipse Che) for instance.</p>
+                <h1 id="container">Container<a class="headerlink" href="#container" title="Permanent link">&para;</a></h1>
+<p>Docker containers are currently used for building images and starting them with docker-compose.</p>
+<p>This project has been in "migration state" quite a lot of times and currently it represents most up-to-date architecture.</p>
+<p>Images are run on Azure cloud and therefore Melive.xyz also uses many of its services, for example:</p>
+<h5 id="in-use">In use<a class="headerlink" href="#in-use" title="Permanent link">&para;</a></h5>
 <ul>
-<li>See this guide <a href="https://stackoverflow.com/a/40479963">https://stackoverflow.com/a/40479963</a></li>
-<li>E.g. for AWS Cloud9 IDE, first clone git repo somewhere</li>
-<li>Then create a new <strong>bare</strong> repo which is used for pushing to it and now you have to add/register aforementioned <code>post-recieve</code> hook.</li>
+<li>Azure Virtual Machines</li>
+<li>Azure KeyVault</li>
+<li>Azure Blob Storage</li>
 </ul>
-<h2 id="2-some-common-issues">2. Some common issues<a class="headerlink" href="#2-some-common-issues" title="Permanent link">&para;</a></h2>
+<h5 id="not-used-anymore">Not used anymore<a class="headerlink" href="#not-used-anymore" title="Permanent link">&para;</a></h5>
 <ul>
-<li>Start Django manually</li>
+<li>Azure DNS Zone due to its <a href="https://docs.microsoft.com/en-us/azure/dns/dns-faq">limitations</a> -&gt; Moved to 3<sup>rd</sup> Party Hosting Provider (OVH)</li>
 </ul>
-<div class="codehilite"><pre><span></span>python3 manage.py runserver --nostatic
+<h2 id="1-prepare-your-vm">1. Prepare your VM<a class="headerlink" href="#1-prepare-your-vm" title="Permanent link">&para;</a></h2>
+<p>On (close to any) cloud provider, create a VM and use <code>cloud-init</code> <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a> commands to install required applications right during the initial setup.</p>
+<p>This should already include major components like Docker daemon.</p>
+<div class="codehilite"><pre><span></span><span class="c1">#include https://get.docker.com</span>
+package_update: <span class="nb">true</span>
+package_upgrade: <span class="nb">true</span>
+packages:
+  - git
+  - curl
+  - python3-pip
+runcmd:
+  - curl -sL https://deb.nodesource.com/setup_12.x <span class="p">|</span> sudo -E bash -
+  - apt install -y nodejs
+  - curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg <span class="p">|</span> sudo apt-key add -
+  - <span class="nb">echo</span> <span class="s2">&quot;deb https://dl.yarnpkg.com/debian/ stable main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/yarn.list
+  - apt update
+  - apt install -y yarn
+  - <span class="o">[</span>sh, -c, <span class="s1">&#39;sudo curl -L https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep &quot;tag_name&quot; | cut -d \&quot; -f4)/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose&#39;</span><span class="o">]</span>
+  - <span class="o">[</span>sh, -c, <span class="s1">&#39;sudo chmod +x /usr/local/bin/docker-compose&#39;</span><span class="o">]</span>
+final_message: <span class="s2">&quot;The system is finally up, after </span><span class="nv">$UPTIME</span><span class="s2"> seconds&quot;</span>
 </pre></div>
 
-<ul>
-<li>Adding new SSL certificates via certbot (letsencrypt)</li>
-</ul>
-<div class="codehilite"><pre><span></span>sudo certbot --nginx certonly
+<h2 id="2-new-docker-volume-for-each-container">2. New docker volume for <strong>each</strong> container<a class="headerlink" href="#2-new-docker-volume-for-each-container" title="Permanent link">&para;</a></h2>
+<p>Once installed, you need to have persistent volumes for images on a separate hard disk - in case your VM crashes, or you need to change VM's OS hard disk.</p>
+<p>The command below already assumes that a data disk has been mounted &amp; properly setup in VM.</p>
+<div class="codehilite"><pre><span></span>docker volume create --driver <span class="nb">local</span> --opt <span class="nv">type</span><span class="o">=</span>none --opt <span class="nv">device</span><span class="o">=</span>/datadrive/_name_of_container --opt <span class="nv">o</span><span class="o">=</span><span class="nb">bind</span> datadrive_name_of_container
 </pre></div>
 
-<ul>
-<li>Nginx 502 gateway issue after VM reboot</li>
-</ul>
-<p>Just <strong>restart</strong> nginx, then <code>sudo systemctl restart gunicorn.service</code> as well as stop that socket thing</p>
-<h2 id="3-run-celery-and-rabbitmq-management-ui">3. Run Celery and RabbitMQ Management UI<a class="headerlink" href="#3-run-celery-and-rabbitmq-management-ui" title="Permanent link">&para;</a></h2>
-<p>(This could have been moved to Azure Functions for example.)</p>
-<p>Source:</p>
-<ul>
-<li><a href="https://stackoverflow.com/a/12900126/2171456">https://stackoverflow.com/a/12900126/2171456</a></li>
-</ul>
-<p>First install <code>RabbitMQ</code> (message broker), then <code>Celery</code> ("worker").</p>
-<div class="codehilite"><pre><span></span>sudo rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management
-sudo rabbitmqctl add_user jm password
-sudo rabbitmqctl set_user_tags jm administrator
+<h2 id="3-launch-docker-containers">3. Launch docker containers<a class="headerlink" href="#3-launch-docker-containers" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Clone this repo and cd' into it</li>
+</ol>
+<div class="codehilite"><pre><span></span>git clone https://github.com/dmpe/django-wohn .
+<span class="nb">cd</span> django-wohn
+git switch server-config
+git status
 </pre></div>
 
-<p>Run <code>Celery</code> from <code>b40re</code> directory using:</p>
-<div class="codehilite"><pre><span></span>sudo systemctl restart rabbitmq&lt;TAB&gt;
-celery -A vanoce worker -l info
+<ol>
+<li>Start <code>docker-compose -f docker-compose.yaml up (-d)</code></li>
+</ol>
+<h3 id="test-your-django-wohn-image">Test your Django-Wohn image<a class="headerlink" href="#test-your-django-wohn-image" title="Permanent link">&para;</a></h3>
+<p>During development phase, you may encounter that your image does not work properly.
+For example it does not start or you need to develop something locally.</p>
+<p>For that case, you can push image to DockerHub, download it on your server VM and from there execute:</p>
+<div class="codehilite"><pre><span></span>docker run -it f789gh/django-wohn:latest
 </pre></div>
 
-<p>Then, in an another <code>bash</code> window, execute commands below so that tasks such as
-fetching forex/currency data are run immediately.</p>
-<div class="codehilite"><pre><span></span>python3 manage.py shell
-from userMng.third_party_services.celery_tasks import parse_forex_data
-<span class="nv">rst</span> <span class="o">=</span> parse_forex_data.apply<span class="o">()</span>
-</pre></div>
+<p>Or wait until <code>watchtower</code> image will download latest version by itself.</p>
+<h4 id="docker-compose-with-django-and-postgres">Docker Compose with Django and Postgres<a class="headerlink" href="#docker-compose-with-django-and-postgres" title="Permanent link">&para;</a></h4>
+<p>An important configuration step is to make sure that Django application has in 'DATABASES' property
+correct host name.
+This must be equal to the docker-compose one.</p>
                 
                   
                 
@@ -687,7 +733,7 @@ from userMng.third_party_services.celery_tasks import parse_forex_data
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../heroku/" title="Heroku" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../own_server/" title="Own Server" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -696,19 +742,19 @@ from userMng.third_party_services.celery_tasks import parse_forex_data
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Heroku
+                Own Server
               </span>
             </div>
           </a>
         
         
-          <a href="../container/container/" title="Container" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../AzureCloud/CICD/" title="CI & CD jobs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Container
+                CI & CD jobs
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -740,9 +786,9 @@ from userMng.third_party_services.celery_tasks import parse_forex_data
       
     </div>
     
-      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../assets/javascripts/application.ac79c3b0.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
   </body>
