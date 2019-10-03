@@ -158,7 +158,11 @@ services:
           - "traefik.http.routers.portainersec.tls.certresolver=default"
           - "traefik.http.routers.portainersec.service=portainer"
           - "traefik.http.routers.portainer.rule=Host(`portainer.melive.xyz`, `www.portainer.melive.xyz`)"
-
+        environment:
+          - "OVH_ENDPOINT=ovh-eu"
+          - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
+          - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
+          - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 networks:
   traefik_proxy:
     external:
