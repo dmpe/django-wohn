@@ -26,7 +26,7 @@ services:
           - "traefik.http.routers.monitorsec.tls.certresolver=default"
           - "traefik.http.routers.monitorsec.service=monitor"
           - "traefik.http.services.monitor.loadbalancer.server.port=8080"
-          - "traefik.http.middlewares.monitorsec.redirectscheme.scheme=https"
+          - "traefik.http.middlewares.monitor.redirectscheme.scheme=https"
         environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
