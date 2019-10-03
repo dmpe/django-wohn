@@ -53,6 +53,13 @@ services:
           - "traefik.http.services.djwohn.loadbalancer.server.port=8123"
           - "traefik.docker.network=traefik_proxy"
           - "traefik.http.routers.djwohn.rule=Host(`melive.xyz`, `www.melive.xyz`)"
+          - "traefik.http.middlewares.djwohn-redirect.redirectscheme.scheme=https"
+          - "traefik.http.routers.djwohn.middlewares=djwohn-redirect"
+        environment:
+          - "OVH_ENDPOINT=ovh-eu"
+          - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
+          - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
+          - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 
 # https://hub.docker.com/_/postgres
     postgres:
@@ -97,6 +104,13 @@ services:
           - "traefik.enable=true"
           - "traefik.http.services.pgadmin.loadbalancer.server.port=5050"
           - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.melive.xyz`, `www.pgadmin.melive.xyz`)"
+          - "traefik.http.middlewares.pgadmin-redirect.redirectscheme.scheme=https"
+          - "traefik.http.routers.pgadmin.middlewares=pgadmin-redirect"
+        environment:
+          - "OVH_ENDPOINT=ovh-eu"
+          - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
+          - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
+          - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 
     watchtower:
         image: containrrr/watchtower:latest
