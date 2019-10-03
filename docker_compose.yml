@@ -24,7 +24,7 @@ services:
           - "traefik.http.routers.monitor.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
           - "traefik.http.services.monitor.loadbalancer.server.port=7070"
         #   - "traefik.http.routers.monitor.tls.certresolver=default"
-          # - "traefik.http.middlewares.monitor.redirectscheme.scheme=https"
+        #   - "traefik.http.middlewares.monitor.redirectscheme.scheme=https"
         # environment:
         #   - "OVH_ENDPOINT=ovh-eu"
         #   - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"

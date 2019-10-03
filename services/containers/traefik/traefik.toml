@@ -8,14 +8,27 @@
   insecureSkipVerify = true
   maxIdleConnsPerHost = 0
 
-# [entryPoints.http]
-#   address = ":80"
+# [http]
+#   [http.routers]
+#     [http.routers.dashboard]
+#       entryPoints = ["web"]
+#       service = "monitor"
+#       rule = "Path(`/foo`)"
 
-# [entryPoints.https]
-#   address = ":443"
+#     [http.services]
+#       [http.services.monitor]
+#         [http.services.monitor.loadBalancer]
+#           [[http.services.monitor.loadBalancer.servers]]
+#             url = "http://foo/"
 
-# [entryPoints.others]
-#   address = ":7070"
+[entryPoints.web]
+  address = ":80"
+
+[entryPoints.web-secure]
+  address = ":443"
+
+[entryPoints.others]
+  address = ":7070"
 
 # [tls.options]
 #   [tls.options.default]
@@ -42,7 +55,7 @@
     endpoint = "unix:///var/run/docker.sock"
     exposedByDefault = true
     swarmMode = false
-    network = "traefik_proxy"
+    # network = "traefik_proxy"
     # useBindPortIP = true
 
 [api]
