@@ -41,7 +41,7 @@ stages:
           containerRegistry: 'docker_hub'
           repository: $(dockerId)/$(imageName)
           command: 'build'
-          Dockerfile: 'Dockerfile'
+          Dockerfile: 'backend/Dockerfile'
           tags: |
             $(major).$(minor)
             latest
