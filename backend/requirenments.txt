@@ -21,6 +21,7 @@ dj-database-url
 google-api-python-client
 googleapis-common-protos
 gunicorn
+graphene-django
 social-auth-core
 social-auth-app-django
 #git+git://github.com/python-social-auth/social-core.git#egg=elasticutils

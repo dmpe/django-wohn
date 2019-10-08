@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "pinax.templates",
     "pinax.messages",
+    'graphene_django'
 ]
 
 MIDDLEWARE = [
@@ -126,6 +127,9 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
     "social.pipeline.disconnect.disconnect",
 )
 
+GRAPHENE = {
+    'SCHEMA': 'dj.wohn.schema' # Where your Graphene schema lives
+}
 
 ROOT_URLCONF = "melive.urls"
 
