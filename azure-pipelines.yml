@@ -3,8 +3,9 @@
 # https://aka.ms/yaml
 
 variables:
-  dockerId: f789gh
-  imageName: django-wohn
+  dockerId: dmpe
+  imageNameB: django-wohn-backend
+  imageNameF: django-wohn-frontend
   major: 1
   minor: $[counter(variables['major'], 3)]
 
