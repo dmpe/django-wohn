@@ -3,7 +3,9 @@
 # https://aka.ms/yaml
 
 variables:
-  dockerId: dmpe
+  quayId: dmpe
+  dockerId: f789gh
+  imageName: django-wohn
   imageNameB: django-wohn-backend
   imageNameF: django-wohn-frontend
   major: 1
@@ -85,7 +87,7 @@ stages:
         displayName: "Build our Image now"
         inputs:
           containerRegistry: 'docker_hub'
-          repository: $(dockerId)/$(imageName)
+          repository: $(quayId)/$(imageNameF)
           command: 'build'
           Dockerfile: 'frontend/Dockerfile'
           tags: |
@@ -98,7 +100,7 @@ stages:
         # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         inputs:
           containerRegistry: 'docker_hub'
-          repository: '$(dockerId)/$(imageName)'
+          repository: '$(quayId)/$(imageNameF)'
           command: 'push'
           tags: |
             $(major).$(minor)
