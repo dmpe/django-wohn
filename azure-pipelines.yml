@@ -31,7 +31,7 @@ stages:
           command: 'login'
 
       - task: Docker@2
-        displayName: "Docker login"
+        displayName: "quay login"
         inputs:
           containerRegistry: 'quay.io'
           command: 'login'
@@ -86,10 +86,10 @@ stages:
       - task: Docker@2
         displayName: "Build our Image now"
         inputs:
-          containerRegistry: 'docker_hub'
+          containerRegistry: 'quay.io'
           repository: $(quayId)/$(imageNameF)
           command: 'build'
-          Dockerfile: 'frontend/Dockerfile'
+          Dockerfile: 'frontend/djwohn-front/Dockerfile'
           tags: |
             $(major).$(minor)
             latest
@@ -99,7 +99,7 @@ stages:
         # only push on master branch, i.e. when PR is merged
         # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         inputs:
-          containerRegistry: 'docker_hub'
+          containerRegistry: 'quay.io'
           repository: '$(quayId)/$(imageNameF)'
           command: 'push'
           tags: |
