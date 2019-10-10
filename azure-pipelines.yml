@@ -28,6 +28,12 @@ stages:
           containerRegistry: 'docker_hub'
           command: 'login'
 
+      - task: Docker@2
+        displayName: "Docker login"
+        inputs:
+          containerRegistry: 'quay.io'
+          command: 'login'
+
       - task: AzureKeyVault@1
         inputs:
           azureSubscription: 'DjangoAzure'
