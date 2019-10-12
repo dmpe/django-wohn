@@ -355,30 +355,18 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../../own_server/" title="Own Server" class="md-nav__link">
-      Own Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
     
-    <label class="md-nav__link" for="nav-3-3">
+    <label class="md-nav__link" for="nav-3-2">
       Container
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-3">
+      <label class="md-nav__title" for="nav-3-2">
         Container
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -453,14 +441,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#test-your-django-wohn-image" class="md-nav__link">
-    Test your Django-Wohn image
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#docker-compose-with-django-and-postgres" class="md-nav__link">
     Docker Compose with Django and Postgres
   </a>
@@ -469,6 +449,28 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-test-your-django-wohn-images-locally" class="md-nav__link">
+    4. Test your Django-Wohn images locally
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerhub" class="md-nav__link">
+    DockerHub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quay" class="md-nav__link">
+    Quay
+  </a>
   
 </li>
         
@@ -495,13 +497,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-2" type="checkbox" id="nav-3-3-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-2" type="checkbox" id="nav-3-2-2">
     
-    <label class="md-nav__link" for="nav-3-3-2">
+    <label class="md-nav__link" for="nav-3-2-2">
       Azure Cloud
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-3-2">
+      <label class="md-nav__title" for="nav-3-2-2">
         Azure Cloud
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -533,6 +535,54 @@
         
       </ul>
     </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Local pc server
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Local pc server
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../local_pc_server/local_pc/" title="Local PC" class="md-nav__link">
+      Local PC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../local_pc_server/own_server/" title="Own Server" class="md-nav__link">
+      Own Server
+    </a>
   </li>
 
         
@@ -603,14 +653,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#test-your-django-wohn-image" class="md-nav__link">
-    Test your Django-Wohn image
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#docker-compose-with-django-and-postgres" class="md-nav__link">
     Docker Compose with Django and Postgres
   </a>
@@ -619,6 +661,28 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-test-your-django-wohn-images-locally" class="md-nav__link">
+    4. Test your Django-Wohn images locally
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerhub" class="md-nav__link">
+    DockerHub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quay" class="md-nav__link">
+    Quay
+  </a>
   
 </li>
         
@@ -701,18 +765,28 @@ git status
 <ol>
 <li>Start <code>docker-compose -f docker-compose.yaml up (-d)</code></li>
 </ol>
-<h3 id="test-your-django-wohn-image">Test your Django-Wohn image<a class="headerlink" href="#test-your-django-wohn-image" title="Permanent link">&para;</a></h3>
-<p>During development phase, you may encounter that your image does not work properly.
-For example it does not start or you need to develop something locally.</p>
-<p>For that case, you can push image to DockerHub, download it on your server VM and from there execute:</p>
-<div class="codehilite"><pre><span></span>docker run -it f789gh/django-wohn:latest
-</pre></div>
-
-<p>Or wait until <code>watchtower</code> image will download latest version by itself.</p>
-<h4 id="docker-compose-with-django-and-postgres">Docker Compose with Django and Postgres<a class="headerlink" href="#docker-compose-with-django-and-postgres" title="Permanent link">&para;</a></h4>
+<h3 id="docker-compose-with-django-and-postgres">Docker Compose with Django and Postgres<a class="headerlink" href="#docker-compose-with-django-and-postgres" title="Permanent link">&para;</a></h3>
+<p><img alt="⚠" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/26a0.svg" title=":warning:" /></p>
 <p>An important configuration step is to make sure that Django application has in 'DATABASES' property
 correct host name.
 This must be equal to the docker-compose one.</p>
+<h2 id="4-test-your-django-wohn-images-locally">4. Test your Django-Wohn images locally<a class="headerlink" href="#4-test-your-django-wohn-images-locally" title="Permanent link">&para;</a></h2>
+<p>During development phase, you may encounter that your image does not work properly on the server VM/container.
+For example, it does not start or you need to test something locally.</p>
+<h3 id="dockerhub">DockerHub<a class="headerlink" href="#dockerhub" title="Permanent link">&para;</a></h3>
+<p>Once the image has been pushed to DockerHub, download it on your server VM/PC and from there execute:</p>
+<div class="codehilite"><pre><span></span>docker run -it f789gh/django-wohn:latest
+</pre></div>
+
+<p>Or wait until <code>watchtower</code> container will download latest version by itself.</p>
+<h3 id="quay">Quay<a class="headerlink" href="#quay" title="Permanent link">&para;</a></h3>
+<p>When using <a href="https://quay.io/user/dmpe">https://quay.io/user/dmpe</a>, you may need to login first</p>
+<div class="codehilite"><pre><span></span>docker login https://quay.io
+docker pull quay.io/dmpe/django-wohn-backend
+docker pull quay.io/dmpe/django-wohn-frontend
+
+docker run -it quay.io/dmpe/django-wohn-backend:latest
+</pre></div>
                 
                   
                 
@@ -733,7 +807,7 @@ This must be equal to the docker-compose one.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../own_server/" title="Own Server" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../heroku/" title="Heroku" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -742,7 +816,7 @@ This must be equal to the docker-compose one.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Own Server
+                Heroku
               </span>
             </div>
           </a>
