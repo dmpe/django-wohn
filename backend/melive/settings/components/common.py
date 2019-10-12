@@ -20,13 +20,16 @@ import dj_database_url
 from myAzure.az_connect import AzureConnection
 from myAzure.az_storage import *
 
-DATABASES["default"] = dj_database_url.parse(
-    "postgres://postgres:django@172.25.0.1:5432/b40re", conn_max_age=600
-)
-
 azCon = AzureConnection()
 azCon.main()
 client = KeyVaultClient(azCon.credentials)
+
+if (azCon.env != "development"):
+    DATABASES["default"] = dj_database_url.parse(
+        "postgres://postgres:django@172.25.0.1:5432/b40re", conn_max_age=600
+    )
+else:
+    pass
 
 SOCIAL_AUTH_USER_MODEL = "core.myUser"
 AUTH_USER_MODEL = "core.myUser"
@@ -37,13 +40,16 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
+if (azCon.env != "development"):
+    ALLOWED_HOSTS = ["*"]
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    CORS_ORIGIN_ALLOW_ALL = True
+    CORS_ALLOW_CREDENTIALS = True
+else:
+    pass
 
 INSTALLED_APPS = [
     "django_extensions",
@@ -127,7 +133,7 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
     "social.pipeline.disconnect.disconnect",
 )
 
-GRAPHENE = {"SCHEMA": "backend.melive.schema"}  # Where your Graphene schema lives
+GRAPHENE = {"SCHEMA": "melive.schema.schema"}  # Where your Graphene schema lives
 
 ROOT_URLCONF = "melive.urls"
 

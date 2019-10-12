@@ -1,6 +1,6 @@
 import graphene
 from graphene_django import DjangoObjectType
-from backend.core.models import Property, myUser
+from core.models import Property, myUser
 
 
 class PropertyType(DjangoObjectType):
