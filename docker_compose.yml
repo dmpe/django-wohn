@@ -77,9 +77,6 @@ services:
           - POSTGRES_USER=postgres
           - POSTGRES_PASSWORD=django
           - POSTGRES_DB=b40re
-        networks:
-          traefik_proxy:
-            ipv4_address: 172.25.0.2
         labels:
           - "traefik.enable=false"
           - "traefik.http.services.postgres.loadbalancer.server.port=5432"
