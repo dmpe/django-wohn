@@ -45,7 +45,7 @@ stages:
 
 
 - stage: Backend
-  displayName: Prepare Backend Docker Build and push to DockerHub
+  displayName: Backend Build and Push
   jobs:
     - job: BuildJob
       pool:
@@ -76,7 +76,7 @@ stages:
             latest
 
 - stage: Frontend
-  displayName: Prepare Frontend Docker Build and push to DockerHub
+  displayName: Frontend Build and Push
   jobs:
     - job: BuildJob
       pool:
