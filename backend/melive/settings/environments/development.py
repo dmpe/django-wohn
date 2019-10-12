@@ -15,7 +15,7 @@
 """
 import os
 
-SECRET_KEY = "ldj33(^$nibo($d939^(mc5k)#^!b6^4yr80_4iv-7_wtm5gvzwz"
+SECRET_KEY = "1h1pi2se&=1!5sd6zdm%x-vm*4=mj+)900i%w*s=rya5c^9tot"
 
 LOGGING = {
     "version": 1,
