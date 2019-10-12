@@ -17,9 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.sitemaps import views
 from django.contrib.sitemaps.views import sitemap
-from django.urls import *
+from django.urls import path, include
 from django.views.generic import TemplateView
 from graphene_django.views import GraphQLView
+
 from core import views
 from core.sitemap import B40_Sitemap, UserMNG_Sitemap
 from userMng import views
@@ -47,5 +48,6 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
-    path('graphql', GraphQLView.as_view(graphiql=True)),
+    # expose graphql server api, incl. via GraphQL IDE
+    path("graphql", GraphQLView.as_view(graphiql=True)),
 ]

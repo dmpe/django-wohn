@@ -17,8 +17,8 @@ from django.contrib.messages import constants as message_constants
 from sendgrid import SendGridAPIClient
 
 import dj_database_url
-from backend.az_connect import AzureConnection
-from backend.az_storage import *
+from myAzure.az_connect import AzureConnection
+from myAzure.az_storage import *
 
 DATABASES["default"] = dj_database_url.parse(
     "postgres://postgres:django@172.25.0.1:5432/b40re", conn_max_age=600
@@ -68,7 +68,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "pinax.templates",
     "pinax.messages",
-    'graphene_django'
+    "graphene_django",
 ]
 
 MIDDLEWARE = [
@@ -127,9 +127,7 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
     "social.pipeline.disconnect.disconnect",
 )
 
-GRAPHENE = {
-    'SCHEMA': 'dj.wohn.schema' # Where your Graphene schema lives
-}
+GRAPHENE = {"SCHEMA": "backend.melive.schema"}  # Where your Graphene schema lives
 
 ROOT_URLCONF = "melive.urls"
 
@@ -193,8 +191,8 @@ COUNTRIES_FIRST = ["CZ", "SK"]
 COUNTRIES_FIRST_REPEAT = True
 COUNTRIES_FIRST_BREAK = "---------------"
 
-DEFAULT_FILE_STORAGE = "backend.az_storage.AzureMediaStorage"
-STATICFILES_STORAGE = "backend.az_storage.AzureStaticStorage"
+DEFAULT_FILE_STORAGE = "myAzure.az_storage.AzureMediaStorage"
+STATICFILES_STORAGE = "myAzure.az_storage.AzureStaticStorage"
 
 MEDIA_LOCATION = "user-profile-photos"
 MEDIA_URL = "https://melivexyz5555.blob.core.windows.net/%s/" % MEDIA_LOCATION

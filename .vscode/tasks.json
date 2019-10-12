@@ -9,13 +9,16 @@
         "command": "isort -rc ."
       },
       {
-        "label": "Docker build",
+        "label": "Docker Backend",
         "type": "shell",
-        "command": "docker build -t dj-wohn .",
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        }
+        "command": "docker build -t django-wohn-backend backend/",
+        "problemMatcher": []
+      },
+      {
+        "label": "Docker Frontend",
+        "type": "shell",
+        "command": "docker build -t django-wohn-frontend frontend/",
+        "problemMatcher": []
       },
       {
         "label": "black",
@@ -28,7 +31,7 @@
         "command": "flake8 ."
       },
       {
-        "label": "Test",
+        "label": "Format",
         "dependsOrder": "sequence",
         "dependsOn": [
           "isort",
@@ -37,6 +40,18 @@
         ],
         "group": {
           "kind": "test",
+          "isDefault": true
+        }
+      },
+      {
+        "label": "Build docker images",
+        "dependsOrder": "parallel",
+        "dependsOn": [
+          "Docker Backend",
+          "Docker Frontend"
+        ],
+        "group": {
+          "kind": "build",
           "isDefault": true
         }
       }

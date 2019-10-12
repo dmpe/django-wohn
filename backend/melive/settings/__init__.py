@@ -15,7 +15,7 @@ from os import environ
 
 from split_settings.tools import include, optional
 
-from backend.az_connect import AzureConnection
+from myAzure.az_connect import AzureConnection
 
 azCon = AzureConnection()
 azCon.main()
