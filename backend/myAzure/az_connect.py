@@ -19,13 +19,15 @@ class AzureConnection(object):
     development
     """
 
-    def __init__(self, env, credentials):
+    def __init__(self, env, credentials, localDevelopment):
         self.env = env
         self.credentials = credentials
+        self.localDevelopment = localDevelopment
 
     def __init__(self):
         self.env = None
         self.credentials = None
+        self.localDevelopment = None
 
     def __str__(self):
         return "the environment is: %s " % self.env
@@ -33,8 +35,10 @@ class AzureConnection(object):
     def connection(self):
         try:
             self.credentials = MSIAuthentication(resource="https://vault.azure.net")
+            self.localDevelopment = False
         except Exception:
             print("MSIAuthentication: Check your development: local vs. Azure")
+            self.localDevelopment = True
             try:
                 load_dotenv(find_dotenv("secrets.env"))
                 self.credentials = ServicePrincipalCredentials(
@@ -46,12 +50,12 @@ class AzureConnection(object):
                 print(
                     "ensure that secrets file exists and that keys are from (ALL) application in Azure"
                 )
-        return self.credentials
+        return [self.credentials, self.localDevelopment]
 
-    def dev_or_prod(self, local_dev=False):
+    def dev_or_prod(self):
         client = KeyVaultClient(self.credentials)
         try:
-            if local_dev:
+            if(self.localDevelopment is False):
                 self.env = client.get_secret(
                     "https://b40.vault.azure.net/",
                     "DJANGO-ENV",
@@ -61,11 +65,12 @@ class AzureConnection(object):
                 self.env = "development"
         except Exception as e:
             print(e)
+
         return self.env
 
     def main(self):
         self.connection()
-        self.dev_or_prod(local_dev=False)
+        self.dev_or_prod()
         print(self.env)
 
 
