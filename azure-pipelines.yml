@@ -75,36 +75,36 @@ stages:
             $(major).$(minor)
             latest
 
-- stage: Frontend
-  displayName: Frontend Build and Push
-  jobs:
-    - job: BuildJob
-      pool:
-        vmImage: 'ubuntu-latest'
-      steps:
+# - stage: Frontend
+#   displayName: Frontend Build and Push
+#   jobs:
+#     - job: BuildJob
+#       pool:
+#         vmImage: 'ubuntu-latest'
+#       steps:
 
-      - task: Docker@2
-        displayName: "Build our Image now"
-        inputs:
-          containerRegistry: 'quay.io'
-          repository: $(quayId)/$(imageNameF)
-          command: 'build'
-          Dockerfile: 'frontend/djwohn-front/Dockerfile'
-          tags: |
-            $(major).$(minor)
-            latest
+#       - task: Docker@2
+#         displayName: "Build our Image now"
+#         inputs:
+#           containerRegistry: 'quay.io'
+#           repository: $(quayId)/$(imageNameF)
+#           command: 'build'
+#           Dockerfile: 'frontend/djwohn-front/Dockerfile'
+#           tags: |
+#             $(major).$(minor)
+#             latest
 
-      - task: Docker@2
-        displayName: "Push to Docker Hub"
-        # only push on master branch, i.e. when PR is merged
-        # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-        inputs:
-          containerRegistry: 'quay.io'
-          repository: '$(quayId)/$(imageNameF)'
-          command: 'push'
-          tags: |
-            $(major).$(minor)
-            latest
+#       - task: Docker@2
+#         displayName: "Push to Docker Hub"
+#         # only push on master branch, i.e. when PR is merged
+#         # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+#         inputs:
+#           containerRegistry: 'quay.io'
+#           repository: '$(quayId)/$(imageNameF)'
+#           command: 'push'
+#           tags: |
+#             $(major).$(minor)
+#             latest
 
 - stage: SendToSonarQube
   displayName: Run SonarQube scannerMode
