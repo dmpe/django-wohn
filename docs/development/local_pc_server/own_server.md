@@ -1,8 +1,8 @@
 # Own Server
 
-Before I have switched to container based, CI/CD workflow, I have installed everything needed on my server myself...
+Before I have switched to container based, CI/CD workflow, I have installed everything that I needed on my server myself...
 
-Some important components are located in `services/own_server`.
+Some important components are located in `services/own_server` in a different branch.
 See heroku page as well.
 
 To install pgadmin4, follow <https://www.pgadmin.org/docs/pgadmin4/4.x/server_deployment.html> guideline.
@@ -31,7 +31,7 @@ Today, this is totally obsolete with VS Code (remote development or Eclipse Che)
 
 * See this guide <https://stackoverflow.com/a/40479963>
 * E.g. for AWS Cloud9 IDE, first clone git repo somewhere
-* Then create a new **bare** repo which is used for pushing to it and now you have to add/register aforementioned `post-recieve` hook.
+* Then create a new **bare** repo which is used for pushing to it and then you will need to add/register aforementioned `post-recieve` hook.
 
 ## 2. Some common issues
 
@@ -53,13 +53,13 @@ Just **restart** nginx, then `sudo systemctl restart gunicorn.service` as well a
 
 ## 3. Run Celery and RabbitMQ Management UI
 
-(This could have been moved to Azure Functions for example.)
+(This could have been moved to Azure Functions for example - see different branch.)
 
 Source:
 
 - <https://stackoverflow.com/a/12900126/2171456>
 
-First install `RabbitMQ` (message broker), then `Celery` ("worker").
+First install `RabbitMQ` (message broker), then `Celery` (worker).
 
 ```shell
 sudo rabbitmq-plugins enable rabbitmq_management

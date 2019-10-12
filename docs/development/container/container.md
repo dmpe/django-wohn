@@ -65,21 +65,39 @@ git status
 
 2. Start `docker-compose -f docker-compose.yaml up (-d)`
 
-### Test your Django-Wohn image
+### Docker Compose with Django and Postgres
 
-During development phase, you may encounter that your image does not work properly.
-For example it does not start or you need to develop something locally.
+:warning:
 
-For that case, you can push image to DockerHub, download it on your server VM and from there execute:
+An important configuration step is to make sure that Django application has in 'DATABASES' property
+correct host name.
+This must be equal to the docker-compose one.
+
+## 4. Test your Django-Wohn images locally
+
+During development phase, you may encounter that your image does not work properly on the server VM/container.
+For example, it does not start or you need to test something locally.
+
+### DockerHub
+
+Once the image has been pushed to DockerHub, download it on your server VM/PC and from there execute:
 
 ```shell
 docker run -it f789gh/django-wohn:latest
 ```
 
-Or wait until `watchtower` image will download latest version by itself.
+Or wait until `watchtower` container will download latest version by itself.
 
-#### Docker Compose with Django and Postgres
+### Quay
 
-An important configuration step is to make sure that Django application has in 'DATABASES' property
-correct host name.
-This must be equal to the docker-compose one.
+When using <https://quay.io/user/dmpe>, you may need to login first
+
+```
+docker login https://quay.io
+docker pull quay.io/dmpe/django-wohn-backend
+docker pull quay.io/dmpe/django-wohn-frontend
+
+docker run -it quay.io/dmpe/django-wohn-backend:latest
+```
+
+
