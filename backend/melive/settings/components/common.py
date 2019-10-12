@@ -24,12 +24,12 @@ azCon = AzureConnection()
 azCon.main()
 client = KeyVaultClient(azCon.credentials)
 
-if (azCon.env != "development"):
-    DATABASES["default"] = dj_database_url.parse(
-        "postgres://postgres:django@postgres:5432/b40re", conn_max_age=600
-    )
-else:
-    pass
+# if (azCon.env != "development"):
+#     DATABASES["default"] = dj_database_url.parse(
+#         "postgres://postgres:django@postgres:5432/b40re", conn_max_age=600
+#     )
+# else:
+#     pass
 
 SOCIAL_AUTH_USER_MODEL = "core.myUser"
 AUTH_USER_MODEL = "core.myUser"
