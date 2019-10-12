@@ -18,5 +18,6 @@ See <https://dmpe.github.io/django-wohn/development/container/container/> for so
 - Navigate to **backend** folder and execute
 
     ```
-    python3 manage.py runserver
+    python3 manage.py runserver --nostatic --insecure
     ```
+    If your browser is complaining about SSL issues, follow this [answer](https://stackoverflow.com/a/34033592) for fixing it.
