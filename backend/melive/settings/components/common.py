@@ -26,7 +26,7 @@ client = KeyVaultClient(azCon.credentials)
 
 if (azCon.env != "development"):
     DATABASES["default"] = dj_database_url.parse(
-        "postgres://postgres:django@172.25.0.1:5432/b40re", conn_max_age=600
+        "postgres://postgres:django@postgres:5432/b40re", conn_max_age=600
     )
 else:
     pass
