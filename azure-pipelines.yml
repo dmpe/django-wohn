@@ -10,6 +10,7 @@ variables:
   imageNameF: django-wohn-frontend
   major: 1
   minor: $[counter(variables['major'], 3)]
+  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
 
 # test all commits in Pull Re. which target master
 trigger:
@@ -82,6 +83,12 @@ stages:
 #       pool:
 #         vmImage: 'ubuntu-latest'
 #       steps:
+
+#         - task: CacheBeta@0
+#           inputs:
+#             key: yarn | $(Agent.OS) | yarn.lock
+#             path: $(YARN_CACHE_FOLDER)
+#           displayName: Cache Yarn packages
 
 #       - task: Docker@2
 #         displayName: "Build our Image now"
