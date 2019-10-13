@@ -70,7 +70,12 @@ class House(AbstractProperty):
     Additional fields for a house
 
     """
-    pass
+    house_garden_size_in_sq_meters = models.DecimalField(
+        max_digits=7, decimal_places=2, null=True, blank=True
+    )
+
+    class Meta:
+        verbose_name_plural = "Houses"
 
 
 class Apartment(AbstractProperty):
@@ -78,7 +83,9 @@ class Apartment(AbstractProperty):
     Additional fields for an apartment
 
     """
-    pass
+
+    class Meta:
+        verbose_name_plural = "Apartments"
 
 
 class Room(AbstractProperty):
@@ -86,7 +93,9 @@ class Room(AbstractProperty):
     Additional fields for renting out a single room
 
     """
-    pass
+
+    class Meta:
+        verbose_name_plural = "Rooms"
 
 
 class ExchangeRate(models.Model):
