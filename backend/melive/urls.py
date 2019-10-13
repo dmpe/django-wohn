@@ -1,8 +1,12 @@
 """melive URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.1/topics/http/urls/
+The `urlpatterns` list routes URLs to views.
+
+See:
+    https://docs.djangoproject.com/en/2.2/topics/http/urls/
+
 Examples:
+
 Function views
     1. Add an import:  from my_app import views
     2. Add a URL to urlpatterns:  path('', views.home, name='home')
@@ -19,11 +23,10 @@ from django.contrib.sitemaps import views
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
 from graphene_django.views import GraphQLView
 
-from core import views
 from core.sitemap import B40_Sitemap, UserMNG_Sitemap
-from userMng import views
 
 sitemaps = {"core": B40_Sitemap, "userMng": UserMNG_Sitemap}
 
@@ -36,7 +39,6 @@ urlpatterns = [
         "administrace/messages/",
         include("pinax.messages.urls", namespace="pinax_messages"),
     ),
-    path("api-auth/", include("rest_framework.urls")),
     url(
         r"^robots.txt$",
         TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
@@ -48,6 +50,8 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
-    # expose graphql server api, incl. via GraphQL IDE
-    path("graphql", GraphQLView.as_view(graphiql=True)),
+    # expose graphql server api, incl. GraphQL IDE - and
+    # disable CSRF token requirement because for now it is PUBLIC API
+    # TODO it should be protected
+    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]

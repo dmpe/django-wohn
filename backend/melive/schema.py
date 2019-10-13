@@ -1,7 +1,11 @@
+"""
+    Overall GraphQL Schema which references those in separate modules
+"""
+
 import graphene
 
-import core.schema
-# import userMng.schema
+from core.schema import Query
+# from userMng.schema import Query
 
 
 class Mutations(graphene.ObjectType):
@@ -12,11 +16,10 @@ class Mutations(graphene.ObjectType):
     pass
 
 
-class Query(core.schema.Query,
+class Query(Query,
             graphene.ObjectType):
     """
     For GET requests for melive.xyz
-    backend.userMng.schema.Query,
 
     """
     pass

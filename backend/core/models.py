@@ -18,13 +18,15 @@ from timezone_field import TimeZoneField, TimeZoneFormField
 from .mics import upload_profile_image
 
 
-class Property(django.db.models.Model):
-    """
+class AbstractProperty(django.db.models.Model):
+    """ Home Property (e.g. apartment, house, room)
+
     Define each apartment, 1-to-n with Users
     unit conversion --> https://pint.readthedocs.io/en/latest/
     """
 
-    property_created = models.DateTimeField(auto_now_add=True)  # will not display
+    # will not display
+    property_created = models.DateTimeField(auto_now_add=True)
 
     property_offered_by = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE
@@ -52,8 +54,9 @@ class Property(django.db.models.Model):
 
     class Meta:
         verbose_name_plural = "properties"
+        abstract = True
 
-    def calculate_eur_czk():
+    def calculate_eur_czk(self):
         """
         TODO
         From eur to CZK
@@ -62,13 +65,40 @@ class Property(django.db.models.Model):
         return exr_rat
 
 
+class House(AbstractProperty):
+    """
+    Additional fields for a house
+
+    """
+    pass
+
+
+class Apartment(AbstractProperty):
+    """
+    Additional fields for an apartment
+
+    """
+    pass
+
+
+class Room(AbstractProperty):
+    """
+    Additional fields for renting out a single room
+
+    """
+    pass
+
+
 class ExchangeRate(models.Model):
     """
-    parse_forex_data in misc.py
+    Used for storing exchange rates for EUR, CZK and USD.
 
-    Q: are we going to calculate forex dynamically via JS or we need to
-    store all there pairs. Does user have the capability to put
-    different number ?
+    See parse_forex_data in misc.py
+
+    Q: 1. Are we going to calculate forex dynamically via JS or we need to
+    store all there pairs. -> Store in backend, fetch data via API
+
+    Q: 2. Does user have the capability to put different number ? -> No
     """
 
     today = models.DateField("Today's Date", auto_now_add=True)  # will not display
@@ -117,7 +147,7 @@ class MyUserManager(UserManager):
         Returns number of properties per owner.
         """
         property_owner = myUser.objects.filter(pk=user_id).first()
-        property_count = Property.objects.filter(
+        property_count = AbstractProperty.objects.filter(
             property_offered_by=property_owner
         ).count()
         print(property_count)
@@ -126,6 +156,11 @@ class MyUserManager(UserManager):
 
 
 class myUser(AbstractUser):
+    """
+    Melive.xyz's specific user.
+
+    Define attributes for our user class
+    """
     # email, username, first and last name are unnecessary
     GENDER_CHOICES = (
         ("M", "Mr."),
@@ -156,6 +191,6 @@ class myUser(AbstractUser):
 
     objects = MyUserManager()
 
-    # username and email must always be unique
+    # username (by default) and email must always be unique
     class Meta:
         unique_together = (("email"),)

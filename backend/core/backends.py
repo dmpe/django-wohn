@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.hashers import *
-from django.core.validators import *
+from django.core.validators import validate_email
 from django.db import *
 
 from .mics import *
@@ -10,13 +10,13 @@ from .models import myUser
 
 class EmailUserNameAuthBackend(ModelBackend):
     """
-	This is used for authentication of myUsers
-	using either username or email in the input field.
-	By default, username/password is used and this
-	extends the approach with the email/password.
+    This is used for authentication of myUsers
+    using either username or email in the input field.
+    By default, username/password is used and this
+    extends the approach with the email/password.
 
-	Should work on /admin/ and on /administration/
-	"""
+    Should work on /admin/ and on /administration/
+    """
 
     def get_user(self, user_id):
         try:
@@ -42,15 +42,15 @@ class EmailUserNameAuthBackend(ModelBackend):
 
     def check_for_user_existence(self, inputString=None):
         """
-		check in the database if the username or email does exist
-		if yes, return positive bool value
+        check in the database if the username or email does exist
+        if yes, return positive bool value
 
-		Used for email-based password reset
+        Used for email-based password reset
 
-		:param inputString: either it can be a username or email
+        :param inputString: either it can be a username or email
 
-		:returns: user object if user found and bool value (TRUE, FALSE)
-		"""
+        :returns: user object if user found and bool value (TRUE, FALSE)
+        """
         getUserObject, presentInSystem = None, False
         is_valid = validate_email(inputString)
 
