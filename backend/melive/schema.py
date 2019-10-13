@@ -16,7 +16,7 @@ class Mutations(graphene.ObjectType):
     pass
 
 
-class Query(Query,
+class Query(core.schema.Query,
             graphene.ObjectType):
     """
     For GET requests for melive.xyz
