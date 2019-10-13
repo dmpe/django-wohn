@@ -21,3 +21,8 @@ python3 manage.py graph_models -a -g -o arch/class_diagramm.png
 ```
 
 ![arch/class_diagramm.png](arch/class_diagramm.png)
+
+
+# App's High Level Architecture
+
+![arch/class_diagramm.png](arch/HighLevelArch.jpg)
