@@ -132,7 +132,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
         try:
             # fetches "table" data
             qs = response.context_data["cl"].queryset
-        except (AttributeErtodayror, KeyError):
+        except (AttributeError, KeyError):
             return response
 
         # needs to have JSON object with 3 large arrays - one for each currency
@@ -164,5 +164,7 @@ class ExchangeRateAdmin(admin.ModelAdmin):
 
 
 admin.site.register(myUser, UserAdmin)
-admin.site.register(Property, PropertyAdmin)
+admin.site.register(Room, PropertyAdmin)
+admin.site.register(House, PropertyAdmin)
+admin.site.register(Apartment, PropertyAdmin)
 admin.site.register(ExchangeRate, ExchangeRateAdmin)

@@ -4,7 +4,7 @@ from django.urls import *
 from django_countries.widgets import *
 
 from core.forms import RegisterForm
-from core.models import Property, myUser
+from core.models import *
 
 
 class FeedbackForm(forms.Form):
@@ -21,7 +21,7 @@ class NewPropertyForm(forms.ModelForm):
     """
 
     class Meta:
-        model = Property
+        model = House
         fields = "__all__"
 
 
