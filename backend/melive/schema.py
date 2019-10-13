@@ -4,7 +4,7 @@
 
 import graphene
 
-from core.schema import Query
+import core.schema
 # from userMng.schema import Query
 
 
