@@ -21,7 +21,7 @@ LOGGING = {
 # the curpit: on local pc must be local database
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "ENGINE": "django.db.backends.postgresql",
         "NAME": "mydb",
         "USER": "jm",
         "PASSWORD": "123",
