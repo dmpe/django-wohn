@@ -53,5 +53,5 @@ urlpatterns = [
     # expose graphql server api, incl. GraphQL IDE - and
     # disable CSRF token requirement because for now it is PUBLIC API
     # TODO it should be protected
-    path("graphql", GraphQLView.as_view(graphiql=True)),
+    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]
