@@ -9,6 +9,7 @@ django-filter
 django-phonenumber-field
 django-storages
 django-split-settings
+django-seed
 django-cors-headers
 django-widget-tweaks
 django-crispy-forms

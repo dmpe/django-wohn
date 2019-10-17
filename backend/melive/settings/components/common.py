@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "pinax.templates",
     "pinax.messages",
+    "django_seed",
     "graphene_django",
 ]
 
