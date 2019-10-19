@@ -43,19 +43,19 @@ class Query(object):
     melive_users = graphene.List(UserType)
     melive_user = graphene.Field(UserType, id=graphene.Int())
 
-    def resolve_all_houses(self, info, **kwargs):
+    def resolve_home_properties(self, info, **kwargs):
         return House.objects.all()
 
-    def resolve_all_apartments(self, info, **kwargs):
+    def resolve_apartment_properties(self, info, **kwargs):
         return Apartment.objects.all()
 
-    def resolve_all_rooms(self, info, **kwargs):
+    def resolve_room_properties(self, info, **kwargs):
         return Room.objects.all()
 
-    def resolve_all_users(self, info, **kwargs):
+    def resolve_melive_users(self, info, **kwargs):
         return myUser.objects.all()
 
-    def resolve_user(self, info, **kwargs):
+    def resolve_melive_user(self, info, **kwargs):
         id = kwargs.get('id')
 
         if id is not None:
@@ -63,7 +63,7 @@ class Query(object):
 
         return None
 
-    def resolve_house(self, info, **kwargs):
+    def resolve_house_property(self, info, **kwargs):
         id = kwargs.get('id')
 
         if id is not None:
@@ -71,7 +71,7 @@ class Query(object):
 
         return None
 
-    def resolve_room(self, info, **kwargs):
+    def resolve_room_property(self, info, **kwargs):
         id = kwargs.get('id')
 
         if id is not None:
@@ -79,7 +79,7 @@ class Query(object):
 
         return None
 
-    def resolve_apartment(self, info, **kwargs):
+    def resolve_apartment_property(self, info, **kwargs):
         id = kwargs.get('id')
 
         if id is not None:
