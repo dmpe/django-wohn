@@ -9,9 +9,13 @@ RUN mkdir -p /wohn && \
     apt install -y nano tree locate graphviz libgraphviz-dev
 
 WORKDIR /wohn
-ADD . /wohn
+ADD ./requirenments.txt /wohn/requirenments.txt
+ADD ./start_django.sh /wohn/start_django.sh
+
 RUN pip install -r requirenments.txt && \
     chmod +x start_django.sh
+
+ADD . /wohn
 
 EXPOSE 8000 8123
 
