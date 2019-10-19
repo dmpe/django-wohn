@@ -127,7 +127,9 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
     "social.pipeline.disconnect.disconnect",
 )
 
+SHOW_TOOLBAR_CALLBACK = True
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS = None
 INTERNAL_IPS += [ip[:-1] + '1' for ip in ips]
 
 # Where your Graphene schema lives
