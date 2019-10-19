@@ -17,7 +17,10 @@ django-timezone-field
 django-countries
 django_extensions
 django-ipware
-djangorestframework
+django-debug-toolbar
+django-graphiql-debug-toolbar
+django-graphql-social-auth
+django-graphql-jwt
 dj-database-url
 google-api-python-client
 googleapis-common-protos

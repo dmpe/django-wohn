@@ -6,7 +6,7 @@
 """
 import logging
 import os
-
+import socket
 # for Azure Key Vault
 from azure.keyvault import KeyVaultClient
 
@@ -39,7 +39,8 @@ if (azCon.env != "development"):
     CORS_ORIGIN_ALLOW_ALL = True
     CORS_ALLOW_CREDENTIALS = True
 else:
-    pass
+    INTERNAL_IPS = ['127.0.0.1']
+
 
 INSTALLED_APPS = [
     "django_extensions",
@@ -61,15 +62,17 @@ INSTALLED_APPS = [
     "widget_tweaks",
     "timezone_field",
     "django_countries",
-    "rest_framework",
     "pinax.templates",
     "pinax.messages",
     "graphene_django",
+    "debug_toolbar",
+    "graphiql_debug_toolbar",
 ]
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    'graphiql_debug_toolbar.middleware.DebugToolbarMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -95,6 +98,7 @@ AUTHENTICATION_BACKENDS = (
     "social_core.backends.facebook.FacebookOAuth2",
     # for username and (!) email authentication
     "core.backends.EmailUserNameAuthBackend",
+    'graphql_jwt.backends.JSONWebTokenBackend',
     "django.contrib.auth.backends.ModelBackend",
 )
 
@@ -123,7 +127,16 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
     "social.pipeline.disconnect.disconnect",
 )
 
-GRAPHENE = {"SCHEMA": "melive.schema.schema"}  # Where your Graphene schema lives
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS += [ip[:-1] + '1' for ip in ips]
+
+# Where your Graphene schema lives
+GRAPHENE = {
+    "SCHEMA": "melive.schema.schema",
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
+}
 
 ROOT_URLCONF = "melive.urls"
 

@@ -25,7 +25,7 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django.views.decorators.csrf import csrf_exempt
 from graphene_django.views import GraphQLView
-
+import debug_toolbar
 from core.sitemap import B40_Sitemap, UserMNG_Sitemap
 
 sitemaps = {"core": B40_Sitemap, "userMng": UserMNG_Sitemap}
@@ -50,6 +50,7 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
+    path('__debug__/', include(debug_toolbar.urls)),
     # expose graphql server api, incl. GraphQL IDE - and
     # disable CSRF token requirement because for now it is PUBLIC API
     # TODO it should be protected

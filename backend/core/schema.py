@@ -32,7 +32,10 @@ class Query(object):
 
     Functions are resolvers which connect queries in the schema to actions done by the database.
 
-    :url https://stackabuse.com/building-a-graphql-api-with-django/
+    ! variable names must be same for the resolve ..functions.
+    Otherwise GraphQL is not going to work.!
+
+        .. _URL: https://stackabuse.com/building-a-graphql-api-with-django/
     """
     home_properties = graphene.List(HouseType)
     home_property = graphene.Field(HouseType, id=graphene.Int())
