@@ -38,6 +38,7 @@ if (azCon.env != "development"):
     CSRF_COOKIE_SECURE = True
     CORS_ORIGIN_ALLOW_ALL = True
     CORS_ALLOW_CREDENTIALS = True
+    INTERNAL_IPS = []
 else:
     INTERNAL_IPS = ['127.0.0.1']
 
@@ -129,7 +130,6 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
 
 SHOW_TOOLBAR_CALLBACK = True
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-INTERNAL_IPS = None
 INTERNAL_IPS += [ip[:-1] + '1' for ip in ips]
 
 # Where your Graphene schema lives
