@@ -35,7 +35,7 @@ services:
           - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 
     djwohn:
-        image: f789gh/django-wohn:latest
+        image: djwohn:latest
         container_name: djwohn
         volumes:
           - datadrive_django:/work
