@@ -17,15 +17,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import debug_toolbar
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.sitemaps import views
 from django.contrib.sitemaps.views import sitemap
-from django.urls import path, include
-from django.views.generic import TemplateView
+from django.urls import include, path
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import TemplateView
 from graphene_django.views import GraphQLView
-import debug_toolbar
+
 from core.sitemap import B40_Sitemap, UserMNG_Sitemap
 
 sitemaps = {"core": B40_Sitemap, "userMng": UserMNG_Sitemap}

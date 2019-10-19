@@ -7,10 +7,10 @@
 import logging
 import os
 import socket
+
+import debug_toolbar
 # for Azure Key Vault
 from azure.keyvault import KeyVaultClient
-
-# for bootstrap, to make message classes consistent with the framework
 from django.contrib.messages import constants as message_constants
 from sendgrid import SendGridAPIClient
 

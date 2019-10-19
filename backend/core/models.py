@@ -1,10 +1,8 @@
 import hashlib
-
 # for gravatar URLs and user's profile image and its unique name
 import urllib
 
 import django
-
 # for time related tasks, incl. timezone
 import pytz
 from django.conf import settings

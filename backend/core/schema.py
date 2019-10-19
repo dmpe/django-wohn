@@ -4,7 +4,8 @@
 
 import graphene
 from graphene_django import DjangoObjectType
-from core.models import House, Apartment, Room, myUser
+
+from core.models import Apartment, House, Room, myUser
 
 
 class HouseType(DjangoObjectType):

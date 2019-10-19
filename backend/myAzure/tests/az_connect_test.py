@@ -1,6 +1,6 @@
-import pytest
 from azure.keyvault import KeyVaultClient
 
+import pytest
 from myAzure.az_connect import AzureConnection
 
 
