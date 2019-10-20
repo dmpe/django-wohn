@@ -14,15 +14,24 @@ Shows current deployment pipeline, from local changes to building a container on
 
 Created using <https://django-extensions.readthedocs.io/en/latest/graph_models.html>.
 
-During container runtime, executed manually:
+During container runtime, command below is executed "manually":
 
 ```shell
-python3 manage.py graph_models -a -g -o arch/class_diagramm.png
+python3 manage.py graph_models -a -g -o output/class_diagram.png
 ```
 
-![arch/class_diagramm.png](arch/class_diagramm.png)
+In order to extract diagram which has been created in the `output` folder, use:
+
+```shell
+docker cp $(docker images --filter=reference="djwohn:latest" -q):/wohn/output ~/
+```
+
+Look for `~/output` folder
+
+
+![arch/class_diagram.png](arch/class_diagram.png)
 
 
 # App's High Level Architecture
 
-![arch/class_diagramm.png](arch/HighLevelArch.jpg)
+![arch/HighLevelArch.jpg](arch/HighLevelArch.jpg)
