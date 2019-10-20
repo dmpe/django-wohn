@@ -527,6 +527,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-export-and-import-all-important-data" class="md-nav__link">
+    5. Export and Import all important data
+  </a>
+  
+</li>
+      
       
       
       
@@ -691,6 +698,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-export-and-import-all-important-data" class="md-nav__link">
+    5. Export and Import all important data
+  </a>
+  
+</li>
+      
       
       
       
@@ -787,6 +801,13 @@ docker pull quay.io/dmpe/django-wohn-frontend
 
 docker run -it quay.io/dmpe/django-wohn-backend:latest
 </pre></div>
+
+<h2 id="5-export-and-import-all-important-data">5. Export and Import all important data<a class="headerlink" href="#5-export-and-import-all-important-data" title="Permanent link">&para;</a></h2>
+<p>Withing running container, you can execute</p>
+<div class="codehilite"><pre><span></span>python3 manage.py dumpdata core --all --indent <span class="m">2</span> -o data.json
+</pre></div>
+
+<p>to dump all data from <code>core</code> module. Use then <code>docker cp</code> to copy files into your host system.</p>
                 
                   
                 
