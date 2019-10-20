@@ -8,5 +8,5 @@ RUN yarn install
 
 COPY . /app
 
-EXPOSE 8080
+EXPOSE 2746
 CMD ["yarn", "run", "serve"]

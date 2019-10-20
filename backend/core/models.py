@@ -151,10 +151,10 @@ class MyUserManager(UserManager):
 
     def fetch_owners_properties_count(self, user_id):
         """
-        Returns number of properties per owner.
+        Returns number of houses per owner.
         """
         property_owner = myUser.objects.filter(pk=user_id).first()
-        property_count = AbstractProperty.objects.filter(
+        property_count = House.objects.filter(
             property_offered_by=property_owner
         ).count()
         print(property_count)
