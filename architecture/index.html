@@ -535,13 +535,18 @@
 <p><img alt="arch/azure.jpg" src="arch/azure.jpg" /></p>
 <h1 id="apps-class-diagramm">App's Class Diagramm<a class="headerlink" href="#apps-class-diagramm" title="Permanent link">&para;</a></h1>
 <p>Created using <a href="https://django-extensions.readthedocs.io/en/latest/graph_models.html">https://django-extensions.readthedocs.io/en/latest/graph_models.html</a>.</p>
-<p>During container runtime, executed manually:</p>
-<div class="codehilite"><pre><span></span>python3 manage.py graph_models -a -g -o arch/class_diagramm.png
+<p>During container runtime, command below is executed "manually":</p>
+<div class="codehilite"><pre><span></span>python3 manage.py graph_models -a -g -o output/class_diagram.png
 </pre></div>
 
-<p><img alt="arch/class_diagramm.png" src="arch/class_diagramm.png" /></p>
+<p>In order to extract diagram which has been created in the <code>output</code> folder, use:</p>
+<div class="codehilite"><pre><span></span>docker cp <span class="k">$(</span>docker images --filter<span class="o">=</span><span class="nv">reference</span><span class="o">=</span><span class="s2">&quot;djwohn:latest&quot;</span> -q<span class="k">)</span>:/wohn/output ~/
+</pre></div>
+
+<p>Look for <code>~/output</code> folder</p>
+<p><img alt="arch/class_diagram.png" src="arch/class_diagram.png" /></p>
 <h1 id="apps-high-level-architecture">App's High Level Architecture<a class="headerlink" href="#apps-high-level-architecture" title="Permanent link">&para;</a></h1>
-<p><img alt="arch/class_diagramm.png" src="arch/HighLevelArch.jpg" /></p>
+<p><img alt="arch/HighLevelArch.jpg" src="arch/HighLevelArch.jpg" /></p>
                 
                   
                 
