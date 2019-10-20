@@ -78,6 +78,7 @@ stages:
               latest
 
     - job: PushtoRegistry
+      dependsOn: BuildJobBackend
       strategy:
         parallel: 2
       pool:
