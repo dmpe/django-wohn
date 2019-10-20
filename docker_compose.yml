@@ -34,9 +34,9 @@ services:
           - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
           - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 
-    djwohn:
-        image: djwohn:latest
-        container_name: djwohn
+    backend:
+        image: quay.io/dmpe/django-wohn-backend
+        container_name: backend
         volumes:
           - datadrive_django:/work
         restart: always
@@ -51,16 +51,45 @@ services:
           - traefik_proxy
         labels:
           - "traefik.enable=true"
-          - "traefik.http.routers.djwohn.rule=Host(`melive.xyz`, `www.melive.xyz`)"
-          - "traefik.http.routers.djwohnsec.tls=true"
-          - "traefik.http.routers.djwohnsec.rule=Host(`melive.xyz`, `www.melive.xyz`)"
-          - "traefik.http.routers.djwohnsec.tls.certresolver=default"
-          - "traefik.http.routers.djwohnsec.service=djwohn"
-          - "traefik.http.services.djwohn.loadbalancer.server.port=8123"
-          - "traefik.http.middlewares.djwohn-redirect.redirectscheme.scheme=https"
-          - "traefik.http.routers.djwohn.middlewares=djwohn-redirect"
+          - "traefik.http.routers.backend.rule=Host(`melive.xyz`, `www.melive.xyz`)"
+          - "traefik.http.routers.backendsec.tls=true"
+          - "traefik.http.routers.backendsec.rule=Host(`melive.xyz`, `www.melive.xyz`)"
+          - "traefik.http.routers.backendsec.tls.certresolver=default"
+          - "traefik.http.routers.backendsec.service=backend"
+          - "traefik.http.services.backend.loadbalancer.server.port=8123"
+          - "traefik.http.middlewares.backend-redirect.redirectscheme.scheme=https"
+          - "traefik.http.routers.backend.middlewares=backend-redirect"
         environment:
-          - "DOCKER_HOST=172.18.0.5"
+          - "OVH_ENDPOINT=ovh-eu"
+          - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
+          - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
+          - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
+
+    frontend:
+        image: quay.io/dmpe/django-wohn-frontend
+        container_name: frontend
+        restart: always
+        ports:
+          - 8123:8123
+        depends_on:
+          - postgres
+          - pgadmin
+          - backend
+          - traefik
+        networks:
+          - default
+          - traefik_proxy
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.frontend.rule=Host(`melive.xyz`, `www.melive.xyz`)"
+          - "traefik.http.routers.frontendsec.tls=true"
+          - "traefik.http.routers.frontendsec.rule=Host(`melive.xyz`, `www.melive.xyz`)"
+          - "traefik.http.routers.frontendsec.tls.certresolver=default"
+          - "traefik.http.routers.frontendsec.service=frontend"
+          - "traefik.http.services.frontend.loadbalancer.server.port=8123"
+          - "traefik.http.middlewares.frontend-redirect.redirectscheme.scheme=https"
+          - "traefik.http.routers.frontend.middlewares=frontend-redirect"
+        environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
           - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
