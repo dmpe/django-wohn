@@ -351,54 +351,53 @@ class LoginView(View):
         # recieve
         username_email = request.POST.get("inputEmail_Username", False)
         user_password = request.POST.get("inputNewPassword", False)
-        recap_token = request.POST.get("g-recaptcha-response", False)
         logger.info("print recaptha token: ", recap_token)
 
-        if is_human(recap_token):
-            try:
-                auth_user = EmailUserNameAuthBackend.authenticate(
-                    self, request, username=username_email, password=user_password
-                )
-
-                if auth_user is None:
-                    messages.add_message(
-                        request,
-                        messages.WARNING,
-                        mark_safe(
-                            "<h4 class="
-                            "alert-heading"
-                            ">Such a user does not exist.</h4>"
-                            "<p>Make sure that username and password are correct.</p>"
-                        ),
-                    )
-                else:
-                    try:
-                        # whether the user is active or not is already checked by the
-                        # ModelBackend we use
-                        django_login(
-                            request,
-                            auth_user,
-                            backend="core.backends.EmailUserNameAuthBackend",
-                        )
-                        return redirect("userMng:userMng_index")
-                    except Exception as e:
-                        raise e
-
-            except Exception as e:
-                raise e
-        # user is bot
-        else:
-            messages.add_message(
-                request,
-                messages.WARNING,
-                mark_safe(
-                    "<h4 class="
-                    "alert-heading"
-                    ">Sorry, but you seem to be a computer bot.</h4>"
-                    "<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>"
-                    "<p>Solution: clear your cookies and try again.</p>"
-                ),
+        # if is_human(recap_token):
+        try:
+            auth_user = EmailUserNameAuthBackend.authenticate(
+                self, request, username=username_email, password=user_password
             )
+
+            if auth_user is None:
+                messages.add_message(
+                    request,
+                    messages.WARNING,
+                    mark_safe(
+                        "<h4 class="
+                        "alert-heading"
+                        ">Such a user does not exist.</h4>"
+                        "<p>Make sure that username and password are correct.</p>"
+                    ),
+                )
+            else:
+                try:
+                    # whether the user is active or not is already checked by the
+                    # ModelBackend we use
+                    django_login(
+                        request,
+                        auth_user,
+                        backend="core.backends.EmailUserNameAuthBackend",
+                    )
+                    return redirect("userMng:userMng_index")
+                except Exception as e:
+                    raise e
+
+        except Exception as e:
+            raise e
+        # user is bot
+        # else:
+        #     messages.add_message(
+        #         request,
+        #         messages.WARNING,
+        #         mark_safe(
+        #             "<h4 class="
+        #             "alert-heading"
+        #             ">Sorry, but you seem to be a computer bot.</h4>"
+        #             "<p>Please contact us if you believe you were wrongly identified because of Google Recaptha v3.</p>"
+        #             "<p>Solution: clear your cookies and try again.</p>"
+        #         ),
+        #     )
 
         return render(request, self.template_name)
 
