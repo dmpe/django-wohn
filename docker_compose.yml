@@ -59,7 +59,7 @@ services:
           - "traefik.http.middlewares.djwohn-redirect.redirectscheme.scheme=https"
           - "traefik.http.routers.djwohn.middlewares=djwohn-redirect"
         environment:
-          - "DOCKER_HOST=172.17.0.1"
+          - "DOCKER_HOST=172.18.0.5"
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
           - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
