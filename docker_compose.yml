@@ -127,7 +127,8 @@ services:
         environment:
           - WATCHTOWER_CLEANUP=true
           - WATCHTOWER_NOTIFICATIONS=slack
-          - WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL=https://hooks.slack.com/services/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
+        #   does not work because it needs to be secret
+        #   - WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL=https://hooks.slack.com/services/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
           - WATCHTOWER_NOTIFICATION_SLACK_IDENTIFIER=watchtower
           - WATCHTOWER_NOTIFICATIONS_LEVEL=debug
         volumes:
