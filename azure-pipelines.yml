@@ -22,6 +22,8 @@ stages:
   displayName: Prepare all the tasks that are needed for later use
   jobs:
     - job: BuildJob
+      strategy:
+        parallel: 2
       pool:
         vmImage: 'ubuntu-latest'
       steps:
@@ -45,25 +47,60 @@ stages:
 # https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
 
 
-- stage: Backend
-  displayName: Backend Build and Push
+- stage: DockerBuild
+  displayName: Build Docker images
   jobs:
-    - job: BuildJob
+    - job: BuildJobBackend
+      strategy:
+        parallel: 2
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+        - task: Docker@2
+          displayName: "Build our Backend now"
+          inputs:
+            containerRegistry: 'quay.io'
+            repository: $(quayId)/$(imageNameB)
+            command: 'build'
+            Dockerfile: 'backend/Dockerfile'
+            tags: |
+              $(major).$(minor)
+              latest
+
+        - task: Docker@2
+          displayName: "Build our Frontend now"
+          inputs:
+            containerRegistry: 'quay.io'
+            repository: $(quayId)/$(imageNameF)
+            command: 'build'
+            Dockerfile: 'frontend/djwohn-front/Dockerfile'
+            tags: |
+              $(major).$(minor)
+              latest
+
+
+
+- stage: PushToRegistry
+  displayName: Frontend Build and Push
+  jobs:
+    - job: BuildJobFrontend
+      strategy:
+        parallel: 2
       pool:
         vmImage: 'ubuntu-latest'
       steps:
 
       - task: Docker@2
-        displayName: "Build our Image now"
+        displayName: "Push to Docker Hub"
+        # only push on master branch, i.e. when PR is merged
+        # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         inputs:
           containerRegistry: 'quay.io'
-          repository: $(quayId)/$(imageNameB)
-          command: 'build'
-          Dockerfile: 'backend/Dockerfile'
+          repository: '$(quayId)/$(imageNameF)'
+          command: 'push'
           tags: |
             $(major).$(minor)
             latest
-
       - task: Docker@2
         displayName: "Push to Docker Hub"
         # only push on master branch, i.e. when PR is merged
@@ -75,44 +112,7 @@ stages:
           tags: |
             $(major).$(minor)
             latest
-
-# - stage: Frontend
-#   displayName: Frontend Build and Push
-#   jobs:
-#     - job: BuildJob
-#       pool:
-#         vmImage: 'ubuntu-latest'
-#       steps:
-
-#         - task: CacheBeta@0
-#           inputs:
-#             key: yarn | $(Agent.OS) | yarn.lock
-#             path: $(YARN_CACHE_FOLDER)
-#           displayName: Cache Yarn packages
-
-#       - task: Docker@2
-#         displayName: "Build our Image now"
-#         inputs:
-#           containerRegistry: 'quay.io'
-#           repository: $(quayId)/$(imageNameF)
-#           command: 'build'
-#           Dockerfile: 'frontend/djwohn-front/Dockerfile'
-#           tags: |
-#             $(major).$(minor)
-#             latest
-
-#       - task: Docker@2
-#         displayName: "Push to Docker Hub"
-#         # only push on master branch, i.e. when PR is merged
-#         # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-#         inputs:
-#           containerRegistry: 'quay.io'
-#           repository: '$(quayId)/$(imageNameF)'
-#           command: 'push'
-#           tags: |
-#             $(major).$(minor)
-#             latest
-
+            
 - stage: SendToSonarQube
   displayName: Run SonarQube scannerMode
   jobs:
