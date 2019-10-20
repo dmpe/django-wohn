@@ -1,7 +1,5 @@
-# base image
 FROM node:current
 
-# set working directory
 WORKDIR /app
 
 # install and cache app dependencies
@@ -10,6 +8,5 @@ RUN yarn install
 
 COPY . /app
 
-# start app
-CMD ["yarn", "run", "serve"]
 EXPOSE 8080
+CMD ["yarn", "run", "serve"]
