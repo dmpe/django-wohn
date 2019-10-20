@@ -1,12 +1,17 @@
+FROM node:current as node_cache
+WORKDIR /cache/
+COPY package.json .
+RUN yarn install
+
+
+
 FROM node:current
 
 WORKDIR /app
 
-# install and cache app dependencies
-COPY package.json /app/package.json
-RUN yarn install
+COPY --from=node_cache /cache/ .
 
 COPY . /app
 
 EXPOSE 2746
-CMD ["yarn", "run", "serve" "2746"]
+CMD ["yarn", "run", "serve"]
