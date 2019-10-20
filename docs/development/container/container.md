@@ -100,4 +100,12 @@ docker pull quay.io/dmpe/django-wohn-frontend
 docker run -it quay.io/dmpe/django-wohn-backend:latest
 ```
 
+## 5. Export and Import all important data
 
+Withing running container, you can execute
+
+```shell
+python3 manage.py dumpdata core --all --indent 2 -o data.json
+```
+
+to dump all data from `core` module. Use then `docker cp` to copy files into your host system.
