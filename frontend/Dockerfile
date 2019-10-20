@@ -9,4 +9,4 @@ RUN yarn install
 COPY . /app
 
 EXPOSE 2746
-CMD ["yarn", "run", "serve"]
+CMD ["yarn", "run", "serve" "2746"]

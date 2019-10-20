@@ -41,6 +41,7 @@
     "> 1%",
     "last 2 versions"
   ],
+  "proxy": "http://backend:8123",
   "jest": {
     "moduleFileExtensions": [
       "js",
