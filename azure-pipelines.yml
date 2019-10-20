@@ -67,6 +67,18 @@ stages:
               latest
 
         - task: Docker@2
+          displayName: "Push to Docker Hub"
+          # only push on master branch, i.e. when PR is merged
+          # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+          inputs:
+            containerRegistry: 'quay.io'
+            repository: '$(quayId)/$(imageNameB)'
+            command: 'push'
+            tags: |
+              $(major).$(minor)
+              latest
+
+        - task: Docker@2
           displayName: "Build our Frontend now"
           inputs:
             containerRegistry: 'quay.io'
@@ -77,37 +89,18 @@ stages:
               $(major).$(minor)
               latest
 
-    - job: PushtoRegistry
-      dependsOn: BuildJobBackend
-      strategy:
-        parallel: 2
-      pool:
-        vmImage: 'ubuntu-latest'
-      steps:
+        - task: Docker@2
+          displayName: "Push to Docker Hub"
+          # only push on master branch, i.e. when PR is merged
+          # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+          inputs:
+            containerRegistry: 'quay.io'
+            repository: '$(quayId)/$(imageNameF)'
+            command: 'push'
+            tags: |
+              $(major).$(minor)
+              latest
 
-      - task: Docker@2
-        displayName: "Push to Docker Hub"
-        # only push on master branch, i.e. when PR is merged
-        # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-        inputs:
-          containerRegistry: 'quay.io'
-          repository: '$(quayId)/$(imageNameF)'
-          command: 'push'
-          tags: |
-            $(major).$(minor)
-            latest
-      - task: Docker@2
-        displayName: "Push to Docker Hub"
-        # only push on master branch, i.e. when PR is merged
-        # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-        inputs:
-          containerRegistry: 'quay.io'
-          repository: '$(quayId)/$(imageNameB)'
-          command: 'push'
-          tags: |
-            $(major).$(minor)
-            latest
-            
 - stage: SendToSonarQube
   displayName: Run SonarQube scannerMode
   jobs:
