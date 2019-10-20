@@ -45,6 +45,7 @@ services:
         depends_on:
           - postgres
           - pgadmin
+          - traefik
         networks:
           - default
           - traefik_proxy
