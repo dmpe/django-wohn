@@ -127,8 +127,13 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
     "social.pipeline.disconnect.disconnect",
 )
 
+
+def custom_show_toolbar(request):
+    return True
+
+
 DEBUG_TOOLBAR_CONFIG = {
-    'SHOW_TOOLBAR_CALLBACK': True,
+    'SHOW_TOOLBAR_CALLBACK': custom_show_toolbar,
 }
 
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
