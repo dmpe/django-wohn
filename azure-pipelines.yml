@@ -56,7 +56,7 @@ stages:
       steps:
         - task: CacheBeta@0
           inputs:
-            key: yarn | $(Agent.OS) | yarn.lock
+            key: yarn | $(Agent.OS) | frontend/djwohn-front/yarn.lock
             path: frontend/djwohn-front/$(YARN_CACHE_FOLDER)
           displayName: Cache Yarn packages
         - task: Docker@2
