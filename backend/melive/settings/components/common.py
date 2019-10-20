@@ -38,7 +38,7 @@ if (azCon.env != "development"):
     CSRF_COOKIE_SECURE = True
     CORS_ORIGIN_ALLOW_ALL = True
     CORS_ALLOW_CREDENTIALS = True
-    INTERNAL_IPS = []
+    INTERNAL_IPS = ['127.0.0.1', os.environ["DOCKER_HOST"]]
 else:
     INTERNAL_IPS = ['127.0.0.1']
 
@@ -128,7 +128,10 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
     "social.pipeline.disconnect.disconnect",
 )
 
-SHOW_TOOLBAR_CALLBACK = True
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': True,
+}
+
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS += [ip[:-1] + '1' for ip in ips]
 
