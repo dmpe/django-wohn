@@ -59,7 +59,7 @@ services:
           - "traefik.http.middlewares.djwohn-redirect.redirectscheme.scheme=https"
           - "traefik.http.routers.djwohn.middlewares=djwohn-redirect"
         environment:
-          - "DOCKER_HOST=$(ip -4 addr show docker0 | grep -Po 'inet \K[\d.]+')"
+          - DOCKER_HOST=$(ip -4 addr show docker0 | grep -Po 'inet \K[\d.]+')
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
           - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
