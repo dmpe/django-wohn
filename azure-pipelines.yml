@@ -10,7 +10,6 @@ variables:
   imageNameF: django-wohn-frontend
   major: 1
   minor: $[counter(variables['major'], 3)]
-  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
 
 # test all commits in Pull Re. which target master
 trigger:
@@ -78,12 +77,7 @@ stages:
               $(major).$(minor)
               latest
 
-
-
-- stage: PushToRegistry
-  displayName: Frontend Build and Push
-  jobs:
-    - job: BuildJobFrontend
+    - job: PushtoRegistry
       strategy:
         parallel: 2
       pool:
