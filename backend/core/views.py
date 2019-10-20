@@ -351,7 +351,6 @@ class LoginView(View):
         # recieve
         username_email = request.POST.get("inputEmail_Username", False)
         user_password = request.POST.get("inputNewPassword", False)
-        logger.info("print recaptha token: ", recap_token)
 
         # if is_human(recap_token):
         try:
