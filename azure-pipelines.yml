@@ -57,7 +57,7 @@ stages:
         - task: CacheBeta@0
           inputs:
             key: yarn | $(Agent.OS) | yarn.lock
-            path: $(YARN_CACHE_FOLDER)
+            path: frontend/djwohn-front/$(YARN_CACHE_FOLDER)
           displayName: Cache Yarn packages
         - task: Docker@2
           displayName: "Build our Backend now"
