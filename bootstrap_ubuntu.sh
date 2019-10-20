@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# see also cloud init script
 set -e;
 
 apt update
