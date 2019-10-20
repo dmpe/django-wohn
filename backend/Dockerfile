@@ -9,16 +9,13 @@ RUN mkdir -p /wohn && \
     apt install -y nano tree locate graphviz libgraphviz-dev
 
 WORKDIR /wohn
-ADD ./requirenments.txt /wohn/requirenments.txt
-ADD ./start_django.sh /wohn/start_django.sh
+ADD . /wohn
 
 RUN pip install -r requirenments.txt && \
     chmod +x start_django.sh
 
-ADD . /wohn
-
 EXPOSE 8000 8123
 
 # TODO: set entrypoint once container can start
-# ENTRYPOINT ["./start_django.sh"]
-CMD ["./start_django.sh"]
+ENTRYPOINT ["./start_django.sh"]
+#CMD ["./start_django.sh"]

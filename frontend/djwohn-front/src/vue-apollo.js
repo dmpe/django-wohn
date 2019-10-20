@@ -8,7 +8,7 @@ Vue.use(VueApollo)
 // Name of the localStorage item
 const AUTH_TOKEN = 'apollo-token'
 
-// Http endpoint
+// Https endpoint
 const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'https://www.melive.xyz/graphql'
 
 // Config
