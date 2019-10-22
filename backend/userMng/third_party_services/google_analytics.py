@@ -4,6 +4,8 @@ import os
 from google.auth.transport.requests import *
 from google.oauth2 import service_account
 from googleapiclient.discovery import *
+from azure.keyvault import KeyVaultClient
+from myAzure.az_connect import AzureConnection
 
 logger = logging.getLogger(__name__)
 
@@ -14,8 +16,18 @@ class Google_Analytics:
     https://developers.google.com/analytics/devguides/reporting/core/dimsmets
     https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py
     """
+    def returnAzureSecret(self):
+        azCon = AzureConnection()
+        azCon.main()
+        client = KeyVaultClient(azCon.credentials)
+        GOOGLE_ANALYTICS = client.get_secret(
+                "https://b40.vault.azure.net/",
+                "GOOGLE-ANAL",
+                "ab6ef2cc7d3846f199dcd149782a5d50",
+            ).value
+        return GOOGLE_ANALYTICS
 
-    def initialize_analyticsreporting(self):
+    def initialize_analyticsreporting(self, ggl_client_key):
         """
         Initializes an Analytics Reporting API V4 service object.
 
@@ -25,14 +37,14 @@ class Google_Analytics:
         SCOPES = ["https://www.googleapis.com/auth/analytics.readonly"]
         KEY_FILE_LOCATION = "client_secrets.json"
 
-        try:
-            fl = os.path.abspath(
-                os.path.join(os.path.dirname(__file__), KEY_FILE_LOCATION)
-            )
-        except Exception:
-            logger.exception("clients_secrets.json not found on the server")
+        # try:
+        #     fl = os.path.abspath(
+        #         os.path.join(os.path.dirname(__file__), KEY_FILE_LOCATION)
+        #     )
+        # except Exception:
+        #     logger.exception("clients_secrets.json not found on the server")
 
-        ga_credentials = service_account.Credentials.from_service_account_file(fl)
+        ga_credentials = service_account.Credentials.from_service_account_file(ggl_client_key)
         scoped_credentials = ga_credentials.with_scopes(SCOPES)
         authed_session = AuthorizedSession(scoped_credentials)
 
@@ -118,6 +130,6 @@ class Google_Analytics:
         return google_analytics_dimensions_metrics_dict
 
     def main(self):
-        analytics = initialize_analyticsreporting()
+        analytics = initialize_analyticsreporting(returnAzureSecret())
         response = get_report(analytics)
         print_response(response)
