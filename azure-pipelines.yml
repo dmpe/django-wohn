@@ -84,7 +84,7 @@ stages:
             containerRegistry: 'quay.io'
             repository: $(quayId)/$(imageNameF)
             command: 'build'
-            Dockerfile: 'frontend/djwohn-front/Dockerfile'
+            Dockerfile: 'frontend/Dockerfile'
             tags: |
               $(major).$(minor)
               latest
