@@ -585,6 +585,12 @@
 <p><strong>Issue:</strong> Azure DevOps cannot access Azure Key Vault</p>
 <p><strong>Solution:</strong> Go to Azure Key Vault, and look for "johnmalc-Django" app manually. Their listing is buggy and does not show every accessible user.</p>
 <hr />
+<p><strong>Issue:</strong> How to store whole file as a secret into Azure Key Vault ?</p>
+<p><strong>Solution:</strong> Execute below:</p>
+<div class="codehilite"><pre><span></span>az keyvault secret set --vault-name b40 -n
+</pre></div>
+
+<p><a href="https://artisticcheese.wordpress.com/2018/01/04/storing-arbitrary-text-file-in-azure-key-vault-as-secrets-ssh-keys-cer-files-etc/">Source</a></p>
                 
                   
                 
