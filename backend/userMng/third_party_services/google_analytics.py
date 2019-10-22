@@ -130,6 +130,7 @@ class Google_Analytics:
         return google_analytics_dimensions_metrics_dict
 
     def main(self):
-        analytics = initialize_analyticsreporting(returnAzureSecret())
+        keyAzure = returnAzureSecret()
+        analytics = initialize_analyticsreporting(keyAzure)
         response = get_report(analytics)
         print_response(response)
