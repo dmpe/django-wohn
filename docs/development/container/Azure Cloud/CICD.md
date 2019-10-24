@@ -21,7 +21,7 @@ The pipeline jobs run on [Azure DevOps](https://johnmalc.visualstudio.com/DJango
 **Solution:** Execute below:
 
 ```
-az keyvault secret set --vault-name b40 -n
+az keyvault secret set --vault-name b40 -n ... path to file
 ```
 
 [Source](https://artisticcheese.wordpress.com/2018/01/04/storing-arbitrary-text-file-in-azure-key-vault-as-secrets-ssh-keys-cer-files-etc/)
