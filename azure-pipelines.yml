@@ -28,18 +28,6 @@ stages:
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-      - task: PowerShell@2
-        inputs:
-          targetType: 'inline'
-          script: |
-            $editedFiles = git diff HEAD HEAD~ --name-only
-            $editedFiles | ForEach-Object {
-                Switch -Wildcard ($_ ) {
-                  'backend/*' { Write-Output "##vso[task.setvariable variable=updateToBackend]True" }
-                  'frontend/*' { Write-Output "##vso[task.setvariable variable=updateToFrontend]True" }
-                }
-            }
-
       - task: Docker@2
         displayName: "Docker login"
         inputs:
@@ -69,9 +57,20 @@ stages:
       pool:
         vmImage: 'ubuntu-latest'
       steps:
+        - task: PowerShell@2
+          inputs:
+            targetType: 'inline'
+            script: |
+              $editedFiles = git diff HEAD HEAD~ --name-only
+              $editedFiles | ForEach-Object {
+                  Switch -Wildcard ($_ ) {
+                    'backend/*' { Write-Output "##vso[task.setvariable variable=updateToBackend]True" }
+                    'frontend/*' { Write-Output "##vso[task.setvariable variable=updateToFrontend]True" }
+                  }
+              }
         - task: Docker@2
           displayName: "Build our Backend now"
-          condition: and(succeeded(), eq(variables['updateToBackend'], True))
+          condition: and(succeeded(), eq(variables['updateToBackend'], 'True'))
           inputs:
             containerRegistry: 'quay.io'
             repository: $(quayId)/$(imageNameB)
@@ -85,7 +84,7 @@ stages:
           displayName: "Push to Docker Hub"
           # only push on master branch, i.e. when PR is merged
           # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-          condition: and(succeeded(), eq(variables['updateToBackend'], True))
+          condition: and(succeeded(), eq(variables['updateToBackend'], 'True'))
           inputs:
             containerRegistry: 'quay.io'
             repository: '$(quayId)/$(imageNameB)'
@@ -96,7 +95,7 @@ stages:
 
         - task: Docker@2
           displayName: "Build our Frontend now"
-          condition: and(succeeded(), eq(variables['updateToFrontend'], True))
+          condition: and(succeeded(), eq(variables['updateToFrontend'], 'True'))
           inputs:
             containerRegistry: 'quay.io'
             repository: $(quayId)/$(imageNameF)
@@ -110,7 +109,7 @@ stages:
           displayName: "Push Frontend to Hub"
           # only push on master branch, i.e. when PR is merged
           # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-          condition: and(succeeded(), eq(variables['updateToFrontend'], True))
+          condition: and(succeeded(), eq(variables['updateToFrontend'], 'True'))
           inputs:
             containerRegistry: 'quay.io'
             repository: '$(quayId)/$(imageNameF)'
