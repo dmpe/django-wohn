@@ -409,6 +409,26 @@
     Setup
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend" class="md-nav__link">
+    Backend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    Frontend
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -553,6 +573,26 @@
     Setup
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend" class="md-nav__link">
+    Backend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    Frontend
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -579,6 +619,7 @@
 the website, it may be necessary sometimes to test things locally, on your own PC with docker being installed.</p>
 <p>See <a href="https://dmpe.github.io/django-wohn/development/container/container/">https://dmpe.github.io/django-wohn/development/container/container/</a> for some additional documentation.</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<h3 id="backend">Backend<a class="headerlink" href="#backend" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Install latest docker (compose is not necessary) with PostgreSQL (tested on 11+)</li>
 <li>
@@ -594,6 +635,13 @@ the website, it may be necessary sometimes to test things locally, on your own P
 If your browser is complaining about SSL issues, follow this <a href="https://stackoverflow.com/a/34033592">answer</a> for fixing it.</p>
 </li>
 </ul>
+<h3 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h3>
+<p>To update <code>package.json</code> <strong>and</strong> package themselves, we need to install to:</p>
+<div class="codehilite"><pre><span></span>yarn global add syncyarnlock // install syncyarnlock globally (!!!!)
+yarn upgrade // update dependencies, updates yarn.lock
+syncyarnlock -s -k // updates package.json with versions installed from yarn.lock
+yarn install // updates yarn.lock with current version constraint from package.json
+</pre></div>
                 
                   
                 
