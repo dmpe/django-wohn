@@ -2,7 +2,7 @@ FROM node:current as node_cache
 WORKDIR /cache/
 COPY package.json ./
 COPY yarn.lock ./
-RUN yarn add install --production
+RUN yarn add install
 
 
 FROM node:current
