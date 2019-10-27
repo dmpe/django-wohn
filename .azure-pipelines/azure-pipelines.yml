@@ -1,0 +1,105 @@
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+variables:
+  quayId: dmpe
+  dockerId: f789gh
+  imageName: django-wohn
+  imageNameB: django-wohn-backend
+  major: 1
+  minor: $[counter(variables['major'], 3)]
+
+# test all commits in Pull Re. which target master
+trigger:
+- master
+- pr
+
+stages:
+- stage: Preparations
+  displayName: Prepare all the tasks that are needed for later use
+  jobs:
+    - job: BuildJob
+      strategy:
+        parallel: 2
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - task: Docker@2
+        displayName: "Docker login"
+        inputs:
+          containerRegistry: 'docker_hub'
+          command: 'login'
+
+      - task: Docker@2
+        displayName: "quay login"
+        inputs:
+          containerRegistry: 'quay.io'
+          command: 'login'
+
+      - task: AzureKeyVault@1
+        inputs:
+          azureSubscription: 'DjangoAzure'
+          KeyVaultName: 'b40'
+          SecretsFilter: '*'
+# https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureKeyVaultV1/README.md
+
+
+- stage: DockerBuild
+  displayName: Build Docker images
+  jobs:
+    - job: BuildImages
+      # strategy:
+      #   parallel: 2
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+        - task: CopyFiles@2
+          inputs:
+            SourceFolder: '$(Build.SourcesDirectory)/'
+            Contents: '*.md'
+            TargetFolder: 'backend/'
+            OverWrite: true
+
+        - task: Docker@2
+          displayName: "Build our Backend now"
+          inputs:
+            containerRegistry: 'quay.io'
+            repository: $(quayId)/$(imageNameB)
+            command: 'build'
+            Dockerfile: 'backend/Dockerfile'
+            tags: |
+              $(major).$(minor)
+              latest
+
+        - task: Docker@2
+          displayName: "Push to Docker Hub"
+          condition: succeeded()
+          inputs:
+            containerRegistry: 'quay.io'
+            repository: '$(quayId)/$(imageNameB)'
+            command: 'push'
+            tags: |
+              $(major).$(minor)
+              latest
+
+- stage: SendToSonarQube
+  displayName: Run SonarQube
+  jobs:
+    - job: ScanJob
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - task: SonarCloudPrepare@1
+        displayName: "Connect to SonarCloud"
+        inputs:
+          SonarCloud: 'SonarCloud'
+          organization: 'dmpe-github'
+          scannerMode: 'CLI'
+          configMode: 'file'
+
+      - task: SonarCloudAnalyze@1
+
+      - task: SonarCloudPublish@1
+        inputs:
+          pollingTimeoutSec: '300'

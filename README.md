@@ -5,7 +5,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/dmpe/django-wohn)
 ![Docker Pulls](https://img.shields.io/docker/pulls/f789gh/django-wohn)
 ![Docker Automated](https://img.shields.io/docker/automated/f789gh/django-wohn)
-![Docker Builds](https://img.shields.io/docker/build/f789gh/django-wohn)
+[![Docker Repository on Quay](https://quay.io/repository/dmpe/django-wohn-frontend/status "Docker Repository on Quay")](https://quay.io/repository/dmpe/django-wohn-frontend)
 [![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/dmpe/django-wohn)](https://github.com/dmpe/django-wohn/pulls?q=is%3Apr+is%3Aclosed)
 [![HSTS Domain](https://img.shields.io/hsts/preload/monitor.melive.xyz)](https://dev.ssllabs.com/ssltest/analyze.html?d=monitor.melive.xyz&hideResults=on)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/monitor.melive.xyz?publish)

@@ -1,0 +1,33 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+# https://circleci.com/gh/dmpe/django-wohn
+version: 2
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+      # setup_remote_docker:
+      #     version: 18.09.3
+    working_directory: ~/repo
+    steps:
+      - checkout
+
+      - run: |
+          pwd
+          ls -ls
+
+      - run:
+          name: Build and push Docker image
+          command: |
+            cd frontend/
+            docker build -t quay.io/dmpe/django-wohn-frontend:latest .
+            echo $DOCKER_PASS | docker login -u $DOCKER_LOGIN --password-stdin quay.io
+            docker push quay.io/dmpe/django-wohn-frontend:latest
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build:
+        context: DockerHub
