@@ -25,6 +25,7 @@ from django.utils.http import *
 from django.utils.safestring import *
 from django.views import View
 from django.views.generic import *
+
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
 

@@ -1,10 +1,11 @@
 import logging
 import os
 
+from azure.keyvault import KeyVaultClient
 from google.auth.transport.requests import *
 from google.oauth2 import service_account
 from googleapiclient.discovery import *
-from azure.keyvault import KeyVaultClient
+
 from myAzure.az_connect import AzureConnection
 
 logger = logging.getLogger(__name__)
@@ -16,15 +17,16 @@ class Google_Analytics:
     https://developers.google.com/analytics/devguides/reporting/core/dimsmets
     https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py
     """
+
     def returnAzureSecret(self):
         azCon = AzureConnection()
         azCon.main()
         client = KeyVaultClient(azCon.credentials)
         GOOGLE_ANALYTICS = client.get_secret(
-                "https://b40.vault.azure.net/",
-                "GOOGLE-ANAL",
-                "ab6ef2cc7d3846f199dcd149782a5d50",
-            ).value
+            "https://b40.vault.azure.net/",
+            "GOOGLE-ANAL",
+            "ab6ef2cc7d3846f199dcd149782a5d50",
+        ).value
         return GOOGLE_ANALYTICS
 
     def initialize_analyticsreporting(self, ggl_client_key):
@@ -44,7 +46,9 @@ class Google_Analytics:
         # except Exception:
         #     logger.exception("clients_secrets.json not found on the server")
 
-        ga_credentials = service_account.Credentials.from_service_account_file(ggl_client_key)
+        ga_credentials = service_account.Credentials.from_service_account_file(
+            ggl_client_key
+        )
         scoped_credentials = ga_credentials.with_scopes(SCOPES)
         authed_session = AuthorizedSession(scoped_credentials)
 

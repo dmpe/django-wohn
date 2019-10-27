@@ -38,6 +38,7 @@ class Query(object):
 
         .. _URL: https://stackabuse.com/building-a-graphql-api-with-django/
     """
+
     home_properties = graphene.List(HouseType)
     home_property = graphene.Field(HouseType, id=graphene.Int())
     room_properties = graphene.List(RoomType)
@@ -60,7 +61,7 @@ class Query(object):
         return myUser.objects.all()
 
     def resolve_melive_user(self, info, **kwargs):
-        id = kwargs.get('id')
+        id = kwargs.get("id")
 
         if id is not None:
             return myUser.objects.get(pk=id)
@@ -68,7 +69,7 @@ class Query(object):
         return None
 
     def resolve_house_property(self, info, **kwargs):
-        id = kwargs.get('id')
+        id = kwargs.get("id")
 
         if id is not None:
             return House.objects.get(pk=id)
@@ -76,7 +77,7 @@ class Query(object):
         return None
 
     def resolve_room_property(self, info, **kwargs):
-        id = kwargs.get('id')
+        id = kwargs.get("id")
 
         if id is not None:
             return Room.objects.get(pk=id)
@@ -84,7 +85,7 @@ class Query(object):
         return None
 
     def resolve_apartment_property(self, info, **kwargs):
-        id = kwargs.get('id')
+        id = kwargs.get("id")
 
         if id is not None:
             return Apartment.objects.get(pk=id)

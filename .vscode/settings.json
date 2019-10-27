@@ -15,5 +15,14 @@
   "files.trimTrailingWhitespace": true,
   "editor.insertSpaces": true,
   "git.ignoreLimitWarning": true,
-  "python.linting.flake8Enabled": true
+  "python.linting.flake8Enabled": true,
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "eslint.autoFixOnSave": true,
+  "tslint.autoFixOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  }
 }

@@ -1,8 +1,10 @@
 import hashlib
+
 # for gravatar URLs and user's profile image and its unique name
 import urllib
 
 import django
+
 # for time related tasks, incl. timezone
 import pytz
 from django.conf import settings
@@ -68,6 +70,7 @@ class House(AbstractProperty):
     Additional fields for a house
 
     """
+
     house_garden_size_in_sq_meters = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True
     )
@@ -168,6 +171,7 @@ class myUser(AbstractUser):
 
     Define attributes for our user class
     """
+
     # email, username, first and last name are unnecessary
     GENDER_CHOICES = (
         ("M", "Mr."),

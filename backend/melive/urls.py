@@ -51,7 +51,7 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
-    path('__debug__/', include(debug_toolbar.urls)),
+    path("__debug__/", include(debug_toolbar.urls)),
     # expose graphql server api, incl. GraphQL IDE - and
     # disable CSRF token requirement because for now it is PUBLIC API
     # TODO it should be protected

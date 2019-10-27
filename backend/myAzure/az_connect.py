@@ -55,7 +55,7 @@ class AzureConnection(object):
     def dev_or_prod(self):
         client = KeyVaultClient(self.credentials)
         try:
-            if(self.localDevelopment is False):
+            if self.localDevelopment is False:
                 self.env = client.get_secret(
                     "https://b40.vault.azure.net/",
                     "DJANGO-ENV",

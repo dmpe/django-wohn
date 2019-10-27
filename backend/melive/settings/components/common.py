@@ -9,6 +9,7 @@ import os
 import socket
 
 import debug_toolbar
+
 # for Azure Key Vault
 from azure.keyvault import KeyVaultClient
 from django.contrib.messages import constants as message_constants
@@ -30,7 +31,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-if (azCon.env != "development"):
+if azCon.env != "development":
     ALLOWED_HOSTS = ["*"]
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECURE_SSL_REDIRECT = True
@@ -38,9 +39,9 @@ if (azCon.env != "development"):
     CSRF_COOKIE_SECURE = True
     CORS_ORIGIN_ALLOW_ALL = True
     CORS_ALLOW_CREDENTIALS = True
-    INTERNAL_IPS = ['127.0.0.1', os.environ["DOCKER_HOST"]]
+    INTERNAL_IPS = ["127.0.0.1", os.environ["DOCKER_HOST"]]
 else:
-    INTERNAL_IPS = ['127.0.0.1']
+    INTERNAL_IPS = ["127.0.0.1"]
 
 
 INSTALLED_APPS = [
@@ -74,7 +75,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     # "debug_toolbar.middleware.DebugToolbarMiddleware",
-    'graphiql_debug_toolbar.middleware.DebugToolbarMiddleware',
+    "graphiql_debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -100,7 +101,7 @@ AUTHENTICATION_BACKENDS = (
     "social_core.backends.facebook.FacebookOAuth2",
     # for username and (!) email authentication
     "core.backends.EmailUserNameAuthBackend",
-    'graphql_jwt.backends.JSONWebTokenBackend',
+    "graphql_jwt.backends.JSONWebTokenBackend",
     "django.contrib.auth.backends.ModelBackend",
 )
 
@@ -134,19 +135,15 @@ def custom_show_toolbar(request):
     return True
 
 
-DEBUG_TOOLBAR_CONFIG = {
-    'SHOW_TOOLBAR_CALLBACK': custom_show_toolbar,
-}
+DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": custom_show_toolbar}
 
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-INTERNAL_IPS += [ip[:-1] + '1' for ip in ips]
+INTERNAL_IPS += [ip[:-1] + "1" for ip in ips]
 
 # Where your Graphene schema lives
 GRAPHENE = {
     "SCHEMA": "melive.schema.schema",
-    'MIDDLEWARE': [
-        'graphql_jwt.middleware.JSONWebTokenMiddleware',
-    ],
+    "MIDDLEWARE": ["graphql_jwt.middleware.JSONWebTokenMiddleware"],
 }
 
 ROOT_URLCONF = "melive.urls"

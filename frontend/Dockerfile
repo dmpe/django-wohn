@@ -9,6 +9,6 @@ FROM node:current
 WORKDIR /app
 COPY --from=node_cache /cache/ .
 COPY . /app
-RUN yarn global add http-server && yarn run build
+RUN yarn global add local-web-server && yarn run build
 EXPOSE 2746
-CMD ["http-server", "dist"]
+CMD ["ws", "--port=2746", "--directory=dist/"]

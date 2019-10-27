@@ -6,18 +6,18 @@
       {
         "label": "isort",
         "type": "shell",
-        "command": "isort -rc ."
+        "command": "isort -rc . --apply"
       },
       {
         "label": "Docker Backend",
         "type": "shell",
-        "command": "docker build -t django-wohn-backend backend/",
+        "command": "docker build -t django-wohn-backend:latest backend/",
         "problemMatcher": []
       },
       {
         "label": "Docker Frontend",
         "type": "shell",
-        "command": "docker build -t django-wohn-frontend frontend/",
+        "command": "docker build -t django-wohn-frontend:latest frontend/",
         "problemMatcher": []
       },
       {
@@ -31,12 +31,18 @@
         "command": "flake8 ."
       },
       {
+        "label": "JS/TS format",
+        "type": "shell",
+        "command": "tslint --project ./frontend"
+      },
+      {
         "label": "Format",
         "dependsOrder": "sequence",
         "dependsOn": [
           "isort",
           "black",
-          "flake8"
+          "flake8",
+          "JS/TS format",
         ],
         "group": {
           "kind": "test",

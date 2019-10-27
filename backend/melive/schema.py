@@ -14,15 +14,16 @@ class Mutations(graphene.ObjectType):
     For POST, UPDATE, INSERT requests
     , mutation=Mutations
     """
+
     pass
 
 
-class Query(core.schema.Query,
-            graphene.ObjectType):
+class Query(core.schema.Query, graphene.ObjectType):
     """
     For GET requests for melive.xyz
 
     """
+
     pass
 
 
