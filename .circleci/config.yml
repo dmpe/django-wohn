@@ -9,11 +9,14 @@ jobs:
       image: ubuntu-1604:201903-01
       # setup_remote_docker:
       #     version: 18.09.3
-    working_directory: ~/frontend
+    working_directory: ~/repo
     steps:
-      - checkout
+      - checkout:
+          path: frontend/
 
-      - run: pwd
+      - run: |
+          pwd
+          ls -ls
 
 
 
