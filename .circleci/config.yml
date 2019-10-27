@@ -17,8 +17,6 @@ jobs:
           pwd
           ls -ls
 
-
-
       - run:
           name: Build and push Docker image
           command: |
@@ -26,3 +24,10 @@ jobs:
             docker build -t quay.io/dmpe/django-wohn-frontend:latest .
             echo $DOCKER_PASS | docker login -u $DOCKER_LOGIN --password-stdin quay.io
             docker push quay.io/dmpe/django-wohn-frontend:latest
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
+        context: DockerHub
