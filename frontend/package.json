@@ -8,7 +8,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "lint2": "prettier --write --parser typescript \"packages/**/*.ts?(x)\""
+    "lint2": "prettier --write --parser vue"
   },
   "dependencies": {
     "core-js": "^2.6.10",
