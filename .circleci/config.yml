@@ -7,14 +7,15 @@ jobs:
   build:
     machine:
       image: ubuntu-1604:201903-01
+      # setup_remote_docker:
+      #     version: 18.09.3
     working_directory: ~/frontend
     steps:
       - checkout
 
       - run: pwd
 
-      - setup_remote_docker:
-          version: 18.09.3
+
 
       - run:
           name: Build and push Docker image
