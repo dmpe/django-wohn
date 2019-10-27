@@ -54,17 +54,6 @@ stages:
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-
-$editedFiles = git diff HEAD HEAD~ --name-only
-              $editedFiles | ForEach-Object {
-                  Switch -Wildcard ($_ ) {
-                    'backend/*' { Write-Output "##vso[task.setvariable variable=updateToBackend;]True" }
-                    'frontend/*' { Write-Output "##vso[task.setvariable variable=updateToFrontend;]True" }
-                  }
-              }
-              Write-Host $updateToFrontend $updateToBackend
-
-
         - task: CopyFiles@2
           inputs:
             SourceFolder: '$(Build.SourcesDirectory)/'
@@ -95,7 +84,7 @@ $editedFiles = git diff HEAD HEAD~ --name-only
               latest
 
 - stage: SendToSonarQube
-  displayName: Run SonarQube scannerMode
+  displayName: Run SonarQube
   jobs:
     - job: ScanJob
       pool:
