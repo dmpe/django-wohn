@@ -2,38 +2,23 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 # https://circleci.com/gh/dmpe/django-wohn
-# version: 2
-# jobs:
-#   build:
-#     docker:
-#       - image: circleci/node:current
-#     working_directory: ~/repo
+version: 2
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+    working_directory: ~/frontend
+    steps:
+      - checkout
 
-#     steps:
-#       - checkout
+      - run: pwd
 
-#       - restore_cache:
-#           keys:
-#             - v1-dependencies-{{ checksum "package.json" }}
-#             # fallback to using the latest cache if no exact match is found
-#             - v1-dependencies-
+      - setup_remote_docker:
+          version: 18.09.3
 
-#       - run: yarn install
-
-#       - save_cache:
-#           paths:
-#             - node_modules
-#           key: v1-dependencies-{{ checksum "package.json" }}
-
-#       - run: yarn run build
-
-#       - setup_remote_docker:
-#           docker_layer_caching: true
-
-#       - run:
-#           name: Build and push Docker image
-#           command: |
-#             docker build -t quay.io/dmpe/django-wohn-frontend:latest .
-#             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
-#             docker push quay.io/dmpe/django-wohn-frontend:$TAG
-
+      - run:
+          name: Build and push Docker image
+          command: |
+            docker build -t quay.io/dmpe/django-wohn-frontend:latest .
+            echo $DOCKER_PASS | docker login -u $DOCKER_LOGIN --password-stdin quay.io
+            docker push quay.io/dmpe/django-wohn-frontend:$TAG

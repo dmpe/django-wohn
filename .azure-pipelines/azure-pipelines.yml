@@ -7,9 +7,6 @@ variables:
   dockerId: f789gh
   imageName: django-wohn
   imageNameB: django-wohn-backend
-  imageNameF: django-wohn-frontend
-  # updateToBackend: false
-  # updateToFrontend: false
   major: 1
   minor: $[counter(variables['major'], 3)]
 
@@ -28,14 +25,6 @@ stages:
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-      - task: PowerShell@2
-        inputs:
-          targetType: 'inline'
-          script: |
-            Write-Output "##vso[task.setvariable variable=updateToBackend;]False"
-            Write-Output "##vso[task.setvariable variable=updateToFrontend;]False"
-            Write-Host $updateToFrontend $updateToBackend
-
       - task: Docker@2
         displayName: "Docker login"
         inputs:
@@ -65,11 +54,8 @@ stages:
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-        - task: PowerShell@2
-          inputs:
-            targetType: 'inline'
-            script: |
-              $editedFiles = git diff HEAD HEAD~ --name-only
+
+$editedFiles = git diff HEAD HEAD~ --name-only
               $editedFiles | ForEach-Object {
                   Switch -Wildcard ($_ ) {
                     'backend/*' { Write-Output "##vso[task.setvariable variable=updateToBackend;]True" }
@@ -77,6 +63,7 @@ stages:
                   }
               }
               Write-Host $updateToFrontend $updateToBackend
+
 
         - task: CopyFiles@2
           inputs:
@@ -87,7 +74,6 @@ stages:
 
         - task: Docker@2
           displayName: "Build our Backend now"
-          condition: and(succeeded(), eq(variables['updateToBackend'], 'True'))
           inputs:
             containerRegistry: 'quay.io'
             repository: $(quayId)/$(imageNameB)
@@ -99,37 +85,10 @@ stages:
 
         - task: Docker@2
           displayName: "Push to Docker Hub"
-          # only push on master branch, i.e. when PR is merged
-          # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-          condition: and(succeeded(), eq(variables['updateToBackend'], 'True'))
+          condition: succeeded()
           inputs:
             containerRegistry: 'quay.io'
             repository: '$(quayId)/$(imageNameB)'
-            command: 'push'
-            tags: |
-              $(major).$(minor)
-              latest
-
-        - task: Docker@2
-          displayName: "Build our Frontend now"
-          condition: and(succeeded(), eq(variables['updateToFrontend'], 'True'))
-          inputs:
-            containerRegistry: 'quay.io'
-            repository: $(quayId)/$(imageNameF)
-            command: 'build'
-            Dockerfile: 'frontend/Dockerfile'
-            tags: |
-              $(major).$(minor)
-              latest
-
-        - task: Docker@2
-          displayName: "Push Frontend to Hub"
-          # only push on master branch, i.e. when PR is merged
-          # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-          condition: and(succeeded(), eq(variables['updateToFrontend'], 'True'))
-          inputs:
-            containerRegistry: 'quay.io'
-            repository: '$(quayId)/$(imageNameF)'
             command: 'push'
             tags: |
               $(major).$(minor)
@@ -155,4 +114,3 @@ stages:
       - task: SonarCloudPublish@1
         inputs:
           pollingTimeoutSec: '300'
-# TODO: take picture from output and commit it to docs directory
