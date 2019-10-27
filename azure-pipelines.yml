@@ -51,7 +51,7 @@ stages:
 - stage: DockerBuild
   displayName: Build Docker images
   jobs:
-    - job: BuildJobBackend
+    - job: BuildImages
       # strategy:
       #   parallel: 2
       pool:
@@ -68,6 +68,7 @@ stages:
                     'frontend/*' { Write-Output "##vso[task.setvariable variable=updateToFrontend]True" }
                   }
               }
+              echo $updateToFrontend $updateToBackend
         - task: Docker@2
           displayName: "Build our Backend now"
           condition: and(succeeded(), eq(variables['updateToBackend'], 'True'))
