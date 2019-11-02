@@ -1,5 +1,5 @@
 import logging
-import os
+import os, sys
 import requests
 
 from azure.keyvault import KeyVaultClient
@@ -18,7 +18,7 @@ class Google_Analytics:
     https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py
     """
 
-    def GetAzureSecret(self):
+    def getAzureSecret(self):
         azCon = AzureConnection()
         azCon.main()
         client = KeyVaultClient(azCon.credentials)
@@ -141,9 +141,9 @@ class Google_Analytics:
 
         return google_analytics_dimensions_metrics_dict
 
-    def main(self):
-        keyAzure = GetAzureSecret()
-        download_file(keyAzure)
-        analytics = initialize_analyticsreporting()
-        response = get_report(analytics)
-        print_response(response)
+    # def main(self):
+    #     keyAzure = GetAzureSecret()
+    #     download_file(keyAzure)
+    #     analytics = initialize_analyticsreporting()
+    #     response = get_report(analytics)
+    #     print_response(response)

@@ -3,6 +3,7 @@ from os import path
 import requests
 from dotenv import find_dotenv, load_dotenv
 import pytest
+from myAzure.az_connect import AzureConnection
 
 
 def test_LocalPC_download():

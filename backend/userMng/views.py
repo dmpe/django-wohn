@@ -97,6 +97,8 @@ class UserProfileIndex(LoginRequiredMixin, View):
         form = FeedbackForm()
 
         gh = Google_Analytics()
+        keyDrop = gh.getAzureSecret()
+        gh.download_file(keyDrop)
         analytics = gh.initialize_analyticsreporting()
         response = gh.get_report(analytics)
         number_of_views = gh.print_response(response)
