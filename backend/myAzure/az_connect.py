@@ -34,7 +34,7 @@ class AzureConnection(object):
         return "the environment is: %s " % self.env
 
     def connection(self):
-
+        self.localDevelopment = False
         managed_identity = ManagedIdentityCredential()
         secrets_path = find_dotenv("secrets.env")
         if secrets_path != '':
@@ -48,7 +48,6 @@ class AzureConnection(object):
 
         try:
             self.credentials = ChainedTokenCredential(managed_identity, service_principal)
-            self.localDevelopment = False
         except AzureError:
             print("Check Azure settings/connection/availability")
 
