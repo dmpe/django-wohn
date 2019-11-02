@@ -1,5 +1,6 @@
-from azure.keyvault import KeyVaultClient
-
+from azure.identity import ManagedIdentityCredential, ClientSecretCredential, ChainedTokenCredential
+from azure.keyvault.secrets import SecretClient
+from azure.core.exceptions import AzureError
 import pytest
 from myAzure.az_connect import AzureConnection
 

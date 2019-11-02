@@ -11,7 +11,10 @@ import socket
 import debug_toolbar
 
 # for Azure Key Vault
-from azure.keyvault import KeyVaultClient
+from azure.identity import ManagedIdentityCredential, ClientSecretCredential, ChainedTokenCredential
+from azure.keyvault.secrets import SecretClient
+from azure.core.exceptions import AzureError
+
 from django.contrib.messages import constants as message_constants
 from sendgrid import SendGridAPIClient
 
@@ -20,7 +23,7 @@ from myAzure.az_storage import *
 
 azCon = AzureConnection()
 azCon.main()
-client = KeyVaultClient(azCon.credentials)
+client = SecretClient(vault_url="https://b40.vault.azure.net/", credential=azCon.credentials)
 
 SOCIAL_AUTH_USER_MODEL = "core.myUser"
 AUTH_USER_MODEL = "core.myUser"
@@ -230,35 +233,23 @@ LOGOUT_REDIRECT_URL = "core:homepage"
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 SOCIAL_AUTH_TWITTER_KEY = client.get_secret(
-    "https://b40.vault.azure.net/",
-    "SOCIAL-AUTH-TWITTER-KEY",
-    "7cf698527d95469cb91474875b29a3e0",
+    "SOCIAL-AUTH-TWITTER-KEY"
 ).value
 SOCIAL_AUTH_TWITTER_SECRET = client.get_secret(
-    "https://b40.vault.azure.net/",
-    "SOCIAL-AUTH-TWITTER-SECRET",
-    "5f99c09acc8e41d58c87e18cdf8dcd11",
+    "SOCIAL-AUTH-TWITTER-SECRET"
 ).value
 SOCIAL_AUTH_GOOGLE_OAUTH2_USE_UNIQUE_USER_ID = True
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = client.get_secret(
-    "https://b40.vault.azure.net/",
-    "SOCIAL-AUTH-GOOGLE-OAUTH2-KEY",
-    "e37953c45b474a46b38c1ae02e5c541b",
+    "SOCIAL-AUTH-GOOGLE-OAUTH2-KEY"
 ).value
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = client.get_secret(
-    "https://b40.vault.azure.net/",
-    "SOCIAL-AUTH-GOOGLE-OAUTH2-SECRET",
-    "229ada441766486781ab00c5a63e3ebf",
+    "SOCIAL-AUTH-GOOGLE-OAUTH2-SECRET"
 ).value
 SOCIAL_AUTH_FACEBOOK_KEY = client.get_secret(
-    "https://b40.vault.azure.net/",
-    "SOCIAL-AUTH-FACEBOOK-KEY",
-    "e02a18956b4b46f6868ca9b9a3c5608d",
+    "SOCIAL-AUTH-FACEBOOK-KEY"
 ).value
 SOCIAL_AUTH_FACEBOOK_SECRET = client.get_secret(
-    "https://b40.vault.azure.net/",
-    "SOCIAL-AUTH-FACEBOOK-SECRET",
-    "f439106e5d77442b8607165cf61cf260",
+    "SOCIAL-AUTH-FACEBOOK-SECRET"
 ).value
 SOCIAL_AUTH_FACEBOOK_API_VERSION = "4.0"
 
@@ -284,22 +275,18 @@ EMAIL_HOST = "smtp.sendgrid.net"
 # EMAIL_USE_SSL = True
 EMAIL_HOST_USER = "azure_a880e6655cecd4d33d0a10c5f893868f@azure.com"
 EMAIL_HOST_PASSWORD = client.get_secret(
-    "https://b40.vault.azure.net/",
-    "EMAIL-HOST-PASSWORD",
-    "08655250f5ab42a88971cc19eaedd241",
+    "EMAIL-HOST-PASSWORD"
 ).value
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 SENDGRID_API_KEY = SendGridAPIClient(
     client.get_secret(
-        "https://b40.vault.azure.net/",
         "SENDGRID-API-KEY",
-        "5e84e665a6624d98982c836808220c7a",
     ).value
 )
 
 MY_EMAIL = client.get_secret(
-    "https://b40.vault.azure.net/", "MY-EMAIL", "27ba21440e1f41798df0217622c54dda"
+    "MY-EMAIL"
 ).value
 
 # used when pushing via git

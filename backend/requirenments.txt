@@ -1,7 +1,8 @@
 argon2-cffi
+azure-identity
 azure-storage-common
 azure-storage-blob==2.1.0
-azure-keyvault
+azure-keyvault-secrets
 azure-mgmt-keyvault
 brotlipy
 Django

@@ -2,7 +2,9 @@ import logging
 import os, sys
 import requests
 
-from azure.keyvault import KeyVaultClient
+from azure.identity import ManagedIdentityCredential, ClientSecretCredential, ChainedTokenCredential
+from azure.keyvault.secrets import SecretClient
+from azure.core.exceptions import AzureError
 from google.auth.transport.requests import *
 from google.oauth2 import service_account
 from googleapiclient.discovery import *
@@ -21,11 +23,9 @@ class Google_Analytics:
     def getAzureSecret(self):
         azCon = AzureConnection()
         azCon.main()
-        client = KeyVaultClient(azCon.credentials)
+        client = SecretClient(vault_url="https://b40.vault.azure.net/", credential=azCon.credentials)
         GOOGLE_ANALYTICS = client.get_secret(
-            "https://b40.vault.azure.net/",
-            "GOOGLE-ANALYTICS-DROPBOX-LINK",
-            "029892343cfa44c2a74a5a0968e6c18e",
+            "GOOGLE-ANALYTICS-DROPBOX-LINK"
         ).value
         return GOOGLE_ANALYTICS
 
