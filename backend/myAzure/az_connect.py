@@ -5,7 +5,6 @@ from azure.keyvault import KeyVaultClient
 from dotenv import find_dotenv, load_dotenv
 from msrestazure.azure_active_directory import MSIAuthentication
 
-
 class AzureConnection(object):
     """
     Class used for local development and connecting to Azure Cloud.

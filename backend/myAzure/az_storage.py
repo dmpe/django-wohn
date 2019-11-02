@@ -1,6 +1,5 @@
 from azure.keyvault import KeyVaultClient
 from storages.backends.azure_storage import AzureStorage
-
 from .az_connect import AzureConnection
 
 # Execute AzCon class to return client object.

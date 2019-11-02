@@ -1,6 +1,6 @@
 argon2-cffi
 azure-storage-common
-azure-storage-blob
+azure-storage-blob==2.1.0
 azure-keyvault
 azure-mgmt-keyvault
 brotlipy
