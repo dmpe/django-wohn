@@ -1,8 +1,10 @@
 import os
 from os import path
+
+import pytest
 import requests
 from dotenv import find_dotenv, load_dotenv
-import pytest
+
 from myAzure.az_connect import AzureConnection
 
 
@@ -23,6 +25,7 @@ def test_LocalPC_download():
     print(mes)
 
     assert mes == "Secret File for GA exists"
+
 
 if __name__ == "__main__":
     test_LocalPC_download()

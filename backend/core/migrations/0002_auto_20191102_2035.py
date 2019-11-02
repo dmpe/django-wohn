@@ -6,124 +6,179 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('core', '0001_initial'),
-    ]
+    dependencies = [("core", "0001_initial")]
 
     operations = [
         migrations.AddField(
-            model_name='apartment',
-            name='apartment_floor',
+            model_name="apartment",
+            name="apartment_floor",
             field=models.PositiveSmallIntegerField(default=0),
         ),
         migrations.AddField(
-            model_name='apartment',
-            name='property_address_city_town',
+            model_name="apartment",
+            name="property_address_city_town",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='apartment',
-            name='property_address_street',
+            model_name="apartment",
+            name="property_address_street",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='apartment',
-            name='property_address_zipcode',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(100000)]),
+            model_name="apartment",
+            name="property_address_zipcode",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(100000),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='apartment',
-            name='property_furnished',
+            model_name="apartment",
+            name="property_furnished",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='apartment',
-            name='property_garage',
+            model_name="apartment",
+            name="property_garage",
             field=models.PositiveSmallIntegerField(default=0),
         ),
         migrations.AddField(
-            model_name='apartment',
-            name='property_status',
-            field=models.CharField(choices=[('N', 'New'), ('G', 'Good'), ('UC', 'Under Construction')], default='G', max_length=1, null=True),
+            model_name="apartment",
+            name="property_status",
+            field=models.CharField(
+                choices=[("N", "New"), ("G", "Good"), ("UC", "Under Construction")],
+                default="G",
+                max_length=1,
+                null=True,
+            ),
         ),
         migrations.AddField(
-            model_name='apartment',
-            name='property_wash_machine',
-            field=models.CharField(choices=[('O', 'Owned'), ('S', 'Shared in house'), ('NP', 'Not present')], default='NP', max_length=1),
+            model_name="apartment",
+            name="property_wash_machine",
+            field=models.CharField(
+                choices=[
+                    ("O", "Owned"),
+                    ("S", "Shared in house"),
+                    ("NP", "Not present"),
+                ],
+                default="NP",
+                max_length=1,
+            ),
         ),
         migrations.AddField(
-            model_name='house',
-            name='property_address_city_town',
+            model_name="house",
+            name="property_address_city_town",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='house',
-            name='property_address_street',
+            model_name="house",
+            name="property_address_street",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='house',
-            name='property_address_zipcode',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(100000)]),
+            model_name="house",
+            name="property_address_zipcode",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(100000),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='house',
-            name='property_furnished',
+            model_name="house",
+            name="property_furnished",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='house',
-            name='property_garage',
+            model_name="house",
+            name="property_garage",
             field=models.PositiveSmallIntegerField(default=0),
         ),
         migrations.AddField(
-            model_name='house',
-            name='property_status',
-            field=models.CharField(choices=[('N', 'New'), ('G', 'Good'), ('UC', 'Under Construction')], default='G', max_length=1, null=True),
+            model_name="house",
+            name="property_status",
+            field=models.CharField(
+                choices=[("N", "New"), ("G", "Good"), ("UC", "Under Construction")],
+                default="G",
+                max_length=1,
+                null=True,
+            ),
         ),
         migrations.AddField(
-            model_name='house',
-            name='property_wash_machine',
-            field=models.CharField(choices=[('O', 'Owned'), ('S', 'Shared in house'), ('NP', 'Not present')], default='NP', max_length=1),
+            model_name="house",
+            name="property_wash_machine",
+            field=models.CharField(
+                choices=[
+                    ("O", "Owned"),
+                    ("S", "Shared in house"),
+                    ("NP", "Not present"),
+                ],
+                default="NP",
+                max_length=1,
+            ),
         ),
         migrations.AddField(
-            model_name='room',
-            name='apartment_floor',
+            model_name="room",
+            name="apartment_floor",
             field=models.PositiveSmallIntegerField(default=0),
         ),
         migrations.AddField(
-            model_name='room',
-            name='property_address_city_town',
+            model_name="room",
+            name="property_address_city_town",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='room',
-            name='property_address_street',
+            model_name="room",
+            name="property_address_street",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='room',
-            name='property_address_zipcode',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(100000)]),
+            model_name="room",
+            name="property_address_zipcode",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(100000),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='room',
-            name='property_furnished',
+            model_name="room",
+            name="property_furnished",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='room',
-            name='property_garage',
+            model_name="room",
+            name="property_garage",
             field=models.PositiveSmallIntegerField(default=0),
         ),
         migrations.AddField(
-            model_name='room',
-            name='property_status',
-            field=models.CharField(choices=[('N', 'New'), ('G', 'Good'), ('UC', 'Under Construction')], default='G', max_length=1, null=True),
+            model_name="room",
+            name="property_status",
+            field=models.CharField(
+                choices=[("N", "New"), ("G", "Good"), ("UC", "Under Construction")],
+                default="G",
+                max_length=1,
+                null=True,
+            ),
         ),
         migrations.AddField(
-            model_name='room',
-            name='property_wash_machine',
-            field=models.CharField(choices=[('O', 'Owned'), ('S', 'Shared in house'), ('NP', 'Not present')], default='NP', max_length=1),
+            model_name="room",
+            name="property_wash_machine",
+            field=models.CharField(
+                choices=[
+                    ("O", "Owned"),
+                    ("S", "Shared in house"),
+                    ("NP", "Not present"),
+                ],
+                default="NP",
+                max_length=1,
+            ),
         ),
     ]

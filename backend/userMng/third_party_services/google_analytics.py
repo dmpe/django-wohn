@@ -1,13 +1,15 @@
 import logging
-import os, sys
-import requests
+import os
+import sys
 
-from azure.identity import ManagedIdentityCredential, ClientSecretCredential, ChainedTokenCredential
-from azure.keyvault.secrets import SecretClient
+import requests
 from azure.core.exceptions import AzureError
+from azure.identity import ChainedTokenCredential, ClientSecretCredential, ManagedIdentityCredential
+from azure.keyvault.secrets import SecretClient
 from google.auth.transport.requests import *
 from google.oauth2 import service_account
 from googleapiclient.discovery import *
+
 from myAzure.az_connect import AzureConnection
 
 logger = logging.getLogger(__name__)
@@ -23,17 +25,19 @@ class Google_Analytics:
     def getAzureSecret(self):
         azCon = AzureConnection()
         azCon.main()
-        client = SecretClient(vault_url="https://b40.vault.azure.net/", credential=azCon.credentials)
-        GOOGLE_ANALYTICS = client.get_secret(
-            "GOOGLE-ANALYTICS-DROPBOX-LINK"
-        ).value
+        client = SecretClient(
+            vault_url="https://b40.vault.azure.net/", credential=azCon.credentials
+        )
+        GOOGLE_ANALYTICS = client.get_secret("GOOGLE-ANALYTICS-DROPBOX-LINK").value
         return GOOGLE_ANALYTICS
 
     def download_file(self, dropbox_link):
         """
             Download google analytics file from dropbox. Link to it is stored in Azure KV
         """
-        fl = os.path.abspath(os.path.join(os.path.dirname(__file__), "client_secrets.json"))
+        fl = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "client_secrets.json")
+        )
         r = requests.get(dropbox_link, allow_redirects=True)
         open(fl, "wb").write(r.content)
 
@@ -54,9 +58,7 @@ class Google_Analytics:
         except Exception:
             logger.exception("clients_secrets.json not found on the server")
 
-        ga_credentials = service_account.Credentials.from_service_account_file(
-            fl
-        )
+        ga_credentials = service_account.Credentials.from_service_account_file(fl)
         scoped_credentials = ga_credentials.with_scopes(SCOPES)
         authed_session = AuthorizedSession(scoped_credentials)
 
