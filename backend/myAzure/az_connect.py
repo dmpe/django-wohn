@@ -39,7 +39,7 @@ class AzureConnection(object):
             print("MSIAuthentication: Check your development: local vs. Azure")
             self.localDevelopment = True
             try:
-                load_dotenv(find_dotenv("secrets.env"))
+                load_dotenv(find_dotenv("secrets.env"), verbose=True)
                 self.credentials = ServicePrincipalCredentials(
                     client_id=os.getenv("client_id"),
                     secret=os.getenv("secret"),

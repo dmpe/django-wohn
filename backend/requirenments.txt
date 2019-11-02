@@ -32,6 +32,8 @@ social-auth-app-django
 markdown
 pandas
 phonenumbers
+pytest
+pytest-django
 pint
 Pillow
 pinax-messages
