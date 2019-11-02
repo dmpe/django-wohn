@@ -14,6 +14,7 @@ from django.utils.safestring import *
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 from timezone_field import TimeZoneField, TimeZoneFormField
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 from .mics import upload_profile_image
 
@@ -73,9 +74,11 @@ class AbstractProperty(django.db.models.Model):
     property_wash_machine = models.CharField(
         max_length=1, choices=WASHING_MACHINE, null=False, default="NP"
     )
-    property_address_street = models.TextField()
-    property_address_city_town = models.TextField()
-    property_address_zipcode = models.IntegerField()
+    property_address_street = models.TextField(null=True)
+    property_address_city_town = models.TextField(null=True)
+    property_address_zipcode = models.IntegerField(default=0,
+                    validators=[MinValueValidator(0),
+                                MaxValueValidator(100000)])
 
     class Meta:
         verbose_name_plural = "properties"
