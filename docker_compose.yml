@@ -35,7 +35,7 @@ services:
           - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 
     backend:
-        image: quay.io/dmpe/django-wohn-backend
+        image: f789gh/django-wohn
         container_name: backend
         volumes:
           - datadrive_django:/work
