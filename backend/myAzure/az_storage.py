@@ -2,6 +2,7 @@ from azure.identity import ManagedIdentityCredential, ClientSecretCredential, Ch
 from azure.keyvault.secrets import SecretClient
 from azure.core.exceptions import AzureError
 from .az_connect import AzureConnection
+from storages.backends.azure_storage import AzureStorage
 
 # Execute AzCon class to return client object.
 # used for Azure Key Vault
