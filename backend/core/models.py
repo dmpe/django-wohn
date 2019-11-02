@@ -52,6 +52,31 @@ class AbstractProperty(django.db.models.Model):
         max_digits=7, decimal_places=2, null=True, blank=True
     )
 
+    property_garage = models.PositiveSmallIntegerField(default=0)
+
+    PROPERTY_STATUS = (
+        ("N", "New"),
+        ("G", "Good"),
+        ("UC", "Under Construction"),
+    )
+    property_status = models.CharField(
+        max_length=1, choices=PROPERTY_STATUS, null=True, default="G"
+    )
+
+    property_furnished = models.BooleanField(default=False)
+
+    WASHING_MACHINE = (
+        ("O", "Owned"),
+        ("S", "Shared in house"),
+        ("NP", "Not present"),
+    )
+    property_wash_machine = models.CharField(
+        max_length=1, choices=WASHING_MACHINE, null=False, default="NP"
+    )
+    property_address_street = models.TextField()
+    property_address_city_town = models.TextField()
+    property_address_zipcode = models.IntegerField()
+
     class Meta:
         verbose_name_plural = "properties"
         abstract = True
@@ -84,7 +109,7 @@ class Apartment(AbstractProperty):
     Additional fields for an apartment
 
     """
-
+    apartment_floor = models.PositiveSmallIntegerField(default=0)
     class Meta:
         verbose_name_plural = "Apartments"
 
@@ -94,7 +119,7 @@ class Room(AbstractProperty):
     Additional fields for renting out a single room
 
     """
-
+    apartment_floor = models.PositiveSmallIntegerField(default=0)
     class Meta:
         verbose_name_plural = "Rooms"
 

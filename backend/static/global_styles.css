@@ -130,10 +130,10 @@ Sign Up Pages {logic, reset pswd, etc}
 
 /* User Profile
 */
-.iti__flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/img/flags.png");}
+.iti__flag {background-image: url("https://cdn.jsdelivr.net/npm/intl-tel-input@16.0.7/build/img/flags.png");}
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .iti__flag {background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/img/flags@2x.png");}
+  .iti__flag {background-image: url("https://cdn.jsdelivr.net/npm/intl-tel-input@16.0.7/build/img/flags@2x.png");}
 }
 
 /* Login
