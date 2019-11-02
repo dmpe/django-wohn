@@ -35,19 +35,22 @@ class AzureConnection(object):
 
     def connection(self):
         self.localDevelopment = False
-        managed_identity = ManagedIdentityCredential()
+        cred = None
+        cred = ManagedIdentityCredential()
+
         secrets_path = find_dotenv("secrets.env")
         if secrets_path != '':
             self.localDevelopment = True
-        load_dotenv(secrets_path)
-        service_principal = ClientSecretCredential(
-                    client_id=os.getenv("client_id"),
-                    client_secret=os.getenv("secret"),
-                    tenant_id=os.getenv("tenant"),
-        )
+            load_dotenv(secrets_path)
+            service_principal = ClientSecretCredential(
+                        client_id=os.getenv("client_id"),
+                        client_secret=os.getenv("secret"),
+                        tenant_id=os.getenv("tenant"),
+            )
+            cred = ChainedTokenCredential(ManagedIdentityCredential(), service_principal)
 
         try:
-            self.credentials = ChainedTokenCredential(managed_identity, service_principal)
+            self.credentials = cred
         except AzureError:
             print("Check Azure settings/connection/availability")
 
