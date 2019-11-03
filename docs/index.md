@@ -2,6 +2,15 @@
 
 This documentation providers a high-level overview of Django-Wohn, aka Melive.xyz, project.
 
+# Project Includes
+
+- Django for backend
+- DJango `/graphql` API endpoint (alternative to REST API) for querying (GET) and mutations (POST/DELETE) of DJango models 
+- Vue.js for frontend
+- 
+- Azure Cloud for KeyVault, Storage and VMs. See later dedicated section here.
+
+
 # Progress so far
 
 ## General
