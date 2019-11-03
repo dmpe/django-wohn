@@ -14,6 +14,15 @@ export default new Router({
       path: "/",
       name: "home",
       component: Home,
+      meta: [
+        title: "Home Page - Example App",
+        metaTags: [
+          {
+            name: "description",
+            content: "The home page of our example app."
+          },
+        ],
+      ],
     },
     {
       path: "/about",

@@ -9,7 +9,7 @@
 
 			<b-button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLoginForm" aria-controls="navbarLoginForm" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
-			</button>
+			</b-button>
 
 			// {# Full text search functionality, see #50, #35 #}
  			<!-- <form role="form" class="form-inline my-2 my-lg-0 flex-fill justify-content-center" method="POST">
@@ -28,11 +28,11 @@
 			<div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
 				<div class="d-flex flex-row">
 					{% if user.is_authenticated is True %}
-						<a href="{% url 'userMng:userMng_index' %}" type="button" class="btn btn-warning m-1">My Profile</a>
-						<a href="{% url 'core:logout' %}" type="button" class="btn btn-dark m-1">Logout</a>
+						<b-link to="administrace" type="button" class="btn btn-warning m-1">My Profile</b-link>
+						<b-link to="logout" type="button" class="btn btn-dark m-1">Logout</b-link>
 					{% else %}
-						<a href="{% url 'core:login' %}" type="button" class="btn btn-success ml-0 mt-1 mb-1 mr-1">Login</a>
-						<a href="{% url 'core:register' %}" type="button" class="btn btn-danger m-1 pr-1">Register to add new listings</a>
+						<b-link to="login" type="button" class="btn btn-success ml-0 mt-1 mb-1 mr-1">Login</b-link>
+						<b-link to="register" type="button" class="btn btn-danger m-1 pr-1">Register to add new listings</b-link>
 					{% endif %}
 				</div>
 			</div>
