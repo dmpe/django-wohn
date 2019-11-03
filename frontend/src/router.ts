@@ -4,6 +4,7 @@ import Contact from "./views/Contact.vue";
 import Home from "./views/Home.vue";
 import Privacy from "./views/Privacy.vue";
 import Terms from "./views/Terms.vue";
+import Administrace from "./views/Administrace.vue";
 
 Vue.use(Router);
 
@@ -37,6 +38,11 @@ export default new Router({
       path: "/privacy",
       name: "privacy",
       component: Privacy
+    },
+    {
+      path: "/administrace",
+      name: "administrace",
+      component: Administrace
     }
   ]
 });

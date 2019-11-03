@@ -1,0 +1,40 @@
+<header>
+	<nav class="navbar navbar-expand-sm navbar-light headerFooterBackground" role="navigation">
+			<a class="navbar-brand mb-0" href="/">melive.xyz
+				<span class="navbar-text d-md-inline-flex d-none d-md-block">
+					<!-- be inline next to brand; hiden on small screens, i.e. display only on >= md (d-lg-block d-xl-block) -->
+					Your next student colocation
+				</span>
+			</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLoginForm" aria-controls="navbarLoginForm" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			{# Full text search functionality, see #50, #35 #}
+ 			<!-- <form role="form" class="form-inline my-2 my-lg-0 flex-fill justify-content-center" method="POST">
+				{% csrf_token %}
+				<div class="input-group">
+					<input class="form-control py-2 border-right-0 border" type="search" placeholder="Search" id="example-search-input">
+					<span class="input-group-append">
+						<div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+					</span>
+				</div>
+			</form>	 -->
+
+			<!-- LOGIC: if not registered and not loged in, then show -->
+			<!-- LOGIC: BUT on {register, reset_password, new_password, login}.html do not show -->
+			<!-- LOGIC: CREATE logout button + click to userprofile as well -->
+			<div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
+				<div class="d-flex flex-row">
+					{% if user.is_authenticated is True %}
+						<a href="{% url 'userMng:userMng_index' %}" type="button" class="btn btn-warning m-1">My Profile</a>
+						<a href="{% url 'core:logout' %}" type="button" class="btn btn-dark m-1">Logout</a>
+					{% else %}
+						<a href="{% url 'core:login' %}" type="button" class="btn btn-success ml-0 mt-1 mb-1 mr-1">Login</a>
+						<a href="{% url 'core:register' %}" type="button" class="btn btn-danger m-1 pr-1">Register to add new listings</a>
+					{% endif %}
+				</div>
+			</div>
+	</nav>
+</header>
