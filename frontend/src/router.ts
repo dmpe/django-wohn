@@ -8,21 +8,21 @@ import Terms from "./views/Terms.vue";
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: "/",
       name: "home",
       component: Home,
-      meta: [
+      meta: {
         title: "Home Page - Example App",
         metaTags: [
           {
             name: "description",
-            content: "The home page of our example app."
+            content: "The home page of our example app.",
           },
         ],
-      ],
+      },
     },
     {
       path: "/about",
@@ -55,3 +55,9 @@ export default new Router({
     },
   ],
 });
+
+router.afterEach((to, from) => {
+  document.title = to.meta.title;
+});
+
+export default router;
