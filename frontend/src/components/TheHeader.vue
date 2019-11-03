@@ -1,5 +1,5 @@
 <header>
-	<nav class="navbar navbar-expand-sm navbar-light headerFooterBackground" role="navigation">
+	<b-navbar class="navbar navbar-expand-sm navbar-light headerFooterBackground" role="navigation">
 			<a class="navbar-brand mb-0" href="/">melive.xyz
 				<span class="navbar-text d-md-inline-flex d-none d-md-block">
 					<!-- be inline next to brand; hiden on small screens, i.e. display only on >= md (d-lg-block d-xl-block) -->
@@ -7,11 +7,11 @@
 				</span>
 			</a>
 
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLoginForm" aria-controls="navbarLoginForm" aria-expanded="false" aria-label="Toggle navigation">
+			<b-button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLoginForm" aria-controls="navbarLoginForm" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			{# Full text search functionality, see #50, #35 #}
+			// {# Full text search functionality, see #50, #35 #}
  			<!-- <form role="form" class="form-inline my-2 my-lg-0 flex-fill justify-content-center" method="POST">
 				{% csrf_token %}
 				<div class="input-group">
@@ -36,5 +36,5 @@
 					{% endif %}
 				</div>
 			</div>
-	</nav>
+	</b-navbar>
 </header>
