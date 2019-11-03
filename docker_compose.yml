@@ -35,7 +35,7 @@ services:
           - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
 
     backend:
-        image: f789gh/django-wohn
+        image: quay.io/dmpe/django-wohn-backend
         container_name: backend
         volumes:
           - datadrive_django:/work
@@ -159,7 +159,7 @@ services:
           - WATCHTOWER_CLEANUP=true
           - WATCHTOWER_NOTIFICATIONS=slack
         #   does not work because it needs to be secret
-        #   - WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL=https://hooks.slack.com/services/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
+        #   - WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL=xxx
           - WATCHTOWER_NOTIFICATION_SLACK_IDENTIFIER=watchtower
           - WATCHTOWER_NOTIFICATIONS_LEVEL=debug
         volumes:
