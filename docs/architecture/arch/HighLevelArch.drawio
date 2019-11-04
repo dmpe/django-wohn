@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2019-11-04T23:20:16.128Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0" etag="xT-EYpXi1gHYpQasAKXI" version="12.2.0" type="github" pages="1">
+<mxfile host="www.draw.io" modified="2019-11-04T23:44:51.533Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0" etag="2JJJJzgJWfP5dKmhC-0G" version="12.2.0" type="github" pages="1">
   <diagram id="JkhLGpLczkm5lLYZ0Tum" name="Page-1">
     <mxGraphModel dx="1024" dy="571" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -15,33 +15,29 @@
             <mxPoint as="offset"/>
           </mxGeometry>
         </mxCell>
-        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.014;entryY=0.35;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=16;" parent="1" source="D1dGqr2h0ZZoKGAoGRAR-3" target="D1dGqr2h0ZZoKGAoGRAR-4" edge="1">
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=16;" parent="1" source="D1dGqr2h0ZZoKGAoGRAR-3" target="D1dGqr2h0ZZoKGAoGRAR-4" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="180" y="190"/>
-              <mxPoint x="180" y="190"/>
-            </Array>
+            <Array as="points"/>
           </mxGeometry>
         </mxCell>
-        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-10" value="Mutations (Write)" style="text;html=1;resizable=0;points=[];align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;fontSize=16;" parent="D1dGqr2h0ZZoKGAoGRAR-9" vertex="1" connectable="0">
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-10" value="Mutations (Write)" style="text;html=1;resizable=0;points=[];align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;fontSize=16;rotation=0;" parent="D1dGqr2h0ZZoKGAoGRAR-9" vertex="1" connectable="0">
           <mxGeometry x="0.1726" y="-1" relative="1" as="geometry">
-            <mxPoint as="offset"/>
+            <mxPoint x="2" y="39" as="offset"/>
           </mxGeometry>
         </mxCell>
-        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-3" value="&lt;div&gt;Frontend (Vue.js, &lt;br&gt;Apollo, TypeScript)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="40" y="120" width="120" height="230" as="geometry"/>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-3" value="&lt;div&gt;Frontend:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Vue.js for View&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Vuex for State Mng&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Apollo for GraphQL integration&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt; TypeScript&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="40" y="120" width="120" height="370" as="geometry"/>
         </mxCell>
         <mxCell id="D1dGqr2h0ZZoKGAoGRAR-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=16;" parent="1" source="D1dGqr2h0ZZoKGAoGRAR-4" target="D1dGqr2h0ZZoKGAoGRAR-3" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="210" y="290"/>
-              <mxPoint x="210" y="290"/>
+              <mxPoint x="420" y="410"/>
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="D1dGqr2h0ZZoKGAoGRAR-17" value="JSON" style="text;html=1;resizable=0;points=[];align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;fontSize=16;" parent="D1dGqr2h0ZZoKGAoGRAR-16" vertex="1" connectable="0">
           <mxGeometry x="-0.25" y="-1" relative="1" as="geometry">
-            <mxPoint as="offset"/>
+            <mxPoint x="-49" y="21" as="offset"/>
           </mxGeometry>
         </mxCell>
         <mxCell id="D1dGqr2h0ZZoKGAoGRAR-4" value="&lt;div&gt;&lt;b&gt;GraphQL API Server&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Endpoint: /graphql&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" parent="1" vertex="1">
