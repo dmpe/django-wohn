@@ -64,7 +64,7 @@ stages:
         - task: Docker@2
           displayName: "Build our Backend now"
           inputs:
-            containerRegistry: 'docker_hub'
+            containerRegistry: 'quay.io'
             repository: $(quayId)/$(imageNameB)
             command: 'build'
             Dockerfile: 'backend/Dockerfile'
@@ -76,7 +76,7 @@ stages:
           displayName: "Push to Docker Hub"
           condition: succeeded()
           inputs:
-            containerRegistry: 'docker_hub'
+            containerRegistry: 'quay.io'
             repository: '$(quayId)/$(imageNameB)'
             command: 'push'
             tags: |

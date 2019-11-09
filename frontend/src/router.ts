@@ -19,10 +19,10 @@ const router = new Router({
         metaTags: [
           {
             name: "description",
-            content: "The home page of our example app.",
-          },
-        ],
-      },
+            content: "The home page of our example app."
+          }
+        ]
+      }
     },
     {
       path: "/about",
@@ -31,29 +31,29 @@ const router = new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue"),
+        import(/* webpackChunkName: "about" */ "./views/About.vue")
     },
     {
       path: "/contact",
       name: "contact",
-      component: Contact,
+      component: Contact
     },
     {
       path: "/terms",
       name: "terms",
-      component: Terms,
+      component: Terms
     },
     {
       path: "/privacy",
       name: "privacy",
-      component: Privacy,
+      component: Privacy
     },
     {
       path: "/administrace",
       name: "administrace",
-      component: Administrace,
-    },
-  ],
+      component: Administrace
+    }
+  ]
 });
 
 router.afterEach((to, from) => {
