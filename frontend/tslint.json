@@ -15,6 +15,11 @@
     "semicolon": [true, "always"],
     "object-literal-sort-keys": false,
     "ordered-imports": true,
+    "trailing-comma": [true, {
+      "singleline": "never",
+      "multiline": "always",
+      "esSpecCompliant": true
+    }],
     "quotemark": [true, "double"]
   }
 }
