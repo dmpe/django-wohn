@@ -4,5 +4,10 @@ module.exports = {
   devServer: {
     host: "0.0.0.0",
     allowedHosts: ["melive.xyz", "frontend.melive.xyz", "backend", "localhost"]
+  },
+  pluginOptions: {
+    apollo: {
+      lintGQL: false
+    }
   }
 };

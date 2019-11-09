@@ -1,19 +1,19 @@
 <template>
-  <header>
-    <b-navbar class="navbar navbar-expand-sm navbar-light headerFooterBackground" role="navigation">
-        <a class="navbar-brand mb-0" href="/">melive.xyz
-          <span class="navbar-text d-md-inline-flex d-none d-md-block">
-            <!-- be inline next to brand; hiden on small screens, i.e. display only on >= md (d-lg-block d-xl-block) -->
-            Your next student colocation
-          </span>
-        </a>
+  <div>
+    <b-navbar class="headerFooterBackground" toggleable="sm" type="light" role="navigation" >
+      <b-navbar-brand class="mb-0" href="#">melive.xyz
+        <span class="navbar-text d-md-inline-flex d-none d-md-block">
+          <!-- be inline next to brand; hiden on small screens, i.e. display only on >= md (d-lg-block d-xl-block) -->
+          Your next student colocation
+        </span>
+      </b-navbar-brand>
 
-        <b-button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLoginForm" aria-controls="navbarLoginForm" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </b-button>
+      <b-button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLoginForm" aria-controls="navbarLoginForm" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </b-button>
 
-        // {# Full text search functionality, see #50, #35 #}
-        <!-- <form role="form" class="form-inline my-2 my-lg-0 flex-fill justify-content-center" method="POST">
+        <!-- // {# Full text search functionality, see #50, #35 #}
+         <form role="form" class="form-inline my-2 my-lg-0 flex-fill justify-content-center" method="POST">
           {% csrf_token %}
           <div class="input-group">
             <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search" id="example-search-input">
@@ -26,26 +26,31 @@
         <!-- LOGIC: if not registered and not loged in, then show -->
         <!-- LOGIC: BUT on {register, reset_password, new_password, login}.html do not show -->
         <!-- LOGIC: CREATE logout button + click to userprofile as well -->
-        <div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
-          <div class="d-flex flex-row">
-            {% if user.is_authenticated is True %}
-              <b-link to="administrace" type="button" class="btn btn-warning m-1">My Profile</b-link>
-              <b-link to="logout" type="button" class="btn btn-dark m-1">Logout</b-link>
-            {% else %}
-              <b-link to="login" type="button" class="btn btn-success ml-0 mt-1 mb-1 mr-1">Login</b-link>
-              <b-link to="register" type="button" class="btn btn-danger m-1 pr-1">Register to add new listings</b-link>
-            {% endif %}
-          </div>
+      <div class="collapse navbar-collapse flex-row-reverse" id="navbarLoginForm">
+        <div class="d-flex flex-row">
+          <!--{% if user.is_authenticated is True %} -->
+            <b-link to="administrace" type="button" class="btn btn-warning m-1">My Profile</b-link>
+            <b-link to="logout" type="button" class="btn btn-dark m-1">Logout</b-link>
+          <!--{% else %} -->
+            <b-link to="login" type="button" class="btn btn-success ml-0 mt-1 mb-1 mr-1">Login</b-link>
+            <b-link to="register" type="button" class="btn btn-danger m-1 pr-1">Register to add new listings</b-link>
+          <!--{% endif %} -->
         </div>
+      </div>
     </b-navbar>
-  </header>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
 
-export default Vue.extend({
-  name: "Header"
-});
+export default {
+  name: "Header",
+  data () {
+    return {
+
+    }
+  }
+}
 </script>

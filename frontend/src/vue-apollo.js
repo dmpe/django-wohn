@@ -30,23 +30,22 @@ const defaultOptions = {
   websocketsOnly: false,
   // Is being rendered on the server?
   ssr: false
-
   // Override default apollo link
-  // note: don't override httpLink here, specify httpLink options in the
-  // httpLinkOptions property of defaultOptions.
-  // link: myLink
+  // Note: don't override httpLink here, specify httpLink options in the
+  // HttpLinkOptions property of defaultOptions.
+  // Link: myLink
 
   // Override default cache
-  // cache: myCache
+  // Cache: myCache
 
   // Override the way the Authorization header is set
-  // getAuth: (tokenName) => ...
+  // GetAuth: (tokenName) => ...
 
   // Additional ApolloClient options
-  // apollo: { ... }
+  // Apollo: { ... }
 
   // Client local data (see apollo-link-state)
-  // clientState: { resolvers: { ... }, defaults: { ... } }
+  // ClientState: { resolvers: { ... }, defaults: { ... } }
 };
 
 // Call this in the Vue app file
@@ -63,7 +62,7 @@ export function createProvider(options = {}) {
     defaultClient: apolloClient,
     defaultOptions: {
       $query: {
-        // fetchPolicy: 'cache-and-network',
+        // FetchPolicy: 'cache-and-network',
       }
     },
     errorHandler(error) {
@@ -84,7 +83,9 @@ export async function onLogin(apolloClient, token) {
   if (typeof localStorage !== "undefined" && token) {
     localStorage.setItem(AUTH_TOKEN, token);
   }
-  if (apolloClient.wsClient) restartWebsockets(apolloClient.wsClient);
+  if (apolloClient.wsClient) {
+    restartWebsockets(apolloClient.wsClient);
+  }
   try {
     await apolloClient.resetStore();
   } catch (e) {
@@ -98,7 +99,9 @@ export async function onLogout(apolloClient) {
   if (typeof localStorage !== "undefined") {
     localStorage.removeItem(AUTH_TOKEN);
   }
-  if (apolloClient.wsClient) restartWebsockets(apolloClient.wsClient);
+  if (apolloClient.wsClient) {
+    restartWebsockets(apolloClient.wsClient);
+  }
   try {
     await apolloClient.resetStore();
   } catch (e) {

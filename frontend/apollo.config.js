@@ -7,7 +7,7 @@ const env = loadEnv([
   path.resolve(__dirname, ".env.local")
 ]);
 
-// server and client properties for apollo CLI
+// Server and client properties for apollo CLI
 // https://www.apollographql.com/docs/references/apollo-config/
 module.exports = {
   client: {
