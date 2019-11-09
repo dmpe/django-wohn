@@ -5,14 +5,16 @@ module.exports = {
   },
   parser: "@typescript-eslint/parser",
   extends: [
-    "eslint:recommended",
     "plugin:@vue/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
   parserOptions: {
     project: "tsconfig.json",
-    sourceType: "module"
+    sourceType: "module",
+    ecmaFeatures: {
+      "jsx": true
+    }
   },
   plugins: ["@typescript-eslint", "@typescript-eslint/tslint"],
   rules: {

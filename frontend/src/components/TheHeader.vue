@@ -46,7 +46,7 @@ import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
 
 export default {
-  name: "Header",
+  name: "TheHeader",
   data () {
     return {
 
