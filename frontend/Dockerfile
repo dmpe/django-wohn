@@ -6,9 +6,9 @@ RUN (set -e; \
 WORKDIR /app/
 COPY *.json ./
 RUN ls -al
-RUN npm install --verbose
+RUN yarn install --verbose
 COPY . ./
-RUN tree src/ && npm run build
+RUN tree src/ && yarn run build
 
 # here we switch from nodejs container to
 # having proper, scalable web server: Nginx
