@@ -1,4 +1,5 @@
 FROM node:latest as node_cache
+ENV NODE_ENV development
 RUN (set -e; \
     apt update; \
     apt install -y tree;\
