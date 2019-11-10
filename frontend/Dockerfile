@@ -1,14 +1,14 @@
-FROM node:current as node_cache
+FROM node:latest as node_cache
 WORKDIR /cache/
 COPY package.json ./
 COPY yarn.lock ./
-RUN yarn add install
-
-
-FROM node:current
-WORKDIR /app
-COPY --from=node_cache /cache/ .
+RUN yarn install
 COPY . /app
-RUN yarn global add local-web-server && yarn run build
+RUN yarn run build
+
+# here we switch from nodejs container to
+# having proper, scalable web server: Nginx
+FROM nginx:latest
+COPY --from=node_cache /app/dist /usr/share/nginx/html
 EXPOSE 2746
-CMD ["ws", "--port=2746", "--directory=dist/"]
+CMD ["nginx", "-g", "daemon off;"]
