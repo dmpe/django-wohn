@@ -170,8 +170,9 @@ module.exports = {
     "use-isnan": "warn",
     "valid-typeof": "off",
     "@typescript-eslint/tslint/config": [
-      "error",
+      "warn",
       {
+        "lintFile": "./tslint.json",
         rules: {
           "import-spacing": true,
           "jsdoc-format": [true, "check-multiline-start"],
