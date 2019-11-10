@@ -5,8 +5,6 @@
 version: 2
 jobs:
   build:
-    environment:
-      - NODE_ENV: development
     machine:
       image: ubuntu-1604:201903-01
       # setup_remote_docker:
