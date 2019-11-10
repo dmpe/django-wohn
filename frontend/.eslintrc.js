@@ -16,7 +16,7 @@ module.exports = {
   parserOptions: {
     // parser: "@typescript-eslint/parser",
     project: "./tsconfig.json",
-    ecmaVersion: 2017,
+    ecmaVersion: 6,
     sourceType: "module",
     ecmaFeatures: {
       jsx: true
@@ -141,6 +141,7 @@ module.exports = {
     "no-new-wrappers": "warn",
     "no-redeclare": "warn",
     "no-return-await": "warn",
+    "no-unresolved": "off"
     "no-sequences": "warn",
     "no-shadow": [
       "warn",
