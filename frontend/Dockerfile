@@ -13,7 +13,7 @@ RUN tree src/ && yarn run build
 # here we switch from nodejs container to
 # having proper, scalable web server: Nginx
 FROM nginx:latest
-
+RUN rm /etc/nginx/conf.d/default.conf
 #RUN (set -e; \
 #  apt update; \
 #  apt install -y software-properties-common brotli gpg; \
