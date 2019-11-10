@@ -9,8 +9,6 @@ module.exports = {
     '@vue/typescript',
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
     "plugin:import/typescript"
   ],
   parserOptions: {
@@ -141,7 +139,7 @@ module.exports = {
     "no-new-wrappers": "warn",
     "no-redeclare": "warn",
     "no-return-await": "warn",
-    "no-unresolved": "off"
+    "no-unresolved": [2, {commonjs: false, amd: false}]
     "no-sequences": "warn",
     "no-shadow": [
       "warn",
