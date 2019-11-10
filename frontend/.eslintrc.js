@@ -78,7 +78,7 @@ module.exports = {
     "@typescript-eslint/prefer-namespace-keyword": "warn",
     "@typescript-eslint/quotes": ["warn", "double"],
     "@typescript-eslint/semi": ["warn", "always"],
-    "@typescript-eslint/space-within-parens": ["warn", "never"],
+    // "@typescript-eslint/space-within-parens": ["warn", "never"],
     "@typescript-eslint/triple-slash-reference": "warn",
     "@typescript-eslint/type-annotation-spacing": "warn",
     "@typescript-eslint/unified-signatures": "warn",
