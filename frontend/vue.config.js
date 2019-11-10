@@ -1,3 +1,5 @@
+const CompressionPlugin = require('compression-webpack-plugin');
+
 module.exports = {
   productionSourceMap: false,
   runtimeCompiler: true,
@@ -9,5 +11,12 @@ module.exports = {
     apollo: {
       lintGQL: false
     }
+  },
+  configureWebpack: {
+    plugins: [
+      new CompressionPlugin({
+        cache: true,
+      })
+    ]
   }
 };
