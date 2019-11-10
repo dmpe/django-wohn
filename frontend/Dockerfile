@@ -3,7 +3,7 @@ WORKDIR /cache/
 COPY *.json ./
 COPY yarn.lock ./
 RUN yarn install
-COPY . /app
+COPY . ./
 RUN yarn run build
 
 # here we switch from nodejs container to
