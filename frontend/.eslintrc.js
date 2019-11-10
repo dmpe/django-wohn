@@ -8,19 +8,21 @@ module.exports = {
     "plugin:vue/recommended",
     '@vue/typescript',
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
   ],
   parserOptions: {
     // parser: "@typescript-eslint/parser",
-    // extraFileExtensions: [.vue]
-    project: "tsconfig.json",
+    project: "./tsconfig.json",
     ecmaVersion: 2017,
     sourceType: "module",
     ecmaFeatures: {
       jsx: true
     }
   },
-  plugins: ["@typescript-eslint", "@typescript-eslint/tslint"],
+  plugins: ["@typescript-eslint", "@typescript-eslint/tslint", "import"],
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "warn",
     "@typescript-eslint/array-type": "warn",
