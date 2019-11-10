@@ -90,12 +90,13 @@ services:
           - "traefik.http.services.frontend.loadbalancer.server.port=2746"
         #   - "traefik.http.middlewares.frontend-redirect.redirectscheme.scheme=https"
         #   - "traefik.http.routers.frontend.middlewares=frontend-redirect"
+        volumes:
+          - ./services/containers/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
         environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
           - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
           - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
-          - ./services/containers/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
 
 # https://hub.docker.com/_/postgres
     postgres:
