@@ -1,11 +1,15 @@
 FROM node:latest as node_cache
+RUN (set -e; \
+    apt update; \
+    apt install -y tree;\
+  )
 WORKDIR /app/
-COPY *.json ./
+COPY *.json /app/
 # COPY yarn.lock ./
 RUN ls -al
 RUN yarn install
-COPY ./ /app/
-RUN ls -la && yarn run build
+COPY . /app/
+RUN tree src/ && yarn run build
 
 # here we switch from nodejs container to
 # having proper, scalable web server: Nginx
