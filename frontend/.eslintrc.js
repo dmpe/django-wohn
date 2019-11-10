@@ -139,7 +139,7 @@ module.exports = {
     "no-new-wrappers": "warn",
     "no-redeclare": "warn",
     "no-return-await": "warn",
-    "no-unresolved": [2, {commonjs: false, amd: false}]
+    "no-unresolved": [2, {commonjs: false, amd: false}],
     "no-sequences": "warn",
     "no-shadow": [
       "warn",
