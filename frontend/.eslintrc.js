@@ -6,16 +6,18 @@ module.exports = {
   parser: "vue-eslint-parser",
   extends: [
     "plugin:vue/recommended",
+    '@vue/typescript',
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
   parserOptions: {
-    parser: "@typescript-eslint/parser",
+    // parser: "@typescript-eslint/parser",
+    // extraFileExtensions: [.vue]
     project: "tsconfig.json",
     ecmaVersion: 2017,
     sourceType: "module",
     ecmaFeatures: {
-      "jsx": true
+      jsx: true
     }
   },
   plugins: ["@typescript-eslint", "@typescript-eslint/tslint"],
@@ -80,14 +82,14 @@ module.exports = {
     "@typescript-eslint/unified-signatures": "warn",
     "arrow-body-style": "warn",
     "arrow-parens": ["warn", "as-needed"],
-    camelcase: "warn",
+    "camelcase": "warn",
     "capitalized-comments": "warn",
-    complexity: "off",
+    "complexity": "off",
     "constructor-super": "warn",
-    curly: "warn",
+    "curly": "warn",
     "dot-notation": "warn",
     "eol-last": "warn",
-    eqeqeq: ["warn", "smart"],
+    "eqeqeq": ["warn", "smart"],
     "guard-for-in": "warn",
     "id-blacklist": [
       "warn",
@@ -153,7 +155,7 @@ module.exports = {
     "prefer-const": "warn",
     "prefer-object-spread": "warn",
     "quote-props": ["warn", "consistent-as-needed"],
-    radix: "warn",
+    "radix": "warn",
     "space-before-function-paren": [
       "warn",
       {
@@ -189,7 +191,7 @@ module.exports = {
               esSpecCompliant: true
             }
           ],
-          whitespace: [
+          "whitespace": [
             true,
             "check-branch",
             "check-decl",
