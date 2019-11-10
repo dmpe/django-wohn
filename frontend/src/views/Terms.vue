@@ -3,7 +3,9 @@
     <TheHeader />
     <div class="container">
       <div class="col-md-12 text-center">
-        <h1 class="custom-display-text-size">Terms of Service</h1>
+        <h1 class="custom-display-text-size">
+          Terms of Service
+        </h1>
         <p class="text-muted text-center">
           Effective date: November 9th, 2018 |
           <a href="{% url 'core:contact' %}">Contact us</a>
@@ -62,8 +64,8 @@
         <h3>8. Governing Law</h3>
         <p>These terms and conditions are governed by and construed in accordance with the laws of EU and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
       </div>
-      
     </div>
+    <TheFooter />
   </div>
 </template>
 

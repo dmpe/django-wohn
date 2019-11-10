@@ -2,14 +2,17 @@
   <div class="privacy">
     <TheHeader />
     <div class="container">
-
       <div class="col-md-12 text-center">
-          <h1 class="custom-display-text-size">Privacy Policy</h1>
-        <p class="text-muted text-center">Effective date: November 5th, 2018 | <a href="{% url 'core:contact' %}">Contact us</a></p>
-        </div>
+        <h1 class="custom-display-text-size">
+          Privacy Policy
+        </h1>
+        <p class="text-muted text-center">
+          Effective date: November 5th, 2018 | <a href="{% url 'core:contact' %}">Contact us</a>
+        </p>
+      </div>
 
       <div class="row">
-          <div class="col-md-12">
+        <div class="col-md-12">
           <h2>1. What ?</h2>
           <p>This Site ("us", "we", "service", or "our") operates the <a href="{% url 'core:homepage' %}">https://melive.xyz</a> website.</p>
 
@@ -24,7 +27,7 @@
       </div>
 
       <div class="row">
-          <div class="col-md-12">
+        <div class="col-md-12">
           <h2>2. Information Collection and Use</h2>
           <p>We collect several different types of information for various purposes to provide and improve our service to you.</p>
           <p>We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.</p>
@@ -115,7 +118,9 @@
           <p>We use third-party service providers to monitor and analyze the use of our service.</p>
           <ul>
             <li>
-              <p class="font-weight-bold">Google Analytics</p>
+              <p class="font-weight-bold">
+                Google Analytics
+              </p>
               <p>Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our service. This data is shared with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.</p>
               <p>You can opt-out of having made your activity on the service available to Google Analytics by installing the Google Analytics opt-out browser add-on. The add-on prevents the Google Analytics JavaScript from sharing information with Google Analytics about visits activity. Or simly adblock us.</p>
               <p>For more information on the privacy practices of Google, please visit the Google Privacy & Terms web page: <a href="https://policies.google.com/privacy?hl=en">https://policies.google.com/privacy?hl=en</a></p>
@@ -147,8 +152,8 @@
           <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
         </div>
       </div>
-
     </div>
+    <TheFooter />
   </div>
 </template>
 
@@ -160,7 +165,7 @@ import Vue from "vue";
 export default Vue.extend({
   name: "Privacy",
   components: {
-    TheHeader, 
+    TheHeader,
     TheFooter,
   }
 });
