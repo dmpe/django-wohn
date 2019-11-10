@@ -95,7 +95,7 @@ services:
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
           - "OVH_APPLICATION_SECRET=GIUVTjgdkAUCxK40sAtniEAeJc67GXP1"
           - "OVH_CONSUMER_KEY=Vo5S0YOYF5lO5HukxIOeqgbP6tKHV3OH"
-          - ./services/containers/nginx/nginx.conf:/etc/nginx:ro
+          - ./services/containers/nginx/:/etc/nginx
 
 # https://hub.docker.com/_/postgres
     postgres:
