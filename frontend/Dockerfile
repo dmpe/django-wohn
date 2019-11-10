@@ -5,11 +5,11 @@ RUN (set -e; \
   )
 WORKDIR /app/
 COPY *.json ./
-COPY yarn.lock ./
+# COPY yarn.lock ./
 RUN ls -al
-RUN yarn install
+RUN npm install --verbose
 COPY . ./
-RUN tree src/ && yarn run build
+RUN tree src/ && npm run build
 
 # here we switch from nodejs container to
 # having proper, scalable web server: Nginx
