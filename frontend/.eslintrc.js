@@ -3,13 +3,15 @@ module.exports = {
     browser: true,
     es6: true
   },
-  parser: "@typescript-eslint/parser",
+  parser: "vue-eslint-parser",
   extends: [
+    "eslint:recommended",
     "plugin:vue/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
   parserOptions: {
+    parser: "@typescript-eslint/parser",
     project: "tsconfig.json",
     ecmaVersion: 2017,
     sourceType: "module",
