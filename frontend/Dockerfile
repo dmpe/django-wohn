@@ -1,6 +1,6 @@
 FROM node:latest as node_cache
 WORKDIR /cache/
-COPY package.json ./
+COPY *.json ./
 COPY yarn.lock ./
 RUN yarn install
 COPY . /app
