@@ -75,7 +75,6 @@ services:
         depends_on:
           - postgres
           - pgadmin
-          - backend
           - traefik
         networks:
           - default
