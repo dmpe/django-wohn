@@ -2,8 +2,9 @@ FROM node:latest as node_cache
 WORKDIR /app/
 COPY *.json ./
 # COPY yarn.lock ./
-RUN ls -al && yarn install
-COPY . ./
+RUN ls -al
+RUN yarn install
+COPY ./ /app/
 RUN ls -la && yarn run build
 
 # here we switch from nodejs container to
