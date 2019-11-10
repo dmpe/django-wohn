@@ -9,7 +9,6 @@ module.exports = {
     '@vue/typescript',
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:import/typescript"
   ],
   parserOptions: {
     // parser: "@typescript-eslint/parser",
@@ -27,7 +26,7 @@ module.exports = {
       }
     }
   },
-  plugins: ["@typescript-eslint", "@typescript-eslint/tslint", "import"],
+  plugins: ["@typescript-eslint", "@typescript-eslint/tslint"],
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "warn",
     "@typescript-eslint/array-type": "warn",
@@ -83,7 +82,6 @@ module.exports = {
     "@typescript-eslint/prefer-namespace-keyword": "warn",
     "@typescript-eslint/quotes": ["warn", "double"],
     "@typescript-eslint/semi": ["warn", "always"],
-    // "@typescript-eslint/space-within-parens": ["warn", "never"],
     "@typescript-eslint/triple-slash-reference": "warn",
     "@typescript-eslint/type-annotation-spacing": "warn",
     "@typescript-eslint/unified-signatures": "warn",
@@ -111,9 +109,6 @@ module.exports = {
       "undefined"
     ],
     "id-match": "warn",
-    "import/no-extraneous-dependencies": "warn",
-    "import/no-internal-modules": "warn",
-    "import/order": "warn",
     "max-classes-per-file": ["warn", 1],
     "max-len": [
       "warn",
@@ -139,7 +134,6 @@ module.exports = {
     "no-new-wrappers": "warn",
     "no-redeclare": "warn",
     "no-return-await": "warn",
-    "no-unresolved": [2, {commonjs: false, amd: false}],
     "no-sequences": "warn",
     "no-shadow": [
       "warn",
@@ -159,7 +153,6 @@ module.exports = {
     "no-var": "warn",
     "object-shorthand": "warn",
     "one-var": ["warn", "never"],
-    // "prefer-arrow/prefer-arrow-functions": "warn",
     "prefer-const": "warn",
     "prefer-object-spread": "warn",
     "quote-props": ["warn", "consistent-as-needed"],
