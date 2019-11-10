@@ -179,7 +179,6 @@ module.exports = {
     "@typescript-eslint/tslint/config": [
       "warn",
       {
-        "lintFile": "./tslint.json",
         rules: {
           "import-spacing": true,
           "jsdoc-format": [true, "check-multiline-start"],

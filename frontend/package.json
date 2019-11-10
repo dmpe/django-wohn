@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --mode development",
+    "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint --fix"
   },
@@ -30,7 +30,7 @@
     "stylus-loader": "^3.0.2",
     "ts-jest": "^23.10.5",
     "tslint": "^5.20.1",
-    "typescript": "^3.7.2",
+    "typescript": "^3.6.x",
     "vue": "^2.6.10",
     "vue-apollo": "^3.0.0",
     "vue-cli-plugin-apollo": "^0.21.3",
