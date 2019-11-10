@@ -6,7 +6,7 @@ RUN (set -e; \
 WORKDIR /app/
 COPY *.json ./
 RUN ls -al
-RUN yarn install --verbose
+RUN yarn install
 COPY . ./
 RUN tree src/ && yarn run build
 

@@ -70,9 +70,9 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue"; // @ is an alias to /src
-import Vue from "vue";
 
 export default Vue.extend({
   name: "Terms",

@@ -22,6 +22,13 @@ module.exports = {
       jsx: true
     }
   },
+  settings: {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
   plugins: ["@typescript-eslint", "@typescript-eslint/tslint", "import"],
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "warn",

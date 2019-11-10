@@ -11,10 +11,10 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue"; // @ is an alias to /src
-import Vue from "vue";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap/dist/css/bootstrap.css";
 
