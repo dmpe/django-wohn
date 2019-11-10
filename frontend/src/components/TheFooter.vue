@@ -2,18 +2,53 @@
   <footer class="footer headerFooterBackground">
     <div class="float-left d-none d-md-block d-lg-block">
       <!-- hiden on small screens, i.e. display only on >= md -->
-      <span class="pl-3">Made with <i class="fas fa-heart footer_heartIcon" aria-hidden="true"></i> by <a href="https://www.linkedin.com/in/dmitrijpetrov/" target="_blank" rel="noopener noreferrer">@dmpe</a></span>
+      <span class="pl-3">Made with <i
+        class="fas fa-heart footer_heartIcon"
+        aria-hidden="true"
+      /> by <a
+        href="https://www.linkedin.com/in/dmitrijpetrov/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >@dmpe</a></span>
       <figcaption class="figure-caption">
-        <small class="pl-3 text-muted font-italic">Source Code available under the <a href="https://choosealicense.com/licenses/mit/" rel="noopener noreferrer" target="_blank">MIT license</a> <a href="https://github.com/dmpe/django-wohn" target="_blank" rel="noopener noreferrer">on GitHub</a></small>
+        <small class="pl-3 text-muted font-italic">Source Code available under the <a
+          href="https://choosealicense.com/licenses/mit/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >MIT license</a> <a
+          href="https://github.com/dmpe/django-wohn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >on GitHub</a></small>
       </figcaption>
     </div>
 
     <div class="float-right">
       <ul class="list-inline">
-        <li class="list-inline-item mx-3 my-1"><a href="{% url 'core:about' %}" class="">About</a></li>
-        <li class="list-inline-item mx-3 my-1"><a href="{% url 'core:contact' %}" class="">Contact us</a></li>
-        <li class="list-inline-item mx-3 my-1"><a href="{% url 'core:privacy' %}" class="">Privacy Policy</a></li>
-        <li class="list-inline-item mx-3 my-1"><a href="{% url 'core:terms' %}" class="">Terms of Use</a></li>
+        <li class="list-inline-item mx-3 my-1">
+          <a
+            href="{% url 'core:about' %}"
+            class=""
+          >About</a>
+        </li>
+        <li class="list-inline-item mx-3 my-1">
+          <a
+            href="{% url 'core:contact' %}"
+            class=""
+          >Contact us</a>
+        </li>
+        <li class="list-inline-item mx-3 my-1">
+          <a
+            href="{% url 'core:privacy' %}"
+            class=""
+          >Privacy Policy</a>
+        </li>
+        <li class="list-inline-item mx-3 my-1">
+          <a
+            href="{% url 'core:terms' %}"
+            class=""
+          >Terms of Use</a>
+        </li>
       </ul>
     </div>
   </footer>
@@ -25,10 +60,10 @@ import BootstrapVue from "bootstrap-vue";
 
 export default {
   name: "TheFooter",
-  data () {
+  data() {
     return {
 
-    }
+    };
   }
-}
+};
 </script>
