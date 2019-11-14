@@ -5,6 +5,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Privacy from "./views/Privacy.vue";
 import Terms from "./views/Terms.vue";
+import NotFound from "./views/404NotFound.vue";
 
 Vue.use(Router);
 
@@ -99,6 +100,11 @@ const router = new Router({
         ],
       },
     },
+    {
+      // any not listed above
+      path: "*",
+      component: NotFound
+    }
   ],
 });
 
