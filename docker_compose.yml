@@ -82,13 +82,13 @@ services:
         labels:
           - "traefik.enable=true"
           - "traefik.http.routers.frontend.rule=Host(`frontend.melive.xyz`, `www.frontend.melive.xyz`)"
-        #   - "traefik.http.routers.frontendsec.tls=true"
-        #   - "traefik.http.routers.frontendsec.rule=Host(`frontend.melive.xyz`, `www.frontend.melive.xyz`)"
-        #   - "traefik.http.routers.frontendsec.tls.certresolver=default"
-        #   - "traefik.http.routers.frontendsec.service=frontend"
+          - "traefik.http.routers.frontendsec.tls=true"
+          - "traefik.http.routers.frontendsec.rule=Host(`frontend.melive.xyz`, `www.frontend.melive.xyz`)"
+          - "traefik.http.routers.frontendsec.tls.certresolver=default"
+          - "traefik.http.routers.frontendsec.service=frontend"
           - "traefik.http.services.frontend.loadbalancer.server.port=2746"
-        #   - "traefik.http.middlewares.frontend-redirect.redirectscheme.scheme=https"
-        #   - "traefik.http.routers.frontend.middlewares=frontend-redirect"
+          - "traefik.http.middlewares.frontend-redirect.redirectscheme.scheme=https"
+          - "traefik.http.routers.frontend.middlewares=frontend-redirect"
         volumes:
           - ./services/containers/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
         environment:
