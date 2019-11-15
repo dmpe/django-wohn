@@ -48,37 +48,41 @@
         class="collapse navbar-collapse flex-row-reverse"
       >
         <div class="d-flex flex-row">
-          <!--{% if user.is_authenticated is True %} -->
-          <b-link
-            to="administrace"
-            type="button"
-            class="btn btn-warning m-1"
-          >
-            My Profile
-          </b-link>
-          <b-link
-            to="logout"
-            type="button"
-            class="btn btn-dark m-1"
-          >
-            Logout
-          </b-link>
-          <!--{% else %} -->
-          <b-link
-            to="login"
-            type="button"
-            class="btn btn-success ml-0 mt-1 mb-1 mr-1"
-          >
-            Login
-          </b-link>
-          <b-link
-            to="register"
-            type="button"
-            class="btn btn-danger m-1 pr-1"
-          >
-            Register to add new listings
-          </b-link>
-          <!--{% endif %} -->
+
+          <div v-if="isAuthenticated">
+            <b-link
+              to="administrace"
+              type="button"
+              class="btn btn-warning m-1"
+            >
+              My Profile
+            </b-link>
+            <b-link
+              to="logout"
+              type="button"
+              class="btn btn-dark m-1"
+            >
+              Logout
+            </b-link>
+          </div>
+
+          <div v-else>
+            <b-link
+              to="login"
+              type="button"
+              class="btn btn-success ml-0 mt-1 mb-1 mr-1"
+            >
+              Login
+            </b-link>
+            <b-link
+              to="register"
+              type="button"
+              class="btn btn-danger m-1 pr-1"
+            >
+              Register to add new listings
+            </b-link>
+          </div>
+
         </div>
       </div>
     </b-navbar>

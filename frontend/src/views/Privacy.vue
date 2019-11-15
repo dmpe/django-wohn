@@ -7,22 +7,22 @@
           Privacy Policy
         </h1>
         <p class="text-muted text-center">
-          Effective date: November 5th, 2018 | <a href="{% url 'core:contact' %}">Contact us</a>
+          Effective date: November 5th, 2018 | <router-link to="/contact">Contact us</router-link>
         </p>
       </div>
 
       <div class="row">
         <div class="col-md-12">
           <h2>1. What ?</h2>
-          <p>This Site ("us", "we", "service", or "our") operates the <a href="{% url 'core:homepage' %}">https://melive.xyz</a> website.</p>
+          <p>This Site ("us", "we", "service", or "our") operates the <router-link to="/home">https://melive.xyz</router-link> website.</p>
 
           <p>Your privacy is important to us. It is our policy to respect your privacy regarding any information we may collect from you across our websites we own and operate. Therefore, this page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our services and the choices you have associated with that data.</p>
 
           <p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. We use your data to provide and improve our services. By using them, you agree to the collection and use of information in accordance with this policy.</p>
 
-          <p>Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms of Use, accessible from <a href="{% url 'core:terms' %}">https://melive.xyz/terms</a>.</p>
+          <p>Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms of Use, accessible from <router-link to="/terms">https://melive.xyz/terms</router-link>.</p>
 
-          <p>Your continued use of our website will be regarded as <strong>acceptance of our practices around privacy and personal information</strong>. If you have any questions about how we handle user data and personal information, feel free to <a href="{% url 'core:contact' %}">contact us</a>.</p>
+          <p>Your continued use of our website will be regarded as <strong>acceptance of our practices around privacy and personal information</strong>. If you have any questions about how we handle user data and personal information, feel free to <router-link to="/contact">contact us</router-link>.</p>
         </div>
       </div>
 

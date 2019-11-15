@@ -27,25 +27,25 @@
       <ul class="list-inline">
         <li class="list-inline-item mx-3 my-1">
           <a
-            href="{% url 'core:about' %}"
+            href="about"
             class=""
           >About</a>
         </li>
         <li class="list-inline-item mx-3 my-1">
           <a
-            href="{% url 'core:contact' %}"
+            href="contact"
             class=""
           >Contact us</a>
         </li>
         <li class="list-inline-item mx-3 my-1">
           <a
-            href="{% url 'core:privacy' %}"
+            href="privacy"
             class=""
           >Privacy Policy</a>
         </li>
         <li class="list-inline-item mx-3 my-1">
           <a
-            href="{% url 'core:terms' %}"
+            href="terms"
             class=""
           >Terms of Use</a>
         </li>

@@ -8,7 +8,7 @@
         </h1>
         <p class="text-muted text-center">
           Effective date: November 9th, 2018 |
-          <a href="{% url 'core:contact' %}">Contact us</a>
+          <router-link to="/contact">Contact us</router-link>
         </p>
       </div>
 
@@ -16,7 +16,7 @@
         <h3>1. Terms</h3>
         <p>
           By accessing the website at
-          <a href="#">https://melive.xyz</a>, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law.
+          <router-link to="/home">https://melive.xyz</router-link>, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law.
         </p>
       </div>
 
