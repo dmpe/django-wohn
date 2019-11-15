@@ -31,9 +31,10 @@ workflows:
     jobs:
     - build:
         context: DockerHub
-        branches:
-          ignore:
-            - docs
-            - server-config
-            - gh-pages
-            - azure-functions
+        filters:
+          branches:
+            ignore:
+              - docs
+              - server-config
+              - gh-pages
+              - azure-functions
