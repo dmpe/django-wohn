@@ -5,12 +5,6 @@
 version: 2.1
 jobs:
   build:
-    branches:
-      ignore:
-        - docs
-        - server-config
-        - gh-pages
-        - azure-functions
     machine:
       image: ubuntu-1604:201903-01
       # setup_remote_docker:
@@ -37,3 +31,9 @@ workflows:
     jobs:
     - build:
         context: DockerHub
+        branches:
+          ignore:
+            - docs
+            - server-config
+            - gh-pages
+            - azure-functions
