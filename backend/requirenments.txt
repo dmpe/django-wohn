@@ -15,19 +15,19 @@ django-widget-tweaks==1.4.5
 django-crispy-forms==1.8.0
 django-timezone-field
 django-countries==5.5
-django_extensions
-django-ipware
-django-debug-toolbar
-django-graphiql-debug-toolbar
+django_extensions==3.1
+django-ipware==2.1.0 
+django-debug-toolbar==2.0 
+django-graphiql-debug-toolbar== 0.1.4
 django-graphql-social-auth==0.1.4
-django-graphql-jwt
+django-graphql-jwt==0.2.2 
 dj-database-url==0.5.0
 google-api-python-client==1.7.11
 googleapis-common-protos==1.6.0
 gunicorn==20.0.0
 graphene-django==2.6.0
-social-auth-core
-social-auth-app-django
+social-auth-core==3.2.0 
+social-auth-app-django==social-auth-app-django
 #git+git://github.com/python-social-auth/social-core.git#egg=elasticutils
 #git+git://github.com/python-social-auth/social-app-django.git#egg=social-app-django
 markdown==3.1.1
@@ -41,7 +41,7 @@ pinax-messages==2.0.2
 pinax-templates==2.0.2
 psycopg2-binary==2.8.4
 pygraphviz==1.5
-pymdown-extensions
+pymdown-extensions==6.1
 python-dotenv==0.10.3
 requests==2.22.0
 sendgrid==6.1.0
