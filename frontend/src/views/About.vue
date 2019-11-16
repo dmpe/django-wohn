@@ -14,7 +14,7 @@ import TheFooter from "@/components/TheFooter.vue";
 import * as showdown from "showdown";
 import { createHTMLfromMarkdown } from "@/support.ts";
 
-createHTMLfromMarkdown("https://raw.githubusercontent.com/dmpe/django-wohn/master/README.md").then(function (response) {
+createHTMLfromMarkdown("https://raw.githubusercontent.com/dmpe/django-wohn/master/README.md").then(response => {
   const converter = new showdown.Converter();
   const html = converter.makeHtml(response.data);
   console.log(html);
