@@ -1,28 +1,31 @@
 <template>
-
-    <b-container>
-      <b-row>
-        <b-col md="8" class="red">
-          <b-img fluid-grow src="https://picsum.photos/500/600"></b-img>
-        </b-col>
-      </b-row>
-
-    </b-container>
-
+  <b-container>
+    <b-row>
+      <b-col
+        md="8"
+        class="red"
+      >
+        <b-img
+          fluid-grow
+          src="https://picsum.photos/500/600"
+        />
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
 
 export default {
-  name: 'NotFound',
+  name: "NotFound",
   data() {
     return {
 
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="stylus">

@@ -7,7 +7,9 @@
           Privacy Policy
         </h1>
         <p class="text-muted text-center">
-          Effective date: November 5th, 2018 | <router-link to="/contact">Contact us</router-link>
+          Effective date: November 5th, 2018 | <router-link to="/contact">
+            Contact us
+          </router-link>
         </p>
       </div>
 
@@ -20,9 +22,17 @@
 
           <p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. We use your data to provide and improve our services. By using them, you agree to the collection and use of information in accordance with this policy.</p>
 
-          <p>Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms of Use, accessible from <router-link to="/terms">https://melive.xyz/terms</router-link>.</p>
+          <p>
+            Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms of Use, accessible from <router-link to="/terms">
+              https://melive.xyz/terms
+            </router-link>.
+          </p>
 
-          <p>Your continued use of our website will be regarded as <strong>acceptance of our practices around privacy and personal information</strong>. If you have any questions about how we handle user data and personal information, feel free to <router-link to="/contact">contact us</router-link>.</p>
+          <p>
+            Your continued use of our website will be regarded as <strong>acceptance of our practices around privacy and personal information</strong>. If you have any questions about how we handle user data and personal information, feel free to <router-link to="/contact">
+              contact us
+            </router-link>.
+          </p>
         </div>
       </div>
 

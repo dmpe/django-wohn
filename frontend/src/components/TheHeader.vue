@@ -48,7 +48,6 @@
         class="collapse navbar-collapse flex-row-reverse"
       >
         <div class="d-flex flex-row">
-
           <div v-if="isAuthenticated">
             <b-link
               to="administrace"
@@ -82,7 +81,6 @@
               Register to add new listings
             </b-link>
           </div>
-
         </div>
       </div>
     </b-navbar>

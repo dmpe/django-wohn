@@ -10,7 +10,7 @@ import NotFound from "./views/404NotFound.vue";
 Vue.use(Router);
 
 const router = new Router({
-  mode: 'history',
+  mode: "history",
   routes: [
     {
       path: "/",
@@ -101,7 +101,7 @@ const router = new Router({
       },
     },
     {
-      // any not listed above
+      // Any not listed above
       path: "*",
       name: "NotFound",
       component: NotFound

@@ -6,12 +6,12 @@ module.exports = {
   parser: "vue-eslint-parser",
   extends: [
     "plugin:vue/recommended",
-    '@vue/typescript',
+    "@vue/typescript",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
   ],
   parserOptions: {
-    // parser: "@typescript-eslint/parser",
+    // Parser: "@typescript-eslint/parser",
     project: "./tsconfig.json",
     ecmaVersion: 6,
     sourceType: "module",
@@ -21,8 +21,8 @@ module.exports = {
   },
   settings: {
     "import/resolver": {
-      "node": {
-        "paths": ["src"]
+      node: {
+        paths: ["src"]
       }
     }
   },
