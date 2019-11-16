@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <TheHeader />
-    <div id="renderMarkdownContent" />
+    <div id="renderMarkdownContent"></div>
     <TheFooter />
   </div>
 </template>
