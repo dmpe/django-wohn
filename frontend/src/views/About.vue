@@ -17,10 +17,9 @@ import { createHTMLfromMarkdown } from "@/support.ts";
 createHTMLfromMarkdown("https://raw.githubusercontent.com/dmpe/django-wohn/master/README.md").then(response => {
   const converter = new showdown.Converter();
   const html = converter.makeHtml(response.data);
-  console.log(html);
 
   const divRender: HTMLDivElement = document.getElementById("renderMarkdownContent") as HTMLDivElement;
-  divRender.append(html);
+  divRender.insertAdjacentHTML("afterbegin", html);
 });
 
 

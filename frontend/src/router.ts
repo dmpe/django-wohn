@@ -104,7 +104,16 @@ const router = new Router({
       // Any not listed above
       path: "*",
       name: "NotFound",
-      component: NotFound
+      component: NotFound,
+      meta: {
+        title: "Try again - 404 error - Melive.xyz",
+        metaTags: [
+          {
+            name: "description",
+            content: "We have not found what you have looked for. Try again.",
+          },
+        ],
+      },
     }
   ],
 });
