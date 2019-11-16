@@ -11,7 +11,7 @@
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue"; // @ is an alias to /src
-import TheFooter from "@/components/error_handlers/404NotFound.vue"; // @ is an alias to /src
+import NotFound from "@/components/error_handlers/404NotFound.vue"; // @ is an alias to /src
 
 
 export default Vue.extend({

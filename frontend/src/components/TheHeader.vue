@@ -8,7 +8,7 @@
     >
       <b-navbar-brand
         class="mb-0"
-        href="#"
+        href="/"
       >
         melive.xyz
         <span class="navbar-text d-md-inline-flex d-none d-md-block">

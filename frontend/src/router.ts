@@ -103,6 +103,7 @@ const router = new Router({
     {
       // any not listed above
       path: "*",
+      name: "NotFound",
       component: NotFound
     }
   ],
