@@ -10,12 +10,12 @@
 <script lang="ts">
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
-import TheFooter from "@/components/TheFooter.vue"; // @ is an alias to /src
-import NotFound from "@/components/error_handlers/404NotFound.vue"; // @ is an alias to /src
+import TheFooter from "@/components/TheFooter.vue";
+import NotFound from "@/components/error_handlers/NotFound.vue";
 
 
 export default Vue.extend({
-  name: "NotFound",
+  name: "404NotFound",
   components: {
     TheHeader,
     NotFound,
