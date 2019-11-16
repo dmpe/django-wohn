@@ -12,14 +12,17 @@ import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
 import * as showdown from "showdown";
-import {createHTMLfromMarkdown} from "@/support.ts";
+import { createHTMLfromMarkdown } from "@/support.ts";
 
-const aboutMd = createHTMLfromMarkdown("https://raw.githubusercontent.com/dmpe/django-wohn/master/README.md");
-const converter = new showdown.Converter();
-const html = converter.makeHtml(aboutMd);
+createHTMLfromMarkdown("https://raw.githubusercontent.com/dmpe/django-wohn/master/README.md").then(function (response) {
+  const converter = new showdown.Converter();
+  const html = converter.makeHtml(response.data);
+  console.log(html);
 
-const divRender: HTMLDivElement = document.getElementById("renderMarkdownContent") as HTMLDivElement;
-divRender.append(html);
+  const divRender: HTMLDivElement = document.getElementById("renderMarkdownContent") as HTMLDivElement;
+  divRender.append(html);
+});
+
 
 export default Vue.extend({
   name: "About",
