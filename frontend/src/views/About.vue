@@ -1,7 +1,14 @@
 <template>
   <div class="about">
     <TheHeader />
-    <div id="renderMarkdownContent"></div>
+    <b-container fluid>
+      <b-row>
+        <b-col md="6" offset-md="3">
+          <div id="renderMarkdownContent">
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
     <TheFooter />
   </div>
 </template>
