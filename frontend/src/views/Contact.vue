@@ -70,15 +70,15 @@
             </div>
 
             <div class="form-group">
-              {{ form.inputText |add_class:"form-control"|attr:"rows:8"|attr:"cols:35"}}
+              <!-- {{ form.inputText |add_class:"form-control"|attr:"rows:8"|attr:"cols:35"}} -->
             </div>
 
             <button type="submit" class="btn btn-warning mb-5 btn-lg btn-block" id="recaptchaValidator">Submit message to Marek</button>
           </form>
 
           <div class="alert alert-{{ message.tags }} mb-5" id="checkEmailAlert" role="alert">
-            {{ message }}
-          </div>
+
+           </div>
        </b-container>
     <TheFooter />
   </div>
