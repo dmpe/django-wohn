@@ -103,7 +103,7 @@
                 </div>
 
                 <p class="float-left">
-                  <a href="{% url 'core:reset_password' %}">Forgot your username or password?</a>
+                  <a href="/reset-password">Forgot your username or password?</a>
                 </p>
 
                 <!-- Also includes Google Recaptcha v3 or other form of Captcha -->
