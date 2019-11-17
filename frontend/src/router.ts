@@ -6,6 +6,8 @@ import Home from "./views/Home.vue";
 import Privacy from "./views/Privacy.vue";
 import Terms from "./views/Terms.vue";
 import NotFound from "./views/404NotFound.vue";
+import Login from "./views/user_management/Login.vue";
+import Register from "./views/user_management/Register.vue";
 
 Vue.use(Router);
 
