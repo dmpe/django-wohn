@@ -1,4 +1,5 @@
 <template>
+  <TheHeader />
   <b-container fluid>
 
       <!-- Because of Facebook login -->
@@ -79,6 +80,7 @@
       </div>
     </div>
   </b-container>
+  <TheFooter />
 </template>
 
 <script lang="ts">
