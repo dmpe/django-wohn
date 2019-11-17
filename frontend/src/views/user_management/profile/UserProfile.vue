@@ -1,33 +1,20 @@
-{% extends 'base.html' %}
+<template>
+  <TheHeader />
+  <div class="container-fluid">
 
-{% load static %}
-{% load staticfiles %}
-
-{% block title %}Dashboard - User profile{% endblock %}
-
-{% block description %}This page has a description.{% endblock %}
-
-{% block robots %}index, follow{% endblock %}
-
-{% block additional_head %}
 	<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">
-	{% include "base_splitting/country_phone_libraries.html" %}
-{% endblock %}
 
-{% load crispy_forms_tags %}
-{% load widget_tweaks %}
-{% load countries %}
-{% load tz %}
+  <!-- {% load crispy_forms_tags %}
+  {% load widget_tweaks %}
+  {% load countries %}
+  {% load tz %} -->
 
-{% block content %}
-<div class="container-fluid">
-
-<!-- 
-https://github.com/mfogel/django-timezone-field
-https://github.com/dmpe/django-wohn/issues/18 
--->
+  <!--
+  https://github.com/mfogel/django-timezone-field
+  https://github.com/dmpe/django-wohn/issues/18
+  -->
 	<div class="row">
-		{% include 'nav_sidebar.html' %}
+		<ProfileNav />
 
 		<div class="row col-md-9 col-lg-9 col-xl-10 pt-3">
 			<div class="col-xs-12 col-md-5 col-lg-5 col-xl-3 pr-2">
@@ -56,7 +43,7 @@ https://github.com/dmpe/django-wohn/issues/18
 
 			<div class="col-xs-12 col-md-7 col-lg-7 col-xl-9 pt-2">
 				<form method="POST" id="form-user-settings" class="mb-5">
-				{% csrf_token %}		
+				{% csrf_token %}
 					{{ form.non_field_errors | crispy }}
 					{{ form.source.errors | crispy }}
 					{{ form.source | crispy }}
@@ -69,7 +56,7 @@ https://github.com/dmpe/django-wohn/issues/18
 						</div>
 						<div class="form-group col-xs-5 col-sm-6 col-md-12 col-lg-6 col-xl-4">
 							{{ form.first_name.label_tag  }}
-							{{ form.first_name.errors  }}							
+							{{ form.first_name.errors  }}
 							{{ form.first_name | add_class:"form-control"}}
 						</div>
 						<div class="form-group col-xs-5 col-sm-6 col-md-12 col-lg-6 col-xl-4">
@@ -81,7 +68,7 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.user_first_lastname_visibility.label_tag  }}
 							{{ form.user_first_lastname_visibility.errors  }}
 							{{ form.user_first_lastname_visibility | add_class:"form-control"}}
-						</div>						
+						</div>
 						<div class="form-group col-xs-5 col-sm-6 col-md-12 col-lg-6 col-xl-4">
 							{{ form.user_int_tel.label_tag  }}
 							{{ form.user_int_tel.errors  }}
@@ -96,13 +83,13 @@ https://github.com/dmpe/django-wohn/issues/18
 							{{ form.user_timezone.label_tag }}
 							{{ form.user_timezone.errors }}
 							{{ form.user_timezone | add_class:"form-control"}}
-						</div>										
+						</div>
 						<div class="form-group col-sm-5 col-sm-6 col-md-12 col-lg-6 col-xl-4">
 							{{ form.user_units_system.label_tag }}
 							{{ form.user_units_system.errors }}
 							{{ form.user_units_system | add_class:"form-control"}}
-						</div>								
-									
+						</div>
+
 					</div>
 					<button type="submit" class="btn btn-warning mb-5 btn-lg btn-block">Save</button>
 				</form>
@@ -116,19 +103,19 @@ https://github.com/dmpe/django-wohn/issues/18
 						<div class="form-group col-md-3 col-sm-5">
 							<label for="user_id_username">Current username</label>
 							<input class="form-control" type="text" name="user_id_username" value="{{ user.get_username }}" readonly="">
-						</div>	
+						</div>
 
 						<div class="form-group col-md-3 col-sm-5">
 							{{ form.inputUsername.label_tag  }}
 							{{ form.inputUsername.errors  }}
 							{{ form.inputUsername | add_class:"form-control"}}
-						</div>		
+						</div>
 					</div>
 					<button type="submit" class="btn btn-warning mb-5 btn-lg">Save</button>
 				</form>
 
 				<form method="POST" id="form-user-email" class="mb-5">
-				{% csrf_token %}		
+				{% csrf_token %}
 					{{ form.non_field_errors | crispy }}
 					{{ form.source.errors | crispy }}
 					{{ form.source | crispy }}
@@ -136,7 +123,7 @@ https://github.com/dmpe/django-wohn/issues/18
 						<div class="form-group col-md-3 col-sm-5">
 							<label for="user_id_email">Current email</label>
 							<input class="form-control" type="text" name="" value="{{ user.email }}" readonly="">
-						</div>	
+						</div>
 
 						<div class="form-group col-md-3 col-sm-5">
 							{{ form.inputEmail.label_tag  }}
@@ -148,7 +135,7 @@ https://github.com/dmpe/django-wohn/issues/18
 				</form>
 
 				<form method="POST" id="form-user-password" class="mb-5">
-				{% csrf_token %}		
+				{% csrf_token %}
 					{{ form.non_field_errors | crispy }}
 					{{ form.source.errors | crispy }}
 					{{ form.source | crispy }}
@@ -165,27 +152,47 @@ https://github.com/dmpe/django-wohn/issues/18
 						</div>
 					</div>
 					<button type="submit" class="btn btn-warning mb-5 btn-lg">Save</button>
-				</form>				
-			</div>		
+				</form>
+			</div>
 				<!--
 				<p>Change currency, because default is CZK</p>
 				<p>Change mt^2 to sq. foot</p> -->
 		</div>
 	</div>
-	
-	<script>
-		$(document).ready(function() {
-			bsCustomFileInput.init()
-		});
 
-		var input = document.querySelector("#phone");
-		
-		window.intlTelInput(input, {
-			preferredCountries: ["cz", "sk"],
-			separateDialCode: true,
-			utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/js/utils.js"
-		});
-	</script>		
-	<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input@1.3.1/dist/bs-custom-file-input.min.js" integrity="sha256-Kf72uYqY9REOgAOMF5o3jzROuWqX0CFpDUKaOHX27dQ=" crossorigin="anonymous"></script>
-</div>
-{% endblock %}
+
+  </div>
+  <TheFooter />
+
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
+import TheFooter from "@/components/TheFooter.vue";
+import ProfileNav from "@/components/TheNavSidebar.vue";
+	// <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input@1.3.1/dist/bs-custom-file-input.min.js" integrity="sha256-Kf72uYqY9REOgAOMF5o3jzROuWqX0CFpDUKaOHX27dQ=" crossorigin="anonymous"></script>
+
+
+$(document).ready(function() {
+  bsCustomFileInput.init()
+});
+
+var input = document.querySelector("#phone");
+
+window.intlTelInput(input, {
+  preferredCountries: ["cz", "sk"],
+  separateDialCode: true,
+  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/js/utils.js"
+});
+
+
+export default Vue.extend({
+  name: "UserProfile",
+  components: {
+    TheHeader,
+    ProfileNav,
+    TheFooter,
+  }
+});
+</script>

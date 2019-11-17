@@ -12,7 +12,6 @@
 		</div>
 		<div class="card-body">
 			<form id="form-reset-password" method="POST">
-				{% csrf_token %}
 				<div class="form-group spacing">
 					<input class="form-control" type="text" id="inputEmail_Username" name = "inputEmail_Username" placeholder="Your email or username" required autofocus>
 					<label class="sr-only" for="inputEmail_Username">Your email or username</label>
@@ -55,7 +54,6 @@
 </template>
 
 
-</template>
 
 <script lang="ts">
 import Vue from "vue";

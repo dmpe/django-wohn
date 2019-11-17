@@ -64,7 +64,7 @@
                   </div>
                 </div>
 
-                <p class="float-left"><a href="{% url 'core:reset_password' %}">Forgot your username or password?</a></p>
+                <p class="float-left"><a href="/reset-passport">Forgot your username or password?</a></p>
 
                 <!-- Also includes Google Recaptcha v3 -->
                 <button class="btn btn-warning float-right btn-lg" type="submit">Login</button>

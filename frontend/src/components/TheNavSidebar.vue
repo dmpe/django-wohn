@@ -1,21 +1,21 @@
 <template>
-
+<div>
   <aside class="col-md-3 col-lg-3 col-xl-2 pt-3 d-none d-md-block">
     <ul class="nav nav-pills d-flex flex-column">
       <li class="nav-item">
-        <a href="{% url 'userMng:userMng_index' %}" class="nav-link {% if url_name == 'userMng:userMng_index' %}active{% endif %}">
+        <a href="/administrace" class="nav-link {% if url_name == 'userMng:userMng_index' %}active{% endif %}">
           <i class="fas fa-home fa-lg"></i>
           <span class="ml-3">Homepage</span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="{% url 'userMng:user_profile' %}" class="nav-link {% if url_name == 'userMng:user_profile' %}active{% endif %}">
+        <a href="/administrace/profile" class="nav-link {% if url_name == 'userMng:user_profile' %}active{% endif %}">
           <i class="fas fa-user fa-lg"></i>
           <span class="ml-3">My profile</span>
         </a>
       </li>
       <li class = "nav-item">
-        <a href="{% url 'userMng:user_properties' %}" class="nav-link {% if url_name == 'userMng:user_properties' %}active{% endif %}">
+        <a href="/administrace/properties" class="nav-link {% if url_name == 'userMng:user_properties' %}active{% endif %}">
           <i class="fas fa-hotel fa-lg"></i>
           <span class="ml-3">Properties</span>
           <span class="badge badge-success badge-pill"> {{ number_of_properties }}</span>
@@ -50,17 +50,17 @@
   <div class="row d-block d-xs-block d-sm-block d-md-none">
     <ul class="d-flex flex-row list-group flex-wrap">
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="{% url 'userMng:userMng_index' %}" class="nav-link {% if url_name == 'userMng:userMng_index' %}active{% endif %}">
+        <a href="/administrace" class="nav-link {% if url_name == 'userMng:userMng_index' %}active{% endif %}">
           <i class="fas fa-home fa-lg"></i>
         </a>
       </li>
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="{% url 'userMng:user_profile' %}" class="nav-link {% if url_name == 'userMng:user_profile' %}active{% endif %}">
+        <a href="/administrace/profile" class="nav-link {% if url_name == 'userMng:user_profile' %}active{% endif %}">
           <i class="fas fa-user fa-lg"></i>
         </a>
       </li>
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="{% url 'userMng:user_properties' %}" class="nav-link {% if url_name == 'userMng:user_properties' %}active{% endif %}">
+        <a href="/administrace/properties" class="nav-link {% if url_name == 'userMng:user_properties' %}active{% endif %}">
           <i class="fas fa-hotel fa-lg"></i>
           <span class="badge badge-success badge-pill"> {{ number_of_properties }}</span>
         </a>
@@ -86,4 +86,21 @@
       {% endif %}
     </ul>
   </div>
+</div>
 </template>
+
+<script lang="ts">
+import Vue from "vue";
+import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
+import TheFooter from "@/components/TheFooter.vue";
+
+export default Vue.extend({
+  name: "ProfileNav",
+  components: {
+    TheHeader,
+    TheFooter,
+  }
+});
+</script>
+
+

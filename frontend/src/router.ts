@@ -1,4 +1,6 @@
-import Administrace from "./views/Administrace.vue";
+import Administrace from "./views/user_management/profile/Homepage.vue";
+import UserProfile from "./views/user_management/profile/UserProfile.vue";
+import UserProperties from "./views/user_management/profile/UserProperties.vue";
 import Contact from "./views/Contact.vue";
 import Vue from "vue";
 import Router from "vue-router";
@@ -6,6 +8,7 @@ import Home from "./views/Home.vue";
 import Privacy from "./views/Privacy.vue";
 import Terms from "./views/Terms.vue";
 import NotFound from "./views/404NotFound.vue";
+import PropertyID from "./views/PropertyID.vue";
 import Login from "./views/user_management/Login.vue";
 import Register from "./views/user_management/Register.vue";
 
@@ -90,7 +93,7 @@ const router = new Router({
     },
     {
       path: "/login",
-      name: "Login",
+      name: "login",
       component: Login,
       meta: {
         title: "Login - Melive.xyz",
@@ -104,7 +107,7 @@ const router = new Router({
     },
     {
       path: "/register",
-      name: "Register",
+      name: "register",
       component: Register,
       meta: {
         title: "Register - Melive.xyz",
@@ -129,6 +132,29 @@ const router = new Router({
           },
         ],
       },
+      children: [
+        {
+          path: "profile",
+          name: "user-profile",
+          component: UserProfile,
+          meta: {
+            title: "User Profile",
+          },
+        },
+        {
+          path: "properties",
+          name: "user-profile",
+          component: UserProperties,
+          meta: {
+            title:  "My properties",
+          },
+        }
+      ]
+    },
+    {
+      path: "/property/:id",
+      name: "property-id",
+      component: PropertyID
     },
     {
       // Any not listed above

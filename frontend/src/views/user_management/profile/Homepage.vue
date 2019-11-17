@@ -3,7 +3,7 @@
   <div class="container-fluid">
 
     <div class="row ">
-      {% include 'nav_sidebar.html' %}
+      <ProfileNav />
 
       <div class="col-md-9 col-lg-9 col-xl-10">
         <h1 class="display-4 d-none d-sm-block">Welcome back {{ user.username }}</h1>
@@ -91,3 +91,19 @@
   </div>
   <TheFooter />
 </template>
+
+<script lang="ts">
+import Vue from "vue";
+import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
+import TheFooter from "@/components/TheFooter.vue";
+import ProfileNav from "@/components/TheNavSidebar.vue";
+
+export default Vue.extend({
+  name: "Login",
+  components: {
+    TheHeader,
+    ProfileNav,
+    TheFooter,
+  }
+});
+</script>

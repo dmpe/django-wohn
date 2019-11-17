@@ -120,8 +120,6 @@
         </div>
       </div>
     </div>
-
-
   </b-container>
   <TheFooter />
 </template>

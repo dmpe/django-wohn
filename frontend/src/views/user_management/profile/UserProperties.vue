@@ -1,30 +1,36 @@
-{% extends 'base.html' %}
+<template>
+  <div>
+    <TheHeader />
 
-{% block title %}Dashboard - User profile{% endblock %}
+    <b-container fluid>
+      <div class="row">
+          <ProfileNav />
 
-{% block description %}This page has a description.{% endblock %}
+          <div class="col-md-10">
+              <form method="POST" id="form-new-user-property" class="mb-5">
+                <!-- {{ form }} -->
+              </form>
+          </div>
 
-{% block robots %}index, follow{% endblock %}
+      </div>
+    </b-container>
 
-{% block content %}
-<div class="container-fluid">
-
-	<div class="row">
-        {% include 'nav_sidebar.html' %}
-
-	    <div class="col-md-10">
-	        <form method="POST" id="form-new-user-property" class="mb-5">
-				{% csrf_token %}	
-	        	 {{ form }}
-	        </form>
-	    </div>
-	    
-	</div>
+  </div>
+</template>
 
 
+<script lang="ts">
+import Vue from "vue";
+import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
+import TheFooter from "@/components/TheFooter.vue";
+import ProfileNav from "@/components/TheNavSidebar.vue";
 
-
-
-
-</div>
-{% endblock %}
+export default Vue.extend({
+  name: "UserProperties",
+  components: {
+    TheHeader,
+    ProfileNav,
+    TheFooter,
+  }
+});
+</script>
