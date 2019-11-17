@@ -69,13 +69,11 @@
                 <button class="btn btn-warning float-right btn-lg" type="submit">Login</button>
               </form>
             </div>
-            {% if messages %}
-              {% for message in  messages %}
+
             <div class="alert alert-{{ message.tags }} messageErrorLoginSignup" id="checkEmailAlert" role="alert">
             {{ message }}
             </div>
-              {% endfor %}
-            {% endif %}
+
           </div>
         </div>
       </div>

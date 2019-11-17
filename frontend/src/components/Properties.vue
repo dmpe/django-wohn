@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-7">
             <a href="#">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="https://picsum.photos/300/100" alt="">
             </a>
         </div>
         <div class="col-md-5">

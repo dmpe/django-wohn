@@ -87,6 +87,34 @@ const router = new Router({
       },
     },
     {
+      path: "/login",
+      name: "Login",
+      component: Login,
+      meta: {
+        title: "Login - Melive.xyz",
+        metaTags: [
+          {
+            name: "description",
+            content: "Login page - Manage your real-estate listings",
+          },
+        ],
+      },
+    },
+    {
+      path: "/register",
+      name: "Register",
+      component: Register,
+      meta: {
+        title: "Register - Melive.xyz",
+        metaTags: [
+          {
+            name: "description",
+            content: "Sign up to Melive.xyz",
+          },
+        ],
+      },
+    },
+    {
       path: "/administrace",
       name: "administrace",
       component: Administrace,
