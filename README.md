@@ -1,5 +1,6 @@
 [![image](https://img.shields.io/github/license/dmpe/django-wohn)](https://github.com/dmpe/django-wohn/LICENSE)
 [![Build Status](https://johnmalc.visualstudio.com/DJango-Wohn/_apis/build/status/dmpe.django-wohn?branchName=master)](https://johnmalc.visualstudio.com/DJango-Wohn/_build/latest?definitionId=7&branchName=master)
+[![CircleCI](https://circleci.com/gh/dmpe/django-wohn/tree/master.svg?style=svg)](https://circleci.com/gh/dmpe/django-wohn/tree/master)
 ![GitHub language count](https://img.shields.io/github/languages/count/dmpe/django-wohn)
 [![Requirements Status](https://requires.io/github/dmpe/django-wohn/requirements.svg?branch=master)](https://requires.io/github/dmpe/django-wohn/requirements/?branch=master)
 ![GitHub repo size](https://img.shields.io/github/repo-size/dmpe/django-wohn)
