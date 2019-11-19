@@ -2,19 +2,18 @@
   <div>
     <TheHeader />
 
-    <b-container fluid>
+      <b-container fluid>
       <div class="row">
-          <ProfileNav />
+      <ProfileNav />
 
-          <div class="col-md-10">
-              <form method="POST" id="form-new-user-property" class="mb-5">
-                <!-- {{ form }} -->
-              </form>
-          </div>
+      <div class="col-md-10">
+          <form method="POST" id="form-new-user-property" class="mb-5">
+          </form>
+      </div>
 
       </div>
-    </b-container>
-
+      </b-container>
+    <TheFooter />
   </div>
 </template>
 
