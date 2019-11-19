@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2019-11-04T23:44:51.533Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0" etag="2JJJJzgJWfP5dKmhC-0G" version="12.2.0" type="github" pages="1">
+<mxfile host="www.draw.io" modified="2019-11-19T22:19:41.286Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0" etag="0pyJC5KErnXLky-CN-Mf" version="12.2.7" type="github" pages="1">
   <diagram id="JkhLGpLczkm5lLYZ0Tum" name="Page-1">
     <mxGraphModel dx="1024" dy="571" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -31,13 +31,14 @@
         <mxCell id="D1dGqr2h0ZZoKGAoGRAR-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=16;" parent="1" source="D1dGqr2h0ZZoKGAoGRAR-4" target="D1dGqr2h0ZZoKGAoGRAR-3" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="420" y="410"/>
+              <mxPoint x="320" y="280"/>
+              <mxPoint x="320" y="410"/>
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="D1dGqr2h0ZZoKGAoGRAR-17" value="JSON" style="text;html=1;resizable=0;points=[];align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;fontSize=16;" parent="D1dGqr2h0ZZoKGAoGRAR-16" vertex="1" connectable="0">
           <mxGeometry x="-0.25" y="-1" relative="1" as="geometry">
-            <mxPoint x="-49" y="21" as="offset"/>
+            <mxPoint x="-39" y="64" as="offset"/>
           </mxGeometry>
         </mxCell>
         <mxCell id="D1dGqr2h0ZZoKGAoGRAR-4" value="&lt;div&gt;&lt;b&gt;GraphQL API Server&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Endpoint: /graphql&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" parent="1" vertex="1">
@@ -64,6 +65,9 @@
         </mxCell>
         <mxCell id="D1dGqr2h0ZZoKGAoGRAR-13" value="PostgreSQL" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.database;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="930" y="150" width="100" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="U82fdfa0-OKXxwM7Y4GP-1" value="&lt;div&gt;&lt;b&gt;GraphQL API Server&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Endpoint: /graphql-private&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="365" y="340" width="120" height="200" as="geometry"/>
         </mxCell>
       </root>
     </mxGraphModel>
