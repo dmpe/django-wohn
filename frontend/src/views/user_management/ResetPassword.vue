@@ -2,26 +2,52 @@
   <div class="reset_password">
     <TheHeader />
     <b-container fluid>
+      <!-- {% if not user.is_authenticated %} -->
 
-<!-- {% if not user.is_authenticated %} -->
+      <div class="row card passwordReset">
+        <div class="card-header text-center">
+          <h1 class="card-title">
+            Reset your password
+          </h1>
+          <p class="card-subtitle text-muted">
+            Step 1 of 2
+          </p>
+        </div>
+        <div class="card-body">
+          <form
+            id="form-reset-password"
+            method="POST"
+          >
+            <div class="form-group spacing">
+              <input
+                id="inputEmail_Username"
+                class="form-control"
+                type="text"
+                name="inputEmail_Username"
+                placeholder="Your email or username"
+                required
+                autofocus
+              >
+              <label
+                class="sr-only"
+                for="inputEmail_Username"
+              >Your email or username</label>
+            </div>
 
-	<div class="row card passwordReset">
-		<div class="card-header text-center">
-			<h1 class="card-title">Reset your password</h1>
-			<p class="card-subtitle text-muted">Step 1 of 2</p>
-		</div>
-		<div class="card-body">
-			<form id="form-reset-password" method="POST">
-				<div class="form-group spacing">
-					<input class="form-control" type="text" id="inputEmail_Username" name = "inputEmail_Username" placeholder="Your email or username" required autofocus>
-					<label class="sr-only" for="inputEmail_Username">Your email or username</label>
-				</div>
+            <button
+              id="recaptchaValidator"
+              type="submit"
+              class="btn btn-dark float-right btn-lg g-recaptcha"
+              data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5"
+              name="g-recaptcha-response"
+              data-callback="onSubmit"
+            >
+              Reset
+            </button>
+          </form>
+        </div>
 
-				<button type="submit" class="btn btn-dark float-right btn-lg g-recaptcha" id="recaptchaValidator" data-sitekey="6LeZy3MUAAAAALMLtwqi7aTHvXnvdY6sx5ALYVp5" name="g-recaptcha-response" data-callback="onSubmit">Reset</button>
-			</form>
-		</div>
-
-		<!-- {% comment %}
+        <!-- {% comment %}
 			If username or email is correct
 				then shows alert message
 			if incorrect
@@ -29,25 +55,28 @@
 		{% endcomment %}
 		{% if messages %}
 			{% for message in  messages %} -->
-				<div class="alert alert-{{ message.tags }}" id="checkEmailAlert" role="alert">
-					<!-- {{ message }} -->
-				</div>
-			<!-- {% endfor %}
+        <div
+          id="checkEmailAlert"
+          class="alert alert-{{ message.tags }}"
+          role="alert"
+        >
+          <!-- {{ message }} -->
+        </div>
+        <!-- {% endfor %}
 		{% endif %} -->
-	</div>
+      </div>
 
-  <!-- {% comment %}
+      <!-- {% comment %}
   else
     show a profile page where he can change it by himself
   {% endcomment %}
   {% else %} -->
       <script>
         var timer = setTimeout(function() {
-          window.location = 'https://melive.xyz/administrace/user_profile'
+        window.location = 'https://melive.xyz/administrace/user_profile'
         }, 1000);
       </script>
-  <!-- {% endif %} -->
-
+      <!-- {% endif %} -->
     </b-container>
     <TheFooter />
   </div>

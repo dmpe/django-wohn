@@ -3,9 +3,11 @@
     <TheHeader />
     <b-container fluid>
       <b-row>
-        <b-col md="6" offset-md="3">
-          <div id="renderMarkdownContent">
-          </div>
+        <b-col
+          md="6"
+          offset-md="3"
+        >
+          <div id="renderMarkdownContent" />
         </b-col>
       </b-row>
     </b-container>
@@ -23,14 +25,14 @@ import { createHTMLfromMarkdown } from "@/support.ts";
 
 createHTMLfromMarkdown("https://raw.githubusercontent.com/dmpe/django-wohn/master/README.md").then(response => {
   const converter = new showdown.Converter();
-  converter.setOption('ghCompatibleHeaderId', true);
-  converter.setOption('tables', true);
-  converter.setOption('ghCodeBlocks', true);
-  converter.setOption('tasklists', true);
-  converter.setOption('smartIndentationFix', true);
-  converter.setOption('openLinksInNewWindow', true);
-  converter.setOption('emoji', true);
-  showdown.setFlavor('github');
+  converter.setOption("ghCompatibleHeaderId", true);
+  converter.setOption("tables", true);
+  converter.setOption("ghCodeBlocks", true);
+  converter.setOption("tasklists", true);
+  converter.setOption("smartIndentationFix", true);
+  converter.setOption("openLinksInNewWindow", true);
+  converter.setOption("emoji", true);
+  showdown.setFlavor("github");
 
   const html = converter.makeHtml(response.data);
 
