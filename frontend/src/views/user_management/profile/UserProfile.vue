@@ -6,9 +6,6 @@
         rel="stylesheet"
         href="  static 'flags/sprite.css'"
       >
-
-
-
       <!--
   https://github.com/mfogel/django-timezone-field
   https://github.com/dmpe/django-wohn/issues/18
@@ -26,7 +23,7 @@
               >
 
               <img
-                src=" "
+                src=""
                 alt="My Profile picture"
                 class="rounded img-fluid"
               >
@@ -210,21 +207,6 @@ import TheFooter from "@/components/TheFooter.vue";
 import ProfileNav from "@/components/TheNavSidebar.vue";
 import BootstrapVue from "bootstrap-vue";
 
-// <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input@1.3.1/dist/bs-custom-file-input.min.js" integrity="sha256-Kf72uYqY9REOgAOMF5o3jzROuWqX0CFpDUKaOHX27dQ=" crossorigin="anonymous"></script>
-
-
-// $(document).ready(function() {
-//   bsCustomFileInput.init()
-// });
-
-// var input = document.querySelector("#phone");
-
-// window.intlTelInput(input, {
-//   preferredCountries: ["cz", "sk"],
-//   separateDialCode: true,
-//   utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/js/utils.js"
-// });
-
 export default Vue.extend({
   name: "UserProfile",
   components: {
@@ -233,4 +215,5 @@ export default Vue.extend({
     TheFooter,
   }
 });
+
 </script>
