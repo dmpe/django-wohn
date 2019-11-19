@@ -129,16 +129,16 @@
 
 <script lang="ts">
 import Vue from "vue";
-import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
-import TheFooter from "@/components/TheFooter.vue";
+import BootstrapVue from "bootstrap-vue";
 
-export default Vue.extend({
+export default {
   name: "ProfileNav",
-  components: {
-    TheHeader,
-    TheFooter,
+  data() {
+    return {
+
+    };
   }
-});
+};
 </script>
 
 

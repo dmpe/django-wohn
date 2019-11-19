@@ -1,16 +1,13 @@
 <template>
   <div>
     <TheHeader />
-    <div class="container-fluid">
+    <b-container fluid>
       <link
         rel="stylesheet"
-        href="{% static 'flags/sprite.css' %}"
+        href="  static 'flags/sprite.css'"
       >
 
-      <!-- {% load crispy_forms_tags %}
-  {% load widget_tweaks %}
-  {% load countries %}
-  {% load tz %} -->
+
 
       <!--
   https://github.com/mfogel/django-timezone-field
@@ -23,13 +20,13 @@
           <div class="col-xs-12 col-md-5 col-lg-5 col-xl-3 pr-2">
             <div class="col-md-12">
               <img
-                src="{% firstof user.image.user_profile_image.url gravatar_url %}"
+                src="firstof user.image.user_profile_image.url gravatar_url"
                 alt="My Profile picture"
                 class="rounded img-fluid"
               >
 
               <img
-                src="{{ gravatar_url }}"
+                src=" "
                 alt="My Profile picture"
                 class="rounded img-fluid"
               >
@@ -42,7 +39,6 @@
                   action="POST"
                   enctype="multipart/form-data"
                 >
-                  {% csrf_token %}
                   <div class="input-group mb-3">
                     <div class="custom-file">
                       <input
@@ -86,15 +82,13 @@
                   <!-- {{ form.first_name | add_class:"form-control"}} -->
                 </div>
                 <div class="form-group col-xs-5 col-sm-6 col-md-12 col-lg-6 col-xl-4">
-
                   <!-- {{ form.last_name | add_class:"form-control"}} -->
                 </div>
                 <div class="form-group col-xs-5 col-sm-6 col-md-12 col-lg-6 col-xl-3">
                   <!-- {{ form.user_first_lastname_visibility | add_class:"form-control"}} -->
                 </div>
                 <div class="form-group col-xs-5 col-sm-6 col-md-12 col-lg-6 col-xl-4">
-                  <!-- {{ form.user_int_tel.label_tag }}
-                  {{ form.user_int_tel.errors }} -->
+                  <!-- {{ form.user_int_tel.label_tag }} {{ form.user_int_tel.errors }} -->
                   <input
                     id="phone"
                     type="tel"
@@ -103,11 +97,9 @@
                   >
                 </div>
                 <div class="form-group col-xs-5 col-sm-6 col-md-12 col-lg-6 col-xl-4">
-
                   <!-- {{ form.user_country | add_class:"form-control"}} -->
                 </div>
                 <div class="form-group col-xs-5 col-sm-6 col-md-12 col-lg-6 col-xl-4">
-
                   <!-- {{ form.user_timezone | add_class:"form-control"}} -->
                 </div>
                 <div class="form-group col-sm-5 col-sm-6 col-md-12 col-lg-6 col-xl-4">
@@ -134,7 +126,7 @@
                     class="form-control"
                     type="text"
                     name="user_id_username"
-                    value="{{ user.get_username }}"
+                    value=" "
                     readonly=""
                   >
                 </div>
@@ -163,7 +155,7 @@
                     class="form-control"
                     type="text"
                     name=""
-                    value="{{ user.email }}"
+                    value=" "
                     readonly=""
                   >
                 </div>
@@ -187,11 +179,9 @@
             >
               <div class="row">
                 <div class="form-group col-md-3 col-sm-5">
-
                   <!-- {{ form.inputNewPassword | add_class:"form-control"}} -->
                 </div>
                 <div class="form-group col-md-3 col-sm-5">
-
                   <!-- {{ form.inputConfirmNewPassword | add_class:"form-control"}} -->
                 </div>
               </div>
@@ -208,7 +198,7 @@
 				<p>Change mt^2 to sq. foot</p> -->
         </div>
       </div>
-    </div>
+    </b-container>
     <TheFooter />
   </div>
 </template>
@@ -218,21 +208,22 @@ import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
 import ProfileNav from "@/components/TheNavSidebar.vue";
+import BootstrapVue from "bootstrap-vue";
+
 // <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input@1.3.1/dist/bs-custom-file-input.min.js" integrity="sha256-Kf72uYqY9REOgAOMF5o3jzROuWqX0CFpDUKaOHX27dQ=" crossorigin="anonymous"></script>
 
 
-$(document).ready(function() {
-  bsCustomFileInput.init()
-});
+// $(document).ready(function() {
+//   bsCustomFileInput.init()
+// });
 
-var input = document.querySelector("#phone");
+// var input = document.querySelector("#phone");
 
-window.intlTelInput(input, {
-  preferredCountries: ["cz", "sk"],
-  separateDialCode: true,
-  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/js/utils.js"
-});
-
+// window.intlTelInput(input, {
+//   preferredCountries: ["cz", "sk"],
+//   separateDialCode: true,
+//   utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/14.0.6/js/utils.js"
+// });
 
 export default Vue.extend({
   name: "UserProfile",
