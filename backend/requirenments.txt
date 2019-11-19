@@ -16,18 +16,18 @@ django-crispy-forms==1.8.0
 django-timezone-field
 django-countries==5.5
 django-extensions==2.2.5
-django-ipware==2.1.0 
-django-debug-toolbar==2.0 
+django-ipware==2.1.0
+django-debug-toolbar==2.0
 django-graphiql-debug-toolbar== 0.1.4
 django-graphql-social-auth==0.1.4
-django-graphql-jwt==0.2.2 
+django-graphql-jwt==0.2.2
 dj-database-url==0.5.0
 google-api-python-client==1.7.11
 googleapis-common-protos==1.6.0
 gunicorn==20.0.0
 graphene-django==2.6.0
-social-auth-core==3.2.0 
-social-auth-app-django==social-auth-app-django
+social-auth-core==3.2.0
+social-auth-app-django==3.1.0
 #git+git://github.com/python-social-auth/social-core.git#egg=elasticutils
 #git+git://github.com/python-social-auth/social-app-django.git#egg=social-app-django
 markdown==3.1.1
