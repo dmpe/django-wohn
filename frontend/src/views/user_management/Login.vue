@@ -86,7 +86,7 @@
                       <!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
                       <input
                         id="inputNewPassword"
-                        type="password"
+                        v-bind:type="[iconCollapsed ? 'password' : 'text']"
                         name="inputNewPassword"
                         class="form-control"
                         placeholder="Password"
@@ -98,12 +98,15 @@
                         >
                           <button
                             id="buttonEYE2"
-                            href=""
                             class="resetIconStylesEYE"
                             aria-hidden="true"
                             type="button"
+                            v-on:click="iconCollapsed = !iconCollapsed"
                           >
-                            <i class="fas fa-eye fa-lg" />
+                          <!-- DOES NOT WORK -->
+                            <span v-if="marked">
+                              <i class="fas fa-lg fa-eye" />
+                            </span>
                           </button>
                         </span>
                       </div>
@@ -152,6 +155,11 @@ export default Vue.extend({
   components: {
     TheHeader,
     TheFooter,
+  },
+  data () {
+    return {
+      iconCollapsed: true,
+    }
   }
 });
 </script>
