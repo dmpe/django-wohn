@@ -118,7 +118,7 @@
                   </div>
 
                   <p class="float-left">
-                    <a href="/reset-passport">Forgot your username or password?</a>
+                    <a href="/reset-password">Forgot your username or password?</a>
                   </p>
 
                   <!-- Also includes Google Recaptcha v3 -->
