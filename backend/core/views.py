@@ -25,7 +25,6 @@ from django.utils.http import *
 from django.utils.safestring import *
 from django.views import View
 from django.views.generic import *
-
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
 
@@ -76,7 +75,6 @@ class ContactView(View):
             email = form.cleaned_data["inputEmail"]
             subject = form.cleaned_data["inputSubject"]
             text_msg = form.cleaned_data["inputText"]
-            recap_token = request.POST.get("g-recaptcha-response", False)
 
             if is_human(recap_token) is True:
                 prepare_visitor_mssg_email(request, username, email, subject, text_msg)
@@ -124,22 +122,8 @@ class ContactView(View):
 class AboutView(View):
     """docstring for AboutView
     """
-
-    template_name = "about.html"
-
-    def return_markdown(self):
-        input_file = codecs.open("README.md", mode="r", encoding="utf-8")
-        text = input_file.read()
-        html = markdown.markdown(
-            text, output_format="html5", extensions=["pymdownx.extra"]
-        )
-        return html
-
     def get(self, request):
-        raw_markdown_html = self.return_markdown()
-        return render(
-            request, self.template_name, {"raw_markdown_html": raw_markdown_html}
-        )
+        pass
 
 
 ###################################

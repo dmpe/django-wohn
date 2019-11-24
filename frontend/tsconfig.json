@@ -5,6 +5,7 @@
     "strict": true,
     "allowJs": true,
     "jsx": "preserve",
+    "noImplicitAny": false,
     "importHelpers": true,
     "moduleResolution": "node",
     "esModuleInterop": true,

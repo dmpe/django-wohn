@@ -1,9 +1,9 @@
 import os
 
-from azure.common.credentials import ServicePrincipalCredentials
-from azure.keyvault import KeyVaultClient
+from azure.core.exceptions import AzureError
+from azure.identity import ChainedTokenCredential, ClientSecretCredential, ManagedIdentityCredential
+from azure.keyvault.secrets import SecretClient
 from dotenv import find_dotenv, load_dotenv
-from msrestazure.azure_active_directory import MSIAuthentication
 
 
 class AzureConnection(object):
@@ -15,6 +15,7 @@ class AzureConnection(object):
     Result below, on local PC
 
     >> python3 az_connect.py
+
     MSIAuthentication: Check your development: local vs. Azure
     development
     """
@@ -33,34 +34,37 @@ class AzureConnection(object):
         return "the environment is: %s " % self.env
 
     def connection(self):
-        try:
-            self.credentials = MSIAuthentication(resource="https://vault.azure.net")
-            self.localDevelopment = False
-        except Exception:
-            print("MSIAuthentication: Check your development: local vs. Azure")
+        self.localDevelopment = False
+        cred = None
+        cred = ManagedIdentityCredential()
+
+        secrets_path = find_dotenv("secrets.env")
+        if secrets_path != "":
             self.localDevelopment = True
-            try:
-                load_dotenv(find_dotenv("secrets.env"))
-                self.credentials = ServicePrincipalCredentials(
-                    client_id=os.getenv("client_id"),
-                    secret=os.getenv("secret"),
-                    tenant=os.getenv("tenant"),
-                )
-            except FileNotFoundError:
-                print(
-                    "ensure that secrets file exists and that keys are from (ALL) application in Azure"
-                )
+            load_dotenv(secrets_path)
+            service_principal = ClientSecretCredential(
+                client_id=os.getenv("client_id"),
+                client_secret=os.getenv("secret"),
+                tenant_id=os.getenv("tenant"),
+            )
+            cred = ChainedTokenCredential(
+                ManagedIdentityCredential(), service_principal
+            )
+
+        try:
+            self.credentials = cred
+        except AzureError:
+            print("Check Azure settings/connection/availability")
+
         return [self.credentials, self.localDevelopment]
 
     def dev_or_prod(self):
-        client = KeyVaultClient(self.credentials)
+        client = SecretClient(
+            vault_url="https://b40.vault.azure.net/", credential=self.credentials
+        )
         try:
             if self.localDevelopment is False:
-                self.env = client.get_secret(
-                    "https://b40.vault.azure.net/",
-                    "DJANGO-ENV",
-                    "baf42a60cc1e4b588831fba2c9f2ce50",
-                ).value
+                self.env = client.get_secret("DJANGO-ENV").value
             else:
                 self.env = "development"
         except Exception as e:

@@ -1,14 +1,13 @@
 import hashlib
-
 # for gravatar URLs and user's profile image and its unique name
 import urllib
 
 import django
-
 # for time related tasks, incl. timezone
 import pytz
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser, UserManager
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.safestring import *
 from django_countries.fields import CountryField
@@ -52,6 +51,25 @@ class AbstractProperty(django.db.models.Model):
         max_digits=7, decimal_places=2, null=True, blank=True
     )
 
+    property_garage = models.PositiveSmallIntegerField(default=0)
+
+    PROPERTY_STATUS = (("N", "New"), ("G", "Good"), ("UC", "Under Construction"))
+    property_status = models.CharField(
+        max_length=3, choices=PROPERTY_STATUS, null=True, default="G"
+    )
+
+    property_furnished = models.BooleanField(default=False)
+
+    WASHING_MACHINE = (("O", "Owned"), ("S", "Shared in house"), ("NP", "Not present"))
+    property_wash_machine = models.CharField(
+        max_length=3, choices=WASHING_MACHINE, null=False, default="NP"
+    )
+    property_address_street = models.TextField(null=True)
+    property_address_city_town = models.TextField(null=True)
+    property_address_zipcode = models.IntegerField(
+        default=0, validators=[MinValueValidator(9999), MaxValueValidator(100000)]
+    )
+
     class Meta:
         verbose_name_plural = "properties"
         abstract = True
@@ -85,6 +103,8 @@ class Apartment(AbstractProperty):
 
     """
 
+    apartment_floor = models.PositiveSmallIntegerField(default=1)
+
     class Meta:
         verbose_name_plural = "Apartments"
 
@@ -94,6 +114,8 @@ class Room(AbstractProperty):
     Additional fields for renting out a single room
 
     """
+
+    room_floor = models.PositiveSmallIntegerField(default=1)
 
     class Meta:
         verbose_name_plural = "Rooms"

@@ -1,14 +1,26 @@
-FROM node:current as node_cache
-WORKDIR /cache/
-COPY package.json ./
-COPY yarn.lock ./
-RUN yarn add install
+FROM node:latest as node_cache
+RUN (set -e; \
+    apt update; \
+    apt install -y tree;\
+  )
+WORKDIR /app/
+COPY *.json ./
+RUN ls -al
+RUN yarn install
+COPY . ./
+RUN tree src/ && yarn run build
 
+# here we switch from nodejs container to
+# having proper, scalable web server: Nginx
+FROM nginx:latest
+RUN rm /etc/nginx/conf.d/default.conf
+#RUN (set -e; \
+#  apt update; \
+#  apt install -y software-properties-common brotli gpg; \
+# apt-add-repository --yes --update ppa:hda-me/nginx-stable; \
+#  apt install nginx-module-brotli;\
+#)
 
-FROM node:current
-WORKDIR /app
-COPY --from=node_cache /cache/ .
-COPY . /app
-RUN yarn global add local-web-server && yarn run build
+COPY --from=node_cache /app/dist /usr/share/nginx/html
 EXPOSE 2746
-CMD ["ws", "--port=2746", "--directory=dist/"]
+CMD ["nginx", "-g", "daemon off;"]

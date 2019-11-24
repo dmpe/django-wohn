@@ -19,7 +19,6 @@ from django.utils.html import *
 from django.utils.http import *
 from django.utils.safestring import *
 from django.views import View
-
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
 
@@ -97,8 +96,9 @@ class UserProfileIndex(LoginRequiredMixin, View):
         form = FeedbackForm()
 
         gh = Google_Analytics()
-        az_secret = gh.returnAzureSecret()
-        analytics = gh.initialize_analyticsreporting(az_secret)
+        keyDrop = gh.getAzureSecret()
+        gh.download_file(keyDrop)
+        analytics = gh.initialize_analyticsreporting()
         response = gh.get_report(analytics)
         number_of_views = gh.print_response(response)
 

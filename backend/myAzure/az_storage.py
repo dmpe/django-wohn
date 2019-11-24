@@ -1,4 +1,6 @@
-from azure.keyvault import KeyVaultClient
+from azure.core.exceptions import AzureError
+from azure.identity import ChainedTokenCredential, ClientSecretCredential, ManagedIdentityCredential
+from azure.keyvault.secrets import SecretClient
 from storages.backends.azure_storage import AzureStorage
 
 from .az_connect import AzureConnection
@@ -7,7 +9,9 @@ from .az_connect import AzureConnection
 # used for Azure Key Vault
 azCon = AzureConnection()
 azCon.main()
-client = KeyVaultClient(azCon.credentials)
+client = SecretClient(
+    vault_url="https://b40.vault.azure.net/", credential=azCon.credentials
+)
 
 
 class AzureMediaStorage(AzureStorage):
@@ -21,11 +25,7 @@ class AzureMediaStorage(AzureStorage):
     """
 
     account_name = "melivexyz5555"
-    account_key = client.get_secret(
-        "https://b40.vault.azure.net/",
-        "AZURE-ACCOUNT-KEY",
-        "36456572c12640afa4c2ba448169ee66",
-    ).value
+    account_key = client.get_secret("AZURE-ACCOUNT-KEY").value
     azure_container = "images-profile-pictures"
     expiration_secs = None
 
@@ -38,10 +38,6 @@ class AzureStaticStorage(AzureStorage):
     """
 
     account_name = "melivexyz5555"
-    account_key = client.get_secret(
-        "https://b40.vault.azure.net/",
-        "AZURE-ACCOUNT-KEY",
-        "36456572c12640afa4c2ba448169ee66",
-    ).value
+    account_key = client.get_secret("AZURE-ACCOUNT-KEY").value
     azure_container = "static"
     expiration_secs = None

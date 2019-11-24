@@ -22,7 +22,7 @@ class RegisterForm(forms.Form):
 
 class LoginForm(forms.Form):
     """
-	Users can login either via username or email. 
+	Users can login either via username or email.
 	Hence, input type="text"
 	"""
 
