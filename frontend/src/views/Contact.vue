@@ -40,9 +40,10 @@
                     //]]>
                   </script>
                 </address>
-                <i class="fab fa-twitter-square fa-3x mb-3" />
-                <i class="fab fa-facebook-square fa-3x mb-3" />
+                <i class="fab fa-twitter-square fa-3x mb-3" aria-hidden="true" />
+                <i class="fab fa-facebook-square fa-3x mb-3" aria-hidden="true" />
                 <iframe
+                  title="Mapy.cz Location of Melive.xyz office"
                   class="my-1 responsive-map"
                   src="https://api.mapy.cz/frame?params=%7B%22x%22%3A14.419088677425833%2C%22y%22%3A50.08932926711133%2C%22base%22%3A%221%22%2C%22layers%22%3A%5B%5D%2C%22zoom%22%3A17%2C%22url%22%3A%22https%3A%2F%2Fen.mapy.cz%2Fs%2F3983p%22%2C%22mark%22%3A%7B%22x%22%3A%2214.419083313007807%22%2C%22y%22%3A%2250.089570190430784%22%2C%22title%22%3A%22ulice%20Pa%C5%99%C3%AD%C5%BEsk%C3%A1%2097%2F15%2C%20Praha%22%7D%2C%22overview%22%3Afalse%7D&amp;width=470&amp;height=333&amp;lang=en"
                   width="470"
