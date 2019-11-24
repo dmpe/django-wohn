@@ -76,7 +76,7 @@ class ContactView(View):
             subject = form.cleaned_data["inputSubject"]
             text_msg = form.cleaned_data["inputText"]
 
-            if is_human(recap_token) is True:
+            # if is_human(recap_token) is True:
                 prepare_visitor_mssg_email(request, username, email, subject, text_msg)
 
                 messages.add_message(
@@ -89,17 +89,17 @@ class ContactView(View):
                         "<p>We wiill respond to you <strong>as soon as possible</strong>.</p>"
                     ),
                 )
-            else:
-                messages.add_message(
-                    request,
-                    messages.WARNING,
-                    mark_safe(
-                        "<h6 class="
-                        "alert-heading"
-                        ">Sorry, but you seem to be a computer bot.</h6>"
-                        "<p>Please resend the message again, clean cookies or click on the right to email us directly.</p>"
-                    ),
-                )
+            # else:
+            #     messages.add_message(
+            #         request,
+            #         messages.WARNING,
+            #         mark_safe(
+            #             "<h6 class="
+            #             "alert-heading"
+            #             ">Sorry, but you seem to be a computer bot.</h6>"
+            #             "<p>Please resend the message again, clean cookies or click on the right to email us directly.</p>"
+            #         ),
+            #     )
         else:
             messages.add_message(
                 request,

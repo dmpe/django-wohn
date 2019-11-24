@@ -47,10 +47,32 @@
             class="mb-5">
 
             <b-form-group
+              label="Name"
+              label-for="input-name"
+              :invalid-feedback="invalidSubject">
+              <b-form-input
+                id="input-name"
+                v-model="text"
+                trim>
+              </b-form-input>
+            </b-form-group>
+
+            <b-form-group
+              label="Email"
+              label-for="input-email"
+              :invalid-feedback="invalidEmail">
+              <b-form-input
+                id="input-email"
+                v-model="email"
+                trim>
+              </b-form-input>
+            </b-form-group>
+
+            <b-form-group
               label="Subject"
               label-for="input-subject-line"
-              :invalid-feedback="invalidSubject"> 
-              <b-form-input 
+              :invalid-feedback="invalidSubject">
+              <b-form-input
                 id="input-subject-line"
                 v-model="text"
                 trim>
@@ -59,17 +81,17 @@
 
             <b-form-group
               label="Choce reason to contact us"
-              label-for="options-select"> 
-              <b-form-select 
+              label-for="options-select">
+              <b-form-select
                 id="options-select"
-                v-model="selected" 
+                v-model="selected"
                 :options="options">
               </b-form-select>
             </b-form-group>
 
             <b-form-group label="Your message"
               label-for="textarea-large">
-              <b-form-textarea 
+              <b-form-textarea
                 id="textarea-large"
                 v-model="text"
                 placeholder="..."
@@ -78,7 +100,7 @@
               </b-form-textarea>
             </b-form-group>
 
-            <b-form-group> 
+            <b-form-group>
               <b-button
                 id="recaptchaValidator"
                 type="submit"
@@ -104,21 +126,22 @@
 <script lang="ts">
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
-import TheFooter from "@/components/TheFooter.vue"; 
+import TheFooter from "@/components/TheFooter.vue";
 
 export default Vue.extend({
   name: "Contact",
   components: {
     TheHeader,
     TheFooter,
-  }, 
+  },
   data () {
     return {
-      selected: null,
+      selected: 'general',
       options: [
-        { value: null, text: 'General/Others' },
-        { value: 'a', text: 'Bugs/Issues on the website' },
-        { value: 'b', text: 'Fraud/Takedowns/Bans' },
+        { value: 'general', text: 'General Questions/Others' },
+        { value: 'ads', text: 'Advertising' },
+        { value: 'help_me', text: 'Bugs/Issues on the website' },
+        { value: 'com_abs_similar', text: 'Fraud/Takedowns/Bans/Abuse' },
       ]
     }
   }
