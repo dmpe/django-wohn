@@ -41,27 +41,53 @@
         </div>
 
         <div class="col-md-5 col-sm-12">
-          <form
+          <b-form
             id="form-contact"
             method="POST"
             class="mb-5">
-              <div class="form-row">
-                <div class="form-group col-md-12 col-sm-5" />
-                <div class="form-group col-md-12 col-sm-7" />
-              </div>
 
-              <div class="form-group"> </div>
+            <b-form-group
+              label="Subject"
+              label-for="input-subject-line"
+              :invalid-feedback="invalidSubject"> 
+              <b-form-input 
+                id="input-subject-line"
+                v-model="text"
+                trim>
+              </b-form-input>
+            </b-form-group>
 
-              <div class="form-group"> </div>
+            <b-form-group
+              label="Choce reason to contact us"
+              label-for="options-select"> 
+              <b-form-select 
+                id="options-select"
+                v-model="selected" 
+                :options="options">
+              </b-form-select>
+            </b-form-group>
 
-              <button
+            <b-form-group label="Your message"
+              label-for="textarea-large">
+              <b-form-textarea 
+                id="textarea-large"
+                v-model="text"
+                placeholder="..."
+                size="lg"
+                rows="5" max-rows="10">
+              </b-form-textarea>
+            </b-form-group>
+
+            <b-form-group> 
+              <b-button
                 id="recaptchaValidator"
                 type="submit"
-                class="btn btn-warning mb-5 btn-lg btn-block"
-              >
-                Submit message to Marek
-              </button>
-          </form>
+                class="btn btn-warning mb-5 btn-lg btn-block">
+                Submit message to Admin
+              </b-button>
+            </b-form-group>
+
+          </b-form>
 
           <!--<div
             id="checkEmailAlert"
@@ -85,6 +111,16 @@ export default Vue.extend({
   components: {
     TheHeader,
     TheFooter,
+  }, 
+  data () {
+    return {
+      selected: null,
+      options: [
+        { value: null, text: 'General/Others' },
+        { value: 'a', text: 'Bugs/Issues on the website' },
+        { value: 'b', text: 'Fraud/Takedowns/Bans' },
+      ]
+    }
   }
 });
 </script>
