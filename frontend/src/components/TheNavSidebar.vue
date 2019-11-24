@@ -7,7 +7,7 @@
             href="/administrace"
             class="nav-link {% if url_name == 'userMng:userMng_index' %}active{% endif %}"
           >
-            <i class="fas fa-home fa-lg" />
+            <em class="fas fa-home fa-lg" ></em>
             <span class="ml-3">Homepage</span>
           </a>
         </li>
@@ -16,7 +16,7 @@
             href="/administrace/profile"
             class="nav-link {% if url_name == 'userMng:user_profile' %}active{% endif %}"
           >
-            <i class="fas fa-user fa-lg" />
+            <em class="fas fa-user fa-lg" ></em>
             <span class="ml-3">My profile</span>
           </a>
         </li>
@@ -25,7 +25,7 @@
             href="/administrace/properties"
             class="nav-link {% if url_name == 'userMng:user_properties' %}active{% endif %}"
           >
-            <i class="fas fa-hotel fa-lg" />
+            <em class="fas fa-hotel fa-lg" ></em>
             <span class="ml-3">Properties</span>
             <span class="badge badge-success badge-pill"> {{ number_of_properties }}</span>
           </a>
@@ -35,7 +35,7 @@
             href="{% url 'pinax_messages:inbox' %}"
             class="nav-link {% if url_name == 'pinax_messages:inbox' %}active{% endif %}"
           >
-            <i class="fas fa-envelope fa-lg" />
+            <em class="fas fa-envelope fa-lg" ></em>
             <span class="ml-3">Messages</span>
             <span class="badge badge-danger badge-pill"> {{ unread_thread_count }}</span>
           </a>
@@ -50,7 +50,7 @@
             href="{% url 'userMng:my_property_ads' %}"
             class="nav-link {% if url_name == 'userMng:my_property_ads' %}active{% endif %}"
           >
-            <i class="fas fa-ad fa-lg" />
+            <em class="fas fa-ad fa-lg" ></em>
             <span class="ml-3">My property ads</span>
           </a>
         </li>
@@ -59,7 +59,7 @@
             href="{% url 'userMng:ad_statistics' %}"
             class="nav-link {% if url_name == 'userMng:ad_statistics' %}active{% endif %}"
           >
-            <i class="fas fa-signal fa-lg" />
+            <em class="fas fa-signal fa-lg" ></em>
             <span class="ml-3">Statistics</span>
           </a>
         </li>
@@ -74,7 +74,7 @@
             href="/administrace"
             class="nav-link {% if url_name == 'userMng:userMng_index' %}active{% endif %}"
           >
-            <i class="fas fa-home fa-lg" />
+            <em class="fas fa-home fa-lg" ></em>
           </a>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -82,7 +82,7 @@
             href="/administrace/profile"
             class="nav-link {% if url_name == 'userMng:user_profile' %}active{% endif %}"
           >
-            <i class="fas fa-user fa-lg" />
+            <em class="fas fa-user fa-lg" ></em>
           </a>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -90,7 +90,7 @@
             href="/administrace/properties"
             class="nav-link {% if url_name == 'userMng:user_properties' %}active{% endif %}"
           >
-            <i class="fas fa-hotel fa-lg" />
+            <em class="fas fa-hotel fa-lg" ></em>
             <span class="badge badge-success badge-pill"> {{ number_of_properties }}</span>
           </a>
         </li>
@@ -100,7 +100,7 @@
             href="{% url 'pinax_messages:inbox' %}"
             class="nav-link {% if url_name == 'pinax_messages:inbox' %}active{% endif %}"
           >
-            <i class="fas fa-envelope fa-lg" />
+            <em class="fas fa-envelope fa-lg" ></em>
             <span class="badge badge-danger badge-pill"> {{ unread_thread_count }}</span>
           </a>
         </li>
@@ -110,7 +110,7 @@
             href="{% url 'userMng:my_property_ads' %}"
             class="nav-link {% if url_name == 'userMng:my_property_ads' %}active{% endif %}"
           >
-            <i class="fas fa-ad fa-lg" />
+            <em class="fas fa-ad fa-lg" ></em>
           </a>
         </li>
         <li class="list-group-item justify-content-between align-items-center">
@@ -118,7 +118,7 @@
             href="{% url 'userMng:ad_statistics' %}"
             class="nav-link {% if url_name == 'userMng:ad_statistics' %}active{% endif %}"
           >
-            <i class="fas fa-signal fa-lg" />
+            <em class="fas fa-signal fa-lg" ></em>
           </a>
         </li>
         {% endif %}
