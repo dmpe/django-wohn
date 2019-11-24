@@ -23,7 +23,7 @@
                   Prague 1, Czech Republic, EU <br> <br>
                   For legal, developer-related <u>and</u> other type of questions, contact us at above address or via: <br>
                   <i class="fas fa-at" /> Mr.
-                  <script type="text/javascript">
+                  <script type="application/javascript">
                     <!-- http://hivelogic.com/enkoder/index.php -->
                     //<![CDATA[
                     <!--
@@ -82,11 +82,11 @@
             </button>
           </form>
 
-          <div
+          <!--<div
             id="checkEmailAlert"
-            class="alert alert-{{ message.tags }} mb-5"
+             class="alert alert-{{ message.tags }} mb-5"
             role="alert"
-          />
+          />-->
         </div>
       </div>
     </b-container>
@@ -98,6 +98,7 @@
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue"; // @ is an alias to /src
+import BootstrapVue from "bootstrap-vue";
 
 export default Vue.extend({
   name: "Contact",

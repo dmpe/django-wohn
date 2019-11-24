@@ -3,7 +3,7 @@
     <TheHeader />
     <b-container fluid>
       <!-- Because of Facebook login -->
-      <div id="fb-root" />
+      <div id="fb-root"></div>
 
       <div class="row d-flex justify-content-center login_register_box">
         <div class="card">
@@ -21,7 +21,7 @@
                   <a
                     type="button"
                     class="btn btn-primary google_signin"
-                    href="{% url 'social:begin' 'google-oauth2' %}"
+                    href=""
                   >
                     <img
                       class="google_icon"
@@ -36,7 +36,7 @@
                   <a
                     type="button"
                     class="btn btn-info twitter_singin"
-                    href="{% url 'social:begin' 'twitter' %}"
+                    href=""
                   >
                     <img
                       class="twitter_icon"
@@ -51,7 +51,7 @@
                   <a
                     type="button"
                     class="btn btn-white facebook_singin"
-                    href="{% url 'social:begin' 'facebook' %}"
+                    href=""
                   >
                     <img
                       class="facebook_icon"
@@ -131,17 +131,15 @@
                 </form>
               </div>
 
-              <div
+              <!-- <div
                 id="checkEmailAlert"
                 class="alert alert-{{ message.tags }} messageErrorLoginSignup"
                 role="alert"
-              >
-                {{ message }}
+              > -->
               </div>
             </div>
           </div>
         </div>
-      </div>
     </b-container>
     <TheFooter />
   </div>
@@ -151,6 +149,7 @@
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
+import BootstrapVue from "bootstrap-vue";
 
 export default Vue.extend({
   name: "Login",

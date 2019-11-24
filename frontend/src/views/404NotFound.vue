@@ -15,7 +15,7 @@ import NotFound from "@/components/error_handlers/NotFound.vue";
 
 
 export default Vue.extend({
-  name: "404NotFound",
+  name: "NotFound",
   components: {
     TheHeader,
     NotFound,

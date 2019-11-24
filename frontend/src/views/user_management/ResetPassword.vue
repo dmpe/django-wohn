@@ -55,13 +55,13 @@
 		{% endcomment %}
 		{% if messages %}
 			{% for message in  messages %} -->
-        <div
+        <!-- <div
           id="checkEmailAlert"
           class="alert alert-{{ message.tags }}"
           role="alert"
-        >
+        > -->
           <!-- {{ message }} -->
-        </div>
+        <!-- </div> -->
         <!-- {% endfor %}
 		{% endif %} -->
       </div>
@@ -71,7 +71,7 @@
     show a profile page where he can change it by himself
   {% endcomment %}
   {% else %} -->
-      <script>
+      <script type="application/javascript">
         var timer = setTimeout(function() {
         window.location = 'https://melive.xyz/administrace/user_profile'
         }, 1000);
