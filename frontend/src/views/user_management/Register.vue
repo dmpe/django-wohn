@@ -3,7 +3,7 @@
     <TheHeader />
     <b-container fluid>
       <!-- Because of Facebook login -->
-      <div id="fb-root"></div>
+      <div id="fb-root" />
 
       <!-- TODO what if user wants to logout or deasscoiate accounts: is registeration page available to him -->
       <div class="row d-flex justify-content-center login_register_box">
@@ -221,10 +221,10 @@
                 role="alert"
               > -->
               <!-- {{ message }} -->
-              </div>
             </div>
           </div>
         </div>
+      </div>
     </b-container>
     <TheFooter />
   </div>
@@ -235,22 +235,6 @@ import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
 import BootstrapVue from "bootstrap-vue";
-
-const {AlgebraicCaptcha} = require("algebraic-captcha");
-const algebraicCaptcha = new AlgebraicCaptcha({
-  width: 200,
-  height: 200,
-  background: "#ffffff",
-  noise: 4,
-  minValue: 1,
-  maxValue: 10,
-  operandAmount: 2,
-  operandTypes: ["+", "-"],
-  mode: "formula",
-  targetSymbol: "?"
-});
-
-const {image, answer} = algebraicCaptcha.generateCaptcha();
 
 export default Vue.extend({
   name: "Register",

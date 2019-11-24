@@ -60,7 +60,7 @@
           class="alert alert-{{ message.tags }}"
           role="alert"
         > -->
-          <!-- {{ message }} -->
+        <!-- {{ message }} -->
         <!-- </div> -->
         <!-- {% endfor %}
 		{% endif %} -->
