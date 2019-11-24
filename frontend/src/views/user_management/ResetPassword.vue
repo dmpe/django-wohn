@@ -71,11 +71,11 @@
     show a profile page where he can change it by himself
   {% endcomment %}
   {% else %} -->
-      <script type="application/javascript">
+      <!-- <script type="application/javascript">
         var timer = setTimeout(function() {
-        window.location = 'https://melive.xyz/administrace/user_profile'
+        window.location = 'https://frontend.melive.xyz/administrace/user_profile'
         }, 1000);
-      </script>
+      </script> -->
       <!-- {% endif %} -->
     </b-container>
     <TheFooter />
