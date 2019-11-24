@@ -25,6 +25,7 @@ const router = new Router({
       name: "home",
       component: Home,
       meta: {
+        requireAuth: false,
         title: "Home Page - Student Housing in Czechia - Melive.xyz",
         metaTags: [
           {
@@ -43,6 +44,7 @@ const router = new Router({
       component: () =>
         import(/* WebpackChunkName: "about" */ "./views/About.vue"),
       meta: {
+        requireAuth: false,
         title: "About Melive.xyz",
         metaTags: [
           {
@@ -57,6 +59,7 @@ const router = new Router({
       name: "contact",
       component: Contact,
       meta: {
+        requireAuth: false,
         title: "Contact owners & developers - Melive.xyz",
         metaTags: [
           {
@@ -71,6 +74,7 @@ const router = new Router({
       name: "terms",
       component: Terms,
       meta: {
+        requireAuth: false,
         title: "Terms of use - Melive.xyz",
         metaTags: [
           {
@@ -85,6 +89,7 @@ const router = new Router({
       name: "privacy",
       component: Privacy,
       meta: {
+        requireAuth: false,
         title: "Privacy policy - Melive.xyz",
         metaTags: [
           {
@@ -99,6 +104,7 @@ const router = new Router({
       name: "login",
       component: Login,
       meta: {
+        requireAuth: false,
         title: "Login - Melive.xyz",
         metaTags: [
           {
@@ -113,6 +119,7 @@ const router = new Router({
       name: "register",
       component: Register,
       meta: {
+        requireAuth: false,
         title: "Register - Melive.xyz",
         metaTags: [
           {
@@ -127,6 +134,7 @@ const router = new Router({
       name: "resetpassword",
       component: ResetPassword,
       meta: {
+        requireAuth: false,
         title: "Reset your password - Melive.xyz",
         metaTags: [
           {
@@ -141,6 +149,7 @@ const router = new Router({
       name: "administrace",
       component: Administrace,
       meta: {
+        requireAuth: true,
         title: "User Settings - Melive.xyz",
         metaTags: [
           {
@@ -171,7 +180,10 @@ const router = new Router({
     {
       path: "/property/:id",
       name: "property-id",
-      component: PropertyID
+      component: PropertyID,
+      meta: {
+        requireAuth: false
+      }
     },
     {
       // Any not listed above

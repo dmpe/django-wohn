@@ -15,7 +15,4 @@ RUN pip install -r requirenments.txt && \
     chmod +x start_django.sh
 
 EXPOSE 8000 8123
-
-# TODO: set entrypoint once container can start
 ENTRYPOINT ["./start_django.sh"]
-#CMD ["./start_django.sh"]
