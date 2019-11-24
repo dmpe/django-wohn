@@ -7,7 +7,7 @@
 
         <div class="col-md-9 col-lg-9 col-xl-10">
           <h1 class="display-4 d-none d-sm-block">
-            Welcome back {{ user.username }}
+            <!-- Welcome back {{ user.username }} -->
           </h1>
           <h3 />
 
@@ -20,7 +20,7 @@
                 >
                   <div class="card-body bg-success">
                     <h6 class="text-uppercase">Properties</h6>
-                    <h2 class="display-2">{{ number_of_properties }}</h2>
+                    <!-- <h2 class="display-2">{{ number_of_properties }}</h2> -->
                   </div>
                 </a>
               </div>
@@ -33,7 +33,7 @@
                     Google Analytics Homepage Views
                   </h6>
                   <h2 class="display-2">
-                    {{ number_of_views }}
+                    <!-- {{ number_of_views }} -->
                   </h2>
                 </div>
               </div>
@@ -47,7 +47,7 @@
                 >
                   <div class="card-body bg-secondary">
                     <h6 class="text-uppercase">Messages</h6>
-                    <h2 class="display-2">{{ unread_thread_count }}</h2>
+                    <!-- <h2 class="display-2">{{ unread_thread_count }}</h2> -->
                   </div>
                 </a>
               </div>
@@ -62,11 +62,11 @@
                 </div>
 
                 <div class="card-body">
-                  {% for blog_item in news_collection %}
+                  <!-- {% for blog_item in news_collection %} -->
                   <div class="news_collection">
                     <p>testing...</p>
                   </div>
-                  {% endfor %}
+                  <!-- {% endfor %} -->
                 </div>
               </div>
             </div>

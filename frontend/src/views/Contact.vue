@@ -22,7 +22,7 @@
                   Pařížská 97/15, 110 00 <br>
                   Prague 1, Czech Republic, EU <br> <br>
                   For legal, developer-related <u>and</u> other type of questions, contact us at above address or via: <br>
-                  <i class="fas fa-at" /> Mr.
+                  <i class="fas fa-at" aria-hidden="true" /> Mr.
                   <script type="application/javascript">
                     <!-- http://hivelogic.com/enkoder/index.php -->
                     //<![CDATA[
