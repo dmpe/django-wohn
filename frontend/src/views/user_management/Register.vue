@@ -202,10 +202,6 @@
                   </p>
 
                   <!-- Also includes Google Recaptcha v3 or other form of Captcha -->
-                  <img
-                    id="algebraic-captcha"
-                    alt="math-captcha"
-                  >
                   <button
                     type="submit"
                     class="btn btn-warning float-right btn-lg"

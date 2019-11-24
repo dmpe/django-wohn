@@ -143,7 +143,7 @@ const router = new Router({
         },
         {
           path: "properties",
-          name: "user-profile",
+          name: "user-properties",
           component: UserProperties,
           meta: {
             title:  "My properties",
