@@ -40,8 +40,8 @@
             <span class="badge badge-danger badge-pill"> {{ unread_thread_count }}</span>
           </a>
         </li>
-        {# IDEA: if user is advertisor, see stage-2 #}
-        {% if request.user.is_active and request.user.is_staff %}
+        <!-- IDEA: if user is advertisor, see stage-2 #}
+        {% if request.user.is_active and request.user.is_staff %} -->
         <li class="horizontal_line d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           Advertising
         </li>
