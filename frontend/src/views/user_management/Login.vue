@@ -25,7 +25,6 @@
                   >
                     <img
                       class="google_icon"
-                      src="https://djangowohnreal1.blob.core.windows.net/images/btn_google_dark_normal_ios.svg"
                     >
                     <p class="text-center mt-1 text-white">Log In With Google</p>
                   </a>
@@ -40,7 +39,6 @@
                   >
                     <img
                       class="twitter_icon"
-                      src="https://djangowohnreal1.blob.core.windows.net/images/Twitter_Logo_Blue.svg"
                     >
                     <p class="text-center mt-1 text-white">Log In With Twitter</p>
                   </a>
@@ -55,7 +53,6 @@
                   >
                     <img
                       class="facebook_icon"
-                      src="https://djangowohnreal1.blob.core.windows.net/images/flogo-HexRBG-Wht-58.svg"
                     >
                     <p class="text-center mt-1 text-white">Log In With Facebook</p>
                   </a>
@@ -149,7 +146,6 @@
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
-import BootstrapVue from "bootstrap-vue";
 
 export default Vue.extend({
   name: "Login",
