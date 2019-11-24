@@ -2,7 +2,6 @@
 # instance of a logger
 import logging
 
-import markdown
 from django import forms
 from django.conf import settings
 from django.contrib import *
