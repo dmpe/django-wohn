@@ -1,5 +1,9 @@
 <template>
-
+  <div>
+  <TheHeader />
+  <ProfileNav />
+  <TheFooter />
+  </div>
 </template>
 
 

@@ -82,7 +82,7 @@
                     </div>
                   </div>
                   <div class="form-group spacing">
-                    <input-password></input-password>
+                    <TheInputPassword></TheInputPassword>
                   </div>
 
                   <p class="float-left">
@@ -128,7 +128,7 @@ export default Vue.extend({
   },
   data () {
     return {
-      iconCollapsed: true,
+
     }
   }
 });
