@@ -103,8 +103,7 @@
                             type="button"
                             v-on:click="iconCollapsed = !iconCollapsed"
                           >
-                          <!-- DOES NOT WORK -->
-                            <span v-if="marked">
+                            <span>
                               <i class="fas fa-lg fa-eye" />
                             </span>
                           </button>
