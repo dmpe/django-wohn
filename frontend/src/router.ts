@@ -4,6 +4,7 @@ import Router from "vue-router";
 import Administrace from "./views/user_management/profile/Homepage.vue";
 import UserProfile from "./views/user_management/profile/UserProfile.vue";
 import UserProperties from "./views/user_management/profile/UserProperties.vue";
+import UserMessages from "./views/user_management/profile/Messages.vue";
 import ResetPassword from "./views/user_management/ResetPassword.vue";
 import Login from "./views/user_management/Login.vue";
 import Register from "./views/user_management/Register.vue";
@@ -173,6 +174,14 @@ const router = new Router({
           component: UserProperties,
           meta: {
             title:  "My properties",
+          },
+        },
+        {
+          path: "messages",
+          name: "user-messages",
+          component: UserMessages,
+          meta: {
+            title:  "My messages",
           },
         }
       ]

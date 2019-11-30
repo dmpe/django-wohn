@@ -32,7 +32,7 @@
         </li>
         <li class="nav-item">
           <a
-            href="{% url 'pinax_messages:inbox' %}"
+            href="/administrace/messages"
             class="nav-link {% if url_name == 'pinax_messages:inbox' %}active{% endif %}"
           >
             <i class="fas fa-envelope fa-lg" aria-hidden="true"/>
@@ -97,7 +97,7 @@
 
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <a
-            href="{% url 'pinax_messages:inbox' %}"
+            href="/administrace/messages"
             class="nav-link {% if url_name == 'pinax_messages:inbox' %}active{% endif %}"
           >
             <i class="fas fa-envelope fa-lg" aria-hidden="true"/>
