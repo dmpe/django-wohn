@@ -82,38 +82,7 @@
                     </div>
                   </div>
                   <div class="form-group spacing">
-                    <div class="input-group">
-                      <!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
-                      <input
-                        id="inputNewPassword"
-                        v-bind:type="[iconCollapsed ? 'password' : 'text']"
-                        name="inputNewPassword"
-                        class="form-control"
-                        placeholder="Password"
-                      >
-                      <div class="input-group-append">
-                        <span
-                          id="inputGroupAppend"
-                          class="input-group-text"
-                        >
-                          <button
-                            id="buttonEYE2"
-                            class="resetIconStylesEYE"
-                            aria-hidden="true"
-                            type="button"
-                            v-on:click="iconCollapsed = !iconCollapsed"
-                          >
-                            <span>
-                              <i class="fas fa-lg fa-eye" />
-                            </span>
-                          </button>
-                        </span>
-                      </div>
-                      <label
-                        class="sr-only"
-                        for="inputNewPassword"
-                      >Password</label>
-                    </div>
+                    <input-password></input-password>
                   </div>
 
                   <p class="float-left">
@@ -148,11 +117,13 @@
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
+import TheInputPassword from "@/components/TheInputPassword.vue";
 
 export default Vue.extend({
   name: "Login",
   components: {
     TheHeader,
+    TheInputPassword,
     TheFooter,
   },
   data () {

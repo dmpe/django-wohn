@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.14",
+    "@types/jquery": "^3.3.31",
     "@types/showdown": "^1.9.3",
     "@typescript-eslint/eslint-plugin": "^2.9.0",
     "@vue/cli-plugin-babel": "^4.1.1",
