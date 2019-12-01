@@ -5,9 +5,9 @@ This documentation providers a high-level overview of Django-Wohn, aka Melive.xy
 # Project Includes
 
 - Django for backend
-- DJango `/graphql` API endpoint (alternative to REST API) for querying (GET) and mutations (POST/DELETE) of DJango models 
+- DJango `/graphql` API endpoint (alternative to REST API) for querying (GET) and mutations (POST/DELETE) of DJango models
 - Vue.js for frontend
-- 
+-
 - Azure Cloud for KeyVault, Storage and VMs. See later dedicated section here.
 
 
@@ -41,7 +41,6 @@ This documentation providers a high-level overview of Django-Wohn, aka Melive.xy
 - [x] Website: "About us" Site
     - [x] Rendered from `readme.md` file
 - [x] Website: Fix all issues that inhibit smooth feature-complete as of the last time
-- [ ]
 - [ ] Emails: Avoid DJango, but when needed transition to SendGrid's API.
 - [x] Posting a real-estate:
     - [x] DJango Model Inheritance via [Abstract Class](https://docs.djangoproject.com/en/2.2/topics/db/models/#model-inheritance)
