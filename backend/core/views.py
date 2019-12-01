@@ -76,18 +76,18 @@ class ContactView(View):
             text_msg = form.cleaned_data["inputText"]
 
             # if is_human(recap_token) is True:
-                prepare_visitor_mssg_email(request, username, email, subject, text_msg)
+            prepare_visitor_mssg_email(request, username, email, subject, text_msg)
 
-                messages.add_message(
-                    request,
-                    messages.SUCCESS,
-                    mark_safe(
-                        "<h6 class="
-                        "alert-heading"
-                        ">Thank you for sending us the message!</h6>"
-                        "<p>We wiill respond to you <strong>as soon as possible</strong>.</p>"
-                    ),
-                )
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                mark_safe(
+                    "<h6 class="
+                    "alert-heading"
+                    ">Thank you for sending us the message!</h6>"
+                    "<p>We wiill respond to you <strong>as soon as possible</strong>.</p>"
+                ),
+            )
             # else:
             #     messages.add_message(
             #         request,
