@@ -1,10 +1,9 @@
 <template>
   <div class="input-group">
-    <!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
     <input
-      id="inputNewPassword"
+      v-bind:id="passwordInput"
       v-bind:type="[iconCollapsed ? 'password' : 'text']"
-      name="inputNewPassword"
+      v-bind:name="passwordInput"
       class="form-control"
       placeholder="Password"
     >
@@ -14,7 +13,7 @@
         class="input-group-text"
       >
         <button
-          id="buttonEYE2"
+          v-bind:id="buttonInput"
           class="resetIconStylesEYE"
           aria-hidden="true"
           type="button"
@@ -31,34 +30,50 @@
     </div>
     <label
       class="sr-only"
-      for="inputNewPassword"
+      v-bind:for="passwordInput"
     >Password</label>
     </div>
 </template>
+
+
+<style lang="stylus" scoped>
+.resetIconStylesEYE
+    border none
+    background none
+    padding-top 0rem
+    padding-right 0.75rem
+    padding-bottom 0rem
+    padding-left 0.75rem
+</style>
 
 <script lang="ts">
 import Vue from "vue";
 // import BootstrapVue from "bootstrap-vue";
 import jQuery from "jquery";
+import { type } from 'os';
 let $ = jQuery;
 
 export default {
   name: "TheInputPassword",
+  props: {
+    passwordInput: {
+      type: String,
+      required: true
+    },
+    name: {
+      type: String,
+      required: false
+    },
+    buttonInput: {
+      type: String,
+      required: false
+    }
+  },
   data() {
     return {
       iconCollapsed: true,
       icon: true
     }
-  },
-  methods: {
-    // toggleIcon() {
-    //   $('span').on('click', function () {
-    //     $(this)
-    //       .find('[data-fa-i2svg]')
-    //       .toggleClass('fa-eye-slash')
-    //       .toggleClass('fa-eye');
-    //   });
-    // }
   },
 };
 </script>

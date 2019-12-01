@@ -82,7 +82,7 @@
                     </div>
                   </div>
                   <div class="form-group spacing">
-                    <TheInputPassword></TheInputPassword>
+                    <TheInputPassword passwordInput="inputPassword" buttonInput="buttonEYE2"></TheInputPassword>
                   </div>
 
                   <p class="float-left">
