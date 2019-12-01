@@ -59,6 +59,7 @@ services:
           - "traefik.http.services.backend.loadbalancer.server.port=8123"
           - "traefik.http.middlewares.backend-redirect.redirectscheme.scheme=https"
           - "traefik.http.routers.backend.middlewares=backend-redirect"
+          - "traefik.http.routers.backend.priority=1"
         environment:
           - "DOCKER_HOST=172.17.0.5"
           - "OVH_ENDPOINT=ovh-eu"
@@ -89,6 +90,7 @@ services:
           - "traefik.http.services.frontend.loadbalancer.server.port=2746"
           - "traefik.http.middlewares.frontend-redirect.redirectscheme.scheme=https"
           - "traefik.http.routers.frontend.middlewares=frontend-redirect"
+          - "traefik.http.routers.frontend.priority=2"
         volumes:
           - ./services/containers/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
         environment:
