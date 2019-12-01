@@ -48,7 +48,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-// import BootstrapVue from "bootstrap-vue";
 import jQuery from "jquery";
 import { type } from 'os';
 let $ = jQuery;

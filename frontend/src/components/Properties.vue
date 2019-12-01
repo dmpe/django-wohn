@@ -4,7 +4,7 @@
       <div class="col-md-7">
         <a href="#">
           <img
-            class="img-fluid rounded mb-3 mb-md-0"
+            class="img-fluid rounded mt-3 mb-md-0"
             src="https://picsum.photos/300/100"
             alt=""
           >
@@ -27,7 +27,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import BootstrapVue from "bootstrap-vue";
 
 export default {
   name: "Properties",

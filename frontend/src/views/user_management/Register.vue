@@ -107,12 +107,19 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="form-group spacing">
-                    <TheInputPassword passwordInput="inputPassword" buttonInput="buttonEYE2"></TheInputPassword>
+                    <TheInputPassword passwordInput="inputPassword2" buttonInput="buttonEYE2"></TheInputPassword>
                   </div>
+
                   <div class="form-group spacing">
-                    <TheInputPassword passwordInput="inputPassword" buttonInput="buttonEYE3"></TheInputPassword>
+                    <TheInputPassword passwordInput="inputPassword3" buttonInput="buttonEYE3"></TheInputPassword>
                   </div>
+
+                  <div class="form-group spacing">
+                    <MathCaptcha />
+                  </div>
+
                   <div class="form-group spacing">
                     <div class="form-check">
                       <input
@@ -138,7 +145,6 @@
                     <a href="/reset-password">Forgot your username or password?</a>
                   </p>
 
-                  <!-- Also includes Google Recaptcha v3 or other form of Captcha -->
                   <button
                     type="submit"
                     class="btn btn-warning float-right btn-lg"
@@ -168,12 +174,14 @@ import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
 import TheInputPassword from "@/components/TheInputPassword.vue";
+import MathCaptcha from "@/components/MathCaptcha.vue";
 
 export default Vue.extend({
   name: "Register",
   components: {
     TheHeader,
     TheInputPassword,
+    MathCaptcha,
     TheFooter,
   }
 });
