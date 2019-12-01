@@ -51,9 +51,9 @@ services:
           - traefik_proxy
         labels:
           - "traefik.enable=true"
-          - "traefik.http.routers.backend.rule=Host(`melive.xyz`, `www.melive.xyz`)"
+          - "traefik.http.routers.backend.rule=Host(`melive.xyz`, `www.melive.xyz`) && PathPrefix(`/admin`)"
           - "traefik.http.routers.backendsec.tls=true"
-          - "traefik.http.routers.backendsec.rule=Host(`melive.xyz`, `www.melive.xyz`)"
+          - "traefik.http.routers.backendsec.rule=Host(`melive.xyz`, `www.melive.xyz`) && PathPrefix(`/admin`)"
           - "traefik.http.routers.backendsec.tls.certresolver=default"
           - "traefik.http.routers.backendsec.service=backend"
           - "traefik.http.services.backend.loadbalancer.server.port=8123"
@@ -81,9 +81,9 @@ services:
           - traefik_proxy
         labels:
           - "traefik.enable=true"
-          - "traefik.http.routers.frontend.rule=Host(`frontend.melive.xyz`, `www.frontend.melive.xyz`)"
+          - "traefik.http.routers.frontend.rule=Host(`melive.xyz`, `www.melive.xyz`)"
           - "traefik.http.routers.frontendsec.tls=true"
-          - "traefik.http.routers.frontendsec.rule=Host(`frontend.melive.xyz`, `www.frontend.melive.xyz`)"
+          - "traefik.http.routers.frontendsec.rule=Host(`melive.xyz`, `www.melive.xyz`)"
           - "traefik.http.routers.frontendsec.tls.certresolver=default"
           - "traefik.http.routers.frontendsec.service=frontend"
           - "traefik.http.services.frontend.loadbalancer.server.port=2746"
