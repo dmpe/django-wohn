@@ -108,70 +108,10 @@
                     </div>
                   </div>
                   <div class="form-group spacing">
-                    <div class="input-group">
-                      <!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
-                      <input
-                        id="inputNewPassword"
-                        class="form-control"
-                        type="password"
-                        name="inputNewPassword"
-                        placeholder="New Password"
-                        required
-                      >
-                      <div class="input-group-append">
-                        <span
-                          id="inputGroupAppend"
-                          class="input-group-text"
-                        >
-                          <button
-                            id="buttonEYE2"
-                            href=""
-                            aria-hidden="true"
-                            type="button"
-                            class="resetIconStylesEYE"
-                          >
-                            <i class="fas fa-eye fa-lg" />
-                          </button>
-                        </span>
-                      </div>
-                      <label
-                        class="sr-only"
-                        for="inputNewPassword"
-                      >New Password</label>
-                    </div>
+                    <TheInputPassword passwordInput="inputPassword" buttonInput="buttonEYE2"></TheInputPassword>
                   </div>
                   <div class="form-group spacing">
-                    <div class="input-group">
-                      <!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
-                      <input
-                        id="inputConfirmNewPassword"
-                        class="form-control"
-                        type="password"
-                        name="inputConfirmNewPassword"
-                        placeholder="Confirm New Password"
-                        required
-                      >
-                      <div class="input-group-append">
-                        <span
-                          id="inputGroupAppend"
-                          class="input-group-text"
-                        >
-                          <button
-                            id="buttonEYE3"
-                            href=""
-                            aria-hidden="true"
-                            type="button"
-                            class="resetIconStylesEYE"
-                          >
-                            <i class="fas fa-eye fa-lg" />
-                          </button>
-                        </span>
-                      </div>
-                      <label
-                        class="sr-only"
-                        for="inputConfirmNewPassword"
-                      >Confirm New Password</label>
-                    </div>
+                    <TheInputPassword passwordInput="inputPassword" buttonInput="buttonEYE3"></TheInputPassword>
                   </div>
                   <div class="form-group spacing">
                     <div class="form-check">
@@ -227,11 +167,13 @@
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
+import TheInputPassword from "@/components/TheInputPassword.vue";
 
 export default Vue.extend({
   name: "Register",
   components: {
     TheHeader,
+    TheInputPassword,
     TheFooter,
   }
 });
