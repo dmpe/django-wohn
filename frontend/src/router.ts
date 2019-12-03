@@ -1,16 +1,18 @@
+import Vue from "vue";
+import Router from "vue-router";
+
 import Administrace from "./views/user_management/profile/Homepage.vue";
 import UserProfile from "./views/user_management/profile/UserProfile.vue";
 import UserProperties from "./views/user_management/profile/UserProperties.vue";
+import UserMessages from "./views/user_management/profile/Messages.vue";
 import ResetPassword from "./views/user_management/ResetPassword.vue";
 import Login from "./views/user_management/Login.vue";
 import Register from "./views/user_management/Register.vue";
 import Contact from "./views/Contact.vue";
-import Vue from "vue";
-import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Privacy from "./views/Privacy.vue";
 import Terms from "./views/Terms.vue";
-import NotFound from "./views/404NotFound.vue";
+import NotFound from "./views/NotFound.vue";
 import PropertyID from "./views/PropertyID.vue";
 
 
@@ -24,6 +26,7 @@ const router = new Router({
       name: "home",
       component: Home,
       meta: {
+        requireAuth: false,
         title: "Home Page - Student Housing in Czechia - Melive.xyz",
         metaTags: [
           {
@@ -42,6 +45,7 @@ const router = new Router({
       component: () =>
         import(/* WebpackChunkName: "about" */ "./views/About.vue"),
       meta: {
+        requireAuth: false,
         title: "About Melive.xyz",
         metaTags: [
           {
@@ -56,6 +60,7 @@ const router = new Router({
       name: "contact",
       component: Contact,
       meta: {
+        requireAuth: false,
         title: "Contact owners & developers - Melive.xyz",
         metaTags: [
           {
@@ -70,6 +75,7 @@ const router = new Router({
       name: "terms",
       component: Terms,
       meta: {
+        requireAuth: false,
         title: "Terms of use - Melive.xyz",
         metaTags: [
           {
@@ -84,6 +90,7 @@ const router = new Router({
       name: "privacy",
       component: Privacy,
       meta: {
+        requireAuth: false,
         title: "Privacy policy - Melive.xyz",
         metaTags: [
           {
@@ -98,6 +105,7 @@ const router = new Router({
       name: "login",
       component: Login,
       meta: {
+        requireAuth: false,
         title: "Login - Melive.xyz",
         metaTags: [
           {
@@ -112,6 +120,7 @@ const router = new Router({
       name: "register",
       component: Register,
       meta: {
+        requireAuth: false,
         title: "Register - Melive.xyz",
         metaTags: [
           {
@@ -126,6 +135,7 @@ const router = new Router({
       name: "resetpassword",
       component: ResetPassword,
       meta: {
+        requireAuth: false,
         title: "Reset your password - Melive.xyz",
         metaTags: [
           {
@@ -140,6 +150,7 @@ const router = new Router({
       name: "administrace",
       component: Administrace,
       meta: {
+        requireAuth: true,
         title: "User Settings - Melive.xyz",
         metaTags: [
           {
@@ -164,13 +175,24 @@ const router = new Router({
           meta: {
             title:  "My properties",
           },
+        },
+        {
+          path: "messages",
+          name: "user-messages",
+          component: UserMessages,
+          meta: {
+            title:  "My messages",
+          },
         }
       ]
     },
     {
       path: "/property/:id",
       name: "property-id",
-      component: PropertyID
+      component: PropertyID,
+      meta: {
+        requireAuth: false
+      }
     },
     {
       // Any not listed above

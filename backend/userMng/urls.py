@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.conf.urls import include
 from django.urls import path
-from pinax.messages import *
 
 from . import views
 
@@ -20,10 +19,6 @@ urlpatterns = [
         "administrace/properties",
         views.UserProfileProperties.as_view(),
         name="user_properties",
-    ),
-    path(
-        "administrace/messages/",
-        include("pinax.messages.urls", namespace="pinax_messages"),
     ),
     path(
         "administrace/my_property_ads",

@@ -25,7 +25,6 @@
                   >
                     <img
                       class="google_icon"
-                      src="https://djangowohnreal1.blob.core.windows.net/images/btn_google_dark_normal_ios.svg"
                     >
                     <p class="text-center mt-1 text-white">Log In With Google</p>
                   </a>
@@ -40,7 +39,6 @@
                   >
                     <img
                       class="twitter_icon"
-                      src="https://djangowohnreal1.blob.core.windows.net/images/Twitter_Logo_Blue.svg"
                     >
                     <p class="text-center mt-1 text-white">Log In With Twitter</p>
                   </a>
@@ -55,7 +53,6 @@
                   >
                     <img
                       class="facebook_icon"
-                      src="https://djangowohnreal1.blob.core.windows.net/images/flogo-HexRBG-Wht-58.svg"
                     >
                     <p class="text-center mt-1 text-white">Log In With Facebook</p>
                   </a>
@@ -85,36 +82,7 @@
                     </div>
                   </div>
                   <div class="form-group spacing">
-                    <div class="input-group">
-                      <!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
-                      <input
-                        id="inputNewPassword"
-                        type="password"
-                        name="inputNewPassword"
-                        class="form-control"
-                        placeholder="Password"
-                      >
-                      <div class="input-group-append">
-                        <span
-                          id="inputGroupAppend"
-                          class="input-group-text"
-                        >
-                          <button
-                            id="buttonEYE2"
-                            href=""
-                            class="resetIconStylesEYE"
-                            aria-hidden="true"
-                            type="button"
-                          >
-                            <i class="fas fa-eye fa-lg" />
-                          </button>
-                        </span>
-                      </div>
-                      <label
-                        class="sr-only"
-                        for="inputNewPassword"
-                      >Password</label>
-                    </div>
+                    <TheInputPassword passwordInput="inputPassword" buttonInput="buttonEYE"></TheInputPassword>
                   </div>
 
                   <p class="float-left">
@@ -149,13 +117,19 @@
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
-import BootstrapVue from "bootstrap-vue";
+import TheInputPassword from "@/components/TheInputPassword.vue";
 
 export default Vue.extend({
   name: "Login",
   components: {
     TheHeader,
+    TheInputPassword,
     TheFooter,
+  },
+  data () {
+    return {
+
+    }
   }
 });
 </script>

@@ -32,7 +32,7 @@
         </li>
         <li class="nav-item">
           <a
-            href="{% url 'pinax_messages:inbox' %}"
+            href="/administrace/messages"
             class="nav-link {% if url_name == 'pinax_messages:inbox' %}active{% endif %}"
           >
             <i class="fas fa-envelope fa-lg" aria-hidden="true"/>
@@ -40,8 +40,8 @@
             <span class="badge badge-danger badge-pill"> {{ unread_thread_count }}</span>
           </a>
         </li>
-        {# IDEA: if user is advertisor, see stage-2 #}
-        {% if request.user.is_active and request.user.is_staff %}
+        <!-- IDEA: if user is advertisor, see stage-2 #}
+        {% if request.user.is_active and request.user.is_staff %} -->
         <li class="horizontal_line d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           Advertising
         </li>
@@ -97,7 +97,7 @@
 
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <a
-            href="{% url 'pinax_messages:inbox' %}"
+            href="/administrace/messages"
             class="nav-link {% if url_name == 'pinax_messages:inbox' %}active{% endif %}"
           >
             <i class="fas fa-envelope fa-lg" aria-hidden="true"/>
