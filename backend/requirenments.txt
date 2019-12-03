@@ -5,12 +5,12 @@ azure-storage-blob==2.1.0
 azure-keyvault-secrets==4.0.0
 azure-mgmt-keyvault==2.0.0
 brotlipy==0.7.0
-Django==2.2.7
+Django==3.0
 django-filter==2.2.0
 django-phonenumber-field==3.0.1
 django-storages==1.8
 django-split-settings==1.0.0
-django-cors-headers==3.1.1
+django-cors-headers==3.2.0
 django-widget-tweaks==1.4.5
 django-crispy-forms==1.8.1
 django-timezone-field
@@ -24,7 +24,7 @@ django-graphql-jwt==0.2.2
 dj-database-url==0.5.0
 google-api-python-client==1.7.11
 googleapis-common-protos==1.6.0
-gunicorn==20.0.2
+gunicorn==20.0.4
 graphene==2.1.8
 graphql-core==2.2.1
 graphene-django==2.7.1
@@ -34,7 +34,7 @@ social-auth-app-django==3.1.0
 #git+git://github.com/python-social-auth/social-app-django.git#egg=social-app-django
 pandas==0.25.3
 phonenumbers==8.10.22
-pytest==5.2.2
+pytest==5.3.1
 pytest-django==3.7.0
 pint==0.9
 Pillow==6.2.1
