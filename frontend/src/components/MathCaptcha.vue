@@ -10,15 +10,7 @@ import Vue from "vue";
 import jQuery from "jquery";
 let $ = jQuery;
 
-function generateCaptcha() {
-  var rnd1 = Math.ceil(Math.random()*20);
-  var rnd2 = Math.ceil(Math.random()*20);
-  var total:number = rnd1 + rnd2;
-}
-
-generateCaptcha();
-
-export default {
+export default Vue.extend({
   name: "MathCaptcha",
   data() {
     return {
@@ -26,5 +18,22 @@ export default {
       inputCaptchaAnswer: false,
     };
   },
-};
+  methods: {
+    generateCaptcha(): number[]  {
+      let rnd1 = Math.ceil(Math.random()*20);
+      let rnd2 = Math.ceil(Math.random()*20);
+      let total:number = rnd1 + rnd2;
+      return [rnd1, rnd2, total];
+    }
+  },
+  computed: {
+    prepareCap(): number[] {
+      let results: number[] = this.generateCaptcha();
+      return results;
+    },
+    changeState(): boolean {
+      return this.inputCaptchaAnswer;
+    }
+  },
+});
 </script>

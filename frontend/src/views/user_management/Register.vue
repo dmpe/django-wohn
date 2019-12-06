@@ -147,6 +147,7 @@
 
                   <button
                     type="submit"
+                    @click="submit"
                     class="btn btn-warning float-right btn-lg"
                   >
                     Register
@@ -183,7 +184,17 @@ export default Vue.extend({
     TheInputPassword,
     MathCaptcha,
     TheFooter,
-  }
+  },
+  data() {
+    return {
+      submitStatus: null,
+    }
+  },
+  methods: {
+    submit() {
+      console.log("click");
+    }
+  },
 });
 </script>
 
