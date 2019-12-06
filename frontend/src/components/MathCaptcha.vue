@@ -1,6 +1,6 @@
 <template>
 	<b-input-group class="mb-1" prepend="Solve Math Captcha">
-    <b-form-input id="input-default" name="mathcaptcha" :placeholder="test" :state="inputCaptchaAnswer"></b-form-input>
+    <b-form-input id="input-default" name="mathcaptcha" placeholder="{{ placeholder }}" :state="inputCaptchaAnswer"> {{ placeholder }} </b-form-input>
 	</b-input-group>
 </template>
 
@@ -22,9 +22,14 @@ export default {
   name: "MathCaptcha",
   data() {
     return {
-      test: "stre",
+      test: "testing",
       inputCaptchaAnswer: false,
     };
+  },
+  computed: {
+    placeholder: function() {
+      return this.test;
+    }
   },
   mounted() {
 

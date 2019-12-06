@@ -81,8 +81,13 @@
                       >Your email or username</label>
                     </div>
                   </div>
+
                   <div class="form-group spacing">
                     <TheInputPassword passwordInput="inputPassword" buttonInput="buttonEYE"></TheInputPassword>
+                  </div>
+
+                  <div class="form-group spacing">
+                    <MathCaptcha />
                   </div>
 
                   <p class="float-left">
@@ -118,12 +123,14 @@ import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
 import TheInputPassword from "@/components/TheInputPassword.vue";
+import MathCaptcha from "@/components/MathCaptcha.vue";
 
 export default Vue.extend({
   name: "Login",
   components: {
     TheHeader,
     TheInputPassword,
+    MathCaptcha,
     TheFooter,
   },
   data () {
