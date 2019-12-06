@@ -12,8 +12,25 @@ variables:
 
 # test all commits in Pull Re. which target master
 trigger:
-- master
-- pr
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - backend/*
+    exclude:
+    - frontend/*
+
+pr:
+  autoCancel: false
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - backend/*
+    exclude:
+    - frontend/*
 
 stages:
 - stage: Preparations
