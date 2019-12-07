@@ -109,11 +109,17 @@
                   </div>
 
                   <div class="form-group spacing">
-                    <TheInputPassword passwordInput="inputPassword2" buttonInput="buttonEYE2"></TheInputPassword>
+                    <TheInputPassword
+                      password-input="inputPassword2"
+                      button-input="buttonEYE2"
+                    />
                   </div>
 
                   <div class="form-group spacing">
-                    <TheInputPassword passwordInput="inputPassword3" buttonInput="buttonEYE3"></TheInputPassword>
+                    <TheInputPassword
+                      password-input="inputPassword3"
+                      button-input="buttonEYE3"
+                    />
                   </div>
 
                   <div class="form-group spacing">
@@ -146,8 +152,8 @@
                   </p>
 
                   <button
-                    type="submit"
                     @click="submit"
+                    type="submit"
                     class="btn btn-warning float-right btn-lg"
                   >
                     Register
@@ -188,7 +194,7 @@ export default Vue.extend({
   data() {
     return {
       submitStatus: null,
-    }
+    };
   },
   methods: {
     submit() {

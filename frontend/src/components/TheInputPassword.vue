@@ -1,9 +1,9 @@
 <template>
   <div class="input-group">
     <input
-      v-bind:id="passwordInput"
+      v-bind:id="password-input"
       v-bind:type="[iconCollapsed ? 'password' : 'text']"
-      v-bind:name="passwordInput"
+      v-bind:name="password-input"
       class="form-control"
       placeholder="Password"
     >
@@ -13,26 +13,26 @@
         class="input-group-text"
       >
         <button
-          v-bind:id="buttonInput"
+          v-bind:id="button-input"
+          v-on:click="iconCollapsed = !iconCollapsed; icon = !icon"
           class="resetIconStylesEYE"
           aria-hidden="true"
           type="button"
-          v-on:click="iconCollapsed = !iconCollapsed; icon = !icon"
         >
           <span v-show="icon">
-            <i class="fas fa-lg fa-eye"/>
+            <i class="fas fa-lg fa-eye" />
           </span>
           <span v-show="!icon">
-            <i class="fas fa-lg fa-eye-slash"/>
+            <i class="fas fa-lg fa-eye-slash" />
           </span>
         </button>
       </span>
     </div>
     <label
+      v-bind:for="password-input"
       class="sr-only"
-      v-bind:for="passwordInput"
     >Password</label>
-    </div>
+  </div>
 </template>
 
 
@@ -49,13 +49,13 @@
 <script lang="ts">
 import Vue from "vue";
 import jQuery from "jquery";
-import { type } from 'os';
-let $ = jQuery;
+import { type } from "os";
+const $ = jQuery;
 
 export default {
   name: "TheInputPassword",
   props: {
-    passwordInput: {
+    password-input: {
       type: String,
       required: true
     },
@@ -63,7 +63,7 @@ export default {
       type: String,
       required: false
     },
-    buttonInput: {
+    button-input: {
       type: String,
       required: false
     }
@@ -72,7 +72,7 @@ export default {
     return {
       iconCollapsed: true,
       icon: true
-    }
+    };
   },
 };
 </script>

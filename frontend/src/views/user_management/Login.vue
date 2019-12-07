@@ -83,7 +83,10 @@
                   </div>
 
                   <div class="form-group spacing">
-                    <TheInputPassword passwordInput="inputPassword" buttonInput="buttonEYE"></TheInputPassword>
+                    <TheInputPassword
+                      password-input="inputPassword"
+                      button-input="buttonEYE"
+                    />
                   </div>
 
                   <div class="form-group spacing">
@@ -133,10 +136,10 @@ export default Vue.extend({
     MathCaptcha,
     TheFooter,
   },
-  data () {
+  data() {
     return {
 
-    }
+    };
   }
 });
 </script>
