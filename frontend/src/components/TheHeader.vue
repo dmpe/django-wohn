@@ -1,5 +1,4 @@
 <template>
-  <div>
     <b-navbar
       class="headerFooterBackground"
       toggleable="sm"
@@ -84,12 +83,10 @@
         </div>
       </div>
     </b-navbar>
-  </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import BootstrapVue from "bootstrap-vue";
 
 export default {
   name: "TheHeader",

@@ -31,13 +31,13 @@ import { returnLastFive } from "@/graphql/returnLastFive.ts";
 export default {
   name: "Properties",
   apollo: {
-    mainquery: {
+    returnLastFive: {
       query: returnLastFive
     }
   },
   data() {
     return {
-
+      returnLastFive: []
     };
   }
 };

@@ -5,7 +5,7 @@
   >
     <b-form-input
       id="input-default"
-      placeholder="{{ prepareCap }}"
+      :placeholder="prepareCap"
       :state="inputCaptchaAnswer"
       name="mathcaptcha"
     />
