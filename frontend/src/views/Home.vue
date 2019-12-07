@@ -1,8 +1,10 @@
 <template>
   <div class="home">
-    <TheHeader />
-    <Properties />
-    <TheFooter />
+    <b-container>
+      <TheHeader />
+      <Properties />
+      <TheFooter />
+    </b-container>
   </div>
 </template>
 

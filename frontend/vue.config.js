@@ -9,7 +9,7 @@ module.exports = {
   },
   pluginOptions: {
     apollo: {
-      lintGQL: false
+      lintGQL: true
     }
   },
   configureWebpack: {
@@ -18,5 +18,14 @@ module.exports = {
         cache: true,
       })
     ]
+  },
+  chainWebpack: config => {
+    // GraphQL Loader
+    config.module
+      .rule('graphql')
+      .test(/\.graphql$/)
+      .use('graphql-tag/loader')
+        .loader('graphql-tag/loader')
+        .end()
   }
 };
