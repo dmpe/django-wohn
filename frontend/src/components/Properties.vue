@@ -31,29 +31,9 @@ import returnLastFive from "@/graphql/returnLastFive.graphql";
 export default {
   name: "Properties",
   apollo: {
-    returnLastFive: gql`query {
-      homeProperties{
-        id,
-        propertyCreated,
-        propertyOfferedBy {
-          id
-        },
-        propertyRooms,
-        propertySizeInSqMeters,
-        propertySizeInSqFoot,
-        propertyPriceInEur,
-        propertyPriceInCzk,
-        propertyPriceInUsd,
-        propertyGarage,
-        propertyStatus,
-        propertyFurnished,
-        propertyWashMachine,
-        propertyAddressStreet,
-        propertyAddressCityTown,
-        propertyAddressZipcode,
-        houseGardenSizeInSqMeters,
-      }
-    }`
+    returnLastFive: {
+      query: returnLastFive
+    }
   },
   data() {
     return {
