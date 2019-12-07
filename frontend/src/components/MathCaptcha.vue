@@ -5,7 +5,7 @@
   >
     <b-form-input
       id="input-default"
-      placeholder="{{ placeholder() }}"
+      placeholder="{{ prepareCap }}"
       :state="inputCaptchaAnswer"
       name="mathcaptcha"
     />
@@ -22,7 +22,7 @@ export default Vue.extend({
   name: "MathCaptcha",
   data() {
     return {
-      placeholder: "",
+      placeholder: '',
       inputCaptchaAnswer: false,
     };
   },
@@ -30,7 +30,7 @@ export default Vue.extend({
     prepareCap(): string {
       const results: number[] = this.generateCaptcha();
       let placestring: string = results[0].toString().concat(" + ", results[1].toString(), " = ...");
-      return this.placeholder += placestring;
+      return placestring;
     },
     changeState(): boolean {
       return this.inputCaptchaAnswer;
