@@ -10,8 +10,13 @@ import socket
 
 import debug_toolbar
 from azure.core.exceptions import AzureError
+
 # for Azure Key Vault
-from azure.identity import ChainedTokenCredential, ClientSecretCredential, ManagedIdentityCredential
+from azure.identity import (
+    ChainedTokenCredential,
+    ClientSecretCredential,
+    ManagedIdentityCredential,
+)
 from azure.keyvault.secrets import SecretClient
 from django.contrib.messages import constants as message_constants
 from sendgrid import SendGridAPIClient

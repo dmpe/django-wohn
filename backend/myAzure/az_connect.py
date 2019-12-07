@@ -1,7 +1,11 @@
 import os
 
 from azure.core.exceptions import AzureError
-from azure.identity import ChainedTokenCredential, ClientSecretCredential, ManagedIdentityCredential
+from azure.identity import (
+    ChainedTokenCredential,
+    ClientSecretCredential,
+    ManagedIdentityCredential,
+)
 from azure.keyvault.secrets import SecretClient
 from dotenv import find_dotenv, load_dotenv
 

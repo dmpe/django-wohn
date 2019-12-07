@@ -4,7 +4,11 @@ import sys
 
 import requests
 from azure.core.exceptions import AzureError
-from azure.identity import ChainedTokenCredential, ClientSecretCredential, ManagedIdentityCredential
+from azure.identity import (
+    ChainedTokenCredential,
+    ClientSecretCredential,
+    ManagedIdentityCredential,
+)
 from azure.keyvault.secrets import SecretClient
 from google.auth.transport.requests import *
 from google.oauth2 import service_account

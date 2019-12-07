@@ -1,8 +1,8 @@
 <template>
   <div>
-  <TheHeader />
-  <ProfileNav />
-  <TheFooter />
+    <TheHeader />
+    <ProfileNav />
+    <TheFooter />
   </div>
 </template>
 

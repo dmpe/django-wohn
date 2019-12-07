@@ -4,9 +4,9 @@
 
 import graphene
 import graphql
-
 from graphene_django import DjangoObjectType
 from graphql.execution.base import ResolveInfo
+
 from core.models import Apartment, House, Room, myUser
 
 

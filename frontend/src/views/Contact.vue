@@ -22,11 +22,27 @@
                   Pařížská 97/15, 110 00 <br>
                   Prague 1, Czech Republic, EU <br> <br>
                   For legal, developer-related <u>and</u> other type of questions, contact us at above address or via: <br>
-                  <i class="fas fa-at" aria-hidden="true" /> Mr. Malinkovsky
-                  <a href="" class="mywebaddress" data-name="f789gh" data-domain="bk" data-tld="ru" onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"></a>
+                  <i
+                    class="fas fa-at"
+                    aria-hidden="true"
+                  /> Mr. Malinkovsky
+                  <a
+                    href=""
+                    class="mywebaddress"
+                    data-name="f789gh"
+                    data-domain="bk"
+                    data-tld="ru"
+                    onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"
+                  />
                 </address>
-                <i class="fab fa-twitter-square fa-3x mb-3" aria-hidden="true" />
-                <i class="fab fa-facebook-square fa-3x mb-3" aria-hidden="true" />
+                <i
+                  class="fab fa-twitter-square fa-3x mb-3"
+                  aria-hidden="true"
+                />
+                <i
+                  class="fab fa-facebook-square fa-3x mb-3"
+                  aria-hidden="true"
+                />
                 <iframe
                   title="Mapy.cz Location of Melive.xyz office"
                   class="my-1 responsive-map"
@@ -34,7 +50,8 @@
                   width="470"
                   height="333"
                   style="border:none"
-                  frameBorder="0"/>
+                  frameBorder="0"
+                />
               </div>
             </div>
           </div>
@@ -44,71 +61,78 @@
           <b-form
             id="form-contact"
             method="POST"
-            class="mb-5">
-
+            class="mb-5"
+          >
             <b-form-group
+              :invalid-feedback="invalidSubject"
               label="Name"
               label-for="input-name"
-              :invalid-feedback="invalidSubject">
+            >
               <b-form-input
                 id="input-name"
                 v-model="text"
-                trim>
-              </b-form-input>
+                trim
+              />
             </b-form-group>
 
             <b-form-group
+              :invalid-feedback="invalidEmail"
               label="Email"
               label-for="input-email"
-              :invalid-feedback="invalidEmail">
+            >
               <b-form-input
                 id="input-email"
                 v-model="email"
-                trim>
-              </b-form-input>
+                trim
+              />
             </b-form-group>
 
             <b-form-group
+              :invalid-feedback="invalidSubject"
               label="Subject"
               label-for="input-subject-line"
-              :invalid-feedback="invalidSubject">
+            >
               <b-form-input
                 id="input-subject-line"
                 v-model="text"
-                trim>
-              </b-form-input>
+                trim
+              />
             </b-form-group>
 
             <b-form-group
               label="Choce reason to contact us"
-              label-for="options-select">
+              label-for="options-select"
+            >
               <b-form-select
                 id="options-select"
                 v-model="selected"
-                :options="options">
-              </b-form-select>
+                :options="options"
+              />
             </b-form-group>
 
-            <b-form-group label="Your message"
-              label-for="textarea-large">
+            <b-form-group
+              label="Your message"
+              label-for="textarea-large"
+            >
               <b-form-textarea
                 id="textarea-large"
                 v-model="text"
                 placeholder="..."
                 size="lg"
-                rows="5" max-rows="10">
-              </b-form-textarea>
+                rows="5"
+                max-rows="10"
+              />
             </b-form-group>
 
             <b-form-group>
               <b-button
                 id="recaptchaValidator"
                 type="submit"
-                class="btn btn-warning mb-5 btn-lg btn-block">
+                class="btn btn-warning mb-5 btn-lg btn-block"
+              >
                 Submit message to Admin
               </b-button>
             </b-form-group>
-
           </b-form>
 
           <!--<div
@@ -134,16 +158,16 @@ export default Vue.extend({
     TheHeader,
     TheFooter,
   },
-  data () {
+  data() {
     return {
-      selected: 'general',
+      selected: "general",
       options: [
-        { value: 'general', text: 'General Questions/Others' },
-        { value: 'ads', text: 'Advertising' },
-        { value: 'help_me', text: 'Bugs/Issues on the website' },
-        { value: 'com_abs_similar', text: 'Fraud/Takedowns/Bans/Abuse' },
+        { value: "general", text: "General Questions/Others" },
+        { value: "ads", text: "Advertising" },
+        { value: "help_me", text: "Bugs/Issues on the website" },
+        { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
       ]
-    }
+    };
   }
 });
 </script>

@@ -1,5 +1,9 @@
 from azure.core.exceptions import AzureError
-from azure.identity import ChainedTokenCredential, ClientSecretCredential, ManagedIdentityCredential
+from azure.identity import (
+    ChainedTokenCredential,
+    ClientSecretCredential,
+    ManagedIdentityCredential,
+)
 from azure.keyvault.secrets import SecretClient
 from storages.backends.azure_storage import AzureStorage
 
