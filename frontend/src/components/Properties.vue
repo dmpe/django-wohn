@@ -26,12 +26,12 @@
 <script lang="ts">
 import Vue from "vue";
 import gql from 'graphql-tag';
-import returnLastFive from "@/graphql/returnLastFive.graphql";
+import { returnLastFive } from "@/graphql/returnLastFive.ts";
 
 export default {
   name: "Properties",
   apollo: {
-    returnLastFive: {
+    mainquery: {
       query: returnLastFive
     }
   },

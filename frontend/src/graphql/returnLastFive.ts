@@ -1,4 +1,6 @@
-query returnLastFive {
+import gql from "graphql-tag";
+
+export const returnLastFive = gql`query {
   homeProperties{
     id,
     propertyCreated,
@@ -20,4 +22,4 @@ query returnLastFive {
     propertyAddressZipcode,
     houseGardenSizeInSqMeters,
   }
-}
+}`;
