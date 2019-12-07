@@ -84,8 +84,8 @@
 
                   <div class="form-group spacing">
                     <TheInputPassword
-                      password-input="inputPassword"
-                      button-input="buttonEYE"
+                      password="inputPassword"
+                      button="buttonEYE"
                     />
                   </div>
 

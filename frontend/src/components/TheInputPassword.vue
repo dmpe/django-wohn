@@ -1,9 +1,9 @@
 <template>
   <div class="input-group">
     <input
-      v-bind:id="password-input"
+      v-bind:id="password"
       v-bind:type="[iconCollapsed ? 'password' : 'text']"
-      v-bind:name="password-input"
+      v-bind:name="password"
       class="form-control"
       placeholder="Password"
     >
@@ -13,7 +13,7 @@
         class="input-group-text"
       >
         <button
-          v-bind:id="button-input"
+          v-bind:id="button"
           v-on:click="iconCollapsed = !iconCollapsed; icon = !icon"
           class="resetIconStylesEYE"
           aria-hidden="true"
@@ -29,7 +29,7 @@
       </span>
     </div>
     <label
-      v-bind:for="password-input"
+      v-bind:for="password"
       class="sr-only"
     >Password</label>
   </div>
@@ -55,7 +55,7 @@ const $ = jQuery;
 export default {
   name: "TheInputPassword",
   props: {
-    password-input: {
+    password: {
       type: String,
       required: true
     },
@@ -63,7 +63,7 @@ export default {
       type: String,
       required: false
     },
-    button-input: {
+    button: {
       type: String,
       required: false
     }

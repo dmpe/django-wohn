@@ -110,15 +110,15 @@
 
                   <div class="form-group spacing">
                     <TheInputPassword
-                      password-input="inputPassword2"
-                      button-input="buttonEYE2"
+                      password="inputPassword2"
+                      button="buttonEYE2"
                     />
                   </div>
 
                   <div class="form-group spacing">
                     <TheInputPassword
-                      password-input="inputPassword3"
-                      button-input="buttonEYE3"
+                      password="inputPassword3"
+                      button="buttonEYE3"
                     />
                   </div>
 
