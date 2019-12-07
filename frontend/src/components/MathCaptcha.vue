@@ -6,7 +6,7 @@
     <b-form-input
       id="input-default"
       :placeholder="prepareCap"
-      :state="inputCaptchaAnswer"
+      :state="changeState"
       name="mathcaptcha"
     />
   </b-input-group>
@@ -22,7 +22,6 @@ export default Vue.extend({
   name: "MathCaptcha",
   data() {
     return {
-      placeholder: '',
       inputCaptchaAnswer: false,
     };
   },
