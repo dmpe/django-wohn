@@ -35,7 +35,7 @@ module.exports = {
       env: 'apollo',
 
       // Import your schema JSON here
-      schemaJson: require('./schemav1.json'),
+      schemaJson: require('./schema.json'),
 
       // OR provide absolute path to your schema JSON (but not if using `eslint --cache`!)
       // schemaJsonFilepath: path.resolve(__dirname, './schema.json'),
