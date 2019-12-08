@@ -151,6 +151,7 @@
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
+import BootstrapVue from "bootstrap-vue";
 
 export default Vue.extend({
   name: "Contact",

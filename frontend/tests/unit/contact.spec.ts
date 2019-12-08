@@ -6,6 +6,7 @@ describe("Contact.vue", () => {
   const contactWrapper = mount(Contact);
 
   it("Contact view contains a contact form", () => {
-    expect(contactWrapper.contains("form")).toBe(true);
+    // contains works around selectors
+    expect(contactWrapper.contains("form-contact")).toBe(true);
   });
 });

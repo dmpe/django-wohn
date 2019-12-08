@@ -13,8 +13,7 @@ import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
 import Properties from "@/components/Properties.vue";
-import "bootstrap-vue/dist/bootstrap-vue.css";
-import "bootstrap/dist/css/bootstrap.css";
+import BootstrapVue from "bootstrap-vue";
 
 export default Vue.extend({
   name: "Home",
