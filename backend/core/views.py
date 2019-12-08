@@ -148,9 +148,7 @@ class ResetPasswordStepOneView(View):
         token_obj = PasswordResetTokenGenerator()
 
         # check if user is present in the database -> moved to backend
-        userPresent = EmailUserNameAuthBackend.check_for_user_existence(
-            self, inputEmail_Username
-        )
+        userPresent = EmailUserNameAuthBackend.check_for_user_existence(self, inputEmail_Username)
 
         if userPresent[0] is True:
             tk = token_obj.make_token(userPresent[1])
@@ -304,14 +302,10 @@ class RegistrationView(CreateView):
 
             return render(request, self.template_name)
 
-        auser = EmailUserNameAuthBackend.authenticate(
-            self, request, username=inputUsername, password=inputNewPassword
-        )
+        auser = EmailUserNameAuthBackend.authenticate(self, request, username=inputUsername, password=inputNewPassword)
 
         try:
-            django_login(
-                request, auser, backend="core.backends.EmailUserNameAuthBackend"
-            )
+            django_login(request, auser, backend="core.backends.EmailUserNameAuthBackend")
             return redirect("userMng:userMng_index")
         except Exception as e:
             return redirect(settings.LOGIN_URL)
@@ -359,11 +353,7 @@ class LoginView(View):
                 try:
                     # whether the user is active or not is already checked by the
                     # ModelBackend we use
-                    django_login(
-                        request,
-                        auth_user,
-                        backend="core.backends.EmailUserNameAuthBackend",
-                    )
+                    django_login(request, auth_user, backend="core.backends.EmailUserNameAuthBackend")
                     return redirect("userMng:userMng_index")
                 except Exception as e:
                     raise e

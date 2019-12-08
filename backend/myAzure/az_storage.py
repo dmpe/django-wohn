@@ -1,9 +1,5 @@
 from azure.core.exceptions import AzureError
-from azure.identity import (
-    ChainedTokenCredential,
-    ClientSecretCredential,
-    ManagedIdentityCredential,
-)
+from azure.identity import ChainedTokenCredential, ClientSecretCredential, ManagedIdentityCredential
 from azure.keyvault.secrets import SecretClient
 from storages.backends.azure_storage import AzureStorage
 
@@ -13,9 +9,7 @@ from .az_connect import AzureConnection
 # used for Azure Key Vault
 azCon = AzureConnection()
 azCon.main()
-client = SecretClient(
-    vault_url="https://b40.vault.azure.net/", credential=azCon.credentials
-)
+client = SecretClient(vault_url="https://b40.vault.azure.net/", credential=azCon.credentials)
 
 
 class AzureMediaStorage(AzureStorage):

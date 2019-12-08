@@ -68,11 +68,7 @@ def validate_password_reset(request):
 
 
 def prepare_psswd_reset_email(
-    request,
-    userPresent_username=None,
-    userPresent_email=None,
-    userPresent_token=None,
-    userPresent_uid=None,
+    request, userPresent_username=None, userPresent_email=None, userPresent_token=None, userPresent_uid=None
 ):
     """
     This functions sends email to users, directly!
@@ -98,12 +94,7 @@ def prepare_psswd_reset_email(
     html_message = render_to_string("reset_password_email.html", cntxt)
     # plain_message = strip_tags(html_message)
 
-    message = Mail(
-        from_email=smtp_email,
-        to_emails=userPresent_email,
-        subject=subject,
-        html_content=html_message,
-    )
+    message = Mail(from_email=smtp_email, to_emails=userPresent_email, subject=subject, html_content=html_message)
     try:
         response = settings.SENDGRID_API_KEY.send(message)
         print(response.status_code)
@@ -120,13 +111,7 @@ def prepare_psswd_reset_email(
     return None
 
 
-def prepare_visitor_mssg_email(
-    request,
-    userPresent_username=None,
-    userPresent_email=None,
-    subject=None,
-    text_msg=None,
-):
+def prepare_visitor_mssg_email(request, userPresent_username=None, userPresent_email=None, subject=None, text_msg=None):
     """
     For internal use, e.g. feedback, contact etc.
     """
@@ -152,9 +137,7 @@ def prepare_visitor_mssg_email(
     plain_message = strip_tags(html_message)
 
     try:
-        send_mail(
-            subject, plain_message, smtp_email, [my_email], html_message=html_message
-        )
+        send_mail(subject, plain_message, smtp_email, [my_email], html_message=html_message)
     except BadHeaderError:
         return HttpResponse("Invalid header found.")
 

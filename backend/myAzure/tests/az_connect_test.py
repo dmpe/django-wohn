@@ -1,10 +1,6 @@
 import pytest
 from azure.core.exceptions import AzureError
-from azure.identity import (
-    ChainedTokenCredential,
-    ClientSecretCredential,
-    ManagedIdentityCredential,
-)
+from azure.identity import ChainedTokenCredential, ClientSecretCredential, ManagedIdentityCredential
 from azure.keyvault.secrets import SecretClient
 
 from myAzure.az_connect import AzureConnection

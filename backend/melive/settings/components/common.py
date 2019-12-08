@@ -12,11 +12,7 @@ import debug_toolbar
 from azure.core.exceptions import AzureError
 
 # for Azure Key Vault
-from azure.identity import (
-    ChainedTokenCredential,
-    ClientSecretCredential,
-    ManagedIdentityCredential,
-)
+from azure.identity import ChainedTokenCredential, ClientSecretCredential, ManagedIdentityCredential
 from azure.keyvault.secrets import SecretClient
 from django.contrib.messages import constants as message_constants
 from sendgrid import SendGridAPIClient
@@ -26,9 +22,7 @@ from myAzure.az_storage import *
 
 azCon = AzureConnection()
 azCon.main()
-client = SecretClient(
-    vault_url="https://b40.vault.azure.net/", credential=azCon.credentials
-)
+client = SecretClient(vault_url="https://b40.vault.azure.net/", credential=azCon.credentials)
 
 SOCIAL_AUTH_USER_MODEL = "core.myUser"
 AUTH_USER_MODEL = "core.myUser"
@@ -147,10 +141,7 @@ hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS += [ip[:-1] + "1" for ip in ips]
 
 # Where your Graphene schema lives
-GRAPHENE = {
-    "SCHEMA": "melive.schema.schema",
-    "MIDDLEWARE": ["graphql_jwt.middleware.JSONWebTokenMiddleware"],
-}
+GRAPHENE = {"SCHEMA": "melive.schema.schema", "MIDDLEWARE": ["graphql_jwt.middleware.JSONWebTokenMiddleware"]}
 
 ROOT_URLCONF = "melive.urls"
 
@@ -188,9 +179,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 WSGI_APPLICATION = "melive.wsgi.application"
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -238,9 +227,7 @@ SOCIAL_AUTH_TWITTER_KEY = client.get_secret("SOCIAL-AUTH-TWITTER-KEY").value
 SOCIAL_AUTH_TWITTER_SECRET = client.get_secret("SOCIAL-AUTH-TWITTER-SECRET").value
 SOCIAL_AUTH_GOOGLE_OAUTH2_USE_UNIQUE_USER_ID = True
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = client.get_secret("SOCIAL-AUTH-GOOGLE-OAUTH2-KEY").value
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = client.get_secret(
-    "SOCIAL-AUTH-GOOGLE-OAUTH2-SECRET"
-).value
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = client.get_secret("SOCIAL-AUTH-GOOGLE-OAUTH2-SECRET").value
 SOCIAL_AUTH_FACEBOOK_KEY = client.get_secret("SOCIAL-AUTH-FACEBOOK-KEY").value
 SOCIAL_AUTH_FACEBOOK_SECRET = client.get_secret("SOCIAL-AUTH-FACEBOOK-SECRET").value
 SOCIAL_AUTH_FACEBOOK_API_VERSION = "4.0"

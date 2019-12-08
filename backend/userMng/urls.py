@@ -10,24 +10,8 @@ app_name = "userMng"
 urlpatterns = [
     # not in the Sitemap
     path("administrace/", views.UserProfileIndex.as_view(), name="userMng_index"),
-    path(
-        "administrace/profile",
-        views.UserProfileAdministration.as_view(),
-        name="user_profile",
-    ),
-    path(
-        "administrace/properties",
-        views.UserProfileProperties.as_view(),
-        name="user_properties",
-    ),
-    path(
-        "administrace/my_property_ads",
-        views.AdvertisingMyAdd.as_view(),
-        name="my_property_ads",
-    ),
-    path(
-        "administrace/ad_statistics",
-        views.AdvertisingStatistics.as_view(),
-        name="ad_statistics",
-    ),
+    path("administrace/profile", views.UserProfileAdministration.as_view(), name="user_profile"),
+    path("administrace/properties", views.UserProfileProperties.as_view(), name="user_properties"),
+    path("administrace/my_property_ads", views.AdvertisingMyAdd.as_view(), name="my_property_ads"),
+    path("administrace/ad_statistics", views.AdvertisingStatistics.as_view(), name="ad_statistics"),
 ]

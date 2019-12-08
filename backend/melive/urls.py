@@ -37,16 +37,9 @@ urlpatterns = [
     path("", include("userMng.urls")),
     path("oauth/", include("social_django.urls", namespace="social")),
     url(
-        r"^robots.txt$",
-        TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
-        name="robots_file",
+        r"^robots.txt$", TemplateView.as_view(template_name="robots.txt", content_type="text/plain"), name="robots_file"
     ),
-    path(
-        "sitemap.xml",
-        sitemap,
-        {"sitemaps": sitemaps},
-        name="django.contrib.sitemaps.views.sitemap",
-    ),
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
     path("__debug__/", include(debug_toolbar.urls)),
     # expose graphql server api, incl. GraphQL IDE - and
     # disable CSRF token requirement because for now it is PUBLIC API
