@@ -20,10 +20,16 @@
           type="button"
         >
           <span v-show="icon">
-            <i class="fas fa-lg fa-eye" aria-hidden="true" />
+            <i
+              class="fas fa-lg fa-eye"
+              aria-hidden="true"
+            />
           </span>
           <span v-show="!icon">
-            <i class="fas fa-lg fa-eye-slash" aria-hidden="true" />
+            <i
+              class="fas fa-lg fa-eye-slash"
+              aria-hidden="true"
+            />
           </span>
         </button>
       </span>

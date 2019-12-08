@@ -29,21 +29,21 @@ module.exports = {
   },
   plugins: ["@typescript-eslint", "@typescript-eslint/tslint", "graphql"],
   rules: {
-    "graphql/template-strings": ['error', {
+    "graphql/template-strings": ["error", {
       // Import default settings for your GraphQL client.
       // 'apollo', 'literal'
-      env: 'apollo',
+      env: "apollo",
 
       // Import your schema JSON here
-      schemaJson: require('./schema.json'),
+      schemaJson: require("./schema.json"),
 
       // OR provide absolute path to your schema JSON (but not if using `eslint --cache`!)
-      // schemaJsonFilepath: path.resolve(__dirname, './schema.json'),
+      // SchemaJsonFilepath: path.resolve(__dirname, './schema.json'),
 
       // OR provide the schema in the Schema Language format
-      // schemaString: printSchema(schema),
+      // SchemaString: printSchema(schema),
 
-      // tagName is gql by default
+      // TagName is gql by default
     }],
     "@typescript-eslint/adjacent-overload-signatures": "warn",
     "@typescript-eslint/array-type": "warn",

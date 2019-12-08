@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 import { returnLastFive } from "@/graphql/returnLastFive.ts";
 
 export default {

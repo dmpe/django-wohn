@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <TheHeader />
-      <b-container>
-        <Properties />
-      </b-container>
+    <b-container>
+      <Properties />
+    </b-container>
     <TheFooter />
   </div>
 </template>

@@ -28,7 +28,7 @@ export default Vue.extend({
   computed: {
     prepareCap(): string {
       const results: number[] = this.generateCaptcha();
-      let placestring: string = results[0].toString().concat(" + ", results[1].toString(), " = ...");
+      const placestring: string = results[0].toString().concat(" + ", results[1].toString(), " = ...");
       return placestring;
     },
     changeState(): boolean {
