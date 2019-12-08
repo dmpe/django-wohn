@@ -7,6 +7,6 @@ describe("Contact.vue", () => {
 
   it("Contact view contains a contact form", () => {
     // contains works around selectors
-    expect(contactWrapper.contains("form-contact")).toBe(true);
+    expect(contactWrapper.contains("#form-contact")).toBe(true);
   });
 });
