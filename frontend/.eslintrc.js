@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
+    es2017: true,
     jquery: true
   },
   parser: "vue-eslint-parser",
@@ -14,7 +14,7 @@ module.exports = {
   parserOptions: {
     // Parser: "@typescript-eslint/parser",
     project: "./tsconfig.json",
-    ecmaVersion: 6,
+    // ecmaVersion: 2018,
     sourceType: "module",
     ecmaFeatures: {
       jsx: true
