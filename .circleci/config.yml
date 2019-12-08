@@ -16,6 +16,12 @@ jobs:
           ls -ls
 
       - run:
+          name: Run Jest Tests
+          command: |
+            cd frontend/
+            yarn run test
+
+      - run:
           name: Build and push Docker image
           command: |
             cd frontend/
