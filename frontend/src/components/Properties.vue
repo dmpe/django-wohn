@@ -13,11 +13,8 @@
         </div>
         <div class="col-md-5 mt-3 mb-md-0">
           <div class="card-body">
-            <h4 class="card-title">Project One</h3>
+            <h4 class="card-title">Project One</h4>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-            <!-- <p>{{ price_in_euro }}</p>
-              <p>{{ price_in_czk }}</p>
-              <p>{{ price_in_usd }}</p> -->
             <a
               class="btn btn-primary"
               href="#"
