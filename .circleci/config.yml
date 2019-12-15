@@ -10,6 +10,9 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - run:
+          command: |
+            cd frontend/
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
@@ -20,7 +23,7 @@ jobs:
       - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
-            - node_modules
+            - ~/frontend/node_modules
       - run:
           name: Run Jest Tests
           command: |
