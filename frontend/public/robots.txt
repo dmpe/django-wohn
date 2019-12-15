@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/
 Disallow: /administrace/
 
-Sitemap: http://frontend.melive.xyz/sitemap.xml
+Sitemap: https://melive.xyz/sitemap.xml

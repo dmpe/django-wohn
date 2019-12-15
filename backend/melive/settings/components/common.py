@@ -33,6 +33,11 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+def custom_show_toolbar(request):
+    return True
+
+
 if azCon.env != "development":
     ALLOWED_HOSTS = ["*"]
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -41,9 +46,11 @@ if azCon.env != "development":
     CSRF_COOKIE_SECURE = True
     CORS_ORIGIN_ALLOW_ALL = True
     CORS_ALLOW_CREDENTIALS = True
+    DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": custom_show_toolbar}
     INTERNAL_IPS = ["127.0.0.1", os.environ["DOCKER_HOST"]]
 else:
     INTERNAL_IPS = ["127.0.0.1"]
+    # DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": custom_show_toolbar}
 
 
 INSTALLED_APPS = [
@@ -129,13 +136,6 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
     # Removes the social associations.
     "social.pipeline.disconnect.disconnect",
 )
-
-
-def custom_show_toolbar(request):
-    return True
-
-
-DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": custom_show_toolbar}
 
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS += [ip[:-1] + "1" for ip in ips]

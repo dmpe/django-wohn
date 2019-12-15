@@ -35,14 +35,6 @@ module.exports = {
 
       // Import your schema JSON here
       schemaJson: require("./schema.json"),
-
-      // OR provide absolute path to your schema JSON (but not if using `eslint --cache`!)
-      // SchemaJsonFilepath: path.resolve(__dirname, './schema.json'),
-
-      // OR provide the schema in the Schema Language format
-      // SchemaString: printSchema(schema),
-
-      // TagName is gql by default
     }],
     "@typescript-eslint/adjacent-overload-signatures": "warn",
     "@typescript-eslint/array-type": "warn",
