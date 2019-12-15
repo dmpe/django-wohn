@@ -19,6 +19,7 @@ jobs:
           name: Run Jest Tests
           command: |
             cd frontend/
+            yarn install
             yarn run test
 
   build:
