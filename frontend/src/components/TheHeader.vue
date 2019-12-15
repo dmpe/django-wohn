@@ -25,7 +25,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon" />
+      <span class="navbar-toggler-icon"></span>
     </b-button>
 
     <!-- // {# Full text search functionality, see #50, #35 #}

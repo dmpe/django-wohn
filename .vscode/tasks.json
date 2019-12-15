@@ -6,7 +6,7 @@
       {
         "label": "isort",
         "type": "shell",
-        "command": "isort -rc ${workspaceRoot} --apply"
+        "command": "isort -rc ${workspaceRoot}/backend --apply"
       },
       {
         "label": "Docker Backend",
@@ -42,7 +42,6 @@
           "isort",
           "black",
           "flake8",
-          "JS/TS format",
         ],
         "group": {
           "kind": "test",

@@ -81,7 +81,7 @@
             <span class="ml-3">Statistics</span>
           </a>
         </li>
-        {% endif %}
+        <!-- {% endif %} -->
       </ul>
     </aside>
 
@@ -157,7 +157,7 @@
             />
           </a>
         </li>
-        {% endif %}
+        <!-- {% endif %} -->
       </ul>
     </div>
   </div>

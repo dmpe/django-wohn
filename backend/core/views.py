@@ -45,15 +45,6 @@ def homepage(request):
     return render(request, "index.html")
 
 
-# FOOTER
-def privacy(request):
-    return render(request, "privacy.html")
-
-
-def terms(request):
-    return render(request, "terms.html")
-
-
 ################
 #######
 ####### Class based views
@@ -113,18 +104,6 @@ class ContactView(View):
             )
 
         return render(request, self.template_name, {"form": form})
-
-    def get(self, request):
-        form = ContactForm()
-        return render(request, self.template_name, {"form": form})
-
-
-class AboutView(View):
-    """docstring for AboutView
-    """
-
-    def get(self, request):
-        pass
 
 
 ###################################
