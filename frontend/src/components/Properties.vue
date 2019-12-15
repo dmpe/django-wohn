@@ -28,7 +28,7 @@ import Vue from "vue";
 import gql from "graphql-tag";
 import { returnLastFive } from "@/graphql/returnLastFive.ts";
 
-export default {
+export default Vue.extend({
   name: "Properties",
   apollo: {
     returnLastFive: {
@@ -40,5 +40,5 @@ export default {
       returnLastFive: []
     };
   }
-};
+});
 </script>

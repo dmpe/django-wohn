@@ -14,16 +14,15 @@
 
 <script lang="ts">
 import Vue from "vue";
-import BootstrapVue from "bootstrap-vue";
 
-export default {
-  name: "NotFound",
+export default Vue.extend({
+  name: "NotFoundError",
   data() {
     return {
 
-    };
+    }
   },
-};
+});
 </script>
 
 <style lang="stylus" scoped>

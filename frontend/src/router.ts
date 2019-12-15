@@ -12,7 +12,6 @@ import Contact from "./views/Contact.vue";
 import Home from "./views/Home.vue";
 import Privacy from "./views/Privacy.vue";
 import Terms from "./views/Terms.vue";
-import NotFound from "./views/NotFound.vue";
 import PropertyID from "./views/PropertyID.vue";
 
 
@@ -198,7 +197,8 @@ const router = new Router({
       // Any not listed above
       path: "*",
       name: "NotFound",
-      component: NotFound,
+      component: () =>
+        import(/* WebpackChunkName: "NotFound" */ "./views/NotFound.vue"),
       meta: {
         title: "Try again - 404 error - Melive.xyz",
         metaTags: [
