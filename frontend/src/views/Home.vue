@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <TheHeader />
-    <b-container>
+    <b-container fluid>
       <Properties />
     </b-container>
     <TheFooter />
