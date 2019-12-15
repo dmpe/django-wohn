@@ -4,9 +4,9 @@
 # https://circleci.com/gh/dmpe/django-wohn
 version: 2.1
 jobs:
-  build:
+  frontend_test:
     machine:
-      image: ubuntu-1604:201903-01
+      image: circleci/python:3-node
     working_directory: ~/repo
     steps:
       - checkout
@@ -21,6 +21,13 @@ jobs:
             cd frontend/
             yarn run test
 
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+    working_directory: ~/doc_repo
+    docker_layer_caching: true
+    steps:
+      - checkout
       - run:
           name: Build and push Docker image
           command: |
@@ -33,6 +40,15 @@ workflows:
   version: 2
   workflow:
     jobs:
+    - frontend_test:
+        filters:
+          branches:
+            ignore:
+              - docs
+              - server-config
+              - gh-pages
+              - azure-functions
+
     - build:
         context: DockerHub
         filters:
