@@ -10,11 +10,21 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install and cache yarn/npm packages
+          command: |
+            cd frontend/
+            yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
       - run:
           name: Run Jest Tests
           command: |
             cd frontend/
-            yarn install
             yarn run test
 
   build:
