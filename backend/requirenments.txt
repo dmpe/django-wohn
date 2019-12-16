@@ -1,7 +1,7 @@
 argon2-cffi==19.2.0
 azure-identity==1.0.1
 azure-storage-common==2.1.0
-azure-storage-blob==2.1.0
+azure-storage-blob==12.1.0
 azure-keyvault-secrets==4.0.0
 azure-mgmt-keyvault==2.0.0
 brotlipy==0.7.0
