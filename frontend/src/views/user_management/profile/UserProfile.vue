@@ -2,16 +2,12 @@
   <div>
     <TheHeader />
     <b-container fluid>
-      <link
-        rel="stylesheet"
-        href="  static 'flags/sprite.css'"
-      >
       <!--
   https://github.com/mfogel/django-timezone-field
   https://github.com/dmpe/django-wohn/issues/18
-  -->
+      -->
       <div class="row">
-        <ProfileNav />
+        <ProfileNav></ProfileNav>
 
         <div class="row col-md-9 col-lg-9 col-xl-10 pt-3">
           <div class="col-xs-12 col-md-5 col-lg-5 col-xl-3 pr-2">
