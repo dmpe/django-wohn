@@ -3,7 +3,7 @@
     <TheHeader />
 
     <b-container fluid>
-      <div class="row">
+      <b-row>
         <ProfileNav />
 
         <div class="col-md-10">
@@ -13,7 +13,7 @@
             class="mb-5"
           />
         </div>
-      </div>
+      </b-row>
     </b-container>
     <TheFooter />
   </div>

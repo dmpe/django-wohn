@@ -6,7 +6,7 @@
       {
         "label": "isort",
         "type": "shell",
-        "command": "isort -rc . --apply"
+        "command": "isort -rc ${workspaceRoot}/backend --apply"
       },
       {
         "label": "Docker Backend",
@@ -23,17 +23,17 @@
       {
         "label": "black",
         "type": "shell",
-        "command": "black . --target-version py37"
+        "command": "black ${workspaceRoot}/backend --config ${workspaceRoot}/backend/pyproject.toml"
       },
       {
         "label": "flake8",
         "type": "shell",
-        "command": "flake8 ."
+        "command": "flake8 ${workspaceRoot}/backend"
       },
       {
         "label": "JS/TS format",
         "type": "shell",
-        "command": "tslint --project ./frontend"
+        "command": "eslint ${workspaceRoot}/frontend"
       },
       {
         "label": "Format",
@@ -42,7 +42,6 @@
           "isort",
           "black",
           "flake8",
-          "JS/TS format",
         ],
         "group": {
           "kind": "test",
