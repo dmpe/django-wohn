@@ -43,8 +43,8 @@ class AbstractProperty(django.db.models.Model):
 
     property_garage = models.PositiveSmallIntegerField(default=0)
 
-    PROPERTY_STATUS = (("N", "New"), ("G", "Good"), ("UC", "Under Construction"))
-    property_status = models.CharField(max_length=3, choices=PROPERTY_STATUS, null=True, default="G")
+    PROPERTY_STATUS_ENUM = (("N", "New"), ("G", "Good"), ("UC", "Under Construction"))
+    property_status = models.CharField(max_length=3, choices=PROPERTY_STATUS_ENUM, null=True, default="G")
 
     property_furnished = models.BooleanField(default=False)
 

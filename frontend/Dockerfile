@@ -8,6 +8,7 @@ COPY *.json ./
 RUN ls -al
 RUN yarn install
 COPY . ./
+RUN rm -rf node_modules/@types/node
 RUN tree src/ && yarn run build
 
 # here we switch from nodejs container to
