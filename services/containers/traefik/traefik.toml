@@ -37,6 +37,7 @@
     swarmMode = false
 
 [api]
+  insecure = true
   dashboard = true
   debug = true
 
