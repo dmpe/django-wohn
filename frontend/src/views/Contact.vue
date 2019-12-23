@@ -3,15 +3,15 @@
     <TheHeader />
 
     <b-container>
-      <div class="row">
+      <b-row>
         <div class="col-lg-6 col-md-8 col-sm-12 offset-md-3 text-center">
           <h1 class="custom-display-text-size">
             Contact us
           </h1>
         </div>
-      </div>
+      </b-row>
 
-      <div class="row">
+      <b-row>
         <div class="col-md-7 mt-3 col-sm-12">
           <div class="col align-self-center">
             <div class="card">
@@ -22,26 +22,27 @@
                   Pařížská 97/15, 110 00 <br>
                   Prague 1, Czech Republic, EU <br> <br>
                   For legal, developer-related <u>and</u> other type of questions, contact us at above address or via: <br>
-                  <i class="fas fa-at" aria-hidden="true" /> Mr.
-                  <script type="application/javascript">
-                    <!-- http://hivelogic.com/enkoder/index.php -->
-                    //<![CDATA[
-                    <!--
-                    var x="function f(x){var i,o=\"\",ol=x.length,l=ol;while(x.charCodeAt(l/13)!" +
-                    "=92){try{x+=x;l+=l;}catch(e){}}for(i=l-1;i>=0;i--){o+=x.charAt(i);}return o" +
-                    ".substr(0,ol);}f(\")25,\\\"meozpo1`r4'8$( (620\\\\e/&0 r\\\\100\\\\430\\\\a" +
-                    "630\\\\g700\\\\\\\\\\\\TC_A420\\\\120\\\\n_X@Y000\\\\CLDHBc330\\\\QGFHCUl!g" +
-                    "771\\\\4uwzhu}Lechaan420\\\\030\\\\C030\\\\100\\\\730\\\\030\\\\610\\\\000\\"+
-                    "\\I5Z300\\\\600\\\\320\\\\7}:eu}==*9\\\"\\\\;0k7/ZPNZXQ\\\"(f};o nruter};))" +
-                    "++y(^)i(tAedoCrahc.x(edoCrahCmorf.gnirtS=+o;721=%y;++y)25<i(fi{)++i;l<i;0=i" +
-                    "(rof;htgnel.x=l,\\\"\\\"=o,i rav{)y,x(f noitcnuf\")"                         ;
-                    while(x=eval(x));
-                    //-->
-                    //]]>
-                  </script>
+                  <i
+                    class="fas fa-at"
+                    aria-hidden="true"
+                  /> Mr. Malinkovsky
+                  <a
+                    href=""
+                    class="mywebaddress"
+                    data-name="f789gh"
+                    data-domain="bk"
+                    data-tld="ru"
+                    onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"
+                  />
                 </address>
-                <i class="fab fa-twitter-square fa-3x mb-3" aria-hidden="true" />
-                <i class="fab fa-facebook-square fa-3x mb-3" aria-hidden="true" />
+                <i
+                  class="fab fa-twitter-square fa-3x mb-3"
+                  aria-hidden="true"
+                />
+                <i
+                  class="fab fa-facebook-square fa-3x mb-3"
+                  aria-hidden="true"
+                />
                 <iframe
                   title="Mapy.cz Location of Melive.xyz office"
                   class="my-1 responsive-map"
@@ -57,31 +58,82 @@
         </div>
 
         <div class="col-md-5 col-sm-12">
-          <form
+          <b-form
             id="form-contact"
             method="POST"
             class="mb-5"
           >
-            <div class="form-row">
-              <div class="form-group col-md-12 col-sm-5" />
-
-              <div class="form-group col-md-12 col-sm-7" />
-            </div>
-
-            <div class="form-group" />
-
-            <div class="form-group">
-              <!-- {{ form.inputText |add_class:"form-control"|attr:"rows:8"|attr:"cols:35"}} -->
-            </div>
-
-            <button
-              id="recaptchaValidator"
-              type="submit"
-              class="btn btn-warning mb-5 btn-lg btn-block"
+            <b-form-group
+              :invalid-feedback="invalidSubject"
+              label="Name"
+              label-for="input-name"
             >
-              Submit message to Marek
-            </button>
-          </form>
+              <b-form-input
+                id="input-name"
+                v-model="text"
+                trim
+              />
+            </b-form-group>
+
+            <b-form-group
+              :invalid-feedback="invalidEmail"
+              label="Email"
+              label-for="input-email"
+            >
+              <b-form-input
+                id="input-email"
+                v-model="email"
+                trim
+              />
+            </b-form-group>
+
+            <b-form-group
+              :invalid-feedback="invalidSubject"
+              label="Subject"
+              label-for="input-subject-line"
+            >
+              <b-form-input
+                id="input-subject-line"
+                v-model="text"
+                trim
+              />
+            </b-form-group>
+
+            <b-form-group
+              label="Choce reason to contact us"
+              label-for="options-select"
+            >
+              <b-form-select
+                id="options-select"
+                v-model="selected"
+                :options="options"
+              />
+            </b-form-group>
+
+            <b-form-group
+              label="Your message"
+              label-for="textarea-large"
+            >
+              <b-form-textarea
+                id="textarea-large"
+                v-model="text"
+                placeholder="..."
+                size="lg"
+                rows="5"
+                max-rows="10"
+              />
+            </b-form-group>
+
+            <b-form-group>
+              <b-button
+                id="recaptchaValidator"
+                type="submit"
+                class="btn btn-warning mb-5 btn-lg btn-block"
+              >
+                Submit message to Admin
+              </b-button>
+            </b-form-group>
+          </b-form>
 
           <!--<div
             id="checkEmailAlert"
@@ -89,7 +141,7 @@
             role="alert"
           />-->
         </div>
-      </div>
+      </b-row>
     </b-container>
     <TheFooter />
   </div>
@@ -98,7 +150,7 @@
 <script lang="ts">
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
-import TheFooter from "@/components/TheFooter.vue"; // @ is an alias to /src
+import TheFooter from "@/components/TheFooter.vue";
 import BootstrapVue from "bootstrap-vue";
 
 export default Vue.extend({
@@ -106,6 +158,17 @@ export default Vue.extend({
   components: {
     TheHeader,
     TheFooter,
+  },
+  data() {
+    return {
+      selected: "general",
+      options: [
+        { value: "general", text: "General Questions/Others" },
+        { value: "ads", text: "Advertising" },
+        { value: "help_me", text: "Bugs/Issues on the website" },
+        { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
+      ]
+    };
   }
 });
 </script>

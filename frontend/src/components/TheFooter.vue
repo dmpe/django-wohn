@@ -54,6 +54,21 @@
   </footer>
 </template>
 
+<style lang="stylus" scoped>
+
+.footer
+    position absolute
+    bottom 0
+    left 0px
+    width 100%
+    line-height 1rem
+    padding-top 15px
+
+.footer_heartIcon
+    color red
+
+</style>
+
 <script lang="ts">
 import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";

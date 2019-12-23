@@ -26,7 +26,6 @@
                   >
                     <img
                       class="google_icon"
-                      src="https://djangowohnreal1.blob.core.windows.net/images/btn_google_dark_normal_ios.svg"
                     >
                     <p class="text-center mt-1 text-white">Sign Up With Google</p>
                   </a>
@@ -41,7 +40,6 @@
                   >
                     <img
                       class="twitter_icon"
-                      src="https://djangowohnreal1.blob.core.windows.net/images/Twitter_Logo_Blue.svg"
                     >
                     <p class="text-center mt-1 text-white">Sign Up With Twitter</p>
                   </a>
@@ -57,7 +55,6 @@
                   >
                     <img
                       class="facebook_icon"
-                      src="https://djangowohnreal1.blob.core.windows.net/images/flogo-HexRBG-Wht-58.svg"
                     >
                     <p class="text-center mt-1 text-white">Sign Up With Facebook</p>
                   </a>
@@ -110,72 +107,25 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="form-group spacing">
-                    <div class="input-group">
-                      <!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
-                      <input
-                        id="inputNewPassword"
-                        class="form-control"
-                        type="password"
-                        name="inputNewPassword"
-                        placeholder="New Password"
-                        required
-                      >
-                      <div class="input-group-append">
-                        <span
-                          id="inputGroupAppend"
-                          class="input-group-text"
-                        >
-                          <button
-                            id="buttonEYE2"
-                            href=""
-                            aria-hidden="true"
-                            type="button"
-                            class="resetIconStylesEYE"
-                          >
-                            <i class="fas fa-eye fa-lg" />
-                          </button>
-                        </span>
-                      </div>
-                      <label
-                        class="sr-only"
-                        for="inputNewPassword"
-                      >New Password</label>
-                    </div>
+                    <TheInputPassword
+                      password="inputPassword2"
+                      button="buttonEYE2"
+                    />
                   </div>
+
                   <div class="form-group spacing">
-                    <div class="input-group">
-                      <!-- when header already contains `buttonEYE` then here one needs a different id attr. -->
-                      <input
-                        id="inputConfirmNewPassword"
-                        class="form-control"
-                        type="password"
-                        name="inputConfirmNewPassword"
-                        placeholder="Confirm New Password"
-                        required
-                      >
-                      <div class="input-group-append">
-                        <span
-                          id="inputGroupAppend"
-                          class="input-group-text"
-                        >
-                          <button
-                            id="buttonEYE3"
-                            href=""
-                            aria-hidden="true"
-                            type="button"
-                            class="resetIconStylesEYE"
-                          >
-                            <i class="fas fa-eye fa-lg" />
-                          </button>
-                        </span>
-                      </div>
-                      <label
-                        class="sr-only"
-                        for="inputConfirmNewPassword"
-                      >Confirm New Password</label>
-                    </div>
+                    <TheInputPassword
+                      password="inputPassword3"
+                      button="buttonEYE3"
+                    />
                   </div>
+
+                  <div class="form-group spacing">
+                    <MathCaptcha />
+                  </div>
+
                   <div class="form-group spacing">
                     <div class="form-check">
                       <input
@@ -201,8 +151,8 @@
                     <a href="/reset-password">Forgot your username or password?</a>
                   </p>
 
-                  <!-- Also includes Google Recaptcha v3 or other form of Captcha -->
                   <button
+                    @click="submit"
                     type="submit"
                     class="btn btn-warning float-right btn-lg"
                   >
@@ -230,14 +180,27 @@
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
-import BootstrapVue from "bootstrap-vue";
+import TheInputPassword from "@/components/TheInputPassword.vue";
+import MathCaptcha from "@/components/MathCaptcha.vue";
 
 export default Vue.extend({
   name: "Register",
   components: {
     TheHeader,
+    TheInputPassword,
+    MathCaptcha,
     TheFooter,
-  }
+  },
+  data() {
+    return {
+      submitStatus: null,
+    };
+  },
+  methods: {
+    submit() {
+      console.log("click");
+    }
+  },
 });
 </script>
 
