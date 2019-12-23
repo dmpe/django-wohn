@@ -21,7 +21,9 @@ services:
         labels:
           - "traefik.enable=true"
           - "traefik.http.routers.monitor.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
-          - "traefik.http.routers.monitor.service=api@internal"
+          - "traefik.http.routers.monitorsec.service=api@internal"
+          - "traefik.http.routers.monitorsec.tls.domains[0].main=melive.xyz"
+          - "traefik.http.routers.monitorsec.tls.domains[0].sans=monitor.melive.xyz,pgadmin.melive.xyz"
           - "traefik.http.routers.monitorsec.tls=true"
           - "traefik.http.routers.monitorsec.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
           - "traefik.http.routers.monitorsec.tls.certresolver=default"
