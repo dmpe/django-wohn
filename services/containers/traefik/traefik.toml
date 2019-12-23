@@ -1,13 +1,12 @@
 # Traefik version 2
-# static settings
-
+# static settingss
 [global]
   checkNewVersion = true
-  sendAnonymousUsage = true
+  sendAnonymousUsage = false
 
 [serversTransport]
   insecureSkipVerify = true
-  maxIdleConnsPerHost = 0
+  maxIdleConnsPerHost = 7
 
 [entryPoints.web]
   address = ":80"
@@ -42,5 +41,5 @@
   debug = true
 
 [log]
-  level = "INFO"
+  level = "DEBUG"
 
