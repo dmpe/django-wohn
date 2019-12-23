@@ -16,7 +16,7 @@
 
 [tls.options]
   [tls.options.default]
-    minVersion = "VersionTLS12"
+    minVersion = "VersionTLS13"
     curvePreferences = ["CurveP521", "CurveP384"]
 
 [certificatesResolvers]

@@ -8,7 +8,8 @@ This branch contains files that are necessary to setup VM which runs docker 🐋
     - [x] Traefik 2x (main proxy of the webserver)
     - [x] PGAdmin (GUI for Postgres database)
     - [x] Portainer (GUI for containers)
-    - [x] Nginx (not used) 🚫
+    - [x] `Frontend` with Nginx
+    - [x] DJango-based `Backend`
 
 
 
