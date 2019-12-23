@@ -21,12 +21,12 @@ services:
         labels:
           - "traefik.enable=true"
           - "traefik.http.routers.monitor.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
+          - "traefik.http.routers.monitor.service=api@internal"
           - "traefik.http.routers.monitorsec.tls=true"
           - "traefik.http.routers.monitorsec.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
           - "traefik.http.routers.monitorsec.tls.certresolver=default"
           - "traefik.http.routers.monitorsec.service=monitor"
           - "traefik.http.services.monitor.loadbalancer.server.port=8080"
-          - "traefik.http.routers.monitor.service=api@internal"
           - "traefik.http.middlewares.monitor-redirect.redirectscheme.scheme=https"
           - "traefik.http.routers.monitor.middlewares=monitor-redirect"
         environment:

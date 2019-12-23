@@ -17,11 +17,8 @@
 
 [tls.options]
   [tls.options.default]
-    minVersion = "VersionTLS13"
-    cipherSuites = [
-        "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
-        "TLS_RSA_WITH_AES_256_GCM_SHA384"
-    ]
+    minVersion = "VersionTLS12"
+    curvePreferences = ["CurveP521", "CurveP384"]
 
 [certificatesResolvers]
   [certificatesResolvers.default]
@@ -36,13 +33,11 @@
 [providers]
   providersThrottleDuration = "2s"
   [providers.docker]
-    watch = true
     endpoint = "unix:///var/run/docker.sock"
     exposedByDefault = true
     swarmMode = false
 
 [api]
-  insecure = true
   dashboard = true
   debug = true
 
