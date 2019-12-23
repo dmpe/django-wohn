@@ -53,6 +53,7 @@ workflows:
               - server-config
               - gh-pages
               - azure-functions
+              - /feature-*/
 
     - build:
         context: DockerHub
@@ -63,3 +64,4 @@ workflows:
               - server-config
               - gh-pages
               - azure-functions
+              - /feature-*/
