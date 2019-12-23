@@ -10,6 +10,7 @@ import socket
 
 import debug_toolbar
 from azure.core.exceptions import AzureError
+
 # for Azure Key Vault
 from azure.identity import ChainedTokenCredential, ClientSecretCredential, ManagedIdentityCredential
 from azure.keyvault.secrets import SecretClient
@@ -21,9 +22,7 @@ from myAzure.az_storage import *
 
 azCon = AzureConnection()
 azCon.main()
-client = SecretClient(
-    vault_url="https://b40.vault.azure.net/", credential=azCon.credentials
-)
+client = SecretClient(vault_url="https://b40.vault.azure.net/", credential=azCon.credentials)
 
 SOCIAL_AUTH_USER_MODEL = "core.myUser"
 AUTH_USER_MODEL = "core.myUser"
@@ -34,17 +33,25 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-if azCon.env != "development":
-    ALLOWED_HOSTS = ["*"]
-    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    CORS_ORIGIN_ALLOW_ALL = True
-    CORS_ALLOW_CREDENTIALS = True
+
+def custom_show_toolbar(request):
+    return True
+
+
+ALLOWED_HOSTS = ["*"]
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+if azCon.env == "development":
+    DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": custom_show_toolbar}
     INTERNAL_IPS = ["127.0.0.1", os.environ["DOCKER_HOST"]]
 else:
     INTERNAL_IPS = ["127.0.0.1"]
+    # DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": custom_show_toolbar}
 
 
 INSTALLED_APPS = [
@@ -67,8 +74,6 @@ INSTALLED_APPS = [
     "widget_tweaks",
     "timezone_field",
     "django_countries",
-    "pinax.templates",
-    "pinax.messages",
     "graphene_django",
     "debug_toolbar",
     "graphiql_debug_toolbar",
@@ -133,21 +138,11 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
     "social.pipeline.disconnect.disconnect",
 )
 
-
-def custom_show_toolbar(request):
-    return True
-
-
-DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": custom_show_toolbar}
-
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS += [ip[:-1] + "1" for ip in ips]
 
 # Where your Graphene schema lives
-GRAPHENE = {
-    "SCHEMA": "melive.schema.schema",
-    "MIDDLEWARE": ["graphql_jwt.middleware.JSONWebTokenMiddleware"],
-}
+GRAPHENE = {"SCHEMA": "melive.schema.schema", "MIDDLEWARE": ["graphql_jwt.middleware.JSONWebTokenMiddleware"]}
 
 ROOT_URLCONF = "melive.urls"
 
@@ -174,7 +169,6 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "social_django.context_processors.backends",
                 "social_django.context_processors.login_redirect",
-                "pinax.messages.context_processors.user_messages",
             ],
             "debug": DEBUG,
         },
@@ -186,9 +180,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 WSGI_APPLICATION = "melive.wsgi.application"
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -236,9 +228,7 @@ SOCIAL_AUTH_TWITTER_KEY = client.get_secret("SOCIAL-AUTH-TWITTER-KEY").value
 SOCIAL_AUTH_TWITTER_SECRET = client.get_secret("SOCIAL-AUTH-TWITTER-SECRET").value
 SOCIAL_AUTH_GOOGLE_OAUTH2_USE_UNIQUE_USER_ID = True
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = client.get_secret("SOCIAL-AUTH-GOOGLE-OAUTH2-KEY").value
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = client.get_secret(
-    "SOCIAL-AUTH-GOOGLE-OAUTH2-SECRET"
-).value
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = client.get_secret("SOCIAL-AUTH-GOOGLE-OAUTH2-SECRET").value
 SOCIAL_AUTH_FACEBOOK_KEY = client.get_secret("SOCIAL-AUTH-FACEBOOK-KEY").value
 SOCIAL_AUTH_FACEBOOK_SECRET = client.get_secret("SOCIAL-AUTH-FACEBOOK-SECRET").value
 SOCIAL_AUTH_FACEBOOK_API_VERSION = "4.0"

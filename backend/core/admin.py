@@ -64,40 +64,13 @@ class UserAdmin(BaseUserAdmin):
                 )
             },
         ),
-        (
-            "Permissions",
-            {
-                "fields": (
-                    "is_active",
-                    "is_staff",
-                    "is_superuser",
-                    "groups",
-                    "user_permissions",
-                )
-            },
-        ),
+        ("Permissions", {"fields": ("is_active", "is_staff", "is_superuser", "groups", "user_permissions")}),
         ("Important dates", {"fields": ("last_login", "date_joined")}),
     )
 
-    list_display = (
-        "username",
-        "email",
-        "first_name",
-        "last_name",
-        "is_staff",
-        "user_timezone",
-        "user_int_tel",
-    )
+    list_display = ("username", "email", "first_name", "last_name", "is_staff", "user_timezone", "user_int_tel")
 
-    add_fieldsets = (
-        (
-            None,
-            {
-                "classes": ("wide",),
-                "fields": ("username", "password1", "password2", "email"),
-            },
-        ),
-    )
+    add_fieldsets = ((None, {"classes": ("wide",), "fields": ("username", "password1", "password2", "email")}),)
 
 
 class PropertyAdmin(admin.ModelAdmin):
