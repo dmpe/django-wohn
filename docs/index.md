@@ -2,20 +2,18 @@
 
 This documentation providers a high-level overview of Django-Wohn, aka Melive.xyz, project.
 
-# Project Includes
+## Project Includes
 
-- Django for backend
-- DJango `/graphql` API endpoint (alternative to REST API) for querying (GET) and mutations (POST/DELETE) of DJango models
+- DJango for backend
+- `/graphql` API endpoint (alternative to REST API) for querying (GET) and mutations (POST/DELETE) of DJango models
 - Vue.js for frontend
--
-- Azure Cloud for KeyVault, Storage and VMs. See later dedicated section here.
+- Azure Cloud for KeyVault, Storage and VMs. See later dedicated section in `development` section.
 
-
-# Progress so far
+# Progress so far:
 
 ## General
 
-- [x] Start using milestones based on weeks, [here](https://github.com/dmpe/django-wohn/milestone)
+- [x] Start using milestones based on weeks [here](https://github.com/dmpe/django-wohn/milestone).
 
 ## DevOps environment
 - [x] Setup working DevOps working environment
@@ -26,15 +24,15 @@ This documentation providers a high-level overview of Django-Wohn, aka Melive.xy
 
 ## Features
 
-- [x] Azure Function for fetching forex data (ECB for USD/EUR and CNB for CZK)
-  - [ ] See its branch -> Integrate into workflow
+- [x] Azure Function for fetching forex data (ECB for USD/EUR and CNB for CZK) - see a git branch
+  - [ ] Integrate into workflow
 
 - [x] Split Backend from Frontend for simpler maintainance
     - [x] Provide [GraphQL API](https://github.com/dmpe/django-wohn/issues/54) for majority of functions
-    - [ ] Setup Frontend to talk to Backend
-       - GraphQL
+    - [x] Setup Frontend to talk to Backend
+
 - [x] Website: Login (username and admin) and Logout with Social Media
-  - [x] Does not use GraphQL - uses Django templates, etc.
+  - [ ] Does not use GraphQL - uses Django templates, etc.
   - Flow 1: User can register and see his admin site/panel
   - Flow 2: User can login and logout
 - [ ] Website: Add new blog or news section
@@ -45,6 +43,4 @@ This documentation providers a high-level overview of Django-Wohn, aka Melive.xy
 - [x] Posting a real-estate:
     - [x] DJango Model Inheritance via [Abstract Class](https://docs.djangoproject.com/en/2.2/topics/db/models/#model-inheritance)
         - Rooms, Houses, Apartments
-- [ ]
-- [ ]
 - [ ]
