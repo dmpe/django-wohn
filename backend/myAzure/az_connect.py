@@ -43,13 +43,9 @@ class AzureConnection(object):
             self.localDevelopment = True
             load_dotenv(secrets_path)
             service_principal = ClientSecretCredential(
-                client_id=os.getenv("client_id"),
-                client_secret=os.getenv("secret"),
-                tenant_id=os.getenv("tenant"),
+                client_id=os.getenv("client_id"), client_secret=os.getenv("secret"), tenant_id=os.getenv("tenant")
             )
-            cred = ChainedTokenCredential(
-                ManagedIdentityCredential(), service_principal
-            )
+            cred = ChainedTokenCredential(ManagedIdentityCredential(), service_principal)
 
         try:
             self.credentials = cred
@@ -59,9 +55,7 @@ class AzureConnection(object):
         return [self.credentials, self.localDevelopment]
 
     def dev_or_prod(self):
-        client = SecretClient(
-            vault_url="https://b40.vault.azure.net/", credential=self.credentials
-        )
+        client = SecretClient(vault_url="https://b40.vault.azure.net/", credential=self.credentials)
         try:
             if self.localDevelopment is False:
                 self.env = client.get_secret("DJANGO-ENV").value

@@ -1,7 +1,9 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true
+    es2017: true,
+    jquery: true,
+    jest: true
   },
   parser: "vue-eslint-parser",
   extends: [
@@ -11,9 +13,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
   ],
   parserOptions: {
-    // Parser: "@typescript-eslint/parser",
     project: "./tsconfig.json",
-    ecmaVersion: 6,
     sourceType: "module",
     ecmaFeatures: {
       jsx: true
@@ -26,8 +26,16 @@ module.exports = {
       }
     }
   },
-  plugins: ["@typescript-eslint", "@typescript-eslint/tslint"],
+  plugins: ["@typescript-eslint", "@typescript-eslint/tslint", "graphql"],
   rules: {
+    "graphql/template-strings": ["error", {
+      // Import default settings for your GraphQL client.
+      // 'apollo', 'literal'
+      env: "apollo",
+
+      // Import your schema JSON here
+      schemaJson: require("./schema.json"),
+    }],
     "@typescript-eslint/adjacent-overload-signatures": "warn",
     "@typescript-eslint/array-type": "warn",
     "@typescript-eslint/ban-types": "warn",

@@ -2,7 +2,6 @@
 # instance of a logger
 import logging
 
-import markdown
 from django import forms
 from django.conf import settings
 from django.contrib import *
@@ -25,6 +24,7 @@ from django.utils.http import *
 from django.utils.safestring import *
 from django.views import View
 from django.views.generic import *
+
 # a generic view for creating and saving an object (e.g. user)
 from django.views.generic.edit import CreateView
 
@@ -43,15 +43,6 @@ logger = logging.getLogger(__name__)
 # Main Page/Homepage
 def homepage(request):
     return render(request, "index.html")
-
-
-# FOOTER
-def privacy(request):
-    return render(request, "privacy.html")
-
-
-def terms(request):
-    return render(request, "terms.html")
 
 
 ################
@@ -76,30 +67,30 @@ class ContactView(View):
             subject = form.cleaned_data["inputSubject"]
             text_msg = form.cleaned_data["inputText"]
 
-            if is_human(recap_token) is True:
-                prepare_visitor_mssg_email(request, username, email, subject, text_msg)
+            # if is_human(recap_token) is True:
+            prepare_visitor_mssg_email(request, username, email, subject, text_msg)
 
-                messages.add_message(
-                    request,
-                    messages.SUCCESS,
-                    mark_safe(
-                        "<h6 class="
-                        "alert-heading"
-                        ">Thank you for sending us the message!</h6>"
-                        "<p>We wiill respond to you <strong>as soon as possible</strong>.</p>"
-                    ),
-                )
-            else:
-                messages.add_message(
-                    request,
-                    messages.WARNING,
-                    mark_safe(
-                        "<h6 class="
-                        "alert-heading"
-                        ">Sorry, but you seem to be a computer bot.</h6>"
-                        "<p>Please resend the message again, clean cookies or click on the right to email us directly.</p>"
-                    ),
-                )
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                mark_safe(
+                    "<h6 class="
+                    "alert-heading"
+                    ">Thank you for sending us the message!</h6>"
+                    "<p>We wiill respond to you <strong>as soon as possible</strong>.</p>"
+                ),
+            )
+            # else:
+            #     messages.add_message(
+            #         request,
+            #         messages.WARNING,
+            #         mark_safe(
+            #             "<h6 class="
+            #             "alert-heading"
+            #             ">Sorry, but you seem to be a computer bot.</h6>"
+            #             "<p>Please resend the message again, clean cookies or click on the right to email us directly.</p>"
+            #         ),
+            #     )
         else:
             messages.add_message(
                 request,
@@ -113,17 +104,6 @@ class ContactView(View):
             )
 
         return render(request, self.template_name, {"form": form})
-
-    def get(self, request):
-        form = ContactForm()
-        return render(request, self.template_name, {"form": form})
-
-
-class AboutView(View):
-    """docstring for AboutView
-    """
-    def get(self, request):
-        pass
 
 
 ###################################
@@ -147,9 +127,7 @@ class ResetPasswordStepOneView(View):
         token_obj = PasswordResetTokenGenerator()
 
         # check if user is present in the database -> moved to backend
-        userPresent = EmailUserNameAuthBackend.check_for_user_existence(
-            self, inputEmail_Username
-        )
+        userPresent = EmailUserNameAuthBackend.check_for_user_existence(self, inputEmail_Username)
 
         if userPresent[0] is True:
             tk = token_obj.make_token(userPresent[1])
@@ -303,14 +281,10 @@ class RegistrationView(CreateView):
 
             return render(request, self.template_name)
 
-        auser = EmailUserNameAuthBackend.authenticate(
-            self, request, username=inputUsername, password=inputNewPassword
-        )
+        auser = EmailUserNameAuthBackend.authenticate(self, request, username=inputUsername, password=inputNewPassword)
 
         try:
-            django_login(
-                request, auser, backend="core.backends.EmailUserNameAuthBackend"
-            )
+            django_login(request, auser, backend="core.backends.EmailUserNameAuthBackend")
             return redirect("userMng:userMng_index")
         except Exception as e:
             return redirect(settings.LOGIN_URL)
@@ -358,11 +332,7 @@ class LoginView(View):
                 try:
                     # whether the user is active or not is already checked by the
                     # ModelBackend we use
-                    django_login(
-                        request,
-                        auth_user,
-                        backend="core.backends.EmailUserNameAuthBackend",
-                    )
+                    django_login(request, auth_user, backend="core.backends.EmailUserNameAuthBackend")
                     return redirect("userMng:userMng_index")
                 except Exception as e:
                     raise e

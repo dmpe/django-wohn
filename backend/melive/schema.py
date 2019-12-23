@@ -3,16 +3,12 @@
 """
 
 import graphene
-
 import core.schema
-
-# from userMng.schema import Query
 
 
 class Mutations(graphene.ObjectType):
     """
     For POST, UPDATE, INSERT requests
-    , mutation=Mutations
     """
 
     pass
@@ -21,7 +17,6 @@ class Mutations(graphene.ObjectType):
 class Query(core.schema.Query, graphene.ObjectType):
     """
     For GET requests for melive.xyz
-
     """
 
     pass

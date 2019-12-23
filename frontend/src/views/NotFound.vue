@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
+  <div>
     <TheHeader />
     <b-container fluid>
-      <Properties />
+      <NotFoundError />
     </b-container>
     <TheFooter />
   </div>
@@ -10,16 +10,15 @@
 
 <script lang="ts">
 import Vue from "vue";
-import TheHeader from "@/components/TheHeader.vue";
+import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
-import Properties from "@/components/Properties.vue";
-import BootstrapVue from "bootstrap-vue";
+import NotFoundError from "@/components/error_handlers/NotFoundError.vue";
 
 export default Vue.extend({
-  name: "Home",
+  name: "NotFound",
   components: {
     TheHeader,
-    Properties,
+    NotFoundError,
     TheFooter,
   }
 });

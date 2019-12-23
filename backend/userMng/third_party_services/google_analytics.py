@@ -25,9 +25,7 @@ class Google_Analytics:
     def getAzureSecret(self):
         azCon = AzureConnection()
         azCon.main()
-        client = SecretClient(
-            vault_url="https://b40.vault.azure.net/", credential=azCon.credentials
-        )
+        client = SecretClient(vault_url="https://b40.vault.azure.net/", credential=azCon.credentials)
         GOOGLE_ANALYTICS = client.get_secret("GOOGLE-ANALYTICS-DROPBOX-LINK").value
         return GOOGLE_ANALYTICS
 
@@ -35,9 +33,7 @@ class Google_Analytics:
         """
             Download google analytics file from dropbox. Link to it is stored in Azure KV
         """
-        fl = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), "client_secrets.json")
-        )
+        fl = os.path.abspath(os.path.join(os.path.dirname(__file__), "client_secrets.json"))
         r = requests.get(dropbox_link, allow_redirects=True)
         open(fl, "wb").write(r.content)
 
@@ -52,9 +48,7 @@ class Google_Analytics:
         KEY_FILE_LOCATION = "client_secrets.json"
 
         try:
-            fl = os.path.abspath(
-                os.path.join(os.path.dirname(__file__), KEY_FILE_LOCATION)
-            )
+            fl = os.path.abspath(os.path.join(os.path.dirname(__file__), KEY_FILE_LOCATION))
         except Exception:
             logger.exception("clients_secrets.json not found on the server")
 
@@ -63,12 +57,7 @@ class Google_Analytics:
         authed_session = AuthorizedSession(scoped_credentials)
 
         # Build the service object.
-        analytics = build(
-            "analyticsreporting",
-            "v4",
-            credentials=scoped_credentials,
-            cache_discovery=False,
-        )
+        analytics = build("analyticsreporting", "v4", credentials=scoped_credentials, cache_discovery=False)
 
         return analytics
 
@@ -90,18 +79,9 @@ class Google_Analytics:
                     "reportRequests": [
                         {
                             "viewId": VIEW_ID,
-                            "dateRanges": [
-                                {"startDate": "7daysAgo", "endDate": "today"}
-                            ],
-                            "metrics": [
-                                {
-                                    "expression": "ga:sessions",
-                                    "expression": "ga:pageviews",
-                                }
-                            ],
-                            "dimensions": [
-                                {"name": "ga:country", "name": "ga:browser"}
-                            ],
+                            "dateRanges": [{"startDate": "7daysAgo", "endDate": "today"}],
+                            "metrics": [{"expression": "ga:sessions", "expression": "ga:pageviews"}],
+                            "dimensions": [{"name": "ga:country", "name": "ga:browser"}],
                         }
                     ]
                 }
@@ -121,9 +101,7 @@ class Google_Analytics:
         for report in response.get("reports", []):
             columnHeader = report.get("columnHeader", {})
             dimensionHeaders = columnHeader.get("dimensions", [])
-            metricHeaders = columnHeader.get("metricHeader", {}).get(
-                "metricHeaderEntries", []
-            )
+            metricHeaders = columnHeader.get("metricHeader", {}).get("metricHeaderEntries", [])
 
             for row in report.get("data", {}).get("rows", []):
                 dimensions = row.get("dimensions", [])
@@ -136,9 +114,7 @@ class Google_Analytics:
                     print("Date range: " + str(i))
                     for metricHeader, value in zip(metricHeaders, values.get("values")):
                         # Add dict here: key value
-                        google_analytics_dimensions_metrics_dict[
-                            metricHeader.get("name")
-                        ] = value
+                        google_analytics_dimensions_metrics_dict[metricHeader.get("name")] = value
                         print(metricHeader.get("name") + ": " + value)
 
         return google_analytics_dimensions_metrics_dict
