@@ -10,7 +10,6 @@ services:
         ports:
           - "80:80"
           - "443:443"
-          - "8080:8080"
         restart: always
         networks:
           - default
@@ -21,17 +20,18 @@ services:
           - ./services/containers/traefik:/acme
         labels:
           - "traefik.enable=true"
-          - "traefik.http.routers.monitor.rule=Host(`monitor.melive.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
-          - "traefik.http.routers.monitorsec.service=api@internal"
+          - "traefik.http.routers.monitor.rule=Host(`monitor.melive.xyz`)"
+          - "traefik.http.routers.monitor.service=api@internal"
           - "traefik.http.routers.monitorsec.tls.domains[0].main=melive.xyz"
           - "traefik.http.routers.monitorsec.tls.domains[0].sans=monitor.melive.xyz,pgadmin.melive.xyz"
           - "traefik.http.routers.monitorsec.tls=true"
-          - "traefik.http.routers.monitorsec.rule=Host(`monitor.melive.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+          - "traefik.http.routers.monitorsec.rule=Host(`monitor.melive.xyz`)"
           - "traefik.http.routers.monitorsec.tls.certresolver=default"
           - "traefik.http.routers.monitorsec.service=monitor"
           - "traefik.http.services.monitor.loadbalancer.server.port=8080"
           - "traefik.http.middlewares.monitor-redirect.redirectscheme.scheme=https"
           - "traefik.http.routers.monitor.middlewares=monitor-redirect"
+          - "traefik.http.routers.monitor.entrypoints: web"
         environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
