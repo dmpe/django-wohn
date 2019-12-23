@@ -5,7 +5,7 @@ version: '3.7'
 # https://api.ovh.com/console/#/auth/credential#POST
 services:
     traefik:
-        image: traefik:latest #v2
+        image: traefik:latest
         container_name: traefik
         ports:
           - "80:80"
@@ -26,6 +26,7 @@ services:
           - "traefik.http.routers.monitorsec.tls.certresolver=default"
           - "traefik.http.routers.monitorsec.service=monitor"
           - "traefik.http.services.monitor.loadbalancer.server.port=8080"
+          - "traefik.http.routers.monitor.service=api@internal"
           - "traefik.http.middlewares.monitor-redirect.redirectscheme.scheme=https"
           - "traefik.http.routers.monitor.middlewares=monitor-redirect"
         environment:
