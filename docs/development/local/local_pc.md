@@ -1,4 +1,4 @@
-# Local PC
+# PC
 
 Even though using container based approach for developing and deploying
 the website, it may be necessary sometimes to test things locally, on your own PC with docker being installed.

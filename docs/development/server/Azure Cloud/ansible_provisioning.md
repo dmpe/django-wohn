@@ -1,6 +1,8 @@
 # Ansible Configuration
 
-## Local PC
+For the future, we shall deploy to Azure Cloud via a standartized methodology and set of tools, e.g. <www.ansible.com>.
+
+## Setup
 
 ```shell
 sudo dnf install ansible az
@@ -28,6 +30,8 @@ secret=<security-principal-password>
 tenant=<security-principal-tenant>
 ```
 
+## Deployment
+
 There are 2 options where you can create servers, e.g. run playbooks.
 
 Either in `azure cloud-shell` where ansible is already preinstalled or on some Linux VM (either on server or desktop).
@@ -35,9 +39,10 @@ Either in `azure cloud-shell` where ansible is already preinstalled or on some L
 In any case you will need to azure credentials file being stored & prepared.
 
 My assumption here is local PC (fedora).
+For the `Ansible playbook`, see `server-config` branch and then execute:
 
 ```shell
-
+ansible-playbook
 
 ```
 
