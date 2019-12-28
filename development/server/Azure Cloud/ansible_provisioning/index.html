@@ -382,8 +382,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../local/local_pc/" title="Local PC" class="md-nav__link">
-      Local PC
+    <a href="../../../local/local_pc/" title="PC" class="md-nav__link">
+      PC
     </a>
   </li>
 
@@ -492,8 +492,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#local-pc" class="md-nav__link">
-    Local PC
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    Deployment
   </a>
   
 </li>
@@ -569,8 +576,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#local-pc" class="md-nav__link">
-    Local PC
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    Deployment
   </a>
   
 </li>
@@ -595,7 +609,8 @@
                 
                 
                 <h1 id="ansible-configuration">Ansible Configuration<a class="headerlink" href="#ansible-configuration" title="Permanent link">&para;</a></h1>
-<h2 id="local-pc">Local PC<a class="headerlink" href="#local-pc" title="Permanent link">&para;</a></h2>
+<p>For the future, we shall deploy to Azure Cloud via a standartized methodology and set of tools, e.g. <www.ansible.com>.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>sudo dnf install ansible az
 
 az login
@@ -618,11 +633,13 @@ nano ~/.azure/credentials
 <span class="nv">tenant</span><span class="o">=</span>&lt;security-principal-tenant&gt;
 </pre></div>
 
+<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
 <p>There are 2 options where you can create servers, e.g. run playbooks.</p>
 <p>Either in <code>azure cloud-shell</code> where ansible is already preinstalled or on some Linux VM (either on server or desktop).</p>
 <p>In any case you will need to azure credentials file being stored &amp; prepared.</p>
-<p>My assumption here is local PC (fedora).</p>
-<div class="codehilite"><pre><span></span>
+<p>My assumption here is local PC (fedora).
+For the <code>Ansible playbook</code>, see <code>server-config</code> branch and then execute:</p>
+<div class="codehilite"><pre><span></span>ansible-playbook
 </pre></div>
 
 <h1 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h1>
