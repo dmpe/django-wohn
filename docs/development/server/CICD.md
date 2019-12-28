@@ -1,6 +1,6 @@
 # CI & CD jobs
 
-The pipeline jobs run on [Azure DevOps](https://johnmalc.visualstudio.com/DJango-Wohn/_)
+The pipeline jobs run on [Azure DevOps](https://johnmalc.visualstudio.com/DJango-Wohn/_).
 
 ## Common errors
 

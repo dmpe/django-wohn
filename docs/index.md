@@ -6,8 +6,8 @@ This documentation providers a high-level overview of Django-Wohn, aka Melive.xy
 
 - DJango for backend
 - `/graphql` API endpoint (alternative to REST API) for querying (GET) and mutations (POST/DELETE) of DJango models
-- Vue.js for frontend
-- Azure Cloud for KeyVault, Storage and VMs. See later dedicated section in `development` section.
+- `Vue.js` for frontend
+- `Azure Cloud` for Key Vault/Secrets Management, Storage and VMs. See later dedicated section in `development` section.
 
 # Progress so far:
 
@@ -16,13 +16,15 @@ This documentation providers a high-level overview of Django-Wohn, aka Melive.xy
 - [x] Start using milestones based on weeks [here](https://github.com/dmpe/django-wohn/milestone).
 
 ## DevOps environment
+
 - [x] Setup working DevOps working environment
 - [x] On commit, pushed automatically through CI/CD to Docker Registry (DockerHub, now moved to [Quay.io](https://quay.io/user/dmpe))
   - [x] Project can be build and deployed to VM
+- [x] Use Ansible to deploy inital VM where containers are running.
 - [ ] Write proper API documentation, see [issue 75](https://github.com/dmpe/django-wohn/issues/75)
 - [x] Speed up on current environment, like [here 72](https://github.com/dmpe/django-wohn/issues/72)
 
-## Features
+## App Features
 
 - [x] Azure Function for fetching forex data (ECB for USD/EUR and CNB for CZK) - see a git branch
   - [ ] Integrate into workflow

@@ -1,4 +1,4 @@
-# Heroku
+# Heroku/PaaS
 
 Heroku requires several files to be in the root of the repository, see <https://devcenter.heroku.com/articles/deploying-python>
 
