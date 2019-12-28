@@ -13,6 +13,8 @@
         <meta name="description" content="Developer Documentation for Melive.xyz">
       
       
+        <link rel="canonical" href="https://dmpe.github.io/django-wohn/development/server/CICD/">
+      
       
         <meta name="author" content="John Malc (@dmpe)">
       
@@ -35,18 +37,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="/django-wohn/assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
     
     
       
-        <title>Melive.xyz Documentation</title>
+        <title>CI & CD jobs - Melive.xyz Documentation</title>
       
     
     
-      <link rel="stylesheet" href="/django-wohn/assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
       
-        <link rel="stylesheet" href="/django-wohn/assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -55,7 +57,7 @@
       
     
     
-      <script src="/django-wohn/assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -64,7 +66,7 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="/django-wohn/assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
     
@@ -89,6 +91,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#ci-cd-jobs" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -111,7 +117,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                
+                CI & CD jobs
               
             </span>
           
@@ -179,14 +185,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="/django-wohn/." class="md-tabs__link md-tabs__link--active">
+      <a href="../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -198,7 +206,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="/django-wohn/architecture/" class="md-tabs__link">
+        <a href="../../../architecture/" class="md-tabs__link">
           Architecture
         </a>
       
@@ -215,7 +223,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="/django-wohn/development/local/heroku/" class="md-tabs__link">
+        <a href="../../local/heroku/" class="md-tabs__link">
           Development
         </a>
       
@@ -274,7 +282,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -305,7 +313,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/architecture/" title="Development over the time" class="md-nav__link">
+    <a href="../../../architecture/" title="Development over the time" class="md-nav__link">
       Development over the time
     </a>
   </li>
@@ -320,10 +328,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Development
@@ -360,7 +370,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/local/heroku/" title="Heroku/PaaS" class="md-nav__link">
+    <a href="../../local/heroku/" title="Heroku/PaaS" class="md-nav__link">
       Heroku/PaaS
     </a>
   </li>
@@ -372,7 +382,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/local/local_pc/" title="Local PC" class="md-nav__link">
+    <a href="../../local/local_pc/" title="Local PC" class="md-nav__link">
       Local PC
     </a>
   </li>
@@ -387,10 +397,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
     
     <label class="md-nav__link" for="nav-3-2">
       Server
@@ -406,11 +418,49 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="/django-wohn/development/server/CICD/" title="CI & CD jobs" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        CI & CD jobs
+      </label>
+    
+    <a href="./" title="CI & CD jobs" class="md-nav__link md-nav__link--active">
       CI & CD jobs
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#common-errors" class="md-nav__link">
+    Common errors
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -420,7 +470,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/server/own_server/" title="Own Server" class="md-nav__link">
+    <a href="../own_server/" title="Own Server" class="md-nav__link">
       Own Server
     </a>
   </li>
@@ -451,7 +501,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/server/Azure Cloud/ansible_provisioning/" title="Ansible Configuration" class="md-nav__link">
+    <a href="../Azure Cloud/ansible_provisioning/" title="Ansible Configuration" class="md-nav__link">
       Ansible Configuration
     </a>
   </li>
@@ -463,7 +513,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/server/Azure Cloud/container/" title="Container" class="md-nav__link">
+    <a href="../Azure Cloud/container/" title="Container" class="md-nav__link">
       Container
     </a>
   </li>
@@ -475,7 +525,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/server/Azure Cloud/functions/" title="Azure Functions" class="md-nav__link">
+    <a href="../Azure Cloud/functions/" title="Azure Functions" class="md-nav__link">
       Azure Functions
     </a>
   </li>
@@ -503,12 +553,65 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#common-errors" class="md-nav__link">
+    Common errors
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                  <a href="https://github.com/dmpe/django-wohn/edit/docs/docs/development/server/CICD.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="ci-cd-jobs">CI &amp; CD jobs<a class="headerlink" href="#ci-cd-jobs" title="Permanent link">&para;</a></h1>
+<p>The pipeline jobs run on <a href="https://johnmalc.visualstudio.com/DJango-Wohn/_">Azure DevOps</a>.</p>
+<h2 id="common-errors">Common errors<a class="headerlink" href="#common-errors" title="Permanent link">&para;</a></h2>
+<p><strong>Issue:</strong> In Azure Portal, you suddenly cannot add new secrets. You get error message about "list access rights".</p>
+<p><strong>Solution:</strong> Delete all access rights and re-add them manually.</p>
+<hr />
+<p><strong>Issue:</strong> Azure DevOps cannot access Azure Key Vault</p>
+<p><strong>Solution:</strong> Go to Azure Key Vault, and look for "johnmalc-Django" app manually. Their listing is buggy and does not show every accessible user.</p>
+<hr />
+<p><strong>Issue:</strong> How to store whole file as a secret into Azure Key Vault ?</p>
+<p><strong>Solution:</strong> Execute below:</p>
+<div class="codehilite"><pre><span></span>az keyvault secret set --vault-name b40 -n ... path to file
+</pre></div>
 
+<p><a href="https://artisticcheese.wordpress.com/2018/01/04/storing-arbitrary-text-file-in-azure-key-vault-as-secrets-ssh-keys-cer-files-etc/">Source</a></p>
+                
+                  
+                
+                
+              
               
                 
 
@@ -521,6 +624,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../local/local_pc/" title="Local PC" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Local PC
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../own_server/" title="Own Server" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Own Server
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -543,9 +681,9 @@
       
     </div>
     
-      <script src="/django-wohn/assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"/django-wohn/"}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
   </body>

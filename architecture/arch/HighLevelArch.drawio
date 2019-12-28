@@ -1,1 +1,75 @@
-<mxfile host="www.draw.io" modified="2019-10-12T18:57:15.875Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:69.0) Gecko/20100101 Firefox/69.0" etag="hTlh04EgabWrkm5MgkVz" version="12.1.0" type="device" pages="1"><diagram id="JkhLGpLczkm5lLYZ0Tum" name="Page-1">3VlZd9o4FP41nDPzUI4XDOERQqCnQ2eS0JkubwoWthrZ8sgymPz6XtmSV0pISlo3eSC6n6+2u3y6lnv2ZZAuOIr898zFtGcZbtqzZz3LMu2hAf8kss+RkWPngMeJq5RKYEUesAJVPy8hLo5rioIxKkhUB9csDPFa1DDEOdvV1TaM1meNkIdbwGqNaBv9SFzh5+iFNSrxt5h4vp7ZHI7zJwHSymonsY9ctqtA9lXPvuSMibwVpJeYSuNpu+T95t95WiyM41Cc0mFmuov/ueUbX76wvxYTtrid3L5Ro2wRTdSG38JmAFnibebJCV/7RIBlE45BnOGYeKHakNhrKwmcwhqmvggoACY0Y8HZPb5klHFAQhaC5nRDKG1AiMrx7NkadoEBn24xFwTsP1EPAuK6cprpTq5jFaG1nHMH0QYYZ0noYrlBQw7PQrFSizK1nEeUOQS5bTG9fZgTpxVIWXCBWYAF34OKemoNlDdVOGtxV8aGPVKYX4kLrYdUOHrFyKXHoKGc9gQHjlq+wC4EsBIZFz7zWIjoVYk2rFbqLBmLlOm+YiH2ynYoEazu3KZhcUrEJyn0DUuJn+XofXM0UPIsVdNlwr4iXGNOwBbS+TkWgl3kaG+MvmHYGtEDjjRQjphJ+6rUHPO7no9Zwtf4iH0VWwnEPSyO6A1yPWn8o3HEMUWCbOvscvaouGil9U2Cs/n/WGDx5wn5yyHRH9BdpiAtGDESimyZzrTnzJ6UuRTdYTpF63svizzNAD3L3mR/J6Xqsehv5W9xHqgd1Cj3UF5DZJm2strJLlKjXUvTVFTYZhNDrDR9WEz6fLeOf0WyF/kI6WgO6uloO8/JxpN5ubvZmXWdcI72FQWVI+3I0KF5UT88zHHjxH6aPjTyFZw1xnThVeGO94kAq7AwlvzxkcMx/HoYZHxGBhlZw5q/dHXVXUKxW77uWUMqHemSLTQ92ZxzMC0OXen9/xLc/wpxANMZH/YRVMqcREJ3gjVU+h0YSkN3vIk0uzbCq85ih0rBI+XJGeq+RtlnWu26r8CqdZ9lvFThZw67UPk9n7oHJ1K33QnqLt5HVQBYj1D3I/ovRN26HCrT+d3qn79fDVfrkP9xsoZXC8v5zbh60HJuduVyswRwhTkYpXOsWdz+dIg2B7+CNmvvtFa9hnacoqj+kSI6BiYVE3njJbOUojgmaw3PCdUreT5hm9aJjG12g7IvjAYFN+/HHtW3fgJlO62svsVIllpQCqFApmj+C0hWeb8eMtd8dpbKu07mXeJy52b8If6X3bsO98l8+TlMF6E+bH4uCXWHIbp1WaaXXclBGfHqjWf2DoUeg1b2bSPu3Bk7NLp3xh56rWyYTTPOUhLMNYuJvGCAR3dMCBbUrdZkJ8GiQyT26CcHYC3DmF7N5QEc+yiSSwlST1ZRffSQcNx3EbAOivHLuGpsN1zlHHCVccBVpv10V4FYflvKeav8QmdffQM=</diagram></mxfile>
+<mxfile host="www.draw.io" modified="2019-11-19T22:19:41.286Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0" etag="0pyJC5KErnXLky-CN-Mf" version="12.2.7" type="github" pages="1">
+  <diagram id="JkhLGpLczkm5lLYZ0Tum" name="Page-1">
+    <mxGraphModel dx="1024" dy="571" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-1" value="High Level Architecture Design" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="240" y="40" width="370" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=16;exitX=1.02;exitY=0.174;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.003;entryY=0.177;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="D1dGqr2h0ZZoKGAoGRAR-3" target="D1dGqr2h0ZZoKGAoGRAR-4" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-8" value="Query (Get)" style="text;html=1;resizable=0;points=[];align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;fontSize=16;" parent="D1dGqr2h0ZZoKGAoGRAR-7" vertex="1" connectable="0">
+          <mxGeometry x="0.1138" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=16;" parent="1" source="D1dGqr2h0ZZoKGAoGRAR-3" target="D1dGqr2h0ZZoKGAoGRAR-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-10" value="Mutations (Write)" style="text;html=1;resizable=0;points=[];align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;fontSize=16;rotation=0;" parent="D1dGqr2h0ZZoKGAoGRAR-9" vertex="1" connectable="0">
+          <mxGeometry x="0.1726" y="-1" relative="1" as="geometry">
+            <mxPoint x="2" y="39" as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-3" value="&lt;div&gt;Frontend:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Vue.js for View&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Vuex for State Mng&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Apollo for GraphQL integration&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt; TypeScript&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="40" y="120" width="120" height="370" as="geometry"/>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=16;" parent="1" source="D1dGqr2h0ZZoKGAoGRAR-4" target="D1dGqr2h0ZZoKGAoGRAR-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="280"/>
+              <mxPoint x="320" y="410"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-17" value="JSON" style="text;html=1;resizable=0;points=[];align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;fontSize=16;" parent="D1dGqr2h0ZZoKGAoGRAR-16" vertex="1" connectable="0">
+          <mxGeometry x="-0.25" y="-1" relative="1" as="geometry">
+            <mxPoint x="-39" y="64" as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-4" value="&lt;div&gt;&lt;b&gt;GraphQL API Server&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Endpoint: /graphql&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="360" y="120" width="120" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.02;entryY=0.554;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=16;startArrow=classic;startFill=1;" parent="1" source="D1dGqr2h0ZZoKGAoGRAR-12" target="D1dGqr2h0ZZoKGAoGRAR-13" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="220"/>
+              <mxPoint x="800" y="222"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-15" value="Read &amp;amp; Write" style="text;html=1;resizable=0;points=[];align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;fontSize=16;" parent="D1dGqr2h0ZZoKGAoGRAR-14" vertex="1" connectable="0">
+          <mxGeometry x="0.175" y="1" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5Q9TsUokd5rhiFLYnxGn-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" parent="1" source="D1dGqr2h0ZZoKGAoGRAR-12" target="D1dGqr2h0ZZoKGAoGRAR-4" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-12" value="&lt;div&gt;&lt;b&gt;Backend (DJango Models)&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Logic &lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;AuthN/AuthZ&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="600" y="120" width="120" height="480" as="geometry"/>
+        </mxCell>
+        <mxCell id="D1dGqr2h0ZZoKGAoGRAR-13" value="PostgreSQL" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.database;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="930" y="150" width="100" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="U82fdfa0-OKXxwM7Y4GP-1" value="&lt;div&gt;&lt;b&gt;GraphQL API Server&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Endpoint: /graphql-private&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="365" y="340" width="120" height="200" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

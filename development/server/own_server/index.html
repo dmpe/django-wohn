@@ -13,6 +13,8 @@
         <meta name="description" content="Developer Documentation for Melive.xyz">
       
       
+        <link rel="canonical" href="https://dmpe.github.io/django-wohn/development/server/own_server/">
+      
       
         <meta name="author" content="John Malc (@dmpe)">
       
@@ -35,18 +37,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="/django-wohn/assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
     
     
       
-        <title>Melive.xyz Documentation</title>
+        <title>Own Server - Melive.xyz Documentation</title>
       
     
     
-      <link rel="stylesheet" href="/django-wohn/assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
       
-        <link rel="stylesheet" href="/django-wohn/assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -55,7 +57,7 @@
       
     
     
-      <script src="/django-wohn/assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -64,7 +66,7 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="/django-wohn/assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
     
@@ -89,6 +91,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#own-server" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -111,7 +117,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                
+                Own Server
               
             </span>
           
@@ -179,14 +185,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="/django-wohn/." class="md-tabs__link md-tabs__link--active">
+      <a href="../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -198,7 +206,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="/django-wohn/architecture/" class="md-tabs__link">
+        <a href="../../../architecture/" class="md-tabs__link">
           Architecture
         </a>
       
@@ -215,7 +223,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="/django-wohn/development/local/heroku/" class="md-tabs__link">
+        <a href="../../local/heroku/" class="md-tabs__link">
           Development
         </a>
       
@@ -274,7 +282,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -305,7 +313,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/architecture/" title="Development over the time" class="md-nav__link">
+    <a href="../../../architecture/" title="Development over the time" class="md-nav__link">
       Development over the time
     </a>
   </li>
@@ -320,10 +328,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Development
@@ -360,7 +370,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/local/heroku/" title="Heroku/PaaS" class="md-nav__link">
+    <a href="../../local/heroku/" title="Heroku/PaaS" class="md-nav__link">
       Heroku/PaaS
     </a>
   </li>
@@ -372,7 +382,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/local/local_pc/" title="Local PC" class="md-nav__link">
+    <a href="../../local/local_pc/" title="Local PC" class="md-nav__link">
       Local PC
     </a>
   </li>
@@ -387,10 +397,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
     
     <label class="md-nav__link" for="nav-3-2">
       Server
@@ -408,7 +420,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/server/CICD/" title="CI & CD jobs" class="md-nav__link">
+    <a href="../CICD/" title="CI & CD jobs" class="md-nav__link">
       CI & CD jobs
     </a>
   </li>
@@ -418,11 +430,83 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="/django-wohn/development/server/own_server/" title="Own Server" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Own Server
+      </label>
+    
+    <a href="./" title="Own Server" class="md-nav__link md-nav__link--active">
       Own Server
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-deploy-to-own-server" class="md-nav__link">
+    1. Deploy to own server
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-django-superuser" class="md-nav__link">
+    Create Django superuser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-git-repo-with-post-receive-hook" class="md-nav__link">
+    Setup Git Repo with post-receive hook
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-some-common-issues" class="md-nav__link">
+    2. Some common issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-run-celery-and-rabbitmq-management-ui" class="md-nav__link">
+    3. Run Celery and RabbitMQ Management UI
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -451,7 +535,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/server/Azure Cloud/ansible_provisioning/" title="Ansible Configuration" class="md-nav__link">
+    <a href="../Azure Cloud/ansible_provisioning/" title="Ansible Configuration" class="md-nav__link">
       Ansible Configuration
     </a>
   </li>
@@ -463,7 +547,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/server/Azure Cloud/container/" title="Container" class="md-nav__link">
+    <a href="../Azure Cloud/container/" title="Container" class="md-nav__link">
       Container
     </a>
   </li>
@@ -475,7 +559,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/django-wohn/development/server/Azure Cloud/functions/" title="Azure Functions" class="md-nav__link">
+    <a href="../Azure Cloud/functions/" title="Azure Functions" class="md-nav__link">
       Azure Functions
     </a>
   </li>
@@ -503,12 +587,147 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-deploy-to-own-server" class="md-nav__link">
+    1. Deploy to own server
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-django-superuser" class="md-nav__link">
+    Create Django superuser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-git-repo-with-post-receive-hook" class="md-nav__link">
+    Setup Git Repo with post-receive hook
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-some-common-issues" class="md-nav__link">
+    2. Some common issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-run-celery-and-rabbitmq-management-ui" class="md-nav__link">
+    3. Run Celery and RabbitMQ Management UI
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                  <a href="https://github.com/dmpe/django-wohn/edit/docs/docs/development/server/own_server.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="own-server">Own Server<a class="headerlink" href="#own-server" title="Permanent link">&para;</a></h1>
+<p>Before I have switched to container based, CI/CD workflow, I have installed everything that I needed on my server myself...</p>
+<p>Some important components are located in <code>services/own_server</code> in a different branch.
+See heroku page as well.</p>
+<p>To install pgadmin4, follow <a href="https://www.pgadmin.org/docs/pgadmin4/4.x/server_deployment.html">https://www.pgadmin.org/docs/pgadmin4/4.x/server_deployment.html</a> guideline.</p>
+<h2 id="1-deploy-to-own-server">1. Deploy to own server<a class="headerlink" href="#1-deploy-to-own-server" title="Permanent link">&para;</a></h2>
+<h3 id="create-django-superuser">Create Django superuser<a class="headerlink" href="#create-django-superuser" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>python3 manage.py createsuperuser --username admin --email ci@se.cz
+</pre></div>
 
+<p>Then, execute on remote server following commands whenever Django model(s) change.</p>
+<div class="codehilite"><pre><span></span>python3 manage.py makemigrations &lt;model&gt; <span class="o">&amp;&amp;</span> python3 manage.py migrate <span class="o">&amp;&amp;</span> sudo systemctl restart gunicorn.service
+</pre></div>
+
+<p>After git commit &amp; push to the server, you can also use a special post-receive hook <a href="https://gist.github.com/lemiorhan/8912188">https://gist.github.com/lemiorhan/8912188</a>.</p>
+<h3 id="setup-git-repo-with-post-receive-hook">Setup Git Repo with post-receive hook<a class="headerlink" href="#setup-git-repo-with-post-receive-hook" title="Permanent link">&para;</a></h3>
+<p>At certain point of time, the goal was to use AWS Cloud9 IDE to edit <strong>and</strong> push -- on the same server (username@domain:/home/username/domain_push.git) -- to the git repository, from which website was "deployment" (aka gunicorn restarted).</p>
+<p>Today, this is totally obsolete with VS Code (remote development or Eclipse Che) for instance.</p>
+<ul>
+<li>See this guide <a href="https://stackoverflow.com/a/40479963">https://stackoverflow.com/a/40479963</a></li>
+<li>E.g. for AWS Cloud9 IDE, first clone git repo somewhere</li>
+<li>Then create a new <strong>bare</strong> repo which is used for pushing to it and then you will need to add/register aforementioned <code>post-recieve</code> hook.</li>
+</ul>
+<h2 id="2-some-common-issues">2. Some common issues<a class="headerlink" href="#2-some-common-issues" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Start Django manually</li>
+</ul>
+<div class="codehilite"><pre><span></span>python3 manage.py runserver --nostatic
+</pre></div>
+
+<ul>
+<li>Adding new SSL certificates via certbot (letsencrypt)</li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo certbot --nginx certonly
+</pre></div>
+
+<ul>
+<li>Nginx 502 gateway issue after VM reboot</li>
+</ul>
+<p>Just <strong>restart</strong> nginx, then <code>sudo systemctl restart gunicorn.service</code> as well as stop that socket thing</p>
+<h2 id="3-run-celery-and-rabbitmq-management-ui">3. Run Celery and RabbitMQ Management UI<a class="headerlink" href="#3-run-celery-and-rabbitmq-management-ui" title="Permanent link">&para;</a></h2>
+<p>(This could have been moved to Azure Functions for example - see different branch.)</p>
+<p>Source:</p>
+<ul>
+<li><a href="https://stackoverflow.com/a/12900126/2171456">https://stackoverflow.com/a/12900126/2171456</a></li>
+</ul>
+<p>First install <code>RabbitMQ</code> (message broker), then <code>Celery</code> (worker).</p>
+<div class="codehilite"><pre><span></span>sudo rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management
+sudo rabbitmqctl add_user jm password
+sudo rabbitmqctl set_user_tags jm administrator
+</pre></div>
+
+<p>Run <code>Celery</code> from <code>b40re</code> directory using:</p>
+<div class="codehilite"><pre><span></span>sudo systemctl restart rabbitmq&lt;TAB&gt;
+celery -A vanoce worker -l info
+</pre></div>
+
+<p>Then, in an another <code>bash</code> window, execute commands below so that tasks such as
+fetching forex/currency data are run immediately.</p>
+<div class="codehilite"><pre><span></span>python3 manage.py shell
+from userMng.third_party_services.celery_tasks import parse_forex_data
+<span class="nv">rst</span> <span class="o">=</span> parse_forex_data.apply<span class="o">()</span>
+</pre></div>
+                
+                  
+                
+                
+              
               
                 
 
@@ -521,6 +740,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../CICD/" title="CI & CD jobs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                CI & CD jobs
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Azure Cloud/ansible_provisioning/" title="Ansible Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Ansible Configuration
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -543,9 +797,9 @@
       
     </div>
     
-      <script src="/django-wohn/assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"/django-wohn/"}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
   </body>
