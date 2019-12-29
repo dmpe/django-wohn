@@ -24,14 +24,14 @@ steps:
 - script: |
     ls -al
     cd services/azure_ansible
-    ansible-lint .
+    ansible-lint playbook.yml
   displayName: Ansible Lint
 
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'quay.io'
-    dockerComposeFile: '**/docker-compose.yml'
+    dockerComposeFile: 'docker-compose.yml'
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'config'
     nopIfNoDockerComposeFile: true
