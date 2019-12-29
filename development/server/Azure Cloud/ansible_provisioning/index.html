@@ -636,10 +636,11 @@ nano ~/.azure/credentials
 <h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
 <p>There are 2 options where you can create servers, e.g. run playbooks.</p>
 <p>Either in <code>azure cloud-shell</code> where ansible is already preinstalled or on some Linux VM (either on server or desktop).</p>
-<p>In any case you will need to azure credentials file being stored &amp; prepared.</p>
+<p>In any case you will need to have azure credentials file being stored &amp; prepared.</p>
 <p>My assumption here is local PC (fedora).
 For the <code>Ansible playbook</code>, see <code>server-config</code> branch and then execute:</p>
 <div class="codehilite"><pre><span></span>ansible-playbook
+ansible-playbook playbook.yml --check
 </pre></div>
 
 <h1 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h1>
