@@ -120,6 +120,7 @@
           sku: 19.09
           version: latest
 
+## install latest git
 
     - name: Install required system packages
       apt: name={{ item }} state=latest update_cache=yes
@@ -148,6 +149,7 @@
     - git:
         repo: 'https://www.github.com/dmpe/django-wohn'
         dest: /home/ub_django
+        check_mode: master
 
     - name: Run git config
       shell: |
