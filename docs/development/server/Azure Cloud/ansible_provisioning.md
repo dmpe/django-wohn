@@ -36,28 +36,15 @@ There are 2 options where you can create servers, e.g. run playbooks.
 
 Either in `azure cloud-shell` where ansible is already preinstalled or on some Linux VM (either on server or desktop).
 
-In any case you will need to azure credentials file being stored & prepared.
+In any case you will need to have azure credentials file being stored & prepared.
 
 My assumption here is local PC (fedora).
 For the `Ansible playbook`, see `server-config` branch and then execute:
 
 ```shell
 ansible-playbook
-
+ansible-playbook playbook.yml --check
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
