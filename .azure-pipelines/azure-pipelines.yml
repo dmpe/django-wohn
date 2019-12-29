@@ -1,0 +1,37 @@
+# Fetch secrets from "Library"
+variables:
+- group: VarGroup1
+
+pool:
+  vmImage: "ubuntu-latest"
+
+trigger:
+  - server-config
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+    architecture: 'x64'
+
+- checkout: self
+  persistCredentials: true
+
+- script: python -m pip install --upgrade pip setuptools wheel ansible-lint
+  displayName: 'Install all necessary tools'
+
+- script: |
+    ls -al
+    cd services/azure_ansible
+    ansible-lint .
+  displayName: Ansible Lint
+
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'quay.io'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'config'
+    nopIfNoDockerComposeFile: true

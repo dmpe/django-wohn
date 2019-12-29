@@ -33,7 +33,27 @@
         domain_name: "{{ dom_name }}"
         sku: "{{ ip_sku }}"
 
-    - azure_rm_securitygroup:
+    - name: Create OS Disk
+      azure_rm_manageddisk:
+        name: "{{ os_disk }}"
+        os_type: linux
+        location: "{{ resource_location }}"
+        resource_group: "{{ resource_group }}"
+        create_option: empty
+        disk_size_gb: 10
+        storage_account_type: "{{ storage_type }}"
+
+    - name: Create Data Disk
+      azure_rm_manageddisk:
+        name: "{{ data_disk }}"
+        location: "{{ resource_location }}"
+        resource_group: "{{ resource_group }}"
+        create_option: empty
+        disk_size_gb: 30
+        storage_account_type: "{{ storage_type }}"
+
+    - name: Create Network Security Group
+      azure_rm_securitygroup:
         resource_group: "{{ resource_group }}"
         name: "{{ security_group }}"
         location: "{{ virtual_network_location }}"
@@ -99,7 +119,6 @@
           publisher: Canonical
           sku: 19.09
           version: latest
-
 
 
     - name: Install required system packages
