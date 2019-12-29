@@ -1,0 +1,16 @@
+---
+resource_group: DjangoDocker
+resource_location: westcentralus
+vault_location: westeurope
+vault_name: melive
+virtual_network_name: myVNET2
+virtual_network_location: eastus2
+address_prefixes_cidr: "10.0.0.0/24"
+subnet_name: default
+ip_name: vm-ip
+network_interface_name: vm424
+alloc_method: Dynamic
+dom_name: domain_name
+ip_sku: Basic
+security_group: vm-nsg
+yes: yes

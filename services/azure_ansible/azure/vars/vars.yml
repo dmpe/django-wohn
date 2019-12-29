@@ -1,5 +1,0 @@
----
-resource_group: DjangoDocker
-resource_location: westcentralus
-vault_location: westeurope
-vault_name: melive

@@ -14,44 +14,77 @@
       azure_rm_virtualnetwork:
         resource_group: "{{ resource_group }}"
         name: "{{ virtual_network_name }}"
-        address_prefixes: "10.0.0.0/16"
+        location: "{{ virtual_network_location }}"
+        address_prefixes: "{{ address_prefixes_cidr }}"
 
-    - name: Add subnet
+    - name: Add subnet + associate with VNet
       azure_rm_subnet:
         resource_group: "{{ resource_group }}"
         name: "{{ subnet_name }}"
-        address_prefix: "10.0.1.0/24"
+        address_prefix: "{{ address_prefixes_cidr }}"
         virtual_network: "{{ virtual_network_name }}"
 
     - name: Create public IP address
       azure_rm_publicipaddress:
         resource_group: "{{ resource_group }}"
-        allocation_method: Static
+        location: "{{ resource_location }}"
+        allocation_method: "{{ alloc_method }}"
         name: "{{ ip_name }}"
+        domain_name: "{{ dom_name }}"
+        sku: "{{ ip_sku }}"
 
-    - name: Create virtual network inteface cards for VM A and B
+    - azure_rm_securitygroup:
+        resource_group: "{{ resource_group }}"
+        name: "{{ security_group }}"
+        location: "{{ virtual_network_location }}"
+        purge_rules: no
+        rules:
+          - name: SSH
+            protocol: Tcp
+            destination_port_range: 22
+            access: Allow
+            priority: 300
+            direction: Inbound
+          - name: 'AllowSSH'
+            protocol: Tcp
+            source_address_prefix:
+              - '174.109.158.0/24'
+              - '174.109.159.0/24'
+            destination_port_range: 22
+            access: Allow
+            priority: 101
+            direction: Inbound
+          - name: 'AllowMultiplePorts'
+            protocol: Tcp
+            source_address_prefix:
+              - '174.109.158.0/24'
+              - '174.109.159.0/24'
+            destination_port_range:
+              - 80
+              - 443
+            access: Allow
+            priority: 102
+
+    - name: Create virtual network inteface cards for VM
       azure_rm_networkinterface:
         resource_group: "{{ resource_group }}"
         name: "{{ network_interface_name }}"
         virtual_network: "{{ virtual_network_name }}"
         subnet: "{{ subnet_name }}"
+        security_group: " {{ security_group }}"
 
     - name: Key Vault
       azure_rm_keyvault:
         resource_group: "{{ resource_group }}"
         vault_name: "{{ vault_name }}"
-        enabled_for_deployment: yes
+        location: "{{ vault_location }}"
+        enabled_for_deployment: "{{ yes }}"
+        enable_soft_delete: "{{ yes }}"
+        enabled_for_disk_encryption: "{{ yes }}"
+        enabled_for_template_deployment: "{{ yes }}"
         vault_tenant: 72f98888-8666-4144-9199-2d7cd0111111
         sku:
-        name: standard
-        access_policies:
-        - tenant_id: 72f98888-8666-4144-9199-2d7cd0111111
-            object_id: 99998888-8666-4144-9199-2d7cd0111111
-            keys:
-            - get
-            - list
-
-
+          name: standard
 
     - name: Create VM
       azure_rm_virtualmachine:
@@ -69,6 +102,41 @@
 
 
 
+    - name: Install required system packages
+      apt: name={{ item }} state=latest update_cache=yes
+      loop: ['apt-transport-https', 'gnupg-agent', 'ca-certificates', 'curl', 'wget', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
+
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+
+    - name: Update apt and install docker-ce
+      apt: update_cache=yes name=docker-ce state=latest
+
+
+    - name: Run git config
+      shell: |
+        git config --global credential.helper store
+      args:
+        executable: /bin/bash
+
+    - git:
+        repo: 'https://www.github.com/dmpe/django-wohn'
+        dest: /home/ub_django
+
+    - name: Run git config
+      shell: |
+        cd django-wohn
+        git remote prune origin
+        git fetch origin --prune
+      args:
+        executable: /bin/bash
 
 
 
