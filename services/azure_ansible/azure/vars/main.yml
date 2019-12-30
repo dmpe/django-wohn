@@ -13,8 +13,8 @@ alloc_method: Dynamic
 dom_name: domain_name
 ip_sku: Basic
 security_group: vm-nsg
-yes: yes
-no: no
+enable_yes: yes
+enable_no: no
 os_disk: OSDisk
 storage_type: Standard_LRS
 data_disk: DataDisk
