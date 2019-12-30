@@ -1,6 +1,8 @@
 ---
 - hosts: localhost
   connection: local
+# used for sudo, requires more work
+#   become: yes
   roles:
     - azure
 
@@ -118,12 +120,15 @@
         location: "{{ resource_location }}"
         name: "{{ source_vm_name }}"
         admin_username: "{{ vm_username }}"
-        # admin_password: "Password1234!"
+        admin_password: "Password1234!"
         vm_size: "{{ vm_os_size }}"
         public_ip_allocation_method: "{{ alloc_method }}"
         network_interfaces: "{{ network_interface_name }}"
         virtual_network_name: "{{ virtual_network_name }}"
         started: "{{ no }}"
+        ssh_public_keys:
+          - path: /home/jm/Documents/.ssh/authorized_keys
+            key_data: "{{ lookup('file', '/home/jm/Documents/.ssh/public_melive') }}"
         managed_disk_type: "{{ storage_type }}"
         os_disk_caching: ReadWrite
         os_disk_name: "{{ os_disk }}"
@@ -132,19 +137,31 @@
         image:
           offer: UbuntuServer
           publisher: Canonical
-          sku: 19.09
+          sku: 19.10
           version: latest
-
-
-## install latest git
 
     - name: Install required system packages
       apt: name={{ item }} state=latest update_cache=yes
       loop: ['apt-transport-https', 'gnupg-agent', 'ca-certificates', 'curl', 'wget', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
 
+    - name: Add Git Repo
+      apt_repository:
+        repo: deb http://ppa.launchpad.net/git-core/ppa/ubuntu eoan main
+        state: present
+
     - name: Add Docker GPG apt Key
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Nodesource Nodejs apt Key
+      apt_key:
+        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+        state: present
+
+    - name: Add Yarn Key
+      apt_key:
+        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
         state: present
 
     - name: Add Docker Repository
@@ -152,9 +169,27 @@
         repo: deb https://download.docker.com/linux/ubuntu bionic stable
         state: present
 
+    - name: Add Yarn Repository
+      apt_repository:
+        repo: deb https://dl.yarnpkg.com/debian/ stable main
+        state: present
+
+    - name: Add Nodejs
+      apt_repository:
+        repo: deb https://deb.nodesource.com/node_13.x eoan main
+        state: present
+
     - name: Update apt and install docker-ce
       apt: update_cache=yes name=docker-ce state=latest
 
+    - name: Install Docker Compose
+      shell: |
+        curl -L https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep "tag_name" | cut -d \" -f4)/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+        chmod +x /usr/local/bin/docker-compose
+
+    - name: Install required system packages #2
+      apt: name={{ item }} state=latest update_cache=yes
+      loop: ['git', 'nodejs']
 
     - name: Run git config
       shell: |
@@ -162,7 +197,8 @@
       args:
         executable: /bin/bash
 
-    - git:
+    - name: Clone Django Repo
+      git:
         repo: 'https://www.github.com/dmpe/django-wohn'
         dest: /home/ub_django
         check_mode: master
