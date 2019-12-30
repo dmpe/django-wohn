@@ -4,7 +4,7 @@ resource_location: westcentralus
 vault_location: westeurope
 vault_name: melive
 virtual_network_name: myVNET2
-virtual_network_location: eastus2
+virtual_network_location: westcentralus
 address_prefixes_cidr: "10.0.0.0/24"
 subnet_name: default
 ip_name: vm-ip
@@ -14,6 +14,15 @@ dom_name: domain_name
 ip_sku: Basic
 security_group: vm-nsg
 yes: yes
+no: no
 os_disk: OSDisk
 storage_type: Standard_LRS
 data_disk: DataDisk
+disk_create_option: empty
+storage_name: melive88789
+storage_acc_type: Standard_LRS
+storage_kind: BlobStorage
+source_vm_name: vm1
+vm_username: ub_django
+vm_os_size: Standard_B1ms
+os_type: linux
