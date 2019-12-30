@@ -518,8 +518,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-prepare-your-vm" class="md-nav__link">
-    1. Prepare your VM
+  <a href="#1-prepare-your-vm-see-ansible-provisioning" class="md-nav__link">
+    1. Prepare your VM - See Ansible Provisioning !!!
   </a>
   
 </li>
@@ -658,8 +658,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-prepare-your-vm" class="md-nav__link">
-    1. Prepare your VM
+  <a href="#1-prepare-your-vm-see-ansible-provisioning" class="md-nav__link">
+    1. Prepare your VM - See Ansible Provisioning !!!
   </a>
   
 </li>
@@ -758,8 +758,9 @@
 <ul>
 <li>Azure DNS Zone due to its <a href="https://docs.microsoft.com/en-us/azure/dns/dns-faq">limitations</a> -&gt; Moved to 3<sup>rd</sup> Party Hosting Provider (OVH)</li>
 </ul>
-<h2 id="1-prepare-your-vm">1. Prepare your VM<a class="headerlink" href="#1-prepare-your-vm" title="Permanent link">&para;</a></h2>
-<p>On (close to any) cloud provider, create a VM and use <code>cloud-init</code> <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a> commands to install required applications right during the initial setup.</p>
+<h2 id="1-prepare-your-vm-see-ansible-provisioning">1. Prepare your VM - See Ansible Provisioning !!!<a class="headerlink" href="#1-prepare-your-vm-see-ansible-provisioning" title="Permanent link">&para;</a></h2>
+<p>Use ansible!</p>
+<p>If you still need doing that manually, create a VM and use <code>cloud-init</code> <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a> commands to install required applications right during the initial setup.</p>
 <p>This should already include major components like Docker daemon.</p>
 <div class="codehilite"><pre><span></span><span class="c1">#include https://get.docker.com</span>
 package_update: <span class="nb">true</span>

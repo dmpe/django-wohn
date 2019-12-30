@@ -2,47 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://dmpe.github.io/django-wohn/</loc>
-     <lastmod>2019-12-29</lastmod>
+     <lastmod>2019-12-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/architecture/</loc>
-     <lastmod>2019-12-29</lastmod>
+     <lastmod>2019-12-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/development/local/heroku/</loc>
-     <lastmod>2019-12-29</lastmod>
+     <lastmod>2019-12-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/development/local/local_pc/</loc>
-     <lastmod>2019-12-29</lastmod>
+     <lastmod>2019-12-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/development/server/CICD/</loc>
-     <lastmod>2019-12-29</lastmod>
+     <lastmod>2019-12-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/development/server/own_server/</loc>
-     <lastmod>2019-12-29</lastmod>
+     <lastmod>2019-12-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/development/server/Azure Cloud/ansible_provisioning/</loc>
-     <lastmod>2019-12-29</lastmod>
+     <lastmod>2019-12-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/development/server/Azure Cloud/container/</loc>
-     <lastmod>2019-12-29</lastmod>
+     <lastmod>2019-12-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dmpe.github.io/django-wohn/development/server/Azure Cloud/functions/</loc>
-     <lastmod>2019-12-29</lastmod>
+     <lastmod>2019-12-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
