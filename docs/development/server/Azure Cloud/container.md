@@ -16,9 +16,11 @@ Images are run on Azure cloud and therefore Melive.xyz also uses many of its ser
 
 - Azure DNS Zone due to its [limitations](https://docs.microsoft.com/en-us/azure/dns/dns-faq) -> Moved to 3rd Party Hosting Provider (OVH)
 
-## 1. Prepare your VM
+## 1. Prepare your VM - See Ansible Provisioning !!!
 
-On (close to any) cloud provider, create a VM and use `cloud-init` [cloud-init](https://cloudinit.readthedocs.io/en/latest/) commands to install required applications right during the initial setup.
+Use ansible!
+
+If you still need doing that manually, create a VM and use `cloud-init` [cloud-init](https://cloudinit.readthedocs.io/en/latest/) commands to install required applications right during the initial setup.
 
 This should already include major components like Docker daemon.
 
