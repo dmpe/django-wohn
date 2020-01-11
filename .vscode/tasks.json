@@ -59,6 +59,21 @@
           "kind": "build",
           "isDefault": true
         }
+      },
+      {
+        "type": "func",
+        "command": "host start",
+        "problemMatcher": "$func-watch",
+        "isBackground": true,
+        "dependsOn": "pipInstall"
+      },
+      {
+        "label": "pipInstall",
+        "type": "shell",
+        "linux": {
+          "command": "${config:python.pythonPath} -m pip install -r azure-functions/requirements.txt"
+        },
+        "problemMatcher": []
       }
     ]
 }

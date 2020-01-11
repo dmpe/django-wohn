@@ -1,0 +1,5 @@
+azure-functions
+pandas
+numpy
+pandasdmx
+pytz
