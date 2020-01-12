@@ -192,9 +192,7 @@
 				<p>Change mt^2 to sq. foot</p> -->
       </div>
     </b-container>
-  </div>
-  </b-container>
-  <TheFooter />
+    <TheFooter />
   </div>
 </template>
 

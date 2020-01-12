@@ -170,8 +170,7 @@
           </div>
         </div>
       </div>
-    </b-container>
-  </div>
+    </div>
   </b-container>
   <TheFooter />
   </div>
