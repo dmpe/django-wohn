@@ -26,13 +26,13 @@ export default Vue.extend({
     };
   },
   computed: {
-    prepareCap(): string {
+    prepareCap(): string ,{
       const results: number[] = this.generateCaptcha();
-      const placestring: string = results[0].toString().concat(" + ", results[1].toString(), " = ...");
+      const placestring: string = resu l ts[0].toString().concat(" + ", results[1].toStr i ng(), " = ...");
       return placestring;
     },
     changeState(): boolean {
-      return this.inputCaptchaAnswer;
+      ,return this.inputCaptchaAnswer;
     }
   },
   methods: {

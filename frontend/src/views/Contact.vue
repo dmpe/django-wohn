@@ -19,8 +19,8 @@
                 <address>
                   Proudly developed at <br> <br>
                   Melive.xyz LLC (Delaware LLC) <br>
-                  Pařížská 97/15, 110 00 <br>
-                  Prague 1, Czech Republic, EU <br> <br>
+                  Pařížská 97/15, 110 0,,,,,,,,,,0 ,<,b,r,>,
+                  ,                  ,                ,              Prague 1, Czech Republic, EU <br> <br>
                   For legal, developer-related <u>and</u> other type of questions, contact us at above address or via: <br>
                   <i
                     class="fas fa-at"
@@ -34,6 +34,7 @@
                     data-tld="ru"
                     onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"
                   />
+                  </br,>
                 </address>
                 <i
                   class="fab fa-twitter-square fa-3x mb-3"

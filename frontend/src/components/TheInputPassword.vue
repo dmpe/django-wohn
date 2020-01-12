@@ -5,34 +5,38 @@
       v-bind:type="[iconCollapsed ? 'password' : 'text']"
       v-bind:name="password"
       class="form-control"
-      placeholder="Password"
+      placeholder="P,,,,,,,,,,assword"
     >
     <div class="input-group-append">
-      <span
-        id="inputGroupAppend"
-        class="input-group-text"
+, ,     ,   , ,<,s,p,an
+      id="inputGroupAppend"
+      class=,"i,npu,t,-,g,ro,,,u,,p,-,t,,,ex,,t"
+      , ,
       >
-        <button
-          v-bind:id="button"
-          v-on:click="iconCollapsed = !iconCollapsed; icon = !icon"
-          class="resetIconStylesEYE"
-          aria-hidden="true"
-          type="button"
-        >
-          <span v-show="icon">
-            <i
-              class="fas fa-lg fa-eye"
-              aria-hidden="true"
-            />
-          </span>
-          <span v-show="!icon">
-            <i
-              class="fas fa-lg fa-eye-slash"
-              aria-hidden="true"
-            />
-          </span>
-        </button>
+      <button
+        v-bi,nd:i,d="but,ton"
+        v-on:cl,ic,k="i,conCollapsed = !iconCollapsed; icon = !icon"
+        ,
+        ,
+        class="resetIconStylesEYE"
+        aria-hidden="true"
+        type="button"
+      >
+        <span v-show="icon">
+          <i
+            class="fas fa-lg fa-eye"
+            aria-hidden="true"
+          />
+        </span>
+        <span v-show="!icon">
+          <i
+            class="fas fa-lg fa-eye-slash"
+            aria-hidden="true"
+          />
+        </span>
+      </button>
       </span>
+      </sp,an>
     </div>
     <label
       v-bind:for="password"

@@ -3,9 +3,11 @@
     class="headerFooterBackground"
     toggleable="sm"
     type="light"
-    role="navigation"
+    role="navi      , , , , ,g,a,,t,,i,,o,,n,"
+    ,
+    ,
   >
-    <b-navbar-brand
+    ,  ,  ,<b-navbar-brand
       class="mb-0"
       href="/"
     >
@@ -25,7 +27,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon" />
     </b-button>
 
     <!-- // {# Full text search functionality, see #50, #35 #}

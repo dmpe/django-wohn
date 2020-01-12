@@ -182,16 +182,16 @@ const router = new Router({
           meta: {
             title:  "My messages",
           },
-        }
-      ]
+        },
+      ],
     },
     {
       path: "/property/:id",
       name: "property-id",
       component: PropertyID,
       meta: {
-        requireAuth: false
-      }
+        requireAuth: false,
+      },
     },
     {
       // Any not listed above
@@ -208,7 +208,7 @@ const router = new Router({
           },
         ],
       },
-    }
+    },
   ],
 });
 
