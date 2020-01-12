@@ -13,7 +13,7 @@ import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
 import ProfileNav from "@/components/TheNavSidebar.vue";
 
-e,xport default Vue.extend({
+export default Vue.extend({
   name: "UserProfile",
   components: {
     TheHeader,

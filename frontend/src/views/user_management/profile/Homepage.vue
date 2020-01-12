@@ -12,7 +12,7 @@
           <h3 />
 
           <div class="d-flex flex-wrap">
-            <,,,,,,,,,,div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 p-2">
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 p-2">
             <div class="card bg-success text-white h-100">
               <a
                 href="/administrace/properties"

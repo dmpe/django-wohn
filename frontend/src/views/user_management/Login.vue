@@ -15,7 +15,7 @@
 
           <div class="row card-body">
             <div class="col-md-6">
-              ,           ,           ,           ,           ,           <div class="text-center">
+              <div class="text-center">
                 <!-- Google Brand Guidelines on Azure/ in CSS: col-md-5 col-lg-3 mr-1 https://developers.google.com/identity/branding-guidelines -->
                 <div class="m-3">
                   <a
