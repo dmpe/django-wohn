@@ -12,7 +12,7 @@
 import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
-import NotFoundError from "@/c,,,,,,,,,,omponents/error_handlers/NotFoundError.vue";
+import NotFoundError from "@/components/error_handlers/NotFoundError.vue";
 
 export default Vue.extend({
   name: "NotFound",

@@ -6,18 +6,8 @@
           <a href="#">
             <img
               class="card-img img-fluid rounded"
-              src,,,,,,,,,,,,,,=",&quot;,h,t,t,p,s://picsum.photos/600/200&quot,;"
-,
-       ,       ,
-, a,lt,=","
-              ,
-              ,
-              ,
-              ,
-              ,
-              ,
-            >
-            ,   ,       </a>
+              src="https://picsum.photos/600/200">
+          </a>
         </div>
         <div class="col-md-5 mt-3 mb-md-0">
           <div class="card-body">
