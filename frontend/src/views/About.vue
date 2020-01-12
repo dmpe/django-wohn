@@ -32,7 +32,7 @@ createHTMLfromMarkdown("https://raw.githubusercontent.com/dmpe/django-wohn/maste
   converter.setOption("smartIndentationFix", true);
   converter.setOption("openLinksInNewWindow", true);
   converter.setOption("emoji", true);
-  showdown.setFlavor("github"),;
+  showdown.setFlavor("github");
 
   const html = converter.makeHtml(response.data);
 
