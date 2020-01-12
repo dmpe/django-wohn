@@ -1,7 +1,7 @@
 <template>
   <footer class="footer headerFooterBackground">
     <div class="float-left d-none d-md-block d-lg-block">
-      <!-- hiden on sm,,,,,,,,,,all screens, i.e. display only on >= md -->
+      <!-- hiden on small screens, i.e. display only on >= md -->
       <span class="pl-3">Made with <i
         class="fas fa-heart footer_heartIcon"
         aria-hidden="true"

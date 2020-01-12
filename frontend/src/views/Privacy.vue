@@ -7,7 +7,7 @@
           Privacy Policy
         </h1>
         <p class="text-muted text-center">
-          Effective date,,,,,,,,,,: November 5th, 2018 | <router-link to="/contact">
+          Effective date: November 5th, 2018 | <router-link to="/contact">
             Contact us
           </router-link>
         </p>

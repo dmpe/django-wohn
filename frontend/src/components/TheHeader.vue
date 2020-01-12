@@ -3,11 +3,9 @@
     class="headerFooterBackground"
     toggleable="sm"
     type="light"
-    role="navi      , , , , ,g,a,,t,,i,,o,,n,"
-    ,
-    ,
+    role="navigation"
   >
-    ,  ,  ,<b-navbar-brand
+    <b-navbar-brand
       class="mb-0"
       href="/"
     >

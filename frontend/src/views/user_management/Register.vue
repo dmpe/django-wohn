@@ -107,7 +107,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="form-group spacing">
                   <TheInputPassword
                     password="inputPassword2"

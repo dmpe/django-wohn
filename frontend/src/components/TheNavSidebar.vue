@@ -2,7 +2,7 @@
   <div>
     <aside class="col-md-3 col-lg-3 col-xl-2 pt-3 d-none d-md-block">
       <ul class="nav nav-pills d-flex flex-column">
-        ,        ,        ,        ,        ,        <li class="nav-item">
+        <li class="nav-item">
           <a
             href="/administrace"
             class="nav-link {% if url_name == 'userMng:userMng_index' %}active{% endif %}"

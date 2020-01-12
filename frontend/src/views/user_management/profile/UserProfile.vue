@@ -11,7 +11,7 @@
 
         <div class="row col-md-9 col-lg-9 col-xl-10 pt-3">
           <div class="col-xs-12 col-md-5 col-lg-5 col-xl-3 pr-2">
-            <div, class="col-md-12">
+            <div class="col-md-12">
               <img
                 src="firstof user.image.user_profile_image.url gravatar_url"
                 alt="My Profile picture"
@@ -23,7 +23,7 @@
                 alt="My Profile picture"
                 class="rounded img-fluid"
               >
-            </div,>
+            </div>
           </div>
           <div class="col-md-12">
             <div class="pt-2">

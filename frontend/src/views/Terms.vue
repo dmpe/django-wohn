@@ -7,7 +7,7 @@
           Terms of Service
         </h1>
         <p class="text-muted text-center">
-          Effective da,,,,,,,,,,te: November 9th, 2018 |
+          Effective date: November 9th, 2018 |
           <router-link to="/contact">
             Contact us
           </router-link>
