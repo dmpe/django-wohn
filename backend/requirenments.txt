@@ -36,7 +36,7 @@ pandas==0.25.3
 phonenumbers==8.11.1
 pytest==5.3.2
 pytest-django==3.7.0
-pint==0.9
+pint==0.10.1
 Pillow==6.2.1
 psycopg2-binary==2.8.4
 pygraphviz==1.5
