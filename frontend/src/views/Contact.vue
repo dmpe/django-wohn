@@ -73,7 +73,7 @@
               <b-form-input
                 id="input-name"
                 :state="stateName"
-                v-model="text"
+                v-model="name"
                 trim
               />
             </b-form-group>
@@ -183,10 +183,10 @@ export default Vue.extend({
   },
   computed: {
     stateName() {
-      return this.text.length >= 3 ? true : false ;
+      return this.name.length >= 3 ? true : false ;
     },
     invalidName() {
-      if (this.text.length == 0) {
+      if (this.name.length == 0) {
         return 'Enter your name'
       }
     },
