@@ -65,14 +65,14 @@
           >
             <b-form-group
               :invalid-feedback="invalidName"
-              :state="stateName"
+              :state="state"
               :valid-feedback="validFeedbackName"
               label="Name"
               label-for="input-name"
             >
               <b-form-input
                 id="input-name"
-                :state="stateName"
+                :state="state"
                 v-model="name"
                 trim
               />
@@ -182,7 +182,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    stateName() {
+    state() {
       return this.name.length >= 3 ? true : false ;
     },
     invalidName() {
