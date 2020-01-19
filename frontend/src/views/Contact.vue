@@ -64,41 +64,45 @@
             class="mb-5"
           >
             <b-form-group
-              :invalid-feedback="invalidName"
-              :state="state"
-              :valid-feedback="validFeedbackName"
               label="Name"
               label-for="input-name"
             >
               <b-form-input
                 id="input-name"
-                :state="state"
                 v-model="name"
                 trim
               />
             </b-form-group>
 
+          <ValidationProvider rules="email" v-slot="{ errors }">
             <b-form-group
               label="Email"
               label-for="input-email"
             >
-            <div class="error" v-if="!$v.email.required">Email is required</div>
               <b-form-input
                 id="input-email"
-                v-model.trim="$v.email.$model"
+                v-model="value"
+                trim
               />
+              <span>{{ errors[0] }}</span>
             </b-form-group>
+          </ValidationProvider>
 
+          <ValidationProvider rules="min:5" v-slot="{ errors }">
             <b-form-group
               label="Subject"
               label-for="input-subject-line"
             >
-            <div class="error" v-if="!$v.subjectEmail.required">Subject is required</div>
+
               <b-form-input
                 id="input-subject-line"
-                v-model.trim="$v.subjectEmail.$model"
+                name="input-subject-line"
+                v-model="value"
+                trim
               />
+              <span>{{ errors[0] }}</span>
             </b-form-group>
+          </ValidationProvider>
 
             <b-form-group
               label="Choce reason to contact us"
@@ -153,36 +157,15 @@ import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
 import BootstrapVue from "bootstrap-vue";
-import { required } from 'vuelidate/lib/validators';
 
 export default Vue.extend({
   name: "Contact",
-  computed: {
-    state(): boolean {
-      return this.name.length >= 3 ? true : false ;
-    },
-    invalidName(): string {
-      return 'Enter your name'
-    },
-    validFeedbackName(): string {
-      return this.state === true ? "Thank you" : ''
-    }
-  },
   components: {
     TheHeader,
     TheFooter,
   },
-  // validations: {
-  //   email: {
-  //     required,
-  //   },
-  //   subjectEmail: {
-  //     required
-  //   }
-  // },
   data() {
     return {
-      name: '',
       selected: "general",
       options: [
         { value: "general", text: "General Questions/Others" },
@@ -191,6 +174,6 @@ export default Vue.extend({
         { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
       ]
     };
-  }
+  },
 });
 </script>
