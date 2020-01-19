@@ -186,7 +186,7 @@ export default Vue.extend({
       return this.name.length >= 3 ? true : false ;
     },
     invalidName() {
-      if (this.name.length == 0) {
+      if (this.name.length === undefined) {
         return 'Enter your name'
       }
     },
