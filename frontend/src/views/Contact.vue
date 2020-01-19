@@ -157,10 +157,29 @@ import { required } from 'vuelidate/lib/validators';
 
 export default Vue.extend({
   name: "Contact",
+  computed: {
+    state() {
+      return this.name.length >= 3 ? true : false ;
+    },
+    invalidName() {
+      return 'Enter your name'
+    },
+    validFeedbackName() {
+      return this.state === true ? "Thank you" : ''
+    }
+  },
   components: {
     TheHeader,
     TheFooter,
   },
+  // validations: {
+  //   email: {
+  //     required,
+  //   },
+  //   subjectEmail: {
+  //     required
+  //   }
+  // },
   data() {
     return {
       name: '',
@@ -172,25 +191,6 @@ export default Vue.extend({
         { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
       ]
     };
-  },
-  validations: {
-    email: {
-      required,
-    },
-    subjectEmail: {
-      required
-    }
-  },
-  computed: {
-    state() {
-      return this.name.length >= 3 ? true : false ;
-    },
-    invalidName() {
-      return 'Enter your name'
-    },
-    validFeedbackName() {
-      return this.state === true ? "Thank you" : ''
-    }
   }
 });
 </script>
