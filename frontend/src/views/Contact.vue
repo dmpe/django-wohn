@@ -158,13 +158,13 @@ import { required } from 'vuelidate/lib/validators';
 export default Vue.extend({
   name: "Contact",
   computed: {
-    state() {
+    state(): boolean {
       return this.name.length >= 3 ? true : false ;
     },
-    invalidName() {
+    invalidName(): string {
       return 'Enter your name'
     },
-    validFeedbackName() {
+    validFeedbackName(): string {
       return this.state === true ? "Thank you" : ''
     }
   },
