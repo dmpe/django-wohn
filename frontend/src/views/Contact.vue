@@ -163,7 +163,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      text: '',
+      name: '',
       selected: "general",
       options: [
         { value: "general", text: "General Questions/Others" },
