@@ -9,10 +9,13 @@ import store from "./store";
 import { createProvider } from "./vue-apollo";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import Vuelidate from 'vuelidate';
+
 Vue.config.productionTip = false;
 
 Vue.use(VueAxios, axios);
 Vue.use(BootstrapVue);
+Vue.use(Vuelidate);
 
 new Vue({
   router,

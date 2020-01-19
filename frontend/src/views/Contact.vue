@@ -72,33 +72,31 @@
             >
               <b-form-input
                 id="input-name"
+                :state="stateName"
                 v-model="text"
                 trim
               />
             </b-form-group>
 
             <b-form-group
-              :invalid-feedback="invalidEmail"
               label="Email"
               label-for="input-email"
             >
+            <div class="error" v-if="!$v.name.required">Email is required</div>
               <b-form-input
                 id="input-email"
-                v-model="email"
-                trim
+                v-model.trim="$v.email.$model"
               />
             </b-form-group>
 
             <b-form-group
-              :invalid-feedback="invalidSubject"
-              :state="state"
               label="Subject"
               label-for="input-subject-line"
             >
+            <div class="error" v-if="!$v.subjectEmail.required">Subject is required</div>
               <b-form-input
                 id="input-subject-line"
-                v-model="text"
-                trim
+                v-model.trim="$v.subjectEmail.$model"
               />
             </b-form-group>
 
@@ -155,7 +153,7 @@ import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
 import BootstrapVue from "bootstrap-vue";
-import { validationMixin } from "vuelidate";
+import { required } from 'vuelidate/lib/validators';
 
 export default Vue.extend({
   name: "Contact",
@@ -163,7 +161,6 @@ export default Vue.extend({
     TheHeader,
     TheFooter,
   },
-  mixins: [validationMixin],
   data() {
     return {
       selected: "general",
@@ -174,6 +171,14 @@ export default Vue.extend({
         { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
       ]
     };
+  },
+  validations: {
+    email: {
+      required,
+    },
+    subjectEmail: {
+      required
+    }
   },
   computed: {
     stateName() {
