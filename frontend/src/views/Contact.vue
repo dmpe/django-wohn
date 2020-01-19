@@ -82,7 +82,7 @@
               label="Email"
               label-for="input-email"
             >
-            <div class="error" v-if="!$v.name.required">Email is required</div>
+            <div class="error" v-if="!$v.email.required">Email is required</div>
               <b-form-input
                 id="input-email"
                 v-model.trim="$v.email.$model"
