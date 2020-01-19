@@ -186,9 +186,7 @@ export default Vue.extend({
       return this.name.length >= 3 ? true : false ;
     },
     invalidName() {
-      if (this.name.length === undefined) {
-        return 'Enter your name'
-      }
+      return 'Enter your name'
     },
     validFeedbackName() {
       return this.state === true ? "Thank you" : ''
