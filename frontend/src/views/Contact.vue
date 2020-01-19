@@ -64,7 +64,9 @@
             class="mb-5"
           >
             <b-form-group
-              :invalid-feedback="invalidSubject"
+              :invalid-feedback="invalidName"
+              :state="stateName"
+              :valid-feedback="validFeedbackName"
               label="Name"
               label-for="input-name"
             >
@@ -89,6 +91,7 @@
 
             <b-form-group
               :invalid-feedback="invalidSubject"
+              :state="state"
               label="Subject"
               label-for="input-subject-line"
             >
@@ -152,6 +155,7 @@ import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
 import BootstrapVue from "bootstrap-vue";
+import { validationMixin } from "vuelidate";
 
 export default Vue.extend({
   name: "Contact",
@@ -159,6 +163,7 @@ export default Vue.extend({
     TheHeader,
     TheFooter,
   },
+  mixins: [validationMixin],
   data() {
     return {
       selected: "general",
@@ -169,6 +174,19 @@ export default Vue.extend({
         { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
       ]
     };
+  },
+  computed: {
+    stateName() {
+      return this.text.length >= 3 ? true : false ;
+    },
+    invalidName() {
+      if (this.text.length == 0) {
+        return 'Enter your name'
+      }
+    },
+    validFeedbackName() {
+      return this.state === true ? "Thank you" : ''
+    }
   }
 });
 </script>

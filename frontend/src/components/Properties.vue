@@ -31,7 +31,7 @@
 <script lang="ts">
 import Vue from "vue";
 import gql from "graphql-tag";
-import { returnLastFive } from "@/graphql/returnLastFive.ts";
+import { returnLastFive } from "@/graphql/realestate/returnLastFive.ts";
 
 export default Vue.extend({
   name: "Properties",
