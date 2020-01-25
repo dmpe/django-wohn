@@ -64,40 +64,45 @@
             class="mb-5"
           >
             <b-form-group
-              :invalid-feedback="invalidSubject"
               label="Name"
               label-for="input-name"
             >
               <b-form-input
                 id="input-name"
-                v-model="text"
+                v-model="name"
                 trim
               />
             </b-form-group>
 
+          <ValidationProvider rules="email" v-slot="{ errors }">
             <b-form-group
-              :invalid-feedback="invalidEmail"
               label="Email"
               label-for="input-email"
             >
               <b-form-input
                 id="input-email"
-                v-model="email"
+                v-model="value"
                 trim
               />
+              <span>{{ errors[0] }}</span>
             </b-form-group>
+          </ValidationProvider>
 
+          <ValidationProvider rules="min:5" v-slot="{ errors }">
             <b-form-group
-              :invalid-feedback="invalidSubject"
               label="Subject"
               label-for="input-subject-line"
             >
+
               <b-form-input
                 id="input-subject-line"
-                v-model="text"
+                name="input-subject-line"
+                v-model="value"
                 trim
               />
+              <span>{{ errors[0] }}</span>
             </b-form-group>
+          </ValidationProvider>
 
             <b-form-group
               label="Choce reason to contact us"
@@ -169,6 +174,6 @@ export default Vue.extend({
         { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
       ]
     };
-  }
+  },
 });
 </script>
