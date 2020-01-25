@@ -24,7 +24,6 @@ azCon = AzureConnection()
 azCon.main()
 client = SecretClient(vault_url="https://b40.vault.azure.net/", credential=azCon.credentials)
 
-SOCIAL_AUTH_USER_MODEL = "core.myUser"
 AUTH_USER_MODEL = "core.myUser"
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -66,7 +65,6 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "social_django",
     "corsheaders",
     "storages",
     "phonenumber_field",
@@ -89,7 +87,6 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "social_django.middleware.SocialAuthExceptionMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -101,42 +98,12 @@ PASSWORD_HASHERS = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    # for Google authentication
-    "social_core.backends.open_id.OpenIdAuth",
-    "social_core.backends.google.GoogleOpenId",
-    "social_core.backends.google.GoogleOAuth2",
-    "social_core.backends.twitter.TwitterOAuth",
-    "social_core.backends.facebook.FacebookOAuth2",
     # for username and (!) email authentication
     "core.backends.EmailUserNameAuthBackend",
     "graphql_jwt.backends.JSONWebTokenBackend",
     "django.contrib.auth.backends.ModelBackend",
 )
 
-SOCIAL_AUTH_PIPELINE = (
-    "social_core.pipeline.social_auth.social_details",
-    "social_core.pipeline.social_auth.social_uid",
-    "social_core.pipeline.social_auth.social_user",
-    "social_core.pipeline.user.get_username",
-    "social_core.pipeline.user.create_user",
-    "social_core.pipeline.social_auth.associate_user",
-    "social_core.pipeline.social_auth.load_extra_data",
-    "social_core.pipeline.user.user_details",
-    "social_core.pipeline.social_auth.associate_by_email",
-)
-
-SOCIAL_AUTH_DISCONNECT_PIPELINE = (
-    # Verifies that the social association can be disconnected from the current
-    # user (ensure that the user login mechanism is not compromised by this
-    # disconnection).
-    # 'social.pipeline.disconnect.allowed_to_disconnect',
-    # Collects the social associations to disconnect.
-    "social.pipeline.disconnect.get_entries",
-    # Revoke any access_token when possible.
-    "social.pipeline.disconnect.revoke_tokens",
-    # Removes the social associations.
-    "social.pipeline.disconnect.disconnect",
-)
 
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS += [ip[:-1] + "1" for ip in ips]
@@ -166,9 +133,7 @@ TEMPLATES = [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
-                "social_django.context_processors.backends",
-                "social_django.context_processors.login_redirect",
+                "django.contrib.messages.context_processors.messages"
             ],
             "debug": DEBUG,
         },
@@ -221,32 +186,6 @@ LOGIN_URL = "core:login"
 LOGIN_REDIRECT_URL = "userMng:userMng_index"
 
 LOGOUT_REDIRECT_URL = "core:homepage"
-
-SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-SOCIAL_AUTH_TWITTER_KEY = client.get_secret("SOCIAL-AUTH-TWITTER-KEY").value
-SOCIAL_AUTH_TWITTER_SECRET = client.get_secret("SOCIAL-AUTH-TWITTER-SECRET").value
-SOCIAL_AUTH_GOOGLE_OAUTH2_USE_UNIQUE_USER_ID = True
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = client.get_secret("SOCIAL-AUTH-GOOGLE-OAUTH2-KEY").value
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = client.get_secret("SOCIAL-AUTH-GOOGLE-OAUTH2-SECRET").value
-SOCIAL_AUTH_FACEBOOK_KEY = client.get_secret("SOCIAL-AUTH-FACEBOOK-KEY").value
-SOCIAL_AUTH_FACEBOOK_SECRET = client.get_secret("SOCIAL-AUTH-FACEBOOK-SECRET").value
-SOCIAL_AUTH_FACEBOOK_API_VERSION = "4.0"
-
-# not same as LOGIN_URL !
-SOCIAL_AUTH_LOGIN_URL = "/administrace/"
-SOCIAL_AUTH_NEW_USER_REDIRECT_URL = "/administrace/profile"
-SOCIAL_AUTH_LOGIN_ERROR_URL = "404"
-SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = [
-    "user_id",
-    "user_created",
-    "user_name",
-    "user_first_name",
-    "user_last_name",
-    "user_email",
-    "user_int_tel",
-    "country",
-]
 
 SITE_ID = 1
 

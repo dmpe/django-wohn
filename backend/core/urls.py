@@ -14,5 +14,4 @@ urlpatterns = [
     path("logout", views.LogoutView.as_view(), name="logout"),
     path("reset_password", views.ResetPasswordStepOneView.as_view(), name="reset_password"),
     path("new_password/<uidb64>/<token>/", views.ResetPasswordNewStepTwoView.as_view(), name="new_password"),
-    path("oauth/", include("social_django.urls", namespace="social")),
 ]
