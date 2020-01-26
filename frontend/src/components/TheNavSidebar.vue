@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <aside class="col-md-3 col-lg-3 col-xl-2 pt-3 d-none d-md-block">
+  <div class="col-md-6 col-lg-6 col-xl-3 pt-3 d-none d-md-block">
+    <aside>
       <ul class="nav nav-pills d-flex flex-column">
         <li class="nav-item">
           <a
             href="/administrace"
-            class="nav-link {% if url_name == 'userMng:userMng_index' %}active{% endif %}"
+            class="nav-link active"
           >
             <i
               class="fas fa-home fa-lg"
@@ -17,7 +17,7 @@
         <li class="nav-item">
           <a
             href="/administrace/profile"
-            class="nav-link {% if url_name == 'userMng:user_profile' %}active{% endif %}"
+            class="nav-link"
           >
             <i
               class="fas fa-user fa-lg"
@@ -29,27 +29,27 @@
         <li class="nav-item">
           <a
             href="/administrace/properties"
-            class="nav-link {% if url_name == 'userMng:user_properties' %}active{% endif %}"
+            class="nav-link"
           >
             <i
               class="fas fa-hotel fa-lg"
               aria-hidden="true"
             />
             <span class="ml-3">Properties</span>
-            <span class="badge badge-success badge-pill"> {{ number_of_properties }}</span>
+            <span class="badge badge-success badge-pill"> {{ myProperties }}</span>
           </a>
         </li>
         <li class="nav-item">
           <a
             href="/administrace/messages"
-            class="nav-link {% if url_name == 'pinax_messages:inbox' %}active{% endif %}"
+            class="nav-link"
           >
             <i
               class="fas fa-envelope fa-lg"
               aria-hidden="true"
             />
             <span class="ml-3">Messages</span>
-            <span class="badge badge-danger badge-pill"> {{ unread_thread_count }}</span>
+            <span class="badge badge-danger badge-pill"> {{ unreadMessages }}</span>
           </a>
         </li>
         <!-- IDEA: if user is advertisor, see stage-2 #}
@@ -59,8 +59,8 @@
         </li>
         <li class="nav-item">
           <a
-            href="{% url 'userMng:my_property_ads' %}"
-            class="nav-link {% if url_name == 'userMng:my_property_ads' %}active{% endif %}"
+            href="/administrace/properties"
+            class="nav-link"
           >
             <i
               class="fas fa-ad fa-lg"
@@ -71,8 +71,8 @@
         </li>
         <li class="nav-item">
           <a
-            href="{% url 'userMng:ad_statistics' %}"
-            class="nav-link {% if url_name == 'userMng:ad_statistics' %}active{% endif %}"
+            href="/administrace/statistics"
+            class="nav-link"
           >
             <i
               class="fas fa-signal fa-lg"
@@ -81,7 +81,7 @@
             <span class="ml-3">Statistics</span>
           </a>
         </li>
-        <!-- {% endif %} -->
+
       </ul>
     </aside>
 
@@ -90,7 +90,7 @@
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <a
             href="/administrace"
-            class="nav-link {% if url_name == 'userMng:userMng_index' %}active{% endif %}"
+            class="nav-link"
           >
             <i
               class="fas fa-home fa-lg"
@@ -101,7 +101,7 @@
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <a
             href="/administrace/profile"
-            class="nav-link {% if url_name == 'userMng:user_profile' %}active{% endif %}"
+            class="nav-link"
           >
             <i
               class="fas fa-user fa-lg"
@@ -112,33 +112,33 @@
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <a
             href="/administrace/properties"
-            class="nav-link {% if url_name == 'userMng:user_properties' %}active{% endif %}"
+            class="nav-link"
           >
             <i
               class="fas fa-hotel fa-lg"
               aria-hidden="true"
             />
-            <span class="badge badge-success badge-pill"> {{ number_of_properties }}</span>
+            <span class="badge badge-success badge-pill"> {{ myProperties }}</span>
           </a>
         </li>
 
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <a
             href="/administrace/messages"
-            class="nav-link {% if url_name == 'pinax_messages:inbox' %}active{% endif %}"
+            class="nav-link"
           >
             <i
               class="fas fa-envelope fa-lg"
               aria-hidden="true"
             />
-            <span class="badge badge-danger badge-pill"> {{ unread_thread_count }}</span>
+            <span class="badge badge-danger badge-pill"> {{ unreadMessages }}</span>
           </a>
         </li>
         {% if request.user.is_active and request.user.is_staff %}
         <li class="list-group-item justify-content-between align-items-center">
           <a
-            href="{% url 'userMng:my_property_ads' %}"
-            class="nav-link {% if url_name == 'userMng:my_property_ads' %}active{% endif %}"
+            href="/administrace/properties"
+            class="nav-link"
           >
             <i
               class="fas fa-ad fa-lg"
@@ -148,8 +148,8 @@
         </li>
         <li class="list-group-item justify-content-between align-items-center">
           <a
-            href="{% url 'userMng:ad_statistics' %}"
-            class="nav-link {% if url_name == 'userMng:ad_statistics' %}active{% endif %}"
+            href="/administrace/statistics"
+            class="nav-link"
           >
             <i
               class="fas fa-signal fa-lg"
@@ -157,7 +157,7 @@
             />
           </a>
         </li>
-        <!-- {% endif %} -->
+
       </ul>
     </div>
   </div>
@@ -166,12 +166,20 @@
 <script lang="ts">
 import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
+import gql from "graphql-tag";
+import { myProperties } from "@/graphql/user/properties.ts";
 
 export default {
   name: "ProfileNav",
+  // apollo: {
+  //   myProperties: {
+  //     query: myProperties
+  //   }
+  // },
   data() {
     return {
-
+      unreadMessages: 0,
+      myProperties: 0,
     };
   }
 };

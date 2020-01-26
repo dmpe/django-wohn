@@ -1,13 +1,13 @@
 <template>
   <div>
     <TheHeader />
-    <div class="container-fluid">
-      <div class="row ">
+    <b-container fluid>
+      <b-row>
         <ProfileNav />
 
-        <div class="col-md-9 col-lg-9 col-xl-10">
+        <div class="col-md-6 col-lg-6 col-xl-9">
           <h1 class="display-4 d-none d-sm-block">
-            <!-- Welcome back {{ user.username }} -->
+            Welcome back <!-- {{ user.username }} -->
           </h1>
           <h3 />
 
@@ -101,8 +101,8 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </b-row>
+  </b-container>
   <TheFooter />
   </div>
 </template>

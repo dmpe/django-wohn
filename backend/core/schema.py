@@ -1,7 +1,6 @@
 """
     Defines GraphQL Schema for core module
 """
-
 import graphene
 import graphql
 from graphene_django import DjangoObjectType
@@ -51,13 +50,13 @@ class Query(object):
     melive_user = graphene.Field(UserType, id=graphene.Int())
 
     def resolve_home_properties(self, info, **kwargs):
-        return House.objects.all()
+        return House.objects.selected_realted("myUser").all()
 
     def resolve_apartment_properties(self, info, **kwargs):
-        return Apartment.objects.all()
+        return Apartment.objects.selected_realted("myUser").all()
 
     def resolve_room_properties(self, info, **kwargs):
-        return Room.objects.all()
+        return Room.objects.selected_realted("myUser").all()
 
     def resolve_melive_users(self, info, **kwargs):
         return myUser.objects.all()
