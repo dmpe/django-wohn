@@ -49,7 +49,7 @@
       <div class="d-flex flex-row">
         <div v-if="isAuthenticated">
           <b-link
-            to="administrace"
+            to="profile"
             type="button"
             class="btn btn-warning m-1"
           >

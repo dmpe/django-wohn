@@ -15,7 +15,7 @@
             <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 p-2">
             <div class="card bg-success text-white h-100">
               <a
-                href="/administrace/properties"
+                href="/profile/properties"
                 class="card_homepage_styling"
               >
                 <div class="card-body bg-success">
@@ -42,7 +42,7 @@
           <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 p-2">
             <div class="card bg-secondary text-white h-100">
               <a
-                href="/administrace/messages"
+                href="/profile/messages"
                 class="card_homepage_styling"
               >
                 <div class="card-body bg-secondary">

@@ -4,7 +4,7 @@
       <ul class="nav nav-pills d-flex flex-column">
         <li class="nav-item">
           <a
-            href="/administrace"
+            href="/profile"
             class="nav-link active"
           >
             <i
@@ -16,7 +16,7 @@
         </li>
         <li class="nav-item">
           <a
-            href="/administrace/profile"
+            href="/profile/home"
             class="nav-link"
           >
             <i
@@ -28,7 +28,7 @@
         </li>
         <li class="nav-item">
           <a
-            href="/administrace/properties"
+            href="/profile/properties"
             class="nav-link"
           >
             <i
@@ -41,7 +41,7 @@
         </li>
         <li class="nav-item">
           <a
-            href="/administrace/messages"
+            href="/profile/messages"
             class="nav-link"
           >
             <i
@@ -59,7 +59,7 @@
         </li>
         <li class="nav-item">
           <a
-            href="/administrace/properties"
+            href="/profile/properties"
             class="nav-link"
           >
             <i
@@ -71,7 +71,7 @@
         </li>
         <li class="nav-item">
           <a
-            href="/administrace/statistics"
+            href="/profile/statistics"
             class="nav-link"
           >
             <i
@@ -89,7 +89,7 @@
       <ul class="d-flex flex-row list-group flex-wrap">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <a
-            href="/administrace"
+            href="/profile"
             class="nav-link"
           >
             <i
@@ -100,7 +100,7 @@
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <a
-            href="/administrace/profile"
+            href="/profile/profile"
             class="nav-link"
           >
             <i
@@ -111,7 +111,7 @@
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <a
-            href="/administrace/properties"
+            href="/profile/properties"
             class="nav-link"
           >
             <i
@@ -124,7 +124,7 @@
 
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <a
-            href="/administrace/messages"
+            href="/profile/messages"
             class="nav-link"
           >
             <i
@@ -137,7 +137,7 @@
         {% if request.user.is_active and request.user.is_staff %}
         <li class="list-group-item justify-content-between align-items-center">
           <a
-            href="/administrace/properties"
+            href="/profile/properties"
             class="nav-link"
           >
             <i
@@ -148,7 +148,7 @@
         </li>
         <li class="list-group-item justify-content-between align-items-center">
           <a
-            href="/administrace/statistics"
+            href="/profile/statistics"
             class="nav-link"
           >
             <i

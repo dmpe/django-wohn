@@ -124,8 +124,6 @@ TEMPLATES = [
             "core/pages/emails",
             "core/pages/footer",
             "core/pages/signup_login",
-            "userMng/pages/",
-            "userMng/pages/administrace",
         ],
         "APP_DIRS": True,
         "OPTIONS": {

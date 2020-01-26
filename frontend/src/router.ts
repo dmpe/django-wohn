@@ -145,7 +145,7 @@ const router = new Router({
       },
     },
     {
-      path: "/administrace",
+      path: "/profile",
       name: "administrace",
       component: Administrace,
       meta: {
@@ -160,7 +160,7 @@ const router = new Router({
       },
       children: [
         {
-          path: "profile",
+          path: "home",
           name: "user-profile",
           component: UserProfile,
           meta: {
