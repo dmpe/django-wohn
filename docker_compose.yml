@@ -83,9 +83,9 @@ services:
           - traefik_proxy
         labels:
           - "traefik.enable=true"
-          - "traefik.http.routers.frontend.rule=Host(`melive.xyz`, `www.melive.xyz`)"
+          - "traefik.http.routers.frontend.rule=Host(`melive.xyz`, `www.melive.xyz`) && (PathPrefix(`/administrace`))"
           - "traefik.http.routers.frontendsec.tls=true"
-          - "traefik.http.routers.frontendsec.rule=Host(`melive.xyz`, `www.melive.xyz`)"
+          - "traefik.http.routers.frontendsec.rule=Host(`melive.xyz`, `www.melive.xyz`) && (PathPrefix(`/administrace`))"
           - "traefik.http.routers.frontendsec.tls.certresolver=default"
           - "traefik.http.routers.frontendsec.service=frontend"
           - "traefik.http.services.frontend.loadbalancer.server.port=2746"
