@@ -92,7 +92,7 @@ export default {
   name: "TheHeader",
   data() {
     return {
-      isAuthenticated:false
+      isAuthenticated: false
     };
   }
 };
