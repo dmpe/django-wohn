@@ -149,7 +149,7 @@ const router = new Router({
       name: "administrace",
       component: Administrace,
       meta: {
-        requireAuth: true,
+        requireAuth: false,
         title: "User Settings - Melive.xyz",
         metaTags: [
           {
