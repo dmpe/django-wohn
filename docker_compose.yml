@@ -52,9 +52,9 @@ services:
           - traefik_proxy
         labels:
           - "traefik.enable=true"
-          - "traefik.http.routers.backend.rule=Host(`melive.xyz`, `www.melive.xyz`) && (PathPrefix(`/admin`) || PathPrefix(`/graphql`))"
+          - "traefik.http.routers.backend.rule=Host(`melive.xyz`, `www.melive.xyz`) && (Path(`/admin`) || PathPrefix(`/graphql`))"
           - "traefik.http.routers.backendsec.tls=true"
-          - "traefik.http.routers.backendsec.rule=Host(`melive.xyz`, `www.melive.xyz`) && (PathPrefix(`/admin`) || PathPrefix(`/graphql`))"
+          - "traefik.http.routers.backendsec.rule=Host(`melive.xyz`, `www.melive.xyz`) && (Path(`/admin`) || PathPrefix(`/graphql`))"
           - "traefik.http.routers.backendsec.tls.certresolver=default"
           - "traefik.http.routers.backendsec.service=backend"
           - "traefik.http.services.backend.loadbalancer.server.port=8123"
