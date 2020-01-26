@@ -60,6 +60,7 @@ services:
           - "traefik.http.services.backend.loadbalancer.server.port=8123"
           - "traefik.http.middlewares.backend-redirect.redirectscheme.scheme=https"
           - "traefik.http.routers.backend.middlewares=backend-redirect"
+          # the higher number, the higher priority
           - "traefik.http.routers.backend.priority=1"
         environment:
           - "DOCKER_HOST=172.17.0.5"
@@ -83,9 +84,9 @@ services:
           - traefik_proxy
         labels:
           - "traefik.enable=true"
-          - "traefik.http.routers.frontend.rule=Host(`melive.xyz`, `www.melive.xyz`) && (PathPrefix(`/`) || PathPrefix(`/administrace`))"
+          - "traefik.http.routers.frontend.rule=Host(`melive.xyz`, `www.melive.xyz`) && (Path(`/`) || Path(`/administrace`))"
           - "traefik.http.routers.frontendsec.tls=true"
-          - "traefik.http.routers.frontendsec.rule=Host(`melive.xyz`, `www.melive.xyz`) && (PathPrefix(`/`) || PathPrefix(`/administrace`))"
+          - "traefik.http.routers.frontendsec.rule=Host(`melive.xyz`, `www.melive.xyz`) && (Path(`/`) || Path(`/administrace`))"
           - "traefik.http.routers.frontendsec.tls.certresolver=default"
           - "traefik.http.routers.frontendsec.service=frontend"
           - "traefik.http.services.frontend.loadbalancer.server.port=2746"
