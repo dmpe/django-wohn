@@ -37,5 +37,5 @@ pygraphviz==1.5
 pymdown-extensions==6.2.1
 python-dotenv==0.10.5
 requests==2.22.0
-sendgrid==6.1.0
+sendgrid==6.1.1
 Werkzeug==0.16.0
