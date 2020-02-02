@@ -111,7 +111,7 @@ def prepare_psswd_reset_email(
     return None
 
 
-def prepare_visitor_mssg_email(request, userPresent_username=None, userPresent_email=None, subject=None, text_msg=None):
+def send_email(request, userPresent_username=None, userPresent_email=None, subject=None, text_msg=None):
     """
     For internal use, e.g. feedback, contact etc.
     """

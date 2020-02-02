@@ -2,8 +2,6 @@
   <div>
     <TheHeader />
     <b-container fluid>
-      <!-- Because of Facebook login -->
-      <div id="fb-root" />
 
       <!-- TODO what if user wants to logout or deasscoiate accounts: is registeration page available to him -->
       <div class="row d-flex justify-content-center login_register_box">
@@ -28,7 +26,7 @@
                   method="POST"
                 >
                   <div class="form-group spacing">
-                    <ValidationProvider rules="min:4" v-slot="{ errors }">
+                    <ValidationProvider name="Username" rules="min:4" v-slot="{ errors }">
                       <div class="input-group">
                         <input
                           id="inputUsername"
@@ -48,7 +46,7 @@
                   </div>
 
                   <div class="form-group spacing">
-                    <ValidationProvider rules="email" v-slot="{ errors }">
+                    <ValidationProvider name="Email" rules="email" v-slot="{ errors }">
                       <div class="input-group">
                         <input
                           id="inputEmail"
@@ -68,7 +66,7 @@
                   </div>
 
                   <ValidationObserver>
-                    <ValidationProvider rules="confirmed:confirmation" v-slot="{ errors }">
+                    <ValidationProvider name="Password" rules="confirmed:confirmation" v-slot="{ errors }">
                       <div class="form-group spacing">
                         <TheInputPassword
                           password="inputPassword2"
@@ -78,7 +76,7 @@
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
 
-                    <ValidationProvider v-slot="{ errors }" vid="confirmation">
+                    <ValidationProvider name="Password" v-slot="{ errors }" vid="confirmation">
                       <div class="form-group spacing">
                         <TheInputPassword
                           password="inputPassword3"
@@ -95,7 +93,7 @@
                   </div>
 
                   <div class="form-group spacing">
-                    <ValidationProvider rules="required" v-slot="{ errors }">
+                    <ValidationProvider name="Checkbox" rules="required" v-slot="{ errors }">
                       <div class="form-check">
                         <input
                           id="invalidCheck"

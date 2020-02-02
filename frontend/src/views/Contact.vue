@@ -77,7 +77,7 @@
             </b-form-group>
           </ValidationProvider>
 
-          <ValidationProvider rules="email" v-slot="{ errors }">
+          <ValidationProvider name="Email" rules="email" v-slot="{ errors }">
             <b-form-group
               label="Email"
               label-for="input-email"
@@ -91,12 +91,11 @@
             </b-form-group>
           </ValidationProvider>
 
-          <ValidationProvider rules="min:5" v-slot="{ errors }">
+          <ValidationProvider name="Subject" rules="min:5" v-slot="{ errors }">
             <b-form-group
               label="Subject"
               label-for="input-subject-line"
             >
-
               <b-form-input
                 id="input-subject-line"
                 name="input-subject-line"
@@ -118,7 +117,7 @@
               />
             </b-form-group>
 
-          <ValidationProvider rules="required" v-slot="{ errors }">
+          <ValidationProvider name="Message" rules="required" v-slot="{ errors }">
             <b-form-group
               label="Your message"
               label-for="textarea-large"
@@ -133,10 +132,10 @@
               />
               <span>{{ errors[0] }}</span>
             </b-form-group>
+          </ValidationProvider>
 
             <b-form-group>
               <b-button
-                id="recaptchaValidator"
                 type="submit"
                 class="btn btn-warning mb-5 btn-lg btn-block"
               >
@@ -145,11 +144,6 @@
             </b-form-group>
           </b-form>
 
-          <!--<div
-            id="checkEmailAlert"
-             class="alert alert-{{ message.tags }} mb-5"
-            role="alert"
-          />-->
         </div>
       </b-row>
     </b-container>

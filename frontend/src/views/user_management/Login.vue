@@ -2,8 +2,6 @@
   <div>
     <TheHeader />
     <b-container fluid>
-      <!-- Because of Facebook login -->
-      <div id="fb-root" />
 
       <div class="row d-flex justify-content-center login_register_box">
         <div class="card">
