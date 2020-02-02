@@ -28,81 +28,94 @@
                   method="POST"
                 >
                   <div class="form-group spacing">
-                    <div class="input-group">
-                      <input
-                        id="inputUsername"
-                        type="text"
-                        name="inputUsername"
-                        class="form-control"
-                        placeholder="Username"
-                        minlength="4"
-                        required
-                      >
-                      <label
-                        class="sr-only"
-                        for="inputUsername"
-                      >Username</label>
-                      <div class="invalid-tooltip">
-                        Please choose a username with >= 4 letters.
+                    <ValidationProvider rules="min:4" v-slot="{ errors }">
+                      <div class="input-group">
+                        <input
+                          id="inputUsername"
+                          type="text"
+                          name="inputUsername"
+                          class="form-control"
+                          placeholder="Username"
+                          required
+                        >
+                        <label
+                          class="sr-only"
+                          for="inputUsername"
+                        >Username</label>
+                        <span>{{ errors[0] }}</span>
                       </div>
-                    </div>
-                  </div>
-                  <div class="form-group spacing">
-                    <div class="input-group">
-                      <input
-                        id="inputEmail"
-                        class="form-control"
-                        type="email"
-                        name="inputEmail"
-                        placeholder="Email"
-                        required
-                      >
-                      <label
-                        class="sr-only"
-                        for="inputEmail"
-                      >Email</label>
-                      <div class="invalid-tooltip">
-                        Please choose a valid email address.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group spacing">
-                    <TheInputPassword
-                      password="inputPassword2"
-                      button="buttonEYE2"
-                    />
+                    </ValidationProvider>
                   </div>
 
                   <div class="form-group spacing">
-                    <TheInputPassword
-                      password="inputPassword3"
-                      button="buttonEYE3"
-                    />
+                    <ValidationProvider rules="email" v-slot="{ errors }">
+                      <div class="input-group">
+                        <input
+                          id="inputEmail"
+                          class="form-control"
+                          type="email"
+                          name="inputEmail"
+                          placeholder="Email"
+                          required
+                        >
+                        <label
+                          class="sr-only"
+                          for="inputEmail"
+                        >Email</label>
+                        <span>{{ errors[0] }}</span>
+                      </div>
+                    </ValidationProvider>
                   </div>
+
+                  <ValidationObserver>
+                    <ValidationProvider rules="confirmed:confirmation" v-slot="{ errors }">
+                      <div class="form-group spacing">
+                        <TheInputPassword
+                          password="inputPassword2"
+                          button="buttonEYE2"
+                        />
+                      </div>
+                      <span>{{ errors[0] }}</span>
+                    </ValidationProvider>
+
+                    <ValidationProvider v-slot="{ errors }" vid="confirmation">
+                      <div class="form-group spacing">
+                        <TheInputPassword
+                          password="inputPassword3"
+                          v-model="confirmation"
+                          button="buttonEYE3"
+                        />
+                      </div>
+                      <span>{{ errors[0] }}</span>
+                    </ValidationProvider>
+                  </ValidationObserver>
 
                   <div class="form-group spacing">
                     <MathCaptcha />
                   </div>
 
                   <div class="form-group spacing">
-                    <div class="form-check">
-                      <input
-                        id="invalidCheck"
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        required
-                      >
-                      <label
-                        class="form-check-label"
-                        for="invalidCheck"
-                      >
-                        I agree to <a href="/terms">Terms and Conditions</a> as well as <a href="/privacy">Privacy Policy</a>
-                      </label>
-                      <div class="invalid-feedback">
-                        You must agree to <a href="/terms">Terms and Conditions</a> as well as <a href="/privacy">Privacy Policy</a> before submitting.
+                    <ValidationProvider rules="required" v-slot="{ errors }">
+                      <div class="form-check">
+                        <input
+                          id="invalidCheck"
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          required
+                        >
+                        <label
+                          class="form-check-label"
+                          for="invalidCheck"
+                        >
+                          I agree to <a href="/terms">Terms and Conditions</a> as well as <a href="/privacy">Privacy Policy</a>
+                        </label>
+                        <div class="invalid-feedback">
+                          You must agree to <a href="/terms">Terms and Conditions</a> as well as <a href="/privacy">Privacy Policy</a> before submitting.
+                        </div>
+                        <span>{{ errors[0] }}</span>
                       </div>
-                    </div>
+                    </ValidationProvider>
                   </div>
 
                   <p class="float-left">
@@ -119,12 +132,6 @@
                 </form>
               </div>
 
-              <!-- <div
-                  id="checkEmailAlert"
-                  class="alert alert-{{ message.tags }} messageErrorLoginSignup"
-                  role="alert"
-                > -->
-              <!-- {{ message }} -->
             </div>
           </div>
       </div>

@@ -18,7 +18,7 @@
               <div class="card-body">
                 <address>
                   Proudly developed at <br> <br>
-                  Melive.xyz LLC (Delaware LLC) <br>
+                  Melive.xyz LLC <br>
                   Pařížská 97/15, 110 00 <br>
                   Prague 1, Czech Republic, EU <br> <br>
                   For legal, developer-related <u>and</u> other type of questions, contact us at above address or via: <br>
@@ -29,9 +29,9 @@
                   <a
                     href=""
                     class="mywebaddress"
-                    data-name="f789gh"
-                    data-domain="bk"
-                    data-tld="ru"
+                    data-name="devil"
+                    data-domain="web"
+                    data-tld="de"
                     onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"
                   />
                 </address>
@@ -63,6 +63,7 @@
             method="POST"
             class="mb-5"
           >
+          <ValidationProvider rules="min:2" v-slot="{ errors }">
             <b-form-group
               label="Name"
               label-for="input-name"
@@ -72,7 +73,9 @@
                 v-model="name"
                 trim
               />
+              <span>{{ errors[0] }}</span>
             </b-form-group>
+          </ValidationProvider>
 
           <ValidationProvider rules="email" v-slot="{ errors }">
             <b-form-group
@@ -115,6 +118,7 @@
               />
             </b-form-group>
 
+          <ValidationProvider rules="required" v-slot="{ errors }">
             <b-form-group
               label="Your message"
               label-for="textarea-large"
@@ -127,6 +131,7 @@
                 rows="5"
                 max-rows="10"
               />
+              <span>{{ errors[0] }}</span>
             </b-form-group>
 
             <b-form-group>
