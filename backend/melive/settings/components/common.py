@@ -68,7 +68,6 @@ INSTALLED_APPS = [
     "corsheaders",
     "storages",
     "phonenumber_field",
-    "crispy_forms",
     "widget_tweaks",
     "timezone_field",
     "django_countries",
@@ -137,8 +136,6 @@ TEMPLATES = [
         },
     }
 ]
-
-CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 WSGI_APPLICATION = "melive.wsgi.application"
 
