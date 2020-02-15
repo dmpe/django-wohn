@@ -25,6 +25,7 @@ from django.utils.html import strip_tags
 from .mics import upload_profile_image, http_headers
 from django.http import HttpResponse
 
+
 class AbstractProperty(django.db.models.Model):
     """ Home Property (e.g. apartment, house, room)
 
@@ -205,11 +206,11 @@ class ContactUs(models.Model):
     """
     Users can contact us over a webform
     """
-    inputName = models.CharField(required=True, label="Name")
-    inputEmail = models.EmailField(required=True, label="Email")
-    inputSubject = models.CharField(required=True, label="Message deals with...User Text")
-    inputChoices = models.CharField(required=True, label="Message deals with...Choices")
-    inputText = models.TextField(required=True, label="Your message is about....")
+    inputName = models.CharField()
+    inputEmail = models.EmailField()
+    inputSubject = models.CharField()
+    inputChoices = models.CharField()
+    inputText = models.TextField()
 
     def send_email(request, userPresent_username=None, userPresent_email=None, subject=None, text_msg=None):
         """
