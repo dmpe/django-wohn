@@ -206,11 +206,11 @@ class ContactUs(models.Model):
     """
     Users can contact us over a webform
     """
-    inputName = models.CharField()
-    inputEmail = models.EmailField()
-    inputSubject = models.CharField()
-    inputChoices = models.CharField()
-    inputText = models.TextField()
+    inputName = models.CharField(max_length=100)
+    inputEmail = models.EmailField(max_length=100)
+    inputSubject = models.CharField(max_length=100)
+    inputChoices = models.CharField(max_length=100)
+    inputText = models.TextField(max_length=100)
 
     def send_email(request, userPresent_username=None, userPresent_email=None, subject=None, text_msg=None):
         """
