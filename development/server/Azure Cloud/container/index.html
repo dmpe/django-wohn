@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
     
     
       
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#container" tabindex="1" class="md-skip">
+      <a href="#container" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://dmpe.github.io/django-wohn/" title="Melive.xyz Documentation" class="md-header-nav__button md-logo">
+        <a href="https://dmpe.github.io/django-wohn/" title="Melive.xyz Documentation" aria-label="Melive.xyz Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -131,7 +131,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -223,7 +223,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../local/heroku/" class="md-tabs__link">
+        <a href="../../../local/local_pc/" class="md-tabs__link">
           Development
         </a>
       
@@ -370,18 +370,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../local/heroku/" title="Heroku/PaaS" class="md-nav__link">
-      Heroku/PaaS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../local/local_pc/" title="PC" class="md-nav__link">
       PC
     </a>
@@ -420,8 +408,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../CICD/" title="CI & CD jobs" class="md-nav__link">
-      CI & CD jobs
+    <a href="../../CICD/" title="CI & CD" class="md-nav__link">
+      CI & CD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../heroku/" title="Heroku/PaaS" class="md-nav__link">
+      Heroku/PaaS
     </a>
   </li>
 
@@ -447,13 +447,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-3" type="checkbox" id="nav-3-2-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-4" type="checkbox" id="nav-3-2-4" checked>
     
-    <label class="md-nav__link" for="nav-3-2-3">
+    <label class="md-nav__link" for="nav-3-2-4">
       Azure Cloud
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-2-3">
+      <label class="md-nav__title" for="nav-3-2-4">
         Azure Cloud
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -465,8 +465,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ansible_provisioning/" title="Ansible Configuration" class="md-nav__link">
-      Ansible Configuration
+    <a href="../ansible_provisioning/" title="Ansible Configuration for VM" class="md-nav__link">
+      Ansible Configuration for VM
     </a>
   </li>
 
@@ -540,8 +540,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#docker-compose-with-django-and-postgres" class="md-nav__link">
-    Docker Compose with Django and Postgres
+  <a href="#docker-compose-with-django-postgres" class="md-nav__link">
+    Docker Compose with Django &amp; Postgres
   </a>
   
 </li>
@@ -552,8 +552,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-test-your-django-wohn-images-locally" class="md-nav__link">
-    4. Test your Django-Wohn images locally
+  <a href="#4-testing-images-locally" class="md-nav__link">
+    4. Testing images locally
   </a>
   
     <nav class="md-nav">
@@ -579,8 +579,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-export-and-import-all-important-data" class="md-nav__link">
-    5. Export and Import all important data
+  <a href="#5-export-and-import-db-data" class="md-nav__link">
+    5. Export and Import DB data
   </a>
   
 </li>
@@ -680,8 +680,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#docker-compose-with-django-and-postgres" class="md-nav__link">
-    Docker Compose with Django and Postgres
+  <a href="#docker-compose-with-django-postgres" class="md-nav__link">
+    Docker Compose with Django &amp; Postgres
   </a>
   
 </li>
@@ -692,8 +692,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-test-your-django-wohn-images-locally" class="md-nav__link">
-    4. Test your Django-Wohn images locally
+  <a href="#4-testing-images-locally" class="md-nav__link">
+    4. Testing images locally
   </a>
   
     <nav class="md-nav">
@@ -719,8 +719,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-export-and-import-all-important-data" class="md-nav__link">
-    5. Export and Import all important data
+  <a href="#5-export-and-import-db-data" class="md-nav__link">
+    5. Export and Import DB data
   </a>
   
 </li>
@@ -762,7 +762,7 @@
 <p>Use ansible!</p>
 <p>If you still need doing that manually, create a VM and use <code>cloud-init</code> <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a> commands to install required applications right during the initial setup.</p>
 <p>This should already include major components like Docker daemon.</p>
-<div class="codehilite"><pre><span></span><span class="c1">#include https://get.docker.com</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">#include https://get.docker.com</span>
 package_update: <span class="nb">true</span>
 package_upgrade: <span class="nb">true</span>
 packages:
@@ -779,54 +779,54 @@ runcmd:
   - <span class="o">[</span>sh, -c, <span class="s1">&#39;sudo curl -L https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep &quot;tag_name&quot; | cut -d \&quot; -f4)/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose&#39;</span><span class="o">]</span>
   - <span class="o">[</span>sh, -c, <span class="s1">&#39;sudo chmod +x /usr/local/bin/docker-compose&#39;</span><span class="o">]</span>
 final_message: <span class="s2">&quot;The system is finally up, after </span><span class="nv">$UPTIME</span><span class="s2"> seconds&quot;</span>
-</pre></div>
+</code></pre></div>
 
 <h2 id="2-new-docker-volume-for-each-container">2. New docker volume for <strong>each</strong> container<a class="headerlink" href="#2-new-docker-volume-for-each-container" title="Permanent link">&para;</a></h2>
 <p>Once installed, you need to have persistent volumes for images on a separate hard disk - in case your VM crashes, or you need to change VM's OS hard disk.</p>
 <p>The command below already assumes that a data disk has been mounted &amp; properly setup in VM.</p>
-<div class="codehilite"><pre><span></span>docker volume create --driver <span class="nb">local</span> --opt <span class="nv">type</span><span class="o">=</span>none --opt <span class="nv">device</span><span class="o">=</span>/datadrive/_name_of_container --opt <span class="nv">o</span><span class="o">=</span><span class="nb">bind</span> datadrive_name_of_container
-</pre></div>
+<div class="codehilite"><pre><span></span><code>docker volume create --driver <span class="nb">local</span> --opt <span class="nv">type</span><span class="o">=</span>none --opt <span class="nv">device</span><span class="o">=</span>/datadrive/_name_of_container --opt <span class="nv">o</span><span class="o">=</span><span class="nb">bind</span> datadrive_name_of_container
+</code></pre></div>
 
 <h2 id="3-launch-docker-containers">3. Launch docker containers<a class="headerlink" href="#3-launch-docker-containers" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Clone this repo and cd' into it</li>
 </ol>
-<div class="codehilite"><pre><span></span>git clone https://github.com/dmpe/django-wohn .
+<div class="codehilite"><pre><span></span><code>git clone https://github.com/dmpe/django-wohn .
 <span class="nb">cd</span> django-wohn
 git switch server-config
 git status
-</pre></div>
+</code></pre></div>
 
 <ol>
 <li>Start <code>docker-compose -f docker-compose.yaml up (-d)</code></li>
 </ol>
-<h3 id="docker-compose-with-django-and-postgres">Docker Compose with Django and Postgres<a class="headerlink" href="#docker-compose-with-django-and-postgres" title="Permanent link">&para;</a></h3>
+<h3 id="docker-compose-with-django-postgres">Docker Compose with Django &amp; Postgres<a class="headerlink" href="#docker-compose-with-django-postgres" title="Permanent link">&para;</a></h3>
 <p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/26a0.svg" title=":warning:" /></p>
 <p>An important configuration step is to make sure that Django application has in 'DATABASES' property
 correct host name.
 This must be equal to the docker-compose one.</p>
-<h2 id="4-test-your-django-wohn-images-locally">4. Test your Django-Wohn images locally<a class="headerlink" href="#4-test-your-django-wohn-images-locally" title="Permanent link">&para;</a></h2>
+<h2 id="4-testing-images-locally">4. Testing images locally<a class="headerlink" href="#4-testing-images-locally" title="Permanent link">&para;</a></h2>
 <p>During development phase, you may encounter that your image does not work properly on the server VM/container.
 For example, it does not start or you need to test something locally.</p>
 <h3 id="dockerhub">DockerHub<a class="headerlink" href="#dockerhub" title="Permanent link">&para;</a></h3>
 <p>Once the image has been pushed to DockerHub, download it on your server VM/PC and from there execute:</p>
-<div class="codehilite"><pre><span></span>docker run -it f789gh/django-wohn:latest
-</pre></div>
+<div class="codehilite"><pre><span></span><code>docker run -it f789gh/django-wohn:latest
+</code></pre></div>
 
 <p>Or wait until <code>watchtower</code> container will download latest version by itself.</p>
 <h3 id="quay">Quay<a class="headerlink" href="#quay" title="Permanent link">&para;</a></h3>
 <p>When using <a href="https://quay.io/user/dmpe">https://quay.io/user/dmpe</a>, you may need to login first</p>
-<div class="codehilite"><pre><span></span>docker login https://quay.io
+<div class="codehilite"><pre><span></span><code>docker login https://quay.io
 docker pull quay.io/dmpe/django-wohn-backend
 docker pull quay.io/dmpe/django-wohn-frontend
 
 docker run -it quay.io/dmpe/django-wohn-backend:latest
-</pre></div>
+</code></pre></div>
 
-<h2 id="5-export-and-import-all-important-data">5. Export and Import all important data<a class="headerlink" href="#5-export-and-import-all-important-data" title="Permanent link">&para;</a></h2>
-<p>Withing running container, you can execute</p>
-<div class="codehilite"><pre><span></span>python3 manage.py dumpdata core --all --indent <span class="m">2</span> -o data.json
-</pre></div>
+<h2 id="5-export-and-import-db-data">5. Export and Import DB data<a class="headerlink" href="#5-export-and-import-db-data" title="Permanent link">&para;</a></h2>
+<p>Within running container, you can execute</p>
+<div class="codehilite"><pre><span></span><code>python3 manage.py dumpdata core --all --indent <span class="m">2</span> -o data.json
+</code></pre></div>
 
 <p>to dump all data from <code>core</code> module. Use then <code>docker cp</code> to copy files into your host system.</p>
                 
@@ -850,7 +850,7 @@ docker run -it quay.io/dmpe/django-wohn-backend:latest
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ansible_provisioning/" title="Ansible Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ansible_provisioning/" title="Ansible Configuration for VM" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -859,7 +859,7 @@ docker run -it quay.io/dmpe/django-wohn-backend:latest
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Ansible Configuration
+                Ansible Configuration for VM
               </span>
             </div>
           </a>
@@ -891,9 +891,9 @@ docker run -it quay.io/dmpe/django-wohn-backend:latest
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
@@ -903,7 +903,7 @@ docker run -it quay.io/dmpe/django-wohn-backend:latest
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
       

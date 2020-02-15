@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
     
     
       
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#azure-functions" tabindex="1" class="md-skip">
+      <a href="#azure-functions" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://dmpe.github.io/django-wohn/" title="Melive.xyz Documentation" class="md-header-nav__button md-logo">
+        <a href="https://dmpe.github.io/django-wohn/" title="Melive.xyz Documentation" aria-label="Melive.xyz Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -131,7 +131,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -223,7 +223,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../local/heroku/" class="md-tabs__link">
+        <a href="../../../local/local_pc/" class="md-tabs__link">
           Development
         </a>
       
@@ -370,18 +370,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../local/heroku/" title="Heroku/PaaS" class="md-nav__link">
-      Heroku/PaaS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../local/local_pc/" title="PC" class="md-nav__link">
       PC
     </a>
@@ -420,8 +408,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../CICD/" title="CI & CD jobs" class="md-nav__link">
-      CI & CD jobs
+    <a href="../../CICD/" title="CI & CD" class="md-nav__link">
+      CI & CD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../heroku/" title="Heroku/PaaS" class="md-nav__link">
+      Heroku/PaaS
     </a>
   </li>
 
@@ -447,13 +447,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-3" type="checkbox" id="nav-3-2-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-4" type="checkbox" id="nav-3-2-4" checked>
     
-    <label class="md-nav__link" for="nav-3-2-3">
+    <label class="md-nav__link" for="nav-3-2-4">
       Azure Cloud
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-2-3">
+      <label class="md-nav__title" for="nav-3-2-4">
         Azure Cloud
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -465,8 +465,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ansible_provisioning/" title="Ansible Configuration" class="md-nav__link">
-      Ansible Configuration
+    <a href="../ansible_provisioning/" title="Ansible Configuration for VM" class="md-nav__link">
+      Ansible Configuration for VM
     </a>
   </li>
 
@@ -675,15 +675,15 @@ Though a <strong>premium</strong> plan, which enables to use full docker images,
 <h3 id="1-pyenv">1. Pyenv<a class="headerlink" href="#1-pyenv" title="Permanent link">&para;</a></h3>
 <p>Use <code>pyenv</code> in this worktree. Execute in the root:</p>
 <p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/26a0.svg" title=":warning:" /> Be careful on using VSCode with Python/"Live autocompl." plugins as VSCode will inevitably crash.</p>
-<div class="codehilite"><pre><span></span>git switch azure-functions
+<div class="codehilite"><pre><span></span><code>git switch azure-functions
 pyenv install <span class="m">3</span>.6.9 <span class="c1"># Azure is currently compatible only with Python 3.6</span>
 pyenv <span class="nb">local</span> <span class="m">3</span>.6.9
-</pre></div>
+</code></pre></div>
 
 <h3 id="2-start-docker-and-build-dockerfile">2. Start Docker and Build Dockerfile<a class="headerlink" href="#2-start-docker-and-build-dockerfile" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>sudo systemctl start docker
+<div class="codehilite"><pre><span></span><code>sudo systemctl start docker
 func azure functionapp publish django-wohn --build-native-deps
-</pre></div>
+</code></pre></div>
                 
                   
                 
@@ -732,9 +732,9 @@ func azure functionapp publish django-wohn --build-native-deps
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
@@ -744,7 +744,7 @@ func azure functionapp publish django-wohn --build-native-deps
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
       

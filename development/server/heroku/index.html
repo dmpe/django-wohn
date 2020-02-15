@@ -13,7 +13,7 @@
         <meta name="description" content="Developer Documentation for Melive.xyz">
       
       
-        <link rel="canonical" href="https://dmpe.github.io/django-wohn/development/server/Azure Cloud/ansible_provisioning/">
+        <link rel="canonical" href="https://dmpe.github.io/django-wohn/development/server/heroku/">
       
       
         <meta name="author" content="John Malc (@dmpe)">
@@ -37,18 +37,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
     
     
       
-        <title>Ansible Configuration for VM - Melive.xyz Documentation</title>
+        <title>Heroku/PaaS - Melive.xyz Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
       
-        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
+      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -66,7 +66,7 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
     
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#ansible-configuration-for-vm" tabindex="0" class="md-skip">
+      <a href="#herokupaas" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -117,7 +117,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Ansible Configuration for VM
+                Heroku/PaaS
               
             </span>
           
@@ -194,7 +194,7 @@
         
   <li class="md-tabs__item">
     
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -206,7 +206,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../architecture/" class="md-tabs__link">
+        <a href="../../../architecture/" class="md-tabs__link">
           Architecture
         </a>
       
@@ -223,7 +223,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../local/local_pc/" class="md-tabs__link">
+        <a href="../../local/local_pc/" class="md-tabs__link">
           Development
         </a>
       
@@ -282,7 +282,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../.." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -313,7 +313,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../architecture/" title="Development over the time" class="md-nav__link">
+    <a href="../../../architecture/" title="Development over the time" class="md-nav__link">
       Development over the time
     </a>
   </li>
@@ -370,7 +370,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../local/local_pc/" title="PC" class="md-nav__link">
+    <a href="../../local/local_pc/" title="PC" class="md-nav__link">
       PC
     </a>
   </li>
@@ -408,56 +408,11 @@
 
 
   <li class="md-nav__item">
-    <a href="../../CICD/" title="CI & CD" class="md-nav__link">
+    <a href="../CICD/" title="CI & CD" class="md-nav__link">
       CI & CD
     </a>
   </li>
 
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../heroku/" title="Heroku/PaaS" class="md-nav__link">
-      Heroku/PaaS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../own_server/" title="Own Server" class="md-nav__link">
-      Own Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-4" type="checkbox" id="nav-3-2-4" checked>
-    
-    <label class="md-nav__link" for="nav-3-2-4">
-      Azure Cloud
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-2-4">
-        Azure Cloud
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
         
           
           
@@ -474,11 +429,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Ansible Configuration for VM
+        Heroku/PaaS
       </label>
     
-    <a href="./" title="Ansible Configuration for VM" class="md-nav__link md-nav__link--active">
-      Ansible Configuration for VM
+    <a href="./" title="Heroku/PaaS" class="md-nav__link md-nav__link--active">
+      Heroku/PaaS
     </a>
     
       
@@ -492,15 +447,62 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
+  <a href="#1-initial-setup-steps" class="md-nav__link">
+    1. Initial Setup steps
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-prepare-postgresql-database" class="md-nav__link">
+    1.1 Prepare PostgreSQL database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-collect-static-files" class="md-nav__link">
+    1.2 Collect static files
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#125-create-django-superuser" class="md-nav__link">
+    1.2.5 Create Django superuser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-prepare-migrations-files" class="md-nav__link">
+    1.3 Prepare migrations files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-deploy-to-heroku" class="md-nav__link">
+    1.4 Deploy to Heroku
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment" class="md-nav__link">
-    Deployment
+  <a href="#2-common-heroku-issues" class="md-nav__link">
+    2. Common Heroku issues
   </a>
   
 </li>
@@ -522,7 +524,50 @@
 
 
   <li class="md-nav__item">
-    <a href="../container/" title="Container" class="md-nav__link">
+    <a href="../own_server/" title="Own Server" class="md-nav__link">
+      Own Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-4" type="checkbox" id="nav-3-2-4">
+    
+    <label class="md-nav__link" for="nav-3-2-4">
+      Azure Cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-4">
+        Azure Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Azure Cloud/ansible_provisioning/" title="Ansible Configuration for VM" class="md-nav__link">
+      Ansible Configuration for VM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Azure Cloud/container/" title="Container" class="md-nav__link">
       Container
     </a>
   </li>
@@ -534,7 +579,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../functions/" title="Azure Functions" class="md-nav__link">
+    <a href="../Azure Cloud/functions/" title="Azure Functions" class="md-nav__link">
       Azure Functions
     </a>
   </li>
@@ -576,15 +621,62 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
+  <a href="#1-initial-setup-steps" class="md-nav__link">
+    1. Initial Setup steps
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-prepare-postgresql-database" class="md-nav__link">
+    1.1 Prepare PostgreSQL database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-collect-static-files" class="md-nav__link">
+    1.2 Collect static files
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#125-create-django-superuser" class="md-nav__link">
+    1.2.5 Create Django superuser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-prepare-migrations-files" class="md-nav__link">
+    1.3 Prepare migrations files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-deploy-to-heroku" class="md-nav__link">
+    1.4 Deploy to Heroku
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment" class="md-nav__link">
-    Deployment
+  <a href="#2-common-heroku-issues" class="md-nav__link">
+    2. Common Heroku issues
   </a>
   
 </li>
@@ -605,56 +697,70 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dmpe/django-wohn/edit/docs/docs/development/server/Azure Cloud/ansible_provisioning.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/dmpe/django-wohn/edit/docs/docs/development/server/heroku.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="ansible-configuration-for-vm">Ansible Configuration for VM<a class="headerlink" href="#ansible-configuration-for-vm" title="Permanent link">&para;</a></h1>
-<p>For the future, we shall deploy to Azure Cloud via a standardized methodology and set of tools, e.g. <www.ansible.com>.</p>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>sudo dnf install ansible az
-
-az login
-
-az ad sp create-for-rbac -n <span class="s2">&quot;Name&quot;</span>
-
-az account show
+                <h1 id="herokupaas">Heroku/PaaS<a class="headerlink" href="#herokupaas" title="Permanent link">&para;</a></h1>
+<p>Heroku requires several files to be in the root of the repository, see <a href="https://devcenter.heroku.com/articles/deploying-python">https://devcenter.heroku.com/articles/deploying-python</a></p>
+<p>Some of the necessary files can be found in the <code>services/heroku/</code> folder of a dedicated branch.</p>
+<h2 id="1-initial-setup-steps">1. Initial Setup steps<a class="headerlink" href="#1-initial-setup-steps" title="Permanent link">&para;</a></h2>
+<p>If <strong>models have changed</strong>, following needs to be run <strong>first</strong> on a <strong>LOCAL PC</strong>:</p>
+<h3 id="11-prepare-postgresql-database">1.1 Prepare PostgreSQL database<a class="headerlink" href="#11-prepare-postgresql-database" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>sudo su postgres
+psql
 </code></pre></div>
 
-<p>Continue:</p>
-<div class="codehilite"><pre><span></span><code>mkdir ~/.azure
-nano ~/.azure/credentials
-
-<span class="o">[</span>default<span class="o">]</span>
-<span class="nv">subscription_id</span><span class="o">=</span>&lt;your-subscription_id&gt;
-<span class="c1"># app id</span>
-<span class="nv">client_id</span><span class="o">=</span>&lt;security-principal-appid&gt;
-<span class="c1"># these are generated after `sp create` command</span>
-<span class="nv">secret</span><span class="o">=</span>&lt;security-principal-password&gt;
-<span class="nv">tenant</span><span class="o">=</span>&lt;security-principal-tenant&gt;
+<p>To create our DB, use <code>psql</code>:</p>
+<div class="codehilite"><pre><span></span><code>CREATE DATABASE b40re;
+CREATE USER jm WITH ENCRYPTED PASSWORD &#39;yourpass&#39;;
+GRANT ALL PRIVILEGES ON DATABASE b40re TO jm;
 </code></pre></div>
 
-<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
-<p>There are 2 options where you can create servers, e.g. where to execute playbooks.</p>
-<p>Either in <code>azure cloud-shell</code> where ansible is already preinstalled or on some Linux VM (either on server or desktop).</p>
-<p>In any case you will need to have azure credentials file being stored &amp; prepared.</p>
-<p>My assumption here is local PC (fedora).
-For the <code>Ansible playbook</code>, see <code>server-config</code> branch and then execute:</p>
-<div class="codehilite"><pre><span></span><code>ansible-playbook
-ansible-playbook playbook.yml --check
+<h3 id="12-collect-static-files">1.2 Collect static files<a class="headerlink" href="#12-collect-static-files" title="Permanent link">&para;</a></h3>
+<p>This also acts as a sort of test where you can spot some errors early on.
+It uploads static and media files directly to the Azure blob container too.</p>
+<div class="codehilite"><pre><span></span><code>python3 manage.py collectstatic
 </code></pre></div>
 
-<h1 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h1>
+<h4 id="125-create-django-superuser">1.2.5 Create Django superuser<a class="headerlink" href="#125-create-django-superuser" title="Permanent link">&para;</a></h4>
+<p>In Heroku, via their cli:</p>
+<div class="codehilite"><pre><span></span><code>heroku run python3 manage.py createsuperuser --username admin --email ci@se.cz
+</code></pre></div>
+
+<h3 id="13-prepare-migrations-files">1.3 Prepare migrations files<a class="headerlink" href="#13-prepare-migrations-files" title="Permanent link">&para;</a></h3>
+<p>If previously some deployments to the local PC were executed, then one <strong>has</strong> to clean &amp; prepare database again.</p>
+<p><a href="https://stackoverflow.com/a/40790734">https://stackoverflow.com/a/40790734</a></p>
 <ul>
-<li>
-<p><a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest</a></p>
-</li>
-<li>
-<p><a href="https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest">https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest</a></p>
-</li>
-<li>
-<p><a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html</a></p>
-</li>
+<li>Find and delete all <code>migrations</code> folders</li>
 </ul>
+<div class="codehilite"><pre><span></span><code>find -type d -name migrations -prune -exec rm -rf {} \;
+</code></pre></div>
+
+<ul>
+<li>Run makemigrations again</li>
+</ul>
+<p><a href="https://stackoverflow.com/a/50309967">https://stackoverflow.com/a/50309967</a></p>
+<div class="codehilite"><pre><span></span><code>python3 manage.py makemigrations &lt;model&gt;
+</code></pre></div>
+
+<p>Deploy to local/on remote server</p>
+<div class="codehilite"><pre><span></span><code>python3 manage.py migrate
+</code></pre></div>
+
+<h3 id="14-deploy-to-heroku">1.4 Deploy to Heroku<a class="headerlink" href="#14-deploy-to-heroku" title="Permanent link">&para;</a></h3>
+<p>Heroku automatically runs <code>collectstatic</code>.</p>
+<div class="codehilite"><pre><span></span><code>git push master heroku
+</code></pre></div>
+
+<h2 id="2-common-heroku-issues">2. Common Heroku issues<a class="headerlink" href="#2-common-heroku-issues" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Kill heroku dyno</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>heroku ps &amp;&amp; heroku ps:stop web.1
+</code></pre></div>
+
+<h1 id="3-other-notes">3. Other notes<a class="headerlink" href="#3-other-notes" title="Permanent link">&para;</a></h1>
+<p>When you add new css/js files to <code>static</code> folder, it is good idea to still run locally <code>python3 manage.py collectstatic</code> which will overwrite <code>staticfiles</code> folder &amp; which again can be pushed to heroku (unless being ignored by <code>gitignore</code>).</p>
                 
                   
                 
@@ -676,7 +782,7 @@ ansible-playbook playbook.yml --check
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../own_server/" title="Own Server" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../CICD/" title="CI & CD" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -685,19 +791,19 @@ ansible-playbook playbook.yml --check
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Own Server
+                CI & CD
               </span>
             </div>
           </a>
         
         
-          <a href="../container/" title="Container" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../own_server/" title="Own Server" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Container
+                Own Server
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -729,9 +835,9 @@ ansible-playbook playbook.yml --check
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
   </body>
