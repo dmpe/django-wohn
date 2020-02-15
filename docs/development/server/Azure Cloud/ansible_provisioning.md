@@ -1,6 +1,6 @@
-# Ansible Configuration
+# Ansible Configuration for VM
 
-For the future, we shall deploy to Azure Cloud via a standartized methodology and set of tools, e.g. <www.ansible.com>.
+For the future, we shall deploy to Azure Cloud via a standardized methodology and set of tools, e.g. <www.ansible.com>.
 
 ## Setup
 
@@ -32,7 +32,7 @@ tenant=<security-principal-tenant>
 
 ## Deployment
 
-There are 2 options where you can create servers, e.g. run playbooks.
+There are 2 options where you can create servers, e.g. where to execute playbooks.
 
 Either in `azure cloud-shell` where ansible is already preinstalled or on some Linux VM (either on server or desktop).
 
@@ -45,9 +45,6 @@ For the `Ansible playbook`, see `server-config` branch and then execute:
 ansible-playbook
 ansible-playbook playbook.yml --check
 ```
-
-
-
 
 # Resources
 

@@ -67,7 +67,7 @@ git status
 
 2. Start `docker-compose -f docker-compose.yaml up (-d)`
 
-### Docker Compose with Django and Postgres
+### Docker Compose with Django & Postgres
 
 :warning:
 
@@ -75,7 +75,7 @@ An important configuration step is to make sure that Django application has in '
 correct host name.
 This must be equal to the docker-compose one.
 
-## 4. Test your Django-Wohn images locally
+## 4. Testing images locally
 
 During development phase, you may encounter that your image does not work properly on the server VM/container.
 For example, it does not start or you need to test something locally.
@@ -102,9 +102,9 @@ docker pull quay.io/dmpe/django-wohn-frontend
 docker run -it quay.io/dmpe/django-wohn-backend:latest
 ```
 
-## 5. Export and Import all important data
+## 5. Export and Import DB data
 
-Withing running container, you can execute
+Within running container, you can execute
 
 ```shell
 python3 manage.py dumpdata core --all --indent 2 -o data.json

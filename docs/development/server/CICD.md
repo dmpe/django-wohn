@@ -1,4 +1,4 @@
-# CI & CD jobs
+# CI & CD
 
 The pipeline jobs run on [Azure DevOps](https://johnmalc.visualstudio.com/DJango-Wohn/_).
 
