@@ -139,7 +139,7 @@
                 type="submit"
                 class="btn btn-warning mb-5 btn-lg btn-block"
               >
-                Submit message to Admin
+                Submit your message
               </b-button>
             </b-form-group>
           </b-form>
@@ -156,6 +156,8 @@ import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
 import BootstrapVue from "bootstrap-vue";
+import gql from "graphql-tag";
+import { contactUs } from "@/graphql/user/contact_us.ts";
 
 export default Vue.extend({
   name: "Contact",
@@ -174,5 +176,34 @@ export default Vue.extend({
       ]
     };
   },
+  methods: {
+		createTask () {
+			if (!this.$v.$invalid) {
+				const label = this.label
+				this.label = ''
+				try {
+					this.$apollo.mutate({
+						mutation: contactUs,
+						variables: {
+							label,
+						},
+						optimisticResponse: {
+							__typename: 'Mutation',
+							createTask: {
+								__typename: 'Task',
+								id: null,
+								done: false,
+								label,
+							},
+						},
+					})
+				} catch (e) {
+					console.error(e)
+					this.label = label
+				}
+			}
+		},
+	},
+
 });
 </script>
