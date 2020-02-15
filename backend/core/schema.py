@@ -104,13 +104,15 @@ class ContactUs(graphene.Mutation):
         name = graphene.String(required=True)
         email = graphene.String(required=True)
         subject = graphene.String(required=True)
+        choices = graphene.String(required=True)
         text = graphene.String(required=True)
 
     contact = graphene.Field(ContactType)
 
     def mutate(self, info, name, email, subject, text):
         contactInfo = ContactUs(inputName=name, inputEmail=email, inputSubject=subject, inputText=text)
-        contactInfo.send_email(name, email, subject, text)
+        contactInfo.send_email(userPresent_username=name, userPresent_email=email,
+            subject=subject, text_msg=text)
 
         result = True
         return ContactUs(inputName=contactInfo.name, inputEmail=contactInfo.email,

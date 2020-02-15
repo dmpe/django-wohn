@@ -21,7 +21,7 @@ from sendgrid.helpers.mail import *
 from django.core.mail import send_mail, BadHeaderError
 from django.template.loader import render_to_string
 from django.utils.safestring import *
-from django.utils.http import strip_tags
+from django.utils.html import strip_tags
 from .mics import upload_profile_image, http_headers
 from django.http import HttpResponse
 
@@ -207,7 +207,8 @@ class ContactUs(models.Model):
     """
     inputName = models.CharField(required=True, label="Name")
     inputEmail = models.EmailField(required=True, label="Email")
-    inputSubject = models.CharField(required=True, label="Message deals with...")
+    inputSubject = models.CharField(required=True, label="Message deals with...User Text")
+    inputChoices = models.CharField(required=True, label="Message deals with...Choices")
     inputText = models.TextField(required=True, label="Your message is about....")
 
     def send_email(request, userPresent_username=None, userPresent_email=None, subject=None, text_msg=None):
