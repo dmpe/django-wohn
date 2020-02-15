@@ -179,27 +179,27 @@ export default Vue.extend({
   methods: {
 		createTask () {
 			if (!this.$v.$invalid) {
-				const label = this.label
-				this.label = ''
+
+        const options = this.options
+        const name = this.name
+        const email = this.email
+        const textarea = this.textarea
+        const subject = this.subject
+
 				try {
 					this.$apollo.mutate({
 						mutation: contactUs,
 						variables: {
-							label,
-						},
-						optimisticResponse: {
-							__typename: 'Mutation',
-							createTask: {
-								__typename: 'Task',
-								id: null,
-								done: false,
-								label,
-							},
+              options,
+              name,
+              email,
+              textarea,
+              subject
 						},
 					})
 				} catch (e) {
 					console.error(e)
-					this.label = label
+					this.name = name
 				}
 			}
 		},
