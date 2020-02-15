@@ -15,9 +15,15 @@ from django.utils.safestring import *
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 from timezone_field import TimeZoneField, TimeZoneFormField
-
-from .mics import upload_profile_image
-
+from ipware import get_client_ip
+from sendgrid import *
+from sendgrid.helpers.mail import *
+from django.core.mail import send_mail, BadHeaderError
+from django.template.loader import render_to_string
+from django.utils.safestring import *
+from django.utils.http import strip_tags
+from .mics import upload_profile_image, http_headers
+from django.http import HttpResponse
 
 class AbstractProperty(django.db.models.Model):
     """ Home Property (e.g. apartment, house, room)
@@ -193,3 +199,45 @@ class myUser(AbstractUser):
     # username (by default) and email must always be unique
     class Meta:
         unique_together = (("email"),)
+
+
+class ContactUs(models.Model):
+    """
+    Users can contact us over a webform
+    """
+    inputName = models.CharField(required=True, label="Name")
+    inputEmail = models.EmailField(required=True, label="Email")
+    inputSubject = models.CharField(required=True, label="Message deals with...")
+    inputText = models.TextField(required=True, label="Your message is about....")
+
+    def send_email(request, userPresent_username=None, userPresent_email=None, subject=None, text_msg=None):
+        """
+        For internal use, e.g. feedback, contact etc.
+        """
+        subject = "Melive.cz: Message from the user/visitor: " + subject
+        smtp_email = settings.DEFAULT_FROM_EMAIL
+        my_email = settings.MY_EMAIL
+        from_email = userPresent_email
+
+        client_headers = http_headers(request)
+        client_ip, is_routable = get_client_ip(request)
+
+        cntxt = {
+            "username": userPresent_username,
+            "from_email": from_email,
+            "text_msg": text_msg,
+            "operating_system": client_headers[0],
+            "ip_address": client_ip,
+            "browser": client_headers[1],
+            "browser_version": client_headers[2],
+        }
+
+        html_message = render_to_string("new_visitor_email.html", cntxt)
+        plain_message = strip_tags(html_message)
+
+        try:
+            send_mail(subject, plain_message, smtp_email, [my_email], html_message=html_message)
+        except BadHeaderError:
+            return HttpResponse("Invalid header found.")
+
+        return None

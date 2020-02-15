@@ -24,13 +24,10 @@
     {% block additional_head %}{% endblock %}
   </head>
   <body>
-    {% include 'header.html' %}
-
     {% block content %}
     {% endblock %}
 
     {% include "library_templates/js/bootstrap_fontAwe.html" %}
 
-    <script src="{% static 'global_js.js' %}"></script>
   </body>
 </html>

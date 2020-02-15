@@ -18,7 +18,7 @@
               <div class="card-body">
                 <address>
                   Proudly developed at <br> <br>
-                  Melive.xyz LLC (Delaware LLC) <br>
+                  Melive.xyz LLC <br>
                   Pařížská 97/15, 110 00 <br>
                   Prague 1, Czech Republic, EU <br> <br>
                   For legal, developer-related <u>and</u> other type of questions, contact us at above address or via: <br>
@@ -29,9 +29,9 @@
                   <a
                     href=""
                     class="mywebaddress"
-                    data-name="f789gh"
-                    data-domain="bk"
-                    data-tld="ru"
+                    data-name="devil"
+                    data-domain="web"
+                    data-tld="de"
                     onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"
                   />
                 </address>
@@ -63,41 +63,48 @@
             method="POST"
             class="mb-5"
           >
+          <ValidationProvider rules="min:2" v-slot="{ errors }">
             <b-form-group
-              :invalid-feedback="invalidSubject"
               label="Name"
               label-for="input-name"
             >
               <b-form-input
                 id="input-name"
-                v-model="text"
+                v-model="name"
                 trim
               />
+              <span>{{ errors[0] }}</span>
             </b-form-group>
+          </ValidationProvider>
 
+          <ValidationProvider name="Email" rules="email" v-slot="{ errors }">
             <b-form-group
-              :invalid-feedback="invalidEmail"
               label="Email"
               label-for="input-email"
             >
               <b-form-input
                 id="input-email"
-                v-model="email"
+                v-model="value"
                 trim
               />
+              <span>{{ errors[0] }}</span>
             </b-form-group>
+          </ValidationProvider>
 
+          <ValidationProvider name="Subject" rules="min:5" v-slot="{ errors }">
             <b-form-group
-              :invalid-feedback="invalidSubject"
               label="Subject"
               label-for="input-subject-line"
             >
               <b-form-input
                 id="input-subject-line"
-                v-model="text"
+                name="input-subject-line"
+                v-model="value"
                 trim
               />
+              <span>{{ errors[0] }}</span>
             </b-form-group>
+          </ValidationProvider>
 
             <b-form-group
               label="Choce reason to contact us"
@@ -110,6 +117,7 @@
               />
             </b-form-group>
 
+          <ValidationProvider name="Message" rules="required" v-slot="{ errors }">
             <b-form-group
               label="Your message"
               label-for="textarea-large"
@@ -122,11 +130,12 @@
                 rows="5"
                 max-rows="10"
               />
+              <span>{{ errors[0] }}</span>
             </b-form-group>
+          </ValidationProvider>
 
             <b-form-group>
               <b-button
-                id="recaptchaValidator"
                 type="submit"
                 class="btn btn-warning mb-5 btn-lg btn-block"
               >
@@ -135,11 +144,6 @@
             </b-form-group>
           </b-form>
 
-          <!--<div
-            id="checkEmailAlert"
-             class="alert alert-{{ message.tags }} mb-5"
-            role="alert"
-          />-->
         </div>
       </b-row>
     </b-container>
@@ -169,6 +173,6 @@ export default Vue.extend({
         { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
       ]
     };
-  }
+  },
 });
 </script>
