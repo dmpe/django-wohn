@@ -1,14 +1,18 @@
 import gql from "graphql-tag";
 
-// Rename query here because vue either needs to update name
-// Be renamed here
-// See https://github.com/vuejs/vue-apollo/issues/700#issuecomment-511418849
-export const contactUs = gql`mutation {
-  sendContactMsg(choices: String!, email: String!, name: String!, subject: String!, text: String!) {
-    id: $id,
+export const contactUs = gql`mutation($choices: String!, $email: String!, $name: String!, $subject: String!, $text: String!) {
+  sendContactMsg(
     email: $email,
     name: $name,
+    choices: $choices,
     subject: $subject,
     text: $text,
+  ) {
+    id,
+    name,
+    email,
+    choices,
+    subject,
+    text
   }
 }`;
