@@ -111,7 +111,7 @@ class ContactUs(graphene.Mutation):
     contact = graphene.Field(ContactType)
 
     def mutate(self, info, name, email, subject, choices, text):
-        send_email(userPresent_username=name, userPresent_email=email,
+        send_email(self.request, userPresent_username=name, userPresent_email=email,
             subject=subject, text_msg=text)
 
         result = True

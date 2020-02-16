@@ -30,4 +30,13 @@
   "azureFunctions.projectRuntime": "~3",
   "debug.internalConsoleOptions": "neverOpen",
   "azureFunctions.preDeployTask": "func: pack --build-native-deps",
+  "spellright.language": [
+      "en_GB",
+  ],
+  "spellright.documentTypes": [
+      "markdown",
+      "latex",
+      "plaintext",
+      "vue"
+  ],
 }

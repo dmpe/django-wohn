@@ -184,8 +184,7 @@ export default Vue.extend({
     };
   },
   methods: {
-		sendMessageInquery () {
-
+    sendMessageInquiry () {
       const options = this.form.options
       const name = this.form.name
       const email = this.form.email
@@ -202,10 +201,11 @@ export default Vue.extend({
             textarea,
             subject
           },
-        })
-      } catch (e) {
+      }).then((data) => {
+        console.log(data)
+      }).catch((error) => {
         console.error(e)
-      }
+      })
     },
     onSubmit(evt) {
       evt.preventDefault()
