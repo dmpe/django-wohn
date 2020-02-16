@@ -111,11 +111,12 @@ class ContactUs(graphene.Mutation):
 
     def mutate(self, info, name, email, subject, choices, text):
         contactInfo = ContactUs(inputName=name, inputEmail=email, inputSubject=subject, inputText=text, inputChoices=choices)
+
         contactInfo.send_email(userPresent_username=name, userPresent_email=email,
             subject=subject, text_msg=text)
 
         result = True
-        return ContactUs(inputName=contactInfo.name, inputEmail=contactInfo.email, inputChoices=inputChoices=choices.choices, inputSubject=contactInfo.subject, inputText=contactInfo.text, result=result)
+        return ContactUs(inputName=contactInfo.name, inputEmail=contactInfo.email, inputChoices=contactInfo.choices, inputSubject=contactInfo.subject, inputText=contactInfo.text, result=result)
 
 
 class Mutation(object):
