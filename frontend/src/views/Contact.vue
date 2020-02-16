@@ -113,8 +113,8 @@
               >
                 <b-form-select
                   id="options-select"
-                  v-model="selected"
-                  :options="options"
+                  v-model="form.selected"
+                  :options="form.options"
                 />
               </b-form-group>
 
@@ -186,11 +186,11 @@ export default Vue.extend({
   methods: {
 		sendMessageInquery () {
 
-      const options = this.options
-      const name = this.name
-      const email = this.email
-      const textarea = this.textarea
-      const subject = this.subject
+      const options = this.form.options
+      const name = this.form.name
+      const email = this.form.email
+      const textarea = this.form.textarea
+      const subject = this.form.subject
 
       try {
         this.$apollo.mutate({
