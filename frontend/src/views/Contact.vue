@@ -201,11 +201,10 @@ export default Vue.extend({
             textarea,
             subject
           },
-      }).then((data) => {
-        console.log(data)
-      }).catch((error) => {
-        console.error(e)
-      })
+        })
+      } catch(error) {
+        console.error(error)
+      }
     },
     onSubmit(evt) {
       evt.preventDefault()
