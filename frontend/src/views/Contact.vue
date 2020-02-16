@@ -60,79 +60,80 @@
         <div class="col-md-5 col-sm-12">
           <b-form
             id="form-contact"
+            @submit="onSubmit"
             method="POST"
             class="mb-5"
           >
-          <ValidationProvider rules="min:2" v-slot="{ errors }">
-            <b-form-group
-              label="Name"
-              label-for="input-name"
-            >
-              <b-form-input
-                id="input-name"
-                v-model="name"
-                trim
-              />
-              <span>{{ errors[0] }}</span>
-            </b-form-group>
-          </ValidationProvider>
+            <ValidationProvider rules="min:2" v-slot="{ errors }">
+              <b-form-group
+                label="Name"
+                label-for="input-name"
+              >
+                <b-form-input
+                  id="input-name"
+                  v-model="form.name"
+                  trim
+                />
+                <span>{{ errors[0] }}</span>
+              </b-form-group>
+            </ValidationProvider>
 
-          <ValidationProvider name="Email" rules="email" v-slot="{ errors }">
-            <b-form-group
-              label="Email"
-              label-for="input-email"
-            >
-              <b-form-input
-                id="input-email"
-                v-model="value"
-                trim
-              />
-              <span>{{ errors[0] }}</span>
-            </b-form-group>
-          </ValidationProvider>
+            <ValidationProvider name="Email" rules="email" v-slot="{ errors }">
+              <b-form-group
+                label="Email"
+                label-for="input-email"
+              >
+                <b-form-input
+                  id="input-email"
+                  v-model="form.email"
+                  trim
+                />
+                <span>{{ errors[0] }}</span>
+              </b-form-group>
+            </ValidationProvider>
 
-          <ValidationProvider name="Subject" rules="min:5" v-slot="{ errors }">
-            <b-form-group
-              label="Subject"
-              label-for="input-subject-line"
-            >
-              <b-form-input
-                id="input-subject-line"
-                name="input-subject-line"
-                v-model="value"
-                trim
-              />
-              <span>{{ errors[0] }}</span>
-            </b-form-group>
-          </ValidationProvider>
+            <ValidationProvider name="Subject" rules="min:5" v-slot="{ errors }">
+              <b-form-group
+                label="Subject"
+                label-for="input-subject-line"
+              >
+                <b-form-input
+                  id="input-subject-line"
+                  name="input-subject-line"
+                  v-model="form.subject"
+                  trim
+                />
+                <span>{{ errors[0] }}</span>
+              </b-form-group>
+            </ValidationProvider>
 
-            <b-form-group
-              label="Choce reason to contact us"
-              label-for="options-select"
-            >
-              <b-form-select
-                id="options-select"
-                v-model="selected"
-                :options="options"
-              />
-            </b-form-group>
+              <b-form-group
+                label="Choce reason to contact us"
+                label-for="options-select"
+              >
+                <b-form-select
+                  id="options-select"
+                  v-model="selected"
+                  :options="options"
+                />
+              </b-form-group>
 
-          <ValidationProvider name="Message" rules="required" v-slot="{ errors }">
-            <b-form-group
-              label="Your message"
-              label-for="textarea-large"
-            >
-              <b-form-textarea
-                id="textarea-large"
-                v-model="text"
-                placeholder="..."
-                size="lg"
-                rows="5"
-                max-rows="10"
-              />
-              <span>{{ errors[0] }}</span>
-            </b-form-group>
-          </ValidationProvider>
+            <ValidationProvider name="Message" rules="required" v-slot="{ errors }">
+              <b-form-group
+                label="Your message"
+                label-for="textarea-large"
+              >
+                <b-form-textarea
+                  id="textarea-large"
+                  v-model="form.textarea"
+                  placeholder="..."
+                  size="lg"
+                  rows="5"
+                  max-rows="10"
+                />
+                <span>{{ errors[0] }}</span>
+              </b-form-group>
+            </ValidationProvider>
 
             <b-form-group>
               <b-button
@@ -167,42 +168,49 @@ export default Vue.extend({
   },
   data() {
     return {
-      selected: "general",
-      options: [
-        { value: "general", text: "General Questions/Others" },
-        { value: "ads", text: "Advertising" },
-        { value: "help_me", text: "Bugs/Issues on the website" },
-        { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
-      ]
+      form: {
+        name: '',
+        email: '',
+        subject: '',
+        textarea: '',
+        selected: "general",
+        options: [
+          { value: "general", text: "General Questions/Others" },
+          { value: "ads", text: "Advertising" },
+          { value: "help_me", text: "Bugs/Issues on the website" },
+          { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
+        ]
+      }
     };
   },
   methods: {
-		createTask () {
-			if (!this.$v.$invalid) {
+		sendMessageInquery () {
 
-        const options = this.options
-        const name = this.name
-        const email = this.email
-        const textarea = this.textarea
-        const subject = this.subject
+      const options = this.options
+      const name = this.name
+      const email = this.email
+      const textarea = this.textarea
+      const subject = this.subject
 
-				try {
-					this.$apollo.mutate({
-						mutation: contactUs,
-						variables: {
-              options,
-              name,
-              email,
-              textarea,
-              subject
-						},
-					})
-				} catch (e) {
-					console.error(e)
-					this.name = name
-				}
-			}
-		},
+      try {
+        this.$apollo.mutate({
+          mutation: contactUs,
+          variables: {
+            options,
+            name,
+            email,
+            textarea,
+            subject
+          },
+        })
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    onSubmit(evt) {
+      evt.preventDefault()
+      alert(JSON.stringify(this.form))
+    },
 	},
 
 });
