@@ -115,7 +115,7 @@ def send_email(request, userPresent_username=None, userPresent_email=None, subje
     """
     For internal use, e.g. feedback, contact etc.
     """
-    subject = "B40.cz: Message from the user/visitor: " + subject
+    subject = "Melive.cz: Message from the user/visitor: " + subject
     smtp_email = settings.DEFAULT_FROM_EMAIL
     my_email = settings.MY_EMAIL
     from_email = userPresent_email
@@ -142,7 +142,6 @@ def send_email(request, userPresent_username=None, userPresent_email=None, subje
         return HttpResponse("Invalid header found.")
 
     return None
-
 
 def upload_profile_image(instance, filename):
     """

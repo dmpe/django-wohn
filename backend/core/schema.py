@@ -3,6 +3,7 @@
 """
 import graphene
 import graphql
+from .mics import send_email
 from graphene_django import DjangoObjectType
 from graphql.execution.base import ResolveInfo
 
@@ -110,8 +111,7 @@ class ContactUs(graphene.Mutation):
     contact = graphene.Field(ContactType)
 
     def mutate(self, info, name, email, subject, choices, text):
-        contactInfo = ContactUs()
-        contactInfo.send_email(userPresent_username=name, userPresent_email=email,
+        send_email(userPresent_username=name, userPresent_email=email,
             subject=subject, text_msg=text)
 
         result = True

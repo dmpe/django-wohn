@@ -212,34 +212,5 @@ class ContactUs(models.Model):
     inputChoices = models.CharField(max_length=100)
     inputText = models.TextField()
 
-    def send_email(request, userPresent_username=None, userPresent_email=None, subject=None, text_msg=None):
-        """
-        For internal use, e.g. feedback, contact etc.
-        """
-        subject = "Melive.cz: Message from the user/visitor: " + subject
-        smtp_email = settings.DEFAULT_FROM_EMAIL
-        my_email = settings.MY_EMAIL
-        from_email = userPresent_email
-
-        client_headers = http_headers(request)
-        client_ip, is_routable = get_client_ip(request)
-
-        cntxt = {
-            "username": userPresent_username,
-            "from_email": from_email,
-            "text_msg": text_msg,
-            "operating_system": client_headers[0],
-            "ip_address": client_ip,
-            "browser": client_headers[1],
-            "browser_version": client_headers[2],
-        }
-
-        html_message = render_to_string("new_visitor_email.html", cntxt)
-        plain_message = strip_tags(html_message)
-
-        try:
-            send_mail(subject, plain_message, smtp_email, [my_email], html_message=html_message)
-        except BadHeaderError:
-            return HttpResponse("Invalid header found.")
-
-        return None
+    class Meta:
+        verbose_name_plural = "Contact us"
