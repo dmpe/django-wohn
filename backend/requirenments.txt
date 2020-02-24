@@ -42,6 +42,6 @@ psycopg2-binary==2.8.4
 pygraphviz==1.5
 pymdown-extensions==6.2.1
 python-dotenv==0.10.3
-requests==2.22.0
+requests==2.23.0
 sendgrid==6.1.0
 Werkzeug==0.16.0
