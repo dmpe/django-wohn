@@ -23,7 +23,7 @@ labels: {}
 enableSkipLogin: true
 
 ## Serve application over HTTP without TLS
-enableInsecureLogin: false
+enableInsecureLogin: true
 
 ## Additional container arguments
 ##
