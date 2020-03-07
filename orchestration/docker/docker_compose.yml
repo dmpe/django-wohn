@@ -16,8 +16,8 @@ services:
           - traefik_proxy
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
-          - ./services/containers/traefik/traefik.toml:/traefik.toml
-          - ./services/containers/traefik:/acme
+          - ../../services/containers/traefik/traefik.toml:/traefik.toml
+          - ../../services/containers/traefik:/acme
         labels:
           - "traefik.enable=true"
           - "traefik.http.routers.monitor.rule=Host(`monitor.melive.xyz`, `www.monitor.melive.xyz`)"
@@ -94,7 +94,7 @@ services:
           - "traefik.http.routers.frontend.middlewares=frontend-redirect"
           - "traefik.http.routers.frontend.priority=2"
         volumes:
-          - ./services/containers/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+          - ../../services/containers/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
         environment:
           - "OVH_ENDPOINT=ovh-eu"
           - "OVH_APPLICATION_KEY=w9tkF8kh3waFE01d"
@@ -132,7 +132,7 @@ services:
           - default
         volumes:
           - datadrive_pgadmin:/var/lib/pgadmin
-          - ./services/containers/pgadmin/config_local.py:/config_local.py
+          - ../../services/containers/pgadmin/config_local.py:/config_local.py
         labels:
           - "traefik.enable=true"
           - "traefik.http.services.pgadmin.loadbalancer.server.port=3456"
