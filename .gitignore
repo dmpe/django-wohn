@@ -2,6 +2,7 @@ acme.json
 
 *.env
 /certs/
+certs.json
 /.idea/
 staticfiles
 *.ico
