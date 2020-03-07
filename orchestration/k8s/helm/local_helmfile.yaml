@@ -1,0 +1,45 @@
+context: "minikube"
+
+releases:
+  - name: traefik
+    namespace: default
+    chart: ./traefik/
+    values:
+      - values.yaml
+
+  - name: pgadmin
+    namespace: default
+    chart: ./pgadmin4/
+    values:
+      - values.yaml
+
+  - name: dash
+    namespace: default
+    chart: ./kubernetes-dashboard/
+    values:
+      - values.yaml
+
+  - name: postgres
+    namespace: default
+    chart: ./postgresql/
+    values:
+      - values.yaml
+
+  - name: prom
+    namespace: default
+    chart: ./prometheus-operator/
+    values:
+      - values.yaml
+
+
+
+
+
+
+
+
+
+
+
+
+
