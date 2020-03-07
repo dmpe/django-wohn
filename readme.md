@@ -21,17 +21,36 @@ sudo mkdir -p /usr/local/bin/
 sudo install minikube /usr/local/bin/
 
 # https://kubernetes.io/docs/tasks/tools/install-kubectl/
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
 
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 
-sudo mv Downloads/helmfile_linux_amd64 /usr/local/bin/helmfile
+
+curl -LJ https://github.com/roboll/helmfile/releases/download/v0.102.0/helmfile_linux_amd64 --output /usr/local/bin/helmfile
+sudo chmod +x /usr/local/bin/helmfile
+
 ```
 
+# For version 1.8.1. of minikube
 
 ```
-sudo minikube start --vm-driver=none
+sudo minikube start --driver=none --extra-config=kubeadm.ignore-preflight-errors=NumCPU --force
+
+cd ~
+
+rm .kube -rf
+rm .minikube -rf
+
+sudo cp -r /root/.kube $HOME/
+sudo chown -R $USER $HOME/.kube
+sudo chgrp -R $USER $HOME/.kube
+
+sudo cp -r /root/.minikube $HOME/
+sudo chown -R $USER $HOME/.minikube
+sudo chgrp -R $USER $HOME/.minikube
+
+cd $tempFolder
+
+sed -i "s:/root/:/home/$USER/:g" $HOME/.kube/config
 ```
 
 
