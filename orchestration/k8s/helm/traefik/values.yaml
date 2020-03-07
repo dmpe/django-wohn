@@ -22,9 +22,15 @@ rollingUpdate:
 # Configure Traefik entry points
 # Additional arguments to be passed at Traefik's binary
 ## Use curly braces to pass values: `helm install --set="{--providers.kubernetesingress,--global.checknewversion=true}" ."
-additionalArguments: []
-#  - "--providers.kubernetesingress"
-
+additionalArguments: 
+  - "--certificatesResolvers.myresolver.acme.email=cincenko@outlook.com"
+  - "--certificatesResolvers.myresolver.acme.storage=acme.json"
+  - "--certificatesResolvers.myresolver.acme.dnsChallenge=true"
+  - "--certificatesResolvers.myresolver.acme.dnsChallenge.provider=ovh-eu"
+  - "--certificatesResolvers.myresolver.acme.dnsChallenge.provider=ovh"
+  - "--certificatesResolvers.myresolver.acme.dnsChallenge.provider=ovh"
+  - "--certificatesResolvers.myresolver.acme.dnsChallenge.provider=ovh" 
+  - "--certificatesResolvers.myresolver.acme.dnsChallenge.provider=ovh"
 # Environment variables to be passed to Traefik's binary
 env: {}
 #  - name: SOME_VAR

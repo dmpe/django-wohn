@@ -53,10 +53,12 @@ cd $tempFolder
 sed -i "s:/root/:/home/$USER/:g" $HOME/.kube/config
 ```
 
+## Apply helm chart/Deployment
 
 
+```
 
-
+```
 
 
 
