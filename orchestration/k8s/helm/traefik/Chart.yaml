@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: 2.1.3
+appVersion: 2.1.6
 description: A Traefik based Kubernetes ingress controller
 home: https://traefik.io/
 icon: http://traefik.io/traefik.logo.png

@@ -1,32 +1,45 @@
 context: "minikube"
 
+helmDefaults:
+  cleanupOnFail: true
+
 releases:
   - name: traefik
     namespace: default
+    labels:
+      app: traefik
     chart: ./traefik/
     values:
       - values.yaml
 
   - name: pgadmin
     namespace: default
+    labels:
+      app: pgadmin
     chart: ./pgadmin4/
     values:
       - values.yaml
 
   - name: dash
     namespace: default
+    labels:
+      app: dashboard
     chart: ./kubernetes-dashboard/
     values:
       - values.yaml
 
   - name: postgres
     namespace: default
+    labels:
+      app: postgres
     chart: ./postgresql/
     values:
       - values.yaml
 
   - name: prom
     namespace: default
+    labels:
+      app: prometheus
     chart: ./prometheus-operator/
     values:
       - values.yaml

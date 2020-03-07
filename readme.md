@@ -20,7 +20,6 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 sudo mkdir -p /usr/local/bin/
 sudo install minikube /usr/local/bin/
 
-
 # https://kubernetes.io/docs/tasks/tools/install-kubectl/
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
