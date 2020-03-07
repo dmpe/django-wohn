@@ -50,7 +50,7 @@ serverDefinitions:
 ingress:
   ## If true, pgAdmin4 Ingress will be created
   ##
-  enabled: false
+  enabled: enable
 
   ## pgAdmin4 Ingress annotations
   ##
@@ -61,8 +61,8 @@ ingress:
   ## pgAdmin4 Ingress hostnames with optional path
   ## Must be provided if Ingress is enabled
   hosts:
-    - host: chart-example.local
-      paths: []
+    - host: pgadmin.melive.xyz
+      paths: /
 
   ## pgAdmin4 Ingress TLS configuration
   ## Secrets must be manually created in the namespace
