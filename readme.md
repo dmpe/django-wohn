@@ -33,7 +33,12 @@ sudo chmod +x /usr/local/bin/helmfile
 # For version 1.8.1. of minikube
 
 ```
-sudo minikube start --driver=none --extra-config=kubeadm.ignore-preflight-errors=NumCPU --force
+sudo minikube start \
+--driver=none \ --extra-config=kubeadm.ignore-preflight-errors=NumCPU \
+--extra-config=scheduler.address=0.0.0.0 \
+--extra-config=controller-manager.address=0.0.0.0 \
+--force \
+--extra-config=apiserver.authorization-mode=Webhook
 
 cd ~
 
