@@ -62,7 +62,7 @@ ingress:
   ## Must be provided if Ingress is enabled
   hosts:
     - host: pgadmin.melive.xyz
-      # paths: []
+#      paths: /
 
   ## pgAdmin4 Ingress TLS configuration
   ## Secrets must be manually created in the namespace

@@ -4,6 +4,21 @@ context: "minikube"
   # cleanupOnFail: true
 
 releases:
+  - name: traefik
+    namespace: default
+    labels:
+      app: traefik
+    chart: ./traefik/
+    values:
+      - ./traefik/values.yaml  
+
+  - name: nginx
+    namespace: default
+    labels:
+      app: nginx-ingress
+    chart: ./nginx-ingress/
+    values: 
+      - ./nginx-ingress/values.yaml 
 
   - name: pgadmin
     namespace: default
