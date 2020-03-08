@@ -38,7 +38,8 @@ sudo minikube start \
 --extra-config=scheduler.address=0.0.0.0 \
 --extra-config=controller-manager.address=0.0.0.0 \
 --force \
---extra-config=apiserver.authorization-mode=Webhook
+--extra-config=kubelet.authentication-token-webhook=true \
+--extra-config=kubelet.authorization-mode=Webhook
 
 cd ~
 
@@ -57,6 +58,11 @@ cd $tempFolder
 
 sed -i "s:/root/:/home/$USER/:g" $HOME/.kube/config
 ```
+
+Sources:
+
+- <https://github.com/coreos/kube-prometheus>
+- <https://github.com/coreos/prometheus-operator/blob/master/scripts/create-minikube.sh>
 
 ## Apply helm chart/Deployment
 
