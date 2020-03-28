@@ -27,7 +27,7 @@ googleapis-common-protos==1.6.0
 gunicorn==20.0.4
 graphene-django==2.8.1
 pandas==1.0.1
-phonenumbers==8.11.4
+phonenumbers==8.12.0
 pytest==5.3.4
 pytest-django==3.8.0
 Pillow==7.0.0
