@@ -58,7 +58,7 @@ class UserProfileIndex(LoginRequiredMixin, View):
         if form.is_valid():
             feedback = form.cleaned_data["inputFeedback"]
 
-            prepare_visitor_mssg_email(
+            send_email(
                 request,
                 userPresent_username=request.user.get_username(),
                 userPresent_email=request.user.email,
