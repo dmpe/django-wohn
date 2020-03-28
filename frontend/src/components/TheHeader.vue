@@ -25,7 +25,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon" />
     </b-button>
 
     <!-- // {# Full text search functionality, see #50, #35 #}
@@ -49,7 +49,7 @@
       <div class="d-flex flex-row">
         <div v-if="isAuthenticated">
           <b-link
-            to="administrace"
+            to="profile"
             type="button"
             class="btn btn-warning m-1"
           >
@@ -92,7 +92,7 @@ export default {
   name: "TheHeader",
   data() {
     return {
-      isAuthenticated:false
+      isAuthenticated: false
     };
   }
 };

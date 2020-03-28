@@ -145,11 +145,11 @@ const router = new Router({
       },
     },
     {
-      path: "/administrace",
+      path: "/profile",
       name: "administrace",
       component: Administrace,
       meta: {
-        requireAuth: true,
+        requireAuth: false,
         title: "User Settings - Melive.xyz",
         metaTags: [
           {
@@ -160,7 +160,7 @@ const router = new Router({
       },
       children: [
         {
-          path: "profile",
+          path: "home",
           name: "user-profile",
           component: UserProfile,
           meta: {
@@ -182,16 +182,16 @@ const router = new Router({
           meta: {
             title:  "My messages",
           },
-        }
-      ]
+        },
+      ],
     },
     {
       path: "/property/:id",
       name: "property-id",
       component: PropertyID,
       meta: {
-        requireAuth: false
-      }
+        requireAuth: false,
+      },
     },
     {
       // Any not listed above
@@ -208,7 +208,7 @@ const router = new Router({
           },
         ],
       },
-    }
+    },
   ],
 });
 

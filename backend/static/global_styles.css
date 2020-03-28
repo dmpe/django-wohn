@@ -12,45 +12,11 @@ body {
 textarea {
 	width: 100%;
 }
-/* 1.1 Header and Footer Styles
-//////////////////////*/
-.headerFooterBackground {
-	background-color: #ECEEEF;
-}
 
-/* Header - Nav
-//////////////////////*/
-.resetIconStylesEYE {
-	border: none;
-	background: none;
-	/* add because of chrome */
-	padding-top: 0rem;
-	padding-right: 0.75rem;
-	padding-bottom: 0rem;
-	padding-left: 0.75rem;
-}
-
-.footer {
-	position: absolute;
-	bottom: 0;
-	left: 0px;
-	width: 100%;
-	line-height: 1rem;
-	padding-top: 15px;
-}
-
-.footer_heartIcon {
-	color: red;
-}
 
 /* 2. CSS on "individual" pages
 //////////////////////
-Login page - Move google recaptha v3 badge up from the bottom footer
-~ 60 px
 */
-.grecaptcha-badge {
-	bottom: 4rem !important;
-}
 
 /* //////////////////
 Adminstrace - Dashboard
@@ -142,60 +108,6 @@ https://developers.google.com/identity/branding-guidelines */
 	margin-top: 6rem;
 }
 
-
-.google_signin {
-	height: 46px;
-	width: 240px;
-	border-radius: 4px;
-	/*background-color: #4285F4;*/
-}
-
-.google_icon {
-	float: left;
-	height: 48px; /* not 46/40 because icon has some transparent border around it */
-	width: 48px;
-	margin-left: -13px;
-	margin-top: -8px;
-}
-
-.twitter_singin {
-	height: 46px;
-	width: 240px;
-	border-radius: 4px;
-	/*background-color: #1DA1F2;*/
-}
-
-.twitter_icon {
-	float: left;
-	height: 40px;
-	width: 40px;
-	margin-left: -9px;
-	margin-top: -4px;
-	background-color: white;
-	border-radius: 3px;
-}
-
-.facebook_singin {
-	height: 46px;
-	width: 240px;
-	border-radius: 4px;
- 	background-color: #4267B2;
-}
-
-.facebook_icon {
-	float: left;
-	height: 40px;
-	width: 40px;
-	margin-left: -9px;
-	margin-top: -4px;
-}
-
-/* We dont like to have *, when Crispy form is applied
--> disable it here
-*/
-.asteriskField {
-    display: none;
-}
 
 /*  ///////////////////
 Make typography responsive
