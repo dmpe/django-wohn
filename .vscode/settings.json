@@ -20,10 +20,23 @@
   "[javascript]": {
     "editor.formatOnSave": true
   },
-  "eslint.autoFixOnSave": true,
-  "tslint.autoFixOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true,
     "source.fixAll.eslint": true
-}
+  },
+  "azureFunctions.deploySubpath": "django-wohn.zip",
+  "azureFunctions.pythonVenv": ".venv",
+  "azureFunctions.projectLanguage": "Python",
+  "azureFunctions.projectRuntime": "~3",
+  "debug.internalConsoleOptions": "neverOpen",
+  "azureFunctions.preDeployTask": "func: pack --build-native-deps",
+  "spellright.language": [
+      "en_GB",
+  ],
+  "spellright.documentTypes": [
+      "markdown",
+      "latex",
+      "plaintext",
+      "vue"
+  ],
 }

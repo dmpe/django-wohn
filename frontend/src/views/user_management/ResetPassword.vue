@@ -6,7 +6,9 @@
 
       <div class="row card passwordReset">
         <div class="card-header text-center">
-          <h1 class="card-title">
+          <h1
+            class="card-title"
+          >
             Reset your password
           </h1>
           <p class="card-subtitle text-muted">

@@ -13,6 +13,13 @@
       "program": "${workspaceFolder}/manage.py",
       "args": ["runserver", "--noreload", "--nothreading"],
       "django": true
+    },
+    {
+      "name": "Attach to Python Functions",
+      "type": "python",
+      "request": "attach",
+      "port": 9091,
+      "preLaunchTask": "func: host start"
     }
   ]
 }
