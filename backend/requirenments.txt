@@ -25,7 +25,7 @@ dj-database-url==0.5.0
 google-api-python-client==1.7.11
 googleapis-common-protos==1.6.0
 gunicorn==20.0.4
-graphene-django==2.8.1
+graphene-django==2.9.0
 pandas==1.0.1
 phonenumbers==8.12.0
 pytest==5.3.4
@@ -35,6 +35,6 @@ psycopg2-binary==2.8.4
 pygraphviz==1.5
 pymdown-extensions==6.3
 python-dotenv==0.10.5
-requests==2.22.0
+requests==2.23.0
 sendgrid==6.2.0
 Werkzeug==1.0.0
