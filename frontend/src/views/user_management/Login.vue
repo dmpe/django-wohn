@@ -2,8 +2,6 @@
   <div>
     <TheHeader />
     <b-container fluid>
-      <!-- Because of Facebook login -->
-      <div id="fb-root" />
 
       <div class="row d-flex justify-content-center login_register_box">
         <div class="card">
@@ -15,49 +13,7 @@
 
           <div class="row card-body">
             <div class="col-md-6">
-              <div class="text-center">
-                <!-- Google Brand Guidelines on Azure/ in CSS: col-md-5 col-lg-3 mr-1 https://developers.google.com/identity/branding-guidelines -->
-                <div class="m-3">
-                  <a
-                    type="button"
-                    class="btn btn-primary google_signin"
-                    href=""
-                  >
-                    <img
-                      class="google_icon"
-                    >
-                    <p class="text-center mt-1 text-white">Log In With Google</p>
-                  </a>
-                </div>
-
-                <!-- Twitter Brand Guidelines on Azure/ in CSS -->
-                <div class="m-3">
-                  <a
-                    type="button"
-                    class="btn btn-info twitter_singin"
-                    href=""
-                  >
-                    <img
-                      class="twitter_icon"
-                    >
-                    <p class="text-center mt-1 text-white">Log In With Twitter</p>
-                  </a>
-                </div>
-
-                <!-- https://developers.facebook.com/docs/facebook-login/web/login-button -->
-                <div class="m-3">
-                  <a
-                    type="button"
-                    class="btn btn-white facebook_singin"
-                    href=""
-                  >
-                    <img
-                      class="facebook_icon"
-                    >
-                    <p class="text-center mt-1 text-white">Log In With Facebook</p>
-                  </a>
-                </div>
-              </div>
+              <p>Test</p>
             </div>
 
             <div class="col-md-6 mt-3">

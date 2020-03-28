@@ -9,10 +9,13 @@ import store from "./store";
 import { createProvider } from "./vue-apollo";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import { ValidationProvider } from 'vee-validate/dist/vee-validate.full.esm';
+
 Vue.config.productionTip = false;
 
 Vue.use(VueAxios, axios);
 Vue.use(BootstrapVue);
+Vue.component('ValidationProvider', ValidationProvider);
 
 new Vue({
   router,

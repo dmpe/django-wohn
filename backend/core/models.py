@@ -15,8 +15,15 @@ from django.utils.safestring import *
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 from timezone_field import TimeZoneField, TimeZoneFormField
-
-from .mics import upload_profile_image
+from ipware import get_client_ip
+from sendgrid import *
+from sendgrid.helpers.mail import *
+from django.core.mail import send_mail, BadHeaderError
+from django.template.loader import render_to_string
+from django.utils.safestring import *
+from django.utils.html import strip_tags
+from .mics import upload_profile_image, http_headers
+from django.http import HttpResponse
 
 
 class AbstractProperty(django.db.models.Model):
@@ -193,3 +200,17 @@ class myUser(AbstractUser):
     # username (by default) and email must always be unique
     class Meta:
         unique_together = (("email"),)
+
+
+class ContactUs(models.Model):
+    """
+    Users can contact us over a webform
+    """
+    inputName = models.CharField(max_length=100)
+    inputEmail = models.EmailField()
+    inputSubject = models.CharField(max_length=100)
+    inputChoices = models.CharField(max_length=100)
+    inputText = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "Contact us"
