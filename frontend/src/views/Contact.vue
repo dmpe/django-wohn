@@ -18,7 +18,7 @@
               <div class="card-body">
                 <address>
                   Proudly developed at <br> <br>
-                  Melive.xyz LLC (Delaware LLC) <br>
+                  Melive.xyz LLC <br>
                   Pařížská 97/15, 110 00 <br>
                   Prague 1, Czech Republic, EU <br> <br>
                   For legal, developer-related <u>and</u> other type of questions, contact us at above address or via: <br>
@@ -29,9 +29,9 @@
                   <a
                     href=""
                     class="mywebaddress"
-                    data-name="f789gh"
-                    data-domain="bk"
-                    data-tld="ru"
+                    data-name="devil"
+                    data-domain="web"
+                    data-tld="de"
                     onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"
                   />
                 </address>
@@ -60,86 +60,91 @@
         <div class="col-md-5 col-sm-12">
           <b-form
             id="form-contact"
+            @submit="onSubmit"
             method="POST"
             class="mb-5"
           >
-            <b-form-group
-              :invalid-feedback="invalidSubject"
-              label="Name"
-              label-for="input-name"
-            >
-              <b-form-input
-                id="input-name"
-                v-model="text"
-                trim
-              />
-            </b-form-group>
+            <ValidationProvider rules="min:2" v-slot="{ errors }">
+              <b-form-group
+                label="Name"
+                label-for="input-name"
+              >
+                <b-form-input
+                  id="input-name"
+                  v-model="form.name"
+                  trim
+                />
+                <span>{{ errors[0] }}</span>
+              </b-form-group>
+            </ValidationProvider>
 
-            <b-form-group
-              :invalid-feedback="invalidEmail"
-              label="Email"
-              label-for="input-email"
-            >
-              <b-form-input
-                id="input-email"
-                v-model="email"
-                trim
-              />
-            </b-form-group>
+            <ValidationProvider name="Email" rules="email" v-slot="{ errors }">
+              <b-form-group
+                label="Email"
+                label-for="input-email"
+              >
+                <b-form-input
+                  id="input-email"
+                  v-model="form.email"
+                  trim
+                />
+                <span>{{ errors[0] }}</span>
+              </b-form-group>
+            </ValidationProvider>
 
-            <b-form-group
-              :invalid-feedback="invalidSubject"
-              label="Subject"
-              label-for="input-subject-line"
-            >
-              <b-form-input
-                id="input-subject-line"
-                v-model="text"
-                trim
-              />
-            </b-form-group>
+            <ValidationProvider name="Subject" rules="min:5" v-slot="{ errors }">
+              <b-form-group
+                label="Subject"
+                label-for="input-subject-line"
+              >
+                <b-form-input
+                  id="input-subject-line"
+                  name="input-subject-line"
+                  v-model="form.subject"
+                  trim
+                />
+                <span>{{ errors[0] }}</span>
+              </b-form-group>
+            </ValidationProvider>
 
-            <b-form-group
-              label="Choce reason to contact us"
-              label-for="options-select"
-            >
-              <b-form-select
-                id="options-select"
-                v-model="selected"
-                :options="options"
-              />
-            </b-form-group>
+              <b-form-group
+                label="Choce reason to contact us"
+                label-for="options-select"
+              >
+                <b-form-select
+                  id="options-select"
+                  v-model="form.selected"
+                  :options="form.options"
+                />
+              </b-form-group>
 
-            <b-form-group
-              label="Your message"
-              label-for="textarea-large"
-            >
-              <b-form-textarea
-                id="textarea-large"
-                v-model="text"
-                placeholder="..."
-                size="lg"
-                rows="5"
-                max-rows="10"
-              />
-            </b-form-group>
+            <ValidationProvider name="Message" rules="required" v-slot="{ errors }">
+              <b-form-group
+                label="Your message"
+                label-for="textarea-large"
+              >
+                <b-form-textarea
+                  id="textarea-large"
+                  v-model="form.textarea"
+                  placeholder="..."
+                  size="lg"
+                  rows="5"
+                  max-rows="10"
+                />
+                <span>{{ errors[0] }}</span>
+              </b-form-group>
+            </ValidationProvider>
 
             <b-form-group>
               <b-button
-                id="recaptchaValidator"
                 type="submit"
                 class="btn btn-warning mb-5 btn-lg btn-block"
               >
-                Submit message to Admin
+                Submit your message
               </b-button>
             </b-form-group>
           </b-form>
 
-          <!--<div
-            id="checkEmailAlert"
-             class="alert alert-{{ message.tags }} mb-5"
-            role="alert"
-          />-->
         </div>
       </b-row>
     </b-container>
@@ -152,6 +157,8 @@ import Vue from "vue";
 import TheHeader from "@/components/TheHeader.vue"; // @ is an alias to /src
 import TheFooter from "@/components/TheFooter.vue";
 import BootstrapVue from "bootstrap-vue";
+import gql from "graphql-tag";
+import { contactUs } from "@/graphql/user/contact_us.ts";
 
 export default Vue.extend({
   name: "Contact",
@@ -161,14 +168,49 @@ export default Vue.extend({
   },
   data() {
     return {
-      selected: "general",
-      options: [
-        { value: "general", text: "General Questions/Others" },
-        { value: "ads", text: "Advertising" },
-        { value: "help_me", text: "Bugs/Issues on the website" },
-        { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
-      ]
+      form: {
+        name: '',
+        email: '',
+        subject: '',
+        textarea: '',
+        selected: "general",
+        options: [
+          { value: "general", text: "General Questions/Others" },
+          { value: "ads", text: "Advertising" },
+          { value: "help_me", text: "Bugs/Issues on the website" },
+          { value: "com_abs_similar", text: "Fraud/Takedowns/Bans/Abuse" },
+        ]
+      }
     };
-  }
+  },
+  methods: {
+    sendMessageInquiry () {
+      const options = this.form.options
+      const name = this.form.name
+      const email = this.form.email
+      const textarea = this.form.textarea
+      const subject = this.form.subject
+
+      try {
+        this.$apollo.mutate({
+          mutation: contactUs,
+          variables: {
+            options,
+            name,
+            email,
+            textarea,
+            subject
+          },
+        })
+      } catch(error) {
+        console.error(error)
+      }
+    },
+    onSubmit(evt) {
+      evt.preventDefault()
+      alert(JSON.stringify(this.form))
+    },
+	},
+
 });
 </script>

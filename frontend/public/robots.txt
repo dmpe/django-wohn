@@ -1,5 +1,6 @@
 User-agent: *
 Disallow: /admin/
-Disallow: /administrace/
+Disallow: /profile/
+Disallow: /graphql/
 
 Sitemap: https://melive.xyz/sitemap.xml

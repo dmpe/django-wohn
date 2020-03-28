@@ -79,6 +79,11 @@ class PropertyAdmin(admin.ModelAdmin):
     pass
 
 
+class ContactUsAdmin(admin.ModelAdmin):
+    """docstring for ClassName"""
+
+    pass
+
 class ExchangeRateAdmin(admin.ModelAdmin):
     """docstring for ClassName
     https://stackoverflow.com/q/39123348/2171456
@@ -141,3 +146,4 @@ admin.site.register(Room, PropertyAdmin)
 admin.site.register(House, PropertyAdmin)
 admin.site.register(Apartment, PropertyAdmin)
 admin.site.register(ExchangeRate, ExchangeRateAdmin)
+admin.site.register(ContactUs, ContactUsAdmin)
