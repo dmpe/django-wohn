@@ -27,7 +27,7 @@ googleapis-common-protos==1.6.0
 gunicorn==20.0.4
 graphene==2.1.8
 graphql-core==2.2.1
-graphene-django==2.7.1
+graphene-django==2.9.0
 social-auth-core==3.2.0
 social-auth-app-django==3.1.0
 #git+git://github.com/python-social-auth/social-core.git#egg=elasticutils
