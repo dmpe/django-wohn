@@ -6,7 +6,7 @@ import graphene
 import core.schema
 
 
-class Mutations(graphene.ObjectType):
+class Mutations(core.schema.Mutation, graphene.ObjectType):
     """
     For POST, UPDATE, INSERT requests
     """
@@ -22,4 +22,4 @@ class Query(core.schema.Query, graphene.ObjectType):
     pass
 
 
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query, mutation=Mutations)

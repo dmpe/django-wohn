@@ -1,13 +1,13 @@
 """
     Defines GraphQL Schema for core module
 """
-
 import graphene
 import graphql
+from .mics import send_email
 from graphene_django import DjangoObjectType
 from graphql.execution.base import ResolveInfo
 
-from core.models import Apartment, House, Room, myUser
+from core.models import Apartment, House, Room, myUser, ContactUs
 
 
 class HouseType(DjangoObjectType):
@@ -28,6 +28,11 @@ class RoomType(DjangoObjectType):
 class UserType(DjangoObjectType):
     class Meta:
         model = myUser
+
+
+class ContactType(DjangoObjectType):
+    class Meta:
+        model = ContactUs
 
 
 class Query(object):
@@ -51,13 +56,13 @@ class Query(object):
     melive_user = graphene.Field(UserType, id=graphene.Int())
 
     def resolve_home_properties(self, info, **kwargs):
-        return House.objects.all()
+        return House.objects.selected_related("myUser").all()
 
     def resolve_apartment_properties(self, info, **kwargs):
-        return Apartment.objects.all()
+        return Apartment.objects.selected_related("myUser").all()
 
     def resolve_room_properties(self, info, **kwargs):
-        return Room.objects.all()
+        return Room.objects.selected_related("myUser").all()
 
     def resolve_melive_users(self, info, **kwargs):
         return myUser.objects.all()
@@ -93,3 +98,25 @@ class Query(object):
             return Apartment.objects.get(pk=id)
 
         return None
+
+
+class ContactUs(graphene.Mutation):
+    class Arguments:
+        name = graphene.String(required=True)
+        email = graphene.String(required=True)
+        subject = graphene.String(required=True)
+        choices = graphene.String(required=True)
+        text = graphene.String(required=True)
+
+    contact = graphene.Field(ContactType)
+
+    def mutate(self, info, name, email, subject, choices, text):
+        send_email(info.context, userPresent_username=name, userPresent_email=email,
+            subject=subject, text_msg=text)
+
+        result = True
+        return ContactUs(inputName=contactInfo.name, inputEmail=contactInfo.email, inputChoices=contactInfo.choices, inputSubject=contactInfo.subject, inputText=contactInfo.text, result=result)
+
+
+class Mutation(object):
+    send_contact_msg = ContactUs.Field()

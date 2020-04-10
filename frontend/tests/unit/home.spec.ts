@@ -1,4 +1,4 @@
-import 'jest';
+import "jest";
 import Home from "@/views/Home.vue";
 import Header from "@/components/TheHeader.vue";
 import { shallowMount, mount } from "@vue/test-utils";

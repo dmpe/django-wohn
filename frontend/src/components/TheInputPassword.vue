@@ -19,19 +19,19 @@
           aria-hidden="true"
           type="button"
         >
-          <span v-show="icon">
-            <i
-              class="fas fa-lg fa-eye"
-              aria-hidden="true"
-            />
-          </span>
-          <span v-show="!icon">
-            <i
-              class="fas fa-lg fa-eye-slash"
-              aria-hidden="true"
-            />
-          </span>
-        </button>
+        <span v-show="icon">
+          <i
+            class="fas fa-lg fa-eye"
+            aria-hidden="true"
+          />
+        </span>
+        <span v-show="!icon">
+          <i
+            class="fas fa-lg fa-eye-slash"
+            aria-hidden="true"
+          />
+        </span>
+      </button>
       </span>
     </div>
     <label
