@@ -18,7 +18,7 @@ This branch contains files that are necessary to setup VM which runs docker 🐋
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
   && chmod +x minikube
 sudo mkdir -p /usr/local/bin/
-sudo install minikube /usr/local/bin/
+sudo mv minikube /usr/local/bin/
 
 # https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
@@ -34,7 +34,8 @@ sudo chmod +x /usr/local/bin/helmfile
 
 ```
 sudo minikube start \
---driver=none \ --extra-config=kubeadm.ignore-preflight-errors=NumCPU \
+--driver=none \
+--extra-config=kubeadm.ignore-preflight-errors=NumCPU \
 --extra-config=scheduler.address=0.0.0.0 \
 --extra-config=controller-manager.address=0.0.0.0 \
 --force \
