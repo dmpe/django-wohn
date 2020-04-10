@@ -6876,6 +6876,7 @@ __metadata:
     jest-serializer-vue: ^2.0.2
     jest-transform-stub: ^2.0.0
     jquery: ^3.4.1
+    pnp-webpack-plugin: ^1.6.4
     popper.js: ^1.16.1
     prettier: ^1.19.1
     showdown: ^1.9.1
