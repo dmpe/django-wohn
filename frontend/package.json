@@ -19,6 +19,7 @@
     "@typescript-eslint/parser": "^2.21.0",
     "@typescript-eslint/typescript-estree": "^2.21.0",
     "@vue/cli-shared-utils": "^4.2.3",
+    "@yarnpkg/pnpify": "^2.0.0-rc.20",
     "apollo-client": "^2.6.8",
     "apollo-link": "^1.2.13",
     "axios": "^0.19.2",
