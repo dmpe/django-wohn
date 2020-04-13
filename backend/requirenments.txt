@@ -34,7 +34,7 @@ pytest-django==3.8.0
 Pillow==7.1.1
 psycopg2==2.8.5
 pygraphviz==1.5
-pymdown-extensions==6.3
+pymdown-extensions==7.0
 python-dotenv==0.10.5
 requests==2.23.0
 sendgrid==6.2.1
