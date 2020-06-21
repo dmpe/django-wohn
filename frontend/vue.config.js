@@ -1,5 +1,4 @@
 const CompressionPlugin = require("compression-webpack-plugin");
-const PnpWebpackPlugin = require(`pnp-webpack-plugin`);
 
 module.exports = {
   productionSourceMap: false,
@@ -15,16 +14,10 @@ module.exports = {
   },
   configureWebpack: {
     plugins: [
-      PnpWebpackPlugin,
       new CompressionPlugin({
         cache: true,
       })
     ],
-    resolveLoader: {
-      plugins: [
-        PnpWebpackPlugin.moduleLoader(module),
-      ],
-    },
   },
   // ChainWebpack: config => {
   //   // GraphQL Loader
