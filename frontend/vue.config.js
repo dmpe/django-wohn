@@ -17,7 +17,7 @@ module.exports = {
       new CompressionPlugin({
         cache: true,
       })
-    ]
+    ],
   },
   // ChainWebpack: config => {
   //   // GraphQL Loader
