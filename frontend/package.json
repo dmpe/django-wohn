@@ -22,7 +22,7 @@
     "@vue/cli-shared-utils": "^4.2.3",
     "apollo-client": "^2.6.8",
     "apollo-link": "^1.2.13",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.5.0",
     "core-js": "^3.6.4",
